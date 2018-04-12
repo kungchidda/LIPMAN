@@ -14,5 +14,7 @@ public @Data class BoardVO {
 	private int replycnt;
 	
 	private String[] files;
+	
+	private String fullName;
 
 }

@@ -3,11 +3,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<title>${boardVO.title}</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ include file="/WEB-INF/views/include/header.html"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script type="text/javascript" src="/resources/js/upload.js"></script>
-<title>${boardVO.title}</title>
 <style>
 .fileDrop {
 	width : 100%;
@@ -45,10 +46,14 @@ small {
 }
 
 </style>
+
+<!-- include summernote css/js -->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/include/header.html"%>
-	<%@ include file="/WEB-INF/views/include/header.jsp"%>
+	
 	
 	<form id="modifyForm" role="form" action="modifyPage" method="post">
 		<input type='hidden' name='page' value="${cri.page}">
@@ -65,19 +70,27 @@ small {
 				<input type="text" name='title' class="form-control" value="${boardVO.title}">
 			</div>
 			<div class="form-group">
-				<label for="exampleInputPassword1">Content</label>
-				<textarea class="form-control" name="content" rows="3">${boardVO.content}</textarea>
-			</div>
-			<div class="form-group">
 				<label for="exampleInputEmail1">Writer</label>
 				<input type="text" name="writer" class="form-control" value="${boardVO.writer}">
 			</div>
 			<div class="form-group">
+				<!-- <label for="exampleInputPassword1">Content</label> -->
+				<!-- <textarea class="form-control" name="content" rows="3">${boardVO.content}</textarea>  -->
+				<!-- WYSIWYG -->
+				<textarea id="summernote" name="content">${boardVO.content}</textarea>
+				<div id="summernote"></div>
+			</div>
+			
+			
+			<div class="form-group">
 				<label for="exampleInputEmail1">File Upload or DROP Here</label>
 			</div>
+			
 			<div class="form-group">
-				<div class="fileDrop"></div>
-				<input type="file" id="upload">
+				<input type="file" id="upload" multiple>
+				<div class="fileDrop">
+					<ul class="mailbox-attachments clearfix uploadedList"></ul>
+				</div>
 			</div>
 		</div>
 		<!-- /.box-body -->
@@ -86,7 +99,6 @@ small {
 				<hr>
 			</div>
 			
-			<ul class="mailbox-attachments clearfix uploadedList"></ul>
 			<script id="template" type="text/x-handlebars-template">
 			<li data-src='{{fullName}}'>
 				<span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
@@ -113,7 +125,72 @@ small {
 	</div>
 
 	<%@ include file="/WEB-INF/views/include/footer.html"%>
-	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+	
+	<!-- WYSIWYG -->
+	<!-- <div id="summernote"></div> -->
+		<script>
+		$(document).ready(function() {
+			  $('#summernote').summernote({
+				  placeholder: 'Content',
+				  minHeight: null,             // set minimum height of editor
+				  maxHeight: null,             // set maximum height of editor
+				  focus: true,      
+				  height: 300,
+				  toolbar: [
+					    // [groupName, [list of button]]
+					    ['style', ['bold', 'italic', 'underline', 'clear']],
+					    ['font', ['strikethrough', 'superscript', 'subscript']],
+					    ['fontsize', ['fontsize']],
+					    ['color', ['color']],
+					    ['para', ['ul', 'ol', 'paragraph']],
+					    ['height', ['height']],
+					    ['table', ['table']],
+					    ['insert', ['link', 'picture', 'hr']],
+					    ['view', ['fullscreen', 'codeview']],
+					    ['help', ['help']]
+					  ],
+			       popover: {
+			         image: [],
+			         link: [],
+			         air: []
+			       },
+			       callbacks: {
+			       onImageUpload : function(files, editor, $editable) {
+			    	   //console.log('image upload:', files);
+			    	   sendFile(files, $(this), $editable);
+			        }
+			       }
+			  });
+			  function sendFile(files, editor, welEditable) {
+				  formData = new FormData();
+				  formData.append("file", files);
+				  for(i=0; i<files.length; i++){
+			        	var file = files[i];
+			        	var formData = new FormData();
+						
+						formData.append("file", file);
+						$.ajax({
+							url : '/uploadAjax',
+							data : formData,
+							dataType : 'text',
+							processData : false,
+							contentType : false, 
+							type : 'POST',
+							success : function(data) {
+								var fileInfo = getFileInfo(data);
+								var html = template(fileInfo);
+								$(".uploadedList").append(html);
+								editor.summernote('editor.insertImage', fileInfo.getLink);
+								//editor.insertImage(welEditable, data.url);
+							}
+						});
+			      }
+			}
+			
+			
+			});
+	</script>
+	
 	<script>
 		var template = Handlebars.compile($("#template").html());
 		

@@ -5,19 +5,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script type="text/javascript"
-	src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
-<script type="text/javascript"
-	src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
+<title>MANIFUL</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<%@ include file="/WEB-INF/views/include/header.html"%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<script type="text/javascript" src="/resources/js/upload.js"></script>
 </head>
 <body>
 
 	<div class="container">
 
-		<%@ include file="/WEB-INF/views/include/header.html"%>
-		<%@ include file="/WEB-INF/views/include/header.jsp"%>
 		<div class='box-body'>
 			<select name="searchType">
 
@@ -60,7 +57,8 @@
 			<c:forEach items="${list}" var="boardVO">
 				<div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
 					<div class="card h-100">
-						<a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+						<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}'><img class="card-img-top" src="/displayFile?fileName=${boardVO.fullName}" alt=""></a>
+						
 						<div class="card-body">
 							<h4 class="card-title">
 								<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}'>${boardVO.title} <strong>[ ${boardVO.replycnt} ]</strong></a>
@@ -74,6 +72,7 @@
 				</div>
 			</c:forEach>
 		</div>
+	</div>
 	<!-- /.container -->
 
 	<!-- Pagination -->
@@ -103,7 +102,7 @@
 
 
 	<%@ include file="/WEB-INF/views/include/footer.html"%>
-	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+	
 	<script>
 		var result = '${msg}';
 
@@ -139,6 +138,7 @@
 			});
 		});
 	</script>
+	
 
 
 </body>

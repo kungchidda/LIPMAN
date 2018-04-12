@@ -21,7 +21,7 @@ function getFileInfo(fullName){
 		
 		getLink = "/displayFile?fileName="+front+end;
 	}else{
-		imgsrc="/resorces/dist/img/file.png";
+		imgsrc="http://placehold.it/700x400";
 		fileLink = fullName.substr(12);
 		getLink = "/displayFile?fileName="+fullName;
 	}

@@ -4,8 +4,9 @@
 
 <html>
 <head>
+<title>MANIFUL</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<%@ include file="/WEB-INF/views/include/header.html"%>
 <style>
 .fileDrop {
 	width : 100%;
@@ -20,10 +21,18 @@ small {
 }
 </style>
 
+<!-- WYSIWYG summernote -->
+	<!-- include libraries(jQuery, bootstrap) -->
+	<!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet"> -->
+	<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> -->
+	<!-- <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> --> 
+
+<!-- include summernote css/js -->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/include/header.html"%>
-	<%@ include file="/WEB-INF/views/include/header.jsp"%>
 
 	<form id="registerForm" role="form" method="post">
 		<div class="box-body">
@@ -31,15 +40,17 @@ small {
 				<label for="exampleInputEmail1">Title</label> <input type="text" name='title' class="form-control" placeholder="Enter Title">
 			</div>
 			<div class="form-group">
-				<label for="exampleInputPasswooord1">Content</label>
-				<textarea class="form-control" name="content" rows="3" placeholder="Enter ..."></textarea>
-			</div>
-			<div class="form-group">
 				<label for="exampleInputEmail1">Writer</label>
 				<Input type="text" name="writer" class="form-control" placeholder="Enter Writer">
 			</div>
 			<div class="form-group">
-			
+				<!-- <label for="exampleInputPasswooord1">Content</label> -->
+				<!-- <textarea class="form-control" name="content" rows="3" placeholder="Enter ..."></textarea> -->
+				<!-- WYSIWYG -->
+				<textarea id="summernote" name="content"></textarea>
+				<div id="summernote"></div>
+			</div>
+			<div class="form-group">
 				<label for="exampleInputEmail1">File Upload or DROP Here</label>
 			</div>
 			<div class="form-group">
@@ -67,7 +78,7 @@ small {
 		<li>
 			<span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
 			<div class="mailbox-attachment-info">
-				<a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
+				<a href="{{getLink}}" target="_blank" class="mailbox-attachment-name">{{fileName}}</a>
 				<small data-src="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn">
 					<i class="fa fa-fw fa-remove"></i></small>
 			</span>
@@ -76,7 +87,76 @@ small {
 	</script>
 	
 	<%@ include file="/WEB-INF/views/include/footer.html"%>
-	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+
+	<!-- WYSIWYG -->
+	<!-- <div id="summernote"></div> -->
+		<script>
+		$(document).ready(function() {
+			  $('#summernote').summernote({
+				  //placeholder: 'Content',
+				  minHeight: null,             // set minimum height of editor
+				  maxHeight: null,             // set maximum height of editor
+				  focus: true,      
+				  height: 300,
+				  toolbar: [
+					    // [groupName, [list of button]]
+					    ['style', ['bold', 'italic', 'underline', 'clear']],
+					    ['font', ['strikethrough', 'superscript', 'subscript']],
+					    ['fontsize', ['fontsize']],
+					    ['color', ['color']],
+					    ['para', ['ul', 'ol', 'paragraph']],
+					    ['height', ['height']],
+					    ['table', ['table']],
+					    ['insert', ['link', 'picture', 'hr']],
+					    ['view', ['fullscreen', 'codeview']],
+					    ['help', ['help']]
+					  ],
+			       popover: {
+			         image: [],
+			         link: [],
+			         air: []
+			       },
+			       callbacks: {
+			       onImageUpload : function(files, editor, $editable) {
+			    	   //console.log('image upload:', files);
+			    	   sendFile(files, $(this), $editable);
+			        }
+			       }
+			  });
+			  function sendFile(files, editor, welEditable) {
+				  formData = new FormData();
+				  formData.append("file", files);
+				  for(i=0; i<files.length; i++){
+			        	var file = files[i];
+			        	var formData = new FormData();
+						
+						formData.append("file", file);
+						$.ajax({
+							url : '/uploadAjax',
+							data : formData,
+							dataType : 'text',
+							processData : false,
+							contentType : false, 
+							type : 'POST',
+							success : function(data) {
+								var fileInfo = getFileInfo(data);
+								var html = template(fileInfo);
+								console.log(data);
+								console.log(fileInfo);
+								console.log(html);
+								$(".uploadedList").append(html);
+								editor.summernote('editor.insertImage', fileInfo.getLink);
+								//editor.insertImage(welEditable, data.url);
+							}
+						});
+			      }
+			}
+			
+			
+			});
+	</script>
+
+	
 	
 	<script>
 		var template = Handlebars.compile($("#template").html());

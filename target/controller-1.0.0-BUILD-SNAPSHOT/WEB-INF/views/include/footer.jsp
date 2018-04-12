@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
  
     <!-- Bootstrap 3.3.2 JS -->
-    <script src="/resources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- <script src="/resources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> -->
     <!-- FastClick -->
     <script src='/resources/plugins/fastclick/fastclick.min.js'></script>
     <!-- AdminLTE App -->

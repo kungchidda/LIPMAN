@@ -3,11 +3,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<title>${boardVO.title}</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%@ include file="/WEB-INF/views/include/header.html"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script type="text/javascript" src="/resources/js/upload.js"></script>
-<title>${boardVO.title}</title>
 <style type="text/css">
 	.popup {position : absolute;}
 	.back {background-color : gray; opacity : 0.5; width : 100%; height : 300%; overflow : hidden; z-index:1101;}
@@ -16,8 +17,7 @@
 </style>
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/include/header.html"%>
-	<%@ include file="/WEB-INF/views/include/header.jsp"%>
+	
 	<form role="form" action="modifyPage" method="post">
 		<input type='hidden' name='bno' value="${boardVO.bno}">
 		<input type='hidden' name='page' value="${cri.page}">
@@ -30,11 +30,13 @@
 			<label for="exampleInputEmail1">Title</label> <input type="text" name='title' class="form-control" value="${boardVO.title}" readonly="readonly">
 		</div>
 		<div class="form-group">
-			<label for="exampleInputPassword1">Content</label>
-			<textarea class="form-control" name="content" rows="3" readonly="readonly">${boardVO.content}</textarea>
+			<label for="exampleInputEmail1">Writer</label> <input type="text" name="writer" class="form-control" value="${boardVO.writer}" readonly="readonly">
 		</div>
 		<div class="form-group">
-			<label for="exampleInputEmail1">Writer</label> <input type="text" name="writer" class="form-control" value="${boardVO.writer}" readonly="readonly">
+			<label for="exampleInputPassword1">Content</label>
+			<hr>
+			${boardVO.content}
+			<hr>
 		</div>
 	</div>
 	<!-- <div class='popup back' style="display:none;"></div> -->
@@ -370,7 +372,6 @@
 
 
 	<%@ include file="/WEB-INF/views/include/footer.html"%>
-	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 
 </body>
 </html>

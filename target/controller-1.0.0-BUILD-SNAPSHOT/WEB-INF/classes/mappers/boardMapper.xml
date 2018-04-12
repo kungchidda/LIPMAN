@@ -101,11 +101,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="listSearch" resultType="BoardVO">
 		<![CDATA[
 			select
-				*
+					a.bno, a.title, a.writer, a.viewcnt, a.replycnt, a.regdate, IFNULL(max(b.fullName), '/700x400.png') as fullName 
 			from
-				tbl_board
-			where
-				bno > 0
+				tbl_board a left outer join tbl_attach b
+			on a.bno = b.bno
+            where a.bno > 0
+            group by a.bno
 		]]>
 		<include refid="search"></include>
 		<![CDATA[
