@@ -51,6 +51,19 @@ public class SearchBoardController {
 		
 		model.addAttribute("pageMaker", pageMaker);
 	}
+	//무한 스크롤
+	@RequestMapping(value="/listScroll", method = RequestMethod.GET)
+	public void listScroll(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
+		logger.info(cri.toString());
+		
+		model.addAttribute("list", service.listSearchCriteria(cri));
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		
+		pageMaker.setTotalCount(service.listSearchCount(cri));
+		
+		model.addAttribute("pageMaker", pageMaker);
+	}
 	
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
 	public void read(@RequestParam("bno") int bno, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {

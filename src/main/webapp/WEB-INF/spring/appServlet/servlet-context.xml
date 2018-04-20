@@ -33,4 +33,29 @@
 		<beans:constructor-arg value="/Users/hong/Desktop/dev/upload"></beans:constructor-arg>
 	</beans:bean>
 	
+	<beans:bean id="sampleInterceptor" class="com.kungchidda.interceptor.SampleInterceptor"></beans:bean>
+	
+		<interceptors>
+			<interceptor>
+				<mapping path="/doA"/>
+				<mapping path="/doB"/>
+				<beans:ref bean="sampleInterceptor"/>
+			</interceptor>
+		</interceptors>
+		
+		<beans:bean id="authInterceptor" class="com.kungchidda.interceptor.AuthInterceptor"></beans:bean>
+		<beans:bean id="loginInterceptor" class="com.kungchidda.interceptor.LoginInterceptor"></beans:bean>
+		<interceptors>
+			<interceptor>
+				<mapping path="/user/loginPost"/>
+				<beans:ref bean="loginInterceptor"/>
+			</interceptor>
+			<interceptor>
+				<mapping path="/sboard/register"/>
+				<mapping path="/sboard/modifyPage"/>
+				<mapping path="/sboard/removePage"/>
+				<beans:ref bean="authInterceptor"/>
+			</interceptor>
+		</interceptors>
+	
 </beans:beans>

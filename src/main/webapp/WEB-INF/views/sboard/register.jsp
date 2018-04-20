@@ -41,7 +41,8 @@ small {
 			</div>
 			<div class="form-group">
 				<label for="exampleInputEmail1">Writer</label>
-				<Input type="text" name="writer" class="form-control" placeholder="Enter Writer">
+				<!-- <Input type="text" name="writer" class="form-control" placeholder="Enter Writer"> -->
+				<Input type="text" name="writer" class="form-control" value='${login.uid}' readonly>
 			</div>
 			<div class="form-group">
 				<!-- <label for="exampleInputPasswooord1">Content</label> -->

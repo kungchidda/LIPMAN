@@ -87,7 +87,8 @@
 		<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
 			<li class="page-item"
 				<c:out value="${pageMaker.cri.page==idx?'class=active':''}"/>>
-				<a class="page-link" href="list${pageMaker.makeSearch(idx)}">${idx}</a></li>
+				<a class="page-link" href="list${pageMaker.makeSearch(idx)}">${idx}</a>
+			</li>
 		</c:forEach>
 
 		<c:if test="${pageMaker.next && pageMaker.endPage >0}">
@@ -132,10 +133,62 @@
 						+ "&searchType="
 						+ $("select option:selected").val()
 						+ "&keyword=" + $('#keywordInput').val();
-					});
+			});
+			
 			$('#newBtn').on("click", function(evt){
 				self.location = "register";
 			});
+			
+			
+			//무한 스크롤 기능 일시 정지 
+			//현재 페이지 받아옴
+			var i = ${pageMaker.cri.page};
+			
+			//스크롤 이벤트 발생
+			$(window).scroll(function(){
+				var easeEffect = 'easeInQuint';
+			
+				var diff = $(document).height() - $(window).height() ;
+				console.log($(window).scrollTop() + "==" + diff );
+				//현재 스크롤의 top 좌표가 == (게시글을 불러온 화면 height - 윈도우창의 height) 되는 순간
+				if ($(window).scrollTop() == diff ) {
+					//현재 페이지 보다 ++
+					i++;
+					
+					var url = 'listScroll?page=' + i;
+					
+					console.log("page = " + i);
+					$.ajax({
+						type : 'GET',
+						url : url,
+						dataType : 'html',
+						success:function(html){
+							$(".row").append(html);
+						}
+					});
+				}
+			/*
+				//무한스크롤 적용을 위한 주석처리 무조건 1페이지로 이동
+				//무한스크롤 업스크롤 기능 삭제
+				//현재 스크롤의 top 좌표가  <= 0 되는 순간
+	            if ($(window).scrollTop() == 0 ){
+					i--;
+					var url = 'listScroll?page=' + i;
+					
+					console.log("page = " + i);
+					$.ajax({
+						type : 'GET',
+						url : url,
+						dataType : 'html',
+						success:function(html){
+							$(".row").prepend(html);
+						}
+					});
+	            }
+ 			*/
+
+			});
+			 
 		});
 	</script>
 	
