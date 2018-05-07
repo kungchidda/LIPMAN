@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
 <html>
 <head>
 <title>${boardVO.title}</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<%@ include file="/WEB-INF/views/include/header.html"%>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script type="text/javascript" src="/resources/js/upload.js"></script>
@@ -20,8 +21,8 @@
 	
 	<form role="form" action="modifyPage" method="post">
 		<input type='hidden' name='bno' value="${boardVO.bno}">
-		<input type='hidden' name='page' value="${cri.page}">
-		<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
+		<!-- <input type='hidden' name='page' value="${cri.page}"> --> <!-- 무한스크롤 적용을 위한 주석처리 무조건 1페이지로 이동 -->
+		<!-- <input type='hidden' name='perPageNum' value="${cri.perPageNum}"> --> <!-- 무한스크롤 적용을 위한 주석처리 무조건 1페이지로 이동 -->
 		<input type='hidden' name='searchType' value="${cri.searchType}">
 		<input type='hidden' name='keyword' value="${cri.keyword}">
 	</form>
@@ -60,16 +61,27 @@
 				<div class="box-header">
 					<h3 class="box-title">ADD NEW REPLY</h3>
 				</div>
-				<div class="box-body">
-					<label for="exampleInputEmail1">Writer</label>
-					<input class="form-control" type="text" placeholder="USER ID" id="newReplyWriter">
-					<label for="exampleInputEmail1">Reply</label>
-					<input class="form-control" type="text" placeholder="REPLY TEXT" id="newReplyText">
-				</div>
-				<div class="box-footer">
-					<button type="submit" class="btn btn-primary" id="replyAddBtn">ADD REPLY</button>
-					<!-- <button type="submit" id="replyAddBtn">ADD REPLY</button> -->
-				</div>
+				
+				<c:if test="${not empty login}">
+					<div class="box-body">
+						<label for="exampleInputEmail1">Writer</label>
+						<input class="form-control" type="text" placeholder="USER ID" id="newReplyWriter" value="${login.uname}" readonly="readonly">
+						<label for="exampleInputEmail1">Reply Text</label>
+						<input class="form-control" type="text" placeholder="REPLY TEXT" id="newReplyText">
+					</div>
+					
+					<div class="box-footer">
+						<button type="submit" class="btn btn-primary" id="replyAddBtn">ADD REPLY</button>
+						<!-- <button type="submit" id="replyAddBtn">ADD REPLY</button> -->
+					</div>
+					</c:if>
+					
+					<c:if test="${empty login}">
+						<div class="box-body">
+							<div><a href="/user/login">Login Please</a></div>
+						</div>
+					</c:if>
+					
 			</div>
 		</div>
 	</div>
@@ -109,9 +121,11 @@
 	
 	
 	<div class="box-footer">
-		<button type="submit" class="btn btn-warning" id="modifyPageBtn">Modify</button>
-		<button type="submit" class="btn btn-danger" id="removePageBtn">REMOVE</button>
-		<button type="submit" class="btn btn-primary" id="listPageBtn">LIST ALL</button>
+		<c:if test="${login.uid == boardVO.writer}">
+			<button type="submit" class="btn btn-warning" id="modifyPageBtn">Modify</button>
+			<button type="submit" class="btn btn-danger" id="removePageBtn">REMOVE</button>
+		</c:if>
+			<button type="submit" class="btn btn-primary" id="listPageBtn">LIST ALL</button>
 	</div>
 	<!-- /.box-body -->
 
@@ -126,7 +140,9 @@
 				<h3 class="timeline-header"><strong>{{rno}}</strong> -{{replyer}}</h3>
 				<div class="timeline-body">{{replytext}}</div>
 				<div class="timeline-footer">
-					<a class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modifyModal">Modify</a>
+					{{#eqReplyer replyer}}
+						<a class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modifyModal">Modify</a>
+					{{/eqReplyer}}
 				</div>
 			</div>
 		</li>
@@ -140,6 +156,15 @@
 			var month = dateObj.getMonth() + 1;
 			var date = dateObj.getDate();
 			return year+"/"+month+"/"+date;
+		});
+		
+		//로그인한 사용자가 작성한 본인의 댓글만 수정이 가능
+		Handlebars.registerHelper("eqReplyer", function(replyer, block){
+			var accum = '';
+			if(replyer == '${login.uid}'){
+				accum += block.fn();
+			}
+			return accum;
 		});
 		
 		var printData = function (replyArr, target, templateObject){
@@ -199,7 +224,7 @@
 
 			$("#removePageBtn").on("click", function() {
 				
-				var replyCnt = $("#replycntSamll").html();
+				var replyCnt = $("#replycntSmall").html();
 				
 				if(replyCnt > 0){
 					
@@ -329,7 +354,9 @@
 					});
 				});
 			
-			/* $(".uploadedList").on("click", ".mailbox-attachment-info a", function(event){
+			/* 
+				//이미지 팝업 삭제
+				$(".uploadedList").on("click", ".mailbox-attachment-info a", function(event){
 				var fileLink = $(this).attr("href");
 				
 				if(checkImageType(fileLink)){
@@ -366,6 +393,7 @@
 		});
 	});
 	</script>
+	
 	
 	
 

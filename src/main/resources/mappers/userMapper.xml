@@ -17,4 +17,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from tbl_user where sessionKey = #{value} and sessionlimit > now()
 	</select>
 	
+	<insert id="join">
+		insert into tbl_user (uid, upw, uname)
+		values(#{uid}, #{upw}, #{uname})
+	</insert>
 </mapper>

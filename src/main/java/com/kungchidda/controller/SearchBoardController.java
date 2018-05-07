@@ -69,7 +69,7 @@ public class SearchBoardController {
 	public void read(@RequestParam("bno") int bno, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 		model.addAttribute(service.read(bno));
 	}
-	
+
 	@RequestMapping(value = "/removePage", method = RequestMethod.POST)
 	public String remove(@RequestParam("bno") int bno, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
 		service.remove(bno);
@@ -89,7 +89,6 @@ public class SearchBoardController {
 		model.addAttribute(service.read(bno));
 	}
 
-	
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
 	public String modifyPagingPOST(BoardVO board, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
 		logger.info(cri.toString());
@@ -106,7 +105,6 @@ public class SearchBoardController {
 		
 		return "redirect:/sboard/list";
 	}
-	
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public void registerGET(BoardVO board, Model model) throws Exception {

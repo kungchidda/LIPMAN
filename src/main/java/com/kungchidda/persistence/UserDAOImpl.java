@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+
 import com.kungchidda.domain.UserVO;
 import com.kungchidda.dto.LoginDTO;
 
@@ -40,4 +41,8 @@ public class UserDAOImpl implements UserDAO{
 		return session.selectOne(namespace+".checkUserWithSessionKey", value);
 	}
 
+	@Override
+	public void join(UserVO user) throws Exception {
+		session.insert(namespace+".join", user);
+	}
 }

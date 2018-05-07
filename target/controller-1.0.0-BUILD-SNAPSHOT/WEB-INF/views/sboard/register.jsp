@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 
 <html>
 <head>
 <title>MANIFUL</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<%@ include file="/WEB-INF/views/include/header.html"%>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
 <style>
 .fileDrop {
 	width : 100%;
@@ -41,7 +41,8 @@ small {
 			</div>
 			<div class="form-group">
 				<label for="exampleInputEmail1">Writer</label>
-				<Input type="text" name="writer" class="form-control" placeholder="Enter Writer">
+				<!-- <Input type="text" name="writer" class="form-control" placeholder="Enter Writer"> -->
+				<Input type="text" name="writer" class="form-control" value='${login.uname}' readonly>
 			</div>
 			<div class="form-group">
 				<!-- <label for="exampleInputPasswooord1">Content</label> -->

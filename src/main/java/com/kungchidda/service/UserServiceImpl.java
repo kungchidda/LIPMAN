@@ -4,7 +4,10 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.kungchidda.domain.UserVO;
 import com.kungchidda.dto.LoginDTO;
 import com.kungchidda.persistence.UserDAO;
@@ -16,6 +19,7 @@ public class UserServiceImpl implements UserService {
 	private UserDAO dao;
 	
 	@Override
+	@PreAuthorize("#userVO.uid == authentication.name or hasRole(‘ROLE_ADMIN')")
 	public UserVO login(LoginDTO dto) throws Exception {
 		return dao.login(dto);
 	}
@@ -31,4 +35,11 @@ public class UserServiceImpl implements UserService {
 		return dao.checkUserWithSessionKey(value);
 	}
 
+	@Transactional
+	@Override
+	public void join(UserVO user) throws Exception{
+		dao.join(user);
+		
+		
+	}
 }

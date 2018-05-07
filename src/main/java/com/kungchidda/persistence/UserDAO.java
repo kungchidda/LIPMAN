@@ -13,4 +13,5 @@ public interface UserDAO {
 	
 	public UserVO checkUserWithSessionKey(String value);
 
+	public void join(UserVO user) throws Exception;
 }

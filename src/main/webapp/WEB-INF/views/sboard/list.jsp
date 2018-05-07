@@ -2,16 +2,27 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <title>MANIFUL</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<%@ include file="/WEB-INF/views/include/header.html"%>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<!-- Custom styles for this template -->
+<link href="/resources/bootstrap/4-col-portfolio/css/4-col-portfolio.css" rel="stylesheet">
+<link href="/resources/css/layout.css" rel="stylesheet">
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script type="text/javascript" src="/resources/js/upload.js"></script>
+<script type="text/javascript" src="/resources/js/layout.js"></script>
+
+<!-- AdminLTE App -->
+<!-- <script src="/resources/bootstrap/AdminLTE-2.4.3/dist/js/adminlte.min.js"></script> -->
+
 </head>
 <body>
+
+
 
 	<div class="container">
 
@@ -49,15 +60,31 @@
 
 			</select> <input type="text" name='keyword' id="keywordInput"
 				value='${cri.keyword}'>
-			<button id='searchBtn'>Search</button>
-			<button id='newBtn'>New Board</button>
+			<button class="btn btn-lg btn-primary" id='searchBtn'>Search</button>
+			<button class="btn btn-lg btn-danger" id='newBtn'>New Board</button>
 		</div>
 
 		<div class="row">
+<section class="image-grid">
+  <div class="image__cell is-collapsed">
+    <div class="image--basic">
+      <a href="#expand-jump-1">
+        <img id="expand-jump-1" class="basic__img" src="http://lorempixel.com/250/250/fashion/1" alt="Fashion 1" />
+      </a>
+      <div class="arrow--up"></div>
+    </div>
+    <div class="image--expand">
+      <a href="#close-jump-1" class="expand__close"></a>
+      <img class="image--large" src="http://lorempixel.com/400/400/fashion/1" alt="Fashion 1" />
+    </div>
+  </div>
+</section>
 			<c:forEach items="${list}" var="boardVO">
 				<div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
 					<div class="card h-100">
-						<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}'><img class="card-img-top" src="/displayFile?fileName=${boardVO.fullName}" alt=""></a>
+							<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}'>
+							<img class="card-img-top" src="/displayFile?fileName=${boardVO.fullName}" alt=""></a>
+
 						
 						<div class="card-body">
 							<h4 class="card-title">
@@ -70,7 +97,7 @@
 						</div>
 					</div>
 				</div>
-			</c:forEach>
+			</c:forEach> 
 		</div>
 	</div>
 	<!-- /.container -->
