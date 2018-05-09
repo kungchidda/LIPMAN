@@ -17,12 +17,10 @@
 <script type="text/javascript" src="/resources/js/layout.js"></script>
 
 <!-- AdminLTE App -->
-<!-- <script src="/resources/bootstrap/AdminLTE-2.4.3/dist/js/adminlte.min.js"></script> -->
+<script src="/resources/bootstrap/AdminLTE-2.4.3/dist/js/adminlte.min.js"></script>
 
 </head>
 <body>
-
-
 
 	<div class="container">
 
@@ -65,27 +63,33 @@
 		</div>
 
 		<div class="row">
-<section class="image-grid">
-  <div class="image__cell is-collapsed">
-    <div class="image--basic">
-      <a href="#expand-jump-1">
-        <img id="expand-jump-1" class="basic__img" src="http://lorempixel.com/250/250/fashion/1" alt="Fashion 1" />
-      </a>
-      <div class="arrow--up"></div>
-    </div>
-    <div class="image--expand">
-      <a href="#close-jump-1" class="expand__close"></a>
-      <img class="image--large" src="http://lorempixel.com/400/400/fashion/1" alt="Fashion 1" />
-    </div>
-  </div>
-</section>
+		<!-- <section class="image-grid">
+			<div class="image__cell is-collapsed">
+			    <div class="image--basic">
+			    	<a href="#expand-jump-1">
+			        <img id="expand-jump-1" class="basic__img" src="http://127.0.0.1:8080/displayFile?fileName=/700x400.png" />
+			    	</a>
+			    </div>
+			    <div class="image--expand">
+			    	<a href="#close-jump-1" class="expand__close"></a>
+			    	<img class="image--large" src="http://127.0.0.1:8080/displayFile?fileName=/700x400.png" />
+			    </div>
+			</div>
+			
+			
+			</section> -->
+			<!-- <section class="image-grid">  -->
 			<c:forEach items="${list}" var="boardVO">
-				<div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-					<div class="card h-100">
-							<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}'>
-							<img class="card-img-top" src="/displayFile?fileName=${boardVO.fullName}" alt=""></a>
-
-						
+				<div class="image__cell is-collapsed">
+					<div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+						<div class="card h-100">
+						<!-- <a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}'> -->
+						<div class="image--basic">
+							<!-- <a href="#expand-jump-1"> -->
+								<img class="card-img-top" src="/displayFile?fileName=${boardVO.fullName}">
+							<!-- </a> -->
+						</div>
+							
 						<div class="card-body">
 							<h4 class="card-title">
 								<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}'>${boardVO.title} <strong>[ ${boardVO.replycnt} ]</strong></a>
@@ -97,13 +101,19 @@
 						</div>
 					</div>
 				</div>
-			</c:forEach> 
+				<div class="image--expand">
+				    	<!-- <a href="#" class="expand__close"></a> -->
+				    	<img class="image--large" src="/displayFile?fileName=${boardVO.fullName}" />
+				</div>
+			</div>
+			</c:forEach>
+			<!-- </section> -->
 		</div>
 	</div>
 	<!-- /.container -->
 
 	<!-- Pagination -->
-	<ul class="pagination justify-content-center">
+	<%-- <ul class="pagination justify-content-center">
 		<c:if test="${pageMaker.prev}">
 			<li class="page-item"><a class="page-link"
 				href="list${pageMaker.makeSearch(pageMaker.startPage-1)}" aria-label="Previous">
@@ -124,7 +134,7 @@
 					<span aria-hidden="true">&raquo;</span> <span class="sr-only">Next</span>
 			</a></li>
 		</c:if>
-	</ul>
+	</ul> --%>
 
 
 

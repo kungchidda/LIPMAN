@@ -15,11 +15,11 @@ html {box-sizing: border-box;}
 .image__cell {
   float: left;
   position: relative;
-  width: 20%;
+  width: 100%;
 }
 
 .image--basic {
-  padding: 0 5px;
+  /* padding: 0 5px; */
 }
 
 .basic__img {
@@ -39,7 +39,7 @@ html {box-sizing: border-box;}
   max-width: 100%;
   height: auto;
   display: block;
-  padding: 40px;
+  padding: 10px;
   margin: 0 auto;
   box-sizing: border-box;
 }
@@ -59,32 +59,14 @@ html {box-sizing: border-box;}
   padding: 0 5px;
   box-sizing: content-box;
   overflow: hidden;
-  background: #222;
+  background: #fff;
   max-height: 0;
   transition: max-height .3s ease-in-out,
               margin-bottom .1s .2s;
-  width: 500%;
+  width: 30%;
 }
 
-.image__cell:nth-of-type(5n+2) .image--expand {
-  margin-left: -100%;
-}
 
-.image__cell:nth-of-type(5n+3) .image--expand {
-  margin-left: -200%;
-}
-
-.image__cell:nth-of-type(5n+4) .image--expand {
-  margin-left: -300%;
-}
-
-.image__cell:nth-of-type(5n+5) .image--expand {
-  margin-left: -400%;
-}
-
-.image__cell:nth-of-type(5n+6) {
-  clear: left;
-}
 
 .image__cell.is-expanded .arrow--up {
   display: block;
