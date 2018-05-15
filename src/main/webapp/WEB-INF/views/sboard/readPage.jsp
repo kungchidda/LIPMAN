@@ -76,23 +76,21 @@
 						<button type="submit" class="btn btn-primary" id="replyAddBtn">ADD REPLY</button>
 						<!-- <button type="submit" id="replyAddBtn">ADD REPLY</button> -->
 					</div>
-					</c:if>
+						<span id="likeDelBtn" style="color:red;">♥</span>
+						
+						<span id="likeAddBtn"  style="color:red;">♡</span>
+				</c:if>
 					
-					<c:if test="${empty login}">
-						<div class="box-body">
-							<div><a href="/user/login">Login Please</a></div>
-						</div>
-					</c:if>
+				<c:if test="${empty login}">
+					<div class="box-body">
+						<div><a href="/user/login">Login Please</a></div>
+					</div>
+				</c:if>
 					
 			</div>
 		</div>
 	</div>
-	<c:if test="${isExistsFavoriteData }">
-			<span id="favorite" syle="color:red;">♥</span>
-			</c:if>
-			<c:if test="${!isExistsFavoriteData }">
-			<span id="favorite"  syle="color:red;">♡</span>
-			</c:if>
+	
 
 	<!-- The time line -->
 	<ul class="timeline">
@@ -404,6 +402,73 @@
 			$(".uploadedList").append(html);
 		});
 	});
+	</script>
+	
+	<script>
+	
+	function getAllList() {
+		var str = "";
+		var data = "";
+		$.getJSON("/replies/all/" + bno,	function(data) {
+			console.log(data.length);
+			$(data).each(function() {
+				str += "<li data-rno='"+this.rno+"' class='replyLi'>"
+				+ this.rno
+				+ ":"
+				+ this.replytext
+				+ "<button>MOD</button></li>";
+			});
+			$("#replies").html(str);
+		});
+	}
+	
+	$("#likeAddBtn").on("click",function(){
+		
+		var uidObj = $("#newReplyUid");
+		var uid = uidObj.val();
+		
+		$.ajax({
+			type : 'post',
+			url : '/likes/',
+			headers : {
+				"Content-Type" : "application/json",
+				"X-HTTP-Method-Override" : "POST" },
+			dataType : 'text',
+			data : JSON.stringify({bno:bno, uid:uid}),
+			success:function(result){
+				console.log("result:" + result);
+				if(result=='SUCCESS'){
+					alert("등록 되었습니다.");
+				}
+			}
+			});
+			
+		});
+
+	$("#likeDelBtn").on("click", function(){
+		
+		//var lno = $(".modal-title").html();
+		var uidObj = $("#newReplyUid");
+		var uid = uidObj.val();
+		
+		console.log("this.lno = "+ this.lno);
+		
+		$.ajax({
+			type : 'delete',
+			url : '/likes/'+lno,
+			headers : {
+				"Content-Type": "application/json",
+				"X-HTTP-Method-Override": "DELETE" },
+			dataType:'text',
+			success:function(result){
+				console.log("result : " + result);
+				if(result == 'SUCCESS'){
+					alert("삭제 되었습니다.");
+					$("#modifyModal").modal('hide');
+				}
+			}
+			});
+		});
 	</script>
 	
 	

@@ -25,15 +25,15 @@ public class LikeServiceImpl implements LikeService {
 	@Override
 	public void addLike(LikeVO vo) throws Exception{
 		likeDAO.create(vo);
-		boardDAO.updateReplyCnt(vo.getBno(), 1);
+		boardDAO.updateLikeCnt(vo.getBno(), 1);
 	}
 
 	@Transactional
 	@Override
-	public void removeLike(Integer rno) throws Exception{
-		int bno = likeDAO.getBno(rno);
-		likeDAO.delete(rno);
-		boardDAO.updateReplyCnt(bno, -1);
+	public void removeLike(Integer lno) throws Exception{
+		int bno = likeDAO.getBno(lno);
+		likeDAO.delete(lno);
+		boardDAO.updateLikeCnt(bno, -1);
 	}
 
 	@Override

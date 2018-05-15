@@ -9,42 +9,120 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <!-- Custom styles for this template -->
+<link href="/resources/bootstrap/4-col-portfolio/css/4-col-portfolio.css" rel="stylesheet">
 <!-- <link href="/resources/css/layout.css" rel="stylesheet"> -->
+<link href="/resources/css/layout2.css" rel="stylesheet">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<script type="text/javascript" src="/resources/js/upload.js"></script>
+<!-- <script type="text/javascript" src="/resources/js/layout.js"></script> -->
+<!-- <script type="text/javascript" src="/resources/js/layout2.js"></script> -->
 
-<link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/default.css" />
-<link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/component.css" />
-<script src="/resources/ThumbnailGridExpandingPreview/js/modernizr.custom.js"></script>
-		
+<!-- AdminLTE App -->
+<script src="/resources/bootstrap/AdminLTE-2.4.3/dist/js/adminlte.min.js"></script>
 </head>
 <body>
 
-	<div class="">
-			
-			<div class="main">
-				<ul id="og-grid" class="og-grid">
-					<c:forEach items="${list}" var="boardVO">
-						<li>
-							<a href="/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}'>${boardVO.title}" data-largesrc="/displayFile?fileName=${boardVO.fullName}" data-title="Azuki bean" data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
-								<img src="/displayFile?fileName=${boardVO.fullName}" />
-							</a>
-						</li>
-					</c:forEach>
-				</ul>
-			</div>
-			
+	<div class="container">
+
+		<div class='box-body'>
+			<select name="searchType">
+
+				<option value="n"
+					<c:out value="${cri.searchType == null?'selected':''}"/>>
+					---</option>
+
+				<option value="t"
+					<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+					Title</option>
+
+
+				<option value="c"
+					<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
+					Content</option>
+
+				<option value="w"
+					<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+					Writer</option>
+
+				<option value="tc"
+					<c:out value="${cri.searchType eq 'tc'?'selected':''}"/>>
+					Title OR Content</option>
+
+				<option value="cw"
+					<c:out value="${cri.searchType eq 'cw'?'selected':''}"/>>
+					Content OR Writer</option>
+
+				<option value="tcw"
+					<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
+					Title OR Content OR Writer</option>
+
+			</select> <input type="text" name='keyword' id="keywordInput"
+				value='${cri.keyword}'>
+			<button class="btn btn-lg btn-primary" id='searchBtn'>Search</button>
+			<button class="btn btn-lg btn-danger" id='newBtn'>New Board</button>
+		</div>
+
+		<div class="row">
+			<section class="image-grid">
+			<c:forEach items="${list}" var="boardVO">
+					<div class="image__cell" id="expand-jump-${boardVO.bno}">
+						<div class="image__layout">
+							<div class="card h-100">
+									<div class="image--basic">
+										<a href="#expand-jump-${boardVO.bno}" onclick="getSubtitle(${boardVO.bno});">
+											<img class="card-img-top basic__img" src="/displayFile?fileName=${boardVO.fullName}">
+										</a>
+										<a href="#close-jump-${boardVO.bno}" class="expand-close"></a>
+									</div>
+								
+								<div class="card-body">
+									<h4 class="card-title">
+										<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}'>${boardVO.title} <strong>[ ${boardVO.replycnt} ]</strong></a>
+									</h4>
+									<div><p class="card-text">${boardVO.uname} <span class="badge bg-red">${boardVO.viewcnt}</span></p></div>
+									<div>
+										<fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="image--expand">
+							<div style="float:left;" class="">
+						    	<img class="image--large" align="right" src="/displayFile?fileName=${boardVO.fullName}" />
+						    </div>
+							<div style="float:left;">
+							
+								<ul>
+									<!-- timeline time label -->
+									<!-- <li class="time-label" id="subtitlesDiv"> -->
+									<li class="time-label">
+										<div class="subtitlesDiv">
+									<!-- <li class="time-label" id="subtitlesDiv-${boardVO.bno}"> -->
+										<span class="bg-green">Subtitle List <small class='subtitlecntSmall'></small></span>
+										</div>
+									</li>
+								</ul>
+								<script id="template" type="text/x-handlebars-template">
+									{{#each .}}
+										<li class="subtitleLi" data-sno={{sno}}>
+												<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'> 
+												<div>{{subtitle}}</div>
+										</li>
+									{{/each}}
+								</script>
+						    </div>
+						    
+						    
+						</div>
+					</div>
+			</c:forEach>
+			</section>
+		</div>
 	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="/resources/ThumbnailGridExpandingPreview/js/grid.js"></script>
-		<script>
-			$(function() {
-				Grid.init();
-			});
-		</script>
 	<!-- /.container -->
 
-	<%-- <%@ include file="/WEB-INF/views/include/footer.html"%> --%>
+	<%@ include file="/WEB-INF/views/include/footer.html"%>
 	
 	
 	<script>

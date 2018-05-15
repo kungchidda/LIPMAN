@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kungchidda.mappers.likeMapper">
+
+	<insert id="create">
+		insert into tbl_like (bno, uid)
+		values (#{bno}, #{uid})
+	</insert>
+
+	<delete id="delete">
+		delete from tbl_like where lno = #{lno}
+	</delete>
+	
+	<select id="listPage" resultType="ReplyVO">
+		select
+		0
+		from
+		tbl_like
+		where
+		bno = #{bno}
+		and
+		uid = #{uid}
+		order by lno desc
+	</select>
+	
+	<select id="count" resultType="int">
+		select count(bno) from tbl_like where bno =#{bno}
+	</select>
+	
+	<select id="getBno" resultType="int">
+		select bno from tbl_like where lno = #{lno}
+	</select>
+
+
+
+</mapper>

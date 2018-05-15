@@ -127,6 +127,18 @@ public class BoardDAOImpl implements BoardDAO{
 		session.insert(namespace+".replaceAttach", paramMap);
 	}
 	
+	
+	@Override
+	public void updateLikeCnt(Integer bno, int amount) throws Exception {
+		
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		
+		paramMap.put("bno", bno);
+		paramMap.put("amount", amount);
+		
+		session.update(namespace + ".updateLikeCnt", paramMap);
+	}
+	
 	//무한 스크롤
 	@Override
 	public List<BoardVO> infiniteScrollDown(Integer bnoToStart) throws Exception {

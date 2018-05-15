@@ -23,14 +23,14 @@
 	<!-- Bootstrap 3.3.4 -->
     <!-- <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> -->
     <!-- Font Awesome Icons -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> -->
     <!-- Ionicons -->
-    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" /> -->
     <!-- Theme style -->
-    <link href="/resources/bootstrap/AdminLTE-2.4.3/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="/resources/bootstrap/AdminLTE-2.4.3/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" /> -->
     <!-- AdminLTE Skins. Choose a skin from the css/skins 
          folder instead of downloading all of them to reduce the load. -->
-    <link href="/resources/bootstrap/AdminLTE-2.4.3/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="/resources/bootstrap/AdminLTE-2.4.3/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" /> -->
     
     <!-- jQuery 2.1.4 -->
     <!-- <script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script> -->
@@ -43,7 +43,7 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="/sboard/list">MANIFUL</a>
+			<a class="navbar-brand" href="/sboard/list">LIPMAN</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -70,14 +70,6 @@
 		</div>
 	</nav>
 
-	<!-- Page Content -->
-	<div class="container">
-
-		<!-- Page Heading -->
-		<!-- <h1 class="my-4">
-			Page Heading <small>Secondary Text</small>
-		</h1> -->
-	</div>
 
 </body>
 

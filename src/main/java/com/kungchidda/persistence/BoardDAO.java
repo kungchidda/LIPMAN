@@ -30,6 +30,8 @@ public interface BoardDAO {
 	
 	public void deleteReplyAll(Integer bno) throws Exception;
 	
+	public void updateLikeCnt(Integer bno, int amount) throws Exception;
+	
 	
 	//무한 스크롤
 	public List<BoardVO> infiniteScrollDown(Integer bnoToStart) throws Exception;
