@@ -8,6 +8,7 @@ import com.kungchidda.domain.SearchCriteria;
 public interface BoardDAO {
 	
 	public void create(BoardVO vo) throws Exception;
+	public void add(BoardVO vo) throws Exception;
 	public BoardVO read(Integer bno) throws Exception;
 	public void update(BoardVO vo) throws Exception;
 	public void delete(Integer bno) throws Exception;

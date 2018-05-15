@@ -71,7 +71,7 @@ small {
 			</div>
 			<div class="form-group">
 				<label for="exampleInputEmail1">Writer</label>
-				<input type="text" name="writer" class="form-control" value="${boardVO.writer}">
+				<input type="text" name="uname" class="form-control" value="${boardVO.uname}">
 			</div>
 			<div class="form-group">
 				<!-- <label for="exampleInputPassword1">Content</label> -->

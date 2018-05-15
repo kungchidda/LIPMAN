@@ -12,7 +12,9 @@
 	<http auto-config="true" use-expressions="false" disable-url-rewriting="true">
 		<!-- spring 4.x때 추가된 옵션으로 ssl을 사용하지 않을 경우 csrf는 disalbed true로 해준다. -->
 		<csrf disabled="true" />
-		<intercept-url pattern="/**" requires-channel="https" />
+		<!-- HTTPS SETTING -->
+		<!-- <intercept-url pattern="/**" requires-channel="https" /> -->
+		
 		<!-- <intercept-url pattern="/**" access="hasRole('IS_AUTHENTICATED_ANONYMOUSLY')" /> -->
 	</http>
 

@@ -10,7 +10,8 @@ public @Data class ReplyVO {
 	private Integer rno;
 	private Integer bno;
 	private String replytext;
-	private String replyer;
+	private String uid;
+	private String uname;
 	
 	private Date regdate;
 	private Date updatedate;

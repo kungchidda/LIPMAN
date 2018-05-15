@@ -29,9 +29,10 @@
 	<div class="box-body">
 		<div class="form-group">
 			<label for="exampleInputEmail1">Title</label> <input type="text" name='title' class="form-control" value="${boardVO.title}" readonly="readonly">
+			<label for="exampleInputEmail1">Subtitle</label> <input type="text" name='subtitle' class="form-control" value="${boardVO.subtitle}" readonly="readonly">
 		</div>
 		<div class="form-group">
-			<label for="exampleInputEmail1">Writer</label> <input type="text" name="writer" class="form-control" value="${boardVO.writer}" readonly="readonly">
+			<label for="exampleInputEmail1">Writer</label> <input type="text" name="uname" class="form-control" value="${boardVO.uname}" readonly="readonly">
 		</div>
 		<div class="form-group">
 			<label for="exampleInputPassword1">Content</label>
@@ -65,7 +66,8 @@
 				<c:if test="${not empty login}">
 					<div class="box-body">
 						<label for="exampleInputEmail1">Writer</label>
-						<input class="form-control" type="text" placeholder="USER ID" id="newReplyWriter" value="${login.uname}" readonly="readonly">
+						<input type="hidden" id="newReplyUid" value="${login.uid}" readonly="readonly">
+						<input class="form-control" type="text" placeholder="USER ID" id="newReplyUname" value="${login.uname}" readonly="readonly">
 						<label for="exampleInputEmail1">Reply Text</label>
 						<input class="form-control" type="text" placeholder="REPLY TEXT" id="newReplyText">
 					</div>
@@ -85,6 +87,13 @@
 			</div>
 		</div>
 	</div>
+	<c:if test="${isExistsFavoriteData }">
+			<span id="favorite" syle="color:red;">♥</span>
+			</c:if>
+			<c:if test="${!isExistsFavoriteData }">
+			<span id="favorite"  syle="color:red;">♡</span>
+			</c:if>
+
 	<!-- The time line -->
 	<ul class="timeline">
 		<!-- timeline time label -->
@@ -121,7 +130,7 @@
 	
 	
 	<div class="box-footer">
-		<c:if test="${login.uid == boardVO.writer}">
+		<c:if test="${login.uid == boardVO.uid}">
 			<button type="submit" class="btn btn-warning" id="modifyPageBtn">Modify</button>
 			<button type="submit" class="btn btn-danger" id="removePageBtn">REMOVE</button>
 		</c:if>
@@ -137,12 +146,12 @@
 				<span class="time">
 					<i class="fa fa-clock-o"></i>{{prettifyDate regdate}}
 				</span>
-				<h3 class="timeline-header"><strong>{{rno}}</strong> -{{replyer}}</h3>
+				<h3 class="timeline-header"><strong>{{rno}}</strong> -{{uname}}</h3>
 				<div class="timeline-body">{{replytext}}</div>
 				<div class="timeline-footer">
-					{{#eqReplyer replyer}}
+					{{#eqUid uid}}
 						<a class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modifyModal">Modify</a>
-					{{/eqReplyer}}
+					{{/eqUid}}
 				</div>
 			</div>
 		</li>
@@ -159,9 +168,10 @@
 		});
 		
 		//로그인한 사용자가 작성한 본인의 댓글만 수정이 가능
-		Handlebars.registerHelper("eqReplyer", function(replyer, block){
+		/* Handlebars.registerHelper("eqReplyer", function(replyer, block){ */
+		Handlebars.registerHelper("eqUid", function(uid, block){
 			var accum = '';
-			if(replyer == '${login.uid}'){
+			if(uid == '${login.uid}'){
 				accum += block.fn();
 			}
 			return accum;
@@ -171,16 +181,15 @@
 			var template = Handlebars.compile(templateObject.html());
 			
 			var html = template(replyArr);
-			$(".replyLi").remove();
+			//$(".replyLi").remove();
 			target.after(html);
 		}
-	</script>
 	
-	<script>
 		var bno = ${boardVO.bno};
 		var replyPage = 1;
 		
 		function getPage(pageInfo){
+			console.log("pageInfo = " +pageInfo);
 			$.getJSON(pageInfo,function(data){
 				printData(data.list, $("#repliesDiv"), $('#template'));
 				printPaging(data.pageMaker, $(".pagination"));
@@ -272,9 +281,11 @@
 			
 			$("#replyAddBtn").on("click",function(){
 			
-				var replyerObj = $("#newReplyWriter");
+				var uidObj = $("#newReplyUid");
+				var unameObj = $("#newReplyUname");
 				var replytextObj = $("#newReplyText");
-				var replyer = replyerObj.val();
+				var uid = uidObj.val();
+				var uname = unameObj.val();
 				var replytext = replytextObj.val();
 				
 				$.ajax({
@@ -284,14 +295,15 @@
 						"Content-Type" : "application/json",
 						"X-HTTP-Method-Override" : "POST" },
 					dataType : 'text',
-					data : JSON.stringify({bno:bno, replyer:replyer, replytext:replytext}),
+					data : JSON.stringify({bno:bno, uid:uid, uname:uname, replytext:replytext}),
 					success:function(result){
 						console.log("result:" + result);
 						if(result=='SUCCESS'){
 							alert("등록 되었습니다.");
 							replyPage=1;
 							getPage("/replies/"+bno+"/"+replyPage);
-							replyerObj.val("");
+							//uidObj.val("");
+							//unameObj.val("");
 							replytextObj.val("");
 							
 						}

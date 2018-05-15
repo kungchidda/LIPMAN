@@ -26,6 +26,11 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 	
 	@Override
+	public void add(BoardVO vo) throws Exception {
+		session.insert(namespace+".add", vo);
+	}
+	
+	@Override
 	public BoardVO read(Integer bno) throws Exception {
 		return session.selectOne(namespace+".read", bno);
 	}

@@ -7,8 +7,10 @@ public @Data class BoardVO {
 	
 	private Integer bno;
 	private String title;
+	private String subtitle;
 	private String content;
-	private String writer;
+	private String uid;
+	private String uname;
 	private Date regdate;
 	private int viewcnt;
 	private int replycnt;

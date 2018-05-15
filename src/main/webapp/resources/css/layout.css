@@ -15,7 +15,7 @@ html {box-sizing: border-box;}
 .image__cell {
   float: left;
   position: relative;
-  width: 100%;
+  width: 25%;
 }
 
 .image--basic {
@@ -39,8 +39,8 @@ html {box-sizing: border-box;}
   max-width: 100%;
   height: auto;
   display: block;
-  padding: 10px;
-  margin: 0 auto;
+  padding: 0px;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -54,16 +54,16 @@ html {box-sizing: border-box;}
 }
 
 .image--expand {
-  position: relative;
-  left: -5px;
-  padding: 0 5px;
+  position: absolute;
+  left: 0px;
+  padding: 0px;
   box-sizing: content-box;
   overflow: hidden;
   background: #fff;
   max-height: 0;
   transition: max-height .3s ease-in-out,
               margin-bottom .1s .2s;
-  width: 30%;
+  width: 100%;
 }
 
 

@@ -10,15 +10,16 @@
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <!-- Custom styles for this template -->
 <link href="/resources/bootstrap/4-col-portfolio/css/4-col-portfolio.css" rel="stylesheet">
-<link href="/resources/css/layout.css" rel="stylesheet">
+<!-- <link href="/resources/css/layout.css" rel="stylesheet"> -->
+<link href="/resources/css/layout2.css" rel="stylesheet">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script type="text/javascript" src="/resources/js/upload.js"></script>
-<script type="text/javascript" src="/resources/js/layout.js"></script>
+<!-- <script type="text/javascript" src="/resources/js/layout.js"></script> -->
+<!-- <script type="text/javascript" src="/resources/js/layout2.js"></script> -->
 
 <!-- AdminLTE App -->
 <script src="/resources/bootstrap/AdminLTE-2.4.3/dist/js/adminlte.min.js"></script>
-
 </head>
 <body>
 
@@ -63,83 +64,142 @@
 		</div>
 
 		<div class="row">
-		<!-- <section class="image-grid">
-			<div class="image__cell is-collapsed">
-			    <div class="image--basic">
-			    	<a href="#expand-jump-1">
-			        <img id="expand-jump-1" class="basic__img" src="http://127.0.0.1:8080/displayFile?fileName=/700x400.png" />
-			    	</a>
-			    </div>
-			    <div class="image--expand">
-			    	<a href="#close-jump-1" class="expand__close"></a>
-			    	<img class="image--large" src="http://127.0.0.1:8080/displayFile?fileName=/700x400.png" />
-			    </div>
-			</div>
-			
-			
-			</section> -->
-			<!-- <section class="image-grid">  -->
+			<section class="image-grid">
 			<c:forEach items="${list}" var="boardVO">
-				<div class="image__cell is-collapsed">
-					<div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-						<div class="card h-100">
-						<!-- <a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}'> -->
-						<div class="image--basic">
-							<!-- <a href="#expand-jump-1"> -->
-								<img class="card-img-top" src="/displayFile?fileName=${boardVO.fullName}">
-							<!-- </a> -->
-						</div>
-							
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}'>${boardVO.title} <strong>[ ${boardVO.replycnt} ]</strong></a>
-							</h4>
-							<div><p class="card-text">${boardVO.writer} <span class="badge bg-red">${boardVO.viewcnt}</span></p></div>
-							<div>
-								<fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}" />
+					<div class="image__cell" id="expand-jump-${boardVO.bno}">
+						<div class="image__layout">
+							<div class="card h-100">
+									<div class="image--basic">
+										<a href="#expand-jump-${boardVO.bno}" onclick="getSubtitle(${boardVO.bno});">
+											<img class="card-img-top basic__img" src="/displayFile?fileName=${boardVO.fullName}">
+										</a>
+										<a href="#close-jump-${boardVO.bno}" class="expand-close"></a>
+									</div>
+								
+								<div class="card-body">
+									<h4 class="card-title">
+										<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}'>${boardVO.title} <strong>[ ${boardVO.replycnt} ]</strong></a>
+									</h4>
+									<div><p class="card-text">${boardVO.uname} <span class="badge bg-red">${boardVO.viewcnt}</span></p></div>
+									<div>
+										<fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}" />
+									</div>
+								</div>
 							</div>
 						</div>
+						<div class="image--expand">
+							<div style="float:left;" class="">
+						    	<img class="image--large" align="right" src="/displayFile?fileName=${boardVO.fullName}" />
+						    </div>
+							<div style="float:left;">
+							
+								<ul>
+									<!-- timeline time label -->
+									<!-- <li class="time-label" id="subtitlesDiv"> -->
+									<li class="time-label">
+										<div class="subtitlesDiv">
+									<!-- <li class="time-label" id="subtitlesDiv-${boardVO.bno}"> -->
+										<span class="bg-green">Subtitle List <small class='subtitlecntSmall'></small></span>
+										</div>
+									</li>
+								</ul>
+								<script id="template" type="text/x-handlebars-template">
+									{{#each .}}
+										<li class="subtitleLi" data-sno={{sno}}>
+												<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'> 
+												<div>{{subtitle}}</div>
+										</li>
+									{{/each}}
+								</script>
+						    </div>
+						    
+						    
+						</div>
 					</div>
-				</div>
-				<div class="image--expand">
-				    	<!-- <a href="#" class="expand__close"></a> -->
-				    	<img class="image--large" src="/displayFile?fileName=${boardVO.fullName}" />
-				</div>
-			</div>
 			</c:forEach>
-			<!-- </section> -->
+			</section>
 		</div>
 	</div>
 	<!-- /.container -->
 
-	<!-- Pagination -->
-	<%-- <ul class="pagination justify-content-center">
-		<c:if test="${pageMaker.prev}">
-			<li class="page-item"><a class="page-link"
-				href="list${pageMaker.makeSearch(pageMaker.startPage-1)}" aria-label="Previous">
-					<span aria-hidden="true">&laquo;</span> <span class="sr-only">Previous</span>
-			</a></li>
-		</c:if>
-
-		<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-			<li class="page-item"
-				<c:out value="${pageMaker.cri.page==idx?'class=active':''}"/>>
-				<a class="page-link" href="list${pageMaker.makeSearch(idx)}">${idx}</a>
-			</li>
-		</c:forEach>
-
-		<c:if test="${pageMaker.next && pageMaker.endPage >0}">
-			<li class="page-item"><a class="page-link"
-				href="list${pageMaker.makeSearch(pageMaker.endPage + 1)}" aria-label="Next">
-					<span aria-hidden="true">&raquo;</span> <span class="sr-only">Next</span>
-			</a></li>
-		</c:if>
-	</ul> --%>
-
-
-
-
 	<%@ include file="/WEB-INF/views/include/footer.html"%>
+	
+	
+	<script>
+								function getSubtitle(bno){
+									console.log("click getSubtitle start getPage");
+									getPage("/subtitles/"+bno+"/1");
+								};	
+								
+								
+								//$(document).ready(function() {
+									var formObj = $("form[role='form']");
+						
+									//console.log(formObj);
+									
+									
+									$(".pagination").on("click", "li a", function(event){
+										event.preventDefault();
+										subtitlePage = $(this).attr("href");
+										getPage("/subtitles/"+bno+"/"+subtitlePage);
+										
+									});
+									
+								//});
+								
+								
+								Handlebars.registerHelper("prettifyDate", function(timeValue){
+										var dateObj = new Date(timeValue);
+										var year = dateObj.getFullYear();
+										var month = dateObj.getMonth() + 1;
+										var date = dateObj.getDate();
+										return year+"/"+month+"/"+date;
+									});
+									
+									var printData = function (subtitleArr, target, templateObject){
+										var template = Handlebars.compile(templateObject.html());
+										
+										var html = template(subtitleArr);
+										$(".subtitleLi").remove();
+										target.after(html);
+									}
+									//var bno = ${boardVO.bno};
+									//var replyPage = 1;
+									
+									function getPage(pageInfo){
+										console.log("start getPage");
+										console.log("pageInfo = " +pageInfo);
+
+										$.getJSON(pageInfo,function(data){
+											printData(data.list, $(".subtitlesDiv"), $('#template'));
+											printPaging(data.pageMaker, $(".pagination"));
+											
+											$(".subtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
+											
+										});
+										
+									}
+									var printPaging = function(pageMaker, target){
+										var str = "";
+										
+										if(pageMaker.prev){
+											str += "<li><a href='"+(pageMaker.startPage-1)+"'> << </a></li>";
+										}
+										
+										for(var i=pageMaker.startPage, len= pageMaker.endPage; i <= len; i++){
+											var strClass = pageMaker.cri.page == i?'class=active':'';
+											str += "<li class='page-item' "+strClass+"><a class='page-link' href='"+i+"'>"+i+"</a></li>";
+										}
+										
+										if(pageMaker.next){
+											str += "<li><a href='"+(pageMaker.endPage+1)+"'> >> </a></li>";
+										}
+										
+										target.html(str);
+									}
+								
+					
+								</script>
 	
 	<script>
 		var result = '${msg}';
@@ -200,7 +260,7 @@
 						url : url,
 						dataType : 'html',
 						success:function(html){
-							$(".row").append(html);
+							$(".image-grid").append(html);
 						}
 					});
 				}
@@ -225,7 +285,7 @@
  			*/
 
 			});
-			 
+			
 		});
 	</script>
 	

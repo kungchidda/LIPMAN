@@ -25,12 +25,15 @@ public class BoardServiceImpl implements BoardService{
 		
 		String[] files = board.getFiles();
 		
-		if(files == null) {return;}
-		
-		for(String fileName : files) {
-			dao.addAttach(fileName);
+		if(files != null) {
+			for(String fileName : files) {
+				dao.addAttach(fileName);
+			}
 		}
+		dao.add(board);
 	}
+	
+
 	
 	@Transactional(isolation=Isolation.READ_COMMITTED)
 	@Override
@@ -49,10 +52,10 @@ public class BoardServiceImpl implements BoardService{
 		
 		String[] files = board.getFiles();
 		
-		if(files ==null) {return;}
-		
-		for(String fileName : files) {
-			dao.replaceAttach(fileName, bno);
+		if(files !=null) {
+			for(String fileName : files) {
+				dao.replaceAttach(fileName, bno);
+			}
 		}
 	}
 	

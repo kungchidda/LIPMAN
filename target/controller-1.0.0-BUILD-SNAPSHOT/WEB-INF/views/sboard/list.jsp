@@ -10,9 +10,16 @@
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <!-- Custom styles for this template -->
 <link href="/resources/bootstrap/4-col-portfolio/css/4-col-portfolio.css" rel="stylesheet">
+<!-- <link href="/resources/css/layout.css" rel="stylesheet"> -->
+<link href="/resources/css/layout2.css" rel="stylesheet">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script type="text/javascript" src="/resources/js/upload.js"></script>
+<!-- <script type="text/javascript" src="/resources/js/layout.js"></script> -->
+<!-- <script type="text/javascript" src="/resources/js/layout2.js"></script> -->
+
+<!-- AdminLTE App -->
+<script src="/resources/bootstrap/AdminLTE-2.4.3/dist/js/adminlte.min.js"></script>
 </head>
 <body>
 
@@ -57,53 +64,38 @@
 		</div>
 
 		<div class="row">
+			<section class="image-grid">
 			<c:forEach items="${list}" var="boardVO">
-				<div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-					<div class="card h-100">
-						<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}'><img class="card-img-top" src="/displayFile?fileName=${boardVO.fullName}" alt=""></a>
-						
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}'>${boardVO.title} <strong>[ ${boardVO.replycnt} ]</strong></a>
-							</h4>
-							<div><p class="card-text">${boardVO.writer} <span class="badge bg-red">${boardVO.viewcnt}</span></p></div>
-							<div>
-								<fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}" />
+					<!-- <div class="image__cell is-collapsed" > -->
+					<div class="image__cell" id="expand-jump-${boardVO.bno}"><!-- second -->
+						<div class="card h-100">
+								<div class="image--basic">
+									<!-- <a href="#;return false;"> -->
+									<a href="#expand-jump-${boardVO.bno}">
+										<img class="card-img-top basic__img" src="/displayFile?fileName=${boardVO.fullName}">
+									</a>
+									<a href="#close-jump-${boardVO.bno}" class="expand-close"></a>
+								</div>
+							
+							<div class="card-body">
+								<h4 class="card-title">
+									<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}'>${boardVO.title} <strong>[ ${boardVO.replycnt} ]</strong></a>
+								</h4>
+								<div><p class="card-text">${boardVO.writer} <span class="badge bg-red">${boardVO.viewcnt}</span></p></div>
+								<div>
+									<fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}" />
+								</div>
 							</div>
 						</div>
+						<div class="image--expand">
+						    <img class="image--large" src="/displayFile?fileName=${boardVO.fullName}" />
+						</div>
 					</div>
-				</div>
 			</c:forEach>
+			</section>
 		</div>
 	</div>
 	<!-- /.container -->
-
-	<!-- Pagination -->
-	<ul class="pagination justify-content-center">
-		<c:if test="${pageMaker.prev}">
-			<li class="page-item"><a class="page-link"
-				href="list${pageMaker.makeSearch(pageMaker.startPage-1)}" aria-label="Previous">
-					<span aria-hidden="true">&laquo;</span> <span class="sr-only">Previous</span>
-			</a></li>
-		</c:if>
-
-		<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-			<li class="page-item"
-				<c:out value="${pageMaker.cri.page==idx?'class=active':''}"/>>
-				<a class="page-link" href="list${pageMaker.makeSearch(idx)}">${idx}</a>
-			</li>
-		</c:forEach>
-
-		<c:if test="${pageMaker.next && pageMaker.endPage >0}">
-			<li class="page-item"><a class="page-link"
-				href="list${pageMaker.makeSearch(pageMaker.endPage + 1)}" aria-label="Next">
-					<span aria-hidden="true">&raquo;</span> <span class="sr-only">Next</span>
-			</a></li>
-		</c:if>
-	</ul>
-
-
-
 
 	<%@ include file="/WEB-INF/views/include/footer.html"%>
 	
@@ -166,7 +158,7 @@
 						url : url,
 						dataType : 'html',
 						success:function(html){
-							$(".row").append(html);
+							$(".image-grid").append(html);
 						}
 					});
 				}
@@ -191,7 +183,7 @@
  			*/
 
 			});
-			 
+			
 		});
 	</script>
 	
