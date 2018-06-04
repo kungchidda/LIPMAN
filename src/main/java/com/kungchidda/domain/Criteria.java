@@ -8,7 +8,7 @@ public class Criteria {
 	public Criteria() {
 		this.page = 1;
 		//한 페이지당 보여지는 
-		this.perPageNum = 20;
+		this.perPageNum = 50;
 	}
 
 	public void setPage(int page) {
@@ -42,7 +42,7 @@ public class Criteria {
 	
 	@Override
 	public String toString() {
-		return "Criteria [page=" + page + ", " + "perPageNum=" + perPageNum + "]";
+		return "Criteria [page=" + page + ", " + "perPageNum=" + perPageNum + "] / ";
 	}
 	
 	

@@ -14,6 +14,8 @@ public @Data class BoardVO {
 	private Date regdate;
 	private int viewcnt;
 	private int replycnt;
+	private int likecnt;
+	private int unlikecnt;
 	
 	private String[] files;
 	

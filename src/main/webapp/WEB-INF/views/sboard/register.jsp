@@ -21,15 +21,20 @@ small {
 }
 </style>
 
-<!-- WYSIWYG summernote -->
-	<!-- include libraries(jQuery, bootstrap) -->
-	<!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet"> -->
-	<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> -->
-	<!-- <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> --> 
+<!-- <!-- WYSIWYG summernote -->
+<!-- 	<!-- include libraries(jQuery, bootstrap) -->
+<!-- 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet"> -->
+<!-- <!-- 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> -->
+<!-- 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>  -->
 
-<!-- include summernote css/js -->
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+
+<!-- <!-- include summernote css/js -->
+<!-- <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script> -->
+
+<!-- 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.css" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.js"></script>
 
 </head>
 <body>
@@ -79,8 +84,8 @@ small {
 	
 	<script id="template" type="text/x-handlebars-template">
 		<li>
-			<span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
-			<div class="mailbox-attachment-info">
+			<span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" style="width:200px;" alt="Attachment"></span>
+			<div class="mailbox-attachment-info" style="width:200px;">
 				<a href="{{getLink}}" target="_blank" class="mailbox-attachment-name">{{fileName}}</a>
 				<small data-src="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn">
 					<i class="fa fa-fw fa-remove"></i></small>
@@ -89,7 +94,7 @@ small {
 		</li>
 	</script>
 	
-	<%@ include file="/WEB-INF/views/include/footer.html"%>
+	<%-- <%@ include file="/WEB-INF/views/include/footer.html"%> --%>
 
 	<!-- WYSIWYG -->
 	<!-- <div id="summernote"></div> -->

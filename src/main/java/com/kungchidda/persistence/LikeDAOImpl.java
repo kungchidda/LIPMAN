@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.kungchidda.domain.BoardVO;
 import com.kungchidda.domain.Criteria;
 import com.kungchidda.domain.LikeVO;
 
@@ -20,6 +21,15 @@ public class LikeDAOImpl implements LikeDAO{
 	
 	private static String namespace = "com.kungchidda.mappers.likeMapper";
 
+	@Override
+	public List<LikeVO> list(LikeVO vo) throws Exception{
+		return session.selectList(namespace + ".list", vo);
+	}
+	
+	@Override
+	public List<BoardVO> infoLike(Integer bno) throws Exception{
+		return session.selectList(namespace + ".infoLike", bno);
+	}
 	
 	@Override
 	public void create(LikeVO vo) throws Exception{
@@ -28,8 +38,8 @@ public class LikeDAOImpl implements LikeDAO{
 	
 	
 	@Override
-	public void delete(Integer rno) throws Exception {
-		session.update(namespace + ".delete", rno);
+	public void delete(LikeVO vo) throws Exception {
+		session.update(namespace + ".delete", vo);
 	}
 	
 	@Override
@@ -49,7 +59,7 @@ public class LikeDAOImpl implements LikeDAO{
 	}
 	
 	@Override
-	public int getBno(Integer lno) throws Exception{
-		return session.selectOne(namespace + ".getBno" , lno);
+	public int getBno(LikeVO vo) throws Exception{
+		return session.selectOne(namespace + ".getBno" , vo.getLno());
 	}
 }

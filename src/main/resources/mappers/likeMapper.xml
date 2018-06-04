@@ -5,16 +5,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.kungchidda.mappers.likeMapper">
 
+	<select id="list" resultType="LikeVO">
+		select
+		* 
+		from
+		tbl_like
+		where bno = #{bno} and uid = #{uid} 
+		order by lno desc
+	</select>
+	
+	<select id="infoLike" resultType="com.kungchidda.domain.BoardVO">
+		select
+		* 
+		from
+		tbl_board
+		where bno = #{bno} 
+	</select>
+	
+
 	<insert id="create">
-		insert into tbl_like (bno, uid)
-		values (#{bno}, #{uid})
+		insert into tbl_like (bno, uid, lpo)
+		values (#{bno}, #{uid}, #{lpo} )
 	</insert>
 
 	<delete id="delete">
-		delete from tbl_like where lno = #{lno}
+		delete from tbl_like where bno = #{bno} and uid = #{uid} 
 	</delete>
 	
-	<select id="listPage" resultType="ReplyVO">
+	<select id="listPage" resultType="LikeVO">
 		select
 		0
 		from
@@ -31,9 +49,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="getBno" resultType="int">
-		select bno from tbl_like where lno = #{lno}
+		select bno, lpo from tbl_like where bno = #{bno} and uid = #{uid}
 	</select>
-
-
 
 </mapper>

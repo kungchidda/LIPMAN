@@ -21,4 +21,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into tbl_user (uid, upw, uname)
 		values(#{uid}, #{upw}, #{uname})
 	</insert>
+	
+	<update id="updateSubscribedCnt">
+		update tbl_user set 
+		subscribedcnt = (select count(*) from tbl_subscribe where subscribed = #{subscribed})
+		where uid = #{subscribed}
+	</update>
+	
+	<update id="updateSubscriberCnt">
+		update tbl_user set 
+		subscribercnt =	(select count(*) from tbl_subscribe where subscriber = #{subscriber})
+		where uid = #{subscriber}
+	</update>
+	
 </mapper>

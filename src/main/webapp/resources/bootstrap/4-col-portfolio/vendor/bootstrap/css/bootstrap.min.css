@@ -614,13 +614,8 @@ pre code {
 
 @media (min-width:1200px) {
     .container {
-        max-width: 1140px
-    }
-}
-
-@media (min-width:2400px) {
-    .container {
-        max-width: 2240px
+/*        max-width: 1140px*/
+        max-width: 100%
     }
 }
 

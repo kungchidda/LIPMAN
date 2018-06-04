@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.kungchidda.domain.BoardVO;
-import com.kungchidda.domain.Criteria;
+//import com.kungchidda.domain.Criteria;
 import com.kungchidda.domain.SearchCriteria;
 import com.kungchidda.persistence.BoardDAO;
 
@@ -67,20 +67,20 @@ public class BoardServiceImpl implements BoardService{
 		dao.delete(bno);
 	}
 	
-	@Override
-	public List<BoardVO> listAll() throws Exception{
-		return dao.listAll();
-	}
-	
-	@Override
-	public List<BoardVO> listCriteria(Criteria cri) throws Exception{
-		return dao.listCriteria(cri);
-	}
-	
-	@Override
-	public int listCountCriteria(Criteria cri) throws Exception {
-		return dao.countPaging(cri);
-	}
+//	@Override
+//	public List<BoardVO> listAll() throws Exception{
+//		return dao.listAll();
+//	}
+//	
+//	@Override
+//	public List<BoardVO> listCriteria(Criteria cri) throws Exception{
+//		return dao.listCriteria(cri);
+//	}
+//	
+//	@Override
+//	public int listCountCriteria(Criteria cri) throws Exception {
+//		return dao.countPaging(cri);
+//	}
 	
 	@Override
 	public List<BoardVO> listSearchCriteria(SearchCriteria cri) throws Exception{
@@ -97,13 +97,13 @@ public class BoardServiceImpl implements BoardService{
 		return dao.getAttach(bno);
 	}
 	
-	@Override
-	public List<BoardVO> infiniteScrollDown(Integer bnoToStart) throws Exception {
-		return dao.infiniteScrollDown(bnoToStart);
-	}
-	
-	@Override
-	public List<BoardVO> infiniteScrollUp(Integer bnoToStart) throws Exception {
-		return dao.infiniteScrollUp(bnoToStart);
-	}
+//	@Override
+//	public List<BoardVO> infiniteScrollDown(Integer bnoToStart) throws Exception {
+//		return dao.infiniteScrollDown(bnoToStart);
+//	}
+//	
+//	@Override
+//	public List<BoardVO> infiniteScrollUp(Integer bnoToStart) throws Exception {
+//		return dao.infiniteScrollUp(bnoToStart);
+//	}
 }

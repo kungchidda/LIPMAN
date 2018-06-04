@@ -45,4 +45,14 @@ public class UserDAOImpl implements UserDAO{
 	public void join(UserVO user) throws Exception {
 		session.insert(namespace+".join", user);
 	}
+	
+	@Override
+	public void updateSubscribedCnt(String subscribed) throws Exception {
+		session.update(namespace + ".updateSubscribedCnt", subscribed);
+	}
+	
+	@Override
+	public void updateSubscriberCnt(String subscriber) throws Exception {
+		session.update(namespace + ".updateSubscriberCnt", subscriber);
+	}
 }

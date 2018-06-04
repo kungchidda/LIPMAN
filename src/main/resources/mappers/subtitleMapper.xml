@@ -7,13 +7,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="listPage" resultType="SubtitleVO">
 		select *
 		from tbl_subtitle
-		where title = (SELECT title FROM tbl_subtitle where bno=#{bno})
+		where title = (SELECT title FROM tbl_board where bno=#{bno})
+		and
+		uid = (SELECT uid FROM tbl_board where bno=#{bno})
 		order by sno desc
 		limit #{cri.pageStart}, #{cri.perPageNum}
 	</select>
 	
 	<select id="count" resultType="int">
-	select count(*) from tbl_subtitle where title = (select title from tbl_subtitle where bno = #{bno})
+	select count(*) from tbl_board where title = (select title from tbl_board where bno = #{bno})
+	and
+	uid = (SELECT uid FROM tbl_board where bno=#{bno})
 	</select>
 	
 </mapper>

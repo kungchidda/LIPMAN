@@ -14,7 +14,6 @@
 		<csrf disabled="true" />
 		<!-- HTTPS SETTING -->
 		<!-- <intercept-url pattern="/**" requires-channel="https" /> -->
-		
 		<!-- <intercept-url pattern="/**" access="hasRole('IS_AUTHENTICATED_ANONYMOUSLY')" /> -->
 	</http>
 

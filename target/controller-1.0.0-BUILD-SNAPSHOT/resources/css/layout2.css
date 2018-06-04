@@ -14,10 +14,14 @@ html {
   overflow: hidden;
   }
 
+.image__layout{
+	padding : 5px;}	
+
 .image__cell {
   float: left;
   position: relative; 
-  padding : 5px;}
+  /* padding : 0px; */}
+  
   @media screen and (min-width: 799px) {
     .image__cell {
       width: 25%; }
@@ -127,8 +131,8 @@ html {
 
 .image--expand {
   position: relative;
-  left: -6px;
-  padding: 0 6px;
+  left: 0px;
+  padding: 0px;
   margin-bottom: 12px;
   box-sizing: content-box;
   overflow: hidden;
@@ -167,7 +171,7 @@ html {
   max-width: 100%;
   height: auto;
   display: block;
-  padding: 40px;
+  padding: 10px;
   margin: 0 auto;
   box-sizing: border-box; }
   

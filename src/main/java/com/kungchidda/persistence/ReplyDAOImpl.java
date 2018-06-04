@@ -61,5 +61,9 @@ public class ReplyDAOImpl implements ReplyDAO{
 		return session.selectOne(namespace + ".getBno" , rno);
 	}
 
+	@Override
+	public void updateReplyLikeCnt(Integer bno) throws Exception {
+		session.update(namespace + ".updateReplyLikeCnt", bno);
+	}
 
 }

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kungchidda.mappers.subscribeMapper">
+
+	<select id="listSubscribe" resultType="SubscribeVO">
+		select
+		* 
+		from
+		tbl_subscribe
+		where 0=0
+		<if test="subscribed != null">
+		and subscribed = #{subscribed}
+		</if>
+		<if test="subscriber != null">
+		and subscriber = #{subscriber}
+		</if>
+		order by fno desc
+	</select>
+	
+	<select id="listSubscriber" resultType="com.kungchidda.domain.SubscribeVO">
+		select
+		* 
+		from
+		tbl_subscribe
+		where subscribed = #{subscribed}
+		<if test="subscribed != null">
+		subscribed = #{subscribed}
+		</if>
+		order by fno desc
+	</select>
+	
+
+	<insert id="create">
+		insert into tbl_subscribe (fno, subscribed, subscriber)
+		values (#{fno}, #{subscribed}, #{subscriber} )
+	</insert>
+
+	<delete id="delete">
+		delete from tbl_subscribe where subscribed = #{subscribed} and subscriber = #{subscriber}
+	</delete>
+	
+	<select id="listPage" resultType="SubscribeVO">
+		select
+		0
+		from
+		tbl_subscribe
+		where
+		subscribed = #{subscribed}
+		and
+		subscriber = #{subscriber}
+		order by lno desc
+	</select>
+	
+	<select id="count" resultType="int">
+		select count(bno) from tbl_subscribe where subscribed = #{subscribed} 
+	</select>
+	
+	<select id="getBno" resultType="int">
+		select bno, lpo from tbl_subscribe where subscriber = #{subscriber} and subscribed = #{subscribed} 
+	</select>
+
+
+
+</mapper>

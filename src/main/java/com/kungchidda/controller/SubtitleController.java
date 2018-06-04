@@ -31,14 +31,15 @@ public class SubtitleController {
 	// GET 방식의 처리
 	// 페이징 처리를 위해서 PART 2 에서 작성된 PageMaker를 가져와서 사용
 	// Criteria와 이를 상속한 SearchCriteria, PageMaker는 모든 페이징 처리에서 공통으로 사용할 수 있도록 만들어진 클래스
-	@RequestMapping(value = "/{bno}/{page}", method = RequestMethod.GET)
-	public ResponseEntity<Map<String, Object>> listPage(@PathVariable("bno") Integer bno, @PathVariable("page") Integer page){
+	@RequestMapping(value = "/{bno}/{perPage}/{page}", method = RequestMethod.GET)
+	public ResponseEntity<Map<String, Object>> listPage(@PathVariable("bno") Integer bno,@PathVariable("perPage") Integer perPage, @PathVariable("page") Integer page){
 		
 		ResponseEntity<Map<String, Object>> entity = null;
 		
 		try {
 			Criteria cri = new Criteria();
 			cri.setPage(page);
+			cri.setPerPageNum(perPage);
 			
 			PageMaker pageMaker = new PageMaker();
 			pageMaker.setCri(cri);

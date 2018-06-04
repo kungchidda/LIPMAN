@@ -10,13 +10,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 		
 	<insert id="add">
-		insert into tbl_subtitle (bno, title, subtitle)
-		values ((select max(bno) from tbl_board), #{title}, #{subtitle});
+		insert into tbl_subtitle (bno, title, subtitle, uid)
+		values ((select max(bno) from tbl_board), #{title}, #{subtitle}, #{uid});
 	</insert>
 	
 	<select id="read" resultType="com.kungchidda.domain.BoardVO">
 		select
-			bno, title, subtitle, content, uid, uname, regdate, viewcnt, replycnt
+			bno, title, subtitle, content, uid, uname, regdate, viewcnt, replycnt, likecnt, unlikecnt 
 		from
 			tbl_board
 		where bno = #{bno}
@@ -31,52 +31,52 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from tbl_board where bno = #{bno}
 	</delete>
 	
-	<select id="listAll" resultType="com.kungchidda.domain.BoardVO">
-		<![CDATA[
-			select
-				bno, title, subtitle, content, uname, regdate, viewcnt
-			from
-				tbl_board
-			where bno > 0
-			order by bno desc, regdate desc
-			limit 0, 20;
-			]]>
-	</select>
+<!-- 	<select id="listAll" resultType="com.kungchidda.domain.BoardVO"> -->
+<!-- 		<![CDATA[ -->
+<!-- 			select -->
+<!-- 				bno, title, subtitle, content, uname, regdate, viewcnt -->
+<!-- 			from -->
+<!-- 				tbl_board -->
+<!-- 			where bno > 0 -->
+<!-- 			order by bno desc, regdate desc -->
+<!-- 			limit 0, 20; -->
+<!-- 			]]> -->
+<!-- 	</select> -->
 	
-	<select id="listPage" resultType="com.kungchidda.domain.BoardVO">
-		<![CDATA[
-			select
-				bno, title, subtitle, content, uname, regdate, viewcnt
-			from
-				tbl_board
-			where bno > 0
-			order by bno desc, regdate desc
-			limit #{page}, 20;
-			]]>
-	</select>
+<!-- 	<select id="listPage" resultType="com.kungchidda.domain.BoardVO"> -->
+<!-- 		<![CDATA[ -->
+<!-- 			select -->
+<!-- 				bno, title, subtitle, content, uname, regdate, viewcnt -->
+<!-- 			from -->
+<!-- 				tbl_board -->
+<!-- 			where bno > 0 -->
+<!-- 			order by bno desc, regdate desc -->
+<!-- 			limit #{page}, 20; -->
+<!-- 			]]> -->
+<!-- 	</select> -->
 
-	<select id="listCriteria" resultType="com.kungchidda.domain.BoardVO">
-		<![CDATA[
-			select
-				bno, title, subtitle, content, uname, regdate, viewcnt, replycnt
-			from
-				tbl_board
-			where bno > 0
-			order by bno desc, regdate desc
-			limit #{pageStart}, #{perPageNum};
-			]]>
-	</select>
+<!-- 	<select id="listCriteria" resultType="com.kungchidda.domain.BoardVO"> -->
+<!-- 		<![CDATA[ -->
+<!-- 			select -->
+<!-- 				bno, title, subtitle, content, uname, regdate, viewcnt, replycnt -->
+<!-- 			from -->
+<!-- 				tbl_board -->
+<!-- 			where bno > 0 -->
+<!-- 			order by bno desc, regdate desc -->
+<!-- 			limit #{pageStart}, #{perPageNum}; -->
+<!-- 			]]> -->
+<!-- 	</select> -->
 	
-	<select id="countPaging" resultType="int">
-		<![CDATA[
-			select
-				count(bno)
-			from
-				tbl_board
-			where
-				bno > 0
-		]]>
-	</select>
+<!-- 	<select id="countPaging" resultType="int"> -->
+<!-- 		<![CDATA[ -->
+<!-- 			select -->
+<!-- 				count(bno) -->
+<!-- 			from -->
+<!-- 				tbl_board -->
+<!-- 			where -->
+<!-- 				bno > 0 -->
+<!-- 		]]> -->
+<!-- 	</select> -->
 	
 	<sql id="search">
 		<if test="searchType != null">
@@ -106,16 +106,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="listSearch" resultType="BoardVO">
 		<![CDATA[
 			select
-					a.bno, a.title, a.subtitle, a.uname, a.viewcnt, a.replycnt, a.regdate, IFNULL(max(b.fullName), '/sampleImage.jpg') as fullName  
+					a.bno, a.title, a.subtitle, a.uname, a.viewcnt, a.replycnt, a.likecnt, a.unlikecnt, a.regdate, IFNULL(b.fullName, '/sampleImage.jpg') as fullName
 			from
-			(SELECT max(bno) as bno, title FROM tbl_board group by title) x  inner join tbl_board a
-            on x.title = a.title and a.bno = x.bno
-				left outer join tbl_attach b
-                
-			on a.bno = b.bno
+            tbl_board a
+            
+            left outer join
+            (SELECT  bno, max(fullName) as fullName from tbl_attach group by bno) b    
+			on b.bno = a.bno
+            
+            inner join 
+			(SELECT max(bno) as bno, title, subtitle, uname FROM tbl_board group by title, uname) x 
+            on x.bno = a.bno and x.uname = a.uname
             
             where a.bno > 0
-            group by title
 		]]>
 		<include refid="search"></include>
 		<![CDATA[
@@ -165,31 +168,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	<update id="updateLikeCnt">
-		update tbl_board set likecnt = likecnt + #{amount} where bno = #{bno}
+		update tbl_board set 
+		likecnt = (select count(*) from tbl_like where bno = #{bno} and lpo = '1'),
+		unlikecnt =	(select count(*) from tbl_like where bno = #{bno} and lpo = '-1')
+		where bno = #{bno}
 	</update>
 	
-	<select id="infiniteScrollDown" resultType="com.kungchidda.domain.BoardVO">
-		<![CDATA[
-			select
-				bno, title, subtitle, content, uname, regdate, viewcnt
-			from
-				tbl_board
-			where bno <= #{bno}
-			and bno > #{bno}-20
-			order by bno desc, regdate desc
-			]]>
-	</select>
 	
-	<select id="infiniteScrollUp" resultType="com.kungchidda.domain.BoardVO">
-		<![CDATA[
-			select
-				bno, title, subtitle, content, uname, regdate, viewcnt
-			from
-				tbl_board
-			where bno > #{bno}
-			and bno <= #{bno}+20
-			order by bno desc, regdate desc
-			]]>
-	</select>
+<!-- 	<select id="infiniteScrollDown" resultType="com.kungchidda.domain.BoardVO"> -->
+<!-- 		<![CDATA[ -->
+<!-- 			select -->
+<!-- 				bno, title, subtitle, content, uname, regdate, viewcnt -->
+<!-- 			from -->
+<!-- 				tbl_board -->
+<!-- 			where bno <= #{bno} -->
+<!-- 			and bno > #{bno}-20 -->
+<!-- 			order by bno desc, regdate desc -->
+<!-- 			]]> -->
+<!-- 	</select> -->
+	
+<!-- 	<select id="infiniteScrollUp" resultType="com.kungchidda.domain.BoardVO"> -->
+<!-- 		<![CDATA[ -->
+<!-- 			select -->
+<!-- 				bno, title, subtitle, content, uname, regdate, viewcnt -->
+<!-- 			from -->
+<!-- 				tbl_board -->
+<!-- 			where bno > #{bno} -->
+<!-- 			and bno <= #{bno}+20 -->
+<!-- 			order by bno desc, regdate desc -->
+<!-- 			]]> -->
+<!-- 	</select> -->
 
 </mapper>

@@ -38,11 +38,13 @@ small {
 		<div class="box-body">
 			<div class="form-group">
 				<label for="exampleInputEmail1">Title</label> <input type="text" name='title' class="form-control" placeholder="Enter Title">
+				<label for="exampleInputEmail1">Subtitle</label> <input type="text" name='subtitle' class="form-control" placeholder="Enter Title">
 			</div>
 			<div class="form-group">
 				<label for="exampleInputEmail1">Writer</label>
 				<!-- <Input type="text" name="writer" class="form-control" placeholder="Enter Writer"> -->
-				<Input type="text" name="writer" class="form-control" value='${login.uname}' readonly>
+				<Input type="hidden" name="uid" class="form-control" value='${login.uid}'>
+				<Input type="text" name="uname" class="form-control" value='${login.uname}' readonly>
 			</div>
 			<div class="form-group">
 				<!-- <label for="exampleInputPasswooord1">Content</label> -->

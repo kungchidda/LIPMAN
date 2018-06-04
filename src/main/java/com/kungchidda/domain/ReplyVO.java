@@ -12,6 +12,8 @@ public @Data class ReplyVO {
 	private String replytext;
 	private String uid;
 	private String uname;
+	private Integer replylikecnt;
+	private Integer replydislikecnt;
 	
 	private Date regdate;
 	private Date updatedate;

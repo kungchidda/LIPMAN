@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kungchidda.mappers.replyLikeMapper">
+
+	<select id="listReply" resultType="ReplyLikeVO">
+		select
+		* 
+		from
+		tbl_replylike
+		where rno = #{rno} and uid = #{uid} 
+		order by rlno desc
+	</select>
+	
+	<select id="infoReplyLike" resultType="com.kungchidda.domain.ReplyVO">
+		select
+		* 
+		from
+		tbl_reply
+		where rno = #{rno} 
+	</select>
+	
+
+	<insert id="create">
+		insert into tbl_replylike (rno, uid, rlpo)
+		values (#{rno}, #{uid}, #{rlpo} )
+	</insert>
+
+	<delete id="delete">
+		delete from tbl_replylike where rno = #{rno} and uid = #{uid} 
+	</delete>
+	
+	<select id="listReplyPage" resultType="LikeVO">
+		select
+		0
+		from
+		tbl_like
+		where
+		rno = #{rno}
+		and
+		uid = #{uid}
+		order by rlno desc
+	</select>
+	
+	<select id="count" resultType="int">
+		select count(rno) from tbl_replylike where rno =#{rno}
+	</select>
+	
+	<select id="getRno" resultType="int">
+		select rno, rlpo from tbl_like where rno = #{rno} and uid = #{uid}
+	</select>
+
+
+
+</mapper>

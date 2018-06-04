@@ -22,7 +22,7 @@
 								<h4 class="card-title">
 									<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}'>${boardVO.title} <strong>[ ${boardVO.replycnt} ]</strong></a>
 								</h4>
-								<div><p class="card-text">${boardVO.writer} <span class="badge bg-red">${boardVO.viewcnt}</span></p></div>
+								<div><p class="card-text">${boardVO.uname} <span class="badge bg-red">${boardVO.viewcnt}</span></p></div>
 								<div>
 									<fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}" />
 								</div>

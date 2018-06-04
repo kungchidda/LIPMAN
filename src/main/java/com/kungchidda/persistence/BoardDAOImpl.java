@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import com.kungchidda.domain.BoardVO;
-import com.kungchidda.domain.Criteria;
+//import com.kungchidda.domain.Criteria;
 import com.kungchidda.domain.SearchCriteria;
 
 @Repository
@@ -45,30 +45,30 @@ public class BoardDAOImpl implements BoardDAO{
 		session.delete(namespace+".delete", bno);
 	}
 	
-	@Override
-	public List<BoardVO> listAll() throws Exception {
-		return session.selectList(namespace+".listAll");
-	}
-	
-	@Override
-	public List<BoardVO> listPage(int page) throws Exception {
-		if(page<=0) {
-			page=1;
-		}
-		page=(page-1)*10;
-		
-		return session.selectList(namespace+".listPage", page);
-	}
-	
-	@Override
-	public List<BoardVO> listCriteria(Criteria cri) throws Exception{
-		return session.selectList(namespace+".listCriteria", cri);
-	}
-	
-	@Override
-	public int countPaging(Criteria cri) throws Exception {
-		return session.selectOne(namespace+".countPaging", cri);
-	}
+//	@Override
+//	public List<BoardVO> listAll() throws Exception {
+//		return session.selectList(namespace+".listAll");
+//	}
+//	
+//	@Override
+//	public List<BoardVO> listPage(int page) throws Exception {
+//		if(page<=0) {
+//			page=1;
+//		}
+//		page=(page-1)*10;
+//		
+//		return session.selectList(namespace+".listPage", page);
+//	}
+//	
+//	@Override
+//	public List<BoardVO> listCriteria(Criteria cri) throws Exception{
+//		return session.selectList(namespace+".listCriteria", cri);
+//	}
+//	
+//	@Override
+//	public int countPaging(Criteria cri) throws Exception {
+//		return session.selectOne(namespace+".countPaging", cri);
+//	}
 	
 	@Override
 	public List<BoardVO> listSearch(SearchCriteria cri) throws Exception{
@@ -129,25 +129,20 @@ public class BoardDAOImpl implements BoardDAO{
 	
 	
 	@Override
-	public void updateLikeCnt(Integer bno, int amount) throws Exception {
-		
-		Map<String, Object> paramMap = new HashMap<String, Object>();
-		
-		paramMap.put("bno", bno);
-		paramMap.put("amount", amount);
-		
-		session.update(namespace + ".updateLikeCnt", paramMap);
+	public void updateLikeCnt(Integer bno) throws Exception {
+		session.update(namespace + ".updateLikeCnt", bno);
 	}
+	
 	
 	//무한 스크롤
-	@Override
-	public List<BoardVO> infiniteScrollDown(Integer bnoToStart) throws Exception {
-		return session.selectList(namespace+".infiniteScrollDown", bnoToStart);
-	}
-	
-	@Override
-	public List<BoardVO> infiniteScrollUp(Integer bnoToStart) throws Exception {
-		return session.selectList(namespace+".infiniteScrollUp", bnoToStart);
-	}
+//	@Override
+//	public List<BoardVO> infiniteScrollDown(Integer bnoToStart) throws Exception {
+//		return session.selectList(namespace+".infiniteScrollDown", bnoToStart);
+//	}
+//	
+//	@Override
+//	public List<BoardVO> infiniteScrollUp(Integer bnoToStart) throws Exception {
+//		return session.selectList(namespace+".infiniteScrollUp", bnoToStart);
+//	}
 
 }

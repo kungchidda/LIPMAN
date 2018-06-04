@@ -15,8 +15,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<insert id="create">
-		insert into tbl_reply (bno, replytext, replyer)
-		values (#{bno}, #{replytext}, #{replyer})
+		insert into tbl_reply (bno, replytext, uid, uname)
+		values (#{bno}, #{replytext}, #{uid}, #{uname})
 	</insert>
 
 	<update id="update">
@@ -47,6 +47,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select bno from tbl_reply where rno = #{rno}
 	</select>
 
+	<update id="updateReplyLikeCnt">
+		update tbl_reply set 
+		replylikecnt = (select count(*) from tbl_replylike where rno = #{rno} and rlpo = '1'),
+		replydislikecnt =	(select count(*) from tbl_replylike where rno = #{rno} and rlpo = '-1')
+		where rno = #{rno}
+	</update>
 
 
 </mapper>

@@ -5,35 +5,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MANIFUL</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>LIPMAN</title>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-<!-- Custom styles for this template -->
-<!-- <link href="/resources/css/layout.css" rel="stylesheet"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-
 <link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/default.css" />
 <link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/component.css" />
 <script src="/resources/ThumbnailGridExpandingPreview/js/modernizr.custom.js"></script>
-		
+
+<link rel="stylesheet" type="text/css" href="/resources/css/banner/banner.css" />
+
+ 
 </head>
 <body>
 
-	<div class="">
+
+<!-- Container element -->
+	<div class="container">
+		<section class="parallax">
+			<select name="searchType" >
+
+				<option value="n"
+					<c:out value="${cri.searchType == null?'selected':''}"/>>
+					---</option>
+
+				<option value="t"
+					<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
+					Title</option>
+
+
+				<option value="c"
+					<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
+					Content</option>
+
+				<option value="w"
+					<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
+					Writer</option>
+
+				<option value="tc"
+					<c:out value="${cri.searchType eq 'tc'?'selected':''}"/>>
+					Title OR Content</option>
+
+				<option value="cw"
+					<c:out value="${cri.searchType eq 'cw'?'selected':''}"/>>
+					Content OR Writer</option>
+
+				<option value="tcw"
+					<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
+					Title OR Content OR Writer</option>
+
+			</select> <input type="text" name='keyword' id="keywordInput"
+				value='${cri.keyword}'>
+			<button class="btn btn-lg btn-primary" id='searchBtn'>Search</button>
+			<button class="btn btn-lg btn-danger" id='newBtn'>New Board</button>
 			
-			<div class="main">
+			<!-- <h1 style="text-align: center;color:white;">크레에이티브 작품</h1> -->
+			<!-- <h1 style="text-align: center;color:white;">전시 및 탐색</h1> -->
+			
+		</section>
+<!-- 				<ul id="og-grid" class="og-grid rf-content--projects"> -->
 				<ul id="og-grid" class="og-grid">
 					<c:forEach items="${list}" var="boardVO">
 						<li>
-							<a href="/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}'>${boardVO.title}" data-largesrc="/displayFile?fileName=${boardVO.fullName}" data-title="Azuki bean" data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
-								<img src="/displayFile?fileName=${boardVO.fullName}" />
-							</a>
+								<a href="/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}" data-largesrc="/displayFile?fileName=${boardVO.fullName}" data-title="${boardVO.title}"
+								 onclick="getSubtitle(${boardVO.bno});" data-description="${boardVO.uname}">
+									<img class="thumbnail" src="/displayFile?fileName=${boardVO.fullName}" />
+									<h3>${boardVO.title}</h3>
+									<h3>${boardVO.uname}</h3>
+									<div>${boardVO.subtitle}</div>
+									<div><i class="fa fa-thumbs-up" style="color:red;"></i> : ${boardVO.likecnt} / <i class="fa fa-thumbs-down"></i> : ${boardVO.unlikecnt}</div>
+									<div>subscribe</div>
+									<div>share</div>
+								</a>
 						</li>
+						
 					</c:forEach>
 				</ul>
-			</div>
-			
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="/resources/ThumbnailGridExpandingPreview/js/grid.js"></script>
@@ -46,82 +94,91 @@
 
 	<%-- <%@ include file="/WEB-INF/views/include/footer.html"%> --%>
 	
+	<script id="template" type="text/x-handlebars-template">
+		{{#each .}}
+			<div style="height:50px;" class="subtitleLi" data-sno={{sno}}>
+					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>{{subtitle}}</a>
+			</div>
+		{{/each}}
+	</script>
 	
-	<script>
-								function getSubtitle(bno){
-									console.log("click getSubtitle start getPage");
-									getPage("/subtitles/"+bno+"/1");
-								};	
-								
-								
-								//$(document).ready(function() {
-									var formObj = $("form[role='form']");
-						
-									//console.log(formObj);
-									
-									
-									$(".pagination").on("click", "li a", function(event){
-										event.preventDefault();
-										subtitlePage = $(this).attr("href");
-										getPage("/subtitles/"+bno+"/"+subtitlePage);
-										
-									});
-									
-								//});
-								
-								
-								Handlebars.registerHelper("prettifyDate", function(timeValue){
-										var dateObj = new Date(timeValue);
-										var year = dateObj.getFullYear();
-										var month = dateObj.getMonth() + 1;
-										var date = dateObj.getDate();
-										return year+"/"+month+"/"+date;
-									});
-									
-									var printData = function (subtitleArr, target, templateObject){
-										var template = Handlebars.compile(templateObject.html());
-										
-										var html = template(subtitleArr);
-										$(".subtitleLi").remove();
-										target.after(html);
-									}
-									//var bno = ${boardVO.bno};
-									//var replyPage = 1;
-									
-									function getPage(pageInfo){
-										console.log("start getPage");
-										console.log("pageInfo = " +pageInfo);
+	<script> //subtitle print
+	var formObj = $("form[role='form']");
 
-										$.getJSON(pageInfo,function(data){
-											printData(data.list, $(".subtitlesDiv"), $('#template'));
-											printPaging(data.pageMaker, $(".pagination"));
-											
-											$(".subtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
-											
-										});
-										
-									}
-									var printPaging = function(pageMaker, target){
-										var str = "";
-										
-										if(pageMaker.prev){
-											str += "<li><a href='"+(pageMaker.startPage-1)+"'> << </a></li>";
-										}
-										
-										for(var i=pageMaker.startPage, len= pageMaker.endPage; i <= len; i++){
-											var strClass = pageMaker.cri.page == i?'class=active':'';
-											str += "<li class='page-item' "+strClass+"><a class='page-link' href='"+i+"'>"+i+"</a></li>";
-										}
-										
-										if(pageMaker.next){
-											str += "<li><a href='"+(pageMaker.endPage+1)+"'> >> </a></li>";
-										}
-										
-										target.html(str);
-									}
-								
-					
-								</script>
+	function getSubtitle(bno){
+		console.log("click getSubtitle start getPage");
+		getPage("/subtitles/"+bno+"/5/1");
+	};	
+	
+	Handlebars.registerHelper("prettifyDate", function(timeValue){
+			var dateObj = new Date(timeValue);
+			var year = dateObj.getFullYear();
+			var month = dateObj.getMonth() + 1;
+			var date = dateObj.getDate();
+			return year+"/"+month+"/"+date;
+	});
+	
+
+	
+	
+	$(".pagination").on("click", "li a", function(event){
+		event.preventDefault();
+		subtitlePage = $(this).attr("href");
+		getPage("/subtitles/"+bno+"/5/"+subtitlePage);
+		
+	});
+	
+	
+		
+	var printData = function (subtitleArr, target, templateObject){
+		console.log("start printData");
+		var template = Handlebars.compile(templateObject.html());
+		
+		var html = template(subtitleArr);
+		target.after(html);
+	}
+		
+		
+	function getPage(pageInfo){
+		console.log("start getPage");
+		
+		//$(".pagination").remove();
+		$(".subtitleLi").remove();
+		$.getJSON(pageInfo,function(data){
+			printData(data.list, $(".subtitlesDiv"), $('#template'));
+			printPaging(data.pageMaker, $(".pagination"));
+			console.log("start subtitlecntSmall");
+			$(".subtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
+			
+		});
+		
+	}
+	
+	var printPaging = function(pageMaker, target){
+		console.log("start printPaging");
+		var str = "";
+		if(pageMaker.endPage != '1'){
+		if(pageMaker.prev){
+			str += "<li><a href='"+(pageMaker.startPage-1)+"'> << </a></li>";
+		}
+		
+		for(var i=pageMaker.startPage, len= pageMaker.endPage; i <= len; i++){
+			var strClass = pageMaker.cri.page == i?'class=active':'';
+			str += "<li class='page-item' "+strClass+"><a class='page-link' href='"+i+"'>"+i+"</a></li>";
+		}
+		
+		if(pageMaker.next){
+			str += "<li><a href='"+(pageMaker.endPage+1)+"'> >> </a></li>";
+		}
+
+		}
+		target.html(str);
+				
+		
+		
+	}
+
+	</script>
 	
 	<script>
 		var result = '${msg}';
@@ -168,7 +225,7 @@
 				var easeEffect = 'easeInQuint';
 			
 				var diff = $(document).height() - $(window).height() ;
-				console.log($(window).scrollTop() + "==" + diff );
+				//console.log($(window).scrollTop() + "==" + diff );
 				//현재 스크롤의 top 좌표가 == (게시글을 불러온 화면 height - 윈도우창의 height) 되는 순간
 				if ($(window).scrollTop() == diff ) {
 					//현재 페이지 보다 ++

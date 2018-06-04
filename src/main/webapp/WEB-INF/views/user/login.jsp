@@ -19,9 +19,8 @@
 		</div>
 
 		<div class="form-group has-feedback">
-			<input type="password" name="upw" class="form-control"
-				placeholder="Password" required /> <span
-				class="glyphicon glyphicon-lock form-control-feddback"></span>
+			<input type="password" name="upw" class="form-control" placeholder="Password" required />
+			<span class="glyphicon glyphicon-lock form-control-feddback"></span>
 		</div>
 
 		<div class="checkbox">

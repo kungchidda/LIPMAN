@@ -8,7 +8,8 @@ public @Data class SubtitleVO {
 	
 	private Integer sno;
 	private Integer bno;
-	private String Subtitle;
+	private String subtitle;
 	private Date updatedate;
+	private String uid;
 
 }
