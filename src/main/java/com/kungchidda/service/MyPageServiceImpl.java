@@ -29,7 +29,7 @@ public class MyPageServiceImpl implements MyPageService{
 				dao.addAttach(fileName);
 			}
 		}
-		dao.add(myPage);
+		//dao.add(myPage);
 	}
 	
 

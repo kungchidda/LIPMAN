@@ -5,7 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.kungchidda.mappers.subtitleMapper">
 	<select id="listPage" resultType="SubtitleVO">
-		select *
+		select 
+		sno, bno, title, subtitle, uid, (select tno from tbl_title where title = (select title from tbl_board where bno = #{bno}) and uid =  (select uid from tbl_board where bno = #{bno})) as tno
 		from tbl_subtitle
 		where title = (SELECT title FROM tbl_board where bno=#{bno})
 		and

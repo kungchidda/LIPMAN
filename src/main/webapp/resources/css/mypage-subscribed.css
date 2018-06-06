@@ -1,0 +1,77 @@
+/*subscribed*/
+.subscribed {
+    display: grid;
+    grid-template-columns: repeat(6, 200px);
+    grid-template-areas: 
+        "a b c d e f"
+        "g h i j . .";
+    justify-content: center;
+    align-content: center;
+    grid-gap: 10px;
+    padding-top: 30px;
+}
+
+.subscribed img {
+    width: 40px;
+    border-radius: 3px;
+    align-self: center;
+}
+
+.subscribed span {
+    font-size: 1em;
+    vertical-align: 80%;
+    padding: 10px;
+}
+
+.subscribed a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.subscribed .user-01, .user-02, .user-03, .user-04, .user-05, .user-06, .user-07, .user-08, .user-09, .user-10, {
+    align-self: center;
+    padding: 5px;
+    background-color: red;
+}
+
+.subscribed .user-01 {
+    grid-area: a;
+}
+
+.subscribed .user-02 {
+    grid-area: b;
+}
+
+.subscribed .user-03 {
+    grid-area: c;
+}
+
+.subscribed .user-04 {
+    grid-area: d;
+}
+
+.subscribed .user-05 {
+    grid-area: e;
+}
+
+.subscribed .user-06 {
+    grid-area: f;
+}
+
+.subscribed .user-07 {
+    grid-area: g;
+}
+
+.subscribed .user-08 {
+    grid-area: h;
+}
+
+.subscribed .user-09 {
+    grid-area: i;
+}
+
+.subscribed .user-10 {
+    grid-area: j;
+}
+
+

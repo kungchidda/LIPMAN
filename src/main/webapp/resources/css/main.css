@@ -1,0 +1,17 @@
+.banner {
+    height: 385px;
+    width: 100%;
+    background: no-repeat url('../images/wallpaper-02.jpg') scroll;
+    background-size: cover;
+    text-align: center;
+}
+
+.banner p {
+    font-family: 'Righteous', cursive;
+    font-size: 100px;
+    font-weight: bold;
+    color: white;
+    padding-top: 70px;
+}
+
+

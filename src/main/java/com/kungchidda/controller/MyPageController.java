@@ -12,7 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.kungchidda.domain.MyPageVO;
 import com.kungchidda.domain.PageMaker;
 import com.kungchidda.domain.SearchCriteria;
 import com.kungchidda.domain.UserVO;
@@ -31,24 +33,6 @@ public class MyPageController {
 	@Inject
 	private MyPageService service;
 	
-//	@RequestMapping(value="/home/{uno}", method = RequestMethod.GET)
-//	public void home(@ModelAttribute("cri") SearchCriteria cri, Model model, @PathVariable("uno") Integer uno) throws Exception{
-//			
-//			logger.info("/mypage/home/uno GET start " + uno);
-//			logger.info("Request /mypage/home....................");
-//			logger.info(cri.toString());
-//			
-//			model.addAttribute("list", service.listSearchCriteria(uno, cri));
-//			PageMaker pageMaker = new PageMaker();
-//			
-//			pageMaker.setCri(cri);
-//			
-//			pageMaker.setTotalCount(service.listSearchCount(cri));
-//			
-//			model.addAttribute("pageMaker", pageMaker);
-////			model.addAttribute("uno", uno);
-//			
-//	}
 	
 	@RequestMapping(value="/home", method = RequestMethod.GET)
 	public void home(HttpServletRequest request, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
@@ -59,7 +43,6 @@ public class MyPageController {
 
 			HttpSession session = request.getSession();
 			UserVO vo = (UserVO)session.getAttribute("login");
-//			String uid = (String)session.getAttribute("login.uid");
 			String uid = vo.getUid();
 			logger.info("vo.uid = " + vo.getUid());
 			logger.info("uid = " + uid);
@@ -72,7 +55,6 @@ public class MyPageController {
 			pageMaker.setTotalCount(service.listSearchCount(cri));
 			
 			model.addAttribute("pageMaker", pageMaker);
-//			model.addAttribute("uno", uno);
 			
 	}
 	@RequestMapping(value="/subscribed", method = RequestMethod.GET)
@@ -84,7 +66,6 @@ public class MyPageController {
 
 			HttpSession session = request.getSession();
 			UserVO vo = (UserVO)session.getAttribute("login");
-//			String uid = (String)session.getAttribute("login.uid");
 			String uid = vo.getUid();
 			logger.info("vo.uid = " + vo.getUid());
 			logger.info("uid = " + uid);
@@ -97,7 +78,23 @@ public class MyPageController {
 			pageMaker.setTotalCount(service.listSearchCount(cri));
 			
 			model.addAttribute("pageMaker", pageMaker);
-//			model.addAttribute("uno", uno);
 			
+	}
+	
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public void registerGET(MyPageVO title, Model model) throws Exception {
+		logger.info("register get ..........");
+	}
+
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public String registPOST(MyPageVO title, RedirectAttributes rttr) throws Exception {
+		logger.info("regist post ..........");
+		logger.info(title.toString());
+
+		service.regist(title);
+
+		rttr.addFlashAttribute("msg", "SUCCESS");
+
+		return "redirect:/mypage/home";
 	}
 }

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +17,14 @@
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script type="text/javascript" src="/resources/js/upload.js"></script>
+
+<link href="/resources/css/contents.css" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/default.css" />
+<link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/component.css" />
+<script src="/resources/ThumbnailGridExpandingPreview/js/modernizr.custom.js"></script>
+
+
 <style type="text/css">
 	.popup {position : absolute;}
 	.back {background-color : gray; opacity : 0.5; width : 100%; height : 300%; overflow : hidden; z-index:1101;}
@@ -24,34 +34,52 @@
 
 </head>
 <body>
-	
 	<form role="form" action="modifyPage" method="post">
 		<input type='hidden' name='bno' value="${boardVO.bno}">
 		<!-- <input type='hidden' name='page' value="${cri.page}"> --> <!-- 무한스크롤 적용을 위한 주석처리 무조건 1페이지로 이동 -->
 		<!-- <input type='hidden' name='perPageNum' value="${cri.perPageNum}"> --> <!-- 무한스크롤 적용을 위한 주석처리 무조건 1페이지로 이동 -->
 		<input type='hidden' name='searchType' value="${cri.searchType}">
 		<input type='hidden' name='keyword' value="${cri.keyword}">
+		<input type='hidden' name='title' class="form-control" value="${boardVO.title}" readonly="readonly">
+		<input type='hidden' name='subtitle' class="form-control" value="${boardVO.subtitle}" readonly="readonly">
+		<input type='hidden' name="uname" class="form-control" value="${boardVO.uname}" readonly="readonly">
 	</form>
-	<div class="box-body">
-		<div class="form-group">
-			<label for="exampleInputEmail1">Title</label> <input type="text" name='title' class="form-control" value="${boardVO.title}" readonly="readonly">
-			<label for="exampleInputEmail1">Subtitle</label> <input type="text" name='subtitle' class="form-control" value="${boardVO.subtitle}" readonly="readonly">
-		</div>
-		<div class="form-group">
-			<label for="exampleInputEmail1">Writer</label> <input type="text" name="uname" class="form-control" value="${boardVO.uname}" readonly="readonly">
-		</div>
-		<div class="form-group">
-			<label for="exampleInputPassword1">Content</label>
-			<hr>
-			${boardVO.content}
-			<hr>
-		</div>
-	</div>
-	<!-- <div class='popup back' style="display:none;"></div> -->
-	<!-- <div id="popup_front" class='popup front' style="display:none;"> -->
-		<!-- <img id="popup_img"> -->
-	<!-- </div> -->
-	<ul class="mailbox-attachments clearfix uploadedList"></ul>
+
+	<!--contents-->
+    <div class="contents">
+        <div class="comic">
+            ${boardVO.content}
+        </div>
+    </div>
+    
+    <!--thumb-->
+    <div class="evaluate ">
+        <div class="evaluate-pencil">
+            <img src="/resources/png/pencil-g.png" id='likeAddBtn'>
+            <img src="/resources/png/pencil.png" id='likeDelBtn'>
+        </div>
+        <div class="evaluate-no-1 likesDiv">
+        </div>
+        <div class="evaluate-eraser"  >
+            <img src="/resources/png/eraser-g.png" id='unlikeAddBtn'>
+            <img src="/resources/png/eraser.png" id='unlikeDelBtn'>
+        </div>
+        <div class="evaluate-no-2 unlikesDiv">
+        </div>
+        
+        
+    </div>
+
+    <hr>
+    
+	
+
+	
+	
+	
+	<!-- 첨부파일 목록 및 썸네일 -->
+	<!-- <ul class="mailbox-attachments clearfix uploadedList"></ul> -->
+	
 	<script id="templateAttach" type="text/x-handlebars-template">
 		<li data-src='{{fullName}}'>
 			<span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
@@ -61,35 +89,132 @@
 			</div>
 		</li>
 	</script>
+	
+	
+    <hr>
+	<!--writer-->
+    <div class="writer">
+        <div class="writer-image">
+            <a href="mypage-home.html"><img src="/resources/png/account.png"></a>
+        </div>
+        <div class="writer-name">
+            <a href="mypage-home.html">${boardVO.uname}</a>
+        </div>
+        <div class="writer-information">
+            <span><img src="/resources/png/comic.png">
+            	<fmt:formatDate value="${boardVO.regdate}" pattern="yyyy-MM-dd HH:mm:ss "/>
+            </span> 
+            <span><img src="/resources/png/view.png"></span>${boardVO.viewcnt}
+            <a href="#"><span><img src="/resources/png/copy-link.png"></span>copy link</a>
+            <!-- <span><button class="subscribe">subscribe</button></span> -->
+            <span><button type="submit" class="subscribe" id="subscribeBtn">SUBSCRIBE</button>
+			<button type="submit" class="subscribed" id="unsubscribeBtn">SUBSCRIBED</button></span>
+        </div>
+        <div class="writer-comment">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam impedit, cumque aut incidunt nam alias et quod, placeat molestias quis, perspiciatis quia rerum repellat earum dolor beatae commodi cupiditate ipsam illum, deleniti. Doloribus optio ea similique expedita, sequi nihil nulla iusto .
+        </div>
+    </div>
+
+
+<hr>
+
+				
+				
+					
+	
+	<hr>
+	<!--next comic-->
+    <div class="strapline">
+        <h4>Comic List</h4>
+    </div>
+
+
+	
+
+
+
+    <div class="next-comic">
+        <div class="main-comic">
+            <a href="#">
+            	<img src="/displayFile?fileName=${boardVO.fullName}">
+            </a><br>
+        </div>
+        <div class="main-comic-title">
+            <a href="#">${boardVO.title}</a>
+        </div>
+        <ul class="comic-list-left">
+                <li>
+                <div class="thissubtitlesDiv">
+                <p class="bg-green">Subtitle List
+                        <small class="thissubtitlecntSmall"></small>
+                </div>
+                </li>
+        </ul>
+        <ul id="pagination" class="pagination"></ul>
+    </div>
+    <hr>
+    
+
+    <!--another comic-->
+    <div class="strapline">
+        <h4>Another Comic</h4>
+    </div>
+
+		<ul id="og-grid" class="og-grid cards">
+			<c:forEach items="${list}" var="boardVO">
+				<li>
+						<a href="/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}" data-largesrc="/displayFile?fileName=${boardVO.fullName}" data-title="${boardVO.title}"
+						 onclick="getSubtitle(${boardVO.bno});" data-description="${boardVO.uname}">
+							<img class="thumbnail" src="/displayFile?fileName=${boardVO.fullName}" />
+							
+							<div class="title">
+              						${boardVO.title}
+          						</div>
+          						
+				            <div class="subtitle">
+				                ${boardVO.subtitle}
+				            </div>
+							
+							<div class="line"><img src="/resources/svg/line.svg"></div>
+							<div class="thumbnail-thumb">
+								<img src="/resources/png/pencil.png"><span>${boardVO.likecnt}</span>
+								<img src="/resources/png/eraser.png"><span>${boardVO.unlikecnt}</span>
+							</div>
+							<div class="line"><img src="/resources/svg/line.svg"></div>
+							
+							<div class="thumbnail-writer">
+				                <img src="/resources/png/account.png">
+				                <span>${boardVO.uname}</span>
+				            </div>
+						</a>
+				</li>
+				
+			</c:forEach>
+		</ul>
+
+    <hr>
 
 	<div class="row">
 		<div class="col-md-12">
 			<div class="box box-success">
-				<div class="box-header">
-					<h3 class="box-title">ADD NEW REPLY</h3>
-				</div>
+			    <!--comment-->
+			    <div class="strapline">
+			        <h4 id='replycntSmall'>Comment</h4>
+			    </div>
 				
 				<c:if test="${not empty login}">
-					<div class="box-body">
-						<label for="exampleInputEmail1">Writer</label>
+					<div class="comment">
 						<input type="hidden" id="newReplyUid" value="${login.uid}" readonly="readonly">
-						<input class="form-control" type="text" placeholder="USER ID" id="newReplyUname" value="${login.uname}" readonly="readonly">
-						<label for="exampleInputEmail1">Reply Text</label>
-						<input class="form-control" type="text" placeholder="REPLY TEXT" id="newReplyText">
+						<input type="hidden" placeholder="USER ID" id="newReplyUname" value="${login.uname}" readonly="readonly">
+						
+						<textarea class="comment-text" id="newReplyText" placeholder="Comment"></textarea>
+            			<button type="submit" class="comment-button" id="replyAddBtn"><img src="/resources/png/comic.png"></button>
+            			
+            
 					</div>
 					
-					
-					<div class="box-footer">
-						<button type="submit" class="btn btn-primary" id="replyAddBtn">ADD REPLY</button>
-						<!-- <button type="submit" id="replyAddBtn">ADD REPLY</button> -->
-					</div>
 				</c:if>
-				<div class="likesDiv">
-					<i class='fa fa-thumbs-up' style='color:gray;' id='likeAddBtn'></i>
-					<i class='fa fa-thumbs-up' style='color:red;' id='likeDelBtn'></i>
-					<i class='fa fa-thumbs-down' style='color:gray;' id='unlikeAddBtn'></i>
-					<i class='fa fa-thumbs-down' style='color:red;' id='unlikeDelBtn'></i>
-				</div>
+				
 					
 				<c:if test="${empty login}">
 					<div class="box-body">
@@ -106,34 +231,11 @@
 	<ul class="timeline">
 		<!-- timeline time label -->
 		<li class="time-label" id="repliesDiv">
-			<span class="bg-green">Replies List <small id='replycntSmall'> [ ${boardVO.replycnt} ]</small></span>
 		</li>
 	</ul>
 	<div class='text-center'>
 		<ul id="pagination" class="pagination justify-content-center"></ul>
 	</div>
-	
-	<!-- Modal -->
-	<!-- <div id="modifyModal" class="" role="dialog">
-		<div class="modal-dialog">
-			Modal content
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title"></h4>
-				</div>
-				<div class="modal-body" data-rno>
-					<p><input type="text" id="replytext" class="form-control"></p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-info" id="replyModBtn">Modify</button>
-					<button type="button" class="btn btn-danger" id="replyDelBtn">DELETE</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-		
-	</div> -->
 	
 	
 	<div class="box-footer">
@@ -147,50 +249,48 @@
 	</div>
 	<!-- /.box-body -->
 
+ 	<!--another comment-->
 	<script id="template" type="text/x-handlebars-template">
 		{{#each .}}
 		<li class="replyLi" data-rno={{rno}}>
-			<div class="timeline-item">
+    		<div class="another-comment">
+				<div class="another-user-image">
+            		<a href="/mypage/home"><img src="/resources/png/account.png"></a>
+        		</div>
+				<div class="another-user-name">
+					<h4 class="modal-title" style="display:none">{{rno}}</h4>
+					<a href="mypage-home.html">{{uname}}</a>
+					<span class="another-user-time">{{prettifyDate regdate}}</span>
+				</div>
 
-					<div id="modifyModal" class="" role="dialog">
-						<div class="modal-dialog">
-							<!-- Modal content -->
-							<div class="modal-content">
-								<div class="modal-header">
-									<h4 class="modal-title">{{rno}}</h4>
-									<span class="time">
-										<i class="fa fa-clock-o"></i>{{prettifyDate regdate}}
-									</span>
-								</div>
-								<div class="modal-body">
-									<p><input type="text" id="replytext" class="form-control" value="{{replytext}}" readonly="readonly"></p>
-								</div>
-								<div class="modal-footer" data-rno={{rno}}>
-					{{#eqUid uid}}
-									<button type="button" class="btn btn-info replyModBtn" data-target="#modifyModal">Modify</button>
-									<button type="button" class="btn btn-info replySubmitBtn" style="display:none">SUBMIT</button>
-									<button type="button" class="btn btn-danger" id="replyDelBtn">DELETE</button>
-									<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-					{{/eqUid}}
-								</div>
-								<div class="replylikesDiv" data-rno={{rno}}>
-									<i class="fa fa-thumbs-up replylikeAddBtn" style="color:gray;" id="replyLikeAddBtn"></i>
-									<i class="fa fa-thumbs-up replylikeDelBtn" style="color:red;" id="replyLikeDelBtn"></i>
-									<i class="fa fa-thumbs-down replydislikeAddBtn" style="color:gray;" id="replyDislikeAddBtn"></i>
-									<i class="fa fa-thumbs-down replydislikeDelBtn" style="color:red;" id="replyDislikeDelBtn"></i>
-								</div>
-								<div id="replylikeLi">
-									{{replylikecnt}} / {{replydislikecnt}}
-								</div>
-							</div>
-						</div>
-					</div>
+				<div class="another-comment-modify modal-footer " data-rno={{rno}}>
+{{#eqUid uid}}
+            		<img class="replyModBtn" src="/resources/png/modify.png">
+					<img class="replySubmitBtn" style="display:none" src="/resources/png/modify.png">
+            		<img class="replyDelBtn" src="/resources/png/delete.png">
+	{{/eqUid}}
+        		</div>
 
+				<div class="modal-body another-user-comment comment">
+					<p><textarea class="comment-text" id="replytext" readonly>{{replytext}}</textarea></p>
+				</div>
 
+                <div class="replylikesDiv another-comment-thumb" data-rno={{rno}}>
+                    <img src="/resources/png/pencil-g.png" class="replylike replylikeAddBtn" id="replyLikeAddBtn">
+                    <img src="/resources/png/pencil.png" class="replylike replylikeDelBtn" id="replyLikeDelBtn">
+					<span id="replylikeLi">
+                    	{{replylikecnt}}
+                	</span>
+                    <img src="/resources/png/eraser-g.png" class="replydislike replydislikeAddBtn" id="replyDislikeAddBtn">
+                    <img src="/resources/png/eraser.png" class="replydislike replydislikeDelBtn" id="replyDislikeDelBtn">
+					<span id="replydislikeLi">
+                    	{{replydislikecnt}}
+                	</span>
+                </div>
 
-
-
-				
+				<div class="another-comment-more">
+            		<a href="#">More comments</a>
+        		</div>
 			</div>
 		</li>
 		{{/each}}
@@ -199,16 +299,32 @@
 	<script id="like_template" type="text/x-handlebars-template">
 		{{#each .}}
 			<div id="likeLi">
-				{{likecnt}} / {{unlikecnt}}
+				{{likecnt}}
 			</div>
 		{{/each}}
 	</script>
 	
+	<script id="unlike_template" type="text/x-handlebars-template">
+		{{#each .}}
+			<div id="unlikeLi">
+				{{unlikecnt}}
+			</div>
+		{{/each}}
+	</script>
+	
+	
 	<script id="replylike_template" type="text/x-handlebars-template">
 		{{#each .}}
-			<div id="replylikeLi">
-				{{replylikecnt}} / {{replydislikecnt}}
-			</div>
+				<span id="replylikeLi">
+                   	{{replylikecnt}}
+               	</span>
+		{{/each}}
+	</script>
+	<script id="replydislike_template" type="text/x-handlebars-template">
+		{{#each .}}
+				<span id="replydislikeLi">
+                   	{{replydislikecnt}}
+               	</span>
 		{{/each}}
 	</script>
 	
@@ -218,6 +334,9 @@
 			
             var bno = ${boardVO.bno};
 			var replyPage = 1;
+			getThisSubtitlePage("/subtitles/"+bno+"/5/1");
+			
+			
 			
 			getPage("/replies/"+bno+"/"+replyPage);
 			getLikeList();
@@ -232,8 +351,12 @@
 				var year = dateObj.getFullYear();
 				var month = dateObj.getMonth() + 1;
 				var date = dateObj.getDate();
-				return year+"/"+month+"/"+date;
+				var hours = dateObj.getHours();
+				var minutes = dateObj.getMinutes();
+				var seconds = dateObj.getSeconds();
+				return year + "/" + month + "/" + date + " " + hours + ":" + minutes + ":" + seconds;
 			});
+			
 			
 			//로그인한 사용자가 작성한 본인의 댓글만 수정이 가능
 			/* Handlebars.registerHelper("eqReplyer", function(replyer, block){ */
@@ -280,7 +403,7 @@
 			
 			var formObj = $("form[role='form']");
 
-			//console.log(formObj);
+			console.log(formObj);
 			
 			
 			$("#modifyPageBtn").on("click", function() {
@@ -380,27 +503,6 @@
 			
 			
 			
-			/* 
-				//이미지 팝업 삭제
-				$(".uploadedList").on("click", ".mailbox-attachment-info a", function(event){
-				var fileLink = $(this).attr("href");
-				
-				if(checkImageType(fileLink)){
-					event.preventDefault();
-					
-					var imgTag = $("#popup_img");
-					imgTag.attr("src", fileLink);
-					
-					console.log(imgTag.attr("src"));
-					
-					$(".popup").show('slow');
-					imgTag.addClass("show");
-				}
-			}); */
-			
-			/* $("#popup_img").on("click", function(){
-				$(".popup").hide('slow');
-			}); */
 			
 			
 			/**************************************************************************************/
@@ -686,10 +788,7 @@
 			
 			$(".replylikeAddBtn").on("click",function(){
 				console.log("replylikeAddBtn clicked");
-				//var bno = ${boardVO.bno};
-				//var rno = 23;
 				var rno = $(this).parent().parent().find('.modal-footer').attr('data-rno');
-				//$(this).parent().parent().css('background-color', 'red');
 				console.log("rno = " + rno);
 				var uid = '${login.uid}';
 				var rlpo = '1';
@@ -707,16 +806,10 @@
 						console.log("result:" + result);
 						if(result=='SUCCESS'){
 							alert("등록 되었습니다.");
-							//$(this).parent().find("#replylikeAddBtn").hide();
-							//$("#replylikeDelBtn").show();
-							//$("#replydislikeAddBtn").show();
-							//$("#replydislikeDelBtn").hide();
-							//likeInfo();
 						}
 					}
 				});
 				replylikeInfo(rno, $(this));
-				//$(this).parent().css('background-color', 'red');
 				$(this).parent().find("#replyLikeAddBtn").hide();
 				$(this).parent().find("#replyLikeDelBtn").show();
 				$(this).parent().find("#replyDislikeAddBtn").show();
@@ -725,10 +818,6 @@
 			
 			$(".replylikeDelBtn").on("click", function(){
 				console.log("replylikeDelBtn clicked");
-				//var bno = ${boardVO.bno};
-				//var rno = 23;
-				//var rno = $(".modal-title").html();
-				//var rno = $(this).parents().attr('data-rno');
 				var rno = $(this).parent().parent().find('.modal-footer').attr('data-rno');
 				console.log("rno = " + rno);
 				var uid = '${login.uid}';
@@ -747,16 +836,10 @@
 						console.log("result : " + result);
 						if(result == 'SUCCESS'){
 							alert("삭제 되었습니다.");
-// 							$("#replylikeAddBtn").show();
-// 							$("#replylikeDelBtn").hide();
-// 							$("#replydislikeAddBtn").show();
-// 							$("#replydislikeDelBtn").hide();
-							//likeInfo();
 						}
 					}
 				});
 				replylikeInfo(rno, $(this));
-				//$(this).parent().css('background-color', 'red');
 				$(this).parent().find("#replyLikeAddBtn").show();
 				$(this).parent().find("#replyLikeDelBtn").hide();
 				$(this).parent().find("#replyDislikeAddBtn").show();
@@ -765,10 +848,6 @@
 			
 			$(".replydislikeAddBtn").on("click",function(){
 				console.log("replydislikeAddBtn clicked");
-				//var bno = ${boardVO.bno};
-				//var rno = 23;
-				//var rno = $(".modal-title").html();
-				//var rno = $(this).parents().attr('data-rno');
 				var rno = $(this).parent().parent().find('.modal-footer').attr('data-rno');
 				console.log("rno = " + rno);
 				var uid = '${login.uid}';
@@ -787,16 +866,10 @@
 						console.log("result:" + result);
 						if(result=='SUCCESS'){
 							alert("등록 되었습니다.");
-// 							$("#replylikeAddBtn").show();
-// 							$("#replylikeDelBtn").hide();
-// 							$("#replydislikeAddBtn").hide();
-// 							$("#replydislikeDelBtn").show();
-// 							likeInfo();
 						}
 					}
 				});
 				replylikeInfo(rno, $(this));
-				//$(this).parent().css('background-color', 'red');
 				$(this).parent().find("#replyLikeAddBtn").show();
 				$(this).parent().find("#replyLikeDelBtn").hide();
 				$(this).parent().find("#replyDislikeAddBtn").hide();
@@ -805,10 +878,6 @@
 			
 			$(".replydislikeDelBtn").on("click", function(){
 				console.log("replydislikeDelBtn clicked");
-				//var bno = ${boardVO.bno};
-				//var rno = 23;
-				//var rno = $(".modal-title").html();
-				//var rno = $(this).parents().attr('data-rno');
 				var rno = $(this).parent().parent().find('.modal-footer').attr('data-rno');
 				console.log("rno = " + rno);
 				var uid = '${login.uid}';
@@ -827,16 +896,10 @@
 						console.log("result : " + result);
 						if(result == 'SUCCESS'){
 							alert("삭제 되었습니다.");
-// 							$("#replylikeAddBtn").show();
-// 							$("#replylikeDelBtn").hide();
-// 							$("#replydislikeAddBtn").show();
-// 							$("#replydislikeDelBtn").hide();
-// 							likeInfo();
 						}
 					}
 				});
 				replylikeInfo(rno, $(this));
-				//$(this).parent().css('background-color', 'red');
 				$(this).parent().find("#replyLikeAddBtn").show();
 				$(this).parent().find("#replyLikeDelBtn").hide();
 				$(this).parent().find("#replyDislikeAddBtn").show();
@@ -844,9 +907,6 @@
 			});
             
             
-			/* $(".timeline").on("click", ".replyLi", function(event){ */
-			
-			/* $("#replyModBtn").on("click", ".replyLi", function(event){ */
 			$(".replyModBtn").on("click",function(){
 				console.log("#replyModBtn clicked");
 
@@ -880,7 +940,6 @@
 						console.log("result : " + result);
 						if(result=='SUCCESS'){
 							alert("수정 되었습니다.");
-							/* $("#modifyModal").modal('hide'); */
 							$('#replytext').attr("readonly", "readonly");
 					        $('#replyModBtn').show();
 					        $('#replySubmitBtn').hide();
@@ -893,12 +952,11 @@
 				
 			});
 			
-			$("#replyDelBtn").on("click", function(){
+			$(".replyDelBtn").on("click", function(){
 
-				//var rno = $(".modal-title").html();
 				var rno = $(this).parents().attr('data-rno');
-				//var replytext = $("#replytext").val();
 				var replytext = $(this).parent().parent().find('#replytext').val(); //사용안함
+				console.log("rno = " + rno);
 				$.ajax({
 					type : 'delete',
 					url : '/replies/'+rno,
@@ -910,7 +968,6 @@
 						console.log("result : " + result);
 						if(result == 'SUCCESS'){
 							alert("삭제 되었습니다.");
-							/* $("#modifyModal").modal('hide'); */
 							replyPage=1;
 							getPage("/replies/"+bno+"/"+replyPage);
 						}
@@ -921,8 +978,7 @@
             
             printPaging(data.pageMaker, $(".pagination"));
             
-            //$("#modifyModal").modal('hide');
-            $("#replycntSmall").html("[ " + data.pageMaker.totalCount +" ]");
+            $("#replycntSmall").html("Comment [ " + data.pageMaker.totalCount +" ]");
             
         });
 				
@@ -930,12 +986,17 @@
 
     function likeInfo(){
 		var bno = ${boardVO.bno}
-		var template = Handlebars.compile($('#like_template').html());
+		var template_like = Handlebars.compile($('#like_template').html());
+		var template_unlike = Handlebars.compile($('#unlike_template').html());
 		$.getJSON("/likes/info/"+bno,function(data){
 			$(data).each(function(){
-				var html = template(data);
+				var html_like = template_like(data);
+				var html_unlike = template_unlike(data);
 				$("#likeLi").remove();
-				$(".likesDiv").append(html);
+				$(".likesDiv").append(html_like);
+				
+				$("#unlikeLi").remove();
+				$(".unlikesDiv").append(html_unlike);
 			});
 		});	
 	}
@@ -945,23 +1006,34 @@
 		console.log("replylikeInfo start");
 		console.log("rno = " + rno);
 		
-		var template = Handlebars.compile($('#replylike_template').html());
 		
+		
+		var template_like = Handlebars.compile($('#replylike_template').html());
+		var template_dislike = Handlebars.compile($('#replydislike_template').html());
 		$.getJSON("/replylikes/info/"+rno,function(data){
 			$(data).each(function(){
-				var html = template(data);
-				console.log("html = " + html);
+				var html_like = template_like(data);
+				var html_dislike = template_dislike(data);
+				console.log("replylike_template html = " + html_like);
+				console.log("replydislike_template html = " + html_dislike);
+				
+				//object.parent().parent().find("#replylikeLi").remove();
 				object.parent().parent().find("#replylikeLi").remove();
-				object.parent().append(html); 
+				object.parent().children("#replyLikeDelBtn").after(html_like);
+				
+				//object.parent().parent().find("#replydislikeLi").remove();
+				object.parent().parent().find("#replydislikeLi").remove();
+				object.parent().children("#replyDislikeDelBtn").after(html_dislike);
+				
 				
 			});
 		});	
+		
 	}
     
     function getReplyLikeList(rno, object){
         console.log("getReplyLikeList start");
         console.log("rno = " + rno);
-        //var bno = ${boardVO.bno};
         var uid = '${login.uid}';
        	var result;
         $.ajax({
@@ -1004,11 +1076,140 @@
 	</script>
 	
 	
+	<script id="subtitle_template" type="text/x-handlebars-template">
+		{{#each .}}
+			<div style="height:50px;" class="subtitleLi" data-sno={{sno}}>
+					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>{{subtitle}}</a>
+			</div>
+		{{/each}}
+	</script>
+	
+	<script id="thissubtitle_template" type="text/x-handlebars-template">
+		{{#each .}}
+			<div style="height:50px;" class="thissubtitleLi" data-sno={{sno}}>
+					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>{{subtitle}}</a>
+			</div>
+		{{/each}}
+	</script>
+	
+	
+	<script> //subtitle print
+	var formObj = $("form[role='form']");
+
+	function getSubtitle(bno){
+		console.log("click getSubtitle start getPage");
+		getSubtitlePage("/subtitles/"+bno+"/5/1");
+	};	
+	
 	
 
+	
+	
+	$(".pagination").on("click", "li a", function(event){
+		event.preventDefault();
+		subtitlePage = $(this).attr("href");
+		getSubtitlePage("/subtitles/"+bno+"/5/"+subtitlePage);
+		
+	});
+	
+	
+		
+	var printData = function (subtitleArr, target, templateObject){
+		console.log("start printData");
+		var template = Handlebars.compile(templateObject.html());
+		
+		var html = template(subtitleArr);
+		target.after(html);
+	}
+		
+		
+	function getSubtitlePage(pageInfo){
+		console.log("start getSubtitlePage");
+		
+		//$(".pagination").remove();
+		$(".subtitleLi").remove();
+		$.getJSON(pageInfo,function(data){
+			printData(data.list, $(".subtitlesDiv"), $('#subtitle_template'));
+			printPaging(data.pageMaker, $(".pagination"));
+			console.log("start subtitlecntSmall");
+			$(".subtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
+		});
+		
+		
+	}
+	
+	
+	function getThisSubtitlePage(pageInfo){
+		console.log("start getSubtitlePage");
+		
+		//$(".pagination").remove();
+		$(".thissubtitleLi").remove();
+		$.getJSON(pageInfo,function(data){
+			printData(data.list, $(".thissubtitlesDiv"), $('#thissubtitle_template'));
+			printPaging(data.pageMaker, $(".pagination"));
+			console.log("start subtitlecntSmall");
+			$(".thissubtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
+		});
+		
+		
+	}
+	
+	
+	var printPaging = function(pageMaker, target){
+		console.log("start printPaging");
+		var str = "";
+		if(pageMaker.endPage != '1'){
+		if(pageMaker.prev){
+			str += "<li><a href='"+(pageMaker.startPage-1)+"'> << </a></li>";
+		}
+		
+		for(var i=pageMaker.startPage, len= pageMaker.endPage; i <= len; i++){
+			var strClass = pageMaker.cri.page == i?'class=active':'';
+			str += "<li class='page-item' "+strClass+"><a class='page-link' href='"+i+"'>"+i+"</a></li>";
+		}
+		
+		if(pageMaker.next){
+			str += "<li><a href='"+(pageMaker.endPage+1)+"'> >> </a></li>";
+		}
 
+		}
+		target.html(str);
+				
+		
+		
+	}
 
-	<%-- <%@ include file="/WEB-INF/views/include/footer.html"%> --%>
+	</script>
+	
+	<script>
+		var result = '${msg}';
 
+		if (result == 'SUCCESS') {
+			alert("처리가 완료되었습니다.");
+		}
+
+		$(document).ready(function() {
+			var formObj = $("form[role='form']");
+
+			console.log(formObj);
+
+			$(".btn-primary").on("click", function() {
+				self.location = "/board/register";
+			});
+		});
+	</script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="/resources/ThumbnailGridExpandingPreview/js/grid.js"></script>
+		<script>
+			$(function() {
+				Grid.init();
+			});
+		</script>
+	
+	
+	
+	
+	
 </body>
 </html>

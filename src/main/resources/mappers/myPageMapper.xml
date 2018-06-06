@@ -5,8 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.kungchidda.mappers.myPageMapper">
 	<insert id="create">
-		insert into tbl_board (title, subtitle, content, uid, uname)
-		values(#{title}, #{subtitle}, #{content}, #{uid}, #{uname} );
+		insert into tbl_title (title, uid)
+		values(#{title}, #{uid});
 	</insert>
 		
 	<insert id="add">
@@ -58,31 +58,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</sql>
 	
 	
-		<select id="listSearch" resultType="MyPageVO">
+	<select id="listSearch" resultType="MyPageVO">
 		<![CDATA[
 			select
-					a.bno, a.title, a.subtitle, a.uname, a.viewcnt, a.replycnt, a.likecnt, a.unlikecnt, a.regdate, IFNULL(b.fullName, '/sampleImage.jpg') as fullName
+					c.tno, a.bno, c.title, IFNULL(a.uname, (select uname from tbl_user where uid = #{uid})) as uname , a.viewcnt, a.replycnt, a.likecnt, a.unlikecnt, IFNULL(a.regdate, c.regdate) as regdate, IFNULL(b.fullName, '/sampleImage.jpg') as fullName
 			from
             tbl_board a
-            
-            left outer join
-            (SELECT  bno, max(fullName) as fullName from tbl_attach group by bno) b    
-			on b.bno = a.bno
             
             inner join 
 			(SELECT max(bno) as bno, title, subtitle, uname FROM tbl_board group by title, uname) x 
             on x.bno = a.bno and x.uname = a.uname
             
-            where a.bno > 0
+            right outer join
+            (SELECT tno, title, regdate, uid from tbl_title) c
+			on a.title = c.title and a.uid = c.uid
+                        
+            left outer join
+            (SELECT  tno, fullName from tbl_title_attach) b    
+			on b.tno = c.tno
+            
+            where c.tno > 0
             and 
-            uid = #{uid} 
+            c.uid = #{uid} 
 		]]>
 		<include refid="search"></include>
 		<![CDATA[
-			order by bno desc
+			order by tno desc
 			limit #{cri.pageStart}, #{cri.perPageNum}
 		]]>
 	</select>
+	
 	
 	<select id="listSubscribedSearch" resultType="MyPageVO">
 		<![CDATA[
@@ -132,23 +137,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<insert id="addAttach">
-	insert into tbl_attach(fullname, bno) values (#{fullName}, LAST_INSERT_ID())
+	insert into tbl_title_attach(fullname, tno) values (#{fullName}, LAST_INSERT_ID())
 	</insert>
 	
 	<select id="getAttach" resultType="string">
-	select fullname from tbl_attach where bno = #{bno} order by regdate
+	select fullname from tbl_title_attach where tno = #{tno} order by regdate
 	</select>
 	
 	<delete id="deleteAttach">
-		delete from tbl_attach where bno = #{bno}
+		delete from tbl_attach where tno = #{tno}
 	</delete>
 	
 	<insert id="replaceAttach">
-		insert into tbl_attach(fullname, bno) values (#{fullName}, #{bno})
+		insert into tbl_attach(fullname, tno) values (#{fullName}, #{tno})
 	</insert>
 	
 	<delete id="deleteReplyAll">
-		delete from tbl_reply where bno = #{bno}
+		delete from tbl_reply where tno = #{tno}
 	</delete>
 	
 	<update id="updateLikeCnt">

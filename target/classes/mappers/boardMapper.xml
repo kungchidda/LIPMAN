@@ -16,7 +16,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="read" resultType="com.kungchidda.domain.BoardVO">
 		select
-			bno, title, subtitle, content, uid, uname, regdate, viewcnt, replycnt, likecnt, unlikecnt 
+			bno, title, subtitle, content, uid, uname, regdate, viewcnt, replycnt, likecnt, unlikecnt, 
+	            (select fullName from tbl_title_attach where tno  = 
+					(select tno from tbl_title 
+						where title = (select title from tbl_board where bno = #{bno})
+							and uid = (select uid from tbl_board where bno = #{bno}))) as fullName
 		from
 			tbl_board
 		where bno = #{bno}

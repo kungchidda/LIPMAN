@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kungchidda.mappers.titleMapper">
+	<insert id="create">
+		insert into tbl_title (title, uid)
+		values(#{title}, #{uid});
+	</insert>
+		
+	<insert id="add">
+		insert into tbl_subtitle (bno, title, subtitle, uid)
+		values ((select max(bno) from tbl_board), #{title}, #{subtitle}, #{uid});
+	</insert>
+	
+	<select id="read" resultType="com.kungchidda.domain.TitleVO">
+		select
+			*
+		from
+			tbl_title
+		where tno = #{tno}
+	</select>
+	
+	<update id="update">
+		update tbl_board set title =#{title}, subtitle =#{subtitle}, content =#{content}, uname =#{uname}
+		where bno = #{bno}
+	</update>
+	
+	<delete id="delete">
+		delete from tbl_board where bno = #{bno}
+	</delete>
+	
+<!-- 	<select id="listAll" resultType="com.kungchidda.domain.BoardVO"> -->
+<!-- 		<![CDATA[ -->
+<!-- 			select -->
+<!-- 				bno, title, subtitle, content, uname, regdate, viewcnt -->
+<!-- 			from -->
+<!-- 				tbl_board -->
+<!-- 			where bno > 0 -->
+<!-- 			order by bno desc, regdate desc -->
+<!-- 			limit 0, 20; -->
+<!-- 			]]> -->
+<!-- 	</select> -->
+	
+<!-- 	<select id="listPage" resultType="com.kungchidda.domain.BoardVO"> -->
+<!-- 		<![CDATA[ -->
+<!-- 			select -->
+<!-- 				bno, title, subtitle, content, uname, regdate, viewcnt -->
+<!-- 			from -->
+<!-- 				tbl_board -->
+<!-- 			where bno > 0 -->
+<!-- 			order by bno desc, regdate desc -->
+<!-- 			limit #{page}, 20; -->
+<!-- 			]]> -->
+<!-- 	</select> -->
+
+<!-- 	<select id="listCriteria" resultType="com.kungchidda.domain.BoardVO"> -->
+<!-- 		<![CDATA[ -->
+<!-- 			select -->
+<!-- 				bno, title, subtitle, content, uname, regdate, viewcnt, replycnt -->
+<!-- 			from -->
+<!-- 				tbl_board -->
+<!-- 			where bno > 0 -->
+<!-- 			order by bno desc, regdate desc -->
+<!-- 			limit #{pageStart}, #{perPageNum}; -->
+<!-- 			]]> -->
+<!-- 	</select> -->
+	
+<!-- 	<select id="countPaging" resultType="int"> -->
+<!-- 		<![CDATA[ -->
+<!-- 			select -->
+<!-- 				count(bno) -->
+<!-- 			from -->
+<!-- 				tbl_board -->
+<!-- 			where -->
+<!-- 				bno > 0 -->
+<!-- 		]]> -->
+<!-- 	</select> -->
+	
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType =='t'.toString()">
+				and title like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType =='c'.toString()">
+				and content like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType =='w'.toString()">
+				and uname like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType =='tc'.toString()">
+				and (title like CONCAT('%', #{keyword}, '%') OR content like CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType =='cw'.toString()">
+				and (content like CONCAT('%', #{keyword}, '%') OR uname like CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType =='tcw'.toString()">
+				and (title like CONCAT('%', #{keyword}, '%') 
+				OR content like CONCAT('%', #{keyword}, '%')
+				OR uname like CONCAT('%', #{keyword}, '%'))
+			</if>
+		</if>
+		</sql>
+	
+	<select id="listSearch" resultType="TitleVO">
+		<![CDATA[
+			select
+					a.bno, a.title, a.subtitle, a.uname, a.viewcnt, a.replycnt, a.likecnt, a.unlikecnt, a.regdate, IFNULL(b.fullName, '/sampleImage.jpg') as fullName
+			from
+            tbl_board a
+            
+            left outer join
+            (SELECT  bno, max(fullName) as fullName from tbl_attach group by bno) b    
+			on b.bno = a.bno
+            
+            inner join 
+			(SELECT max(bno) as bno, title, subtitle, uname FROM tbl_board group by title, uname) x 
+            on x.bno = a.bno and x.uname = a.uname
+            
+            where a.bno > 0
+		]]>
+		<include refid="search"></include>
+		<![CDATA[
+			order by bno desc
+			limit #{pageStart}, #{perPageNum}
+		]]>
+	</select>
+	
+	<select id="listSearchCount" resultType="int">
+		<![CDATA[
+			select
+				count(bno)
+			from
+				tbl_board
+			where
+				bno > 0
+		]]>
+		<include refid="search"></include>
+	</select>
+	
+	<update id="updateReplyCnt">
+		update tbl_board set replycnt = replycnt + #{amount} where bno = #{bno}
+	</update>
+	
+	<update id="updateViewCnt">
+		update tbl_board set viewcnt = viewcnt + + 1 where bno = #{bno}
+	</update>
+	
+	<insert id="addAttach">
+	insert into tbl_attach(fullname, bno) values (#{fullName}, LAST_INSERT_ID())
+	</insert>
+	
+	<select id="getAttach" resultType="string">
+	select fullname from tbl_attach where bno = #{bno} order by regdate
+	</select>
+	
+	<delete id="deleteAttach">
+		delete from tbl_attach where bno = #{bno}
+	</delete>
+	
+	<insert id="replaceAttach">
+		insert into tbl_attach(fullname, bno) values (#{fullName}, #{bno})
+	</insert>
+	
+	<delete id="deleteReplyAll">
+		delete from tbl_reply where bno = #{bno}
+	</delete>
+	
+	<update id="updateLikeCnt">
+		update tbl_board set 
+		likecnt = (select count(*) from tbl_like where bno = #{bno} and lpo = '1'),
+		unlikecnt =	(select count(*) from tbl_like where bno = #{bno} and lpo = '-1')
+		where bno = #{bno}
+	</update>
+	
+	
+</mapper>

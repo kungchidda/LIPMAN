@@ -65,18 +65,32 @@
 			
 		</section>
 <!-- 				<ul id="og-grid" class="og-grid rf-content--projects"> -->
-				<ul id="og-grid" class="og-grid">
+		<ul id="og-grid" class="og-grid cards">
 					<c:forEach items="${list}" var="boardVO">
 						<li>
 								<a href="/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}" data-largesrc="/displayFile?fileName=${boardVO.fullName}" data-title="${boardVO.title}"
 								 onclick="getSubtitle(${boardVO.bno});" data-description="${boardVO.uname}">
 									<img class="thumbnail" src="/displayFile?fileName=${boardVO.fullName}" />
-									<h3>${boardVO.title}</h3>
-									<h3>${boardVO.uname}</h3>
-									<div>${boardVO.subtitle}</div>
-									<div><i class="fa fa-thumbs-up" style="color:red;"></i> : ${boardVO.likecnt} / <i class="fa fa-thumbs-down"></i> : ${boardVO.unlikecnt}</div>
-									<div>subscribe</div>
-									<div>share</div>
+									
+									<div class="title">
+                						${boardVO.title}
+            						</div>
+            						
+						            <div class="subtitle">
+						                ${boardVO.subtitle}
+						            </div>
+									
+									<div class="line"><img src="/resources/svg/line.svg"></div>
+									<div class="thumbnail-thumb">
+										<img src="/resources/png/pencil.png"><span>${boardVO.likecnt}</span>
+										<img src="/resources/png/eraser.png"><span>${boardVO.unlikecnt}</span>
+									</div>
+									<div class="line"><img src="/resources/svg/line.svg"></div>
+									
+									<div class="thumbnail-writer">
+						                <img src="/resources/png/account.png">
+						                <span>${boardVO.uname}</span>
+						            </div>
 								</a>
 						</li>
 						
@@ -187,7 +201,14 @@
 			alert("처리가 완료되었습니다.");
 		}
 
-		$(document).ready(function() {
+	</script>
+	
+	<script>
+		$(document).ready(function(){
+			
+			var bno = ${boardVO.bno}
+			getPage("/subtitles/"+bno+"/5/1");
+			
 			var formObj = $("form[role='form']");
 
 			console.log(formObj);
@@ -195,11 +216,8 @@
 			$(".btn-primary").on("click", function() {
 				self.location = "/board/register";
 			});
-		});
-	</script>
-	
-	<script>
-		$(document).ready(function(){
+			
+			
 			$('#searchBtn').on(
 					"click",
 					function(event){

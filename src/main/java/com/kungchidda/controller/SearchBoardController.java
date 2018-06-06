@@ -24,7 +24,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.kungchidda.domain.BoardVO;
 import com.kungchidda.domain.PageMaker;
 import com.kungchidda.domain.SearchCriteria;
+import com.kungchidda.domain.TitleVO;
 import com.kungchidda.service.BoardService;
+import com.kungchidda.service.TitleService;
 import com.kungchidda.util.MediaUtils;
 
 @Controller
@@ -38,6 +40,9 @@ public class SearchBoardController {
 	
 	@Inject
 	private BoardService service;
+	
+	@Inject
+	private TitleService titleService;
 	
 	@RequestMapping(value="/list", method = RequestMethod.GET)
 	public void listPage(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
@@ -67,7 +72,23 @@ public class SearchBoardController {
 	
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
 	public void read(@RequestParam("bno") int bno, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+	//public void read(@RequestParam("bno") int bno, Model model) throws Exception {
 		model.addAttribute(service.read(bno));
+		
+		//SearchCriteria cri = new SearchCriteria();
+		cri.setPerPageNum(20);
+		
+		model.addAttribute("list", service.listSearchCriteria(cri));
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		
+		pageMaker.setTotalCount(service.listSearchCount(cri));
+		
+		model.addAttribute("pageMaker", pageMaker);
+		
+		
+		
+		
 	}
 
 	@RequestMapping(value = "/removePage", method = RequestMethod.POST)
@@ -107,8 +128,9 @@ public class SearchBoardController {
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	public void registerGET(BoardVO board, Model model) throws Exception {
+	public void registerGET(int tno, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 		logger.info("register get ..........");
+		model.addAttribute(titleService.read(tno));
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)

@@ -58,8 +58,8 @@
 
 			</select> <input type="text" name='keyword' id="keywordInput"
 				value='${cri.keyword}'>
-			<button class="btn btn-lg btn-primary" id='searchBtn'>Search</button>
-			<button class="btn btn-lg btn-danger" id='newBtn'>New Board</button>
+			<!-- <button class="btn btn-lg btn-primary" id='searchBtn'>Search</button>
+			<button class="btn btn-lg btn-danger" id='newBtn'>New Board</button> -->
 			
 			<!-- <h1 style="text-align: center;color:white;">크레에이티브 작품</h1> -->
 			<!-- <h1 style="text-align: center;color:white;">전시 및 탐색</h1> -->
@@ -67,15 +67,24 @@
 		</section>
 <!-- 				<ul id="og-grid" class="og-grid rf-content--projects"> -->
 				<ul id="og-grid" class="og-grid">
-					<c:forEach items="${list}" var="boardVO">
 						<li>
-								<a href="/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}" data-largesrc="/displayFile?fileName=${boardVO.fullName}" data-title="${boardVO.title}"
-								 onclick="getSubtitle(${boardVO.bno});" data-description="${boardVO.uname}">
-								<img class="thumbnail" src="/displayFile?fileName=${boardVO.fullName}" />
-								<h3>${boardVO.title}</h3>
-								<h3>${boardVO.uname}</h3>
-								<div>${boardVO.subtitle}</div>
-								<div><i class="fa fa-thumbs-up" style="color:red;"></i> : ${boardVO.likecnt} / <i class="fa fa-thumbs-down"></i> : ${boardVO.unlikecnt}</div>
+							<div style="background-color:gray;vertical-align:middle;width:200px;height:300px;">
+								<a href="/mypage/register">
+									<!-- <img class="thumbnail" src="/displayFile?fileName=/mypageSample.jpg"> -->
+									<h3>Upload your webtoon!</h3>
+								</a>
+							</div>
+						</li>
+						
+					<c:forEach items="${list}" var="MyPageVO">
+						<li>
+								<a href="/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${MyPageVO.bno}" data-largesrc="/displayFile?fileName=${MyPageVO.fullName}" data-title="${MyPageVO.title}"
+								 onclick="getSubtitle(${MyPageVO.bno});" data-description="${MyPageVO.uname}">
+								<img class="thumbnail" src="/displayFile?fileName=${MyPageVO.fullName}" />
+								<h3>${MyPageVO.title}</h3>
+								<h3>${MyPageVO.uname}</h3>
+								<div>${MyPageVO.subtitle}</div>
+								<div><i class="fa fa-thumbs-up" style="color:red;"></i> : ${MyPageVO.likecnt} / <i class="fa fa-thumbs-down"></i> : ${MyPageVO.unlikecnt}</div>
 								<div>subscribe</div>
 								<div>share</div>
 								</a>
@@ -85,7 +94,7 @@
 				</ul>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="/resources/ThumbnailGridExpandingPreview/js/grid.js"></script>
+	<script src="/resources/ThumbnailGridExpandingPreview/js/mypage_grid.js"></script>
 		<script>
 			$(function() {
 				Grid.init();
@@ -97,6 +106,12 @@
 	
 	<script id="template" type="text/x-handlebars-template">
 		{{#each .}}
+			{{#if @first}}
+				<a href='/sboard/register?tno={{tno}}'>Upload your new webtoon</a>
+			{{/if}}
+			{{#if @null}}
+				<a href='/sboard/register?tno={{tno}}'>Upload your new webtoon</a>
+			{{/if}}
 			<div style="height:50px;" class="subtitleLi" data-sno={{sno}}>
 					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>{{subtitle}}</a>
 			</div>
@@ -108,8 +123,11 @@
 
 	function getSubtitle(bno){
 		console.log("click getSubtitle start getPage");
+		console.log("bno = " + bno);
 		getPage("/subtitles/"+bno+"/5/1");
 	};	
+	
+	
 	
 	Handlebars.registerHelper("prettifyDate", function(timeValue){
 			var dateObj = new Date(timeValue);
@@ -192,10 +210,13 @@
 			var formObj = $("form[role='form']");
 
 			console.log(formObj);
-
+			
 			$(".btn-primary").on("click", function() {
 				self.location = "/board/register";
 			});
+			
+			
+			
 		});
 	</script>
 	

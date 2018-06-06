@@ -5,6 +5,7 @@ import lombok.Data;
 
 public @Data class MyPageVO {
 	
+	private Integer tno;
 	private Integer bno;
 	private String title;
 	private String subtitle;

@@ -1,0 +1,108 @@
+/*setting*/
+.setting {
+    display: grid;
+    grid-template-columns: repeat(2, 500px);
+    grid-template-areas: 
+        "a b"
+        "c d"
+        "e f"
+        "g h"
+        "i j";
+    justify-content: center;
+}
+
+hr {
+    width: 35%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.setting div{
+    padding: 20px;
+    align-self: center;
+}
+
+.setting button {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+}
+
+.setting .Profile-image {
+    grid-area: a;
+    justify-self: center;
+    padding: 30px;
+}
+
+.setting .Profile-image-button {
+    grid-area: b;
+    justify-self: center;
+}
+
+.setting .Nick-Name {
+    grid-area: c;
+    justify-self: center; 
+    padding: 30px;
+}
+
+.setting .Nick-Name-button {
+    grid-area: d;
+    justify-self: center;
+}
+
+.setting .Nick-Name-button span{
+    padding-right: 10px;
+}
+.setting .Login-ID {
+    grid-area: e;
+    justify-self: center;
+    align-self: center;
+    padding: 30px;
+}
+
+.setting .Login-ID-text {
+    grid-area: f;
+    justify-self: center;
+}
+.setting .Password {
+    grid-area: g;
+    justify-self: center;
+    padding: 30px;
+}
+
+.setting .Password-button {
+    grid-area: h;
+    justify-self: center;
+}
+
+.setting .Account-Linking {
+    grid-area: i;
+    justify-self: center;
+    padding: 30px;
+}
+
+.setting .Account-Linking-button {
+    grid-area: j;
+    justify-self: center;
+}
+
+.compony {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    grid-template-rows: 300px;
+    grid-template-areas: 
+        "a";
+    justify-content: center;
+    justify-items: center;
+    background-color: burlywood;
+    margin-top: 200px;
+}
+
+.compony .compony-infor {
+    grid-area: a;    
+    color: white;
+    font-size: 1em;
+    padding: 50px;
+    align-self: center;
+}
