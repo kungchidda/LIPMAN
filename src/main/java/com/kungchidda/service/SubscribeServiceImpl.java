@@ -34,10 +34,6 @@ public class SubscribeServiceImpl implements SubscribeService {
 		return subscribeDAO.listSubscribe(vo);
 	}
 	
-	@Override
-	public List<SubscribeVO> listSubscriber(SubscribeVO vo) throws Exception {
-		return subscribeDAO.listSubscriber(vo);
-	}
 
 	@Transactional
 	@Override
@@ -56,8 +52,8 @@ public class SubscribeServiceImpl implements SubscribeService {
 	}
 	
 	@Override
-	public int count(Integer bno) throws Exception {
-		return subscribeDAO.count(bno);
+	public int count(SubscribeVO vo) throws Exception {
+		return subscribeDAO.count(vo);
 	}
 
 }

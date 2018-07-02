@@ -2,13 +2,14 @@ package com.kungchidda.persistence;
 
 import java.util.List;
 import com.kungchidda.domain.BoardVO;
+import com.kungchidda.domain.Criteria;
 //import com.kungchidda.domain.Criteria;
 import com.kungchidda.domain.SearchCriteria;
 
 public interface BoardDAO {
 	
 	public void create(BoardVO vo) throws Exception;
-	public void add(BoardVO vo) throws Exception;
+//	public void add(BoardVO vo) throws Exception;
 	public BoardVO read(Integer bno) throws Exception;
 	public void update(BoardVO vo) throws Exception;
 	public void delete(Integer bno) throws Exception;
@@ -33,9 +34,9 @@ public interface BoardDAO {
 	
 	public void updateLikeCnt(Integer bno) throws Exception;
 	
+	// 페이징 처리를 하기 위해 Criteria cri 파라미터 추가
+	public List<BoardVO> listPage(Integer tno, Criteria cri) throws Exception;
+	// 페이징 처리를 하기 위해 count 추가
+	public int count(Integer tno) throws Exception;
 	
-	//무한 스크롤
-//	public List<BoardVO> infiniteScrollDown(Integer bnoToStart) throws Exception;
-//	public List<BoardVO> infiniteScrollUp(Integer bnoToStart) throws Exception;
-
 }

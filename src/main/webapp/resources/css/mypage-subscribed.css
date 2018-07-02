@@ -9,6 +9,7 @@
     align-content: center;
     grid-gap: 10px;
     padding-top: 30px;
+    list-style :  none;
 }
 
 .subscribed img {

@@ -24,6 +24,18 @@ public class TitleDAOImpl implements TitleDAO{
 	public void create(TitleVO vo) throws Exception {
 		session.insert(namespace+".create", vo);
 	}
+	@Override
+	public void insertGenre(TitleVO vo) throws Exception {
+		session.insert(namespace+".insertGenre", vo);
+	}
+	@Override
+	public void modifyGenre(TitleVO vo) throws Exception {
+		session.insert(namespace+".modifyGenre", vo);
+	}
+	@Override
+	public void deleteGenre(TitleVO vo) throws Exception {
+		session.insert(namespace+".deleteGenre", vo);
+	}
 	
 	@Override
 	public void add(TitleVO vo) throws Exception {
@@ -73,8 +85,8 @@ public class TitleDAOImpl implements TitleDAO{
 	}
 	
 	@Override
-	public void addAttach(String fullName) throws Exception{
-		session.insert(namespace+".addAttach", fullName);
+	public void addAttach(String titleFullName) throws Exception{
+		session.insert(namespace+".addAttach", titleFullName);
 	}
 	
 	@Override

@@ -7,109 +7,138 @@
 <head>
 <title>LIPMAN</title>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
+<%@ include file="/WEB-INF/views/mypage/profile.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
-<link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/default.css" />
+<!-- <link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/default.css" /> -->
 <link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/component.css" />
 <script src="/resources/ThumbnailGridExpandingPreview/js/modernizr.custom.js"></script>
 
-<link rel="stylesheet" type="text/css" href="/resources/css/banner/banner.css" />
+<!-- <link rel="stylesheet" type="text/css" href="/resources/css/banner/banner.css" /> -->
 
  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
 
-<!-- Container element -->
-	<div class="container">
-		<section class="parallax">
-			<select name="searchType" >
 
-				<option value="n"
-					<c:out value="${cri.searchType == null?'selected':''}"/>>
-					---</option>
+ <!--icon-->
+    <div class="profile-icon">
+        <div class="profile-icon-home">
+            <a href="/mypage/home">
+<!--             <div id="profile-home-div"> -->
+            <img src="/resources/png/comic.png" id="profile-img-home">
+            </a>
+<!--             </div> -->
+        </div>
+        <div class="profile-icon-subscribed">
+            <a href="/mypage/subscribed"  class="active">
+<!--             <div id="profile-subscribed-div" class="active"> -->
+            <img src="/resources/png/subscribe.png" id="profile-img-subscribed">
+            </a>
+<!--             </div> -->
+        </div>
+        <div class="profile-icon-subscriber">
+            <a href="/mypage/subscriber">
+<!--             <div id="profile-subscriber-div"> -->
+            <img src="/resources/png/subscribed.png" id="profile-img-subscriber">
+            </a>
+<!--             </div> -->
+        </div>
+        <div class="profile-icon-setting">
+            <a href="/mypage/setting">
+<!--             <div id="profile-setting-div"> -->
+            <img src="/resources/png/setting.png" id="profile-img-setting">
+            </a>
+<!--             </div> -->
+        </div>
+    </div>
+    
 
-				<option value="t"
-					<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-					Title</option>
 
-
-				<option value="c"
-					<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
-					Content</option>
-
-				<option value="w"
-					<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-					Writer</option>
-
-				<option value="tc"
-					<c:out value="${cri.searchType eq 'tc'?'selected':''}"/>>
-					Title OR Content</option>
-
-				<option value="cw"
-					<c:out value="${cri.searchType eq 'cw'?'selected':''}"/>>
-					Content OR Writer</option>
-
-				<option value="tcw"
-					<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
-					Title OR Content OR Writer</option>
-
-			</select> <input type="text" name='keyword' id="keywordInput"
-				value='${cri.keyword}'>
-			<button class="btn btn-lg btn-primary" id='searchBtn'>Search</button>
-			<button class="btn btn-lg btn-danger" id='newBtn'>New Board</button>
-			
-			<!-- <h1 style="text-align: center;color:white;">크레에이티브 작품</h1> -->
-			<!-- <h1 style="text-align: center;color:white;">전시 및 탐색</h1> -->
-			
-		</section>
-<!-- 				<ul id="og-grid" class="og-grid rf-content--projects"> -->
-				<ul id="og-grid" class="og-grid">
-					<c:forEach items="${list}" var="boardVO">
+	
+	<section id="mypage-subscribed">
+		<div class="container">
+					<ul id="og-grid" class="og-grid cards">
+					<c:forEach items="${subscribedList}" var="MyPageVO">
 						<li>
-								<a href="/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}" data-largesrc="/displayFile?fileName=${boardVO.fullName}" data-title="${boardVO.title}"
-								 onclick="getSubtitle(${boardVO.bno});" data-description="${boardVO.uname}">
-								<img class="thumbnail" src="/displayFile?fileName=${boardVO.fullName}" />
-								<h3>${boardVO.title}</h3>
-								<h3>${boardVO.uname}</h3>
-								<div>${boardVO.subtitle}</div>
-								<div><i class="fa fa-thumbs-up" style="color:red;"></i> : ${boardVO.likecnt} / <i class="fa fa-thumbs-down"></i> : ${boardVO.unlikecnt}</div>
-								<div>subscribe</div>
-								<div>share</div>
-								</a>
-						</li>
+									<a href="/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${MyPageVO.bno}" data-largesrc="/displayFile?fileName=${MyPageVO.titleFullName}" data-title="${MyPageVO.title}"
+									 onclick="getSubtitle(${MyPageVO.tno});">
+									<img class="thumbnail" src="/displayFile?fileName=${MyPageVO.titleFullName}" />
+									<div class="title">
+										${MyPageVO.title}
+									</div>
+									 <div class="subtitle">
+									 	${MyPageVO.subtitle}
+									 </div>
+									<div class="line"><img src="/resources/svg/line.svg"></div>
+									<div class="thumbnail-thumb">
+										<img src="/resources/png/pencil.png"><span>${MyPageVO.titlelikecnt}</span>
+										<img src="/resources/png/eraser.png"><span>${MyPageVO.titledislikecnt}</span>
+									</div>
+									<div class="line"><img src="/resources/svg/line.svg"></div>
+									<div class="thumbnail-writer">
+						                <img src="/resources/png/account.png">
+						                <span>${MyPageVO.uname}</span>
+						            </div>
+									</a>
+									
+								
+								
+								
+							</li>
 						
 					</c:forEach>
 				</ul>
-	</div>
+		</div>
+	</section>
+	    
+	    <div class="compony">
+	        <div class="compony-infor">
+	            Copyright © 2018 LIPMAN. 모든 권리 보유.
+	        </div>
+	    </div>
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!-- 	<script src="/resources/ThumbnailGridExpandingPreview/js/mypage_grid.js"></script> -->
 	<script src="/resources/ThumbnailGridExpandingPreview/js/grid.js"></script>
 		<script>
-			$(function() {
+ 			$(function() {
 				Grid.init();
+//  				GridMypage.init();
 			});
 		</script>
 	<!-- /.container -->
 
-	<%-- <%@ include file="/WEB-INF/views/include/footer.html"%> --%>
 	
-	<script id="template" type="text/x-handlebars-template">
+	<script id="subtitle-template" type="text/x-handlebars-template">
 		{{#each .}}
-			<div style="height:50px;" class="subtitleLi" data-sno={{sno}}>
+			<!-- <div style="height:50px;" class="subtitleLi" data-sno={{sno}}>
 					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>{{subtitle}}</a>
+			</div> -->
+			<div class="subtitleLi">
+					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
+						<div class="comic-list"><img src="/displayFile?fileName={{boardFullName}}"></div>
+						<div class="comic-list-text cursor">{{subtitle}}</div>
+					</a>
 			</div>
 		{{/each}}
+		<ul id="pagination" class="pagination"></ul>
 	</script>
 	
 	<script> //subtitle print
 	var formObj = $("form[role='form']");
 
-	function getSubtitle(bno){
+	function getSubtitle(tno){
 		console.log("click getSubtitle start getPage");
-		getPage("/subtitles/"+bno+"/5/1");
+		console.log("tno = " + tno);
+		getPage("/sboard/"+tno+"/1", tno);
+		
 	};	
+	
+	
 	
 	Handlebars.registerHelper("prettifyDate", function(timeValue){
 			var dateObj = new Date(timeValue);
@@ -125,7 +154,7 @@
 	$(".pagination").on("click", "li a", function(event){
 		event.preventDefault();
 		subtitlePage = $(this).attr("href");
-		getPage("/subtitles/"+bno+"/5/"+subtitlePage);
+		getPage("/sboard/"+tno+"/"+subtitlePage);
 		
 	});
 	
@@ -136,23 +165,36 @@
 		var template = Handlebars.compile(templateObject.html());
 		
 		var html = template(subtitleArr);
-		target.after(html);
+// 		target.after(html);
+		target.append(html);
 	}
 		
 		
-	function getPage(pageInfo){
+	function getPage(pageInfo, tno){
 		console.log("start getPage");
 		
+		
 		//$(".pagination").remove();
+// 		$(".subtitleLi").remove();
+// 		$.getJSON(pageInfo,function(data){
+// 			printData(data.list, $(".subtitlesDiv"), $('#subtitle-template'));
+// 			printPaging(data.pageMaker, $(".pagination"));
+// 			console.log("start subtitlecntSmall");
+// 			$(".subtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
+// 			var str = '<a href="/sboard/register?tno='+tno+'">Upload your new webtoon</a>';
+// 			console.log("str = " + str);
+// 			//$('.register').remove();
+// 			$('.register').html(str);
+			
+// 		});
+		$(".pagination").remove();
 		$(".subtitleLi").remove();
 		$.getJSON(pageInfo,function(data){
-			printData(data.list, $(".subtitlesDiv"), $('#template'));
+			printData(data.list, $(".og-expander-inner"), $('#subtitle-template'));
 			printPaging(data.pageMaker, $(".pagination"));
-			console.log("start subtitlecntSmall");
-			$(".subtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
-			
+// 			console.log("start subtitlecntSmall");
+// 			$(".subtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
 		});
-		
 	}
 	
 	var printPaging = function(pageMaker, target){
@@ -188,19 +230,18 @@
 			alert("처리가 완료되었습니다.");
 		}
 
-		$(document).ready(function() {
+/* 		$(document).ready(function() {
 			var formObj = $("form[role='form']");
 
 			console.log(formObj);
-
-			$(".btn-primary").on("click", function() {
-				self.location = "/board/register";
-			});
-		});
+			
+			
+		}); */
 	</script>
 	
 	<script>
 		$(document).ready(function(){
+// 			$('#profile-img-subscribed').click();
 			$('#searchBtn').on(
 					"click",
 					function(event){
@@ -268,6 +309,139 @@
 			
 		});
 	</script>
+	
+	<script type="text/javascript" src="/resources/js/upload.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+
+	<script id="profile-template" type="text/x-handlebars-template">
+			<dis class="uploadedList">
+				<img src="{{imgsrc}}" style="width:200px;" alt="Attachment">
+			</div>
+			<!-- <div class="mailbox-attachment-info" style="width:200px;">
+				<a href="{{getLink}}" target="_blank" class="mailbox-attachment-name">{{fileName}}</a>
+				<small data-src="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn">
+					<i class="fa fa-fw fa-remove"></i>
+				</small>
+			</div> -->
+	</script>
+	
+	<script>
+	function sendFile(files, editor, welEditable) {
+	    formData = new FormData();
+	    formData.append("file", files);
+	    for (i = 0; i < files.length; i++) {
+	        var file = files[i];
+	        var formData = new FormData();
+	
+	        formData.append("file", file);
+	        $.ajax({
+	            url: '/uploadAjax',
+	            data: formData,
+	            dataType: 'text',
+	            processData: false,
+	            contentType: false,
+	            type: 'POST',
+	            success: function (data) {
+	                var fileInfo = getFileInfo(data);
+	                var html = template(fileInfo);
+	                console.log(data);
+	                console.log(fileInfo);
+	                console.log(html);
+	                $(".uploadedList").append(html);
+	                editor.summernote('editor.insertImage', fileInfo.getLink);
+	                //editor.insertImage(welEditable, data.url);
+	            }
+	        });
+	    }
+	}
+	 var template = Handlebars.compile($("#profile-template").html());
+
+     $(".fileDrop").on("dragenter dragover", function (event) {
+         event.preventDefault();
+     });
+
+     $(".fileDrop").on("drop", function (event) {
+         event.preventDefault();
+
+         var files = event.originalEvent.dataTransfer.files;
+
+         for (i = 0; i < files.length; i++) {
+             var file = files[i]
+             uploadFile(file);
+         }
+
+     });
+
+     //$("#upload").on("change", function (event) {
+    $("#profile").on("change", function (event) {
+         event.preventDefault();
+
+         var files = event.target.files
+         for (i = 0; i < files.length; i++) {
+             var file = event.target.files[i]
+             uploadFile(file);
+         }
+     });
+
+     $("#registerForm").submit(function (event) {
+         event.preventDefault();
+
+         var that = $(this);
+
+         var str = "";
+
+         $(".uploadedList .delbtn").each(function (index) {
+             console.log(index);
+             str += "<input type='hidden' name='files[" + index + "]' value='" + $(this).attr("data-src") + "'> ";
+         });
+         that.append(str);
+
+         that.get(0).submit();
+
+     });
+
+     $(".uploadedList").on("click", "small", function (event) {
+
+         var that = $(this);
+
+         $.ajax({
+             url: "deleteFile",
+             type: "post",
+             data: { fileName: $(this).attr("data-src") },
+             dataType: "text",
+             success: function (result) {
+                 if (result == 'deleted') {
+                     //alert("deleted");
+                     that.parents().parent("li").remove();
+                 }
+             }
+         });
+     });
+
+
+
+     function uploadFile(file) {
+         var formData = new FormData();
+
+         formData.append("file", file);
+         $.ajax({
+             url: '/uploadAjax',
+             data: formData,
+             dataType: 'text',
+             processData: false,
+             contentType: false,
+             type: 'POST',
+             success: function (data) {
+                 var fileInfo = getFileInfo(data);
+                 var html = template(fileInfo);
+                 console.log("html = " + html);
+                 $(".uploadedList").remove();
+                 $(".profile-image").append(html);
+             }
+         });
+     }
+	
+	</script>	
 	
 
 

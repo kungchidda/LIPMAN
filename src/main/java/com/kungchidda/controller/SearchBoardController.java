@@ -1,7 +1,9 @@
 package com.kungchidda.controller;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
@@ -22,9 +24,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kungchidda.domain.BoardVO;
+import com.kungchidda.domain.Criteria;
 import com.kungchidda.domain.PageMaker;
 import com.kungchidda.domain.SearchCriteria;
-import com.kungchidda.domain.TitleVO;
 import com.kungchidda.service.BoardService;
 import com.kungchidda.service.TitleService;
 import com.kungchidda.util.MediaUtils;
@@ -46,7 +48,13 @@ public class SearchBoardController {
 	
 	@RequestMapping(value="/list", method = RequestMethod.GET)
 	public void listPage(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
+		
 		logger.info(cri.toString());
+	    
+		//String[] genreArr;
+		if(cri.getGenre() != null) {
+			cri.setGenreArr((cri.getGenre().split(",")));
+		}
 		
 		model.addAttribute("list", service.listSearchCriteria(cri));
 		PageMaker pageMaker = new PageMaker();
@@ -170,5 +178,51 @@ public class SearchBoardController {
 	public List<String> getAttach(@PathVariable("bno")Integer bno) throws Exception{
 		return service.getAttach(bno);
 	}
+	
+	
+	
+	//페이징 처리를 위해 두 개의 @PathVariable을 이용해서 처리
+		// /replies/게시물 번호/페이지 번호
+		// GET 방식의 처리
+		// 페이징 처리를 위해서 PART 2 에서 작성된 PageMaker를 가져와서 사용
+		// Criteria와 이를 상속한 SearchCriteria, PageMaker는 모든 페이징 처리에서 공통으로 사용할 수 있도록 만들어진 클래스
+		@RequestMapping(value = "/{tno}/{page}", method = RequestMethod.GET)
+		public ResponseEntity<Map<String, Object>> listPage(@PathVariable("tno") Integer tno, @PathVariable("page") Integer page){
+			
+			logger.info("/tno/page start");
+			ResponseEntity<Map<String, Object>> entity = null;
+			
+			try {
+				Criteria cri = new Criteria();
+				cri.setPage(page);
+				cri.setPerPageNum(6);
+				
+				PageMaker pageMaker = new PageMaker();
+				pageMaker.setCri(cri);
+				
+				//Ajax로 호출될 것이므로 Model을 사용하지 못함
+				//전달해야 하는 데이터들을 담기 위해서 Map 타입의 객체를 별도로 생성
+				Map<String, Object> map = new HashMap<String, Object>();
+				List<BoardVO> list = service.listSubtitlePage(tno, cri);
+				
+				map.put("list", list);
+				
+				int SubtitleCount = service.count(tno);
+				pageMaker.setTotalCount(SubtitleCount);
+				
+				map.put("pageMaker", pageMaker);
+				
+				entity = new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+			} catch (Exception e) {
+				e.printStackTrace();
+				entity = new ResponseEntity<Map<String, Object>>(HttpStatus.BAD_REQUEST);
+			}
+			return entity;
+		}
+	
+
+
+
+	
 	
 }

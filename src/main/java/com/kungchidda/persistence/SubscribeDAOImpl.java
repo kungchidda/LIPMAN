@@ -24,10 +24,6 @@ public class SubscribeDAOImpl implements SubscribeDAO{
 		return session.selectList(namespace + ".listSubscribe", vo);
 	}
 	
-	@Override
-	public List<SubscribeVO> listSubscriber(SubscribeVO vo) throws Exception{
-		return session.selectList(namespace + ".listSubscriber", vo);
-	}
 	
 	@Override
 	public void create(SubscribeVO vo) throws Exception{
@@ -52,13 +48,13 @@ public class SubscribeDAOImpl implements SubscribeDAO{
 	}
 	
 	@Override
-	public int count(Integer bno) throws Exception {
-		return session.selectOne(namespace + ".count", bno);
+	public int count(SubscribeVO vo) throws Exception {
+		return session.selectOne(namespace + ".count", vo);
 	}
 	
 	@Override
 	public int getBno(SubscribeVO vo) throws Exception{
-		return session.selectOne(namespace + ".getBno" , vo.getFno());
+		return session.selectOne(namespace + ".getBno" , vo.getSno());
 	}
 
 }

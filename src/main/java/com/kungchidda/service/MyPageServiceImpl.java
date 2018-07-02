@@ -3,16 +3,23 @@ package com.kungchidda.service;
 import java.util.List;
 
 import javax.inject.Inject;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.kungchidda.domain.MyPageVO;
 import com.kungchidda.domain.SearchCriteria;
+import com.kungchidda.domain.SubscribeVO;
+import com.kungchidda.domain.UserVO;
 import com.kungchidda.persistence.MyPageDAO;
 
 @Service
 public class MyPageServiceImpl implements MyPageService{
+	
+	private static final Logger logger = LoggerFactory.getLogger(MyPageServiceImpl.class);
 	
 	@Inject
 	private MyPageDAO dao;
@@ -43,17 +50,19 @@ public class MyPageServiceImpl implements MyPageService{
 
 	@Transactional
 	@Override
-	public void modify(MyPageVO myPage) throws Exception{
-		dao.update(myPage);
-		Integer bno = myPage.getBno();
+	public void modify(UserVO user) throws Exception{
+		dao.update(user);
+		Integer uno = user.getUno();
 		
-		dao.deleteAttach(bno);
 		
-		String[] files = myPage.getFiles();
-		
-		if(files !=null) {
+		String[] files = user.getFiles();
+		logger.info("files = " + files);
+		if(files != null) {
+			logger.info("files != null ");
+
+			dao.deleteAttach(uno);
 			for(String fileName : files) {
-				dao.replaceAttach(fileName, bno);
+				dao.replaceAttach(fileName, uno);
 			}
 		}
 	}
@@ -75,6 +84,10 @@ public class MyPageServiceImpl implements MyPageService{
 	public List<MyPageVO> listSubscribedSearchCriteria(String uid,  SearchCriteria cri) throws Exception{
 		return dao.listSubscribedSearch(uid, cri);
 	}
+	@Override
+	public List<SubscribeVO> listSubscriberSearchCriteria(String uid,  SearchCriteria cri) throws Exception{
+		return dao.listSubscriberSearch(uid, cri);
+	}
 	
 	@Override
 	public int listSearchCount(SearchCriteria cri) throws Exception {
@@ -84,6 +97,11 @@ public class MyPageServiceImpl implements MyPageService{
 	@Override
 	public List<String> getAttach(Integer bno) throws Exception{
 		return dao.getAttach(bno);
+	}
+	
+	@Override
+	public UserVO setting(String uid) throws Exception{
+		return dao.setting(uid);
 	}
 	
 }

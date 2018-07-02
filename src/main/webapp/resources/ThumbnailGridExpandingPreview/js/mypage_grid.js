@@ -161,10 +161,11 @@ $.fn.imagesLoaded = function( callback ) {
 	return deferred ? deferred.promise( $this ) : $this;
 };
 
-var Grid = (function() {
+var GridMypage = (function() {
 
 		// list of items
-	var $grid = $( '#og-grid' ),
+//		var $grid = $( '#og-grid' ),
+		var $grid = $( '#og-grid-mypage' ),
 		// the items
 		$items = $grid.children( 'li' ),
 		// current expanded item's index
@@ -344,26 +345,28 @@ var Grid = (function() {
 	Preview.prototype = {
 		create : function() {
 			// create Preview structure:
-			this.$title = $( '<h3></h3>' );
+			this.$title = $( '<div></div>' );
 			this.$description = $('<p></p>');
 			this.$href = $( '<a href="#"></a>' );
-			this.$subtitles = $( '<ul>'
-									+'<li style="margin: 0 0 0 0;">'
-									+'<div class="register"></div>'
-//									+'<a href="/sboard/register?tno=${titleVO.tno}">Upload your new webtoon</a>'
-										+'<div class="subtitlesDiv">'
-										+'<p class="bg-green">Subtitle List <small class="subtitlecntSmall"></small></p>'
-										+'</div>'
-									+'</li>'
-								+'</ul>'
-								+'<ul id="pagination" class="pagination"></ul>'
+			this.$subtitles = $( //'<ul>'
+//									+'<li style="margin: 0 0 0 0;">'
+										'<div class="register"></div>'
+//										+'<div class="subtitlesDiv">'
+//										+'<p class="bg-green">Subtitle List <small class="subtitlecntSmall"></small></p>'
+//										+'</div>'
+//									+'</li>'
+//								+'</ul>'
+//								+'<ul id="pagination" class="pagination"></ul>'
 							);
 			this.$details = $( '<div class="og-details"></div>'
-					).append( this.$title, this.$href, this.$description, this.$subtitles);
+//					).append( this.$title, this.$href, this.$description, this.$subtitles);
+			).append( this.$href, this.$description, this.$subtitles);
 			this.$loading = $( '<div class="og-loading"></div>' );
 			this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading );
-			this.$closePreview = $( '<span class="og-close"></span>' );
-			this.$previewInner = $( '<div class="og-expander-inner"></div>' ).append( this.$closePreview, this.$fullimage, this.$details );
+			this.$comiclisttitle = $('<div class="comic-list-title"></div>').append( this.$title );
+//			this.$closePreview = $( '<span class="og-close"></span>' );
+//			this.$previewInner = $( '<div class="og-expander-inner"></div>' ).append( this.$closePreview, this.$fullimage, this.$details );
+			this.$previewInner = $( '<div class="og-expander-inner"></div>' ).append( this.$fullimage, this.$comiclisttitle, this.$subtitles );
 			this.$previewEl = $( '<div class="og-expander"></div>' ).append( this.$previewInner );
 			// append preview element to the item
 			this.$item.append( this.getEl() );

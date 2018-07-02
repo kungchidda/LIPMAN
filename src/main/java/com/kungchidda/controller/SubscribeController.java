@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +18,6 @@ import com.kungchidda.service.SubscribeService;
 @RequestMapping("/subscribes")
 public class SubscribeController {
 
-private static final Logger logger = LoggerFactory.getLogger(SubscribeController.class);
 	
 	@Inject
 	private SubscribeService service;
@@ -39,26 +36,6 @@ private static final Logger logger = LoggerFactory.getLogger(SubscribeController
 		return entity;
 	}
 	
-	//특정 게시물의 전체 댓글 목록의 처리
-	//GET 방식으로 처리, bno 필요
-	//@RequestMapping(value = "/info/{subscribed}", method = RequestMethod.GET)
-//	@RequestMapping(value = "/info", method = RequestMethod.GET)
-	@RequestMapping(value = "/subscriberList", method = RequestMethod.POST)
-	//URI 내의 경로 {bno}는 @PathVariable("bno")로 활용
-//	public ResponseEntity<List<SubscribeVO>> list (@PathVariable("subscribed") String subscribed){
-	public ResponseEntity<List<SubscribeVO>> subscriberList (@RequestBody SubscribeVO vo){
-		
-		ResponseEntity<List<SubscribeVO>> entity = null;
-		logger.info("/info/subscribed GET start" + vo);
-		try {
-			entity = new ResponseEntity<>(service.listSubscriber(vo), HttpStatus.OK);
-		} catch (Exception e) {
-			e.printStackTrace();
-			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-		
-		return entity;
-	}
 	
 	
 	@RequestMapping(value = "/subscribeList", method = RequestMethod.POST)
@@ -93,5 +70,19 @@ private static final Logger logger = LoggerFactory.getLogger(SubscribeController
 	}
 	
 
+	@RequestMapping(value = "/count", method = RequestMethod.POST)
+	public ResponseEntity<Integer> count(@RequestBody SubscribeVO vo){
+		
+		ResponseEntity<Integer> entity = null;
+			int subsCount;
+			try {
+				subsCount = service.count(vo);
+				entity = new ResponseEntity<Integer>(subsCount, HttpStatus.OK);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return entity;
+	}
+	
 	
 }

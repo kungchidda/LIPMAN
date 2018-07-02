@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +16,8 @@ import com.kungchidda.persistence.UserDAO;
 
 @Service
 public class UserServiceImpl implements UserService {
+	
+	private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 	
 	@Inject
 	private UserDAO dao;
@@ -41,5 +45,29 @@ public class UserServiceImpl implements UserService {
 		dao.join(user);
 		
 		
+	}
+	
+	
+	@Transactional
+	@Override
+	public void modify(UserVO user) throws Exception{
+		dao.update(user);
+		Integer uno = user.getUno();
+		
+		
+		String[] files = user.getFiles();
+		logger.info("files = " + files);
+		if(files != null) {
+			logger.info("files != null ");
+
+			dao.deleteAttach(uno);
+			for(String fileName : files) {
+				dao.replaceAttach(fileName, uno);
+			}
+		}
+		if(user.getGenreArr() != null) {
+			dao.deleteGenre(user);
+			dao.insertGenre(user);
+		}
 	}
 }

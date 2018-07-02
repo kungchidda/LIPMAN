@@ -10,6 +10,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import com.kungchidda.domain.MyPageVO;
 import com.kungchidda.domain.SearchCriteria;
+import com.kungchidda.domain.SubscribeVO;
+import com.kungchidda.domain.UserVO;
 
 @Repository
 public class MyPageDAOImpl implements MyPageDAO{
@@ -35,13 +37,13 @@ public class MyPageDAOImpl implements MyPageDAO{
 	}
 	
 	@Override
-	public void update(MyPageVO vo) throws Exception {
-		session.update(namespace +".update", vo);
+	public void update(UserVO user) throws Exception {
+		session.update(namespace +".update", user);
 	}
 	
 	@Override
-	public void delete(Integer bno) throws Exception {
-		session.delete(namespace+".delete", bno);
+	public void delete(Integer uno) throws Exception {
+		session.delete(namespace+".delete", uno);
 	}
 	
 	
@@ -61,6 +63,14 @@ public class MyPageDAOImpl implements MyPageDAO{
 		paramMap.put("uid", uid);
 		paramMap.put("cri", cri);
 		return session.selectList(namespace + ".listSubscribedSearch", paramMap);
+	}
+	@Override
+	public List<SubscribeVO> listSubscriberSearch(String uid, SearchCriteria cri) throws Exception{
+		
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("uid", uid);
+		paramMap.put("cri", cri);
+		return session.selectList(namespace + ".listSubscriberSearch", paramMap);
 	}
 	
 	@Override
@@ -96,8 +106,8 @@ public class MyPageDAOImpl implements MyPageDAO{
 	}
 	
 	@Override
-	public void deleteAttach(Integer bno) throws Exception{
-		session.delete(namespace+".deleteAttach", bno);
+	public void deleteAttach(Integer uno) throws Exception{
+		session.delete(namespace+".deleteAttach", uno);
 	}
 	
 	@Override
@@ -121,6 +131,10 @@ public class MyPageDAOImpl implements MyPageDAO{
 		session.update(namespace + ".updateLikeCnt", bno);
 	}
 	
-	
+	@Override
+	public UserVO setting(String uid) throws Exception{
+		
+		return session.selectOne(namespace + ".setting", uid);
+	}
 
 }

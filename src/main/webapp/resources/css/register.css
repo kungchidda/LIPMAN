@@ -1,0 +1,238 @@
+body {
+    /* 	background:#E6E6E6; */
+    background: #fff;
+}
+
+.og-grid {
+    list-style: none;
+    padding: 0px 0;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+
+.og-grid li {
+    display: inline-block;
+    margin: 20px 20px 0 15px;
+    /* 	margin: 0 10px 10px 0; */
+    vertical-align: top;
+    /* height: 250px; */
+    /* 	height: 280px; */
+    height: 340px;
+}
+
+.og-grid li > a {
+    border: none;
+    outline: none;
+    display: block;
+    position: relative;
+    border-radius: 3px;
+    background: #fff;
+    /* 	box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.2); */
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* .og-grid li > a img
+{
+	border: none;
+	outline: none;
+	display: block;
+	position: relative;
+	border-radius: 3px;
+	background:#fff;
+} */
+
+.og-grid li.og-expanded > a::after {
+    top: auto;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: #ddd;
+    border-width: 15px;
+    left: 50%;
+    margin: -20px 0 0 -15px;
+}
+
+.og-expander {
+    position: absolute;
+    background: #ddd;
+    top: auto;
+    left: 0;
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+    height: 0;
+    overflow: hidden;
+}
+
+.og-expander-inner {
+    display: grid;
+    grid-template-columns: 550px 250px 250px 250px 250px 250px 250px;
+    grid-template-rows: 300px 100px 50px 50px 50px;
+    grid-template-areas: 
+        "a c d e f g h"
+        "a i j k l m n"
+        "b . . o o . ."
+        "p . . . . . ."
+        "q . . . . . .";
+    justify-items: center;
+    justify-content: center;
+    grid-column-gap: 30px;
+    grid-row-gap: 20px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+/* .og-expander-inner a:link { */
+ a:link {
+    text-decoration: none;
+    color: black;
+}
+
+/* .og-expander-inner a:visited { */
+a:visited {	
+    color: black;
+}
+
+/* .og-expander-inner .og-fullimg { */
+.og-fullimg {
+    grid-area: a;
+    font-size: 1em;
+    align-self: center;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+
+/* .og-expander .form-group { */
+.form-group {
+    grid-area: p;
+    align-self: center;
+    justify-self: center;
+}
+
+/* .og-expander .form-group button { */
+.form-group button {
+    width: 400px;
+    border: 1px solid gray;
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* .og-expander-inner .comic-list-title { */
+.comic-list-title {
+    grid-area: b;
+    align-self: center;
+}
+
+/* .og-expander-inner .comic-list-title input { */
+.comic-list-title input {
+    width: 400px;
+    font-family: 'Roboto';
+    border: 1px solid gray;
+    border-radius: 5px;
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+}
+
+/* .og-expander-inner .comic-upload-submit { */
+.comic-upload-submit {
+    grid-area: q;
+}
+
+/* .og-expander-inner .comic-upload-submit button { */
+.comic-upload-submit button {
+    width: 400px;
+    padding: 15px;
+    font-size: 1em;
+    border: 1px solid #f95e4e;
+    border-radius: 5px;
+    background-color: #f95e4e;
+    color: white;
+}
+
+
+/* .og-expander-inner img { */
+img {
+    width: 200px;
+    border-radius: 5px;
+    vertical-align: middle;
+}
+
+/* .og-expander-inner .og-fullimg img { */
+.og-fullimg img {
+    width: 400px;
+    border-radius: 5px;
+}
+
+.og-expander-inner .comic-list-01, .comic-list-02, .comic-list-03, .comic-list-04, .comic-list-05, .comic-list-06 {
+    align-self: end;
+    justify-self: center;
+}
+
+
+.og-expander-inner .comic-list-01 {
+    grid-area: c;
+}
+
+.og-expander-inner .comic-list-02 {
+    grid-area: d;
+}
+
+.og-expander-inner .comic-list-03 {
+    grid-area: e;
+}
+
+.og-expander-inner .comic-list-04 {
+    grid-area: f;
+}
+
+.og-expander-inner .comic-list-05 {
+    grid-area: g;
+}
+
+.og-expander-inner .comic-list-06 {
+    grid-area: h;
+}
+
+.og-expander-inner .comic-list-01-text, .comic-list-02-text, .comic-list-03-text, .comic-list-04-text, .comic-list-05-text, .comic-list-06-text {
+    align-self: start;
+    justify-self: center;
+    width: 200px;
+}
+
+.og-expander-inner .subtitle-01 {
+    grid-area: i;
+}
+
+.og-expander-inner .subtitle-02 {
+    grid-area: j;
+}
+
+.og-expander-inner .subtitle-03 {
+    grid-area: k;
+}
+
+.og-expander-inner .subtitle-04 {
+    grid-area: l;
+}
+
+.og-expander-inner .subtitle-05 {
+    grid-area: m;
+}
+
+.og-expander-inner .subtitle-06 {
+    grid-area: n;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+

@@ -15,11 +15,15 @@ public @Data class MyPageVO {
 	private Date regdate;
 	private int viewcnt;
 	private int replycnt;
-	private int likecnt;
-	private int unlikecnt;
+	private int titlelikecnt;
+	private int titledislikecnt;
+	
+	private String gname;
+	private String genre;
+	private String[] genreArr;
 	
 	private String[] files;
-	
-	private String fullName;
+	private String titleFullName;
+	private String boardFullName;
 
 }

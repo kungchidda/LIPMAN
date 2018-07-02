@@ -34,4 +34,39 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where uid = #{subscriber}
 	</update>
 	
+	<insert id="addAttach">
+	insert into tbl_profile(fullname, tno) values (#{fullName}, LAST_INSERT_ID())
+	</insert>
+	
+	<select id="getAttach" resultType="string">
+	select fullName from tbl_profile where uno = #{uno} order by regdate
+	</select>
+	
+	<delete id="deleteAttach">
+		delete from tbl_profile where uno = #{uno}
+	</delete>
+	
+	<insert id="replaceAttach">
+		insert into tbl_profile(fullName, uno) values (#{fullName}, #{uno})
+	</insert>
+	
+		<update id="update">
+		update tbl_user set uname =#{uname}
+		<if test="upw != ''">
+		, upw = #{upw}
+		</if> 
+		where uno = #{uno}
+	</update>
+	
+	<insert id="insertGenre">
+	insert into tbl_user_genre(uno, genre) values 
+		<foreach collection="genreArr" item="genreArr" separator=",">
+			(#{uno}, #{genreArr})
+        </foreach>
+	</insert>
+	
+	<delete id="deleteGenre">
+		delete from tbl_user_genre where uno = #{uno}
+	</delete>
+	
 </mapper>

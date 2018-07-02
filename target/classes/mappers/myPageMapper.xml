@@ -4,32 +4,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.kungchidda.mappers.myPageMapper">
-	<insert id="create">
-		insert into tbl_title (title, uid)
-		values(#{title}, #{uid});
-	</insert>
-		
-	<insert id="add">
-		insert into tbl_subtitle (bno, title, subtitle, uid)
-		values ((select max(bno) from tbl_board), #{title}, #{subtitle}, #{uid});
-	</insert>
 	
 	<select id="read" resultType="com.kungchidda.domain.MyPageVO">
 		select
-			bno, title, subtitle, content, uid, uname, regdate, viewcnt, replycnt, likecnt, unlikecnt 
+			a.bno, a.tno, t.title, a.subtitle, a.content, a.uid, a.uname, a.regdate, a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt
 		from
-			tbl_board
+			tbl_board a
+			
+			inner join
+			tbl_title t
+			on t.tno = a.tno
+			
 		where bno = #{bno}
 	</select>
 	
-	<update id="update">
-		update tbl_board set title =#{title}, subtitle =#{subtitle}, content =#{content}, uname =#{uname}
-		where bno = #{bno}
-	</update>
-	
-	<delete id="delete">
-		delete from tbl_board where bno = #{bno}
-	</delete>
 	
 	
 	<sql id="search">
@@ -58,10 +46,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</sql>
 	
 	
-	<select id="listSearch" resultType="MyPageVO">
+<!-- 	<select id="listSearch" resultType="MyPageVO">
 		<![CDATA[
 			select
-					c.tno, a.bno, c.title, IFNULL(a.uname, (select uname from tbl_user where uid = #{uid})) as uname , a.viewcnt, a.replycnt, a.likecnt, a.unlikecnt, IFNULL(a.regdate, c.regdate) as regdate, IFNULL(b.fullName, '/sampleImage.jpg') as fullName
+					c.tno, a.bno, c.title, IFNULL(a.uname, (select uname from tbl_user where uid = #{uid})) as uname , a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, IFNULL(a.regdate, c.regdate) as regdate, IFNULL(b.fullName, '/sampleImage.jpg') as fullName
 			from
             tbl_board a
             
@@ -86,31 +74,93 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			order by tno desc
 			limit #{cri.pageStart}, #{cri.perPageNum}
 		]]>
+	</select> -->
+		<select id="listSearch" resultType="MyPageVO">
+		<![CDATA[
+			select a.tno, a.title, u.uname, titlelikecnt, titledislikecnt, b.titleFullName, c.regdate, GROUP_CONCAT(gn.genre SEPARATOR ',') as genre, GROUP_CONCAT(gn.gname SEPARATOR ',') as gname
+			from tbl_title a
+			inner join
+			(SELECT  tno, titleFullName from tbl_title_attach) b    
+			on b.tno = a.tno
+			
+			left outer join
+			(select tno, max(regdate) as regdate from tbl_board group by tno) c
+			on c.tno = a.tno
+            
+            inner join
+            tbl_user u
+            on u.uid = a.uid
+            
+            left outer join
+			tbl_title_genre tg
+			on tg.tno = a.tno
+            
+            left outer join
+			tbl_genre_name gn
+			on gn.genre = tg.genre
+			
+			where a.uid = #{uid}
+			group by a.tno
+		]]>
+		<include refid="search"></include>
+		<![CDATA[
+			order by tno desc
+			limit #{cri.pageStart}, #{cri.perPageNum}
+		]]>
 	</select>
-	
 	
 	<select id="listSubscribedSearch" resultType="MyPageVO">
 		<![CDATA[
 			select
-					a.bno, a.title, a.subtitle, a.uname, a.viewcnt, a.replycnt, a.likecnt, a.unlikecnt, a.regdate, IFNULL(b.fullName, '/sampleImage.jpg') as fullName
+					a.tno, a.bno, title.title, a.subtitle, u.uname, a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, a.regdate, IFNULL(t.titleFullName, '/sampleImage.jpg') as titleFullName, b.boardFullName
 			from
             tbl_board a
             
-            left outer join
-            (SELECT  bno, max(fullName) as fullName from tbl_attach group by bno) b    
+            inner join
+            tbl_title title
+            on title.tno = a.tno
+            
+			inner join
+			(SELECT  tno, titleFullName from tbl_title_attach) t    
+			on t.tno = a.tno
+			
+			left outer join
+            (SELECT  bno, max(boardFullName) as boardFullName from tbl_attach group by bno) b    
 			on b.bno = a.bno
+			
             
             inner join 
-			(SELECT max(bno) as bno, title, subtitle, uname FROM tbl_board group by title, uname) x 
-            on x.bno = a.bno and x.uname = a.uname
+			(SELECT max(bno) as bno, subtitle, tno FROM tbl_board group by tno) x 
+            on x.bno = a.bno
+            
+            inner join
+            tbl_user u
+            on u.uid = a.uid
             
             where a.bno > 0
             and 
-            uid in (select subscribed from tbl_subscribe where subscriber = #{uid}) 
+            a.uid in (select subscribed from tbl_subscribe where subscriber = #{uid}) 
 		]]>
 		<include refid="search"></include>
 		<![CDATA[
 			order by bno desc
+			limit #{cri.pageStart}, #{cri.perPageNum}
+		]]>
+	</select>
+	
+	
+	<select id="listSubscriberSearch" resultType="SubscribeVO">
+		<![CDATA[
+			SELECT a.sno, a.subscribed, a.subscriber, b.uname
+			FROM tbl_subscribe a 
+			inner join
+			tbl_user b
+			on a.subscriber =  b.uid
+			where a.subscribed = #{uid}
+		]]>
+		<include refid="search"></include>
+		<![CDATA[
+			order by regdate desc
 			limit #{cri.pageStart}, #{cri.perPageNum}
 		]]>
 	</select>
@@ -128,39 +178,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<include refid="search"></include>
 	</select>
 	
-	<update id="updateReplyCnt">
-		update tbl_board set replycnt = replycnt + #{amount} where bno = #{bno}
-	</update>
-	
-	<update id="updateViewCnt">
-		update tbl_board set viewcnt = viewcnt + + 1 where bno = #{bno}
-	</update>
-	
-	<insert id="addAttach">
-	insert into tbl_title_attach(fullname, tno) values (#{fullName}, LAST_INSERT_ID())
-	</insert>
-	
-	<select id="getAttach" resultType="string">
-	select fullname from tbl_title_attach where tno = #{tno} order by regdate
+
+
+	<select id="setting" resultType="UserVO">
+		select
+			a.uno, a.uid, a.uname, IFNULL(b.fullName, '/sampleImage.jpg') as fullName, GROUP_CONCAT(gn.genre SEPARATOR ',') as genre, GROUP_CONCAT(gn.gname SEPARATOR ',') as gname
+		from
+			tbl_user a
+
+            left outer join
+            tbl_profile b
+            on a.uno = b.uno
+            
+			left outer join
+			tbl_user_genre ug
+			on ug.uno = a.uno
+
+			inner join
+			tbl_genre_name gn
+			on gn.genre = ug.genre
+
+		where uid = #{uid}
 	</select>
 	
-	<delete id="deleteAttach">
-		delete from tbl_attach where tno = #{tno}
-	</delete>
 	
-	<insert id="replaceAttach">
-		insert into tbl_attach(fullname, tno) values (#{fullName}, #{tno})
-	</insert>
 	
-	<delete id="deleteReplyAll">
-		delete from tbl_reply where tno = #{tno}
-	</delete>
-	
-	<update id="updateLikeCnt">
-		update tbl_board set 
-		likecnt = (select count(*) from tbl_like where bno = #{bno} and lpo = '1'),
-		unlikecnt =	(select count(*) from tbl_like where bno = #{bno} and lpo = '-1')
-		where bno = #{bno}
-	</update>
-
 </mapper>

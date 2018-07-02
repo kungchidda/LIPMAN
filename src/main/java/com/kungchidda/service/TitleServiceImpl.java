@@ -27,11 +27,12 @@ public class TitleServiceImpl implements TitleService{
 		String[] files = title.getFiles();
 		
 		if(files != null) {
-			for(String fileName : files) {
-				dao.addAttach(fileName);
+			for(String titleFullName : files) {
+				dao.addAttach(titleFullName);
 			}
 		}
 		//dao.add(title);
+		dao.insertGenre(title);
 	}
 	
 
@@ -56,6 +57,10 @@ public class TitleServiceImpl implements TitleService{
 			for(String fileName : files) {
 				dao.replaceAttach(fileName, bno);
 			}
+		}
+		if(title.getGenreArr() != null) {
+			dao.deleteGenre(title);
+			dao.modifyGenre(title);
 		}
 	}
 	

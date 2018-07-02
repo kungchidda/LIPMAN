@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.kungchidda.domain.BoardVO;
+import com.kungchidda.domain.Criteria;
 //import com.kungchidda.domain.Criteria;
 import com.kungchidda.domain.SearchCriteria;
 import com.kungchidda.persistence.BoardDAO;
@@ -30,7 +31,7 @@ public class BoardServiceImpl implements BoardService{
 				dao.addAttach(fileName);
 			}
 		}
-		dao.add(board);
+//		dao.add(board);
 	}
 	
 
@@ -97,13 +98,15 @@ public class BoardServiceImpl implements BoardService{
 		return dao.getAttach(bno);
 	}
 	
-//	@Override
-//	public List<BoardVO> infiniteScrollDown(Integer bnoToStart) throws Exception {
-//		return dao.infiniteScrollDown(bnoToStart);
-//	}
-//	
-//	@Override
-//	public List<BoardVO> infiniteScrollUp(Integer bnoToStart) throws Exception {
-//		return dao.infiniteScrollUp(bnoToStart);
-//	}
+	@Override
+	public List<BoardVO> listSubtitlePage(Integer tno, Criteria cri) throws Exception {
+		return dao.listPage(tno, cri);
+	}
+	
+	@Override
+	public int count(Integer bno) throws Exception {
+		return dao.count(bno);
+	}
+	
+	
 }

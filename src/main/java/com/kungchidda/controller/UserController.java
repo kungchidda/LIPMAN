@@ -124,4 +124,30 @@ public class UserController {
 		return "redirect:/sboard/list";
 	}
 	
+	@RequestMapping(value = "/setting", method = RequestMethod.POST)
+	public String modifyProfilePOST(UserVO user, RedirectAttributes rttr) throws Exception {
+		logger.info("uid = " + user.getUid());
+		logger.info("upw = " + user.getUpw());
+		logger.info("uname = " + user.getUname());
+		logger.info("file = " + user.getFiles());
+		logger.info("genre = " + user.getGenre());
+		logger.info("genreArr = " + user.getGenreArr());
+		
+		if(user.getUpw() != "") {
+			logger.info("upw != ''" + user.getUpw());
+			SHAPasswordEncoder shaPasswordEncoder = new SHAPasswordEncoder(512);
+			shaPasswordEncoder.setEncodeHashAsBase64(true);
+			PasswordEncoding passwordEncoding = new PasswordEncoding(shaPasswordEncoder);
+			user.setUpw(passwordEncoding.encode(user.getUpw()));
+		}
+		service.modify(user);
+
+		rttr.addFlashAttribute("msg", "SUCCESS");
+
+		logger.info(rttr.toString());
+		
+		return "redirect:/mypage/setting";
+	}
+	
+	
 }

@@ -6,9 +6,10 @@ import lombok.Data;
 
 public @Data class SubscribeVO {
 	
-	private Integer fno;
+	private Integer sno;
 	private String subscribed;
 	private String subscriber;
 	private Date regdate;
 
+	private String uname;
 }

@@ -17,25 +17,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<if test="subscriber != null">
 		and subscriber = #{subscriber}
 		</if>
-		order by fno desc
-	</select>
-	
-	<select id="listSubscriber" resultType="com.kungchidda.domain.SubscribeVO">
-		select
-		* 
-		from
-		tbl_subscribe
-		where subscribed = #{subscribed}
-		<if test="subscribed != null">
-		subscribed = #{subscribed}
-		</if>
-		order by fno desc
+		order by sno desc
 	</select>
 	
 
 	<insert id="create">
-		insert into tbl_subscribe (fno, subscribed, subscriber)
-		values (#{fno}, #{subscribed}, #{subscriber} )
+		insert into tbl_subscribe (sno, subscribed, subscriber)
+		values (#{sno}, #{subscribed}, #{subscriber} )
 	</insert>
 
 	<delete id="delete">
@@ -55,7 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="count" resultType="int">
-		select count(bno) from tbl_subscribe where subscribed = #{subscribed} 
+		select count(*) from tbl_subscribe where subscribed = #{subscribed} 
 	</select>
 	
 	<select id="getBno" resultType="int">

@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import com.kungchidda.domain.BoardVO;
+import com.kungchidda.domain.Criteria;
 //import com.kungchidda.domain.Criteria;
 import com.kungchidda.domain.SearchCriteria;
 
@@ -25,10 +26,10 @@ public class BoardDAOImpl implements BoardDAO{
 		session.insert(namespace+".create", vo);
 	}
 	
-	@Override
-	public void add(BoardVO vo) throws Exception {
-		session.insert(namespace+".add", vo);
-	}
+//	@Override
+//	public void add(BoardVO vo) throws Exception {
+//		session.insert(namespace+".add", vo);
+//	}
 	
 	@Override
 	public BoardVO read(Integer bno) throws Exception {
@@ -133,16 +134,19 @@ public class BoardDAOImpl implements BoardDAO{
 		session.update(namespace + ".updateLikeCnt", bno);
 	}
 	
+	@Override
+	public List<BoardVO> listPage(Integer tno, Criteria cri) throws Exception {
+		
+		Map<String, Object> paramMap = new HashMap<>();
+		
+		paramMap.put("tno", tno);
+		paramMap.put("cri", cri);
+		
+		return session.selectList(namespace + ".listPage", paramMap);
+	}
 	
-	//무한 스크롤
-//	@Override
-//	public List<BoardVO> infiniteScrollDown(Integer bnoToStart) throws Exception {
-//		return session.selectList(namespace+".infiniteScrollDown", bnoToStart);
-//	}
-//	
-//	@Override
-//	public List<BoardVO> infiniteScrollUp(Integer bnoToStart) throws Exception {
-//		return session.selectList(namespace+".infiniteScrollUp", bnoToStart);
-//	}
-
+	@Override
+	public int count(Integer tno) throws Exception {
+		return session.selectOne(namespace + ".count", tno);
+	}
 }

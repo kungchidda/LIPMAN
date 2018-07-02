@@ -3,6 +3,7 @@ package com.kungchidda.service;
 import java.util.List;
 
 import com.kungchidda.domain.BoardVO;
+import com.kungchidda.domain.Criteria;
 //import com.kungchidda.domain.Criteria;
 import com.kungchidda.domain.SearchCriteria;
 
@@ -23,8 +24,7 @@ public interface BoardService {
 	
 	public List<String> getAttach(Integer bno) throws Exception;
 	
-	
-//	public List<BoardVO> infiniteScrollDown(Integer bnoToStart) throws Exception;
-//	public List<BoardVO> infiniteScrollUp(Integer bnoToStart) throws Exception;
-	
+
+	public List<BoardVO> listSubtitlePage(Integer tno, Criteria cri) throws Exception;
+	public int count(Integer bno) throws Exception;
 }

@@ -5,29 +5,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.kungchidda.mappers.boardMapper">
 	<insert id="create">
-		insert into tbl_board (title, subtitle, content, uid, uname)
-		values(#{title}, #{subtitle}, #{content}, #{uid}, #{uname} );
+		insert into tbl_board (tno, subtitle, content, uid, fileList)
+		values(#{tno}, #{subtitle}, #{content}, #{uid}, #{fileList} );
 	</insert>
 		
-	<insert id="add">
+	<!-- <insert id="add">
 		insert into tbl_subtitle (bno, title, subtitle, uid)
 		values ((select max(bno) from tbl_board), #{title}, #{subtitle}, #{uid});
-	</insert>
+	</insert> -->
 	
 	<select id="read" resultType="com.kungchidda.domain.BoardVO">
 		select
-			bno, title, subtitle, content, uid, uname, regdate, viewcnt, replycnt, likecnt, unlikecnt, 
-	            (select fullName from tbl_title_attach where tno  = 
-					(select tno from tbl_title 
-						where title = (select title from tbl_board where bno = #{bno})
-							and uid = (select uid from tbl_board where bno = #{bno}))) as fullName
+			a.tno, a.bno, t.title, a.subtitle, a.content, a.fileList, u.uid, u.uname, a.regdate, a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt,  
+	            (select titleFullName from tbl_title_attach where tno  = 
+										(select tno from tbl_board where bno = #{bno}) )as titleFullName
 		from
-			tbl_board
+			tbl_board a
+            
+        inner join
+            tbl_user u
+        on u.uid = a.uid
+        
+        inner join
+        tbl_title t
+        on t.tno = a.tno
+            
 		where bno = #{bno}
 	</select>
 	
 	<update id="update">
-		update tbl_board set title =#{title}, subtitle =#{subtitle}, content =#{content}, uname =#{uname}
+		update tbl_board set subtitle =#{subtitle}, content =#{content}, uname =#{uname}
 		where bno = #{bno}
 	</update>
 	
@@ -105,22 +112,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				OR uname like CONCAT('%', #{keyword}, '%'))
 			</if>
 		</if>
+		<if test="genreArr != null">
+		and tg.genre in 
+		<foreach collection="genreArr" item="genreArr" open="(" close=")" separator=",">
+            #{genreArr}
+        </foreach>
+		</if>
 		</sql>
 	
-	<select id="listSearch" resultType="BoardVO">
+<!-- 	<select id="listSearch" resultType="BoardVO">
 		<![CDATA[
 			select
-					a.bno, a.title, a.subtitle, a.uname, a.viewcnt, a.replycnt, a.likecnt, a.unlikecnt, a.regdate, IFNULL(b.fullName, '/sampleImage.jpg') as fullName
+			a.tno, a.bno, a.title, a.subtitle, u.uname, a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, a.regdate, IFNULL(t.titleFullName, '/sampleImage.jpg') as titleFullName, IFNULL(b.boardFullName, '/sampleImage.jpg') as boardFullName
 			from
             tbl_board a
             
-            left outer join
-            (SELECT  bno, max(fullName) as fullName from tbl_attach group by bno) b    
+			inner join
+			(SELECT  tno, titleFullName from tbl_title_attach) t    
+			on t.tno = a.tno
+			
+			left outer join
+            (SELECT  bno, max(boardFullName) as boardFullName from tbl_attach group by bno) b    
 			on b.bno = a.bno
-            
+			
             inner join 
-			(SELECT max(bno) as bno, title, subtitle, uname FROM tbl_board group by title, uname) x 
-            on x.bno = a.bno and x.uname = a.uname
+			(SELECT max(bno) as bno, title, subtitle, tno FROM tbl_board group by tno) x 
+            on x.bno = a.bno
+            
+            inner join
+            tbl_user u
+            on u.uid = a.uid
             
             where a.bno > 0
 		]]>
@@ -129,16 +150,76 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			order by bno desc
 			limit #{pageStart}, #{perPageNum}
 		]]>
+	</select> -->
+	
+<!-- 	<select id="listGenreSearch" resultType="BoardVO"> -->
+	<select id="listSearch" resultType="BoardVO">
+		<![CDATA[
+			 select
+			title.tno, a.bno, title.title, a.subtitle, u.uname, a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, a.regdate, IFNULL(t.titleFullName, '/sampleImage.jpg') as titleFullName, IFNULL(b.boardFullName, '/sampleImage.jpg') as boardFullName, GROUP_CONCAT(gn.gname SEPARATOR ',') as gname
+			from
+            tbl_board a
+            
+            inner join
+            tbl_title title
+            on title.tno = a.tno
+            
+			inner join
+			(SELECT  tno, titleFullName from tbl_title_attach) t    
+			on t.tno = a.tno
+			
+			left outer join
+            (SELECT  bno, boardFullName from tbl_attach group by bno) b    
+			on b.bno = a.bno
+			
+            inner join 
+			(SELECT max(bno) as bno, subtitle, tno FROM tbl_board group by tno) x 
+            on x.bno = a.bno
+            
+            inner join
+            tbl_user u
+            on u.uid = a.uid
+            
+            inner join
+            tbl_title_genre tg
+            on tg.tno = title.tno
+            
+            inner join
+            tbl_genre_name gn
+            on gn.genre = tg.genre
+            
+            where a.bno > 0
+		]]>
+		<include refid="search"></include>
+		<![CDATA[
+			group by
+            a.bno
+			order by a.bno desc
+			limit #{pageStart}, #{perPageNum}
+		]]>
 	</select>
 	
 	<select id="listSearchCount" resultType="int">
 		<![CDATA[
 			select
-				count(bno)
+				count(a.bno)
 			from
-				tbl_board
+				tbl_board a
+				
+			inner join
+            tbl_title title
+            on title.tno = a.tno
+            
+            inner join 
+			(SELECT max(bno) as bno, subtitle, tno FROM tbl_board group by tno) x 
+            on x.bno = a.bno
+
+ 			inner join
+            tbl_title_genre tg
+            on tg.tno = title.tno
+            
 			where
-				bno > 0
+				a.bno > 0
 		]]>
 		<include refid="search"></include>
 	</select>
@@ -152,11 +233,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<insert id="addAttach">
-	insert into tbl_attach(fullname, bno) values (#{fullName}, LAST_INSERT_ID())
+	insert into tbl_attach(boardFullName, bno) values (#{boardFullName}, LAST_INSERT_ID())
 	</insert>
 	
 	<select id="getAttach" resultType="string">
-	select fullname from tbl_attach where bno = #{bno} order by regdate
+	select boardFullName from tbl_attach where bno = #{bno} order by regdate
 	</select>
 	
 	<delete id="deleteAttach">
@@ -164,7 +245,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	<insert id="replaceAttach">
-		insert into tbl_attach(fullname, bno) values (#{fullName}, #{bno})
+		insert into tbl_attach(boardFullName, bno) values (#{boardFullName}, #{bno})
 	</insert>
 	
 	<delete id="deleteReplyAll">
@@ -174,33 +255,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateLikeCnt">
 		update tbl_board set 
 		likecnt = (select count(*) from tbl_like where bno = #{bno} and lpo = '1'),
-		unlikecnt =	(select count(*) from tbl_like where bno = #{bno} and lpo = '-1')
+		dislikecnt =	(select count(*) from tbl_like where bno = #{bno} and lpo = '-1')
 		where bno = #{bno}
 	</update>
+
+	<select id="listPage" resultType="com.kungchidda.domain.BoardVO">
+		select 
+		b.tno, b.bno, t.title, b.subtitle, b.uid, IFNULL(a.boardFullName, '/sampleImage.jpg') as boardFullName
+		from tbl_board b
+        
+        left outer join
+        tbl_attach a
+        on a.bno = b.bno
+		
+		inner join
+		tbl_title t
+		on t.tno = b.tno
+		
+		where b.tno = #{tno}
+		group by bno
+		order by bno desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
 	
+	<select id="count" resultType="int">
+	select count(*) from tbl_board where tno = #{tno}
+	</select>
 	
-<!-- 	<select id="infiniteScrollDown" resultType="com.kungchidda.domain.BoardVO"> -->
-<!-- 		<![CDATA[ -->
-<!-- 			select -->
-<!-- 				bno, title, subtitle, content, uname, regdate, viewcnt -->
-<!-- 			from -->
-<!-- 				tbl_board -->
-<!-- 			where bno <= #{bno} -->
-<!-- 			and bno > #{bno}-20 -->
-<!-- 			order by bno desc, regdate desc -->
-<!-- 			]]> -->
-<!-- 	</select> -->
-	
-<!-- 	<select id="infiniteScrollUp" resultType="com.kungchidda.domain.BoardVO"> -->
-<!-- 		<![CDATA[ -->
-<!-- 			select -->
-<!-- 				bno, title, subtitle, content, uname, regdate, viewcnt -->
-<!-- 			from -->
-<!-- 				tbl_board -->
-<!-- 			where bno > #{bno} -->
-<!-- 			and bno <= #{bno}+20 -->
-<!-- 			order by bno desc, regdate desc -->
-<!-- 			]]> -->
-<!-- 	</select> -->
 
 </mapper>

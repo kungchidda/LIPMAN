@@ -5,20 +5,25 @@ import lombok.Data;
 
 public @Data class BoardVO {
 	
+	private Integer tno;
 	private Integer bno;
 	private String title;
 	private String subtitle;
 	private String content;
+	private String fileList;
 	private String uid;
 	private String uname;
 	private Date regdate;
 	private int viewcnt;
 	private int replycnt;
 	private int likecnt;
-	private int unlikecnt;
+	private int dislikecnt;
+	private String genre;
+	private String[] genreArr;
 	
 	private String[] files;
 	
-	private String fullName;
+	private String titleFullName;
+	private String boardFullName;
 
 }

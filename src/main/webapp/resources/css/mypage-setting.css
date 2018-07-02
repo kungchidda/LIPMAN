@@ -1,3 +1,7 @@
+.profile > .profile-image > .uploadedList > img{
+	width : 200px;
+}
+
 /*setting*/
 .setting {
     display: grid;
@@ -44,6 +48,10 @@ hr {
     grid-area: c;
     justify-self: center; 
     padding: 30px;
+}
+
+.setting .input-text{
+	border: 0px
 }
 
 .setting .Nick-Name-button {

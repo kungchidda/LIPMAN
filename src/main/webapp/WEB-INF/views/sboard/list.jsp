@@ -1,29 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE html>
-<html>
-<head>
-<title>LIPMAN</title>
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+        <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+            <!DOCTYPE html>
+            <html>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-<link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/default.css" />
-<link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/component.css" />
-<script src="/resources/ThumbnailGridExpandingPreview/js/modernizr.custom.js"></script>
+            <head>
+                <title>LIPMAN</title>
+                    <%@ include file="/WEB-INF/views/include/header.jsp"%>
+                    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" type="text/css" href="/resources/css/banner/banner.css" />
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+                    <link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/default.css" />
+                    <link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/component.css" />
+                    <script src="/resources/ThumbnailGridExpandingPreview/js/modernizr.custom.js"></script>
+                    <script src="/resources/js/subtitlePrint.js"></script>
+                    <script src="/resources/js/expander.js"></script>
 
- 
-</head>
-<body>
+<!--                     <link rel="stylesheet" type="text/css" href="/resources/css/banner/banner.css" /> -->
+                    <!-- <style>
+                     .hide{
+                        display:none;
+                     }
+                    </style> -->
 
+            </head>
 
-<!-- Container element -->
-	<div class="container">
-		<section class="parallax">
+            <body>
+				<div class="dim-div"></div>
+
+                <!-- Container element -->
+                <div class="container">
 			<select name="searchType" >
 
 				<option value="n"
@@ -55,213 +62,180 @@
 					<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
 					Title OR Content OR Writer</option>
 
-			</select> <input type="text" name='keyword' id="keywordInput"
-				value='${cri.keyword}'>
+			</select>
+			<input type="text" name='keyword' id="keywordInput" value='${cri.keyword}'>
+			<input type="checkbox" name='genre' class="genreInput" value='1'>SF
+			<input type="checkbox" name='genre' class="genreInput" value='2'>Mystery
+			<input type="checkbox" name='genre' class="genreInput" value='3'>PureLove
+			<input type="checkbox" name='genre' class="genreInput" value='4'>Romance
+			
 			<button class="btn btn-lg btn-primary" id='searchBtn'>Search</button>
-			<button class="btn btn-lg btn-danger" id='newBtn'>New Board</button>
+			<!-- <button class="btn btn-lg btn-danger" id='newBtn'>New Board</button> -->
 			
 			<!-- <h1 style="text-align: center;color:white;">크레에이티브 작품</h1> -->
 			<!-- <h1 style="text-align: center;color:white;">전시 및 탐색</h1> -->
 			
-		</section>
-<!-- 				<ul id="og-grid" class="og-grid rf-content--projects"> -->
-		<ul id="og-grid" class="og-grid cards">
-					<c:forEach items="${list}" var="boardVO">
-						<li>
-								<a href="/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}" data-largesrc="/displayFile?fileName=${boardVO.fullName}" data-title="${boardVO.title}"
-								 onclick="getSubtitle(${boardVO.bno});" data-description="${boardVO.uname}">
-									<img class="thumbnail" src="/displayFile?fileName=${boardVO.fullName}" />
-									
-									<div class="title">
-                						${boardVO.title}
-            						</div>
-            						
-						            <div class="subtitle">
-						                ${boardVO.subtitle}
-						            </div>
-									
-									<div class="line"><img src="/resources/svg/line.svg"></div>
-									<div class="thumbnail-thumb">
-										<img src="/resources/png/pencil.png"><span>${boardVO.likecnt}</span>
-										<img src="/resources/png/eraser.png"><span>${boardVO.unlikecnt}</span>
-									</div>
-									<div class="line"><img src="/resources/svg/line.svg"></div>
-									
-									<div class="thumbnail-writer">
-						                <img src="/resources/png/account.png">
-						                <span>${boardVO.uname}</span>
-						            </div>
-								</a>
-						</li>
-						
-					</c:forEach>
-				</ul>
-	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="/resources/ThumbnailGridExpandingPreview/js/grid.js"></script>
-		<script>
-			$(function() {
-				Grid.init();
-			});
-		</script>
-	<!-- /.container -->
+		<!-- </section> -->
+                        <!-- 				<ul id="og-grid" class="og-grid rf-content--projects"> -->
+                            
+                        <ul id="og-grid" class="og-grid cards">
+                            <c:forEach items="${list}" var="boardVO">
+                            	<li class="expander" id="${boardVO.tno}">
+<%--                                 <li class="expander" onclick="getSubtitle(${boardVO.tno});"> --%>
+<%--                                 <li class="og-expanded" onclick="getSubtitle(${boardVO.tno});"> --%>
+                                    <!-- <a href="/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}" data-largesrc="/displayFile?fileName=${boardVO.titleFullName}" data-title="${boardVO.title}"
+						 class="expander" onclick="getSubtitle(${boardVO.tno});"> data-description="${boardVO.uname}"> -->
+                                        <img class="thumbnail" src="/displayFile?fileName=${boardVO.boardFullName}">
 
-	<%-- <%@ include file="/WEB-INF/views/include/footer.html"%> --%>
-	
-	<script id="template" type="text/x-handlebars-template">
-		{{#each .}}
-			<div style="height:50px;" class="subtitleLi" data-sno={{sno}}>
-					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>{{subtitle}}</a>
-			</div>
-		{{/each}}
-	</script>
-	
-	<script> //subtitle print
-	var formObj = $("form[role='form']");
+                                        <div class="title">
+                                            ${boardVO.title}
+                                        </div>
 
-	function getSubtitle(bno){
-		console.log("click getSubtitle start getPage");
-		getPage("/subtitles/"+bno+"/5/1");
-	};	
-	
-	Handlebars.registerHelper("prettifyDate", function(timeValue){
-			var dateObj = new Date(timeValue);
-			var year = dateObj.getFullYear();
-			var month = dateObj.getMonth() + 1;
-			var date = dateObj.getDate();
-			return year+"/"+month+"/"+date;
-	});
-	
+                                        <div class="subtitle">
+                                            ${boardVO.subtitle}
+                                        </div>
 
-	
-	
-	$(".pagination").on("click", "li a", function(event){
-		event.preventDefault();
-		subtitlePage = $(this).attr("href");
-		getPage("/subtitles/"+bno+"/5/"+subtitlePage);
-		
-	});
-	
-	
-		
-	var printData = function (subtitleArr, target, templateObject){
-		console.log("start printData");
-		var template = Handlebars.compile(templateObject.html());
-		
-		var html = template(subtitleArr);
-		target.after(html);
-	}
-		
-		
-	function getPage(pageInfo){
-		console.log("start getPage");
-		
-		//$(".pagination").remove();
-		$(".subtitleLi").remove();
-		$.getJSON(pageInfo,function(data){
-			printData(data.list, $(".subtitlesDiv"), $('#template'));
-			printPaging(data.pageMaker, $(".pagination"));
-			console.log("start subtitlecntSmall");
-			$(".subtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
-			
-		});
-		
-	}
-	
-	var printPaging = function(pageMaker, target){
-		console.log("start printPaging");
-		var str = "";
-		if(pageMaker.endPage != '1'){
-		if(pageMaker.prev){
-			str += "<li><a href='"+(pageMaker.startPage-1)+"'> << </a></li>";
-		}
-		
-		for(var i=pageMaker.startPage, len= pageMaker.endPage; i <= len; i++){
-			var strClass = pageMaker.cri.page == i?'class=active':'';
-			str += "<li class='page-item' "+strClass+"><a class='page-link' href='"+i+"'>"+i+"</a></li>";
-		}
-		
-		if(pageMaker.next){
-			str += "<li><a href='"+(pageMaker.endPage+1)+"'> >> </a></li>";
-		}
+                                        <div class="line"><img src="/resources/svg/line.svg"></div>
+                                        <div class="thumbnail-thumb">
+                                            <img src="/resources/png/pencil.png"><span>${boardVO.likecnt}</span>
+                                            <img src="/resources/png/eraser.png"><span>${boardVO.dislikecnt}</span>
+                                        </div>
+										<div class="line">
+											<img src="/resources/svg/line.svg">
+										</div>
 
-		}
-		target.html(str);
-				
-		
-		
-	}
+                                        <div class="thumbnail-writer">
+                                            <img src="/resources/png/account.png">
+                                            <span>${boardVO.uname}</span>
+                                        </div>
+                                        <!-- 					</a> -->
+                                        <div class="og-expander hide" style="height: 700px;">
+                                            <div class="og-expander-inner">
+                                                <div class="og-fullimg">
+                                                    <img src="/displayFile?fileName=${boardVO.titleFullName}" style="display: inline;">
+                                                </div>
+                                                <div class="comic-list-title">
+                                                    <div>${boardVO.title}</div>
+                                                </div>
+                                                <div style="height:50px;" class="subtitleLi" data-sno=>
+                                                    <a href="/sboard/readPage?page=1&amp;perPageNum=50&amp;searchType&amp;keyword&amp;bno=5">
+                                                        <div class="comic-list">
+                                                            <img src="/displayFile?fileName=${boardVO.boardFullName}">
+                                                        </div>
+                                                        <div class="comic-list-text cursor">
+                                                            ${boardVO.subtitle}
+                                                        </div>
+                                                    </a>
+                                                    <ul id="pagination" class="pagination"></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </li>
 
-	</script>
-	
-	<script>
-		var result = '${msg}';
+                            </c:forEach>
+                        </ul>
+                </div>
 
-		if (result == 'SUCCESS') {
-			alert("처리가 완료되었습니다.");
-		}
+                <script id="template" type="text/x-handlebars-template">
+                    {{#each .}}
+                    <div class="subtitleLi">
+                        <a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>
+                            <div class="comic-list"><img src="/displayFile?fileName={{boardFullName}}"></div>
+                            <div class="comic-list-text cursor">{{subtitle}}</div>
+                        </a>
+                    </div>
+                    {{/each}}
+                    <ul id="pagination" class="pagination"></ul>
+                </script>
 
-	</script>
-	
-	<script>
-		$(document).ready(function(){
-			
-			var bno = ${boardVO.bno}
-			getPage("/subtitles/"+bno+"/5/1");
-			
-			var formObj = $("form[role='form']");
 
-			console.log(formObj);
 
-			$(".btn-primary").on("click", function() {
-				self.location = "/board/register";
-			});
+
+                <script>
+                    var result = '${msg}';
+
+                    if (result == 'SUCCESS') {
+                        alert("처리가 완료되었습니다.");
+                    }
+
+                </script>
+
+                <script>
+                    $(document).ready(function() {
+
+                        /**************************************************************************************/
+                        /**************************************************************************************/
+                        /*                               	페이지 로딩 후  	                                  */
+                        /**************************************************************************************/
+                        /**************************************************************************************/
+
+                        // 			var bno = ${boardVO.bno}
+                        /* getPage("/subtitles/"+bno+"/5/1"); */
+
+                        var formObj = $("form[role='form']");
+
+                        console.log(formObj);
+
+
+                        //register button
+                        /* $(".btn-primary").on("click", function() {
+                        	self.location = "/board/register";
+                        }); */
+
+                        //search button
+                      $('#searchBtn').on("click",function(event){
+                      //  $("#searchForm").submit(function(event){
+                        	event.preventDefault();
+                        	var checkArr = [];     // 배열 초기화
+                            $("input[name='genre']:checked").each(function(i) {
+                                checkArr.push($(this).val());     // 체크된 것만 값을 뽑아서 배열에 push
+                            });
+                        	
+                        	console.log("checkArr = " + checkArr);
+                        	
+							self.location = "list"
+								+ '${pageMaker.makeQuery(1)}'
+								+ "&searchType="
+								+ $("select option:selected").val()
+								+ "&keyword=" + $('#keywordInput').val()//;
+								+ "&genre=" + checkArr;
+								
+								//$(this).get(0).submit();
+                        });
 			
-			
-			$('#searchBtn').on(
-					"click",
-					function(event){
-						
-						self.location = "list"
-						+ '${pageMaker.makeQuery(1)}'
-						+ "&searchType="
-						+ $("select option:selected").val()
-						+ "&keyword=" + $('#keywordInput').val();
-			});
-			
-			$('#newBtn').on("click", function(evt){
-				self.location = "register";
-			});
-			
-			
-			//무한 스크롤 기능 일시 정지 
-			//현재 페이지 받아옴
-			var i = ${pageMaker.cri.page};
-			
-			//스크롤 이벤트 발생
-			$(window).scroll(function(){
-				var easeEffect = 'easeInQuint';
-			
-				var diff = $(document).height() - $(window).height() ;
-				//console.log($(window).scrollTop() + "==" + diff );
-				//현재 스크롤의 top 좌표가 == (게시글을 불러온 화면 height - 윈도우창의 height) 되는 순간
-				if ($(window).scrollTop() == diff ) {
-					//현재 페이지 보다 ++
-					i++;
-					
-					var url = 'listScroll?page=' + i;
-					
-					console.log("page = " + i);
-					$.ajax({
-						type : 'GET',
-						url : url,
-						dataType : 'html',
-						success:function(html){
-							$(".image-grid").append(html);
-						}
-					});
-				}
-			/*
+                        $('#newBtn').on("click", function(evt){
+                        	self.location = "register";
+                        });
+
+
+                        //무한 스크롤 기능 일시 정지 
+                        //현재 페이지 받아옴
+                        var i = ${pageMaker.cri.page};
+
+                        //스크롤 이벤트 발생
+                        $(window).scroll(function() {
+                            var easeEffect = 'easeInQuint';
+
+                            var diff = $(document).height() - $(window).height();
+                            //console.log($(window).scrollTop() + "==" + diff );
+                            //현재 스크롤의 top 좌표가 == (게시글을 불러온 화면 height - 윈도우창의 height) 되는 순간
+                            if ($(window).scrollTop() == diff) {
+                                //현재 페이지 보다 ++
+                                i++;
+
+                                var url = 'listScroll?page=' + i;
+
+                                console.log("page = " + i);
+                                $.ajax({
+                                    type: 'GET',
+                                    url: url,
+                                    dataType: 'html',
+                                    success: function(html) {
+                                        $(".image-grid").append(html);
+                                    }
+                                });
+                            }
+                            /*
 				//무한스크롤 적용을 위한 주석처리 무조건 1페이지로 이동
 				//무한스크롤 업스크롤 기능 삭제
 				//현재 스크롤의 top 좌표가  <= 0 되는 순간
@@ -281,12 +255,13 @@
 	            }
  			*/
 
-			});
-			
-		});
-	</script>
-	
+                        });
 
+                    });
 
-</body>
-</html>
+                </script>
+               
+
+            </body>
+
+            </html>

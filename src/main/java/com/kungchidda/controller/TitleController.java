@@ -1,4 +1,4 @@
-package com.kungchidda.domain;
+package com.kungchidda.controller;
 
 import java.io.File;
 import java.util.List;
@@ -21,6 +21,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.kungchidda.domain.PageMaker;
+import com.kungchidda.domain.SearchCriteria;
+import com.kungchidda.domain.TitleVO;
 import com.kungchidda.service.TitleService;
 import com.kungchidda.util.MediaUtils;
 
@@ -63,8 +66,8 @@ public class TitleController {
 	}
 	
 	@RequestMapping(value = "/readTitle", method = RequestMethod.GET)
-	public void read(@RequestParam("bno") int bno, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
-		model.addAttribute(service.read(bno));
+	public void read(@RequestParam("tno") int tno, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+		model.addAttribute(service.read(tno));
 		
 		//SearchCriteria cri = new SearchCriteria();
 		cri.setPerPageNum(20);
@@ -83,8 +86,8 @@ public class TitleController {
 	}
 
 	@RequestMapping(value = "/removeTitle", method = RequestMethod.POST)
-	public String remove(@RequestParam("bno") int bno, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
-		service.remove(bno);
+	public String remove(@RequestParam("tno") int tno, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
+		service.remove(tno);
 		
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
@@ -97,15 +100,20 @@ public class TitleController {
 	}
 	
 	@RequestMapping(value = "/modifyTitle", method = RequestMethod.GET)
-	public void modifyPagingGET(int bno, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
-		model.addAttribute(service.read(bno));
+	public void modifyPagingGET(int tno, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+		model.addAttribute(service.read(tno));
 	}
 
 	@RequestMapping(value = "/modifyTitle", method = RequestMethod.POST)
 	public String modifyPagingPOST(TitleVO title, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
 		logger.info(cri.toString());
+		
+		int tno = title.getTno();
+		String titleName = title.getTitle();
+		logger.info("titleName = " + titleName);
+		logger.info("tno = " + tno);
+		
 		service.modify(title);
-
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addAttribute("searchType", cri.getSearchType());
@@ -115,15 +123,15 @@ public class TitleController {
 
 		logger.info(rttr.toString());
 		
-		return "redirect:/sboard/list";
+		return "redirect:/mypage/home";
 	}
 	
-	@RequestMapping(value = "/registerTitle", method = RequestMethod.GET)
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public void registerGET(TitleVO title, Model model) throws Exception {
 		logger.info("register get ..........");
 	}
 
-	@RequestMapping(value = "/registerTitle", method = RequestMethod.POST)
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registPOST(TitleVO title, RedirectAttributes rttr) throws Exception {
 		logger.info("regist post ..........");
 		logger.info(title.toString());
@@ -132,7 +140,7 @@ public class TitleController {
 
 		rttr.addFlashAttribute("msg", "SUCCESS");
 
-		return "redirect:/sboard/list";
+		return "redirect:/mypage/home";
 	}
 	
 	@ResponseBody
@@ -157,7 +165,7 @@ public class TitleController {
 	
 	@RequestMapping("/getAttach/{tno}")
 	@ResponseBody
-	public List<String> getAttach(@PathVariable("bno")Integer bno) throws Exception{
-		return service.getAttach(bno);
+	public List<String> getAttach(@PathVariable("tno")Integer tno) throws Exception{
+		return service.getAttach(tno);
 	}
 }

@@ -11,9 +11,6 @@ body {
     overflow-y:scroll;
 }
 
-
-
-
 /*subtitle h4 css*/
 .strapline {
     padding-top: 30px;
@@ -145,8 +142,12 @@ h4 {
 .profile-icon a.active {
     border-bottom: 5px solid red;
 }
+.profile-icon a.active > img{
+   	width: 40px;
+}
 
 .profile-icon img {
+	box-sizing:content-box;
     width: 30px;
     padding-left: 50px;
     padding-right: 50px;
@@ -181,7 +182,10 @@ h4 {
 }
 
 .profile-icon img:hover {
+	box-sizing:content-box;
     width: 40px;
 }
 
-
+.margin-bottom {
+	margin-bottom: 700px !important;
+}

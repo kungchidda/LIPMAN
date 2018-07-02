@@ -8,12 +8,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <style>
-.fileDrop {
-	width : 100%;
-	height : 220px;
-	border : 1px dotted blue;
+#fileDrop {
+/* 	width : 100%; */
+/* 	height : 400px; */
+/* 	border : 1px dotted blue; */
+	width : 400px;
 }
-
+#registerForm{
+	content-align : center; 
+	text-align : center;
+}
 small {
 	margin-left : 3px;
 	font-weight : bold;
@@ -23,42 +27,46 @@ small {
 
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.css" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.js"></script>
-
+	
+	<link href="/resources/css/register.css" rel="stylesheet">
 </head>
 <body>
 
-	<form id="registerForm" role="form" method="post">
-		<div class="box-body">
-			<div class="form-group">
-				<label for="exampleInputEmail1">Title</label> <input type="text" name='title' class="form-control" placeholder="Enter Title">
+	<form id="registerForm" role="form" action="/title/register" method="post">
+		<div class="og-fullimg" id="fileDrop">
+			<div class="uploadedList">
+				<img src="/resources/png/number-00.png" style="display: inline;">
 			</div>
-			<div class="form-group">
-				<Input type="hidden" name="uid" class="form-control" value='${login.uid}'>
-			</div>
-			<div class="form-group">
-				<!-- WYSIWYG -->
-				<!-- <textarea id="summernote" name="content"></textarea>
-				<div id="summernote"></div> -->
-				<!-- <div id="summernote"></div> -->
-			</div>
-			<div class="form-group">
-				<label for="exampleInputEmail1">File Upload or DROP Here</label>
-			</div>
-			<div class="form-group">
-				<input type="file" id="upload" multiple>
-				<div class="fileDrop">
-					<ul class="mailbox-attachments clearfix uploadedList"></ul>
+		</div>
+		<div class="form-group">
+<!-- 		    <button class="btn" id="upload-button">Select image</button> -->
+			<input type="hidden" name="uid" class="form-control" value='${login.uid}'>
+		    <input type="file" id="upload-input" style="display: none;">
+		    <script>
+        		$(function () {
+        			$('#fileDrop').click(function (e) {
+        				e.preventDefault();
+        				$('#upload-input').click();
+        				
+        			});
+        		});
+        		
+        		</script>
+				<div class="comic-list-title">
+				    <input type="text" name='title' class="form-control" placeholder="Comic Title">
 				</div>
-			</div>
+				<input type="checkbox" name='genreArr' class="genreInput" value='1'>SF
+				<input type="checkbox" name='genreArr' class="genreInput" value='2'>Mystery
+				<input type="checkbox" name='genreArr' class="genreInput" value='3'>PureLove
+				<input type="checkbox" name='genreArr' class="genreInput" value='4'>Romance
+		                        
+				<div class="comic-upload-submit">
+					<button type="submit" class="btn btn-primary">Write</button>
+				</div>
 		</div>
-		<!-- /.box-body -->
-
-		<div class="box-footer">
 			
-			
-			<button type="submit" class="btn btn-primary">Submit</button>
 	
-		</div>
+
 	</form>
 
 	
@@ -66,97 +74,25 @@ small {
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 	
 	<script id="template" type="text/x-handlebars-template">
-		<li>
-			<span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" style="width:200px;" alt="Attachment"></span>
-			<div class="mailbox-attachment-info" style="width:200px;">
+		<div class="uploadedList">
+			<img src="{{imgsrc}}" style="width:400px;" alt="Attachment">
+		<div class="mailbox-attachment-info" style="width:200px;">
 				<a href="{{getLink}}" target="_blank" class="mailbox-attachment-name">{{fileName}}</a>
 				<small data-src="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn">
-					<i class="fa fa-fw fa-remove"></i></small>
-			</span>
-			<div>
-		</li>
+					<i class="fa fa-fw fa-remove"></i>
+				</small>
+		</div>
+		</div>
 	</script>
-	
-	<%-- <%@ include file="/WEB-INF/views/include/footer.html"%> --%>
-
-	<!-- WYSIWYG -->
-	<!-- <div id="summernote"></div> -->
-		<script>
-		$(document).ready(function() {
-			  $('#summernote').summernote({
-				  //placeholder: 'Content',
-				  minHeight: null,             // set minimum height of editor
-				  maxHeight: null,             // set maximum height of editor
-				  focus: true,      
-				  height: 300,
-				  toolbar: [
-					    // [groupName, [list of button]]
-					    ['style', ['bold', 'italic', 'underline', 'clear']],
-					    ['font', ['strikethrough', 'superscript', 'subscript']],
-					    ['fontsize', ['fontsize']],
-					    ['color', ['color']],
-					    ['para', ['ul', 'ol', 'paragraph']],
-					    ['height', ['height']],
-					    ['table', ['table']],
-					    ['insert', ['link', 'picture', 'hr']],
-					    ['view', ['fullscreen', 'codeview']],
-					    ['help', ['help']]
-					  ],
-			       popover: {
-			         image: [],
-			         link: [],
-			         air: []
-			       },
-			       callbacks: {
-			       onImageUpload : function(files, editor, $editable) {
-			    	   //console.log('image upload:', files);
-			    	   sendFile(files, $(this), $editable);
-			        }
-			       }
-			  });
-			  function sendFile(files, editor, welEditable) {
-				  formData = new FormData();
-				  formData.append("file", files);
-				  for(i=0; i<files.length; i++){
-			        	var file = files[i];
-			        	var formData = new FormData();
-						
-						formData.append("file", file);
-						$.ajax({
-							url : '/uploadAjax',
-							data : formData,
-							dataType : 'text',
-							processData : false,
-							contentType : false, 
-							type : 'POST',
-							success : function(data) {
-								var fileInfo = getFileInfo(data);
-								var html = template(fileInfo);
-								console.log(data);
-								console.log(fileInfo);
-								console.log(html);
-								$(".uploadedList").append(html);
-								editor.summernote('editor.insertImage', fileInfo.getLink);
-								//editor.insertImage(welEditable, data.url);
-							}
-						});
-			      }
-			}
-			
-			
-			});
-	</script>
-
-	
 	
 	<script>
 		var template = Handlebars.compile($("#template").html());
 		
-		$(".fileDrop").on("dragenter dragover", function(event){
+		$("#fileDrop").on("dragenter dragover", function(event){
 			event.preventDefault();
 		});
 		
-		$(".fileDrop").on("drop", function(event){
+		$("#fileDrop").on("drop", function(event){
 			event.preventDefault();
 
 			var files = event.originalEvent.dataTransfer.files;
@@ -168,7 +104,7 @@ small {
 			
 		});
 		
-	    $("#upload").on("change", function(event) {
+	    $("#upload-input").on("change", function(event) {
 	        
 	    	event.preventDefault();
 	    	
@@ -185,10 +121,11 @@ small {
 			var that = $(this);
 			
 			var str = "";
-
+			console.log("str = " + str);
 			$(".uploadedList .delbtn").each(function(index){
 				console.log(index);
 				str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("data-src") +"'> ";
+				console.log("str = " + str);
 			});
 			that.append(str);
 			
@@ -230,7 +167,11 @@ small {
 				success : function(data) {
 					var fileInfo = getFileInfo(data);
 					var html = template(fileInfo);
-					$(".uploadedList").append(html);
+					console.log("html = " + html);
+// 					$(".uploadedList").append(html);
+					$(".uploadedList").remove();
+					$("#fileDrop").append(html);
+					
 				}
 			});
 	    }

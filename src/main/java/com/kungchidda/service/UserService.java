@@ -13,4 +13,6 @@ public interface UserService {
 	
 	public void join(UserVO user) throws Exception;
 	
+	public void modify(UserVO user) throws Exception;
+	
 }

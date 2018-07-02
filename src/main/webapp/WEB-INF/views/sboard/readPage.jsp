@@ -11,10 +11,6 @@
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
   	<!-- bootstrap -->
-<!--   	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet"> -->
-<!--   	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>  -->
-<!-- <link rel="stylesheet" type="text/css" href="/resources/bootstrap/css/bootstrap.css" /> -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script type="text/javascript" src="/resources/js/upload.js"></script>
 
@@ -25,15 +21,10 @@
 <script src="/resources/ThumbnailGridExpandingPreview/js/modernizr.custom.js"></script>
 
 
-<style type="text/css">
-	.popup {position : absolute;}
-	.back {background-color : gray; opacity : 0.5; width : 100%; height : 300%; overflow : hidden; z-index:1101;}
-	.front {z-index : 1110; opacity : 1; boarder : 1px; margin : auto;}
-	.show {position : relative; max-width : 1200px; max-height : 800; overflow : auto;}
-</style>
 
 </head>
 <body>
+<section>
 	<form role="form" action="modifyPage" method="post">
 		<input type='hidden' name='bno' value="${boardVO.bno}">
 		<!-- <input type='hidden' name='page' value="${cri.page}"> --> <!-- 무한스크롤 적용을 위한 주석처리 무조건 1페이지로 이동 -->
@@ -48,7 +39,7 @@
 	<!--contents-->
     <div class="contents">
         <div class="comic">
-            ${boardVO.content}
+            ${boardVO.fileList}
         </div>
     </div>
     
@@ -61,27 +52,26 @@
         <div class="evaluate-no-1 likesDiv">
         </div>
         <div class="evaluate-eraser"  >
-            <img src="/resources/png/eraser-g.png" id='unlikeAddBtn'>
-            <img src="/resources/png/eraser.png" id='unlikeDelBtn'>
+            <img src="/resources/png/eraser-g.png" id='dislikeAddBtn'>
+            <img src="/resources/png/eraser.png" id='dislikeDelBtn'>
         </div>
-        <div class="evaluate-no-2 unlikesDiv">
+        <div class="evaluate-no-2 dislikesDiv">
         </div>
         
         
     </div>
-
-    <hr>
+</section>
     
 	
 
 	
-	
+	<section>
 	
 	<!-- 첨부파일 목록 및 썸네일 -->
 	<!-- <ul class="mailbox-attachments clearfix uploadedList"></ul> -->
 	
 	<script id="templateAttach" type="text/x-handlebars-template">
-		<li data-src='{{fullName}}'>
+		<li data-src='{{boardFullName}}'>
 			<span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
 				<div class="mailbox-attachment-info">
 				<a href="{{getLink}}" class="mailbox-attachment-name" target="_blank">{{fileName}}</a>
@@ -89,10 +79,12 @@
 			</div>
 		</li>
 	</script>
-	
+	</section>
 	
     <hr>
+    <hr>
 	<!--writer-->
+	<section>
     <div class="writer">
         <div class="writer-image">
             <a href="mypage-home.html"><img src="/resources/png/account.png"></a>
@@ -111,18 +103,19 @@
 			<button type="submit" class="subscribed" id="unsubscribeBtn">SUBSCRIBED</button></span>
         </div>
         <div class="writer-comment">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam impedit, cumque aut incidunt nam alias et quod, placeat molestias quis, perspiciatis quia rerum repellat earum dolor beatae commodi cupiditate ipsam illum, deleniti. Doloribus optio ea similique expedita, sequi nihil nulla iusto .
+             ${boardVO.content}
         </div>
     </div>
 
-
-<hr>
+</section>
 
 				
 				
 					
 	
 	<hr>
+	<hr>
+	<section>
 	<!--next comic-->
     <div class="strapline">
         <h4>Comic List</h4>
@@ -136,7 +129,7 @@
     <div class="next-comic">
         <div class="main-comic">
             <a href="#">
-            	<img src="/displayFile?fileName=${boardVO.fullName}">
+            	<img src="/displayFile?fileName=${boardVO.titleFullName}">
             </a><br>
         </div>
         <div class="main-comic-title">
@@ -145,16 +138,18 @@
         <ul class="comic-list-left">
                 <li>
                 <div class="thissubtitlesDiv">
-                <p class="bg-green">Subtitle List
-                        <small class="thissubtitlecntSmall"></small>
+	                <p class="bg-green">Subtitle List
+	                	<small class="thissubtitlecntSmall"></small>
+	                </p>
                 </div>
                 </li>
         </ul>
         <ul id="pagination" class="pagination"></ul>
     </div>
+    </section>
     <hr>
     
-
+<section class="section">
     <!--another comic-->
     <div class="strapline">
         <h4>Another Comic</h4>
@@ -162,41 +157,60 @@
 
 		<ul id="og-grid" class="og-grid cards">
 			<c:forEach items="${list}" var="boardVO">
-				<li>
-						<a href="/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}" data-largesrc="/displayFile?fileName=${boardVO.fullName}" data-title="${boardVO.title}"
-						 onclick="getSubtitle(${boardVO.bno});" data-description="${boardVO.uname}">
-							<img class="thumbnail" src="/displayFile?fileName=${boardVO.fullName}" />
-							
-							<div class="title">
-              						${boardVO.title}
-          						</div>
-          						
-				            <div class="subtitle">
-				                ${boardVO.subtitle}
-				            </div>
-							
-							<div class="line"><img src="/resources/svg/line.svg"></div>
-							<div class="thumbnail-thumb">
-								<img src="/resources/png/pencil.png"><span>${boardVO.likecnt}</span>
-								<img src="/resources/png/eraser.png"><span>${boardVO.unlikecnt}</span>
+				<li class="expander" id="${boardVO.tno}">
+<%-- 				<li class="expander og-expanded" onclick="getSubtitle(${boardVO.tno});"> --%>
+					<%-- <a href="/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}" data-largesrc="/displayFile?fileName=${boardVO.titleFullName}" data-title="${boardVO.title}"
+						 class="expander" onclick="getSubtitle(${boardVO.tno});"> data-description="${boardVO.uname}"> --%>
+					<img class="thumbnail" src="/displayFile?fileName=${boardVO.boardFullName}" />
+								
+					<div class="title">
+            						${boardVO.title}
+        						</div>
+        						
+		            <div class="subtitle">
+		                ${boardVO.subtitle}
+		            </div>
+					
+					<div class="line"><img src="/resources/svg/line.svg"></div>
+					<div class="thumbnail-thumb">
+						<img src="/resources/png/pencil.png"><span>${boardVO.likecnt}</span>
+						<img src="/resources/png/eraser.png"><span>${boardVO.dislikecnt}</span>
+					</div>
+					<div class="line"><img src="/resources/svg/line.svg"></div>
+					
+					<div class="thumbnail-writer">
+		                <img src="/resources/png/account.png">
+		                <span>${boardVO.uname}</span>
+		            </div>
+<!-- 					</a> -->
+					
+					<div class="og-expander hide" style=" height: 700px;">
+<!-- 					<div class="og-expander " style=" height: 700px;"> -->
+							<div class="og-expander-inner">
+								<div class="og-fullimg">
+									<img src="/displayFile?fileName=${boardVO.titleFullName}" style="display: inline;">
+								</div>
+								<div class="comic-list-title">
+									<div>${boardVO.title}</div>
+								</div>
+							<div style="height:50px;" class="subtitleLi" data-sno=>
+										<div class="comic-list">
+											<img src="/displayFile?fileName=${boardVO.boardFullName}">
+										</div>
+										<div class="comic-list-text cursor">
+											${boardVO.subtitle}
+										</div>
+								<ul id="pagination" class="pagination"></ul>
 							</div>
-							<div class="line"><img src="/resources/svg/line.svg"></div>
-							
-							<div class="thumbnail-writer">
-				                <img src="/resources/png/account.png">
-				                <span>${boardVO.uname}</span>
-				            </div>
-						</a>
+						</div>
+					</div>
 				</li>
-				
 			</c:forEach>
 		</ul>
-
+</section>
     <hr>
-
-	<div class="row">
-		<div class="col-md-12">
-			<div class="box box-success">
+<section class="section">
+	<div class="comments">
 			    <!--comment-->
 			    <div class="strapline">
 			        <h4 id='replycntSmall'>Comment</h4>
@@ -221,10 +235,8 @@
 						<div><a href="/user/login">Login Please</a></div>
 					</div>
 				</c:if>
-					
-			</div>
-		</div>
 	</div>
+					
 	
 	<%-- <div><i class="fa fa-thumbs-up" style="color:red;"></i> : ${boardVO.likecnt} / <i class="fa fa-thumbs-down"></i> : ${boardVO.likecnt}</div> --%>
 	<!-- The time line -->
@@ -236,7 +248,7 @@
 	<div class='text-center'>
 		<ul id="pagination" class="pagination justify-content-center"></ul>
 	</div>
-	
+	</section>
 	
 	<div class="box-footer">
 	<button type="submit" class="btn" id="subscribeBtn">SUBSCRIBE</button>
@@ -304,10 +316,10 @@
 		{{/each}}
 	</script>
 	
-	<script id="unlike_template" type="text/x-handlebars-template">
+	<script id="dislike_template" type="text/x-handlebars-template">
 		{{#each .}}
-			<div id="unlikeLi">
-				{{unlikecnt}}
+			<div id="dislikeLi">
+				{{dislikecnt}}
 			</div>
 		{{/each}}
 	</script>
@@ -329,12 +341,66 @@
 	</script>
 	
 	<script>
+	/**************************************************************************************/
+	/**************************************************************************************/
+	/*                               	expander	 	                                  */
+	/**************************************************************************************/
+	/**************************************************************************************/
+    $(document).ready(function(){
+    	// expander 클래스를 클릭했을때
+    	$(".expander").click(function() {
+        	
+            console.log("expander clicked");
+            var submenu = $(this).find(".og-expander");
+            var tno = $(this).attr('id');
+            console.log("tno = " + tno);
+
+            if (submenu.is(":visible")) { //보이면 올림
+            	
+                $(this).parents().find(".background-blur").removeClass("background-blur"); //blur 효과 없애기
+                submenu.slideUp(300);
+                $(this).removeClass("margin-bottom");
+                
+            } else {
+            	var getSubtitleResult = getSubtitle(tno);
+                if(getSubtitleResult){
+					
+                    if ($(this).parents().find(".og-expander").is(":visible")) { //열린 곳이 있으면
+                    	
+                        $(this).parents().find(".og-expander").hide(); //다른 곳은 닫음
+                        $(this).parents().find(".background-blur").removeClass("background-blur"); //blur 효과 없애기
+                        $(".expander").not(this).addClass("background-blur"); //blur 효과 주기
+                        $(this).parents().find(".margin-bottom").removeClass("margin-bottom"); //margin 삭제
+                        $(this).addClass("margin-bottom");
+                        
+                        submenu.show();
+
+                    } else { //열린 곳이 없으면
+                        
+                    	$(this).parents().find(".og-expander").hide(); //다른 곳은 닫음
+                        $(this).parents().find(".background-blur").removeClass("background-blur"); //blur 효과 없애기
+                        $(".expander").not(this).addClass("background-blur"); //blur 효과 주기
+                        $(this).parents().find(".margin-bottom").removeClass("margin-bottom"); //margin 삭제
+                        $(this).addClass("margin-bottom");
+                        
+                        submenu.slideDown(300);
+                    }
+                }
+                
+      
+            }
+        });
+    });
+	</script>
+	
+	<script>
 		
 		$(document).ready(function() {
 			
+            var tno = ${boardVO.tno};
             var bno = ${boardVO.bno};
 			var replyPage = 1;
-			getThisSubtitlePage("/subtitles/"+bno+"/5/1");
+			getThisSubtitlePage("/sboard/"+tno+"/1");
 			
 			
 			
@@ -441,10 +507,10 @@
 			});
 
 				console.log(" document.referrer = " +  document.referrer);			
-				var strArray=document.referrer.split('/');
-				console.log(strArray[3]);
+				//console.log(strArray[3]);
 			$("#listPageBtn").on("click", function() {
 				formObj.attr("method", "get");
+				var strArray=document.referrer.split('/');
 				if(strArray[3] == 'mypage'){
 					formObj.attr("action", "/mypage/home");				
 				}else{
@@ -530,8 +596,8 @@
 							alert("등록 되었습니다.");
 							$("#likeAddBtn").hide();
 							$("#likeDelBtn").show();
-							$("#unlikeAddBtn").show();
-							$("#unlikeDelBtn").hide();
+							$("#dislikeAddBtn").show();
+							$("#dislikeDelBtn").hide();
 							likeInfo();
 						}
 					}
@@ -557,15 +623,15 @@
 							alert("삭제 되었습니다.");
 							$("#likeAddBtn").show();
 							$("#likeDelBtn").hide();
-							$("#unlikeAddBtn").show();
-							$("#unlikeDelBtn").hide();
+							$("#dislikeAddBtn").show();
+							$("#dislikeDelBtn").hide();
 							likeInfo();
 						}
 					}
 					});	
 			});
 			
-			$("#unlikeAddBtn").on("click",function(){
+			$("#dislikeAddBtn").on("click",function(){
 				var bno = ${boardVO.bno};
 				var uid = '${login.uid}';
 				var lpo = '-1';
@@ -584,15 +650,15 @@
 							alert("등록 되었습니다.");
 							$("#likeAddBtn").show();
 							$("#likeDelBtn").hide();
-							$("#unlikeAddBtn").hide();
-							$("#unlikeDelBtn").show();
+							$("#dislikeAddBtn").hide();
+							$("#dislikeDelBtn").show();
 							likeInfo();
 						}
 					}
 					});
 			});
 			
-			$("#unlikeDelBtn").on("click", function(){
+			$("#dislikeDelBtn").on("click", function(){
 				var bno = ${boardVO.bno};
 				var uid = '${login.uid}';
 				var lpo = '-1';
@@ -611,8 +677,8 @@
 							alert("삭제 되었습니다.");
 							$("#likeAddBtn").show();
 							$("#likeDelBtn").hide();
-							$("#unlikeAddBtn").show();
-							$("#unlikeDelBtn").hide();
+							$("#dislikeAddBtn").show();
+							$("#dislikeDelBtn").hide();
 							likeInfo();
 						}
 					}
@@ -732,25 +798,25 @@
                 if(result.length == 0){
                     $("#likeAddBtn").show();
                     $("#likeDelBtn").hide();
-                    $("#unlikeAddBtn").show();
-                    $("#unlikeDelBtn").hide();
+                    $("#dislikeAddBtn").show();
+                    $("#dislikeDelBtn").hide();
                     
                     /* 
                     $("#likeDelBtn").toggle();
-                    $("#unlikeDelBtn").toggle();
+                    $("#dislikeDelBtn").toggle();
                      */
                 }else{
                     if(result[0].lpo == '1' ){
                         $("#likeAddBtn").hide();
                         $("#likeDelBtn").show();
-                        $("#unlikeAddBtn").show();
-                        $("#unlikeDelBtn").hide();
+                        $("#dislikeAddBtn").show();
+                        $("#dislikeDelBtn").hide();
                     }
                     if(result[0].lpo == '-1' ){
                         $("#likeAddBtn").show();
                         $("#likeDelBtn").hide();
-                        $("#unlikeAddBtn").hide();
-                        $("#unlikeDelBtn").show();
+                        $("#dislikeAddBtn").hide();
+                        $("#dislikeDelBtn").show();
                     }
                 }
             }
@@ -955,7 +1021,7 @@
 			$(".replyDelBtn").on("click", function(){
 
 				var rno = $(this).parents().attr('data-rno');
-				var replytext = $(this).parent().parent().find('#replytext').val(); //사용안함
+				//var replytext = $(this).parent().parent().find('#replytext').val(); //사용안함
 				console.log("rno = " + rno);
 				$.ajax({
 					type : 'delete',
@@ -987,16 +1053,16 @@
     function likeInfo(){
 		var bno = ${boardVO.bno}
 		var template_like = Handlebars.compile($('#like_template').html());
-		var template_unlike = Handlebars.compile($('#unlike_template').html());
+		var template_dislike = Handlebars.compile($('#dislike_template').html());
 		$.getJSON("/likes/info/"+bno,function(data){
 			$(data).each(function(){
 				var html_like = template_like(data);
-				var html_unlike = template_unlike(data);
+				var html_dislike = template_dislike(data);
 				$("#likeLi").remove();
 				$(".likesDiv").append(html_like);
 				
-				$("#unlikeLi").remove();
-				$(".unlikesDiv").append(html_unlike);
+				$("#dislikeLi").remove();
+				$(".dislikesDiv").append(html_dislike);
 			});
 		});	
 	}
@@ -1078,10 +1144,14 @@
 	
 	<script id="subtitle_template" type="text/x-handlebars-template">
 		{{#each .}}
-			<div style="height:50px;" class="subtitleLi" data-sno={{sno}}>
-					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>{{subtitle}}</a>
+			<div class="subtitleLi">
+					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
+						<div class="comic-list"><img src="/displayFile?fileName={{boardFullName}}"></div>
+						<div class="comic-list-text cursor">{{subtitle}}</div>
+					</a>
 			</div>
 		{{/each}}
+		<ul id="pagination" class="pagination"></ul>
 	</script>
 	
 	<script id="thissubtitle_template" type="text/x-handlebars-template">
@@ -1096,9 +1166,10 @@
 	<script> //subtitle print
 	var formObj = $("form[role='form']");
 
-	function getSubtitle(bno){
-		console.log("click getSubtitle start getPage");
-		getSubtitlePage("/subtitles/"+bno+"/5/1");
+	function getSubtitle(tno){
+		console.log("click getSubtitle start getPage tno = " + "[" + tno + "]");
+		getSubtitlePage("/sboard/"+tno+"/1");
+		return 1;
 	};	
 	
 	
@@ -1119,20 +1190,22 @@
 		var template = Handlebars.compile(templateObject.html());
 		
 		var html = template(subtitleArr);
-		target.after(html);
+		console.log("subtitleArr = " + subtitleArr);
+		target.append(html);
 	}
 		
 		
 	function getSubtitlePage(pageInfo){
-		console.log("start getSubtitlePage");
+		console.log("start getSubtitlePage pageInfo = " + "["+pageInfo+"]");
 		
-		//$(".pagination").remove();
+		$(".pagination").remove();
 		$(".subtitleLi").remove();
 		$.getJSON(pageInfo,function(data){
-			printData(data.list, $(".subtitlesDiv"), $('#subtitle_template'));
+// 			printData(data.list, $(".subtitlesDiv"), $('#subtitle_template'));
+			printData(data.list, $(".og-expander-inner"), $('#subtitle_template'));
 			printPaging(data.pageMaker, $(".pagination"));
-			console.log("start subtitlecntSmall");
-			$(".subtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
+// 			console.log("start subtitlecntSmall");
+// 			$(".subtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
 		});
 		
 		
@@ -1199,13 +1272,13 @@
 		});
 	</script>
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="/resources/ThumbnailGridExpandingPreview/js/grid.js"></script>
 		<script>
 			$(function() {
 				Grid.init();
 			});
-		</script>
+		</script> -->
 	
 	
 	

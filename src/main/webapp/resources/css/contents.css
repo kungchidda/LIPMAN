@@ -406,8 +406,8 @@ hr {
 }
 
 .comment img{
+	box-sizing:content-box;
     width: 28px;
-    width: 100%;
     background-color: white;
 	padding: 5px;    
 	padding-left: 20px;
