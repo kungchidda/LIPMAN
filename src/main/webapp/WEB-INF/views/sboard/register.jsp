@@ -7,7 +7,8 @@
 <title>${titleVO.title}</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-<link href="/resources/css/register2.css" rel="stylesheet">
+<link href="/resources/css/register.css" rel="stylesheet">
+<!-- <link href="/resources/css/register2.css" rel="stylesheet"> -->
 <style>
 /* .fileDrop {
 	width : 100%;
@@ -101,11 +102,11 @@
 
 
 
-	    <div class="subtitle">
+	    <div class="write-comic">
 <!-- 	            <ul class="mailbox-attachments clearfix uploadedList"></ul> -->
-	        <div class="og-fullimg" id="thumbnail-file-drop">
+	        <div class="write-comic-thumbnail" id="thumbnail-file-drop">
 	        	<div class="uploadedList">
-	            	<img src="/resources/png/number-00.png" id="select-file" style="display: inline;">
+	            	<img src="/resources/png/thumbnail.png" id="select-file" style="display: inline;">
 	            </div>
 	        </div>
             <input type="file" style="display:none;" id="thumbnail-upload-input" multiple>
@@ -117,23 +118,11 @@
 				    });
 				});
 			</script>
-			
-			
 	        <input type="hidden" id='fileList' name='fileList' class="form-control">
-	        <select class="upload-file-list" name="file-list-name" size="2000">
-	        
-	        </select>
-	        
-	        <div>
-		        <a href = "javascript:moveItem( 'T', 'file-list-name' );">맨위</a><BR><BR>
-				<a href = "javascript:moveItem( 'U', 'file-list-name' );">위</a><BR><BR>
-				<a href = "javascript:moveItem( 'D', 'file-list-name' );">아래</a><BR><BR>
-				<a href = "javascript:moveItem( 'B', 'file-list-name' );">맨아래</a>
-			</div>
-
+	        <select class="upload-file-list" name="file-list-name" size="20" ></select>
 	        
 	        
-			<button id="file-upload-button">file upload</button>
+	        <button id="file-upload-button" class="write-comic-add"> + </button>
 			<input type="file" style="display:none;" id="file-upload-input" multiple>
             <script>
 				$(function () {
@@ -143,7 +132,9 @@
 				    });
 				});
 			</script>
-			<button id="file-delete-button">file delete</button>
+			
+			
+			<button id="file-delete-button" class="write-comic-delete"> - </button>
 			<script>
 			$(function () {
 				$('#file-delete-button').click(function (e) {
@@ -172,26 +163,31 @@
  			    });
 			});
 			</script>
-	        <div class="comic-list-title">
-	                <input type="text" name='subtitle' placeholder="Subtitle" required>
-	        </div>
+			
+			
+<!-- 		        <a href = "javascript:moveItem( 'T', 'file-list-name' );">맨위</a> -->
+				<a href = "javascript:moveItem( 'U', 'file-list-name' );" class="write-comic-up">위</a>
+				<a href = "javascript:moveItem( 'D', 'file-list-name' );" class="write-comic-down">아래</a>
+<!-- 				<a href = "javascript:moveItem( 'B', 'file-list-name' );">맨아래</a> -->
+
+	        
+	        
+			
+			<input type="text" name='subtitle' class="write-comic-title" placeholder="Subtitle" required>
 	        
 <!-- 	        <div class="fileDrop"> -->
 <!-- 	            <input type="file" id="upload" multiple> -->
 <!-- 	        </div> -->
 	
-	        <div class="comment">
 <!-- 	        <textarea id="summernote" name="content"></textarea> -->
 <!-- 					<div id="summernote"></div> -->
-	            <textarea type="text" id="content" name="content" placeholder="Comment"></textarea>
-	        </div>
-	
-	        <div class="preview">
-	            <a href="#" target="_blank" type="submit" class="btn btn-primary">Preview</a>
-	        </div>
-	        <div class="write">
-	            <button type="submit" class="btn btn-primary">Write</button>
-	        </div>
+            <textarea type="text" id="content" name="content" class="write-comic-comment" placeholder="Comment"></textarea>
+
+<!-- 			<button class="write-comic-open">Open</button> -->
+<!--         	<button class="write-comic-delete">Delete</button>         -->
+            <button class="write-comic-preview">Preview</button>
+            <button type="submit" class="write-comic-complete">Write</button>
+            <button class="write-comic-cancel">Cancel</button>
 	    </div>
 		
 		

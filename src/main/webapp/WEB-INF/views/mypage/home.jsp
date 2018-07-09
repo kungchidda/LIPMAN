@@ -337,8 +337,7 @@
 				var tno = $(this).attr('id');
 				console.log("tno = " + tno);
 				
-				$('.comic-title').show();
-				$('.comic-title-edit').addClass("hide");
+				
 				//$('.input-title').attr("readonly").focus();
 				
 		
@@ -363,6 +362,11 @@
 							
 							$('.toggle-page').show();
 							$('.title-genre-checkbox').addClass("hide");
+							
+							$('.comic-title').show();
+							$('.comic-title-edit').addClass("hide");
+							$('.input-title').attr("readonly");
+							
 							submenu.slideDown(300);
 		
 						} else { //열린 곳이 없으면
@@ -394,6 +398,14 @@
 		
 					if ($(".og-expander").is(":visible") || $(".og-title-register").is(":visible")) { //열린 곳이 있으면
 		
+						
+						$('.toggle-page').hide();
+						$('.title-genre-checkbox').removeClass("hide");
+						
+						$('.comic-title').show();
+						$('.comic-title-edit').addClass("hide");
+						$('.input-title').attr("readonly");
+						
 						$('.title-register-inner').show();
 						$('.title-input').attr("readonly");
 						for(var i=1; i<=20; i++){

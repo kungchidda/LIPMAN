@@ -142,7 +142,7 @@
     width : 300px;
 }
 
-.expander-title-inner .comic-list-title {
+.expander-title-inner .comic-list-title, .comic-title {
     grid-area: c;
     align-self: start;
     font-size: 2em;
