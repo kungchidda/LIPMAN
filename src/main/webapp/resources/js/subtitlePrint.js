@@ -45,7 +45,8 @@
 		$(".pagination").remove();
 		$(".subtitleLi").remove();
 		$.getJSON(pageInfo,function(data){
-			printData(data.list, $(".og-expander-inner"), $('#template'));
+//			printData(data.list, $(".og-expander-inner"), $('#template'));
+			printData(data.list, $(".toggle-page"),$('#template'));
 			printPaging(data.pageMaker, $(".pagination"), tno);
 // 			$(".subtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
 			
@@ -64,7 +65,7 @@
 			
 			for(var i=pageMaker.startPage, len= pageMaker.endPage; i <= len; i++){
 				var strClass = pageMaker.cri.page == i?'class=active':'';
-				str += '<li class="page-item do-not-close comic-list-pagi" '+strClass+'><div class="page-link do-not-close" onclick="getSubtitle('+tno+','+i+');">'+i+'</div></li>';
+				str += '<li class="page-item do-not-close comic-list-pagi" '+strClass+'><div class="comic-list do-not-close" onclick="getSubtitle('+tno+','+i+');">'+i+'</div></li>';
 			}
 			
 			if(pageMaker.next){

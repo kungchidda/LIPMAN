@@ -90,12 +90,7 @@
 		<ul class="og-grid cards">
 			<c:forEach items="${list}" var="boardVO">
 				<li class="expander" id="${boardVO.tno}">
-					<%--                                 <li class="expander" onclick="getSubtitle(${boardVO.tno});"> --%>
-					<%--                                 <li class="og-expanded" onclick="getSubtitle(${boardVO.tno});"> --%>
-					<!-- <a href="/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}" data-largesrc="/displayFile?fileName=${boardVO.titleFullName}" data-title="${boardVO.title}"
-						 class="expander" onclick="getSubtitle(${boardVO.tno});"> data-description="${boardVO.uname}"> -->
-					<img class="thumbnail"
-					src="/displayFile?fileName=${boardVO.boardFullName}">
+					<img class="thumbnail" src="/displayFile?fileName=${boardVO.boardFullName}">
 
 					<div class="title">${boardVO.title}</div>
 
@@ -119,27 +114,29 @@
 
 					<div class="og-expander hide do-not-close" style="height: 550px;">
 						<div class="og-expander-inner do-not-close">
-							<div class="og-fullimg do-not-close">
-								<img class="do-not-close"
-									src="/displayFile?fileName=${boardVO.titleFullName}"
-									style="display: inline;">
+							<div class="expander-title-inner">
+								<div class="og-fullimg do-not-close">
+									<img class="do-not-close" src="/displayFile?fileName=${boardVO.titleFullName}" style="display: inline;">
+								</div>
+								<div class="comic-list-genre do-not-close">
+									<div>${boardVO.gname}</div>
+								</div>
+								<div class="comic-list-title do-not-close">
+									<div>${boardVO.title}</div>
+								</div>
 							</div>
-							<div class="comic-list-genre do-not-close">
-								<div>${boardVO.gname}</div>
-							</div>
-							<div class="comic-list-title do-not-close">
-								<div>${boardVO.title}</div>
-							</div>
-							<div class="subtitleLi do-not-close">
-								<a href="#">
-									<div class="comic-list-img do-not-close">
-										<img src="/displayFile?fileName=${boardVO.boardFullName}">
+								<div class="toggle-page">
+									<div class="subtitleLi do-not-close">
+										<a href="#">
+											<div class="comic-list-img do-not-close">
+												<img src="/displayFile?fileName=${boardVO.boardFullName}">
+											</div>
+											<div class="comic-list-text cursor do-not-close">
+												${boardVO.subtitle}</div>
+										</a>
+										<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
 									</div>
-									<div class="comic-list-text cursor do-not-close">
-										${boardVO.subtitle}</div>
-								</a>
-								<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
-							</div>
+								</div>
 						</div>
 					</div>
 				</li>

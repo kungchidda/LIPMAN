@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-<link href="/resources/css/mypage.css" rel="stylesheet">
+<link href="/resources/css/register.css" rel="stylesheet">
 </head>
 
 <body>
