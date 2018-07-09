@@ -12,7 +12,6 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <link href="/resources/css/mypage.css" rel="stylesheet">
-
 </head>
 
 <body>
