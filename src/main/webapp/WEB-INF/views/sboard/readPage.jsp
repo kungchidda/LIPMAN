@@ -186,7 +186,7 @@
 					
 					<div class="og-expander hide" style=" height: 700px;">
 <!-- 					<div class="og-expander " style=" height: 700px;"> -->
-							<div class="og-expander-inner">
+							<div class="og-expander">
 								<div class="og-fullimg">
 									<img src="/displayFile?fileName=${boardVO.titleFullName}" style="display: inline;">
 								</div>
@@ -1202,7 +1202,7 @@
 		$(".subtitleLi").remove();
 		$.getJSON(pageInfo,function(data){
 // 			printData(data.list, $(".subtitlesDiv"), $('#subtitle_template'));
-			printData(data.list, $(".og-expander-inner"), $('#subtitle_template'));
+			printData(data.list, $(".og-expander"), $('#subtitle_template'));
 			printPaging(data.pageMaker, $(".pagination"));
 // 			console.log("start subtitlecntSmall");
 // 			$(".subtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");

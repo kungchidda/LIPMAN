@@ -53,8 +53,8 @@ public class TitleDAOImpl implements TitleDAO{
 	}
 	
 	@Override
-	public void delete(Integer bno) throws Exception {
-		session.delete(namespace+".delete", bno);
+	public void delete(Integer tno) throws Exception {
+		session.delete(namespace+".delete", tno);
 	}
 	
 	@Override
@@ -90,18 +90,18 @@ public class TitleDAOImpl implements TitleDAO{
 	}
 	
 	@Override
-	public List<String> getAttach(Integer bno) throws Exception {
-		return session.selectList(namespace+".getAttach", bno);
+	public List<String> getAttach(Integer tno) throws Exception {
+		return session.selectList(namespace+".getAttach", tno);
 	}
 	
 	@Override
-	public void deleteAttach(Integer bno) throws Exception{
-		session.delete(namespace+".deleteAttach", bno);
+	public void deleteAttach(Integer tno) throws Exception{
+		session.delete(namespace+".deleteAttach", tno);
 	}
 	
 	@Override
-	public void deleteBoardAll(Integer bno) throws Exception{
-		session.delete(namespace+".deleteReplyAll", bno);
+	public void deleteBoardAll(Integer tno) throws Exception{
+		session.delete(namespace+".deleteReplyAll", tno);
 	}
 	
 	@Override

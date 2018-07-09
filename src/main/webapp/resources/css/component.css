@@ -1,0 +1,464 @@
+/* HONG 추가 시작 */
+.og-grid {
+    list-style: none;
+    padding: 0px 0;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+
+.og-grid .expander, .title-register {
+    display: inline-block;
+    margin: 20px 20px 0 15px;
+    vertical-align: top;
+/*     width: 200px; */
+    height: 350px;
+}
+
+/* .og-grid li > a, .titleUploder {
+    border: none;
+    outline: none;
+    display: block;
+    position: relative;
+    border-radius: 3px;
+    background: #fff;
+    	box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+} */
+
+/* .expander, .title-register{
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+} */
+/* HONG 추가 끝 */
+
+
+/* .og-expander{
+    position: absolute;
+    background: #fff;
+    top: auto;
+    left: 0;
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+    height: 0;
+    overflow: hidden;
+    border: 1px solid #d3d3d3;
+    box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.05);
+    text-align: center;
+} */
+
+.og-title-register, .og-expander {
+    position: absolute;
+    background: #fff;
+    top: auto;
+    left: 0;
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+    height: 0;
+    overflow: hidden;
+    border: 1px solid #d3d3d3;
+    box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+/* 20180702 HONG 추가 */
+.subtitleLi a{
+    display: grid;
+    grid-template-areas: 
+        "a b";
+    float: left;
+    width: 20%;
+}
+
+.comic-list-img img {
+    width: 40px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.comic-list-img {
+    grid-area: a;
+    text-align: center;
+}
+
+.comic-list-text {
+    grid-area: b;
+    align-self: center;
+    width: 130px;
+    word-break: break-all;
+}
+
+.subtitleLi a{
+	width : 500px;
+}
+/* 20180702 HONG 추가 */
+
+
+
+.expander-title-inner {
+	display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 60px 60px 60px 60px 60px 50px;
+    grid-template-areas: 
+        "a"
+        "a"
+        "a"
+        "a"
+        "b"
+        "c";
+    justify-items: center;
+    justify-content: center;
+    grid-column-gap: 30px;
+    grid-row-gap: 10px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    float : left;
+}
+
+.og-expander-inner a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.og-expander-inner a:visited {
+    color: black;
+}
+
+.expander-title-inner .og-fullimg {
+    grid-area: a;
+    align-self: start;
+}
+
+.expander-title-inner .comic-list-genre {
+    grid-area: b;
+    justify-items: center;
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+    color: gray;
+    font-size: 1em;
+    width : 300px;
+}
+
+.expander-title-inner .comic-list-title {
+    grid-area: c;
+    align-self: start;
+    font-size: 2em;
+}
+
+.expander-title-inner .comic-list-setting {
+    grid-area: c;
+    align-self: end;
+    justify-self : end;
+}
+
+.expander-title-inner .comic-list-setting img {
+    width: 30px;
+}
+
+/* .expander-title-inner .og-fullimg img {
+    width: 300px;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+} */
+
+/* .og-expander-inner .comic-list-01-img, .comic-list-01-sub {
+    grid-area: c;
+}
+
+.og-expander-inner .comic-list-02-img, .comic-list-02-sub {
+    grid-area: d;
+}
+
+.og-expander-inner .comic-list-03-img, .comic-list-03-sub {
+    grid-area: e;
+}
+
+.og-expander-inner .comic-list-04-img, .comic-list-04-sub {
+    grid-area: f;
+}
+
+.og-expander-inner .comic-list-05-img, .comic-list-05-sub {
+    grid-area: g;
+}
+
+.og-expander-inner .comic-list-06-img, .comic-list-06-sub {
+    grid-area: h;
+} */
+.toggle-page .pagination .page-item{
+/* 	display: inline-block !important; */
+	float : left ;
+    list-style: none;
+}
+
+.toggle-page .pagination .comic-list-prev, .comic-list-pagi, .comic-list-next {
+    grid-area: i;
+	float : left !important;
+    list-style: none;
+    align-self: center;
+}
+
+.toggle-page .pagination .comic-list-prev {
+    justify-self : start;
+}
+.toggle-page{
+	width: 1030px;
+	height: 350px;
+	padding-top : 70px;
+	padding-bottom : 70px;
+	float : left ;
+}
+.toggle-page .pagination .comic-list-next {
+    justify-self : end;
+}
+
+.toggle-page .pagination .comic-list-pagi {
+    justify-self : center;
+}
+
+.og-expander-inner img {
+    width: 100px;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+}
+
+.og-expander-inner .comic-list-setting img {
+    border: none;
+}
+
+.toggle-page .comic-list-pagi .page-link {
+    padding: 20px;
+}
+/* HONG 수정 시작 */
+/* .og-expander-inner .comic-list-01-img, .comic-list-01-sub, .comic-list-02-img, .comic-list-02-sub, .comic-list-03-img, .comic-list-03-sub, .comic-list-04-img, .comic-list-04-sub, .comic-list-05-img, .comic-list-05-sub, .comic-list-06-img, .comic-list-06-sub { */
+.toggle-page .subtitleLi a .comic-list-img {
+    align-self: center;
+}
+
+/* .og-expander-inner .comic-list-01-img, .comic-list-02-img, .comic-list-03-img, .comic-list-04-img, .comic-list-05-img, .comic-list-06-img { */
+.toggle-page .subtitleLi a .comic-list-img {
+    justify-self: start;
+    padding-left: 50px;
+}
+
+/* .og-expander-inner .comic-list-01-sub, .comic-list-02-sub, .comic-list-03-sub, .comic-list-04-sub, .comic-list-05-sub, .comic-list-06-sub { */
+.toggle-page .subtitleLi a .comic-list-text{
+    justify-self: start;
+    padding-left: 68px;
+}
+/* HONG 수정 끝 */
+
+/*first-og-expander*/
+
+.title-register-inner, .og-expander-inner{
+	display: inline-block;
+}
+.title-edit-input{
+	display: grid;
+    grid-template-columns: 15%;
+    grid-template-rows: 60px 60px 60px 60px 60px 50px;
+    grid-template-areas: 
+        "a"
+        "a"
+        "a"
+        "a"
+        "."
+        "b";
+    justify-items: center;
+    justify-content: center;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    float : left;
+}
+/* .title-register-inner { */
+.title-genre-checkbox {
+	display: grid;
+    grid-template-columns: 250px 250px 250px 250px;
+    grid-template-rows: 60px 60px 60px 60px 60px 50px;
+    grid-template-areas: 
+        "c d e f"
+        "g h i j"
+        "k l m n"
+        "o p q r"
+        "s t u v"
+        ". . x y";
+/*     justify-items: center; */
+    justify-content: center;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    justify-items: start;
+    float : left;
+}
+
+.og-title-register-inner a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.og-title-register-inner a:visited {
+    color: black;
+}
+
+.og-fullimg {
+    grid-area: a;
+    align-self: center;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+}
+
+.comic-list-title {
+    grid-area: b;
+    align-self: center;
+    font-size: 2em;
+}
+
+.input-title {
+    width: 300px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 1em;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+.og-fullimg img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+.title-genre-checkbox .genre-1 {
+    grid-area: c;
+}
+
+.title-genre-checkbox .genre-2 {
+    grid-area: d;
+}
+
+.title-genre-checkbox .genre-3 {
+    grid-area: e;
+}
+
+.title-genre-checkbox .genre-4 {
+    grid-area: f;
+}
+
+.title-genre-checkbox .genre-5 {
+    grid-area: g;
+}
+
+.title-genre-checkbox .genre-6 {
+    grid-area: h;
+}
+
+.title-genre-checkbox .genre-7 {
+    grid-area: i;
+}
+
+.title-genre-checkbox .genre-8 {
+    grid-area: j;
+}
+
+.title-genre-checkbox .genre-9 {
+    grid-area: k;
+}
+
+.title-genre-checkbox .genre-10 {
+    grid-area: l;
+}
+
+.title-genre-checkbox .genre-11 {
+    grid-area: m;
+}
+
+.title-genre-checkbox .genre-12 {
+    grid-area: n;
+}
+
+.title-genre-checkbox .genre-13 {
+    grid-area: o;
+}
+
+.title-genre-checkbox .genre-14 {
+    grid-area: p;
+}
+
+.title-genre-checkbox .genre-15 {
+    grid-area: q;
+}
+
+.title-genre-checkbox .genre-16 {
+    grid-area: r;
+}
+
+.title-genre-checkbox .genre-17 {
+    grid-area: s;
+}
+
+.title-genre-checkbox .genre-18 {
+    grid-area: t;
+}
+
+.title-genre-checkbox .genre-19 {
+    grid-area: u;
+}
+
+.title-genre-checkbox .genre-20 {
+    grid-area: v;
+}
+
+.title-register-delete-btn, .title-register-cancel-btn {
+    grid-area: x;
+}
+
+.title-register-complete-btn {
+    grid-area: y;
+}
+
+/* .title-register-inner span { */
+/*     padding: 15px; */
+/* } */
+
+.title-register-delete-btn, .title-register-cancel-btn {
+    width: 250px;
+    border: 1px solid #e2e2df;
+    border-radius: 10px;
+    background-color: #e2e2df;
+    font-size: 1em;
+    color: white;
+}
+
+.title-register-complete-btn {
+    width: 250px;
+    border: 1px solid #1d8bf1;
+    border-radius: 10px;
+    background-color: #1d8bf1;
+    font-size: 1em;
+    color: white;
+}
+
+/* .title-register-inner .title-register-inner .genre-8, .title-register-inner .genre-9, .title-register-inner .genre-10, .title-register-inner .genre-11, .title-register-inner .genre-12, .title-register-inner .genre-13, .title-register-inner .genre-14, .title-register-inner .genre-1, .title-register-inner .genre-2, .title-register-inner .genre-3, .title-register-inner .genre-4, .title-register-inner .genre-5, .title-register-inner .genre-6, .title-register-inner .genre-7, .title-register-inner .genre-15, .title-register-inner .genre-16, .title-register-inner .genre-17, .title-register-inner .genre-18, .title-register-inner .genre-19, .title-register-inner .genre-20 {
+    justify-self: start;
+    align-self: center;
+    padding-left: 50px;
+} */
+
+
+.hide{
+    display: none;
+}
+
+.margin-bottom {
+	margin-bottom: 550px !important;
+}
+
+.background-blur{
+  opacity: 0.5;
+}

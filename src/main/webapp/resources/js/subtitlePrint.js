@@ -7,9 +7,9 @@
 	
 	var formObj = $("form[role='form']");
 
-	function getSubtitle(tno){
+	function getSubtitle(tno, page){
 		console.log("click getSubtitle start getPage");
-		getPage("/sboard/"+tno+"/1");
+		getPage("/sboard/"+tno+"/"+page+"/6", tno);
 		return 1;
 	};	
 	
@@ -39,35 +39,37 @@
 	}
 		
 		
-	function getPage(pageInfo){
+	function getPage(pageInfo, tno){
 		console.log("start getPage pageInfo = " + "["+pageInfo+"]");
 		
 		$(".pagination").remove();
 		$(".subtitleLi").remove();
 		$.getJSON(pageInfo,function(data){
 			printData(data.list, $(".og-expander-inner"), $('#template'));
-			printPaging(data.pageMaker, $(".pagination"));
+			printPaging(data.pageMaker, $(".pagination"), tno);
 // 			$(".subtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
 			
 		});
 		
 	}
 	
-	var printPaging = function(pageMaker, target){
+	var printPaging = function(pageMaker, target, tno){
 		console.log("start printPaging");
 		var str = "";
 		if(pageMaker.endPage != '1'){
 			if(pageMaker.prev){
-				str += "<li><a href='"+(pageMaker.startPage-1)+"'> << </a></li>";
+				str += //"<li><a href='"+(pageMaker.startPage-1)+"'> << </a></li>"
+				'<li class="page-link do-not-close comic-list-prev" onclick="getSubtitle('+tno+','+(pageMaker.startPage-1)+');"> << </li>';
 			}
 			
 			for(var i=pageMaker.startPage, len= pageMaker.endPage; i <= len; i++){
 				var strClass = pageMaker.cri.page == i?'class=active':'';
-				str += "<li class='page-item' "+strClass+"><a class='page-link' href='"+i+"'>"+i+"</a></li>";
+				str += '<li class="page-item do-not-close comic-list-pagi" '+strClass+'><div class="page-link do-not-close" onclick="getSubtitle('+tno+','+i+');">'+i+'</div></li>';
 			}
 			
 			if(pageMaker.next){
-				str += "<li><a href='"+(pageMaker.endPage+1)+"'> >> </a></li>";
+				str += //"<li><div href='/sboard/" + tno + "/" + (pageMaker.endPage+1)+"'> >> </div></li>";
+					'<li class="page-link do-not-close comic-list-next" onclick="getSubtitle('+tno+','+ (pageMaker.endPage+1) +');"> >> </li>';
 			}
 		}
 		target.html(str);

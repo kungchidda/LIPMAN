@@ -1,0 +1,518 @@
+hr {
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/*contents css*/
+.contents {
+    display: grid;
+    grid-template-columns: 60%;
+    grid-template-areas: 
+        "a";
+    justify-content: center;
+}
+
+.contents .comic {
+    grid-area: a;
+    justify-self: center;
+}
+
+/*thumb css*/
+
+.evaluate {
+    display: grid;
+    grid-template-columns: 60px 20px 30px 60px 20px;
+    grid-template-rows: 70px;
+    grid-template-areas: 
+        "a b . c d";
+    justify-items: center;
+    justify-content: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    grid-gap: 30px;
+}
+
+.evaluate a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.evaluate .evaluate-pencil {
+    grid-area: a;
+    align-self: center;
+}
+
+.evaluate .evaluate-no-1 {
+    grid-area: b;
+    font-size: 1em;
+    align-self: center;
+}
+
+.evaluate .evaluate-eraser {
+    grid-area: c;
+    align-self: center;
+}
+
+.evaluate .evaluate-no-2 {
+    grid-area: d;
+    font-size: 1em;
+    align-self: center;
+}
+
+.evaluate img {
+    width: 50px;
+    padding-left: 20px;
+    transition: -webkit-transition: all 300ms cubic-bezier(0.680, 0, 0.265, 1); /* older webkit */
+-webkit-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550); 
+   -moz-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550); 
+     -o-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550); 
+        transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550); /* easeInOutBack */
+
+-webkit-transition-timing-function: cubic-bezier(0.680, 0, 0.265, 1); /* older webkit */
+-webkit-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550); 
+   -moz-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550); 
+     -o-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550); 
+        transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550); /* easeInOutBack */
+}
+
+.evaluate img:hover {
+    width: 60px;
+}
+
+
+/*next comic css*/
+
+.next-comic {
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    grid-template-rows: repeat(4, 70px);
+    grid-template-areas: 
+        "a c d" 
+        "a c d" 
+        "a c d" 
+        "b e e";
+    justify-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.next-comic a:link {
+    text-decoration: none;
+    color: black; 
+}
+
+.next-comic a:visited {
+    color: black; 
+}
+
+.next-comic .main-comic {
+    grid-area: a;
+    font-size: 1em;
+    text-align: center;
+}
+
+.next-comic .main-comic-title {
+    grid-area: b;
+    align-self: center;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.next-comic img {
+    width: 200px;
+    border-radius: 5px;
+}
+
+.next-comic .comic-list-left {
+    grid-area: c;
+    list-style: none;    
+}
+
+.next-comic .comic-list-left a {
+    padding: 5px;
+}
+
+.next-comic .comic-list-right {
+    grid-area: d;
+    list-style: none;    
+}
+
+.next-comic .comic-list-right a {
+    padding: 5px;
+}
+
+.pagination {
+    grid-area: e;
+    align-self: center;
+}
+
+.pagination a {
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+}
+
+/*writer css*/
+
+.writer {
+    display: grid;
+    grid-template-columns: 60px 50%;
+    grid-template-areas: 
+        "a b" 
+        ". c";
+    justify-items: center;
+    justify-content: center;
+    grid-gap: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.writer a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.writer .writer-image{
+    grid-area: a;
+    align-self: center;
+}
+
+.writer .writer-image img{
+    width: 50px;
+}
+
+.writer .writer-name {
+    grid-area: b;
+    justify-self: start;
+    align-self: center;
+    padding-left: 10px;
+}
+
+.writer .writer-information {
+    grid-area: b;
+    justify-self: end;
+    align-self: center;
+    padding-right: 30px;
+}
+
+.writer .writer-information img {
+    width: 20px;
+    vertical-align: middle;
+}
+
+.writer .writer-comment {
+    grid-area: c;
+    padding-left: 10px;
+}
+
+.writer .writer-information span {
+    padding: 10px;
+}
+
+.subscribe {
+	width : 142px;
+    border: 2px solid black;
+    background-color: white;
+    padding: 15px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 3px;
+    border-color: #f44336;
+    color: red
+}
+
+.subscribed:hover {
+	width : 142px;
+    border: 2px solid black;
+    background-color: gray;
+    padding: 15px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 3px;
+    border-color: gray;
+    color: white;
+}
+
+
+.subscribe:hover, .subscribed {
+	width : 142px;
+	border: 2px solid red;
+    background-color: white;
+    padding: 15px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 3px;
+    
+    background: #f44336;
+    color: white;
+}
+
+
+/*another comic css*/
+.cards {
+    /* display: grid;
+    grid-template-columns: repeat(6, 230px);
+    grid-template-areas: 
+        " a b c d e f" 
+        " g h i j k l"; */
+    justify-items: center;
+    justify-content: center;
+    grid-row-gap: 25px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.cards a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.cards .cards-01, .cards-02, .cards-03, .cards-04, .cards-05, .cards-06, .cards-07, .cards-08, .cards-09, .cards-10, .cards-11, .cards-12 {
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.cards img {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.cards .title, .subtitle {
+    text-align: left;
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+
+.cards .line {
+    text-align: center;
+}
+
+.cards .thumbnail-thumb {
+    text-align: center;
+    padding-top: 5px;
+    vertical-align: 50%;
+}
+
+.cards .thumbnail-thumb img {
+    width: 20px;
+}
+
+.cards .thumbnail-thumb span {
+    vertical-align: 20%;
+}
+
+.cards .thumbnail-writer{
+    text-align: left;
+    padding-left: 15px;   
+    padding-bottom: 5px;
+}
+
+.cards .thumbnail-writer img{
+    width: 20px;
+}
+
+.cards .thumbnail-writer span{
+    padding-left: 5px;
+    vertical-align: 15%;
+}
+
+.cards .thumbnail {
+    width: 200px;
+}
+
+.cards .thumbnail-thumb span{
+    padding: 10px;
+}
+
+.cards .cards-01 {
+    grid-area: a
+}
+
+.cards .cards-02 {
+    grid-area: b
+}
+
+.cards .cards-03 {
+    grid-area: c
+}
+
+.cards .cards-04 {
+    grid-area: d
+}
+
+.cards .cards-05 {
+    grid-area: e
+}
+
+.cards .cards-06 {
+    grid-area: f
+}
+
+.cards .cards-07 {
+    grid-area: g
+}
+
+.cards .cards-08 {
+    grid-area: h
+}
+
+.cards .cards-09 {
+    grid-area: i
+}
+
+.cards .cards-10 {
+    grid-area: j
+}
+
+.cards .cards-11 {
+    grid-area: k
+}
+
+.cards .cards-12 {
+    grid-area: l
+}
+
+/*comment css*/
+
+.comment {
+    display: grid;
+    grid-template-columns: 45% 60px;
+    grid-template-areas: 
+        "a b";
+    justify-content: center;
+    grid-gap: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.comment .comment-text {
+    grid-area: a;
+    padding: 15px;
+    font-size: 1em;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.comment-button{
+	background-color: white;
+}
+.comment button{
+    grid-area: b;
+    border: 1px solid white;
+}
+
+.comment img{
+	box-sizing:content-box;
+    width: 28px;
+    background-color: white;
+	padding: 5px;    
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+
+/*another comment css*/
+.another-comment {
+    display: grid;
+    grid-template-columns: 60px 50%;
+    grid-template-areas: 
+        "a b" 
+        ". c"
+        ". d";
+    justify-items: center;
+    justify-content: center;
+    grid-gap: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.another-comment a:link {
+    text-decoration: none;
+    color: black;
+}
+
+
+.another-comment .another-user-image{
+    grid-area: a;
+    align-self: center;
+}
+
+.another-comment .another-user-image img{
+    width: 30px;
+}
+
+.another-comment .another-user-name {
+    grid-area: b;
+    justify-self: start;
+    align-self: center;
+}
+
+.another-comment .another-user-time {
+    font-size: 14px;
+    color: gray;
+    padding-right: 200px;
+}
+
+.another-comment span {
+    padding-left: 20px;
+}
+
+.another-comment .another-comment-modify {
+    grid-area: b;
+    align-self: center;
+    justify-self: end;
+    font-size: 14px;
+    color: gray;
+    padding-right: 50px;
+}
+
+.another-comment .another-comment-modify img {
+    width: 20px;
+}
+
+.another-comment .another-comment-Delete {
+    grid-area: b;
+    align-self: center;
+    justify-self: end;
+    font-size: 14px;
+    color: gray;
+    padding-right: 10px;
+}
+
+.another-comment .another-comment-Delete img {
+    width: 20px;
+}
+
+.another-comment .another-user-comment {
+    grid-area: c;
+}
+
+.another-comment .another-comment-thumb {
+    grid-area: d;
+    justify-self: start;
+    align-self: center;
+    padding-left: 10px;
+}
+
+.another-comment .another-comment-thumb img {
+    width: 20px;
+}
+
+.another-comment .another-comment-thumb span {
+    padding: 10px;
+}
+
+
+.another-comment .another-comment-more {
+    grid-area: d;
+    justify-self: start;
+    align-self: center;
+    padding-left: 180px;
+    font-size: 14px;
+    color: gray;
+    
+}

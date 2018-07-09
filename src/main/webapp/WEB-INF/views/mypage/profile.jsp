@@ -10,17 +10,17 @@
 
 
  <!--profile-->
-    <div class="profile">
-        <div class="profile-image">
+    <div class="mypage-profile">
+        <div class="mypage-profile-image">
         	<div class="uploadedList">
-            	<img src="/displayFile?fileName=${userVO.fullName}">
+            	<img src="/displayFile?fileName=${userVO.profileFullName}">
             </div>
         </div>
-        <div class="profile-infor">
+        <div class="mypage-profile-name">
             <h3>${userVO.uname}</h3>
-            <span>
+            <div class="mypage-profile-subscribe">
             	<a href="/mypage/subscriber" class="subscribedCount" id="btn-subscribedCount"></a>
-            </span>
+            </div>
         </div>
     </div>
 

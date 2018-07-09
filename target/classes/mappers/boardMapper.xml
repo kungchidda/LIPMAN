@@ -107,16 +107,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				and (content like CONCAT('%', #{keyword}, '%') OR uname like CONCAT('%', #{keyword}, '%'))
 			</if>
 			<if test="searchType =='tcw'.toString()">
-				and (title like CONCAT('%', #{keyword}, '%') 
-				OR content like CONCAT('%', #{keyword}, '%')
-				OR uname like CONCAT('%', #{keyword}, '%'))
+				and (title.title like CONCAT('%', #{keyword}, '%') 
+				OR a.content like CONCAT('%', #{keyword}, '%') 
+				OR a.subtitle like CONCAT('%', #{keyword}, '%') 
+				OR gn.genre like CONCAT('%', #{keyword}, '%') 
+				OR gn.gname like CONCAT('%', #{keyword}, '%')) 
 			</if>
 		</if>
 		<if test="genreArr != null">
-		and tg.genre in 
-		<foreach collection="genreArr" item="genreArr" open="(" close=")" separator=",">
-            #{genreArr}
-        </foreach>
+			and tg.tno in 
+		 (  
+            select t.tno 
+            from tbl_title t
+
+            inner join
+            tbl_title_genre tg
+            on t.tno = tg.tno
+            
+            
+			inner join
+            tbl_genre_name gn
+            on gn.genre = tg.genre
+            where tg.genre in 
+			<foreach collection="genreArr" item="genreArr" open="(" close=")" separator=",">
+	            #{genreArr}
+	        </foreach>
+	        )
 		</if>
 		</sql>
 	
@@ -155,8 +171,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- 	<select id="listGenreSearch" resultType="BoardVO"> -->
 	<select id="listSearch" resultType="BoardVO">
 		<![CDATA[
-			 select
-			title.tno, a.bno, title.title, a.subtitle, u.uname, a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, a.regdate, IFNULL(t.titleFullName, '/sampleImage.jpg') as titleFullName, IFNULL(b.boardFullName, '/sampleImage.jpg') as boardFullName, GROUP_CONCAT(gn.gname SEPARATOR ',') as gname
+select
+			title.tno, a.bno, title.title, a.subtitle, u.uname,  IFNULL(p.profileFullName, '/account.png') as profileFullName , a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, a.regdate, IFNULL(t.titleFullName, '/sampleImage.jpg') as titleFullName, IFNULL(b.boardFullName, '/sampleImage.jpg') as boardFullName, GROUP_CONCAT(gn.gname SEPARATOR ' ') as gname
 			from
             tbl_board a
             
@@ -179,6 +195,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             inner join
             tbl_user u
             on u.uid = a.uid
+            
+            left outer join
+            tbl_profile p
+            on u.uno = p.uno
             
             inner join
             tbl_title_genre tg
@@ -210,13 +230,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             tbl_title title
             on title.tno = a.tno
             
+            inner join
+			(SELECT  tno, titleFullName from tbl_title_attach) t    
+			on t.tno = a.tno
+			
+			left outer join
+            (SELECT  bno, boardFullName from tbl_attach group by bno) b    
+			on b.bno = a.bno
+			
             inner join 
 			(SELECT max(bno) as bno, subtitle, tno FROM tbl_board group by tno) x 
             on x.bno = a.bno
-
- 			inner join
+            
+            inner join
+            tbl_user u
+            on u.uid = a.uid
+            
+            inner join
             tbl_title_genre tg
             on tg.tno = title.tno
+            
+            inner join
+            tbl_genre_name gn
+            on gn.genre = tg.genre
             
 			where
 				a.bno > 0

@@ -1,0 +1,363 @@
+/* Dropdown Button */
+
+.dropbtn {
+    border: none;
+    cursor: pointer;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+
+.dropdown-content {
+    display: block;
+    position: absolute;
+    background-color: white;
+    /* min-width: 160px; */
+    height: 0px;
+    width: 100%;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+    z-index: 10000;
+    transition: height 0.3s;
+    overflow: hidden;
+}
+
+/* Links inside the dropdown */
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+
+.search {
+    height: 80px;
+}
+
+.notice {
+    height: 400px;
+    overflow-y: auto;
+}
+
+.mypage {
+    height: 295px;
+}
+
+
+.dropdown-contents {
+    display: grid;
+    grid-template-columns: 90% 80px;
+    grid-template-areas: "a b";
+    justify-content: center;
+    padding: 15px;
+}
+
+.dropdown-contents .searchBar {
+    grid-area: a;
+    padding: 15px;
+    font-size: 1em;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.dropdown-contents .searchBar-button {
+    grid-area: b;
+    justify-self: center;
+    width: 50px;
+    background-color: white;
+    border: 1px solid white;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+
+}
+
+.dropdown-content img {
+    width: 30px;
+    transition: -webkit-transition: all 300ms cubic-bezier(0.680, 0, 0.265, 1);
+    /* older webkit */
+    -webkit-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    -moz-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    -o-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    /* easeInOutBack */
+    -webkit-transition-timing-function: cubic-bezier(0.680, 0, 0.265, 1);
+    /* older webkit */
+    -webkit-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    -moz-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    -o-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    /* easeInOutBack */
+}
+
+.dropdown-content img:hover {
+    width: 40px;
+}
+
+/*dropdown notice*/
+
+.dropdown-notice {
+    display: grid;
+    grid-template-columns: repeat(1, 30%);
+    grid-template-areas: 
+        "a"
+        "b"
+        "c"
+        "d"
+        "e"
+        "f";
+    justify-items: center;
+    justify-content: center;
+    grid-gap: 20px;
+    padding: 15px;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.dropdown-notice .img-01 {
+    grid-area: a;
+    justify-self: start;
+    align-self: center;
+}
+
+.dropdown-content .dropdown-notice img {
+    width: 50px;
+    align-self: center;
+    border-radius: 5px;
+}
+
+.dropdown-notice .text-01 {
+    grid-area: a;
+    justify-self: start;
+    padding-left: 70px;
+    width: 78%;
+    align-self: center;
+}
+
+.dropdown-notice .time-01 {
+    grid-area: a;
+    justify-self: end;
+    align-self: center;
+    font-size: 14px;
+    color: darkgray;
+}
+
+
+.dropdown-notice .img-02 {
+    grid-area: b;
+    justify-self: start;
+    align-self: center;
+}
+
+.dropdown-notice img {
+    width: 50px;
+    align-self: center;
+    border-radius: 3px;
+}
+
+.dropdown-notice .text-02 {
+    grid-area: b;
+    justify-self: start;
+    padding-left: 70px;
+    width: 78%;
+    align-self: center;
+}
+
+.dropdown-notice .time-02 {
+    grid-area: b;
+    justify-self: end;
+    align-self: center;
+    font-size: 14px;
+    color: darkgray;
+}
+
+
+.dropdown-notice .img-03 {
+    grid-area: c;
+    justify-self: start;
+    align-self: center;
+}
+
+.dropdown-notice img {
+    width: 50px;
+    align-self: center;
+    border-radius: 3px;
+}
+
+.dropdown-notice .text-03 {
+    grid-area: c;
+    justify-self: start;
+    padding-left: 70px;
+    width: 78%;
+    align-self: center;
+}
+
+.dropdown-notice .time-03 {
+    grid-area: c;
+    justify-self: end;
+    align-self: center;
+    font-size: 14px;
+    color: darkgray;
+}
+
+
+.dropdown-notice .img-04 {
+    grid-area: d;
+    justify-self: start;
+    align-self: center;
+}
+
+.dropdown-notice img {
+    width: 50px;
+    align-self: center;
+    border-radius: 3px;
+}
+
+.dropdown-notice .text-04 {
+    grid-area: d;
+    justify-self: start;
+    padding-left: 70px;
+    width: 78%;
+    align-self: center;
+}
+
+.dropdown-notice .time-04 {
+    grid-area: d;
+    justify-self: end;
+    align-self: center;
+    font-size: 14px;
+    color: darkgray;
+}
+
+
+.dropdown-notice .img-05 {
+    grid-area: e;
+    justify-self: start;
+    align-self: center;
+}
+
+.dropdown-notice img {
+    width: 50px;
+    align-self: center;
+    border-radius: 3px;
+}
+
+.dropdown-notice .text-05 {
+    grid-area: e;
+    justify-self: start;
+    padding-left: 70px;
+    width: 78%;
+    align-self: center;
+}
+
+.dropdown-notice .time-05 {
+    grid-area: e;
+    justify-self: end;
+    align-self: center;
+    font-size: 14px;
+    color: darkgray;
+}
+
+
+.dropdown-notice .img-06 {
+    grid-area: f;
+    justify-self: start;
+    align-self: center;
+}
+
+.dropdown-notice img {
+    width: 50px;
+    align-self: center;
+    border-radius: 3px;
+}
+
+.dropdown-notice .text-06 {
+    grid-area: f;
+    justify-self: start;
+    padding-left: 70px;
+    width: 78%;
+    align-self: center;
+}
+
+.dropdown-notice .time-06 {
+    grid-area: f;
+    justify-self: end;
+    align-self: center;
+    font-size: 14px;
+    color: darkgray;
+}
+/*dropdown mypage*/
+
+.dropdown-mypage {
+    display: grid;
+    grid-template-columns: 20%;
+    grid-template-rows: 50px 25px 50px 50px 50px;
+    grid-template-areas: "a" "b" "c" "d" "e";
+    justify-content: center;
+    grid-gap: 10px;
+    padding: 15px;
+
+}
+
+.dropdown-mypage .login-id {
+    grid-area: a;
+    padding: 15px;
+    font-size: 1em;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+
+.dropdown-mypage .remember {
+    grid-area: b;
+    font-size: 1em;
+    padding-left: 5px;
+}
+
+.dropdown-mypage span {
+    padding: 3px;
+}
+
+.dropdown-mypage .login-pw {
+    grid-area: c;
+    padding: 15px;
+    font-size: 1em;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+
+.dropdown-mypage .login-button {
+    grid-area: d;
+    padding: 15px;
+    font-size: 1em;
+    border: 1px solid #f95e4e;
+    border-radius: 3px;
+    background-color: #f95e4e;
+    color: white;
+}
+
+.dropdown-mypage .signup-button {
+    grid-area: e;
+    padding: 15px;
+    font-size: 1em;
+    border: 1px solid #59a3ef;
+    border-radius: 3px;
+    background-color: #59a3ef;
+    color: white;
+}
+

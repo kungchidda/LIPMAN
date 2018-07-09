@@ -190,7 +190,7 @@
 		$(".pagination").remove();
 		$(".subtitleLi").remove();
 		$.getJSON(pageInfo,function(data){
-			printData(data.list, $(".og-expander-inner"), $('#subtitle-template'));
+			printData(data.list, $(".og-expander"), $('#subtitle-template'));
 			printPaging(data.pageMaker, $(".pagination"));
 // 			console.log("start subtitlecntSmall");
 // 			$(".subtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");

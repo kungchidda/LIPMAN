@@ -96,7 +96,7 @@ public class TitleController {
 		
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		
-		return "redirect:/sboard/list";
+		return "redirect:/mypage/home";
 	}
 	
 	@RequestMapping(value = "/modifyTitle", method = RequestMethod.GET)

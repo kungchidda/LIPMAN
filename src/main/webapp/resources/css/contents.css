@@ -4,12 +4,78 @@ hr {
     margin-left: auto;
 }
 
+
+/*subtitle h4 css*/
+
+.strapline {
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 25%);
+    grid-template-areas: "a .";
+    justify-content: center;
+}
+
+h4 {
+    grid-area: a;
+    justify-self: start;
+    padding-left: 30px;
+}
+
+
+
+/*profile*/
+
+.content-writer-profile {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    grid-template-rows: 45px 45px 75px 45px;
+    grid-template-areas: "a ." "a b" "a c" "a .";
+    justify-content: center;
+    justify-items: center;
+    grid-column-gap: 70px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.content-writer-profile .content-writer-img {
+    grid-area: a;
+}
+
+.content-writer-profile img {
+    border-radius: 10px;
+}
+
+.content-writer-profile .content-writer-name {
+    grid-area: b;
+    justify-self: start;
+    align-self: center;
+    font-size: 1em;
+}
+
+.content-writer-profile .content-writer-subscribe {
+    grid-area: c;
+    justify-self: start;
+    align-self: center;
+    font-size: 1em;
+}
+
+.content-writer-profile a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+.content-writer-profile a:link {
+    text-decoration: none;
+    color: black;
+}
+
+
 /*contents css*/
+
 .contents {
     display: grid;
     grid-template-columns: 60%;
-    grid-template-areas: 
-        "a";
+    grid-template-areas: "a";
     justify-content: center;
 }
 
@@ -24,8 +90,7 @@ hr {
     display: grid;
     grid-template-columns: 60px 20px 30px 60px 20px;
     grid-template-rows: 70px;
-    grid-template-areas: 
-        "a b . c d";
+    grid-template-areas: "a b . c d";
     justify-items: center;
     justify-content: center;
     padding-top: 80px;
@@ -63,17 +128,20 @@ hr {
 .evaluate img {
     width: 50px;
     padding-left: 20px;
-    transition: -webkit-transition: all 300ms cubic-bezier(0.680, 0, 0.265, 1); /* older webkit */
--webkit-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550); 
-   -moz-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550); 
-     -o-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550); 
-        transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550); /* easeInOutBack */
-
--webkit-transition-timing-function: cubic-bezier(0.680, 0, 0.265, 1); /* older webkit */
--webkit-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550); 
-   -moz-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550); 
-     -o-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550); 
-        transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550); /* easeInOutBack */
+    transition: -webkit-transition: all 300ms cubic-bezier(0.680, 0, 0.265, 1);
+    /* older webkit */
+    -webkit-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    -moz-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    -o-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    /* easeInOutBack */
+    -webkit-transition-timing-function: cubic-bezier(0.680, 0, 0.265, 1);
+    /* older webkit */
+    -webkit-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    -moz-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    -o-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    /* easeInOutBack */
 }
 
 .evaluate img:hover {
@@ -81,182 +149,239 @@ hr {
 }
 
 
+/*writer css*/
+
+.comic-infor {
+    display: grid;
+    grid-template-columns: repeat(2, 400px);
+    grid-template-rows: 35px 35px 35px 35px 70px;
+    grid-template-areas: "a b" "a c" "a d" "a e" "a f";
+    justify-content: center;
+    justify-items: center;
+    grid-column-gap: 70px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.comic-infor a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.comic-infor span {
+    padding: 10px;
+}
+
+.comic-infor .comic-thumbnail {
+    grid-area: a;
+    align-self: end;
+    justify-self: end;
+}
+
+.comic-infor .comic-thumbnail img {
+    border-radius: 10px;
+}
+
+
+.comic-infor .comic-title {
+    grid-area: b;
+    justify-self: start;
+    align-self: center;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.comic-infor .comic-time {
+    grid-area: c;
+    justify-self: start;
+    align-self: center;
+    font-size: 1em;
+}
+
+.comic-infor .comic-time img {
+    width: 20px;
+    vertical-align: middle;
+}
+
+.comic-infor .comic-view {
+    grid-area: d;
+    justify-self: start;
+    align-self: center;
+    font-size: 1em;
+}
+
+.comic-infor .comic-view img {
+    width: 20px;
+    vertical-align: middle;
+}
+
+.comic-infor .comic-link {
+    grid-area: e;
+    justify-self: start;
+    align-self: center;
+    font-size: 1em;
+}
+
+.comic-infor .comic-link img {
+    width: 20px;
+    vertical-align: middle;
+}
+
+.comic-infor .writer-subscribe {
+    grid-area: f;
+    justify-self: start;
+    align-self: center;
+}
+
+
+.subscribe {
+    border: 2px solid black;
+    background-color: white;
+    padding: 15px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.subscribe {
+    border-color: #f44336;
+    color: red
+}
+
+.subscribe:hover {
+    background: #f44336;
+    color: white;
+}
+
+
+/*comic-comment*/
+
+.comic-infor-comment {
+    display: grid;
+    grid-template-columns: 40%;
+    grid-template-areas: "a";
+    justify-content: center;
+}
+
+.comic-infor-comment .comic-comment {
+    grid-area: a;
+    justify-self: start;
+    padding-top: 25px;
+    padding-bottom: 50px;
+}
+
+
 /*next comic css*/
 
-.next-comic {
+.content-comic-list {
     display: grid;
-    grid-template-columns: repeat(3, 400px);
-    grid-template-rows: repeat(4, 70px);
+    grid-template-columns: 300px 450px 450px;
+    grid-template-rows: 100px 100px 100px 50px;
     grid-template-areas: 
-        "a c d" 
-        "a c d" 
-        "a c d" 
-        "b e e";
+        "a c d"
+        "a e f"
+        "a g h"
+        "b i i";
     justify-items: center;
     justify-content: center;
+    grid-column-gap: 30px;
+    grid-row-gap: 10px;
     padding-top: 20px;
     padding-bottom: 30px;
 }
 
-.next-comic a:link {
+.content-comic-list a:link {
     text-decoration: none;
-    color: black; 
+    color: black;
 }
 
-.next-comic a:visited {
-    color: black; 
+.content-comic-list a:visited {
+    color: black;
 }
 
-.next-comic .main-comic {
+.content-comic-list .content-comic-main-img {
     grid-area: a;
-    font-size: 1em;
-    text-align: center;
+    align-self: center;
 }
 
-.next-comic .main-comic-title {
+.content-comic-list .content-comic-genre {
+    grid-area: a;
+    align-self: end;
+    font-size: 1em;
+    color: gray;
+}
+
+.content-comic-list .content-comic-main-title {
     grid-area: b;
     align-self: center;
     font-size: 1em;
     font-weight: bold;
 }
 
-.next-comic img {
-    width: 200px;
-    border-radius: 5px;
+.content-comic-list .content-comic-main-img img {
+    width: 250px;
+    border-radius: 10px;
 }
 
-.next-comic .comic-list-left {
+.content-comic-list .content-comic-01-img, .content-comic-01-title {
     grid-area: c;
-    list-style: none;    
 }
 
-.next-comic .comic-list-left a {
-    padding: 5px;
-}
-
-.next-comic .comic-list-right {
+.content-comic-list .content-comic-02-img, .content-comic-02-title {
     grid-area: d;
-    list-style: none;    
 }
 
-.next-comic .comic-list-right a {
-    padding: 5px;
-}
-
-.pagination {
+.content-comic-list .content-comic-03-img, .content-comic-03-title {
     grid-area: e;
+}
+
+.content-comic-list .content-comic-04-img, .content-comic-04-title {
+    grid-area: f;
+}
+
+.content-comic-list .content-comic-05-img, .content-comic-05-title {
+    grid-area: g;
+}
+
+.content-comic-list .content-comic-06-img, .content-comic-06-title {
+    grid-area: h;
+}
+
+.content-comic-list .content-comic-list-pagi {
+    grid-area: i;
     align-self: center;
 }
 
-.pagination a {
-    color: black;
-    text-decoration: none;
+.content-comic-list .content-comic-list-pagi span {
     padding: 10px;
 }
 
-/*writer css*/
-
-.writer {
-    display: grid;
-    grid-template-columns: 60px 50%;
-    grid-template-areas: 
-        "a b" 
-        ". c";
-    justify-items: center;
-    justify-content: center;
-    grid-gap: 10px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-
-.writer a:link {
-    text-decoration: none;
-    color: black;
-}
-
-.writer .writer-image{
-    grid-area: a;
+.content-comic-list .content-comic-01-img, .content-comic-02-img, .content-comic-03-img, .content-comic-04-img, .content-comic-05-img, .content-comic-06-img {
     align-self: center;
+    justify-self: start;
+    border-radius: 10px;
 }
 
-.writer .writer-image img{
-    width: 50px;
-}
-
-.writer .writer-name {
-    grid-area: b;
+.content-comic-list img {
+    width: 80px;
     justify-self: start;
     align-self: center;
-    padding-left: 10px;
 }
 
-.writer .writer-information {
-    grid-area: b;
-    justify-self: end;
+.content-comic-list .content-comic-01-title, .content-comic-02-title, .content-comic-03-title, .content-comic-04-title, .content-comic-05-title, .content-comic-06-title {
     align-self: center;
-    padding-right: 30px;
-}
-
-.writer .writer-information img {
-    width: 20px;
-    vertical-align: middle;
-}
-
-.writer .writer-comment {
-    grid-area: c;
-    padding-left: 10px;
-}
-
-.writer .writer-information span {
-    padding: 10px;
-}
-
-.subscribe {
-	width : 142px;
-    border: 2px solid black;
-    background-color: white;
-    padding: 15px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    border-radius: 3px;
-    border-color: #f44336;
-    color: red
-}
-
-.subscribed:hover {
-	width : 142px;
-    border: 2px solid black;
-    background-color: gray;
-    padding: 15px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    border-radius: 3px;
-    border-color: gray;
-    color: white;
+    justify-self: start;
+    padding-left: 100px;
 }
 
 
-.subscribe:hover, .subscribed {
-	width : 142px;
-	border: 2px solid red;
-    background-color: white;
-    padding: 15px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    border-radius: 3px;
-    
-    background: #f44336;
-    color: white;
-}
 
 
 /*another comic css*/
 .cards {
-    /* display: grid;
-    grid-template-columns: repeat(6, 230px);
-    grid-template-areas: 
-        " a b c d e f" 
-        " g h i j k l"; */
+    display: grid;
+    grid-template-columns: repeat(5, 230px);
+    grid-template-areas: "a b c d e" "f g h i j";
     justify-items: center;
     justify-content: center;
     grid-row-gap: 25px;
@@ -269,18 +394,30 @@ hr {
     color: black;
 }
 
-.cards .cards-01, .cards-02, .cards-03, .cards-04, .cards-05, .cards-06, .cards-07, .cards-08, .cards-09, .cards-10, .cards-11, .cards-12 {
+.cards .cards-01,
+.cards-02,
+.cards-03,
+.cards-04,
+.cards-05,
+.cards-06,
+.cards-07,
+.cards-08,
+.cards-09,
+.cards-10,
+.cards-11,
+.cards-12 {
     border: 1px solid #d3d3d3;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .cards img {
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
-.cards .title, .subtitle {
+.cards .title,
+.subtitle {
     text-align: left;
     padding-left: 15px;
     padding-top: 5px;
@@ -305,17 +442,17 @@ hr {
     vertical-align: 20%;
 }
 
-.cards .thumbnail-writer{
+.cards .thumbnail-writer {
     text-align: left;
-    padding-left: 15px;   
+    padding-left: 15px;
     padding-bottom: 5px;
 }
 
-.cards .thumbnail-writer img{
+.cards .thumbnail-writer img {
     width: 20px;
 }
 
-.cards .thumbnail-writer span{
+.cards .thumbnail-writer span {
     padding-left: 5px;
     vertical-align: 15%;
 }
@@ -324,7 +461,7 @@ hr {
     width: 200px;
 }
 
-.cards .thumbnail-thumb span{
+.cards .thumbnail-thumb span {
     padding: 10px;
 }
 
@@ -380,9 +517,8 @@ hr {
 
 .comment {
     display: grid;
-    grid-template-columns: 45% 60px;
-    grid-template-areas: 
-        "a b";
+    grid-template-columns: 40% 100px;
+    grid-template-areas: "a b";
     justify-content: center;
     grid-gap: 10px;
     padding-top: 20px;
@@ -397,32 +533,27 @@ hr {
     border-radius: 5px;
 }
 
-.comment-button{
-	background-color: white;
-}
-.comment button{
+
+.comment button {
     grid-area: b;
     border: 1px solid white;
 }
 
-.comment img{
-	box-sizing:content-box;
+.comment img {
     width: 28px;
     background-color: white;
-	padding: 5px;    
-	padding-left: 20px;
-	padding-right: 20px;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 
 /*another comment css*/
+
 .another-comment {
     display: grid;
-    grid-template-columns: 60px 50%;
-    grid-template-areas: 
-        "a b" 
-        ". c"
-        ". d";
+    grid-template-columns: 60px 42%;
+    grid-template-areas: "a b" ". c" ". d";
     justify-items: center;
     justify-content: center;
     grid-gap: 10px;
@@ -436,12 +567,12 @@ hr {
 }
 
 
-.another-comment .another-user-image{
+.another-comment .another-user-image {
     grid-area: a;
     align-self: center;
 }
 
-.another-comment .another-user-image img{
+.another-comment .another-user-image img {
     width: 30px;
 }
 
@@ -467,7 +598,7 @@ hr {
     justify-self: end;
     font-size: 14px;
     color: gray;
-    padding-right: 50px;
+    padding-right: 60px;
 }
 
 .another-comment .another-comment-modify img {
@@ -480,7 +611,7 @@ hr {
     justify-self: end;
     font-size: 14px;
     color: gray;
-    padding-right: 10px;
+    padding-right: 20px;
 }
 
 .another-comment .another-comment-Delete img {
@@ -489,7 +620,20 @@ hr {
 
 .another-comment .another-user-comment {
     grid-area: c;
+    width: 95%;
+    justify-self: start;
+    word-wrap: break-word;
 }
+
+.another-comment textarea {
+    font-size: 1em;
+    padding: 10px;
+    overflow: visible;
+    border: none;
+    resize: none;
+}
+
+.another-comment text {}
 
 .another-comment .another-comment-thumb {
     grid-area: d;
@@ -514,5 +658,14 @@ hr {
     padding-left: 180px;
     font-size: 14px;
     color: gray;
-    
+
 }
+
+/*footer*/
+
+.footer {
+    width: 100%;
+    height: 300px;
+}
+
+

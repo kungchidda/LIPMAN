@@ -47,15 +47,15 @@ public class TitleServiceImpl implements TitleService{
 	@Override
 	public void modify(TitleVO title) throws Exception{
 		dao.update(title);
-		Integer bno = title.getTno();
+		Integer tno = title.getTno();
 		
-		dao.deleteAttach(bno);
 		
 		String[] files = title.getFiles();
 		
 		if(files !=null) {
+			dao.deleteAttach(tno);
 			for(String fileName : files) {
-				dao.replaceAttach(fileName, bno);
+				dao.replaceAttach(fileName, tno);
 			}
 		}
 		if(title.getGenreArr() != null) {
@@ -66,10 +66,10 @@ public class TitleServiceImpl implements TitleService{
 	
 	@Transactional
 	@Override
-	public void remove(Integer bno) throws Exception{
-		dao.deleteAttach(bno);
-		dao.deleteBoardAll(bno);
-		dao.delete(bno);
+	public void remove(Integer tno) throws Exception{
+		dao.deleteAttach(tno);
+		dao.deleteBoardAll(tno);
+		dao.delete(tno);
 	}
 	
 	

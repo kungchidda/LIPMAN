@@ -6,7 +6,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.kungchidda.mappers.userMapper">
 
 	<select id="login" resultType="UserVO">
-		select uid, upw, uname from tbl_user where uid = #{uid} and upw = #{upw}
+		select u.uid, u.upw, u.uname, p.profileFullName
+		from tbl_user u
+		
+		left outer join
+		tbl_profile p
+		on u.uno = p.uno
+		
+		where uid = #{uid} and upw = #{upw}
 	</select>
 	
 	<update id="keepLogin">

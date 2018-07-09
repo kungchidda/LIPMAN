@@ -18,5 +18,5 @@ public @Data class UserVO {
 
 	private String[] files;
 	
-	private String fullName;
+	private String profileFullName;
 }

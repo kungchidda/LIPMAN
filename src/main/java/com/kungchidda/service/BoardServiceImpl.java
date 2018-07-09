@@ -49,11 +49,11 @@ public class BoardServiceImpl implements BoardService{
 		dao.update(board);
 		Integer bno = board.getBno();
 		
-		dao.deleteAttach(bno);
 		
 		String[] files = board.getFiles();
 		
 		if(files !=null) {
+			dao.deleteAttach(bno);
 			for(String fileName : files) {
 				dao.replaceAttach(fileName, bno);
 			}

@@ -16,5 +16,5 @@ public @Data class TitleVO {
 	private String[] genreArr;
 	
 	private String[] files;
-	private String fullName;
+	private String profileFullName;
 }

@@ -18,12 +18,15 @@ public @Data class BoardVO {
 	private int replycnt;
 	private int likecnt;
 	private int dislikecnt;
+	private String gname;
 	private String genre;
 	private String[] genreArr;
+	
 	
 	private String[] files;
 	
 	private String titleFullName;
 	private String boardFullName;
+	private String profileFullName;
 
 }

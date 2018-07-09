@@ -77,7 +77,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select> -->
 		<select id="listSearch" resultType="MyPageVO">
 		<![CDATA[
-			select a.tno, a.title, u.uname, titlelikecnt, titledislikecnt, b.titleFullName, c.regdate, GROUP_CONCAT(gn.genre SEPARATOR ',') as genre, GROUP_CONCAT(gn.gname SEPARATOR ',') as gname
+			select a.tno, a.title, u.uname, titlelikecnt, titledislikecnt, b.titleFullName, c.regdate, GROUP_CONCAT(gn.genre SEPARATOR ',') as genre, GROUP_CONCAT(gn.gname SEPARATOR ' ') as gname
 			from tbl_title a
 			inner join
 			(SELECT  tno, titleFullName from tbl_title_attach) b    
@@ -182,7 +182,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="setting" resultType="UserVO">
 		select
-			a.uno, a.uid, a.uname, IFNULL(b.fullName, '/sampleImage.jpg') as fullName, GROUP_CONCAT(gn.genre SEPARATOR ',') as genre, GROUP_CONCAT(gn.gname SEPARATOR ',') as gname
+			a.uno, a.uid, a.uname, IFNULL(b.profileFullName, '/account.png') as profileFullName, GROUP_CONCAT(gn.genre SEPARATOR ',') as genre, GROUP_CONCAT(gn.gname SEPARATOR ',') as gname
 		from
 			tbl_user a
 

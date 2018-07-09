@@ -50,7 +50,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<delete id="delete">
-		delete from tbl_board where bno = #{bno}
+		delete from tbl_title where tno = #{tno}
 	</delete>
 	
 <!-- 	<select id="listAll" resultType="com.kungchidda.domain.BoardVO"> -->
@@ -202,11 +202,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<delete id="deleteAttach">
-		delete from tbl_attach where bno = #{bno}
+		delete from tbl_title_attach where tno = #{tno}
 	</delete>
 	
 	<insert id="replaceAttach">
-		insert into tbl_attach(fullname, bno) values (#{fullName}, #{bno})
+		insert into tbl_title_attach(titleFullName, bno) values (#{titleFullName}, #{tno})
 	</insert>
 	
 	<delete id="deleteReplyAll">

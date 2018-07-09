@@ -25,7 +25,7 @@ public interface TitleDAO {
 	
 	public List<String> getAttach(Integer bno) throws Exception;
 	
-	public void deleteAttach(Integer bno) throws Exception;
-	public void replaceAttach(String fullName, Integer bno) throws Exception;
-	public void deleteBoardAll(Integer bno) throws Exception;
+	public void deleteAttach(Integer tno) throws Exception;
+	public void replaceAttach(String fullName, Integer tno) throws Exception;
+	public void deleteBoardAll(Integer tno) throws Exception;
 }

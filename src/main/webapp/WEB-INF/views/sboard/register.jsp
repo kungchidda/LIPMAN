@@ -82,7 +82,7 @@
 		</div>
 		
 		
-		<div class="og-expander-inner">
+		<div class="og-expander">
 			<%-- <div class="og-fullimg">
 	            <div class="og-loading" style="display: none;"></div><img src="/displayFile?fileName=${titleVO.fullName}" style="display: inline;">
 	        </div>
