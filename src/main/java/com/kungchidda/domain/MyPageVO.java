@@ -25,5 +25,6 @@ public @Data class MyPageVO {
 	private String[] files;
 	private String titleFullName;
 	private String boardFullName;
+	private String profileFullName;
 
 }

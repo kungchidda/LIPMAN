@@ -46,7 +46,7 @@
 		$(".subtitleLi").remove();
 		$.getJSON(pageInfo,function(data){
 //			printData(data.list, $(".og-expander-inner"), $('#template'));
-			printData(data.list, $(".toggle-page"),$('#template'));
+			printData(data.list, $(".toggle-page"),$('#subtitle-template'));
 			printPaging(data.pageMaker, $(".pagination"), tno);
 // 			$(".subtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
 			

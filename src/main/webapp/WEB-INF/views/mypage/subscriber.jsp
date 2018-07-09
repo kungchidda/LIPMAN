@@ -9,48 +9,57 @@
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/mypage/profile.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<link href="/resources/css/mypage.css" rel="stylesheet">
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script> -->
 
 <!-- <link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/default.css" />
 <link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/component.css" />
 <script src="/resources/ThumbnailGridExpandingPreview/js/modernizr.custom.js"></script> -->
 
-<link rel="stylesheet" type="text/css" href="/resources/css/banner/banner.css" />
-
- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" type="text/css" href="/resources/css/banner/banner.css" /> -->
+<!--  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 </head>
 <body>
 
 
- <!--icon-->
-    <div class="profile-icon">
-        <div class="profile-icon-home">
-            <a href="/mypage/home"><img src="/resources/png/comic.png"></a>
-        </div>
-        <div class="profile-icon-subscribed">
-            <a href="/mypage/subscribed" ><img src="/resources/png/subscribe.png"></a>
-        </div>
-        <div class="profile-icon-subscriber">
-            <a href="/mypage/subscriber" class="active"><img src="/resources/png/subscribed.png"></a>
-        </div>
-        <div class="profile-icon-setting">
-            <a href="/mypage/setting"><img src="/resources/png/setting.png"></a>
-        </div>
-    </div>
+	<!--icon-->
+	<div class="mypage-profile-icon">
+		<div class="mypage-profile-icon-home">
+			<a href="/mypage/home" > <img
+				src="/resources/png/comic.png" id="profile-img-home">
+			</a>
+		</div>
+		<div class="mypage-profile-icon-subscribe">
+			<a href="/mypage/subscribed"> <img
+				src="/resources/png/subscribe.png" id="profile-img-subscribed">
+			</a>
+		</div>
+		<div class="mypage-profile-icon-subscribed">
+			<a href="/mypage/subscriber" class="active"> <img
+				src="/resources/png/subscribed.png" id="profile-img-subscriber">
+			</a>
+		</div>
+		<div class="mypage-profile-icon-setting">
+			<a href="/mypage/setting"> <img src="/resources/png/setting.png"
+				id="profile-img-setting">
+			</a>
+		</div>
+	</div>
 
-	<div class="container">
 <!-- 				<ul id="og-grid" class="og-grid rf-content--projects"> -->
-				<ul class="cards subscribed">
+				<ul class="mypage-subscriber">
 					<c:forEach items="${list}" var="subscribeVO">
 						<li>
-								<a href="#"><img src="/resources/images/profile-01.jpg"></a>
-            					<span><a href="#">${subscribeVO.uname}</a></span>
+						 		<div class="mypage-subscriber-img">
+									<a href="#"><img src="/displayFile?fileName=${subscribeVO.profileFullName}"></a>
+						 		</div>
+						 		<div class="mypage-subscriber-name">
+						 			<a href="#">${subscribeVO.uname}</a>
+						 		</div>
 						</li>
 						
 					</c:forEach>
 				</ul>
-	</div>
 <!-- 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="/resources/ThumbnailGridExpandingPreview/js/mypage_grid.js"></script>
 		<script>

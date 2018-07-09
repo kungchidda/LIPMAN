@@ -12,4 +12,5 @@ public @Data class SubscribeVO {
 	private Date regdate;
 
 	private String uname;
+	private String profileFullName;
 }

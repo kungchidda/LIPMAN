@@ -83,33 +83,32 @@
 		</div>
 		
 		
-		<div class="og-expander">
 			<%-- <div class="og-fullimg">
 	            <div class="og-loading" style="display: none;"></div><img src="/displayFile?fileName=${titleVO.fullName}" style="display: inline;">
 	        </div>
 	        <div class="form-group">
 	            <button class="btn">Select image</button>
 	        </div> --%>
-	        <div class="comic-list-title">
-	            <label for="exampleInputEmail1"> 
-	                <input type="text" name='title' class="form-control" value='${titleVO.title}' readonly></label>
-	        </div>
+	        
 	        <!-- <div class="comic-upload-submit">
 	            <button type="button" class="btn btn-primary">Modify</button>
 	            <button type="button" style="display:none;" class="btn btn-primary">Submit</button>
 	        </div> -->
-   		</div>
 
 
 
 	    <div class="write-comic">
 <!-- 	            <ul class="mailbox-attachments clearfix uploadedList"></ul> -->
+
+			<input type="text" name='title' class="write-comic-title" value='${titleVO.title}' readonly>
+			<input type="text" name='subtitle' class="write-comic-subtitle" placeholder="Subtitle" required>
+			
 	        <div class="write-comic-thumbnail" id="thumbnail-file-drop">
 	        	<div class="uploadedList">
 	            	<img src="/resources/png/thumbnail.png" id="select-file" style="display: inline;">
 	            </div>
 	        </div>
-            <input type="file" style="display:none;" id="thumbnail-upload-input" multiple>
+            <input type="file" style="display:none;" id="thumbnail-upload-input">
             <script>
 				$(function () {
 					$('#thumbnail-file-drop').click(function (e) {
@@ -119,7 +118,7 @@
 				});
 			</script>
 	        <input type="hidden" id='fileList' name='fileList' class="form-control">
-	        <select class="upload-file-list" name="file-list-name" size="20" ></select>
+	        <select class="upload-file-list" name="file-list-name" size="25" ></select>
 	        
 	        
 	        <button id="file-upload-button" class="write-comic-add"> + </button>
@@ -165,15 +164,21 @@
 			</script>
 			
 			
-<!-- 		        <a href = "javascript:moveItem( 'T', 'file-list-name' );">맨위</a> -->
-				<a href = "javascript:moveItem( 'U', 'file-list-name' );" class="write-comic-up">위</a>
-				<a href = "javascript:moveItem( 'D', 'file-list-name' );" class="write-comic-down">아래</a>
-<!-- 				<a href = "javascript:moveItem( 'B', 'file-list-name' );">맨아래</a> -->
+<!-- 		<a href = "javascript:moveItem( 'T', 'file-list-name' );">맨위</a> -->
+			<a href = "javascript:moveItem( 'U', 'file-list-name' );">
+				<div class="write-comic-up">
+					위
+				</div>
+			</a>
+			<a href = "javascript:moveItem( 'D', 'file-list-name' );">
+				<div class="write-comic-down">
+					아래
+				</div>
+			</a>
+<!-- 		<a href = "javascript:moveItem( 'B', 'file-list-name' );">맨아래</a> -->
 
 	        
-	        
 			
-			<input type="text" name='subtitle' class="write-comic-title" placeholder="Subtitle" required>
 	        
 <!-- 	        <div class="fileDrop"> -->
 <!-- 	            <input type="file" id="upload" multiple> -->

@@ -109,7 +109,8 @@
 
 					<div class="thumbnail-writer">
 <!-- 						<img src="/resources/png/account.png">  -->
-						<img src="/displayFile?fileName=${boardVO.profileFullName}"><span>${boardVO.uname}</span>
+						<img src="/displayFile?fileName=${boardVO.profileFullName}">
+						<span>${boardVO.uname}</span>
 					</div> <!-- 					</a> -->
 
 					<div class="og-expander hide do-not-close" style="height: 550px;">
@@ -145,7 +146,7 @@
 		</ul>
 	</div>
 
-	<script id="template" type="text/x-handlebars-template">
+	<script id="subtitle-template" type="text/x-handlebars-template">
                     {{#each .}}
                     <div class="subtitleLi do-not-close">
                         <a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>

@@ -1,0 +1,864 @@
+/*profile*/
+
+.mypage-profile {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    grid-template-rows: 45px 45px 75px 45px;
+    grid-template-areas: "a ." "a b" "a c" "a .";
+    justify-content: center;
+    grid-column-gap: 70px;
+    padding-top: 50px;
+}
+
+.mypage-profile .mypage-profile-image {
+    grid-area: a;
+}
+
+.mypage-profile img {
+    width: 20px;
+}
+
+.mypage-profile .mypage-profile-image img {
+    width: 200px;
+    border-radius: 10px;
+}
+
+.mypage-profile .mypage-profile-name {
+    grid-area: b;
+    justify-self: start;
+    align-self: center;
+    font-size: 1em;
+}
+
+.mypage-profile .mypage-profile-subscribe a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.mypage-profile .mypage-profile-subscribe {
+    grid-area: c;
+    justify-self: start;
+    align-self: center;
+    font-size: 1em;
+}
+
+
+
+
+/*Profile-icon*/
+
+.mypage-profile-icon {
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows: 50px;
+    grid-template-areas: "a b c d";
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.mypage-profile-icon a.active {
+    border-bottom: 5px solid red;
+}
+
+.mypage-profile-icon a.active img {
+    width: 40px;
+}
+
+.mypage-profile-icon img {
+    width: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 15px;
+    transition: -webkit-transition: all 300ms cubic-bezier(0.680, 0, 0.265, 1);
+    /* older webkit */
+    -webkit-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    -moz-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    -o-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    /* easeInOutBack */
+    -webkit-transition-timing-function: cubic-bezier(0.680, 0, 0.265, 1);
+    /* older webkit */
+    -webkit-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    -moz-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    -o-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    /* easeInOutBack */
+}
+
+.mypage-profile-icon .mypage-profile-icon-home {
+    grid-area: a;
+}
+
+.mypage-profile-icon .mypage-profile-icon-subscribe {
+    grid-area: b;
+}
+
+.mypage-profile-icon .mypage-profile-icon-subscribed {
+    grid-area: c;
+}
+
+.mypage-profile-icon .mypage-profile-icon-setting {
+    grid-area: d;
+}
+
+.mypage-profile-icon img:hover {
+    width: 40px;
+}
+
+.upload-file-list{
+	overflow: auto;
+}
+
+.mypage-home-start-image {
+    width: 200px;
+    padding-top: 30px;
+}
+.title-register{
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* .thumbnail-thumb {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+} */
+
+.mypage-home-title {
+    font-size: 1em;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.mypage-thumbnail-thumb {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.mypage-thumbnail-thumb span {
+    vertical-align: 20%;
+}
+
+.mypage-thumbnail-thumb img {
+    width: 20px;
+}
+
+.mypage-thumbnail-thumb span {
+    padding: 10px;
+}
+/*Mypage-Home*/
+/* 
+.mypage-home-cards {
+    display: grid;
+    grid-template-columns: repeat(10, 230px);
+    grid-template-rows: 350px;
+    grid-template-areas: "a b c d e f g h i j";
+    justify-items: center;
+    justify-content: center;
+    grid-row-gap: 25px;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.mypage-home-cards a:link {
+    text-decoration: none;
+    color: black;
+}
+.mypage-home-cards .mypage-home-start, .mypage-home-cards-02, .mypage-home-cards-03, .mypage-home-cards-04, .mypage-home-cards-05 {
+.mypage-home-cards .mypage-home-start, .expander, .title-register{
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.mypage-home-cards img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 200px;
+}
+
+.mypage-home-cards .mypage-home-title {
+    font-size: 1em;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.mypage-home-cards .mypage-home-line {
+    text-align: center;
+}
+
+.mypage-home-cards .mypage-home-line img {
+    width: 180px;
+}
+
+.expander .thumbnail-thumb {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.expander .thumbnail-thumb img {
+    width: 20px;
+}
+
+.expander .thumbnail-thumb span {
+    vertical-align: 20%;
+}
+
+.expander .thumbnail-thumb span {
+    padding: 10px;
+}
+
+.mypage-home-cards .mypage-home-start {
+    grid-area: a;
+}
+
+.mypage-home-start-image {
+    width: 200px;
+    padding-top: 30px;
+}
+
+.mypage-home-cards .mypage-home-start .mypage-home-start-talk {
+    text-align: center;
+    color: #adadad;
+}
+
+.mypage-home-cards .mypage-home-cards-02 {
+    grid-area: b;
+}
+
+.mypage-home-cards .mypage-home-cards-03 {
+    grid-area: c;
+}
+
+.mypage-home-cards .mypage-home-cards-04 {
+    grid-area: d;
+}
+
+.mypage-home-cards .mypage-home-cards-05 {
+    grid-area: e;
+}
+
+
+Mypage-Subscribe
+
+subscribe
+
+.mypage-subscribe-cards {
+    display: grid;
+    grid-template-columns: repeat(10, 230px);
+    grid-template-rows: 350px 350px;
+    grid-template-areas: "a b c d e f g h i j" "k l m . . . . . . .";
+    justify-items: center;
+    justify-content: center;
+    grid-row-gap: 25px;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.mypage-subscribe-cards a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.mypage-subscribe-cards .mypage-subscribe-cards-01,
+.mypage-subscribe-cards-02,
+.mypage-subscribe-cards-03,
+.mypage-subscribe-cards-04,
+.mypage-subscribe-cards-05,
+.mypage-subscribe-cards-06,
+.mypage-subscribe-cards-07,
+.mypage-subscribe-cards-08,
+.mypage-subscribe-cards-09,
+.mypage-subscribe-cards-10,
+.mypage-subscribe-cards-11,
+.mypage-subscribe-cards-12,
+.mypage-subscribe-cards-13 {
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.mypage-subscribe-cards .mypage-subscribe-thumbnail img {
+    width: 200px;
+}
+
+.mypage-subscribe-cards .mypage-subscribe-thumbnail {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.mypage-subscribe-cards .mypage-subscribe-title {
+    font-size: 1em;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.mypage-subscribe-cards .mypage-subscribe-lipman {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.mypage-subscribe-cards .mypage-subscribe-lipman span {
+    padding: 10px;
+}
+
+.mypage-subscribe-cards .mypage-subscribe-lipman img {
+    width: 20px;
+}
+
+.mypage-subscribe-cards .mypage-thumbnail-lipman span {
+    vertical-align: 20%;
+}
+
+.mypage-subscribe-cards .mypage-subscribe-line {
+    text-align: center;
+}
+
+.mypage-subscribe-cards .mypage-subscribe-line img {
+    width: 180px;
+}
+
+.mypage-subscribe-cards .mypage-subscribe-writer {
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 3px;
+}
+
+.mypage-subscribe-cards .mypage-subscribe-writer img {
+    width: 30px;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+.mypage-subscribe-cards .mypage-subscribe-writer span {
+    padding-left: 10px;
+}
+
+.mypage-subscribe-cards .mypage-subscribe-cards-01 {
+    grid-area: a
+}
+
+.mypage-subscribe-cards .mypage-subscribe-cards-02 {
+    grid-area: b
+}
+
+.mypage-subscribe-cards .mypage-subscribe-cards-03 {
+    grid-area: c
+}
+
+.mypage-subscribe-cards .mypage-subscribe-cards-04 {
+    grid-area: d
+}
+
+.mypage-subscribe-cards .mypage-subscribe-cards-05 {
+    grid-area: e
+}
+
+.mypage-subscribe-cards .mypage-subscribe-cards-06 {
+    grid-area: f
+}
+
+.mypage-subscribe-cards .mypage-subscribe-cards-07 {
+    grid-area: g
+}
+
+.mypage-subscribe-cards .mypage-subscribe-cards-08 {
+    grid-area: h
+}
+
+.mypage-subscribe-cards .mypage-subscribe-cards-09 {
+    grid-area: i
+}
+
+.mypage-subscribe-cards .mypage-subscribe-cards-10 {
+    grid-area: j
+}
+
+.mypage-subscribe-cards .mypage-subscribe-cards-11 {
+    grid-area: k
+}
+
+.mypage-subscribe-cards .mypage-subscribe-cards-12 {
+    grid-area: l
+}
+
+.mypage-subscribe-cards .mypage-subscribe-cards-13 {
+    grid-area: m
+}
+ */
+
+/*Mypage-Subscriber*/
+
+/*subscriber*/
+.mypage-subscriber {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30px;
+}
+        
+.mypage-subscriber li {
+    display: grid;
+    grid-template-areas: 
+        "a b";
+    float: left;
+    width: 14%;
+}
+
+.mypage-subscriber-img img {
+    width: 40px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}        
+
+.mypage-subscriber-img {
+    grid-area: a;
+    text-align: center;
+}
+.mypage-subscriber-name {
+    grid-area: b;
+    align-self: center;
+    width: 130px;
+    word-break: break-all;
+}
+
+.mypage-subscriber a:link {
+    color: black;
+    text-decoration: none;
+}
+
+.mypage-subscriber a:visited {
+    color: black;
+}
+
+/*Mypage-Setting*/
+
+/*setting*/
+.mypage-setting {
+    display: grid;
+    grid-template-columns: 400px 600px;
+    grid-template-areas: 
+        "a b" 
+        "c d" 
+        "e f" 
+        "g h"
+        "i j"
+        "k l";
+    justify-content: center;
+    justify-items: center;
+}
+
+.mypage-setting div {
+    padding: 20px;
+    align-self: center;
+}
+
+.mypage-setting .mypage-setting-loginid-title {
+    grid-area: a;
+}
+
+.mypage-setting .mypage-setting-loginid-text {
+    grid-area: b;
+}
+
+.mypage-setting .mypage-setting-password-title {
+    grid-area: c;
+}
+
+.mypage-setting .mypage-setting-password-title-button {
+    grid-area: d;
+}
+
+.mypage-setting .mypage-setting-nickname-title {
+    grid-area: e;
+}
+
+.mypage-setting .mypage-setting-nickname {
+    grid-area: f;
+    justify-self: start;
+    padding-left: 100px;
+}
+
+.mypage-setting .mypage-setting-nickname-button {
+    grid-area: f;
+    justify-self: end;
+    padding-right: 100px;
+}
+
+.mypage-setting .mypage-setting-profileimage-title {
+    grid-area: g;
+}
+
+.mypage-setting .mypage-setting-profileimage-button {
+    grid-area: h;
+}
+
+.mypage-setting .mypage-setting-subscribe-title {
+    grid-area: i;
+}
+
+.mypage-setting .mypage-setting-subscribe-switch {
+    grid-area: j;
+    align-self: center;
+}
+
+.mypage-setting .mypage-setting-subscribe-open {
+    grid-area: j;
+    align-self: center;
+    padding-left: 150px;
+}
+
+.mypage-setting .mypage-setting-subscribe-close {
+    grid-area: j;
+    align-self: center;
+    padding-right: 150px;
+}
+
+.mypage-setting .mypage-setting-subscriber-title {
+    grid-area: k;
+}
+
+.mypage-setting .mypage-setting-subscriber-switch {
+    grid-area: l;
+    align-self: center;
+}
+
+.mypage-setting .mypage-setting-subscriber-open {
+    grid-area: l;
+    align-self: center;
+    padding-left: 150px;
+}
+
+.mypage-setting .mypage-setting-subscriber-close {
+    grid-area: l;
+    align-self: center;
+    padding-right: 150px;
+}
+
+.mypage-setting .mypage-setting-genre-title {
+    grid-area: ;
+}
+
+.mypage-setting .mypage-setting-genre-title,
+.mypage-setting-subscriber-title,
+.mypage-setting-subscribe-title,
+.mypage-setting-password-title,
+.mypage-setting-loginid-title {
+    padding: 30px;
+}
+
+.mypage-setting-subscribe-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.mypage-setting-subscribe-switch input {display:none;}
+
+.mypage-setting-subscriber-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.mypage-setting-subscriber-switch input {display:none;}
+
+.mypage-setting button {
+    width: 250px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+}
+
+/*mypage-genre-list*/
+.mypage-genre-list {
+    display: grid;
+    grid-template-columns: 400px 150px 150px 150px 150px;
+    grid-template-areas: 
+        "a b c d e" 
+        "a f g h i" 
+        "a j k l m" 
+        "a n o p q" 
+        "a r s t u" 
+        "a . v v .";
+    justify-content: center;
+    align-items: center;
+    grid-row-gap: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+hr {
+    width: 40%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.mypage-genre-list .mypage-genre-list-title {
+    grid-area: a;
+    justify-self: center;
+}
+
+.mypage-genre-list .mypage-genre-list-01 {
+    grid-area: b;
+}
+
+.mypage-genre-list .mypage-genre-list-02 {
+    grid-area: c;
+}
+
+.mypage-genre-list .mypage-genre-list-03 {
+    grid-area: d;
+}
+
+.mypage-genre-list .mypage-genre-list-04 {
+    grid-area: e;
+}
+
+.mypage-genre-list .mypage-genre-list-05 {
+    grid-area: f;
+}
+
+.mypage-genre-list .mypage-genre-list-06 {
+    grid-area: g;
+}
+
+.mypage-genre-list .mypage-genre-list-07 {
+    grid-area: h;
+}
+
+.mypage-genre-list .mypage-genre-list-08 {
+    grid-area: i;
+}
+
+.mypage-genre-list .mypage-genre-list-09 {
+    grid-area: j;
+}
+
+.mypage-genre-list .mypage-genre-list-10 {
+    grid-area: k;
+}
+
+.mypage-genre-list .mypage-genre-list-11 {
+    grid-area: l;
+}
+
+.mypage-genre-list .mypage-genre-list-12 {
+    grid-area: m;
+}
+
+.mypage-genre-list .mypage-genre-list-13 {
+    grid-area: n;
+}
+
+.mypage-genre-list .mypage-genre-list-14 {
+    grid-area: o;
+}
+
+.mypage-genre-list .mypage-genre-list-15 {
+    grid-area: p;
+}
+
+.mypage-genre-list .mypage-genre-list-16 {
+    grid-area: q;
+}
+
+.mypage-genre-list .mypage-genre-liste-17 {
+    grid-area: r;
+}
+
+.mypage-genre-list .mypage-genre-list-18 {
+    grid-area: s;
+}
+
+.mypage-genre-list .mypage-genre-list-19 {
+    grid-area: t;
+}
+
+.mypage-genre-list .mypage-genre-list-20 {
+    grid-area: u;
+}
+
+.mypage-genre-list .mypage-setting-genre-switch {
+    grid-area: v;
+}
+
+.mypage-genre-list .mypage-setting-genre-open {
+    grid-area: v;
+    padding-left: 150px;
+}
+
+.mypage-genre-list .mypage-setting-genre-close {
+    grid-area: v;
+    padding-right: 150px;
+}
+
+.mypage-genre-list .mypage-setting-genre-switch, .mypage-setting-genre-open, .mypage-setting-genre-close {
+    align-self: center;
+    justify-self: center;
+}
+
+.mypage-setting-genre-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.mypage-setting-genre-switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 30px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.mypage-genre-list span {
+    padding-left: 10px;
+}
+
+/*mypage-setting-logout*/
+.mypage-setting-logout {
+    display: grid;
+    grid-template-columns: 400px 600px;
+    grid-template-areas: ". a";
+    justify-content: center;
+    justify-items: center;
+}
+
+.mypage-setting-logout .mypage-setting-logout-button {
+    grid-area: a;
+    justify-self: center;
+}
+
+.mypage-setting-logout {
+    padding: 20px;
+    align-self: center;
+}
+
+.mypage-setting-logout-button button {
+    width: 250px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+}
+
+
+/*mypage-setting-modify*/
+.mypage-setting-modify {
+    display: grid;
+    grid-template-columns: 300px 300px;
+    grid-template-areas: "a b";
+    justify-content: center;
+    justify-items: center;
+    padding-top: 20px;
+}
+
+.mypage-setting-modify .mypage-setting-modify-button {
+    grid-area: a;
+}
+
+.mypage-setting-modify .mypage-setting-done-button {
+    grid-area: b;
+}
+
+.mypage-setting-modify-button button{
+    width: 250px;
+    border: 1px solid #1d8bf1;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #1d8bf1;
+    color: white;
+}
+
+.mypage-setting-done-button button{
+    width: 250px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+}
+
+/*mypage-compony*/
+.mypage-compony {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    grid-template-rows: 300px;
+    grid-template-areas: "a";
+    justify-content: center;
+    justify-items: center;
+    background-color: dimgray;
+    margin-top: 200px;
+    bottom: 0;
+}
+
+.mypage-compony .mypage-compony-infor {
+    grid-area: a;
+    color: white;
+    font-size: 1em;
+    padding: 50px;
+    align-self: center;
+}
+
+
+/*footer*/
+.footer {
+    width: 100%;
+    height: 1000px;
+}
