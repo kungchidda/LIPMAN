@@ -17,7 +17,6 @@
 <body>
 
 
-
 	<!--icon-->
 	<div class="mypage-profile-icon">
 		<div class="mypage-profile-icon-home">
