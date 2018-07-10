@@ -90,7 +90,7 @@
 		<ul class="og-grid cards">
 			<c:forEach items="${list}" var="boardVO">
 				<li class="expander" id="${boardVO.tno}">
-					<img class="thumbnail" src="/displayFile?fileName=${boardVO.boardFullName}">
+					<img class="thumbnail" src="http://172.30.0.182:8080/displayFile?fileName=${boardVO.boardFullName}">
 
 					<div class="title">${boardVO.title}</div>
 
@@ -109,7 +109,7 @@
 
 					<div class="thumbnail-writer">
 <!-- 						<img src="/resources/png/account.png">  -->
-						<img src="/displayFile?fileName=${boardVO.profileFullName}">
+						<img src="http://172.30.0.182:8080/displayFile?fileName=${boardVO.profileFullName}">
 						<span>${boardVO.uname}</span>
 					</div> <!-- 					</a> -->
 
@@ -117,7 +117,7 @@
 						<div class="og-expander-inner do-not-close">
 							<div class="expander-title-inner">
 								<div class="og-fullimg do-not-close">
-									<img class="do-not-close" src="/displayFile?fileName=${boardVO.titleFullName}" style="display: inline;">
+									<img class="do-not-close" src="http://172.30.0.182:8080/displayFile?fileName=${boardVO.titleFullName}" style="display: inline;">
 								</div>
 								<div class="comic-list-genre do-not-close">
 									<div>${boardVO.gname}</div>
@@ -130,7 +130,7 @@
 									<div class="subtitleLi do-not-close">
 										<a href="#">
 											<div class="comic-list-img do-not-close">
-												<img src="/displayFile?fileName=${boardVO.boardFullName}">
+												<img src="http://172.30.0.182:8080/displayFile?fileName=${boardVO.boardFullName}">
 											</div>
 											<div class="comic-list-text cursor do-not-close">
 												${boardVO.subtitle}</div>
@@ -150,7 +150,7 @@
                     {{#each .}}
                     <div class="subtitleLi do-not-close">
                         <a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>
-                            <div class="comic-list-img do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
+                            <div class="comic-list-img do-not-close"><img src="http://172.30.0.182:8080/displayFile?fileName={{boardFullName}}"></div>
                             <div class="comic-list-text cursor do-not-close">{{subtitle}}</div>
                         </a>
                     </div>
