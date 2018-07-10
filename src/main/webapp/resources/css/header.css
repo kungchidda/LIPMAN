@@ -11,9 +11,7 @@ body {
     overflow-y: scroll;
 }
 
-a:visited{
-    color: black;
-}
+a:visited {color: black;}
 
 /* Dropdown Button */
 .dropbtn {
@@ -21,14 +19,12 @@ a:visited{
     cursor: pointer;
 }
 
-
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
     position: relative;
     display: inline-block;
 }
 
-/* Dropdown Content (Hidden by Default) */
 /* .dropdown-content { */
 .dropdown-contents {
     display: block;
@@ -42,7 +38,6 @@ a:visited{
     overflow: hidden;
 }
 
-/* Links inside the dropdown */
 /* .dropdown-content a { */
 .dropdown-contents a {
     color: black;
@@ -51,321 +46,333 @@ a:visited{
     display: block;
 }
 
-/* Change color of dropdown links on hover */
-/* .dropdown-content a:hover { */
 .dropdown-contents a:hover {
     background-color: #f1f1f1
 }
 
+
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.search {
-/*     height: 80px; */
-height: 330px;
-}
-
-.genre {
-    height: 220px;
-}
-
+.search {height: 220px;}
+.genre {height: 220px;}
 .notice {
     height: 400px;
     overflow-y: auto;
 }
+.mypage {height: 305px;}
+.signup {height: 485px;}
 
-.mypage {
-    height: 295px;
+
+/*dropdown search*/
+.dropdown-searchBar-01 {
+    display: grid;
+    grid-template-columns: 100px 135px 135px 130px 110px 140px 160px 110px 120px 140px;
+    grid-template-rows: 50px 50px;
+    grid-template-areas: 
+        "c d e f g h i j k l"
+        "m n o p q r s t u v";
+    justify-content: center;
+    align-items: center;
+    grid-row-gap: 10px;
+    padding-top: 20px;
 }
 
-.signup {
-    height: 380px;
+.dropdown-searchBar-01 .dropdown-genre-01 {grid-area: c;}
+.dropdown-searchBar-01 .dropdown-genre-02 {grid-area: d;}
+.dropdown-searchBar-01 .dropdown-genre-03 {grid-area: e;}
+.dropdown-searchBar-01 .dropdown-genre-04 {grid-area: f;}
+.dropdown-searchBar-01 .dropdown-genre-05 {grid-area: g;}
+.dropdown-searchBar-01 .dropdown-genre-06 {grid-area: h;}
+.dropdown-searchBar-01 .dropdown-genre-07 {grid-area: i;}
+.dropdown-searchBar-01 .dropdown-genre-08 {grid-area: j;}
+.dropdown-searchBar-01 .dropdown-genre-09 {grid-area: k;}
+.dropdown-searchBar-01 .dropdown-genre-10 {grid-area: l;}
+.dropdown-searchBar-01 .dropdown-genre-11 {grid-area: m;}
+.dropdown-searchBar-01 .dropdown-genre-12 {grid-area: n;}
+.dropdown-searchBar-01 .dropdown-genre-13 {grid-area: o;}
+.dropdown-searchBar-01 .dropdown-genre-14 {grid-area: p;}
+.dropdown-searchBar-01 .dropdown-genre-15 {grid-area: q;}
+.dropdown-searchBar-01 .dropdown-genre-16 {grid-area: r;}
+.dropdown-searchBar-01 .dropdown-genre-17 {grid-area: s;}
+.dropdown-searchBar-01 .dropdown-genre-18 {grid-area: t;}
+.dropdown-searchBar-01 .dropdown-genre-19 {grid-area: u;}
+.dropdown-searchBar-01 .dropdown-genre-20 {grid-area: v;}
+.dropdown-searchBar-01 span {
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 10px;
 }
 
-/*dropdown-contents*/
-/* .dropdown-contents { */
-.dropdown-searchBar {
-/*     display: grid;
-    grid-template-columns: 90% 80px;
+.dropdown-searchBar-02 {
+    display: grid;
+    grid-template-columns: 1180px 100px;
+    grid-template-rows: 50px;
     grid-template-areas: 
         "a b";
     justify-content: center;
-    padding: 15px; */
-    
-    display: grid;
-    grid-template-columns: 250px 250px 250px 250px 250px;
-    grid-template-rows: 40px 40px 40px 40px 50px;
-    grid-template-areas: 
-        "a b c d e"
-        "f g h i j"
-        "k l m n o"
-        "p q r s t"
-        "u u u u u";
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    grid-gap: 20px;
-    justify-items: start;
+    padding-top: 20px;
 }
 
-.dropdown-searchBar .searchBar {
-    grid-area: u;
-    width: 90%;
+.dropdown-searchBar-02 .searchBar {
+    grid-area: a;
+    align-self: center;
     padding: 15px;
     font-size: 1em;
     border: 1px solid gray;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
-.dropdown-searchBar .searchBar-button {
-    grid-area: u;
-    justify-self: end;
+.dropdown-searchBar-02 .searchBar-button {
+    grid-area: b;
+    justify-self: center;
     width: 50px;
     background-color: white;
     border: 1px solid white;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
 }
 
-.dropdown-searchBar .genre-1{
-    grid-area: a;
-}
-
-.dropdown-searchBar .genre-2 {
-    grid-area: b;
-}
-
-.dropdown-searchBar .genre-3 {
-    grid-area: c;
-}
-
-.dropdown-searchBar .genre-4 {
-    grid-area: d;
-}
-
-.dropdown-searchBar .genre-5 {
-    grid-area: e;
-}
-
-.dropdown-searchBar .genre-6 {
-    grid-area: f;
-}
-
-.dropdown-searchBar .genre-7 {
-    grid-area: g;
-}
-
-.dropdown-searchBar .genre-8 {
-    grid-area: h;
-}
-
-.dropdown-searchBar .genre-9 {
-    grid-area: i;
-}
-
-.dropdown-searchBar .genre-10 {
-    grid-area: j;
-}
-
-.dropdown-searchBar .genre-11 {
-    grid-area: k;
-}
-
-.dropdown-searchBar .genre-12 {
-    grid-area: l;
-}
-
-.dropdown-searchBar .genre-13 {
-    grid-area: m;
-}
-
-.dropdown-searchBar .genre-14 {
-    grid-area: n;
-}
-
-.dropdown-searchBar .genre-15 {
-    grid-area: o;
-}
-
-.dropdown-searchBar .genre-16 {
-    grid-area: p;
-}
-
-.dropdown-searchBar .genre-17 {
-    grid-area: q;
-}
-
-.dropdown-searchBar .genre-18 {
-    grid-area: r;
-}
-
-.dropdown-searchBar .genre-19 {
-    grid-area: s;
-}
-
-.dropdown-searchBar .genre-20 {
-    grid-area: t;
-}
-
-.genre-1 .false {
+.dropdown-genre-01 .false,
+.register-genre-input1 .false {
     border: 2px solid #f15941;
 }
-.genre-1 .true {
-	background-color: #f15941;
+
+.dropdown-genre-01 .true,
+.register-genre-input1 .true {
+    background-color: #f15941;
+    border: 2px solid #f15941;
     color: white;
 }
 
-.genre-2 .false  {
+.dropdown-genre-02 .false,
+.register-genre-input2 .false {
     border: 2px solid #f58346;
 }
-.genre-2 .true {
+
+.dropdown-genre-02 .true,
+.register-genre-input2 .true {
+    border: 2px solid #f58346;
     background-color: #f58346;
     color: white;
 }
 
-.genre-3 .false {
+.dropdown-genre-03 .false,
+.register-genre-input3 .false {
     border: 2px solid #faa74a;
 }
-.genre-3 .true {
+
+.dropdown-genre-03 .true,
+.register-genre-input3 .true {
+    border: 2px solid #faa74a;
     background-color: #faa74a;
     color: white;
 }
 
-.genre-4 .false  {
+.dropdown-genre-04 .false,
+.register-genre-input4 .false {
     border: 2px solid #fecd50;
 }
-.genre-4 .true {
+
+.dropdown-genre-04 .true,
+.register-genre-input4 .true {
+    border: 2px solid #fecd50;
     background-color: #fecd50;
     color: white;
 }
 
-.genre-5 .false  {
+.dropdown-genre-05 .false,
+.register-genre-input5 .false {
     border: 2px solid #fcdd00;
 }
-.genre-5 .true {
+
+.dropdown-genre-05 .true,
+.register-genre-input5 .true {
+    border: 2px solid #fcdd00;
     background-color: #fcdd00;
     color: white;
 }
 
-.genre-6 .false  {
+.dropdown-genre-06 .false,
+.register-genre-input6 .false {
     border: 2px solid #d4e15b;
 }
-.genre-6 .true {
+
+.dropdown-genre-06 .true,
+.register-genre-input6 .true {
+    border: 2px solid #d4e15b;
     background-color: #d4e15b;
     color: white;
 }
 
-.genre-7 .false  {
+.dropdown-genre-07 .false,
+.register-genre-input7 .false {
     border: 2px solid #a2d062;
 }
-.genre-7 .true {
+
+.dropdown-genre-07 .true,
+.register-genre-input7 .true {
+    border: 2px solid #a2d062;
     background-color: #a2d062;
     color: white;
 }
 
-.genre-8 .false  {
+.dropdown-genre-08 .false,
+.register-genre-input8 .false {
     border: 2px solid #6cc167;
 }
-.genre-8 .true {
+
+.dropdown-genre-08 .true,
+.register-genre-input8 .true {
+    border: 2px solid #6cc167;
     background-color: #6cc167;
     color: white;
 }
 
-.genre-9 .false  {
+.dropdown-genre-09 .false,
+.register-genre-input9 .false {
     border: 2px solid #1bb26c;
 }
-.genre-9 .true {
+
+.dropdown-genre-09 .true,
+.register-genre-input9 .true {
+    border: 2px solid #1bb26c;
     background-color: #1bb26c;
     color: white;
 }
 
-.genre-10 .false  {
+.dropdown-genre-10 .false,
+.register-genre-input10 .false {
     border: 2px solid #1aa789;
 }
-.genre-10 .true {
+
+.dropdown-genre-10 .true,
+.register-genre-input10 .true {
     background-color: #1aa789;
     color: white;
 }
 
-.genre-11 .false  {
+.dropdown-genre-11 .false,
+.register-genre-input11 .false {
     border: 2px solid #1d9c9d;
 }
-.genre-11 .true {
+
+.dropdown-genre-11 .true,
+.register-genre-input11 .true {
+    border: 2px solid #1d9c9d;
     background-color: #1d9c9d;
     color: white;
 }
 
-.genre-12 .false  {
+.dropdown-genre-12 .false,
+.register-genre-input12 .false {
     border: 2px solid #1d90b3;
 }
-.genre-12 .true {
+
+.dropdown-genre-12 .true,
+.register-genre-input12 .true {
+    border: 2px solid #1d90b3;
     background-color: #1d90b3;
     color: white;
 }
 
-.genre-13 .false  {
+.dropdown-genre-13 .false,
+.register-genre-input13 .false {
     border: 2px solid #2385c6;
 }
-.genre-13 .true {
+
+.dropdown-genre-13 .true,
+.register-genre-input13 .true {
+    border: 2px solid #2385c6;
     background-color: #2385c6;
     color: white;
 }
 
-.genre-14 .false  {
+.dropdown-genre-14 .false,
+.register-genre-input14 .false {
     border: 2px solid #406ab3;
 }
-.genre-14 .true {
+
+.dropdown-genre-14 .true,
+.register-genre-input14 .true {
+    border: 2px solid #406ab3;
     background-color: #406ab3;
     color: white;
 }
 
-.genre-15 .false  {
+.dropdown-genre-15 .false,
+.register-genre-input15 .false {
     border: 2px solid #524fa2;
 }
-.genre-15 .true {
+
+.dropdown-genre-15 .true,
+.register-genre-input15 .true {
+    border: 2px solid #524fa2;
     background-color: #524fa2;
     color: white;
 }
 
-.genre-16 .false  {
+.dropdown-genre-16 .false,
+.register-genre-input16 .false {
     border: 2px solid #7c51a2;
 }
-.genre-16 .true {
+
+.dropdown-genre-16 .true,
+.register-genre-input16 .true {
+    border: 2px solid #7c51a2;
     background-color: #7c51a2;
     color: white;
 }
 
-.genre-17 .false  {
+.dropdown-genre-17 .false,
+.register-genre-input17 .false {
     border: 2px solid #a154a1;
 }
-.genre-17 .true {
+
+.dropdown-genre-17 .true,
+.register-genre-input17 .true {
+    border: 2px solid #a154a1;
     background-color: #a154a1;
     color: white;
 }
 
-.genre-18 .false  {
+.dropdown-genre-18 .false,
+.register-genre-input18 .false {
     border: 2px solid #b55589;
 }
-.genre-18 .true  {
+
+.dropdown-genre-18 .true,
+.register-genre-input18 .true {
+    border: 2px solid #b55589;
     background-color: #b55589;
     color: white;
 }
 
-.genre-19 .false  {
+.dropdown-genre-19 .false,
+.register-genre-input19 .false {
     border: 2px solid #ca5774;
 }
-.genre-19 .true  {
+
+.dropdown-genre-19 .true,
+.register-genre-input19 .true {
+    border: 2px solid #ca5774;
     background-color: #ca5774;
     color: white;
 }
 
-.genre-20 .false  {
+.dropdown-genre-20 .false,
+.register-genre-input20 .false {
     border: 2px solid #da595d;
 }
-.genre-20 .true  {
+
+.dropdown-genre-20 .true,
+.register-genre-input20 .true {
+    border: 2px solid #da595d;
     background-color: #da595d;
     color: white;
 }
 
-.dropdown-searchBar span, .title-genre-checkbox span {
+.dropdown-searchBar span,
+.og-title-register-inner span,
+.genre-input span {
     padding: 10px;
     margin-left: 15px;
     border-radius: 10px;
@@ -373,26 +380,6 @@ height: 330px;
 }
 
 
-/*dropdown-contents searchBar*/
-/* .dropdown-contents .searchBar { */
-/* .dropdown-searchBar .searchBar { */
-/*     grid-area: a; */
-/*     padding: 15px; */
-/*     font-size: 1em; */
-/*     border: 1px solid gray; */
-/*     border-radius: 5px; */
-/* } */
-
-/* .dropdown-contents .searchBar-button { */
-/* .dropdown-searchBar .searchBar-button { */
-/*     grid-area: b; */
-/*     justify-self: center; */
-/*     width: 50px; */
-/*     background-color: white; */
-/*     border: 1px solid white; */
-/*     border-top-right-radius: 3px; */
-/*     border-bottom-right-radius: 3px; */
-/* } */
 /* .dropdown-content img { */
 .dropdown-contents img {
     width: 30px;
@@ -417,167 +404,41 @@ height: 330px;
     width: 40px;
 }
 
-/*.dropdown-content .dropdown-genre*/
-/* .dropdown-content .dropdown-genre { */
-/* .dropdown-contents .dropdown-genre {
-    display: grid;
-    grid-template-columns: repeat(4, 200px);
-    grid-template-areas: 
-        "a b c d"
-        "e f g h"
-        "i j k l"
-        "m n o p"
-        "q r s t";
-    justify-items: start;
-    justify-content: center;
-    grid-gap: 20px;
-    padding: 20px;
-    font-size: 1em;
-    font-family: "Nanum Gothic";
-}
-
-.dropdown-genre .dropdown-genre-1 {
-    grid-area: a;
-}
-
-.dropdown-genre .dropdown-genre-2 {
-    grid-area: b;
-}
-
-.dropdown-genre .dropdown-genre-3 {
-    grid-area: c;
-}
-
-.dropdown-genre .dropdown-genre-4 {
-    grid-area: d;
-}
-
-.dropdown-genre .dropdown-genre-5 {
-    grid-area: e;
-}
-
-.dropdown-genre .dropdown-genre-6 {
-    grid-area: f;
-}
-
-.dropdown-genre .dropdown-genre-7 {
-    grid-area: g;
-}
-
-.dropdown-genre .dropdown-genre-8 {
-    grid-area: h;
-}
-
-.dropdown-genre .dropdown-genre-9 {
-    grid-area: i;
-}
-
-.dropdown-genre .dropdown-genre-10 {
-    grid-area: j;
-}
-
-.dropdown-genre .dropdown-genre-11 {
-    grid-area: k;
-}
-
-.dropdown-genre .dropdown-genre-12 {
-    grid-area: l;
-}
-
-.dropdown-genre .dropdown-genre-13 {
-    grid-area: m;
-}
-
-.dropdown-genre .dropdown-genre-14 {
-    grid-area: n;
-}
-
-.dropdown-genre .dropdown-genre-15 {
-    grid-area: o;
-}
-
-.dropdown-genre .dropdown-genre-16 {
-    grid-area: p;
-}
-
-.dropdown-genre .dropdown-genre-17 {
-    grid-area: q;
-}
-
-.dropdown-genre .dropdown-genre-18 {
-    grid-area: r;
-}
-
-.dropdown-genre .dropdown-genre-19 {
-    grid-area: s;
-}
-
-.dropdown-genre .dropdown-genre-20 {
-    grid-area: t;
-}
-
-.dropdown-genre span {
-    padding-left: 15px;
-} */
-
-
 /*dropdown notice*/
 .dropdown-notice {
     display: grid;
-    grid-template-columns: repeat(1, 30%);
-    grid-template-areas: 
-        "a"
-        "b" 
-        "c" 
-        "d" 
-        "e" 
-        "f";
+    grid-template-columns: 700px;
+    grid-template-areas: "a" "b" "c" "d" "e" "f";
     justify-items: center;
     justify-content: center;
     grid-gap: 20px;
-    padding: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .cursor {
     cursor: pointer;
 }
 
-.dropdown-notice .img-01, .text-01, .time-01 {
-    grid-area: a;
-}
-
-.dropdown-notice .img-02, .text-02, .time-02 {
-    grid-area: b;
-}
-
-.dropdown-notice .img-03, .text-03, .time-03 {
-    grid-area: c;
-}
-
-.dropdown-notice .img-04, .text-04, .time-04 {
-    grid-area: d;
-}
-
-.dropdown-notice .img-05, .text-05, .time-05 {
-    grid-area: e;
-}
-
-.dropdown-notice .img-06, .text-06, .time-06 {
-    grid-area: f;
-}
-
+.dropdown-notice .img-01, .text-01, .time-01 {grid-area: a;}
+.dropdown-notice .img-02, .text-02, .time-02 {grid-area: b;}
+.dropdown-notice .img-03, .text-03, .time-03 {grid-area: c;}
+.dropdown-notice .img-04, .text-04, .time-04 {grid-area: d;}
+.dropdown-notice .img-05, .text-05, .time-05 {grid-area: e;}
+.dropdown-notice .img-06, .text-06, .time-06 {grid-area: f;}
 .dropdown-notice .time-01, .time-02, .time-03, .time-04, .time-05, .time-06 {
     justify-self: end;
     align-self: center;
     font-size: 14px;
     color: darkgray;
+    padding-bottom: 10px;
 }
 
 .dropdown-notice .text-01, .text-02, .text-03, .text-04, .text-05, .text-06 {
     justify-self: start;
     padding-left: 70px;
-    width: 78%;
-    align-self: center;
+    width: 630px;
+    align-self: start;
 }
 
 .dropdown-notice .img-01, .img-02, .img-03, .img-04, .img-05, .img-06 {
@@ -585,89 +446,32 @@ height: 330px;
     align-self: center;
 }
 
-.dropdown-notice .img-01 img {
-    width: 50px;
-}
-
-.dropdown-notice .img-02 img {
-    width: 50px;
-}
-
-.dropdown-notice .img-03 img {
-    width: 50px;
-}
-
-.dropdown-notice .img-04 img {
-    width: 50px;
-}
-
-.dropdown-notice .img-05 img {
-    width: 50px;
-}
-
-.dropdown-notice .img-06 img {
-    width: 50px;
-}
-
+.dropdown-notice .img-01 img {width: 50px;}
+.dropdown-notice .img-02 img {width: 50px;}
+.dropdown-notice .img-03 img {width: 50px;}
+.dropdown-notice .img-04 img {width: 50px;}
+.dropdown-notice .img-05 img {width: 50px;}
+.dropdown-notice .img-06 img {width: 50px;}
 .dropdown-notice img {
     align-self: center;
-    border-radius: 5px;
+    border-radius: 10px;
 }
-
-/*dropdown-content dropdown-signup*/
-.dropdown-signup .searchBar {
-    grid-area: a;
-    padding: 15px;
-    font-size: 1em;
-    border: 1px solid gray;
-    border-radius: 5px;
-}
-
-.dropdown-signup .searchBar-button {
-    grid-area: b;
-    justify-self: center;
-    width: 50px;
-    background-color: white;
-    border: 1px solid white;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-}
-
-/* .dropdown-content img { */
-.dropdown-contents img {
-    width: 30px;
-    transition: -webkit-transition: all 300ms cubic-bezier(0.680, 0, 0.265, 1);
-    /* older webkit */
-    -webkit-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
-    -moz-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
-    -o-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
-    transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
-    /* easeInOutBack */
-    -webkit-transition-timing-function: cubic-bezier(0.680, 0, 0.265, 1);
-    /* older webkit */
-    -webkit-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
-    -moz-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
-    -o-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
-    transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
-    /* easeInOutBack */
-}
-
-/* .dropdown-content img:hover { */
-.dropdown-contents img:hover {
-    width: 40px;
-}
-
-
 
 /*dropdown mypage*/
 .dropdown-mypage {
     display: grid;
-    grid-template-columns: 20%;
+    grid-template-columns: 400px;
     grid-template-rows: 50px 25px 50px 50px 50px;
-    grid-template-areas: "a" "b" "c" "d" "e";
+    grid-template-areas: 
+        "a" 
+        "b" 
+        "c" 
+        "d" 
+        "e";
     justify-content: center;
     grid-gap: 10px;
-    padding: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .dropdown-mypage .login-id {
@@ -678,6 +482,7 @@ height: 330px;
     grid-area: b;
     font-size: 1em;
     padding-left: 5px;
+    color: gray;
 }
 
 .dropdown-mypage span {
@@ -692,7 +497,7 @@ height: 330px;
     padding: 15px;
     font-size: 1em;
     border: 1px solid gray;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .dropdown-mypage .login-button {
@@ -701,28 +506,26 @@ height: 330px;
     background-color: #f25144;
 }
 
-.dropdown-mypage .signup-button {
+.dropdown-mypage .signupBtn {
     grid-area: e;
     border: 1px solid #feb25f;
     background-color: #feb25f;
 }
 
-.dropdown-mypage .login-button, .signup-button {
+.dropdown-mypage .login-button,
+.signup-button {
     font-size: 1em;
-    border-radius: 5px;
+    border-radius: 10px;
     color: white;
 }
 
-.dropdown-mypage .signup-button {
+.dropdown-mypage .signupBtn {
     font-size: 1em;
     text-align: center;
-    padding : 15px;
-    border-radius: 5px;
+    padding: 15px;
+    border-radius: 10px;
     color: white;
 }
-
-
-
 
 .dropdown-mypage .signup-button a {
     color: white;
@@ -732,61 +535,96 @@ height: 330px;
 /*dropdown-content signup*/
 .dropdown-signup {
     display: grid;
-    grid-template-columns: 20%;
-    grid-template-rows: 50px 50px 50px 50px 50px 50px;
-    grid-template-areas: 
-        "a" 
-        "b" 
-        "c" 
-        "d" 
-        "e"
-        "f";
+    grid-template-columns: 400px;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px 25px 50px;
+    grid-template-areas: "a" "b" "c" "d" "e" "f" "g" "h";
     justify-content: center;
     grid-gap: 10px;
-    padding: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
-.dropdown-signup .signup-email {
-    grid-area: a;
-}
-
-.dropdown-signupsignup .signup-pw {
-    grid-area: b;
-}
-
-.dropdown-signup .signup-repw {
-    grid-area: c;
-}
-
-.dropdown-signup .signup-nickname {
-    grid-area: d;
-}
-
+.dropdown-signup .signup-email {grid-area: a;}
+.dropdown-signupsignup .signup-pw {grid-area: b;}
+.dropdown-signup .signup-repw {grid-area: c;}
+.dropdown-signup .signup-nickname {grid-area: d;}
 
 .dropdown-signup .signup-email, .signup-pw, .signup-repw, .signup-nickname {
     padding: 15px;
     font-size: 1em;
     border: 1px solid gray;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .dropdown-signup .signup-button {
     grid-area: e;
-    border: 1px solid #feb25f;
-    background-color: #feb25f;
+    border: 1px solid #f25144;
+    background-color: #f25144;
 }
 
 .dropdown-signup .hadaccount-button {
     grid-area: f;
-    border: 1px solid #f25144;
-    background-color: #f25144;
+    border: 1px solid #feb25f;
+    background-color: #feb25f;
+}
+
+.dropdown-signup .hr-text {
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  border: 0;
+  color: black;
+  text-align: center;
+  height: 1.5em;
+}
+
+.dropdown-signup .signup-or {
+    grid-area: g
+}
+
+.dropdown-signup .signup-or {
+    text-align: center;
+    font-size: 20px;
+}
+.dropdown-signup h1 span {
+    background-color: #fff;
+    padding: 10px;
+}
+.dropdown-signup h1::after {
+    display: block;
+    content: "";
+    border: 1px solid #ccc;
+    margin-top: -0.5em;
+}
+
+.dropdown-signup .signup-facebook {
+    grid-area: h;
+    justify-self: end;
+    border: 1px solid #507dbd;
+    background-color: #507dbd;
+}
+
+.dropdown-signup .signup-google {
+    grid-area: h;
+    justify-self: start;
+    border: 1px solid #dd4b39;
+    background-color: #dd4b39;
 }
 
 .dropdown-signup .signup-button, .hadaccount-button {
     font-size: 1em;
     text-align: center;
     padding-top: 13px;
-    border-radius: 5px;
+    border-radius: 10px;
+    color: white;
+}
+
+.dropdown-signup .signup-google, .signup-facebook {
+    font-size: 1em;
+    text-align: center;
+    padding-top: 13px;
+    width: 193px;
+    border-radius: 10px;
     color: white;
 }
 
@@ -806,29 +644,11 @@ height: 330px;
     padding-left: 20px;
 }
 
-.header .brand {
-    grid-area: a;
-}
-
-.header .searchBtn {
-    grid-area: b;
-}
-
-/* .header .genreBtn {
-    grid-area: c;
-} */
-
-.header .noticeBtn {
-    grid-area: c;
-}
-
-.header .accountBtn {
-    grid-area: d;
-}
-
-.header .signupBtn {
-    grid-area: d;
-}
+.header .brand {grid-area: a;}
+.header .searchBtn {grid-area: b;}
+.header .noticeBtn {grid-area: c;}
+.header .accountBtn {grid-area: d;}
+.header .signupBtn {grid-area: d;}
 
 .header .brand, .searchBtn, .genreBtn, .noticeBtn, .accountBtn {
     justify-self: center;
@@ -853,14 +673,5098 @@ height: 330px;
     /* easeInOutBack */
 }
 
-.header img:hover {
-    width: 40px;
+.header img:hover {width: 40px;}
+
+.header .brand img {width: 150px;}
+
+
+
+/* @media query */
+/* iPad Pro-12.6 portrait : Complete */
+@media (max-device-width: 1024px) and (max-device-height: 1366px) and (orientation: portrait) {
+    .dropbtn {
+        border: none;
+        cursor: pointer;
+    }
+
+/* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+/* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: block;
+        position: absolute;
+        background-color: white;
+        height: 0px;
+        width: 100%;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        transition: height 0.3s;
+        overflow: hidden;
+    }
+
+/* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .search {height: 220px;}
+    .notice {
+        height: 330px;
+        overflow-y: auto;
+    }
+    .mypage {height: 305px;}
+    .signup {height: 485px;}
+   
+/*dropdown search*/
+    .dropdown-searchBar-01 {
+        display: grid;
+        grid-template-columns: 70px 105px 105px 100px 80px 110px 130px 80px 90px 110px;
+        grid-template-rows: 50px 50px;
+        grid-template-areas: 
+            "c d e f g h i j k l"
+            "m n o p q r s t u v";
+        justify-content: center;
+        align-items: center;
+        grid-row-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 10px;
+        overflow: scroll;
+    }
+    
+    .dropdown-searchBar-01 .dropdown-genre-01 {grid-area: c;}
+    .dropdown-searchBar-01 .dropdown-genre-02 {grid-area: d;}
+    .dropdown-searchBar-01 .dropdown-genre-03 {grid-area: e;}
+    .dropdown-searchBar-01 .dropdown-genre-04 {grid-area: f;}
+    .dropdown-searchBar-01 .dropdown-genre-05 {grid-area: g;}
+    .dropdown-searchBar-01 .dropdown-genre-06 {grid-area: h;}
+    .dropdown-searchBar-01 .dropdown-genre-07 {grid-area: i;}
+    .dropdown-searchBar-01 .dropdown-genre-08 {grid-area: j;}
+    .dropdown-searchBar-01 .dropdown-genre-09 {grid-area: k;}
+    .dropdown-searchBar-01 .dropdown-genre-10 {grid-area: l;}
+    .dropdown-searchBar-01 .dropdown-genre-11 {grid-area: m;}
+    .dropdown-searchBar-01 .dropdown-genre-12 {grid-area: n;}
+    .dropdown-searchBar-01 .dropdown-genre-13 {grid-area: o;}
+    .dropdown-searchBar-01 .dropdown-genre-14 {grid-area: p;}
+    .dropdown-searchBar-01 .dropdown-genre-15 {grid-area: q;}
+    .dropdown-searchBar-01 .dropdown-genre-16 {grid-area: r;}
+    .dropdown-searchBar-01 .dropdown-genre-17 {grid-area: s;}
+    .dropdown-searchBar-01 .dropdown-genre-18 {grid-area: t;}
+    .dropdown-searchBar-01 .dropdown-genre-19 {grid-area: u;}
+    .dropdown-searchBar-01 .dropdown-genre-20 {grid-area: v;}
+    .dropdown-searchBar-01 span {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 {
+        display: grid;
+        grid-template-columns: 900px 70px;
+        grid-template-rows: 50px;
+        grid-template-areas: 
+            "a b";
+        justify-content: center;
+        padding-top: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar {
+        grid-area: a;
+        align-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar-button {
+        grid-area: b;
+        justify-self: center;
+        width: 50px;
+        background-color: white;
+        border: 1px solid white;
+    }
+    
+/*dropdown notice*/
+    .dropdown-notice {
+        display: grid;
+        grid-template-columns: 600px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f";
+        justify-items: center;
+        justify-content: center;
+        grid-gap: 20px;
+        padding-top: 20px;
+    }
+
+    .cursor {cursor: pointer;}
+
+    .dropdown-notice .text-01, .text-02, .text-03, .text-04, .text-05, .text-06 {
+        justify-self: start;
+            padding-left: 70px;
+            width: 530px;
+            word-break: break-all;
+            align-self: start;
+    }
+
+    .dropdown-notice .time-01, .time-02, .time-03, .time-04, .time-05, .time-06 {
+        justify-self: end;
+        align-self: end;
+        font-size: 12px;
+        color: darkgray;
+        padding-bottom: 5px;
+    }
+
+    .dropdown-notice .img-01, .img-02, .img-03, .img-04, .img-05, .img-06 {
+        justify-self: start;
+    }
+
+    .dropdown-notice img {
+        width: 25px;
+        border-radius: 10px;
+    }
+
+    .dropdown-notice .text-01, .time-01, .img-01 {grid-area: a;}
+    .dropdown-notice .text-02, .time-02, .img-02 {grid-area: b;}
+    .dropdown-notice .text-03, .time-03, .img-03 {grid-area: c;}
+    .dropdown-notice .text-04, .time-04, .img-04 {grid-area: d;}
+    .dropdown-notice .text-05, .time-05, .img-05 {grid-area: e;}
+    .dropdown-notice .text-06, .time-06, .img-06 {grid-area: f;}
+
+/*dropdown mypage*/
+    .dropdown-mypage {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-mypage .login-id {
+        grid-area: a;
+    }
+
+    .dropdown-mypage .remember {
+        grid-area: b;
+        width: 340px;
+        justify-self: center;
+        font-size: 1em;
+        color: gray;
+    }
+
+    .dropdown-mypage span {
+        padding: 3px;
+    }
+
+    .dropdown-mypage .login-pw {
+        grid-area: c;
+    }
+
+    .dropdown-mypage .login-id, .login-pw {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .login-button {
+        grid-area: d;
+        width: 340px;
+        padding: 15px;
+        border: 1px solid #f95e4e;
+        background-color: #f95e4e;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .signupBtn {
+        grid-area: e;
+        width: 310px;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+/*dropdown-content signup*/
+    .dropdown-signup {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 50px 50px 50px 50px 50px 25px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f"
+            "g"
+            "h";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-signup .signup-email {grid-area: a;}
+    .dropdown-signupsignup .signup-pw {grid-area: b;}
+    .dropdown-signup .signup-repw {grid-area: c;}
+    .dropdown-signup .signup-nickname {grid-area: d;}
+    .dropdown-signup .signup-email, .signup-pw, .signup-repw, .signup-nickname {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-signup .signup-button {
+        grid-area: e;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+    }
+
+    .dropdown-signup .hadaccount-button {
+        grid-area: f;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #f25144;
+        background-color: #f25144;
+    }
+
+    .dropdown-signup .signup-button, .hadaccount-button {
+        font-size: 1em;
+        text-align: center;
+        padding-top: 13px;
+        border-radius: 10px;
+        color: white;
+    }
+    
+    .dropdown-signup .signup-facebook {
+        grid-area: h;
+        justify-self: end;
+        border: 1px solid #507dbd;
+        background-color: #507dbd;
+	}
+
+	.dropdown-signup .signup-google {
+	    grid-area: h;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-signup .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 163px;
+	    border-radius: 10px;
+	    color: white;
+	}
+
+/* header */
+    .header {
+        display: grid;
+        grid-template-columns: 120px auto 40px 40px 40px;
+        grid-template-rows: 40px;
+        grid-template-areas: "a . b c d";
+        border-bottom: 1px solid black;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .header a:link {
+        text-decoration: none;
+    }
+
+    .header .brand {
+        grid-area: a;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .searchBtn {
+        grid-area: b;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .noticeBtn {
+        grid-area: c;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header .accountBtn {
+        grid-area: d;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header img {width: 25px;}
+    .header .brand img {width: 100px;}
 }
 
-.header .brand img {
-    width: 150px;
+/* iPad Pro-10.5 portrait : Complete */
+@media (max-device-width: 834px) and (max-device-height: 1112px) and (orientation: portrait) {
+    .dropbtn {
+        border: none;
+        cursor: pointer;
+    }
+
+/* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+/* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: block;
+        position: absolute;
+        background-color: white;
+        height: 0px;
+        width: 100%;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        transition: height 0.3s;
+        overflow: hidden;
+    }
+
+/* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .search {height: 220px;}
+    .notice {
+        height: 330px;
+        overflow-y: auto;
+    }
+    .mypage {height: 305px;}
+    .signup {height: 485px;}
+   
+/*dropdown search*/
+    .dropdown-searchBar-01 {
+        display: grid;
+        grid-template-columns: 55px 90px 90px 85px 65px 95px 115px 65px 75px 95px;
+        grid-template-rows: 50px 50px;
+        grid-template-areas: 
+            "c d e f g h i j k l"
+            "m n o p q r s t u v";
+        justify-content: center;
+        align-items: center;
+        grid-row-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+    
+    .dropdown-searchBar-01 .dropdown-genre-01 {grid-area: c;}
+    .dropdown-searchBar-01 .dropdown-genre-02 {grid-area: d;}
+    .dropdown-searchBar-01 .dropdown-genre-03 {grid-area: e;}
+    .dropdown-searchBar-01 .dropdown-genre-04 {grid-area: f;}
+    .dropdown-searchBar-01 .dropdown-genre-05 {grid-area: g;}
+    .dropdown-searchBar-01 .dropdown-genre-06 {grid-area: h;}
+    .dropdown-searchBar-01 .dropdown-genre-07 {grid-area: i;}
+    .dropdown-searchBar-01 .dropdown-genre-08 {grid-area: j;}
+    .dropdown-searchBar-01 .dropdown-genre-09 {grid-area: k;}
+    .dropdown-searchBar-01 .dropdown-genre-10 {grid-area: l;}
+    .dropdown-searchBar-01 .dropdown-genre-11 {grid-area: m;}
+    .dropdown-searchBar-01 .dropdown-genre-12 {grid-area: n;}
+    .dropdown-searchBar-01 .dropdown-genre-13 {grid-area: o;}
+    .dropdown-searchBar-01 .dropdown-genre-14 {grid-area: p;}
+    .dropdown-searchBar-01 .dropdown-genre-15 {grid-area: q;}
+    .dropdown-searchBar-01 .dropdown-genre-16 {grid-area: r;}
+    .dropdown-searchBar-01 .dropdown-genre-17 {grid-area: s;}
+    .dropdown-searchBar-01 .dropdown-genre-18 {grid-area: t;}
+    .dropdown-searchBar-01 .dropdown-genre-19 {grid-area: u;}
+    .dropdown-searchBar-01 .dropdown-genre-20 {grid-area: v;}
+    .dropdown-searchBar-01 span {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 5px;
+        padding-right: 5px;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 {
+        display: grid;
+        grid-template-columns: 760px 60px;
+        grid-template-rows: 50px;
+        grid-template-areas: 
+            "a b";
+        justify-content: center;
+        padding-top: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar {
+        grid-area: a;
+        align-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar-button {
+        grid-area: b;
+        justify-self: center;
+        width: 50px;
+        background-color: white;
+        border: 1px solid white;
+    }
+    
+/*dropdown notice*/
+    .dropdown-notice {
+        display: grid;
+        grid-template-columns: 500px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f";
+        justify-items: center;
+        justify-content: center;
+        grid-gap: 20px;
+        padding-top: 20px;
+    }
+
+    .cursor {cursor: pointer;}
+
+    .dropdown-notice .text-01, .text-02, .text-03, .text-04, .text-05, .text-06 {
+        justify-self: start;
+            padding-left: 70px;
+            width: 430px;
+            word-break: break-all;
+            align-self: start;
+    }
+
+    .dropdown-notice .time-01, .time-02, .time-03, .time-04, .time-05, .time-06 {
+        justify-self: end;
+        align-self: end;
+        font-size: 12px;
+        color: darkgray;
+        padding-bottom: 5px;
+    }
+
+    .dropdown-notice .img-01, .img-02, .img-03, .img-04, .img-05, .img-06 {
+        justify-self: start;
+    }
+
+    .dropdown-notice img {
+        width: 25px;
+        border-radius: 10px;
+    }
+
+    .dropdown-notice .text-01, .time-01, .img-01 {grid-area: a;}
+    .dropdown-notice .text-02, .time-02, .img-02 {grid-area: b;}
+    .dropdown-notice .text-03, .time-03, .img-03 {grid-area: c;}
+    .dropdown-notice .text-04, .time-04, .img-04 {grid-area: d;}
+    .dropdown-notice .text-05, .time-05, .img-05 {grid-area: e;}
+    .dropdown-notice .text-06, .time-06, .img-06 {grid-area: f;}
+
+/*dropdown mypage*/
+    .dropdown-mypage {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-mypage .login-id {
+        grid-area: a;
+    }
+
+    .dropdown-mypage .remember {
+        grid-area: b;
+        width: 340px;
+        justify-self: center;
+        font-size: 1em;
+        color: gray;
+    }
+
+    .dropdown-mypage span {
+        padding: 3px;
+    }
+
+    .dropdown-mypage .login-pw {
+        grid-area: c;
+    }
+
+    .dropdown-mypage .login-id, .login-pw {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .login-button {
+        grid-area: d;
+        width: 340px;
+        padding: 15px;
+        border: 1px solid #f95e4e;
+        background-color: #f95e4e;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .signupBtn {
+        grid-area: e;
+        width: 310px;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+/*dropdown-content signup*/
+    .dropdown-signup {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 50px 50px 50px 50px 50px 25px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f"
+            "g"
+            "h";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-signup .signup-email {grid-area: a;}
+    .dropdown-signupsignup .signup-pw {grid-area: b;}
+    .dropdown-signup .signup-repw {grid-area: c;}
+    .dropdown-signup .signup-nickname {grid-area: d;}
+    .dropdown-signup .signup-email, .signup-pw, .signup-repw, .signup-nickname {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-signup .signup-button {
+        grid-area: e;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+    }
+
+    .dropdown-signup .hadaccount-button {
+        grid-area: f;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #f25144;
+        background-color: #f25144;
+    }
+
+    .dropdown-signup .signup-button, .hadaccount-button {
+        font-size: 1em;
+        text-align: center;
+        padding-top: 13px;
+        border-radius: 10px;
+        color: white;
+    }
+        
+    .dropdown-signup .signup-facebook {
+        grid-area: h;
+        justify-self: end;
+        border: 1px solid #507dbd;
+        background-color: #507dbd;
+	}
+
+	.dropdown-signup .signup-google {
+	    grid-area: h;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-signup .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 163px;
+	    border-radius: 10px;
+	    color: white;
+	}
+
+/* header */
+    .header {
+        display: grid;
+        grid-template-columns: 120px auto 40px 40px 40px;
+        grid-template-rows: 40px;
+        grid-template-areas: "a . b c d";
+        border-bottom: 1px solid black;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .header a:link {
+        text-decoration: none;
+    }
+
+    .header .brand {
+        grid-area: a;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .searchBtn {
+        grid-area: b;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .noticeBtn {
+        grid-area: c;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header .accountBtn {
+        grid-area: d;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header img {width: 25px;}
+    .header .brand img {width: 100px;}
+}
+
+/* iPad Pro-9.7 portrait : Complete */
+@media (max-device-width: 768px) and (max-device-height: 1024px) and (orientation: portrait) {
+    .dropbtn {
+        border: none;
+        cursor: pointer;
+    }
+
+/* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+/* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: block;
+        position: absolute;
+        background-color: white;
+        height: 0px;
+        width: 100%;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        transition: height 0.3s;
+        overflow: hidden;
+    }
+
+/* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .search {height: 220px;}
+    .notice {
+        height: 330px;
+        overflow-y: auto;
+    }
+    .mypage {height: 305px;}
+    .signup {height: 485px;}
+   
+/*dropdown search*/
+    .dropdown-searchBar-01 {
+        display: grid;
+        grid-template-columns: 70px 105px 105px 100px 80px 110px 130px 80px 90px 110px;
+        grid-template-rows: 50px 50px;
+        grid-template-areas: 
+            "c d e f g h i j k l"
+            "m n o p q r s t u v";
+        justify-content: start;
+        align-items: center;
+        grid-row-gap: 10px;
+        padding-left: 20px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        overflow: scroll;
+    }
+    
+    .dropdown-searchBar-01 .dropdown-genre-01 {grid-area: c;}
+    .dropdown-searchBar-01 .dropdown-genre-02 {grid-area: d;}
+    .dropdown-searchBar-01 .dropdown-genre-03 {grid-area: e;}
+    .dropdown-searchBar-01 .dropdown-genre-04 {grid-area: f;}
+    .dropdown-searchBar-01 .dropdown-genre-05 {grid-area: g;}
+    .dropdown-searchBar-01 .dropdown-genre-06 {grid-area: h;}
+    .dropdown-searchBar-01 .dropdown-genre-07 {grid-area: i;}
+    .dropdown-searchBar-01 .dropdown-genre-08 {grid-area: j;}
+    .dropdown-searchBar-01 .dropdown-genre-09 {grid-area: k;}
+    .dropdown-searchBar-01 .dropdown-genre-10 {grid-area: l;}
+    .dropdown-searchBar-01 .dropdown-genre-11 {grid-area: m;}
+    .dropdown-searchBar-01 .dropdown-genre-12 {grid-area: n;}
+    .dropdown-searchBar-01 .dropdown-genre-13 {grid-area: o;}
+    .dropdown-searchBar-01 .dropdown-genre-14 {grid-area: p;}
+    .dropdown-searchBar-01 .dropdown-genre-15 {grid-area: q;}
+    .dropdown-searchBar-01 .dropdown-genre-16 {grid-area: r;}
+    .dropdown-searchBar-01 .dropdown-genre-17 {grid-area: s;}
+    .dropdown-searchBar-01 .dropdown-genre-18 {grid-area: t;}
+    .dropdown-searchBar-01 .dropdown-genre-19 {grid-area: u;}
+    .dropdown-searchBar-01 .dropdown-genre-20 {grid-area: v;}
+    .dropdown-searchBar-01 span {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 {
+        display: grid;
+        grid-template-columns: 665px 60px;
+        grid-template-rows: 50px;
+        grid-template-areas: 
+            "a b";
+        justify-content: center;
+        padding-top: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar {
+        grid-area: a;
+        align-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar-button {
+        grid-area: b;
+        justify-self: center;
+        width: 50px;
+        background-color: white;
+        border: 1px solid white;
+    }
+    
+/*dropdown notice*/
+    .dropdown-notice {
+        display: grid;
+        grid-template-columns: 500px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f";
+        justify-items: center;
+        justify-content: center;
+        grid-gap: 20px;
+        padding-top: 20px;
+    }
+
+    .cursor {cursor: pointer;}
+
+    .dropdown-notice .text-01, .text-02, .text-03, .text-04, .text-05, .text-06 {
+        justify-self: start;
+            padding-left: 70px;
+            width: 430px;
+            word-break: break-all;
+            align-self: start;
+    }
+
+    .dropdown-notice .time-01, .time-02, .time-03, .time-04, .time-05, .time-06 {
+        justify-self: end;
+        align-self: end;
+        font-size: 12px;
+        color: darkgray;
+        padding-bottom: 5px;
+    }
+
+    .dropdown-notice .img-01, .img-02, .img-03, .img-04, .img-05, .img-06 {
+        justify-self: start;
+    }
+
+    .dropdown-notice img {
+        width: 25px;
+        border-radius: 10px;
+    }
+
+    .dropdown-notice .text-01, .time-01, .img-01 {grid-area: a;}
+    .dropdown-notice .text-02, .time-02, .img-02 {grid-area: b;}
+    .dropdown-notice .text-03, .time-03, .img-03 {grid-area: c;}
+    .dropdown-notice .text-04, .time-04, .img-04 {grid-area: d;}
+    .dropdown-notice .text-05, .time-05, .img-05 {grid-area: e;}
+    .dropdown-notice .text-06, .time-06, .img-06 {grid-area: f;}
+
+/*dropdown mypage*/
+    .dropdown-mypage {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-mypage .login-id {
+        grid-area: a;
+    }
+
+    .dropdown-mypage .remember {
+        grid-area: b;
+        width: 340px;
+        justify-self: center;
+        font-size: 1em;
+        color: gray;
+    }
+
+    .dropdown-mypage span {
+        padding: 3px;
+    }
+
+    .dropdown-mypage .login-pw {
+        grid-area: c;
+    }
+
+    .dropdown-mypage .login-id, .login-pw {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .login-button {
+        grid-area: d;
+        width: 340px;
+        padding: 15px;
+        border: 1px solid #f95e4e;
+        background-color: #f95e4e;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .signupBtn {
+        grid-area: e;
+        width: 310px;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+/*dropdown-content signup*/
+    .dropdown-signup {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 50px 50px 50px 50px 50px 25px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f"
+            "g"
+            "h";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-signup .signup-email {grid-area: a;}
+    .dropdown-signupsignup .signup-pw {grid-area: b;}
+    .dropdown-signup .signup-repw {grid-area: c;}
+    .dropdown-signup .signup-nickname {grid-area: d;}
+    .dropdown-signup .signup-email, .signup-pw, .signup-repw, .signup-nickname {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-signup .signup-button {
+        grid-area: e;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+    }
+
+    .dropdown-signup .hadaccount-button {
+        grid-area: f;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #f25144;
+        background-color: #f25144;
+    }
+
+    .dropdown-signup .signup-button, .hadaccount-button {
+        font-size: 1em;
+        text-align: center;
+        padding-top: 13px;
+        border-radius: 10px;
+        color: white;
+    }
+    
+    .dropdown-signup .signup-facebook {
+        grid-area: h;
+        justify-self: end;
+        border: 1px solid #507dbd;
+        background-color: #507dbd;
+	}
+
+	.dropdown-signup .signup-google {
+	    grid-area: h;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-signup .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 163px;
+	    border-radius: 10px;
+	    color: white;
+	}
+
+/* header */
+    .header {
+        display: grid;
+        grid-template-columns: 120px auto 40px 40px 40px;
+        grid-template-rows: 40px;
+        grid-template-areas: "a . b c d";
+        border-bottom: 1px solid black;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .header a:link {
+        text-decoration: none;
+    }
+
+    .header .brand {
+        grid-area: a;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .searchBtn {
+        grid-area: b;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .noticeBtn {
+        grid-area: c;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header .accountBtn {
+        grid-area: d;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header img {width: 25px;}
+    .header .brand img {width: 100px;}
+}
+
+/* iPhone-6+/7+/8+ portrait : Complete */
+@media (max-device-width: 414px) and (max-device-height: 736px) and (orientation: portrait) {
+    .dropbtn {
+        border: none;
+        cursor: pointer;
+    }
+
+/* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+/* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: block;
+        position: absolute;
+        background-color: white;
+        height: 0px;
+        width: 100%;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        transition: height 0.3s;
+        overflow: hidden;
+    }
+
+/* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .search {height: 220px;}
+    .notice {
+        height: 330px;
+        overflow-y: auto;
+    }
+    .mypage {height: 305px;}
+    .signup {height: 485px;}
+   
+/*dropdown search*/
+    .dropdown-searchBar-01 {
+        display: grid;
+        grid-template-columns: 80px 115px 115px 110px 90px 120px 140px 90px 100px 120px;
+        grid-template-rows: 50px 50px;
+        grid-template-areas: 
+            "c d e f g h i j k l"
+            "m n o p q r s t u v";
+        justify-content: start;
+        align-items: center;
+        grid-row-gap: 10px;
+        padding-left: 20px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        overflow: scroll;
+    }
+    
+    .dropdown-searchBar-01 .dropdown-genre-01 {grid-area: c;}
+    .dropdown-searchBar-01 .dropdown-genre-02 {grid-area: d;}
+    .dropdown-searchBar-01 .dropdown-genre-03 {grid-area: e;}
+    .dropdown-searchBar-01 .dropdown-genre-04 {grid-area: f;}
+    .dropdown-searchBar-01 .dropdown-genre-05 {grid-area: g;}
+    .dropdown-searchBar-01 .dropdown-genre-06 {grid-area: h;}
+    .dropdown-searchBar-01 .dropdown-genre-07 {grid-area: i;}
+    .dropdown-searchBar-01 .dropdown-genre-08 {grid-area: j;}
+    .dropdown-searchBar-01 .dropdown-genre-09 {grid-area: k;}
+    .dropdown-searchBar-01 .dropdown-genre-10 {grid-area: l;}
+    .dropdown-searchBar-01 .dropdown-genre-11 {grid-area: m;}
+    .dropdown-searchBar-01 .dropdown-genre-12 {grid-area: n;}
+    .dropdown-searchBar-01 .dropdown-genre-13 {grid-area: o;}
+    .dropdown-searchBar-01 .dropdown-genre-14 {grid-area: p;}
+    .dropdown-searchBar-01 .dropdown-genre-15 {grid-area: q;}
+    .dropdown-searchBar-01 .dropdown-genre-16 {grid-area: r;}
+    .dropdown-searchBar-01 .dropdown-genre-17 {grid-area: s;}
+    .dropdown-searchBar-01 .dropdown-genre-18 {grid-area: t;}
+    .dropdown-searchBar-01 .dropdown-genre-19 {grid-area: u;}
+    .dropdown-searchBar-01 .dropdown-genre-20 {grid-area: v;}
+    .dropdown-searchBar-01 span {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 {
+        display: grid;
+        grid-template-columns: 320px 50px;
+        grid-template-rows: 50px;
+        grid-template-areas: 
+            "a b";
+        justify-content: center;
+        padding-top: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar {
+        grid-area: a;
+        align-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar-button {
+        grid-area: b;
+        justify-self: center;
+        width: 50px;
+        background-color: white;
+        border: 1px solid white;
+    }
+    
+/*dropdown notice*/
+    .dropdown-notice {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f";
+        justify-items: center;
+        justify-content: center;
+        grid-gap: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .cursor {cursor: pointer;}
+
+    .dropdown-notice .text-01, .text-02, .text-03, .text-04, .text-05, .text-06 {
+        justify-self: start;
+        padding-left: 70px;
+        width: 270px;
+        word-break: break-all;
+        align-self: start;
+    }
+
+    .dropdown-notice .time-01, .time-02, .time-03, .time-04, .time-05, .time-06 {
+        justify-self: end;
+        align-self: end;
+        font-size: 12px;
+        color: darkgray;
+    }
+
+    .dropdown-notice .img-01, .img-02, .img-03, .img-04, .img-05, .img-06 {
+        justify-self: start;
+    }
+
+    .dropdown-notice img {
+        width: 25px;
+        border-radius: 10px;
+    }
+
+    .dropdown-notice .text-01, .time-01, .img-01 {grid-area: a;}
+    .dropdown-notice .text-02, .time-02, .img-02 {grid-area: b;}
+    .dropdown-notice .text-03, .time-03, .img-03 {grid-area: c;}
+    .dropdown-notice .text-04, .time-04, .img-04 {grid-area: d;}
+    .dropdown-notice .text-05, .time-05, .img-05 {grid-area: e;}
+    .dropdown-notice .text-06, .time-06, .img-06 {grid-area: f;}
+
+/*dropdown mypage*/
+    .dropdown-mypage {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-mypage .login-id {
+        grid-area: a;
+    }
+
+    .dropdown-mypage .remember {
+        grid-area: b;
+        width: 340px;
+        justify-self: center;
+        font-size: 1em;
+        color: gray;
+    }
+
+    .dropdown-mypage span {
+        padding: 3px;
+    }
+
+    .dropdown-mypage .login-pw {
+        grid-area: c;
+    }
+
+    .dropdown-mypage .login-id, .login-pw {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .login-button {
+        grid-area: d;
+        width: 340px;
+        padding: 15px;
+        border: 1px solid #f95e4e;
+        background-color: #f95e4e;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .signupBtn {
+        grid-area: e;
+        width: 310px;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+/*dropdown-content signup*/
+    .dropdown-signup {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 50px 50px 50px 50px 50px 25px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f"
+            "g"
+            "h";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-signup .signup-email {grid-area: a;}
+    .dropdown-signupsignup .signup-pw {grid-area: b;}
+    .dropdown-signup .signup-repw {grid-area: c;}
+    .dropdown-signup .signup-nickname {grid-area: d;}
+    .dropdown-signup .signup-email, .signup-pw, .signup-repw, .signup-nickname {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-signup .signup-button {
+        grid-area: e;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+    }
+
+    .dropdown-signup .hadaccount-button {
+        grid-area: f;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #f25144;
+        background-color: #f25144;
+    }
+
+    .dropdown-signup .signup-button, .hadaccount-button {
+        font-size: 1em;
+        text-align: center;
+        padding-top: 13px;
+        border-radius: 10px;
+        color: white;
+    }
+    
+    .dropdown-signup .signup-facebook {
+        grid-area: h;
+        justify-self: end;
+        border: 1px solid #507dbd;
+        background-color: #507dbd;
+	}
+
+	.dropdown-signup .signup-google {
+	    grid-area: h;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-signup .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 163px;
+	    border-radius: 10px;
+	    color: white;
+	}
+
+/* header */
+    .header {
+        display: grid;
+        grid-template-columns: 120px auto 40px 40px 40px;
+        grid-template-rows: 40px;
+        grid-template-areas: "a . b c d";
+        border-bottom: 1px solid black;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .header a:link {
+        text-decoration: none;
+    }
+
+    .header .brand {
+        grid-area: a;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .searchBtn {
+        grid-area: b;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .noticeBtn {
+        grid-area: c;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header .accountBtn {
+        grid-area: d;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header img {width: 25px;}
+    .header .brand img {width: 100px;}
+}
+
+/* iPhone-X portrait : Complete */
+@media (max-device-width: 375px) and (max-device-height: 812px) and (orientation: portrait) {
+    .dropbtn {
+        border: none;
+        cursor: pointer;
+    }
+
+/* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+/* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: block;
+        position: absolute;
+        background-color: white;
+        height: 0px;
+        width: 100%;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        transition: height 0.3s;
+        overflow: hidden;
+    }
+
+/* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .search {height: 220px;}
+    .notice {
+        height: 330px;
+        overflow-y: auto;
+    }
+    .mypage {height: 305px;}
+    .signup {height: 485px;}
+   
+/*dropdown search*/
+    .dropdown-searchBar-01 {
+        display: grid;
+        grid-template-columns: 80px 115px 115px 110px 90px 120px 140px 90px 100px 120px;
+        grid-template-rows: 50px 50px;
+        grid-template-areas: 
+            "c d e f g h i j k l"
+            "m n o p q r s t u v";
+        justify-content: start;
+        align-items: center;
+        grid-row-gap: 10px;
+        padding-left: 20px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        overflow: scroll;
+    }
+    
+    .dropdown-searchBar-01 .dropdown-genre-01 {grid-area: c;}
+    .dropdown-searchBar-01 .dropdown-genre-02 {grid-area: d;}
+    .dropdown-searchBar-01 .dropdown-genre-03 {grid-area: e;}
+    .dropdown-searchBar-01 .dropdown-genre-04 {grid-area: f;}
+    .dropdown-searchBar-01 .dropdown-genre-05 {grid-area: g;}
+    .dropdown-searchBar-01 .dropdown-genre-06 {grid-area: h;}
+    .dropdown-searchBar-01 .dropdown-genre-07 {grid-area: i;}
+    .dropdown-searchBar-01 .dropdown-genre-08 {grid-area: j;}
+    .dropdown-searchBar-01 .dropdown-genre-09 {grid-area: k;}
+    .dropdown-searchBar-01 .dropdown-genre-10 {grid-area: l;}
+    .dropdown-searchBar-01 .dropdown-genre-11 {grid-area: m;}
+    .dropdown-searchBar-01 .dropdown-genre-12 {grid-area: n;}
+    .dropdown-searchBar-01 .dropdown-genre-13 {grid-area: o;}
+    .dropdown-searchBar-01 .dropdown-genre-14 {grid-area: p;}
+    .dropdown-searchBar-01 .dropdown-genre-15 {grid-area: q;}
+    .dropdown-searchBar-01 .dropdown-genre-16 {grid-area: r;}
+    .dropdown-searchBar-01 .dropdown-genre-17 {grid-area: s;}
+    .dropdown-searchBar-01 .dropdown-genre-18 {grid-area: t;}
+    .dropdown-searchBar-01 .dropdown-genre-19 {grid-area: u;}
+    .dropdown-searchBar-01 .dropdown-genre-20 {grid-area: v;}
+    .dropdown-searchBar-01 span {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 {
+        display: grid;
+        grid-template-columns: 285px 50px;
+        grid-template-rows: 50px;
+        grid-template-areas: 
+            "a b";
+        justify-content: center;
+        padding-top: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar {
+        grid-area: a;
+        align-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar-button {
+        grid-area: b;
+        justify-self: center;
+        width: 50px;
+        background-color: white;
+        border: 1px solid white;
+    }
+    
+/*dropdown notice*/
+    .dropdown-notice {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f";
+        justify-items: center;
+        justify-content: center;
+        grid-gap: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .cursor {cursor: pointer;}
+
+    .dropdown-notice .text-01, .text-02, .text-03, .text-04, .text-05, .text-06 {
+        justify-self: start;
+        padding-left: 70px;
+        width: 270px;
+        word-break: break-all;
+        align-self: start;
+    }
+
+    .dropdown-notice .time-01, .time-02, .time-03, .time-04, .time-05, .time-06 {
+        justify-self: end;
+        align-self: end;
+        font-size: 12px;
+        color: darkgray;
+    }
+
+    .dropdown-notice .img-01, .img-02, .img-03, .img-04, .img-05, .img-06 {
+        justify-self: start;
+    }
+
+    .dropdown-notice img {
+        width: 25px;
+        border-radius: 10px;
+    }
+
+    .dropdown-notice .text-01, .time-01, .img-01 {grid-area: a;}
+    .dropdown-notice .text-02, .time-02, .img-02 {grid-area: b;}
+    .dropdown-notice .text-03, .time-03, .img-03 {grid-area: c;}
+    .dropdown-notice .text-04, .time-04, .img-04 {grid-area: d;}
+    .dropdown-notice .text-05, .time-05, .img-05 {grid-area: e;}
+    .dropdown-notice .text-06, .time-06, .img-06 {grid-area: f;}
+
+/*dropdown mypage*/
+    .dropdown-mypage {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-mypage .login-id {
+        grid-area: a;
+    }
+
+    .dropdown-mypage .remember {
+        grid-area: b;
+        width: 340px;
+        justify-self: center;
+        font-size: 1em;
+        color: gray;
+    }
+
+    .dropdown-mypage span {
+        padding: 3px;
+    }
+
+    .dropdown-mypage .login-pw {
+        grid-area: c;
+    }
+
+    .dropdown-mypage .login-id, .login-pw {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .login-button {
+        grid-area: d;
+        width: 340px;
+        padding: 15px;
+        border: 1px solid #f95e4e;
+        background-color: #f95e4e;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .signupBtn {
+        grid-area: e;
+        width: 310px;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+/*dropdown-content signup*/
+    .dropdown-signup {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 50px 50px 50px 50px 50px 25px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f"
+            "g"
+            "h";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-signup .signup-email {grid-area: a;}
+    .dropdown-signupsignup .signup-pw {grid-area: b;}
+    .dropdown-signup .signup-repw {grid-area: c;}
+    .dropdown-signup .signup-nickname {grid-area: d;}
+    .dropdown-signup .signup-email, .signup-pw, .signup-repw, .signup-nickname {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-signup .signup-button {
+        grid-area: e;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+    }
+
+    .dropdown-signup .hadaccount-button {
+        grid-area: f;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #f25144;
+        background-color: #f25144;
+    }
+
+    .dropdown-signup .signup-button, .hadaccount-button {
+        font-size: 1em;
+        text-align: center;
+        padding-top: 13px;
+        border-radius: 10px;
+        color: white;
+    }
+    
+    .dropdown-signup .signup-facebook {
+        grid-area: h;
+        justify-self: end;
+        border: 1px solid #507dbd;
+        background-color: #507dbd;
+	}
+
+	.dropdown-signup .signup-google {
+	    grid-area: h;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-signup .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 163px;
+	    border-radius: 10px;
+	    color: white;
+	}
+
+/* header */
+    .header {
+        display: grid;
+        grid-template-columns: 120px auto 40px 40px 40px;
+        grid-template-rows: 40px;
+        grid-template-areas: "a . b c d";
+        border-bottom: 1px solid black;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .header a:link {
+        text-decoration: none;
+    }
+
+    .header .brand {
+        grid-area: a;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .searchBtn {
+        grid-area: b;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .noticeBtn {
+        grid-area: c;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header .accountBtn {
+        grid-area: d;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header img {width: 25px;}
+    .header .brand img {width: 100px;}
+}
+
+/* iPhone-6/7/8 portrait : Complete */
+@media (max-device-width: 375px) and (max-device-height: 667px) and (orientation: portrait) {
+    .dropbtn {
+        border: none;
+        cursor: pointer;
+    }
+
+/* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+/* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: block;
+        position: absolute;
+        background-color: white;
+        height: 0px;
+        width: 100%;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        transition: height 0.3s;
+        overflow: hidden;
+    }
+
+/* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .search {height: 220px;}
+    .notice {
+        height: 330px;
+        overflow-y: auto;
+    }
+    .mypage {height: 305px;}
+    .signup {height: 485px;}
+   
+/*dropdown search*/
+    .dropdown-searchBar-01 {
+        display: grid;
+        grid-template-columns: 80px 115px 115px 110px 90px 120px 140px 90px 100px 120px;
+        grid-template-rows: 50px 50px;
+        grid-template-areas: 
+            "c d e f g h i j k l"
+            "m n o p q r s t u v";
+        justify-content: start;
+        align-items: center;
+        grid-row-gap: 10px;
+        padding-left: 20px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        overflow: scroll;
+    }
+    
+    .dropdown-searchBar-01 .dropdown-genre-01 {grid-area: c;}
+    .dropdown-searchBar-01 .dropdown-genre-02 {grid-area: d;}
+    .dropdown-searchBar-01 .dropdown-genre-03 {grid-area: e;}
+    .dropdown-searchBar-01 .dropdown-genre-04 {grid-area: f;}
+    .dropdown-searchBar-01 .dropdown-genre-05 {grid-area: g;}
+    .dropdown-searchBar-01 .dropdown-genre-06 {grid-area: h;}
+    .dropdown-searchBar-01 .dropdown-genre-07 {grid-area: i;}
+    .dropdown-searchBar-01 .dropdown-genre-08 {grid-area: j;}
+    .dropdown-searchBar-01 .dropdown-genre-09 {grid-area: k;}
+    .dropdown-searchBar-01 .dropdown-genre-10 {grid-area: l;}
+    .dropdown-searchBar-01 .dropdown-genre-11 {grid-area: m;}
+    .dropdown-searchBar-01 .dropdown-genre-12 {grid-area: n;}
+    .dropdown-searchBar-01 .dropdown-genre-13 {grid-area: o;}
+    .dropdown-searchBar-01 .dropdown-genre-14 {grid-area: p;}
+    .dropdown-searchBar-01 .dropdown-genre-15 {grid-area: q;}
+    .dropdown-searchBar-01 .dropdown-genre-16 {grid-area: r;}
+    .dropdown-searchBar-01 .dropdown-genre-17 {grid-area: s;}
+    .dropdown-searchBar-01 .dropdown-genre-18 {grid-area: t;}
+    .dropdown-searchBar-01 .dropdown-genre-19 {grid-area: u;}
+    .dropdown-searchBar-01 .dropdown-genre-20 {grid-area: v;}
+    .dropdown-searchBar-01 span {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 {
+        display: grid;
+        grid-template-columns: 285px 50px;
+        grid-template-rows: 50px;
+        grid-template-areas: 
+            "a b";
+        justify-content: center;
+        padding-top: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar {
+        grid-area: a;
+        align-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar-button {
+        grid-area: b;
+        justify-self: center;
+        width: 50px;
+        background-color: white;
+        border: 1px solid white;
+    }
+    
+/*dropdown notice*/
+    .dropdown-notice {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f";
+        justify-items: center;
+        justify-content: center;
+        grid-gap: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .cursor {cursor: pointer;}
+
+    .dropdown-notice .text-01, .text-02, .text-03, .text-04, .text-05, .text-06 {
+        justify-self: start;
+        padding-left: 70px;
+        width: 270px;
+        word-break: break-all;
+        align-self: start;
+    }
+
+    .dropdown-notice .time-01, .time-02, .time-03, .time-04, .time-05, .time-06 {
+        justify-self: end;
+        align-self: end;
+        font-size: 12px;
+        color: darkgray;
+    }
+
+    .dropdown-notice .img-01, .img-02, .img-03, .img-04, .img-05, .img-06 {
+        justify-self: start;
+    }
+
+    .dropdown-notice img {
+        width: 25px;
+        border-radius: 10px;
+    }
+
+    .dropdown-notice .text-01, .time-01, .img-01 {grid-area: a;}
+    .dropdown-notice .text-02, .time-02, .img-02 {grid-area: b;}
+    .dropdown-notice .text-03, .time-03, .img-03 {grid-area: c;}
+    .dropdown-notice .text-04, .time-04, .img-04 {grid-area: d;}
+    .dropdown-notice .text-05, .time-05, .img-05 {grid-area: e;}
+    .dropdown-notice .text-06, .time-06, .img-06 {grid-area: f;}
+
+/*dropdown mypage*/
+    .dropdown-mypage {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-mypage .login-id {
+        grid-area: a;
+    }
+
+    .dropdown-mypage .remember {
+        grid-area: b;
+        width: 340px;
+        justify-self: center;
+        font-size: 1em;
+        color: gray;
+    }
+
+    .dropdown-mypage span {
+        padding: 3px;
+    }
+
+    .dropdown-mypage .login-pw {
+        grid-area: c;
+    }
+
+    .dropdown-mypage .login-id, .login-pw {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .login-button {
+        grid-area: d;
+        width: 340px;
+        padding: 15px;
+        border: 1px solid #f95e4e;
+        background-color: #f95e4e;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .signupBtn {
+        grid-area: e;
+        width: 310px;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+/*dropdown-content signup*/
+    .dropdown-signup {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 50px 50px 50px 50px 50px 25px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f"
+            "g"
+            "h";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-signup .signup-email {grid-area: a;}
+    .dropdown-signupsignup .signup-pw {grid-area: b;}
+    .dropdown-signup .signup-repw {grid-area: c;}
+    .dropdown-signup .signup-nickname {grid-area: d;}
+    .dropdown-signup .signup-email, .signup-pw, .signup-repw, .signup-nickname {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-signup .signup-button {
+        grid-area: e;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+    }
+
+    .dropdown-signup .hadaccount-button {
+        grid-area: f;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #f25144;
+        background-color: #f25144;
+    }
+
+    .dropdown-signup .signup-button, .hadaccount-button {
+        font-size: 1em;
+        text-align: center;
+        padding-top: 13px;
+        border-radius: 10px;
+        color: white;
+    }
+    
+    .dropdown-signup .signup-facebook {
+        grid-area: h;
+        justify-self: end;
+        border: 1px solid #507dbd;
+        background-color: #507dbd;
+	}
+
+	.dropdown-signup .signup-google {
+	    grid-area: h;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-signup .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 163px;
+	    border-radius: 10px;
+	    color: white;
+	}
+
+/* header */
+    .header {
+        display: grid;
+        grid-template-columns: 120px auto 40px 40px 40px;
+        grid-template-rows: 40px;
+        grid-template-areas: "a . b c d";
+        border-bottom: 1px solid black;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .header a:link {
+        text-decoration: none;
+    }
+
+    .header .brand {
+        grid-area: a;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .searchBtn {
+        grid-area: b;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .noticeBtn {
+        grid-area: c;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header .accountBtn {
+        grid-area: d;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header img {width: 25px;}
+    .header .brand img {width: 100px;}
+}
+
+/* iPhone-5/5S/SE portrait : Complete */
+@media (max-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait) {
+    .dropbtn {
+        border: none;
+        cursor: pointer;
+    }
+
+/* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+/* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: block;
+        position: absolute;
+        background-color: white;
+        height: 0px;
+        width: 100%;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        transition: height 0.3s;
+        overflow: hidden;
+    }
+
+/* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .search {height: 220px;}
+    .notice {
+        height: 330px;
+        overflow-y: auto;
+    }
+    .mypage {height: 305px;}
+    .signup {height: 485px;}
+   
+/*dropdown search*/
+    .dropdown-searchBar-01 {
+        display: grid;
+        grid-template-columns: 75px 110px 110px 105px 85px 115px 135px 85px 95px 115px;
+        grid-template-rows: 50px 50px;
+        grid-template-areas: 
+            "c d e f g h i j k l"
+            "m n o p q r s t u v";
+        justify-content: start;
+        align-items: center;
+        grid-row-gap: 10px;
+        padding-left: 20px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        overflow: scroll;
+    }
+    
+    .dropdown-searchBar-01 .dropdown-genre-01 {grid-area: c;}
+    .dropdown-searchBar-01 .dropdown-genre-02 {grid-area: d;}
+    .dropdown-searchBar-01 .dropdown-genre-03 {grid-area: e;}
+    .dropdown-searchBar-01 .dropdown-genre-04 {grid-area: f;}
+    .dropdown-searchBar-01 .dropdown-genre-05 {grid-area: g;}
+    .dropdown-searchBar-01 .dropdown-genre-06 {grid-area: h;}
+    .dropdown-searchBar-01 .dropdown-genre-07 {grid-area: i;}
+    .dropdown-searchBar-01 .dropdown-genre-08 {grid-area: j;}
+    .dropdown-searchBar-01 .dropdown-genre-09 {grid-area: k;}
+    .dropdown-searchBar-01 .dropdown-genre-10 {grid-area: l;}
+    .dropdown-searchBar-01 .dropdown-genre-11 {grid-area: m;}
+    .dropdown-searchBar-01 .dropdown-genre-12 {grid-area: n;}
+    .dropdown-searchBar-01 .dropdown-genre-13 {grid-area: o;}
+    .dropdown-searchBar-01 .dropdown-genre-14 {grid-area: p;}
+    .dropdown-searchBar-01 .dropdown-genre-15 {grid-area: q;}
+    .dropdown-searchBar-01 .dropdown-genre-16 {grid-area: r;}
+    .dropdown-searchBar-01 .dropdown-genre-17 {grid-area: s;}
+    .dropdown-searchBar-01 .dropdown-genre-18 {grid-area: t;}
+    .dropdown-searchBar-01 .dropdown-genre-19 {grid-area: u;}
+    .dropdown-searchBar-01 .dropdown-genre-20 {grid-area: v;}
+    .dropdown-searchBar-01 span {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 13px;
+        padding-right: 13px;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 {
+        display: grid;
+        grid-template-columns: 230px 50px;
+        grid-template-rows: 50px;
+        grid-template-areas: 
+            "a b";
+        justify-content: center;
+        padding-top: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar {
+        grid-area: a;
+        align-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar-button {
+        grid-area: b;
+        justify-self: center;
+        width: 50px;
+        background-color: white;
+        border: 1px solid white;
+    }
+    
+/*dropdown notice*/
+    .dropdown-notice {
+        display: grid;
+        grid-template-columns: 290px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f";
+        justify-items: center;
+        justify-content: center;
+        grid-gap: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .cursor {cursor: pointer;}
+
+    .dropdown-notice .text-01, .text-02, .text-03, .text-04, .text-05, .text-06 {
+        justify-self: start;
+        padding-left: 60px;
+        width: 230px;
+        word-break: break-all;
+        align-self: start;
+    }
+
+    .dropdown-notice .time-01, .time-02, .time-03, .time-04, .time-05, .time-06 {
+        justify-self: end;
+        align-self: end;
+        font-size: 12px;
+        color: darkgray;
+    }
+
+    .dropdown-notice .img-01, .img-02, .img-03, .img-04, .img-05, .img-06 {
+        justify-self: start;
+    }
+
+    .dropdown-notice img {
+        width: 25px;
+        border-radius: 10px;
+    }
+
+    .dropdown-notice .text-01, .time-01, .img-01 {grid-area: a;}
+    .dropdown-notice .text-02, .time-02, .img-02 {grid-area: b;}
+    .dropdown-notice .text-03, .time-03, .img-03 {grid-area: c;}
+    .dropdown-notice .text-04, .time-04, .img-04 {grid-area: d;}
+    .dropdown-notice .text-05, .time-05, .img-05 {grid-area: e;}
+    .dropdown-notice .text-06, .time-06, .img-06 {grid-area: f;}
+
+/*dropdown mypage*/
+    .dropdown-mypage {
+        display: grid;
+        grid-template-columns: 290px;
+        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-mypage .login-id {
+        grid-area: a;
+    }
+
+    .dropdown-mypage .remember {
+        grid-area: b;
+        width: 290px;
+        justify-self: center;
+        font-size: 1em;
+        color: gray;
+    }
+
+    .dropdown-mypage span {
+        padding: 3px;
+    }
+
+    .dropdown-mypage .login-pw {
+        grid-area: c;
+    }
+
+    .dropdown-mypage .login-id, .login-pw {
+        width: 260px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .login-button {
+        grid-area: d;
+        width: 295px;
+        padding: 15px;
+        border: 1px solid #f95e4e;
+        background-color: #f95e4e;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .signupBtn {
+        grid-area: e;
+        width: 260px;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+/*dropdown-content signup*/
+    .dropdown-signup {
+        display: grid;
+        grid-template-columns: 290px;
+        grid-template-rows: 50px 50px 50px 50px 50px 50px 25px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f"
+            "g"
+            "h";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-signup .signup-email {grid-area: a;}
+    .dropdown-signupsignup .signup-pw {grid-area: b;}
+    .dropdown-signup .signup-repw {grid-area: c;}
+    .dropdown-signup .signup-nickname {grid-area: d;}
+    .dropdown-signup .signup-email, .signup-pw, .signup-repw, .signup-nickname {
+        width: 260px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-signup .signup-button {
+        grid-area: e;
+        width: 260px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+    }
+
+    .dropdown-signup .hadaccount-button {
+        grid-area: f;
+        width: 260px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #f25144;
+        background-color: #f25144;
+    }
+
+    .dropdown-signup .signup-button, .hadaccount-button {
+        font-size: 1em;
+        text-align: center;
+        padding-top: 13px;
+        border-radius: 10px;
+        color: white;
+    }
+    
+    .dropdown-signup .signup-facebook {
+        grid-area: h;
+        justify-self: end;
+        border: 1px solid #507dbd;
+        background-color: #507dbd;
+	}
+
+	.dropdown-signup .signup-google {
+	    grid-area: h;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-signup .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 138px;
+	    border-radius: 10px;
+	    color: white;
+	}
+
+/* header */
+    .header {
+        display: grid;
+        grid-template-columns: 120px auto 40px 40px 40px;
+        grid-template-rows: 40px;
+        grid-template-areas: "a . b c d";
+        border-bottom: 1px solid black;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .header a:link {
+        text-decoration: none;
+    }
+
+    .header .brand {
+        grid-area: a;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .searchBtn {
+        grid-area: b;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .noticeBtn {
+        grid-area: c;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header .accountBtn {
+        grid-area: d;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header img {width: 25px;}
+    .header .brand img {width: 100px;}
 }
 
 
+/* iPad Pro-12.6 landscape : Complete */
+@media (max-device-width: 1366px) and (max-device-height: 1024px) and (orientation: landscape) {
+    .dropbtn {
+        border: none;
+        cursor: pointer;
+    }
 
-/*@media query*/
+/* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+/* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: block;
+        position: absolute;
+        background-color: white;
+        height: 0px;
+        width: 100%;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        transition: height 0.3s;
+        overflow: hidden;
+    }
+
+/* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .search {height: 220px;}
+    .notice {
+        height: 330px;
+        overflow-y: auto;
+    }
+    .mypage {height: 305px;}
+    .signup {height: 485px;}
+   
+/*dropdown search*/
+    .dropdown-searchBar-01 {
+        display: grid;
+        grid-template-columns: 80px 115px 115px 110px 90px 120px 140px 90px 100px 120px;
+        grid-template-rows: 50px 50px;
+        grid-template-areas: 
+            "c d e f g h i j k l"
+            "m n o p q r s t u v";
+        justify-content: center;
+        align-items: center;
+        grid-row-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 10px;
+        overflow: scroll;
+    }
+    
+    .dropdown-searchBar-01 .dropdown-genre-01 {grid-area: c;}
+    .dropdown-searchBar-01 .dropdown-genre-02 {grid-area: d;}
+    .dropdown-searchBar-01 .dropdown-genre-03 {grid-area: e;}
+    .dropdown-searchBar-01 .dropdown-genre-04 {grid-area: f;}
+    .dropdown-searchBar-01 .dropdown-genre-05 {grid-area: g;}
+    .dropdown-searchBar-01 .dropdown-genre-06 {grid-area: h;}
+    .dropdown-searchBar-01 .dropdown-genre-07 {grid-area: i;}
+    .dropdown-searchBar-01 .dropdown-genre-08 {grid-area: j;}
+    .dropdown-searchBar-01 .dropdown-genre-09 {grid-area: k;}
+    .dropdown-searchBar-01 .dropdown-genre-10 {grid-area: l;}
+    .dropdown-searchBar-01 .dropdown-genre-11 {grid-area: m;}
+    .dropdown-searchBar-01 .dropdown-genre-12 {grid-area: n;}
+    .dropdown-searchBar-01 .dropdown-genre-13 {grid-area: o;}
+    .dropdown-searchBar-01 .dropdown-genre-14 {grid-area: p;}
+    .dropdown-searchBar-01 .dropdown-genre-15 {grid-area: q;}
+    .dropdown-searchBar-01 .dropdown-genre-16 {grid-area: r;}
+    .dropdown-searchBar-01 .dropdown-genre-17 {grid-area: s;}
+    .dropdown-searchBar-01 .dropdown-genre-18 {grid-area: t;}
+    .dropdown-searchBar-01 .dropdown-genre-19 {grid-area: u;}
+    .dropdown-searchBar-01 .dropdown-genre-20 {grid-area: v;}
+    .dropdown-searchBar-01 span {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 {
+        display: grid;
+        grid-template-columns: 1000px 70px;
+        grid-template-rows: 50px;
+        grid-template-areas: 
+            "a b";
+        justify-content: center;
+        padding-top: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar {
+        grid-area: a;
+        align-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar-button {
+        grid-area: b;
+        justify-self: center;
+        width: 50px;
+        background-color: white;
+        border: 1px solid white;
+    }
+    
+/*dropdown notice*/
+    .dropdown-notice {
+        display: grid;
+        grid-template-columns: 600px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f";
+        justify-items: center;
+        justify-content: center;
+        grid-gap: 20px;
+        padding-top: 20px;
+    }
+
+    .cursor {cursor: pointer;}
+
+    .dropdown-notice .text-01, .text-02, .text-03, .text-04, .text-05, .text-06 {
+        justify-self: start;
+        padding-left: 70px;
+        width: 530px;
+        word-break: break-all;
+        align-self: start;
+    }
+
+    .dropdown-notice .time-01, .time-02, .time-03, .time-04, .time-05, .time-06 {
+        justify-self: end;
+        align-self: end;
+        font-size: 12px;
+        color: darkgray;
+        padding-bottom: 5px;
+    }
+
+    .dropdown-notice .img-01, .img-02, .img-03, .img-04, .img-05, .img-06 {
+        justify-self: start;
+    }
+
+    .dropdown-notice img {
+        width: 25px;
+        border-radius: 10px;
+    }
+
+    .dropdown-notice .text-01, .time-01, .img-01 {grid-area: a;}
+    .dropdown-notice .text-02, .time-02, .img-02 {grid-area: b;}
+    .dropdown-notice .text-03, .time-03, .img-03 {grid-area: c;}
+    .dropdown-notice .text-04, .time-04, .img-04 {grid-area: d;}
+    .dropdown-notice .text-05, .time-05, .img-05 {grid-area: e;}
+    .dropdown-notice .text-06, .time-06, .img-06 {grid-area: f;}
+
+/*dropdown mypage*/
+    .dropdown-mypage {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-mypage .login-id {
+        grid-area: a;
+    }
+
+    .dropdown-mypage .remember {
+        grid-area: b;
+        width: 340px;
+        justify-self: center;
+        font-size: 1em;
+        color: gray;
+    }
+
+    .dropdown-mypage span {
+        padding: 3px;
+    }
+
+    .dropdown-mypage .login-pw {
+        grid-area: c;
+    }
+
+    .dropdown-mypage .login-id, .login-pw {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .login-button {
+        grid-area: d;
+        width: 340px;
+        padding: 15px;
+        border: 1px solid #f95e4e;
+        background-color: #f95e4e;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .signupBtn {
+        grid-area: e;
+        width: 310px;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+/*dropdown-content signup*/
+    .dropdown-signup {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 50px 50px 50px 50px 50px 25px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f"
+            "g"
+            "h";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-signup .signup-email {grid-area: a;}
+    .dropdown-signupsignup .signup-pw {grid-area: b;}
+    .dropdown-signup .signup-repw {grid-area: c;}
+    .dropdown-signup .signup-nickname {grid-area: d;}
+    .dropdown-signup .signup-email, .signup-pw, .signup-repw, .signup-nickname {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-signup .signup-button {
+        grid-area: e;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+    }
+
+    .dropdown-signup .hadaccount-button {
+        grid-area: f;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #f25144;
+        background-color: #f25144;
+    }
+
+    .dropdown-signup .signup-button, .hadaccount-button {
+        font-size: 1em;
+        text-align: center;
+        padding-top: 13px;
+        border-radius: 10px;
+        color: white;
+    }
+    
+    .dropdown-signup .signup-facebook {
+        grid-area: h;
+        justify-self: end;
+        border: 1px solid #507dbd;
+        background-color: #507dbd;
+	}
+
+	.dropdown-signup .signup-google {
+	    grid-area: h;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-signup .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 163px;
+	    border-radius: 10px;
+	    color: white;
+	}
+
+/* header */
+    .header {
+        display: grid;
+        grid-template-columns: 120px auto 40px 40px 40px;
+        grid-template-rows: 40px;
+        grid-template-areas: "a . b c d";
+        border-bottom: 1px solid black;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .header a:link {
+        text-decoration: none;
+    }
+
+    .header .brand {
+        grid-area: a;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .searchBtn {
+        grid-area: b;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .noticeBtn {
+        grid-area: c;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header .accountBtn {
+        grid-area: d;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header img {width: 25px;}
+    .header .brand img {width: 100px;}
+}
+
+/* iPad Pro-10.5 landscape : Complete */
+@media (max-device-width: 1112px) and (max-device-height: 834px) and (orientation: landscape) {
+    .dropbtn {
+        border: none;
+        cursor: pointer;
+    }
+
+/* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+/* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: block;
+        position: absolute;
+        background-color: white;
+        height: 0px;
+        width: 100%;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        transition: height 0.3s;
+        overflow: hidden;
+    }
+
+/* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .search {height: 220px;}
+    .notice {
+        height: 330px;
+        overflow-y: auto;
+    }
+    .mypage {height: 305px;}
+    .signup {height: 485px;}
+   
+/*dropdown search*/
+    .dropdown-searchBar-01 {
+        display: grid;
+        grid-template-columns: 80px 115px 115px 110px 90px 120px 140px 90px 100px 120px;
+        grid-template-rows: 50px 50px;
+        grid-template-areas: 
+            "c d e f g h i j k l"
+            "m n o p q r s t u v";
+        justify-content: center;
+        align-items: center;
+        grid-row-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 10px;
+        overflow: scroll;
+    }
+    
+    .dropdown-searchBar-01 .dropdown-genre-01 {grid-area: c;}
+    .dropdown-searchBar-01 .dropdown-genre-02 {grid-area: d;}
+    .dropdown-searchBar-01 .dropdown-genre-03 {grid-area: e;}
+    .dropdown-searchBar-01 .dropdown-genre-04 {grid-area: f;}
+    .dropdown-searchBar-01 .dropdown-genre-05 {grid-area: g;}
+    .dropdown-searchBar-01 .dropdown-genre-06 {grid-area: h;}
+    .dropdown-searchBar-01 .dropdown-genre-07 {grid-area: i;}
+    .dropdown-searchBar-01 .dropdown-genre-08 {grid-area: j;}
+    .dropdown-searchBar-01 .dropdown-genre-09 {grid-area: k;}
+    .dropdown-searchBar-01 .dropdown-genre-10 {grid-area: l;}
+    .dropdown-searchBar-01 .dropdown-genre-11 {grid-area: m;}
+    .dropdown-searchBar-01 .dropdown-genre-12 {grid-area: n;}
+    .dropdown-searchBar-01 .dropdown-genre-13 {grid-area: o;}
+    .dropdown-searchBar-01 .dropdown-genre-14 {grid-area: p;}
+    .dropdown-searchBar-01 .dropdown-genre-15 {grid-area: q;}
+    .dropdown-searchBar-01 .dropdown-genre-16 {grid-area: r;}
+    .dropdown-searchBar-01 .dropdown-genre-17 {grid-area: s;}
+    .dropdown-searchBar-01 .dropdown-genre-18 {grid-area: t;}
+    .dropdown-searchBar-01 .dropdown-genre-19 {grid-area: u;}
+    .dropdown-searchBar-01 .dropdown-genre-20 {grid-area: v;}
+    .dropdown-searchBar-01 span {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 {
+        display: grid;
+        grid-template-columns: 1000px 70px;
+        grid-template-rows: 50px;
+        grid-template-areas: 
+            "a b";
+        justify-content: center;
+        padding-top: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar {
+        grid-area: a;
+        align-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar-button {
+        grid-area: b;
+        justify-self: center;
+        width: 50px;
+        background-color: white;
+        border: 1px solid white;
+    }
+    
+/*dropdown notice*/
+    .dropdown-notice {
+        display: grid;
+        grid-template-columns: 600px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f";
+        justify-items: center;
+        justify-content: center;
+        grid-gap: 20px;
+        padding-top: 20px;
+    }
+
+    .cursor {cursor: pointer;}
+
+    .dropdown-notice .text-01, .text-02, .text-03, .text-04, .text-05, .text-06 {
+        justify-self: start;
+        padding-left: 70px;
+        width: 530px;
+        word-break: break-all;
+        align-self: start;
+    }
+
+    .dropdown-notice .time-01, .time-02, .time-03, .time-04, .time-05, .time-06 {
+        justify-self: end;
+        align-self: end;
+        font-size: 12px;
+        color: darkgray;
+        padding-bottom: 5px;
+    }
+
+    .dropdown-notice .img-01, .img-02, .img-03, .img-04, .img-05, .img-06 {
+        justify-self: start;
+    }
+
+    .dropdown-notice img {
+        width: 25px;
+        border-radius: 10px;
+    }
+
+    .dropdown-notice .text-01, .time-01, .img-01 {grid-area: a;}
+    .dropdown-notice .text-02, .time-02, .img-02 {grid-area: b;}
+    .dropdown-notice .text-03, .time-03, .img-03 {grid-area: c;}
+    .dropdown-notice .text-04, .time-04, .img-04 {grid-area: d;}
+    .dropdown-notice .text-05, .time-05, .img-05 {grid-area: e;}
+    .dropdown-notice .text-06, .time-06, .img-06 {grid-area: f;}
+
+/*dropdown mypage*/
+    .dropdown-mypage {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-mypage .login-id {
+        grid-area: a;
+    }
+
+    .dropdown-mypage .remember {
+        grid-area: b;
+        width: 340px;
+        justify-self: center;
+        font-size: 1em;
+        color: gray;
+    }
+
+    .dropdown-mypage span {
+        padding: 3px;
+    }
+
+    .dropdown-mypage .login-pw {
+        grid-area: c;
+    }
+
+    .dropdown-mypage .login-id, .login-pw {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .login-button {
+        grid-area: d;
+        width: 340px;
+        padding: 15px;
+        border: 1px solid #f95e4e;
+        background-color: #f95e4e;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .signupBtn {
+        grid-area: e;
+        width: 310px;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+/*dropdown-content signup*/
+    .dropdown-signup {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 50px 50px 50px 50px 50px 25px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f"
+            "g"
+            "h";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-signup .signup-email {grid-area: a;}
+    .dropdown-signupsignup .signup-pw {grid-area: b;}
+    .dropdown-signup .signup-repw {grid-area: c;}
+    .dropdown-signup .signup-nickname {grid-area: d;}
+    .dropdown-signup .signup-email, .signup-pw, .signup-repw, .signup-nickname {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-signup .signup-button {
+        grid-area: e;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+    }
+
+    .dropdown-signup .hadaccount-button {
+        grid-area: f;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #f25144;
+        background-color: #f25144;
+    }
+
+    .dropdown-signup .signup-button, .hadaccount-button {
+        font-size: 1em;
+        text-align: center;
+        padding-top: 13px;
+        border-radius: 10px;
+        color: white;
+    }
+    
+    .dropdown-signup .signup-facebook {
+        grid-area: h;
+        justify-self: end;
+        border: 1px solid #507dbd;
+        background-color: #507dbd;
+	}
+
+	.dropdown-signup .signup-google {
+	    grid-area: h;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-signup .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 163px;
+	    border-radius: 10px;
+	    color: white;
+	}
+
+/* header */
+    .header {
+        display: grid;
+        grid-template-columns: 120px auto 40px 40px 40px;
+        grid-template-rows: 40px;
+        grid-template-areas: "a . b c d";
+        border-bottom: 1px solid black;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .header a:link {
+        text-decoration: none;
+    }
+
+    .header .brand {
+        grid-area: a;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .searchBtn {
+        grid-area: b;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .noticeBtn {
+        grid-area: c;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header .accountBtn {
+        grid-area: d;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header img {width: 25px;}
+    .header .brand img {width: 100px;}
+}
+
+/* iPad Pro-9.7 landscape : Complete */
+@media (max-device-width: 1024px) and (max-device-height: 768px) and (orientation: landscape) {
+    .dropbtn {
+        border: none;
+        cursor: pointer;
+    }
+
+/* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+/* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: block;
+        position: absolute;
+        background-color: white;
+        height: 0px;
+        width: 100%;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        transition: height 0.3s;
+        overflow: hidden;
+    }
+
+/* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .search {height: 220px;}
+    .notice {
+        height: 330px;
+        overflow-y: auto;
+    }
+    .mypage {height: 305px;}
+    .signup {height: 485px;}
+   
+/*dropdown search*/
+    .dropdown-searchBar-01 {
+        display: grid;
+        grid-template-columns: 70px 105px 105px 100px 80px 110px 130px 80px 90px 110px;
+        grid-template-rows: 50px 50px;
+        grid-template-areas: 
+            "c d e f g h i j k l"
+            "m n o p q r s t u v";
+        justify-content: center;
+        align-items: center;
+        grid-row-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 10px;
+        overflow: scroll;
+    }
+    
+    .dropdown-searchBar-01 .dropdown-genre-01 {grid-area: c;}
+    .dropdown-searchBar-01 .dropdown-genre-02 {grid-area: d;}
+    .dropdown-searchBar-01 .dropdown-genre-03 {grid-area: e;}
+    .dropdown-searchBar-01 .dropdown-genre-04 {grid-area: f;}
+    .dropdown-searchBar-01 .dropdown-genre-05 {grid-area: g;}
+    .dropdown-searchBar-01 .dropdown-genre-06 {grid-area: h;}
+    .dropdown-searchBar-01 .dropdown-genre-07 {grid-area: i;}
+    .dropdown-searchBar-01 .dropdown-genre-08 {grid-area: j;}
+    .dropdown-searchBar-01 .dropdown-genre-09 {grid-area: k;}
+    .dropdown-searchBar-01 .dropdown-genre-10 {grid-area: l;}
+    .dropdown-searchBar-01 .dropdown-genre-11 {grid-area: m;}
+    .dropdown-searchBar-01 .dropdown-genre-12 {grid-area: n;}
+    .dropdown-searchBar-01 .dropdown-genre-13 {grid-area: o;}
+    .dropdown-searchBar-01 .dropdown-genre-14 {grid-area: p;}
+    .dropdown-searchBar-01 .dropdown-genre-15 {grid-area: q;}
+    .dropdown-searchBar-01 .dropdown-genre-16 {grid-area: r;}
+    .dropdown-searchBar-01 .dropdown-genre-17 {grid-area: s;}
+    .dropdown-searchBar-01 .dropdown-genre-18 {grid-area: t;}
+    .dropdown-searchBar-01 .dropdown-genre-19 {grid-area: u;}
+    .dropdown-searchBar-01 .dropdown-genre-20 {grid-area: v;}
+    .dropdown-searchBar-01 span {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 {
+        display: grid;
+        grid-template-columns: 900px 70px;
+        grid-template-rows: 50px;
+        grid-template-areas: 
+            "a b";
+        justify-content: center;
+        padding-top: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar {
+        grid-area: a;
+        align-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar-button {
+        grid-area: b;
+        justify-self: center;
+        width: 50px;
+        background-color: white;
+        border: 1px solid white;
+    }
+    
+/*dropdown notice*/
+    .dropdown-notice {
+        display: grid;
+        grid-template-columns: 600px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f";
+        justify-items: center;
+        justify-content: center;
+        grid-gap: 20px;
+        padding-top: 20px;
+    }
+
+    .cursor {cursor: pointer;}
+
+    .dropdown-notice .text-01, .text-02, .text-03, .text-04, .text-05, .text-06 {
+        justify-self: start;
+        padding-left: 70px;
+        width: 530px;
+        word-break: break-all;
+        align-self: start;
+    }
+
+    .dropdown-notice .time-01, .time-02, .time-03, .time-04, .time-05, .time-06 {
+        justify-self: end;
+        align-self: end;
+        font-size: 12px;
+        color: darkgray;
+        padding-bottom: 5px;
+    }
+
+    .dropdown-notice .img-01, .img-02, .img-03, .img-04, .img-05, .img-06 {
+        justify-self: start;
+    }
+
+    .dropdown-notice img {
+        width: 25px;
+        border-radius: 10px;
+    }
+
+    .dropdown-notice .text-01, .time-01, .img-01 {grid-area: a;}
+    .dropdown-notice .text-02, .time-02, .img-02 {grid-area: b;}
+    .dropdown-notice .text-03, .time-03, .img-03 {grid-area: c;}
+    .dropdown-notice .text-04, .time-04, .img-04 {grid-area: d;}
+    .dropdown-notice .text-05, .time-05, .img-05 {grid-area: e;}
+    .dropdown-notice .text-06, .time-06, .img-06 {grid-area: f;}
+
+/*dropdown mypage*/
+    .dropdown-mypage {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-mypage .login-id {
+        grid-area: a;
+    }
+
+    .dropdown-mypage .remember {
+        grid-area: b;
+        width: 340px;
+        justify-self: center;
+        font-size: 1em;
+        color: gray;
+    }
+
+    .dropdown-mypage span {
+        padding: 3px;
+    }
+
+    .dropdown-mypage .login-pw {
+        grid-area: c;
+    }
+
+    .dropdown-mypage .login-id, .login-pw {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .login-button {
+        grid-area: d;
+        width: 340px;
+        padding: 15px;
+        border: 1px solid #f95e4e;
+        background-color: #f95e4e;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .signupBtn {
+        grid-area: e;
+        width: 310px;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+/*dropdown-content signup*/
+    .dropdown-signup {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 50px 50px 50px 50px 50px 25px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f"
+            "g"
+            "h";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-signup .signup-email {grid-area: a;}
+    .dropdown-signupsignup .signup-pw {grid-area: b;}
+    .dropdown-signup .signup-repw {grid-area: c;}
+    .dropdown-signup .signup-nickname {grid-area: d;}
+    .dropdown-signup .signup-email, .signup-pw, .signup-repw, .signup-nickname {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-signup .signup-button {
+        grid-area: e;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+    }
+
+    .dropdown-signup .hadaccount-button {
+        grid-area: f;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #f25144;
+        background-color: #f25144;
+    }
+
+    .dropdown-signup .signup-button, .hadaccount-button {
+        font-size: 1em;
+        text-align: center;
+        padding-top: 13px;
+        border-radius: 10px;
+        color: white;
+    }
+    
+    .dropdown-signup .signup-facebook {
+        grid-area: h;
+        justify-self: end;
+        border: 1px solid #507dbd;
+        background-color: #507dbd;
+	}
+
+	.dropdown-signup .signup-google {
+	    grid-area: h;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-signup .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 163px;
+	    border-radius: 10px;
+	    color: white;
+	}
+
+/* header */
+    .header {
+        display: grid;
+        grid-template-columns: 120px auto 40px 40px 40px;
+        grid-template-rows: 40px;
+        grid-template-areas: "a . b c d";
+        border-bottom: 1px solid black;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .header a:link {
+        text-decoration: none;
+    }
+
+    .header .brand {
+        grid-area: a;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .searchBtn {
+        grid-area: b;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .noticeBtn {
+        grid-area: c;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header .accountBtn {
+        grid-area: d;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header img {width: 25px;}
+    .header .brand img {width: 100px;}
+}
+
+/* iPhone-6+/7+/8+ landscape : Complete */
+@media (max-device-width: 736px) and (max-device-height: 414px) and (orientation: landscape) {
+    .dropbtn {
+        border: none;
+        cursor: pointer;
+    }
+
+/* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+/* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: block;
+        position: absolute;
+        background-color: white;
+        height: 0px;
+        width: 100%;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        transition: height 0.3s;
+        overflow: hidden;
+    }
+
+/* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .search {height: 150px;}
+    .notice {
+        height: 330px;
+        overflow-y: auto;
+    }
+    .mypage {height: 305px;}
+    .signup {height: 485px;}
+   
+/*dropdown search*/
+    .dropdown-searchBar-01 {
+        display: grid;
+        grid-template-columns: 50px 90px 100px 100px 80px 110px 110px 80px 90px 100px 70px 105px 75px 95px 70px 60px 130px 80px 80px 90px;
+        grid-template-rows: 50px;
+        grid-template-areas: 
+            "c d e f g h i j k l m n o p q r s t u v";
+        justify-content: start;
+        align-items: center;
+        grid-row-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow: scroll;
+    }
+    
+    .dropdown-searchBar-01 .dropdown-genre-01 {grid-area: c;}
+    .dropdown-searchBar-01 .dropdown-genre-02 {grid-area: d;}
+    .dropdown-searchBar-01 .dropdown-genre-03 {grid-area: e;}
+    .dropdown-searchBar-01 .dropdown-genre-04 {grid-area: f;}
+    .dropdown-searchBar-01 .dropdown-genre-05 {grid-area: g;}
+    .dropdown-searchBar-01 .dropdown-genre-06 {grid-area: h;}
+    .dropdown-searchBar-01 .dropdown-genre-07 {grid-area: i;}
+    .dropdown-searchBar-01 .dropdown-genre-08 {grid-area: j;}
+    .dropdown-searchBar-01 .dropdown-genre-09 {grid-area: k;}
+    .dropdown-searchBar-01 .dropdown-genre-10 {grid-area: l;}
+    .dropdown-searchBar-01 .dropdown-genre-11 {grid-area: m;}
+    .dropdown-searchBar-01 .dropdown-genre-12 {grid-area: n;}
+    .dropdown-searchBar-01 .dropdown-genre-13 {grid-area: o;}
+    .dropdown-searchBar-01 .dropdown-genre-14 {grid-area: p;}
+    .dropdown-searchBar-01 .dropdown-genre-15 {grid-area: q;}
+    .dropdown-searchBar-01 .dropdown-genre-16 {grid-area: r;}
+    .dropdown-searchBar-01 .dropdown-genre-17 {grid-area: s;}
+    .dropdown-searchBar-01 .dropdown-genre-18 {grid-area: t;}
+    .dropdown-searchBar-01 .dropdown-genre-19 {grid-area: u;}
+    .dropdown-searchBar-01 .dropdown-genre-20 {grid-area: v;}
+    .dropdown-searchBar-01 span {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 {
+        display: grid;
+        grid-template-columns: 645px 70px;
+        grid-template-rows: 50px;
+        grid-template-areas: 
+            "a b";
+        justify-content: center;
+        padding-top: 5px;
+        padding-bottom: 20px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar {
+        grid-area: a;
+        align-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar-button {
+        grid-area: b;
+        justify-self: center;
+        width: 50px;
+        background-color: white;
+        border: 1px solid white;
+    }
+    
+/*dropdown notice*/
+    .dropdown-notice {
+        display: grid;
+        grid-template-columns: 600px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f";
+        justify-items: center;
+        justify-content: center;
+        grid-gap: 20px;
+        padding-top: 20px;
+    }
+
+    .cursor {cursor: pointer;}
+
+    .dropdown-notice .text-01, .text-02, .text-03, .text-04, .text-05, .text-06 {
+        justify-self: start;
+        padding-left: 70px;
+        width: 530px;
+        word-break: break-all;
+        align-self: start;
+    }
+
+    .dropdown-notice .time-01, .time-02, .time-03, .time-04, .time-05, .time-06 {
+        justify-self: end;
+        align-self: end;
+        font-size: 12px;
+        color: darkgray;
+        padding-bottom: 5px;
+    }
+
+    .dropdown-notice .img-01, .img-02, .img-03, .img-04, .img-05, .img-06 {
+        justify-self: start;
+    }
+
+    .dropdown-notice img {
+        width: 25px;
+        border-radius: 10px;
+    }
+
+    .dropdown-notice .text-01, .time-01, .img-01 {grid-area: a;}
+    .dropdown-notice .text-02, .time-02, .img-02 {grid-area: b;}
+    .dropdown-notice .text-03, .time-03, .img-03 {grid-area: c;}
+    .dropdown-notice .text-04, .time-04, .img-04 {grid-area: d;}
+    .dropdown-notice .text-05, .time-05, .img-05 {grid-area: e;}
+    .dropdown-notice .text-06, .time-06, .img-06 {grid-area: f;}
+
+/*dropdown mypage*/
+    .dropdown-mypage {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-mypage .login-id {
+        grid-area: a;
+    }
+
+    .dropdown-mypage .remember {
+        grid-area: b;
+        width: 340px;
+        justify-self: center;
+        font-size: 1em;
+        color: gray;
+    }
+
+    .dropdown-mypage span {
+        padding: 3px;
+    }
+
+    .dropdown-mypage .login-pw {
+        grid-area: c;
+    }
+
+    .dropdown-mypage .login-id, .login-pw {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .login-button {
+        grid-area: d;
+        width: 340px;
+        padding: 15px;
+        border: 1px solid #f95e4e;
+        background-color: #f95e4e;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .signupBtn {
+        grid-area: e;
+        width: 310px;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+/*dropdown-content signup*/
+    .dropdown-signup {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 50px 50px 50px 50px 50px 25px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f"
+            "g"
+            "h";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-signup .signup-email {grid-area: a;}
+    .dropdown-signupsignup .signup-pw {grid-area: b;}
+    .dropdown-signup .signup-repw {grid-area: c;}
+    .dropdown-signup .signup-nickname {grid-area: d;}
+    .dropdown-signup .signup-email, .signup-pw, .signup-repw, .signup-nickname {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-signup .signup-button {
+        grid-area: e;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+    }
+
+    .dropdown-signup .hadaccount-button {
+        grid-area: f;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #f25144;
+        background-color: #f25144;
+    }
+
+    .dropdown-signup .signup-button, .hadaccount-button {
+        font-size: 1em;
+        text-align: center;
+        padding-top: 13px;
+        border-radius: 10px;
+        color: white;
+    }
+    
+    .dropdown-signup .signup-facebook {
+        grid-area: h;
+        justify-self: end;
+        border: 1px solid #507dbd;
+        background-color: #507dbd;
+	}
+
+	.dropdown-signup .signup-google {
+	    grid-area: h;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-signup .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 163px;
+	    border-radius: 10px;
+	    color: white;
+	}
+
+/* header */
+    .header {
+        display: grid;
+        grid-template-columns: 120px auto 40px 40px 40px;
+        grid-template-rows: 40px;
+        grid-template-areas: "a . b c d";
+        border-bottom: 1px solid black;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .header a:link {
+        text-decoration: none;
+    }
+
+    .header .brand {
+        grid-area: a;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .searchBtn {
+        grid-area: b;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .noticeBtn {
+        grid-area: c;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header .accountBtn {
+        grid-area: d;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header img {width: 25px;}
+    .header .brand img {width: 100px;}
+}
+
+/* iPhone-X landscape : Complete */
+@media (max-device-width: 812px) and (max-device-height: 375px) and (orientation: landscape) {
+    .dropbtn {
+        border: none;
+        cursor: pointer;
+    }
+
+/* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+/* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: block;
+        position: absolute;
+        background-color: white;
+        height: 0px;
+        width: 100%;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        transition: height 0.3s;
+        overflow: hidden;
+    }
+
+/* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .search {height: 150px;}
+    .notice {
+        height: 330px;
+        overflow-y: auto;
+    }
+    .mypage {height: 305px;}
+    .signup {height: 485px;}
+   
+/*dropdown search*/
+    .dropdown-searchBar-01 {
+        display: grid;
+        grid-template-columns: 50px 90px 100px 100px 80px 110px 110px 80px 90px 100px 70px 105px 75px 95px 70px 60px 130px 80px 80px 90px;
+        grid-template-rows: 50px;
+        grid-template-areas: 
+            "c d e f g h i j k l m n o p q r s t u v";
+        justify-content: start;
+        align-items: center;
+        grid-row-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow: scroll;
+    }
+    
+    .dropdown-searchBar-01 .dropdown-genre-01 {grid-area: c;}
+    .dropdown-searchBar-01 .dropdown-genre-02 {grid-area: d;}
+    .dropdown-searchBar-01 .dropdown-genre-03 {grid-area: e;}
+    .dropdown-searchBar-01 .dropdown-genre-04 {grid-area: f;}
+    .dropdown-searchBar-01 .dropdown-genre-05 {grid-area: g;}
+    .dropdown-searchBar-01 .dropdown-genre-06 {grid-area: h;}
+    .dropdown-searchBar-01 .dropdown-genre-07 {grid-area: i;}
+    .dropdown-searchBar-01 .dropdown-genre-08 {grid-area: j;}
+    .dropdown-searchBar-01 .dropdown-genre-09 {grid-area: k;}
+    .dropdown-searchBar-01 .dropdown-genre-10 {grid-area: l;}
+    .dropdown-searchBar-01 .dropdown-genre-11 {grid-area: m;}
+    .dropdown-searchBar-01 .dropdown-genre-12 {grid-area: n;}
+    .dropdown-searchBar-01 .dropdown-genre-13 {grid-area: o;}
+    .dropdown-searchBar-01 .dropdown-genre-14 {grid-area: p;}
+    .dropdown-searchBar-01 .dropdown-genre-15 {grid-area: q;}
+    .dropdown-searchBar-01 .dropdown-genre-16 {grid-area: r;}
+    .dropdown-searchBar-01 .dropdown-genre-17 {grid-area: s;}
+    .dropdown-searchBar-01 .dropdown-genre-18 {grid-area: t;}
+    .dropdown-searchBar-01 .dropdown-genre-19 {grid-area: u;}
+    .dropdown-searchBar-01 .dropdown-genre-20 {grid-area: v;}
+    .dropdown-searchBar-01 span {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 {
+        display: grid;
+        grid-template-columns: 720px 70px;
+        grid-template-rows: 50px;
+        grid-template-areas: 
+            "a b";
+        justify-content: center;
+        padding-top: 5px;
+        padding-bottom: 20px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar {
+        grid-area: a;
+        align-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar-button {
+        grid-area: b;
+        justify-self: center;
+        width: 50px;
+        background-color: white;
+        border: 1px solid white;
+    }
+    
+/*dropdown notice*/
+    .dropdown-notice {
+        display: grid;
+        grid-template-columns: 600px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f";
+        justify-items: center;
+        justify-content: center;
+        grid-gap: 20px;
+        padding-top: 20px;
+    }
+
+    .cursor {cursor: pointer;}
+
+    .dropdown-notice .text-01, .text-02, .text-03, .text-04, .text-05, .text-06 {
+        justify-self: start;
+        padding-left: 70px;
+        width: 530px;
+        word-break: break-all;
+        align-self: start;
+    }
+
+    .dropdown-notice .time-01, .time-02, .time-03, .time-04, .time-05, .time-06 {
+        justify-self: end;
+        align-self: end;
+        font-size: 12px;
+        color: darkgray;
+        padding-bottom: 5px;
+    }
+
+    .dropdown-notice .img-01, .img-02, .img-03, .img-04, .img-05, .img-06 {
+        justify-self: start;
+    }
+
+    .dropdown-notice img {
+        width: 25px;
+        border-radius: 10px;
+    }
+
+    .dropdown-notice .text-01, .time-01, .img-01 {grid-area: a;}
+    .dropdown-notice .text-02, .time-02, .img-02 {grid-area: b;}
+    .dropdown-notice .text-03, .time-03, .img-03 {grid-area: c;}
+    .dropdown-notice .text-04, .time-04, .img-04 {grid-area: d;}
+    .dropdown-notice .text-05, .time-05, .img-05 {grid-area: e;}
+    .dropdown-notice .text-06, .time-06, .img-06 {grid-area: f;}
+
+/*dropdown mypage*/
+    .dropdown-mypage {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-mypage .login-id {
+        grid-area: a;
+    }
+
+    .dropdown-mypage .remember {
+        grid-area: b;
+        width: 340px;
+        justify-self: center;
+        font-size: 1em;
+        color: gray;
+    }
+
+    .dropdown-mypage span {
+        padding: 3px;
+    }
+
+    .dropdown-mypage .login-pw {
+        grid-area: c;
+    }
+
+    .dropdown-mypage .login-id, .login-pw {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .login-button {
+        grid-area: d;
+        width: 340px;
+        padding: 15px;
+        border: 1px solid #f95e4e;
+        background-color: #f95e4e;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .signupBtn {
+        grid-area: e;
+        width: 310px;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+/*dropdown-content signup*/
+    .dropdown-signup {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 50px 50px 50px 50px 50px 25px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f"
+            "g"
+            "h";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-signup .signup-email {grid-area: a;}
+    .dropdown-signupsignup .signup-pw {grid-area: b;}
+    .dropdown-signup .signup-repw {grid-area: c;}
+    .dropdown-signup .signup-nickname {grid-area: d;}
+    .dropdown-signup .signup-email, .signup-pw, .signup-repw, .signup-nickname {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-signup .signup-button {
+        grid-area: e;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+    }
+
+    .dropdown-signup .hadaccount-button {
+        grid-area: f;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #f25144;
+        background-color: #f25144;
+    }
+
+    .dropdown-signup .signup-button, .hadaccount-button {
+        font-size: 1em;
+        text-align: center;
+        padding-top: 13px;
+        border-radius: 10px;
+        color: white;
+    }
+    
+    .dropdown-signup .signup-facebook {
+        grid-area: h;
+        justify-self: end;
+        border: 1px solid #507dbd;
+        background-color: #507dbd;
+	}
+
+	.dropdown-signup .signup-google {
+	    grid-area: h;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-signup .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 163px;
+	    border-radius: 10px;
+	    color: white;
+	}
+
+/* header */
+    .header {
+        display: grid;
+        grid-template-columns: 120px auto 40px 40px 40px;
+        grid-template-rows: 40px;
+        grid-template-areas: "a . b c d";
+        border-bottom: 1px solid black;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .header a:link {
+        text-decoration: none;
+    }
+
+    .header .brand {
+        grid-area: a;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .searchBtn {
+        grid-area: b;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .noticeBtn {
+        grid-area: c;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header .accountBtn {
+        grid-area: d;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header img {width: 25px;}
+    .header .brand img {width: 100px;}
+}
+
+/* iPhone-6/7/8 landscape : Complete */
+@media (max-device-width: 667px) and (max-device-height: 375px) and (orientation: landscape) {
+    .dropbtn {
+        border: none;
+        cursor: pointer;
+    }
+
+/* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+/* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: block;
+        position: absolute;
+        background-color: white;
+        height: 0px;
+        width: 100%;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        transition: height 0.3s;
+        overflow: hidden;
+    }
+
+/* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .search {height: 150px;}
+    .notice {
+        height: 330px;
+        overflow-y: auto;
+    }
+    .mypage {height: 305px;}
+    .signup {height: 485px;}
+   
+/*dropdown search*/
+    .dropdown-searchBar-01 {
+        display: grid;
+        grid-template-columns: 50px 90px 100px 100px 80px 110px 110px 80px 90px 100px 70px 105px 75px 95px 70px 60px 130px 80px 80px 90px;
+        grid-template-rows: 50px;
+        grid-template-areas: 
+            "c d e f g h i j k l m n o p q r s t u v";
+        justify-content: start;
+        align-items: center;
+        grid-row-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow: scroll;
+    }
+    
+    .dropdown-searchBar-01 .dropdown-genre-01 {grid-area: c;}
+    .dropdown-searchBar-01 .dropdown-genre-02 {grid-area: d;}
+    .dropdown-searchBar-01 .dropdown-genre-03 {grid-area: e;}
+    .dropdown-searchBar-01 .dropdown-genre-04 {grid-area: f;}
+    .dropdown-searchBar-01 .dropdown-genre-05 {grid-area: g;}
+    .dropdown-searchBar-01 .dropdown-genre-06 {grid-area: h;}
+    .dropdown-searchBar-01 .dropdown-genre-07 {grid-area: i;}
+    .dropdown-searchBar-01 .dropdown-genre-08 {grid-area: j;}
+    .dropdown-searchBar-01 .dropdown-genre-09 {grid-area: k;}
+    .dropdown-searchBar-01 .dropdown-genre-10 {grid-area: l;}
+    .dropdown-searchBar-01 .dropdown-genre-11 {grid-area: m;}
+    .dropdown-searchBar-01 .dropdown-genre-12 {grid-area: n;}
+    .dropdown-searchBar-01 .dropdown-genre-13 {grid-area: o;}
+    .dropdown-searchBar-01 .dropdown-genre-14 {grid-area: p;}
+    .dropdown-searchBar-01 .dropdown-genre-15 {grid-area: q;}
+    .dropdown-searchBar-01 .dropdown-genre-16 {grid-area: r;}
+    .dropdown-searchBar-01 .dropdown-genre-17 {grid-area: s;}
+    .dropdown-searchBar-01 .dropdown-genre-18 {grid-area: t;}
+    .dropdown-searchBar-01 .dropdown-genre-19 {grid-area: u;}
+    .dropdown-searchBar-01 .dropdown-genre-20 {grid-area: v;}
+    .dropdown-searchBar-01 span {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 {
+        display: grid;
+        grid-template-columns: 575px 70px;
+        grid-template-rows: 50px;
+        grid-template-areas: 
+            "a b";
+        justify-content: center;
+        padding-top: 5px;
+        padding-bottom: 20px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar {
+        grid-area: a;
+        align-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar-button {
+        grid-area: b;
+        justify-self: center;
+        width: 50px;
+        background-color: white;
+        border: 1px solid white;
+    }
+    
+/*dropdown notice*/
+    .dropdown-notice {
+        display: grid;
+        grid-template-columns: 600px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f";
+        justify-items: center;
+        justify-content: center;
+        grid-gap: 20px;
+        padding-top: 20px;
+    }
+
+    .cursor {cursor: pointer;}
+
+    .dropdown-notice .text-01, .text-02, .text-03, .text-04, .text-05, .text-06 {
+        justify-self: start;
+        padding-left: 70px;
+        width: 530px;
+        word-break: break-all;
+        align-self: start;
+    }
+
+    .dropdown-notice .time-01, .time-02, .time-03, .time-04, .time-05, .time-06 {
+        justify-self: end;
+        align-self: end;
+        font-size: 12px;
+        color: darkgray;
+        padding-bottom: 5px;
+    }
+
+    .dropdown-notice .img-01, .img-02, .img-03, .img-04, .img-05, .img-06 {
+        justify-self: start;
+    }
+
+    .dropdown-notice img {
+        width: 25px;
+        border-radius: 10px;
+    }
+
+    .dropdown-notice .text-01, .time-01, .img-01 {grid-area: a;}
+    .dropdown-notice .text-02, .time-02, .img-02 {grid-area: b;}
+    .dropdown-notice .text-03, .time-03, .img-03 {grid-area: c;}
+    .dropdown-notice .text-04, .time-04, .img-04 {grid-area: d;}
+    .dropdown-notice .text-05, .time-05, .img-05 {grid-area: e;}
+    .dropdown-notice .text-06, .time-06, .img-06 {grid-area: f;}
+
+/*dropdown mypage*/
+    .dropdown-mypage {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-mypage .login-id {
+        grid-area: a;
+    }
+
+    .dropdown-mypage .remember {
+        grid-area: b;
+        width: 340px;
+        justify-self: center;
+        font-size: 1em;
+        color: gray;
+    }
+
+    .dropdown-mypage span {
+        padding: 3px;
+    }
+
+    .dropdown-mypage .login-pw {
+        grid-area: c;
+    }
+
+    .dropdown-mypage .login-id, .login-pw {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .login-button {
+        grid-area: d;
+        width: 340px;
+        padding: 15px;
+        border: 1px solid #f95e4e;
+        background-color: #f95e4e;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .signupBtn {
+        grid-area: e;
+        width: 310px;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+/*dropdown-content signup*/
+    .dropdown-signup {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 50px 50px 50px 50px 50px 25px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f"
+            "g"
+            "h";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-signup .signup-email {grid-area: a;}
+    .dropdown-signupsignup .signup-pw {grid-area: b;}
+    .dropdown-signup .signup-repw {grid-area: c;}
+    .dropdown-signup .signup-nickname {grid-area: d;}
+    .dropdown-signup .signup-email, .signup-pw, .signup-repw, .signup-nickname {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-signup .signup-button {
+        grid-area: e;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+    }
+
+    .dropdown-signup .hadaccount-button {
+        grid-area: f;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #f25144;
+        background-color: #f25144;
+    }
+
+    .dropdown-signup .signup-button, .hadaccount-button {
+        font-size: 1em;
+        text-align: center;
+        padding-top: 13px;
+        border-radius: 10px;
+        color: white;
+    }
+    
+    .dropdown-signup .signup-facebook {
+        grid-area: h;
+        justify-self: end;
+        border: 1px solid #507dbd;
+        background-color: #507dbd;
+	}
+
+	.dropdown-signup .signup-google {
+	    grid-area: h;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-signup .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 163px;
+	    border-radius: 10px;
+	    color: white;
+	}
+
+/* header */
+    .header {
+        display: grid;
+        grid-template-columns: 120px auto 40px 40px 40px;
+        grid-template-rows: 40px;
+        grid-template-areas: "a . b c d";
+        border-bottom: 1px solid black;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .header a:link {
+        text-decoration: none;
+    }
+
+    .header .brand {
+        grid-area: a;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .searchBtn {
+        grid-area: b;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .noticeBtn {
+        grid-area: c;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header .accountBtn {
+        grid-area: d;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header img {width: 25px;}
+    .header .brand img {width: 100px;}
+}
+
+/* iPhone-5/5S/SE landscape : Complete */
+@media (max-device-width: 586px) and (max-device-height: 320px) and (orientation: landscape) {
+    .dropbtn {
+        border: none;
+        cursor: pointer;
+    }
+
+/* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+/* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: block;
+        position: absolute;
+        background-color: white;
+        height: 0px;
+        width: 100%;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+        z-index: 10000;
+        transition: height 0.3s;
+        overflow: hidden;
+    }
+
+/* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .search {height: 150px;}
+    .notice {
+        height: 330px;
+        overflow-y: auto;
+    }
+    .mypage {height: 305px;}
+    .signup {height: 485px;}
+   
+/*dropdown search*/
+    .dropdown-searchBar-01 {
+        display: grid;
+        grid-template-columns: 50px 90px 100px 100px 80px 110px 110px 80px 90px 100px 70px 105px 75px 95px 70px 60px 130px 80px 80px 90px;
+        grid-template-rows: 50px;
+        grid-template-areas: 
+            "c d e f g h i j k l m n o p q r s t u v";
+        justify-content: start;
+        align-items: center;
+        grid-row-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow: scroll;
+    }
+    
+    .dropdown-searchBar-01 .dropdown-genre-01 {grid-area: c;}
+    .dropdown-searchBar-01 .dropdown-genre-02 {grid-area: d;}
+    .dropdown-searchBar-01 .dropdown-genre-03 {grid-area: e;}
+    .dropdown-searchBar-01 .dropdown-genre-04 {grid-area: f;}
+    .dropdown-searchBar-01 .dropdown-genre-05 {grid-area: g;}
+    .dropdown-searchBar-01 .dropdown-genre-06 {grid-area: h;}
+    .dropdown-searchBar-01 .dropdown-genre-07 {grid-area: i;}
+    .dropdown-searchBar-01 .dropdown-genre-08 {grid-area: j;}
+    .dropdown-searchBar-01 .dropdown-genre-09 {grid-area: k;}
+    .dropdown-searchBar-01 .dropdown-genre-10 {grid-area: l;}
+    .dropdown-searchBar-01 .dropdown-genre-11 {grid-area: m;}
+    .dropdown-searchBar-01 .dropdown-genre-12 {grid-area: n;}
+    .dropdown-searchBar-01 .dropdown-genre-13 {grid-area: o;}
+    .dropdown-searchBar-01 .dropdown-genre-14 {grid-area: p;}
+    .dropdown-searchBar-01 .dropdown-genre-15 {grid-area: q;}
+    .dropdown-searchBar-01 .dropdown-genre-16 {grid-area: r;}
+    .dropdown-searchBar-01 .dropdown-genre-17 {grid-area: s;}
+    .dropdown-searchBar-01 .dropdown-genre-18 {grid-area: t;}
+    .dropdown-searchBar-01 .dropdown-genre-19 {grid-area: u;}
+    .dropdown-searchBar-01 .dropdown-genre-20 {grid-area: v;}
+    .dropdown-searchBar-01 span {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 {
+        display: grid;
+        grid-template-columns: 475px 70px;
+        grid-template-rows: 50px;
+        grid-template-areas: 
+            "a b";
+        justify-content: center;
+        padding-top: 5px;
+        padding-bottom: 20px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar {
+        grid-area: a;
+        align-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    
+    .dropdown-searchBar-02 .searchBar-button {
+        grid-area: b;
+        justify-self: center;
+        width: 50px;
+        background-color: white;
+        border: 1px solid white;
+    }
+    
+/*dropdown notice*/
+    .dropdown-notice {
+        display: grid;
+        grid-template-columns: 600px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f";
+        justify-items: center;
+        justify-content: center;
+        grid-gap: 20px;
+        padding-top: 20px;
+    }
+
+    .cursor {cursor: pointer;}
+
+    .dropdown-notice .text-01, .text-02, .text-03, .text-04, .text-05, .text-06 {
+        justify-self: start;
+        padding-left: 70px;
+        width: 530px;
+        word-break: break-all;
+        align-self: start;
+    }
+
+    .dropdown-notice .time-01, .time-02, .time-03, .time-04, .time-05, .time-06 {
+        justify-self: end;
+        align-self: end;
+        font-size: 12px;
+        color: darkgray;
+        padding-bottom: 5px;
+    }
+
+    .dropdown-notice .img-01, .img-02, .img-03, .img-04, .img-05, .img-06 {
+        justify-self: start;
+    }
+
+    .dropdown-notice img {
+        width: 25px;
+        border-radius: 10px;
+    }
+
+    .dropdown-notice .text-01, .time-01, .img-01 {grid-area: a;}
+    .dropdown-notice .text-02, .time-02, .img-02 {grid-area: b;}
+    .dropdown-notice .text-03, .time-03, .img-03 {grid-area: c;}
+    .dropdown-notice .text-04, .time-04, .img-04 {grid-area: d;}
+    .dropdown-notice .text-05, .time-05, .img-05 {grid-area: e;}
+    .dropdown-notice .text-06, .time-06, .img-06 {grid-area: f;}
+
+/*dropdown mypage*/
+    .dropdown-mypage {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-mypage .login-id {
+        grid-area: a;
+    }
+
+    .dropdown-mypage .remember {
+        grid-area: b;
+        width: 340px;
+        justify-self: center;
+        font-size: 1em;
+        color: gray;
+    }
+
+    .dropdown-mypage span {
+        padding: 3px;
+    }
+
+    .dropdown-mypage .login-pw {
+        grid-area: c;
+    }
+
+    .dropdown-mypage .login-id, .login-pw {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .login-button {
+        grid-area: d;
+        width: 340px;
+        padding: 15px;
+        border: 1px solid #f95e4e;
+        background-color: #f95e4e;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+    .dropdown-mypage .signupBtn {
+        grid-area: e;
+        width: 310px;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+        justify-self: center;
+        font-size: 1em;
+        color: white;
+        border-radius: 10px;
+    }
+
+/*dropdown-content signup*/
+    .dropdown-signup {
+        display: grid;
+        grid-template-columns: 340px;
+        grid-template-rows: 50px 50px 50px 50px 50px 50px 25px 50px;
+        grid-template-areas: 
+            "a" 
+            "b" 
+            "c" 
+            "d" 
+            "e" 
+            "f"
+            "g"
+            "h";
+        justify-content: center;
+        grid-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .dropdown-signup .signup-email {grid-area: a;}
+    .dropdown-signupsignup .signup-pw {grid-area: b;}
+    .dropdown-signup .signup-repw {grid-area: c;}
+    .dropdown-signup .signup-nickname {grid-area: d;}
+    .dropdown-signup .signup-email, .signup-pw, .signup-repw, .signup-nickname {
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        font-size: 1em;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+
+    .dropdown-signup .signup-button {
+        grid-area: e;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #feb25f;
+        background-color: #feb25f;
+    }
+
+    .dropdown-signup .hadaccount-button {
+        grid-area: f;
+        width: 310px;
+        justify-self: center;
+        padding: 15px;
+        border: 1px solid #f25144;
+        background-color: #f25144;
+    }
+
+    .dropdown-signup .signup-button, .hadaccount-button {
+        font-size: 1em;
+        text-align: center;
+        padding-top: 13px;
+        border-radius: 10px;
+        color: white;
+    }
+    
+    .dropdown-signup .signup-facebook {
+        grid-area: h;
+        justify-self: end;
+        border: 1px solid #507dbd;
+        background-color: #507dbd;
+	}
+
+	.dropdown-signup .signup-google {
+	    grid-area: h;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-signup .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 163px;
+	    border-radius: 10px;
+	    color: white;
+	}
+
+/* header */
+    .header {
+        display: grid;
+        grid-template-columns: 120px auto 40px 40px 40px;
+        grid-template-rows: 40px;
+        grid-template-areas: "a . b c d";
+        border-bottom: 1px solid black;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .header a:link {
+        text-decoration: none;
+    }
+
+    .header .brand {
+        grid-area: a;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .searchBtn {
+        grid-area: b;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .header .noticeBtn {
+        grid-area: c;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header .accountBtn {
+        grid-area: d;
+        align-self: center;
+        justify-self: center;
+    }
+
+    .header img {width: 25px;}
+    .header .brand img {width: 100px;}
+}
