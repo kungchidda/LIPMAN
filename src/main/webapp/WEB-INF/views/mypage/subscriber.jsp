@@ -63,16 +63,6 @@
 						
 					</c:forEach>
 				</ul>
-<!-- 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="/resources/ThumbnailGridExpandingPreview/js/mypage_grid.js"></script>
-		<script>
-			$(function() {
-				Grid.init();
-			});
-		</script> -->
-	<!-- /.container -->
-
-	<%-- <%@ include file="/WEB-INF/views/include/footer.html"%> --%>
 	
 	<script id="template" type="text/x-handlebars-template">
 		{{#each .}}
