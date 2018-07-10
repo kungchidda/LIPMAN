@@ -8,34 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <link href="/resources/css/register.css" rel="stylesheet">
-<!-- <link href="/resources/css/register2.css" rel="stylesheet"> -->
-<style>
-/* .fileDrop {
-	width : 100%;
-	height : 220px;
- 	border : 1px dotted blue; 
-} */
 
-/* small {
-	margin-left : 3px;
-	font-weight : bold;
-	color : gray;
-} */
-
-</style>
-
-<!-- <!-- WYSIWYG summernote -->
-<!-- 	<!-- include libraries(jQuery, bootstrap) -->
-<!-- 	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet"> -->
-<!-- <!-- 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> -->
-<!-- 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>  -->
-
-
-<!-- <!-- include summernote css/js -->
-<!-- <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script> -->
-
-<!-- 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.css" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.js"></script>
 
@@ -46,59 +19,16 @@
 		<div class="box-body">
 			<div class="form-group">
 				<input type="hidden" name='tno' class="form-control" value='${titleVO.tno}' readonly>
-<!-- 				<label for="exampleInputEmail1">Title</label> -->
-<%-- 				<input type="text" name='title' class="form-control" value='${titleVO.title}' readonly> --%>
-<!-- 				<label for="exampleInputEmail1">Subtitle</label> -->
-<!-- 				<input type="text" name='subtitle' class="form-control" placeholder="Enter Title"> -->
 			</div>
 			<div class="form-group">
-<!-- 				<label for="exampleInputEmail1">Writer</label> -->
-				<!-- <Input type="text" name="writer" class="form-control" placeholder="Enter Writer"> -->
 				<input type="hidden" name="uid" class="form-control" value='${login.uid}'>
 			</div>
-<!-- 			<div class="form-group"> -->
-				<!-- <label for="exampleInputPasswooord1">Content</label> -->
-				<!-- <textarea class="form-control" name="content" rows="3" placeholder="Enter ..."></textarea> -->
-				<!-- WYSIWYG -->
-				<!-- <textarea id="summernote" name="content"></textarea>
-				<div id="summernote"></div> -->
-<!-- 			</div> -->
-<!-- 			<div class="form-group"> -->
-<!-- 				<label for="exampleInputEmail1">File Upload or DROP Here</label> -->
-<!-- 			</div> -->
-<!-- 			<div class="form-group"> -->
-<!-- 				<input type="file" id="upload" multiple> -->
-<!-- 				<div class="fileDrop"> -->
-<!-- 					<ul class="mailbox-attachments clearfix uploadedList"></ul> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
 		</div>
-		<!-- /.box-body -->
 
-		<div class="box-footer">
-			
-			
-<!-- 			<button type="submit" class="btn btn-primary">Submit</button> -->
-	
-		</div>
-		
-		
-			<%-- <div class="og-fullimg">
-	            <div class="og-loading" style="display: none;"></div><img src="/displayFile?fileName=${titleVO.fullName}" style="display: inline;">
-	        </div>
-	        <div class="form-group">
-	            <button class="btn">Select image</button>
-	        </div> --%>
-	        
-	        <!-- <div class="comic-upload-submit">
-	            <button type="button" class="btn btn-primary">Modify</button>
-	            <button type="button" style="display:none;" class="btn btn-primary">Submit</button>
-	        </div> -->
 
 
 
 	    <div class="write-comic">
-<!-- 	            <ul class="mailbox-attachments clearfix uploadedList"></ul> -->
 
 			<input type="text" name='title' class="write-comic-title" value='${titleVO.title}' readonly>
 			<input type="text" name='subtitle' class="write-comic-subtitle" placeholder="Subtitle" required>
@@ -141,9 +71,6 @@
 					
 					var dataSrc = $("select[name='file-list-name'] option:selected").attr("data-src");
 					console.log("dataSrc = " + dataSrc);
-//   					$(".uploadedList").on("click", "small", function(event){
-						
-// 						var that = $(this);
 						
 						$.ajax({
 							url : "deleteFile",
@@ -153,12 +80,10 @@
 							success : function(result){
 								if(result == 'deleted'){
 									alert("deleted");
-									//that.parents().parent("li").remove();
 									$("select[name='file-list-name'] option:selected").remove();
 								}
 							}
 						});
-//  					});
  			    });
 			});
 			</script>
@@ -179,17 +104,8 @@
 
 	        
 			
-	        
-<!-- 	        <div class="fileDrop"> -->
-<!-- 	            <input type="file" id="upload" multiple> -->
-<!-- 	        </div> -->
-	
-<!-- 	        <textarea id="summernote" name="content"></textarea> -->
-<!-- 					<div id="summernote"></div> -->
             <textarea type="text" id="content" name="content" class="write-comic-comment" placeholder="Comment"></textarea>
 
-<!-- 			<button class="write-comic-open">Open</button> -->
-<!--         	<button class="write-comic-delete">Delete</button>         -->
             <button class="write-comic-preview">Preview</button>
             <button type="submit" class="write-comic-complete">Write</button>
             <button class="write-comic-cancel">Cancel</button>
@@ -215,81 +131,6 @@
 			</div>
 		</div>
 	</script>
-	
-	<%-- <%@ include file="/WEB-INF/views/include/footer.html"%> --%>
-
-	<!-- WYSIWYG -->
-	<!-- <div id="summernote"></div> -->
-		<!-- <script>
-		$(document).ready(function() {
-			  $('#summernote').summernote({
-				  //placeholder: 'Content',
-				  minHeight: null,             // set minimum height of editor
-				  maxHeight: null,             // set maximum height of editor
-				  focus: true,      
-// 				  height: 300,
- 				  width: 800,
-				  height: 600,
-				  toolbar: [
-					    // [groupName, [list of button]]
-					    ['style', ['bold', 'italic', 'underline', 'clear']],
-					    ['font', ['strikethrough', 'superscript', 'subscript']],
-					    ['fontsize', ['fontsize']],
-					    ['color', ['color']],
-					    ['para', ['ul', 'ol', 'paragraph']],
-					    ['height', ['height']],
-					    ['table', ['table']],
-					    ['insert', ['link', 'picture', 'hr']],
-					    ['view', ['fullscreen', 'codeview']],
-					    ['help', ['help']]
-					  ],
-			       popover: {
-			         image: [],
-			         link: [],
-			         air: []
-			       },
-			       callbacks: {
-			       onImageUpload : function(files, editor, $editable) {
-			    	   //console.log('image upload:', files);
-			    	   sendFile(files, $(this), $editable);
-			        }
-			       }
-			  });
-			  function sendFile(files, editor, welEditable) {
-				  formData = new FormData();
-				  formData.append("file", files);
-				  for(i=0; i<files.length; i++){
-			        	var file = files[i];
-			        	var formData = new FormData();
-						
-						formData.append("file", file);
-						$.ajax({
-							url : '/uploadAjax',
-							data : formData,
-							dataType : 'text',
-							processData : false,
-							contentType : false, 
-							type : 'POST',
-							success : function(data) {
-								var fileInfo = getFileInfo(data);
-								var html = template(fileInfo);
-								console.log(data);
-								console.log(fileInfo);
-								console.log(html);
-//			 					$(".uploadedList").append(html);
-								$(".uploadedList").remove();
-								$("#thumbnail-file-drop").append(html);
-								editor.summernote('editor.insertImage', fileInfo.getLink);
-								//editor.insertImage(welEditable, data.url);
-							}
-						});
-			      }
-			}
-			
-			
-			});
-	</script> -->
-
 	
 	
 	<script>
@@ -343,10 +184,8 @@
 			console.log("fileList = " + fileList);
 
 			$(".file-list-value").each(function(index){
-				//console.log('$(this).attr("value") = ' + $(this).attr("value"));
 				$('#fileList').val($('#fileList').val()+"<img src='" + $(this).attr("value") + "'><br>");
 			});
-			//$('#fileList').val($('#fileList').val() +"<br>"+fileList);
 
 			
 			$(".uploadedList .delbtn").each(function(index){
@@ -371,7 +210,6 @@
 				dataType : "text",
 				success : function(result){
 					if(result == 'deleted'){
-						//alert("deleted");
 						that.parents().parent("li").remove();
 					}
 				}
@@ -395,12 +233,7 @@
 					console.log("data = " + data);
 					var fileInfo = getFileInfo(data);
 					
-// 					console.log("fileInfo.fileName = " + fileInfo.fileName);
-// 					var fileName = fileInfo.fileName;
-// 					$('.upload-file-list').append("<option value='" + fileName + "'>"+ fileName + "</option>" );
-					
 					var html = template(fileInfo);
-// 					$(".uploadedList").append(html);
 					$(".uploadedList").remove();
 					$("#thumbnail-file-drop").append(html);
 				}

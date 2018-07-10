@@ -46,130 +46,6 @@
 	<section id="mypage-home">
 		<div class="container">
 			<ul class="og-grid cards">
-
-				<li class="title-register">
-					<img class="mypage-home-start-image" src="/resources/images/start.png">
-					<div class="mypage-home-start-talk" style="height: 113px">
-						<span>Show it!</span><br>
-						<span>Your Comic :)</span>
-					</div>
-
-					<form id="registerForm" role="form" action="/title/register" method="post">
-						<div class="og-title-register hide do-not-close" style="height: 550px;">
-							<div class="title-register-inner">
-								<div class="title-edit-input">
-									<div class="og-fullimg do-not-close" id="fileDrop">
-										<div class="uploadedList do-not-close">
-											<img src="/resources/png/thumbnail.png" class="do-not-close"
-												style="display: inline;">
-										</div>
-									</div>
-									<input type="hidden" name="uid" class="form-control" value='${login.uid}'>
-									<input type="file" id="upload-input" style="display: none;">
-									<script>
-										$(function() {
-											$('#fileDrop').click(function(e) {
-												e.preventDefault();
-												$('#upload-input').click();
-	
-											});
-										});
-									</script>
-									<div class="comic-list-title">
-										<input type="text" name='title' class="do-not-close input-title" placeholder="Comic Title">
-									</div>
-								</div>
-								<div class="title-genre-checkbox">
-									<div class="genre-1 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-1" value='1'>
-										<span class="title-genre-1 do-not-close false">SF</span>
-									</div>
-									<div class="genre-2 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-2" value='2'>
-										<span class="title-genre-2 do-not-close false">Mystery</span>
-									</div>
-									<div class="genre-3 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-3" value='3'>
-										<span class="title-genre-3 do-not-close false">PureLove</span>
-									</div>
-									<div class="genre-4 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-4" value='4'>
-										<span class="title-genre-4 do-not-close false">Romance</span>
-									</div>
-									<div class="genre-5 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-5" value='5'>
-										<span class="title-genre-5 do-not-close false">Comic</span>
-									</div>
-									<div class="genre-6 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-6" value='6'>
-										<span class="title-genre-6 do-not-close false">Reasoning</span>
-									</div>
-									<div class="genre-7 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-7" value='7'>
-										<span class="title-genre-7 do-not-close false">SchoolLife</span>
-									</div>
-									<div class="genre-8 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-8" value='8'>
-										<span class="title-genre-8 do-not-close false">Sports</span>
-									</div>
-									<div class="genre-9 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-9" value='9'>
-										<span class="title-genre-9 do-not-close false">Fantasy</span>
-									</div>
-									<div class="genre-10 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-10" value='10'>
-										<span class="title-genre-10 do-not-close true">Medicine</span>
-									</div>
-									<div class="genre-11 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-11" value='11'>
-										<span class="title-genre-11 do-not-close false">Food</span>
-									</div>
-									<div class="genre-12 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-12" value='12'>
-										<span class="title-genre-12 do-not-close false">Education</span>
-									</div>
-									<div class="genre-13 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-13" value='13'>
-										<span class="title-genre-13 do-not-close false">Battle</span>
-									</div>
-									<div class="genre-14 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-14" value='14'>
-										<span class="title-genre-14 do-not-close false">Mecanic</span>
-									</div>
-									<div class="genre-15 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-15" value='15'>
-										<span class="title-genre-15 do-not-close false">Daily</span>
-									</div>
-									<div class="genre-16 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-16" value='16'>
-										<span class="title-genre-16 do-not-close false">Age</span>
-									</div>
-									<div class="genre-17 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-17" value='17'>
-										<span class="title-genre-17 do-not-close false">GraphicNovel</span>
-									</div>
-									<div class="genre-18 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-18" value='18'>
-										<span class="title-genre-18 do-not-close false">Thriller</span>
-									</div>
-									<div class="genre-19 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-19" value='19'>
-										<span class="title-genre-19 do-not-close false">Drama</span>
-									</div>
-									<div class="genre-20 do-not-close">
-										<input type="checkbox" name='genreArr' class="do-not-close hide genre-20" value='20'>
-										<span class="title-genre-20 do-not-close false">Adventure</span>
-									</div>
-									<button type="submit" class="title-register-complete-btn">Complete</button>
-								</div>
-							</div>
-						</div>
-					</form>
-				</li>
-
-
-
-
 				<c:forEach items="${homeList}" var="MyPageVO">
 					<li class="expander" id="${MyPageVO.tno}">
 						<form id="modifyForm-${MyPageVO.tno}" role="form" method="post">
@@ -344,8 +220,6 @@
 						$(".background-blur").removeClass("background-blur"); //blur 효과 없애기
 						submenu.slideUp(300);
 						$(this).removeClass("margin-bottom");
-						$('.toggle-page').show();
-						$('.title-genre-checkbox').addClass("hide");
 					}
 				} else {
 					var getSubtitleResult = getSubtitle(tno, 1);
@@ -398,12 +272,6 @@
 		
 					if ($(".og-expander").is(":visible") || $(".og-title-register").is(":visible")) { //열린 곳이 있으면
 		
-						$(".og-expander").hide(); //다른 곳은 닫음
-						$(".background-blur").removeClass("background-blur"); //blur 효과 없애기
-						$(".title-register").not(this).addClass("background-blur"); //blur 효과 주기
-						$(".margin-bottom").removeClass("margin-bottom"); //margin 삭제
-						$(this).addClass("margin-bottom");
-						
 						
 						$('.toggle-page').hide();
 						$('.title-genre-checkbox').removeClass("hide");
@@ -419,14 +287,18 @@
 	 						$(".genre-"+ i).next().removeClass("true");
 	 						$(".genre-"+ i).next().addClass("false");
 						}
+						
+						$(".og-expander").hide(); //다른 곳은 닫음
+						$(".background-blur").removeClass("background-blur"); //blur 효과 없애기
+						$(".title-register").not(this).addClass("background-blur"); //blur 효과 주기
+						$(".margin-bottom").removeClass("margin-bottom"); //margin 삭제
+						$(this).addClass("margin-bottom");
 		
 						//submenu.show();
 						submenu.slideDown(300);
 		
 					} else { //열린 곳이 없으면
 						
-						$('.toggle-page').show();
-						$('.title-genre-checkbox').addClass("hide");
 						
 						$('.title-register-inner').show();
 						$('.title-input').attr("readonly");

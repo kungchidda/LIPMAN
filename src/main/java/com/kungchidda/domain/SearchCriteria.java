@@ -1,11 +1,13 @@
 package com.kungchidda.domain;
 
+
 public class SearchCriteria extends Criteria{
 	
 	private String searchType;
 	private String keyword;
 	private String genre;
 	private String[] genreArr;
+	private String uid;
 	
 	public String getSearchType() {
 		return searchType;
@@ -36,10 +38,18 @@ public class SearchCriteria extends Criteria{
 		return genreArr;
 	}
 	
+	public void setUid(String uid) {
+		this.uid = uid;
+	}
+	
+	public String getUid() {
+		return uid;
+	}
+	
 	
 	@Override
 	public String toString() {
-		return super.toString() + "SearchCriteria" + "[searchType=" + searchType + ", keyword=" + keyword +", genre=" + genre +"]";
+		return super.toString() + "SearchCriteria" + "[searchType=" + searchType + ", keyword=" + keyword +", genre=" + genre +"], uid=" + uid +"]";
 	}
 
 }
