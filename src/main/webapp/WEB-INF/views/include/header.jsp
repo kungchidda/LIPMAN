@@ -25,7 +25,7 @@
 
     <!--expander script-->
 
-<!--     <script src="/resources/js/expander.js"></script> -->
+	<!--<script src="/resources/js/expander.js"></script> -->
 
 </head>
 
@@ -65,203 +65,76 @@
     <!--dropdown content-->
     
     
-    <div id="searchBar" class="do-not-close dropdown-contents">
-    	<div class="dropdown-searchBar do-not-close">
-           <div class="genre-1 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput1" value='1'><span class="do-not-close genreInput1 false">SF</span> 
+    <div id="searchBar" class="do-not-close dropdown-contents">        
+        <div class="dropdown-searchBar-01 do-not-close">
+            <div class="dropdown-genre-01 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput1" value='1'><span class="do-not-close genreInput1 false">SF</span>
             </div>
-            <div class="genre-2 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput2" value='2'><span class="do-not-close genreInput2 false">Mystery</span> 
+            <div class="dropdown-genre-02 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput2" value='2'><span class="do-not-close genreInput2 false">Mystery</span>
             </div>
-            <div class="genre-3 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput3" value='3'><span class="do-not-close genreInput3 false">Pure Love</span> 
+            <div class="dropdown-genre-03 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput3" value='3'><span class="do-not-close genreInput3 false">Pure Love</span>
             </div>
-            <div class="genre-4 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput4" value='4'><span class="do-not-close genreInput4 false">Romance</span> 
+            <div class="dropdown-genre-04 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput4" value='4'><span class="do-not-close genreInput4 false">Romance</span>
             </div>
-            <div class="genre-5 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput5" value='5'><span class="do-not-close genreInput5 false">Comic</span> 
+            <div class="dropdown-genre-05 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput5" value='5'><span class="do-not-close genreInput5 false">Comic</span>
             </div>
-            <div class="genre-6 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput6" value='6'><span class="do-not-close genreInput6 false">Reasoning</span> 
+            <div class="dropdown-genre-06 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput6" value='6'><span class="do-not-close genreInput6 false">Reasoning</span>
             </div>
-            <div class="genre-7 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput7" value='7'><span class="do-not-close genreInput7 false">School Life</span> 
+            <div class="dropdown-genre-07 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput7" value='7'><span class="do-not-close genreInput7 false">School Life</span>
             </div>
-            <div class="genre-8 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput8" value='8'><span class="do-not-close genreInput8 false">Sports</span> 
+            <div class="dropdown-genre-08 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput8" value='8'><span class="do-not-close genreInput8 false">Sports</span>
             </div>
-            <div class="genre-9 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput9" value='9'><span class="do-not-close genreInput9 false">Fantasy</span> 
+            <div class="dropdown-genre-09 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput9" value='9'><span class="do-not-close genreInput9 false">Fantasy</span>
             </div>
-            <div class="genre-10 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput10" value='10'><span class="do-not-close genreInput10 false">Medicine</span> 
+            <div class="dropdown-genre-10 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput10" value='10'><span class="do-not-close genreInput10 false">Medicine</span>
             </div>
-            <div class="genre-11 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput11" value='11'><span class="do-not-close genreInput11 false">Food</span> 
+            <div class="dropdown-genre-11 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput11" value='11'><span class="do-not-close genreInput11 false">Food</span>
             </div>
-            <div class="genre-12 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput12" value='12'><span class="do-not-close genreInput12 false">Education</span> 
+            <div class="dropdown-genre-12 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput12" value='12'><span class="do-not-close genreInput12 false">Education</span>
             </div>
-            <div class="genre-13 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput13" value='13'><span class="do-not-close genreInput13 false">Battle</span> 
+            <div class="dropdown-genre-13 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput13" value='13'><span class="do-not-close genreInput13 false">Battle</span>
             </div>
-            <div class="genre-14 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput14" value='14'><span class="do-not-close genreInput14 false">Mecanic</span> 
+            <div class="dropdown-genre-14 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput14" value='14'><span class="do-not-close genreInput14 false">Mecanic</span>
             </div>
-            <div class="genre-15 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput15" value='15'><span class="do-not-close genreInput15 false">Daily</span> 
+            <div class="dropdown-genre-15 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput15" value='15'><span class="do-not-close genreInput15 false">Daily</span>
             </div>
-            <div class="genre-16 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput16" value='16'><span class="do-not-close genreInput16 false">Age</span> 
+            <div class="dropdown-genre-16 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput16" value='16'><span class="do-not-close genreInput16 false">Age</span>
             </div>
-            <div class="genre-17 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput17" value='17'><span class="do-not-close genreInput17 false">Graphic Novel</span> 
+            <div class="dropdown-genre-17 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput17" value='17'><span class="do-not-close genreInput17 false">Graphic Novel</span>
             </div>
-            <div class="genre-18 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput18" value='18'><span class="do-not-close genreInput18 false">Thriller</span> 
+            <div class="dropdown-genre-18 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput18" value='18'><span class="do-not-close genreInput18 false">Thriller</span>
             </div>
-            <div class="genre-19 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput19" value='19'><span class="do-not-close genreInput19 false">Drama</span> 
+            <div class="dropdown-genre-19 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput19" value='19'><span class="do-not-close genreInput19 false">Drama</span>
             </div>
-            <div class="genre-20 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput20" value='20'><span class="do-not-close genreInput20 false">Adventure</span> 
+            <div class="dropdown-genre-20 do-not-close">
+                <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput20" value='20'><span class="do-not-close genreInput20 false">Adventure</span>
             </div>
-			<input type="text" name='keyword' id="keywordInput" value='${cri.keyword}' class="searchBar do-not-close" placeholder='Search Webtoons'>
-			<button type="submit" id="searchBar-button" class="searchBar-button do-not-close"><img class="do-not-close" src="/resources/png/search.png"></button>
+        </div>
+        
+        <div class="dropdown-searchBar-02 do-not-close">
+            <input type="text" name='keyword' id="keywordInput" value='' class="searchBar do-not-close" placeholder='Search Webtoons'>
+            <button type="submit" id="searchBar-button" class="searchBar-button do-not-close"><img class="do-not-close" src="/resources/png/search.png"></button>
         </div>
     </div>
 
-
-	<!-- 20180702 before -->
-    <!-- <div id="noticeBar" class="dropdown-content dropdown-btn">
-        <div class="dropdown-notice dropdown-btn">
-            <div class="img-01 cursor dropdown-btn" onclick="window.location='#';">
-                <img src="/resources/images/overwatch.jpg">
-            </div>
-            <div class="text-01 cursor dropdown-btn" onclick="window.location='#';">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum placeat nesciunt ndus amet, voluptas, fuga vitae accusantium delectus laborum, alias sit quisquam quia culpa sapiente?
-            </div>
-            <div class="time-01 dropdown-btn">
-                1 hours ago
-            </div>
-
-            <div class="img-02 cursor" onclick="window.location='#';">
-                <img src="/resources/images/test-01.jpg">
-            </div>
-            <div class="text-02 cursor" onclick="window.location='#';">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eumm quia culpa sapiente?
-            </div>
-            <div class="time-02">
-                2 hours ago
-            </div>
-
-            <div class="img-03 cursor" onclick="window.location='#';">
-                <img src="/resources/images/test-02.jpg">
-            </div>
-            <div class="text-03 cursor" onclick="window.location='#';">
-                Lorem ipsum dolor sit amet, consectetur advitae accusantium delectus laborum, alias sit quisquam quia culpa sapiente.
-            </div>
-            <div class="time-03">
-                3 hours ago
-            </div>
-
-            <div class="img-04 cursor" onclick="window.location='#';">
-                <img src="/resources/images/overwatch.jpg">
-            </div>
-            <div class="text-04 cursor" onclick="window.location='#';">
-                Lorem ipsum dolor sit amet, consectetur adipisicing fuga vitae accusantium delectus laborum, alias sit quisquam quia culpa sapiente!
-            </div>
-            <div class="time-04">
-                4 hours ago
-            </div>
-
-            <div class="img-05 cursor" onclick="window.location='#';">
-                <img src="/resources/images/test-03.jpg">
-            </div>
-            <div class="text-05 cursor" onclick="window.location='#';">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum placeat nesciunt ndus amet, voluptas, fuga vitae accusantium delectus laborum, alias sit quisquam quia culpa sapiente?
-            </div>
-            <div class="time-05">
-                1 days ago
-            </div>
-
-            <div class="img-06 cursor" onclick="window.location='#';">
-                <img src="/resources/images/test-04.jpg">
-            </div>
-            <div class="text-06 cursor" onclick="window.location='#';">
-                Lorem ipsum dolor sit amet, consecteturvoluptas, fuga vitae accusantium delectus laborum, alias sit quisquam quia culpa sapiente?
-            </div>
-            <div class="time-06">
-                2 hours ago
-            </div>
-        </div>
-    </div> -->
-    <!-- 20180702 before --> 
-    <!-- <div id="genreBar" class="do-not-close dropdown-contents">
-        <div class="dropdown-genre do-not-close">
-           <div class="dropdown-genre-1 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput1" value='1'><span>SF</span> 
-            </div>
-            <div class="dropdown-genre-2 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput2" value='2'><span>Mystery</span> 
-            </div>
-            <div class="dropdown-genre-3 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput3" value='3'><span>Pure Love</span> 
-            </div>
-            <div class="dropdown-genre-4 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput4" value='4'><span>Romance</span> 
-            </div>
-            <div class="dropdown-genre-5 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput5" value='5'><span>Comic</span> 
-            </div>
-            <div class="dropdown-genre-6 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput6" value='6'><span>Reasoning</span> 
-            </div>
-            <div class="dropdown-genre-7 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput7" value='7'><span>School Life</span> 
-            </div>
-            <div class="dropdown-genre-8 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput8" value='8'><span>Sports</span> 
-            </div>
-            <div class="dropdown-genre-9 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput9" value='9'><span>Fantasy</span> 
-            </div>
-            <div class="dropdown-genre-10 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput10" value='10'><span>Medicine</span> 
-            </div>
-            <div class="dropdown-genre-11 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput11" value='11'><span>Food</span> 
-            </div>
-            <div class="dropdown-genre-12 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput12" value='12'><span>Education</span> 
-            </div>
-            <div class="dropdown-genre-13 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput13" value='13'><span>Battle</span> 
-            </div>
-            <div class="dropdown-genre-14 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput14" value='14'><span>Mecanic</span> 
-            </div>
-            <div class="dropdown-genre-15 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput15" value='15'><span>Daily</span> 
-            </div>
-            <div class="dropdown-genre-16 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput16" value='16'><span>Age</span> 
-            </div>
-            <div class="dropdown-genre-17 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput17" value='17'><span>Graphic Novel</span> 
-            </div>
-            <div class="dropdown-genre-18 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput18" value='18'><span>thriller</span> 
-            </div>
-            <div class="dropdown-genre-19 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput19" value='19'><span>Drama</span> 
-            </div>
-            <div class="dropdown-genre-20 do-not-close">
-                <input type="checkbox" name='genre' class="do-not-close" id="genreInput20" value='20'><span>Adventure</span> 
-            </div>
-        </div>
-    </div> -->
     
     
     <div id="noticeBar" class="do-not-close dropdown-contents">
@@ -270,7 +143,7 @@
                 <img class="do-not-close" src="/resources/images/overwatch.jpg">
             </div>
             <div class="text-01 cursor" onclick="window.location='#';">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum placeat nesciunt ndus amet, voluptas, fuga vitae accusantium delectus laborum, alias sit quisquam quia culpa sapiente?
+                voluptas, fugaalias sit quisquam quia culpa sapiente?
             </div>
             <div class="time-01">
                 1 hours ago
@@ -280,7 +153,7 @@
                 <img src="/resources/images/test-01.jpg">
             </div>
             <div class="text-02 cursor" onclick="window.location='#';">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eumm quia culpa sapiente?
+                consectetur adipisicing elit. Eumm quia culpa sapiente?
             </div>
             <div class="time-02">
                 2 hours ago
@@ -290,7 +163,7 @@
                 <img src="/resources/images/test-02.jpg">
             </div>
             <div class="text-03 cursor" onclick="window.location='#';">
-                Lorem ipsum dolor sit amet, consectetur advitae accusantium delectus laborum, alias sit quisquam quia culpa sapiente.
+                delectus laborum, alias sit quisquam quia culpa sapiente.
             </div>
             <div class="time-03">
                 3 hours ago
@@ -300,7 +173,7 @@
                 <img src="/resources/images/overwatch.jpg">
             </div>
             <div class="text-04 cursor" onclick="window.location='#';">
-                Lorem ipsum dolor sit amet, consectetur adipisicing fuga vitae accusantium delectus laborum, alias sit quisquam quia culpa sapiente!
+                vitae alias sit quisquam quia culpa sapiente!
             </div>
             <div class="time-04">
                 4 hours ago
@@ -310,7 +183,7 @@
                 <img src="/resources/images/test-03.jpg">
             </div>
             <div class="text-05 cursor" onclick="window.location='#';">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum placeat nesciunt ndus amet, voluptas, fuga vitae accusantium delectus laborum, alias sit quisquam quia culpa sapiente?
+                Eum placeat nesciunt vitae aborum, alias sit quisquam quia culpa sapiente?
             </div>
             <div class="time-05">
                 1 days ago
@@ -320,7 +193,7 @@
                 <img src="/resources/images/test-04.jpg">
             </div>
             <div class="text-06 cursor" onclick="window.location='#';">
-                Lorem ipsum dolor sit amet, consecteturvoluptas, fuga vitae accusantium delectus laborum, alias sit quisquam quia culpa sapiente?
+                fuga vitae accusantium alias sit quisquam quia culpa sapiente?
             </div>
             <div class="time-06">
                 2 hours ago
@@ -358,6 +231,9 @@
             <div type="submit" class="hadaccount-button dropbtn" onclick="myPageFunction()">
                 Had Account
             </div>
+            <h1 class="signup-or"><span>or</span></h1>
+            <div type="submit" class="signup-facebook do-not-close">Facebook</div>
+            <div type="submit" class="signup-google do-not-close">Google</div>
         </form>
     </div>
     
