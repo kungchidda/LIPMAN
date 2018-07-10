@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	Hello world!  JS
 </h1>
 
 <h2>${result}</h2>
