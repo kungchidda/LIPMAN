@@ -54,7 +54,7 @@
 									<a href="#"><img src="/displayFile?fileName=${subscribeVO.profileFullName}"></a>
 						 		</div>
 						 		<div class="mypage-subscriber-name">
-						 			<form id="subscriberForm" role="form" action="/mypage/user/home" method="GET">
+						 			<form id="subscriberForm" role="form" action="/mypage/user/titleList" method="GET">
 						 				<input type="hidden" name="uid" value='${subscribeVO.subscriber}'>
 						 				<button type="submit">${subscribeVO.uname}</button>
 						 			</form>
