@@ -342,41 +342,32 @@
 				if (submenu.is(":visible")) { //보이면 올림
 					if (!event.target.matches('.do-not-close')) {
 						$(".background-blur").removeClass("background-blur"); //blur 효과 없애기
-						submenu.slideUp(300);
 						$(this).removeClass("margin-bottom");
 						$('.toggle-page').show();
 						$('.title-genre-checkbox').addClass("hide");
+						submenu.slideUp(300);
 					}
-				} else {
+				} else { //내림
 					var getSubtitleResult = getSubtitle(tno, 1);
 					if (getSubtitleResult) {
 		
-						if ($(".og-expander").is(":visible") || $(".og-title-register").is(":visible")) { //열린 곳이 있으면
-		
-							//$(".og-title-register").hide(); //다른 곳은 닫음
+							
+							$(".og-title-register").hide(); //다른 곳은 닫음
 							$(".og-expander").hide(); //다른 곳은 닫음
 							$(".background-blur").removeClass("background-blur"); //blur 효과 없애기
 							$(".expander").not(this).addClass("background-blur"); //blur 효과 주기
 							$(".margin-bottom").removeClass("margin-bottom"); //margin 삭제
-							$(this).addClass("margin-bottom");
+							$(this).addClass("margin-bottom"); //margin 추가
 							
-							$('.toggle-page').show();
-							$('.title-genre-checkbox').addClass("hide");
+							$('.toggle-page').show(); //subtitle list 보이
+							$('.title-genre-checkbox').addClass("hide"); //장르 체크박스 숨기기
 							
-							$('.comic-title').show();
-							$('.comic-title-edit').addClass("hide");
-							$('.input-title').attr("readonly");
+							$('.comic-title').show(); //타이틀 이름 보이기
+							$('.comic-title-edit').hide(); //타이틀 input 박스 가리기
+							$('.input-title').attr("readonly"); //타이틀 input 박스 읽기 전용
 							
 							submenu.slideDown(300);
 		
-						} else { //열린 곳이 없으면
-							$(".expander").not(this).addClass("background-blur"); //blur 효과 주기
-							$(this).addClass("margin-bottom");
-		
-							$('.toggle-page').show();
-							$('.title-genre-checkbox').addClass("hide");
-							submenu.slideDown(300);
-						}
 					}
 				}
 			});
@@ -391,29 +382,31 @@
 				if (submenu.is(":visible")) { //보이면 올림
 					if (!event.target.matches('.do-not-close')) {
 						$(".background-blur").removeClass("background-blur"); //blur 효과 없애기
-						submenu.slideUp(300);
 						$(this).removeClass("margin-bottom");
+						$('.toggle-page').show();
+						$('.title-genre-checkbox').hide();
+						submenu.slideUp(300);
 					}
 				} else {
 		
-					if ($(".og-expander").is(":visible") || $(".og-title-register").is(":visible")) { //열린 곳이 있으면
+// 					if ($(".og-expander").is(":visible")) { //다른 타이틀 열린 곳이 있으면
 		
+						$(".og-title-register").hide(); //다른 곳은 닫음
 						$(".og-expander").hide(); //다른 곳은 닫음
 						$(".background-blur").removeClass("background-blur"); //blur 효과 없애기
-						$(".title-register").not(this).addClass("background-blur"); //blur 효과 주기
+						$(".expander").not(this).addClass("background-blur"); //blur 효과 주기
 						$(".margin-bottom").removeClass("margin-bottom"); //margin 삭제
 						$(this).addClass("margin-bottom");
 						
+ 						$('.toggle-page').hide();
+						$('.title-genre-checkbox').show();
 						
-						$('.toggle-page').hide();
-						$('.title-genre-checkbox').removeClass("hide");
+// 						$('.comic-title').show();
+// 						$('.comic-title-edit').hide();
+// 						$('.input-title').attr("readonly");
 						
-						$('.comic-title').show();
-						$('.comic-title-edit').addClass("hide");
-						$('.input-title').attr("readonly");
-						
-						$('.title-register-inner').show();
-						$('.title-input').attr("readonly");
+// 						$('.title-register-inner').show();
+// 						$('.title-input').attr("readonly");
 						for(var i=1; i<=20; i++){
 	 						$(".genre-" + i).prop("checked", false);
 	 						$(".genre-"+ i).next().removeClass("true");
@@ -423,25 +416,29 @@
 						//submenu.show();
 						submenu.slideDown(300);
 		
-					} else { //열린 곳이 없으면
+// 					} else { //열린 곳이 없으면
 						
-						$('.toggle-page').show();
-						$('.title-genre-checkbox').addClass("hide");
+// 						$(".og-expander").hide(); //다른 곳은 닫음
 						
-						$('.title-register-inner').show();
-						$('.title-input').attr("readonly");
-						for(var i=1; i<=20; i++){
-	 						$(".genre-" + i).prop("checked", false);
-	 						$(".genre-"+ i).next().removeClass("true");
-	 						$(".genre-"+ i).next().addClass("false");
-						}
+// // 						$('.toggle-page').show();
+// 						$('.title-genre-checkbox').removeClass("hide");
+						
+// 						$('.title-register-inner').show();
+// 						$('.title-input').attr("readonly");
+// 						for(var i=1; i<=20; i++){
+// 	 						$(".genre-" + i).prop("checked", false);
+// 	 						$(".genre-"+ i).next().removeClass("true");
+// 	 						$(".genre-"+ i).next().addClass("false");
+// 						}
 		
-						$(".title-register").not(this).addClass("background-blur"); //blur 효과 주기
-						$(this).addClass("margin-bottom");
+// 						$('.toggle-page').hide();
+// 						$('.title-genre-checkbox').show();
+						
+// 						$(".title-register").not(this).addClass("background-blur"); //blur 효과 주기
+// 						$(this).addClass("margin-bottom");
 		
-						$(".og-expander").hide(); //다른 곳은 닫음
-						submenu.slideDown(300);
-					}
+// 						submenu.slideDown(300);
+// 					}
 				}
 			});
 		});
@@ -577,26 +574,26 @@
 	 						$(".genre-"+ i).next().removeClass("true");
 	 						$(".genre-"+ i).next().addClass("false");
 						}
+					
+						$('.toggle-page').toggle();
+						$('.title-genre-checkbox').toggleClass("hide");
 						
-							$('.toggle-page').toggle();
-							$('.title-genre-checkbox').toggleClass("hide");
-							
-							$('.comic-title').toggle();
-							$('.comic-title-edit').toggleClass("hide");
-							$('.input-title').removeAttr("readonly").focus();
+						$('.comic-title').toggle();
+						$('.comic-title-edit').toggleClass("hide");
+						$('.input-title').removeAttr("readonly").focus();
 
-							var genreStr = $(this).parent().attr('genre');
-							
-							console.log("genreStr = " + genreStr);
-							var genreArr = genreStr.split(',');
-							var genreLen = genreArr.length;
+						var genreStr = $(this).parent().attr('genre');
+						
+						console.log("genreStr = " + genreStr);
+						var genreArr = genreStr.split(',');
+						var genreLen = genreArr.length;
 
-							for (var i = 0; i < genreLen; i++) {
-								console.log("genreArr[" + i + "] = "+ genreArr[i]);
-								$(".genre-" + genreArr[i]).prop("checked", true);
-								$(".genre-"+genreArr[i]).next().toggleClass("false");
-								$(".genre-"+genreArr[i]).next().toggleClass("true");
-							}
+						for (var i = 0; i < genreLen; i++) {
+							console.log("genreArr[" + i + "] = "+ genreArr[i]);
+							$(".genre-" + genreArr[i]).prop("checked", true);
+							$(".genre-"+genreArr[i]).next().toggleClass("false");
+							$(".genre-"+genreArr[i]).next().toggleClass("true");
+						}
 					});
 
 					$('.cancel-title').click(
