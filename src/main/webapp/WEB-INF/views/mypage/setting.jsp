@@ -23,7 +23,6 @@
                 <script>
 
                     $(document).ready(function () {
-
                         
                         var genreStr = "${userVO.genre}";
                     	var genreArr = genreStr.split(',');
