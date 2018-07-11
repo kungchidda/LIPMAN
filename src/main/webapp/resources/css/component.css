@@ -1,4 +1,3 @@
-/* HONG 추가 시작 */
 .og-grid {
     list-style: none;
     padding: 0px 0;
@@ -11,10 +10,8 @@
     display: inline-block;
     margin: 20px 20px 0 15px;
     vertical-align: top;
-/*     width: 200px; */
     height: 350px;
 }
-
 
 .og-title-register, .og-expander {
     position: absolute;
@@ -24,171 +21,13 @@
     width: 100%;
     margin-top: 10px;
     text-align: left;
-    height: 520px;
+    height: 540px;
     overflow: hidden;
     border: 1px solid #d3d3d3;
     box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.05);
     text-align: center;
 }
 
-
-/* 20180702 HONG 추가 */
-.subtitleLi a{
-    display: grid;
-    grid-template-areas: 
-        "a b";
-    float: left;
-    width: 20%;
-}
-
-.comic-list-img img {
-    width: 40px;
-    border-radius: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.comic-list-img {
-    grid-area: a;
-    text-align: center;
-}
-
-.comic-list-text {
-    grid-area: b;
-    align-self: center;
-    width: 130px;
-    word-break: break-all;
-}
-
-.subtitleLi a{
-	width : 500px;
-}
-/* 20180702 HONG 추가 */
-
-
-
-.expander-title-inner {
-	display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 60px 60px 60px 60px 60px 50px;
-    grid-template-areas: 
-        "a"
-        "a"
-        "a"
-        "a"
-        "b"
-        "c";
-    justify-items: center;
-    justify-content: center;
-    grid-column-gap: 30px;
-    grid-row-gap: 10px;
-    padding-top: 70px;
-    padding-bottom: 70px;
-    float : left;
-}
-
-.og-expander-inner a:link {
-    text-decoration: none;
-    color: black;
-}
-
-.og-expander-inner a:visited {
-    color: black;
-}
-
-.expander-title-inner .og-fullimg {
-    grid-area: a;
-    align-self: start;
-}
-
-.expander-title-inner .comic-list-genre {
-    grid-area: b;
-    justify-items: center;
-    text-align: center;
-    justify-content: center;
-    align-self: center;
-    color: gray;
-    font-size: 1em;
-    width : 300px;
-}
-
-.expander-title-inner .comic-list-title, .comic-title {
-    grid-area: c;
-    align-self: start;
-    font-size: 2em;
-}
-
-.expander-title-inner .comic-list-setting {
-    grid-area: c;
-    align-self: end;
-    justify-self : end;
-}
-
-.expander-title-inner .comic-list-setting img {
-    width: 30px;
-}
-.toggle-page .pagination .page-item{
-/* 	display: inline-block !important; */
-	float : left ;
-    list-style: none;
-}
-
-.toggle-page .pagination .comic-list-prev, .comic-list-pagi, .comic-list-next {
-    grid-area: i;
-	float : left !important;
-    list-style: none;
-    align-self: center;
-}
-
-.toggle-page .pagination .comic-list-prev {
-    justify-self : start;
-}
-.toggle-page{
-	width: 1030px;
-	height: 350px;
-	padding-top : 70px;
-	padding-bottom : 70px;
-	float : left ;
-}
-.toggle-page .pagination .comic-list-next {
-    justify-self : end;
-}
-
-.toggle-page .pagination .comic-list-pagi {
-    justify-self : center;
-}
-
-.og-expander-inner img {
-    width: 100px;
-    border: 1px solid #d3d3d3;
-    border-radius: 10px;
-}
-
-.og-expander-inner .comic-list-setting img {
-    border: none;
-}
-
-.toggle-page .comic-list-pagi .page-link {
-    padding: 20px;
-}
-/* HONG 수정 시작 */
-/* .og-expander-inner .comic-list-01-img, .comic-list-01-sub, .comic-list-02-img, .comic-list-02-sub, .comic-list-03-img, .comic-list-03-sub, .comic-list-04-img, .comic-list-04-sub, .comic-list-05-img, .comic-list-05-sub, .comic-list-06-img, .comic-list-06-sub { */
-.toggle-page .subtitleLi a .comic-list-img {
-    align-self: center;
-}
-
-/* .og-expander-inner .comic-list-01-img, .comic-list-02-img, .comic-list-03-img, .comic-list-04-img, .comic-list-05-img, .comic-list-06-img { */
-.toggle-page .subtitleLi a .comic-list-img {
-    justify-self: start;
-    padding-left: 50px;
-}
-
-/* .og-expander-inner .comic-list-01-sub, .comic-list-02-sub, .comic-list-03-sub, .comic-list-04-sub, .comic-list-05-sub, .comic-list-06-sub { */
-.toggle-page .subtitleLi a .comic-list-text{
-    justify-self: start;
-    padding-left: 68px;
-}
-/* HONG 수정 끝 */
 
 /*first-og-expander*/
 .title-register-inner, .og-expander-inner{
@@ -198,7 +37,7 @@
 .title-edit-input{
 	display: grid;
     grid-template-columns: 400px;
-    grid-template-rows: 150px 150px 50px;
+    grid-template-rows: 165px 165px 50px;
     grid-template-areas: 
         "a"
         "a"
@@ -215,8 +54,6 @@
 .og-fullimg {
     grid-area: a;
     align-self: center;
-    border: 1px solid #d3d3d3;
-    border-radius: 10px;
 }
 
 .comic-list-title {
@@ -234,9 +71,9 @@
     text-align: center;
 }
 
-
 .og-fullimg img {
     width: 300px;
+    border: 1px solid #d3d3d3;
     border-radius: 10px;
 }
 
@@ -254,8 +91,8 @@
 	justify-items: start;
     justify-content: center;
     grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    padding-top: 70px;
+    grid-row-gap: 15px;
+    padding-top: 80px;
     padding-bottom: 70px;
     align-items: center;
     float : left;
@@ -559,6 +396,130 @@
     font-size: 1em;
     color: white;
 }
+
+/* mypage-home cards left */
+.expander-title-inner {
+	display: grid;
+    grid-template-columns: 400px;
+    grid-template-rows: 320px 30px 50px;
+    grid-template-areas: 
+        "a"
+        "b"
+        "c";
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-row-gap: 10px;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    float : left;
+}
+
+.og-expander-inner a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.og-expander-inner a:visited {
+    color: black;
+}
+
+.expander-title-inner .og-fullimg {
+    grid-area: a;
+    align-self: center;
+}
+
+.expander-title-inner .comic-list-genre {
+    grid-area: b;
+    color: gray;
+    font-size: 1em;
+}
+
+.expander-title-inner .comic-list-title, .comic-title {
+    grid-area: c;
+    font-size: 20px;
+}
+
+.expander-title-inner .comic-list-setting {
+    grid-area: c;
+    justify-self : end;
+    align-self: start;
+}
+
+.expander-title-inner .comic-list-setting img {
+    width: 30px;
+}
+
+/* mypage-home cards left */
+.toggle-page{
+	width: 1040px;
+	height: 420px;
+	padding-top : 70px;
+	padding-bottom : 50px;
+	float : left ;
+}
+
+.subtitleLi a{
+    display: grid;
+    grid-template-columns: 150px 370px;
+    grid-template-rows: 120px;
+    grid-template-areas: 
+        "a b";
+    float: left;
+}
+
+.comic-list {
+    grid-area: a;
+    align-self: center;
+    justify-self: end;
+}
+
+.og-expander-inner .comic-list img {
+    width: 100px;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+}
+
+.comic-list-text {
+    grid-area: b;
+    justify-self: start;
+    align-self: center;
+    word-break: break-all;
+    font-size: 1em;
+    padding-left: 20px;
+}
+
+/* ??????????????????????????? 시작 */
+/* .toggle-page .pagination .page-item{
+	display: inline-block !important;
+	float : left ;
+    list-style: none;
+}
+
+.toggle-page .pagination .comic-list-prev, .comic-list-pagi, .comic-list-next {
+    grid-area: i;
+	float : left !important;
+    list-style: none;
+    align-self: center;
+}
+
+.toggle-page .pagination .comic-list-prev {
+    justify-self : start;
+}
+
+.toggle-page .pagination .comic-list-next {
+    justify-self : end;
+}
+
+.toggle-page .pagination .comic-list-pagi {
+    justify-self : center;
+}
+
+.toggle-page .comic-list-pagi .page-link {
+    padding: 20px;
+} */
+
+/* ????????????????? 끝 */
 
 .hide{display: none;}
 .margin-bottom {margin-bottom: 550px !important;}
