@@ -65,11 +65,11 @@
                     <div class="container">
                         <!--setting-->
                         <!-- <div class="setting" -ms-overflow-style: none;> -->
-                        <div class="setting">
-                            <div class="Profile-image">
+                        <div class="mypage-setting">
+                            <div class="mypage-setting-profileimage-title">
                                 <p>Profile image</p>
                             </div>
-                            <div class="Profile-image-button">
+                            <div class="mypage-setting-profileimage-button">
                                 <button type="button" id="edit-profile">change</button>
                                 <button type="button" style="display:none;" id="submit-profile">Submit</button>
 
@@ -94,14 +94,44 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="setting">
-                            <div class="Nick-Name">
+                        <div class="mypage-setting">
+                            <div class="mypage-setting-loginid-title">
+                                Log-in ID
+                            </div>
+                            <div class="mypage-setting-loginid-text">
+                                <span>${userVO.uid}</span>
+                            </div>
+                        </div>
+                        
+                        <hr>
+                        
+                        <div class="mypage-setting">
+        					<div class="mypage-setting-password-title">
+                                Password
+                            </div>
+                            <div class="mypage-setting-password-title-button">
+                                <input type="password" name="upw" class="input-text hide" id="password-input" readonly>
+                                <button type="button" id="edit-password">change</button>
+                                <button type="button" id="submit-password" style="display:none;">submit</button>
+                            </div>
+                        </div>
+                        
+						<hr>
+						
+                        <div class="mypage-setting">
+                            <div class="mypage-setting-nickname-title">
                                 Nick Name
                             </div>
-                            <div class="Nick-Name-button">
+                            <div class="mypage-setting-nickname">
+        						${userVO.uname}
+        					</div>
+        					<div class="mypage-setting-nickname-input hide">
+                                <input type="text" name="uname" class="input-text" value="${userVO.uname}" id="uname-input" readonly>
+        					</div>
+        
+                            <div class="mypage-setting-nickname-button">
                                 <input type="hidden" name="uno" value="${userVO.uno}" readonly>
                                 <input type="hidden" name="uid" value="${userVO.uid}" readonly>
-                                <input type="text" name="uname" class="input-text" value="${userVO.uname}" id="uname-input" readonly>
                                 <button type="button" id="edit-uname">change</button>
                                 <button type="button" id="submit-uname" style="display:none;">submit</button>
 
@@ -111,6 +141,9 @@
                                         $('#edit-uname').click(function (e) {
                                             /* 	e.preventDefault();
                                                 $('#uname').click(); */
+                                                
+                                            $('.mypage-setting-nickname').hide();
+                                            $('.mypage-setting-nickname-input').show();
                                             $('#uname-input').removeAttr("readonly").focus();
 
 
@@ -128,30 +161,11 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="setting">
-                            <div class="Login-ID">
-                                Log-in ID
-                            </div>
-                            <div class="Login-ID-text">
-                                <span>${userVO.uid}</span>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="setting">
-                            <div class="Password">
-                                Password
-                            </div>
-                            <div class="Password-button">
-                                <input type="password" name="upw" class="input-text" id="password-input" readonly>
-                                <button type="button" id="edit-password">change</button>
-                                <button type="button" id="submit-password" style="display:none;">submit</button>
-                            </div>
-                        </div>
-
+                        
                         <script>
                             $(function () {
                                 $('#edit-password').click(function (e) {
-                                    $('#password-input').removeAttr("readonly").focus();
+                                    $('#password-input').show().removeAttr("readonly").focus();
 
                                     $('#edit-password').hide();
                                     $('#submit-password').show();
@@ -162,46 +176,109 @@
                                 formObj.submit();
                             });
                         </script>
-                        <hr>
-                        <script>
-                        	
-                        </script>
-                        <div class="setting">
-							<input type="checkbox" name='genreArr' id="genreInput1" value='1'>SF
-							<input type="checkbox" name='genreArr' id="genreInput2" value='2'>Mystery
-							<input type="checkbox" name='genreArr' id="genreInput3" value='3'>PureLove
-							<input type="checkbox" name='genreArr' id="genreInput4" value='4'>Romance
-							<input type="checkbox" name='genreArr' id="genreInput5" value='5'>Comic
-							<input type="checkbox" name='genreArr' id="genreInput6" value='6'>Reasoning
-							<input type="checkbox" name='genreArr' id="genreInput7" value='7'>SchoolLife
-							<input type="checkbox" name='genreArr' id="genreInput8" value='8'>Sports
-							<input type="checkbox" name='genreArr' id="genreInput9" value='9'>Fantasy
-							<input type="checkbox" name='genreArr' id="genreInput10" value='10'>Medical
-							<input type="checkbox" name='genreArr' id="genreInput11" value='11'>Food
-							<input type="checkbox" name='genreArr' id="genreInput12" value='12'>Education
-							<input type="checkbox" name='genreArr' id="genreInput13" value='13'>Battle
-							<input type="checkbox" name='genreArr' id="genreInput14" value='14'>Mecanic
-							<input type="checkbox" name='genreArr' id="genreInput15" value='15'>Daily
-							<input type="checkbox" name='genreArr' id="genreInput16" value='16'>Age
-							<input type="checkbox" name='genreArr' id="genreInput17" value='17'>GraphicNovel
-							<input type="checkbox" name='genreArr' id="genreInput18" value='18'>Thriller
-							<input type="checkbox" name='genreArr' id="genreInput19" value='19'>Drama
-							<input type="checkbox" name='genreArr' id="genreInput20" value='20'>Adventure
-						</div>
+                        	<div class="mypage-setting">
+<!-- 	                        	<div class="mypage-genre-list-title"> -->
+<!-- 	            					Genre -->
+<!--         						</div> -->
+        						
+                       			<div class="title-genre-checkbox mypage-setting-genre-title" >
+									<div class="genre-1 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-1" value='1'>
+										<span class="title-genre-1 do-not-close false">SF</span>
+									</div>
+									<div class="genre-2 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-2" value='2'>
+										<span class="title-genre-2 do-not-close false">Mystery</span>
+									</div>
+									<div class="genre-3 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-3" value='3'>
+										<span class="title-genre-3 do-not-close false">PureLove</span>
+									</div>
+									<div class="genre-4 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-4" value='4'>
+										<span class="title-genre-4 do-not-close false">Romance</span>
+									</div>
+									<div class="genre-5 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-5" value='5'>
+										<span class="title-genre-5 do-not-close false">Comic</span>
+									</div>
+									<div class="genre-6 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-6" value='6'>
+										<span class="title-genre-6 do-not-close false">Reasoning</span>
+									</div>
+									<div class="genre-7 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-7" value='7'>
+										<span class="title-genre-7 do-not-close false">SchoolLife</span>
+									</div>
+									<div class="genre-8 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-8" value='8'>
+										<span class="title-genre-8 do-not-close false">Sports</span>
+									</div>
+									<div class="genre-9 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-9" value='9'>
+										<span class="title-genre-9 do-not-close false">Fantasy</span>
+									</div>
+									<div class="genre-10 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-10" value='10'>
+										<span class="title-genre-10 do-not-close true">Medicine</span>
+									</div>
+									<div class="genre-11 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-11" value='11'>
+										<span class="title-genre-11 do-not-close false">Food</span>
+									</div>
+									<div class="genre-12 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-12" value='12'>
+										<span class="title-genre-12 do-not-close false">Education</span>
+									</div>
+									<div class="genre-13 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-13" value='13'>
+										<span class="title-genre-13 do-not-close false">Battle</span>
+									</div>
+									<div class="genre-14 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-14" value='14'>
+										<span class="title-genre-14 do-not-close false">Mecanic</span>
+									</div>
+									<div class="genre-15 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-15" value='15'>
+										<span class="title-genre-15 do-not-close false">Daily</span>
+									</div>
+									<div class="genre-16 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-16" value='16'>
+										<span class="title-genre-16 do-not-close false">Age</span>
+									</div>
+									<div class="genre-17 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-17" value='17'>
+										<span class="title-genre-17 do-not-close false">GraphicNovel</span>
+									</div>
+									<div class="genre-18 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-18" value='18'>
+										<span class="title-genre-18 do-not-close false">Thriller</span>
+									</div>
+									<div class="genre-19 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-19" value='19'>
+										<span class="title-genre-19 do-not-close false">Drama</span>
+									</div>
+									<div class="genre-20 do-not-close">
+										<input type="checkbox" name='genreArr' class="do-not-close hide genre-20" value='20'>
+										<span class="title-genre-20 do-not-close false">Adventure</span>
+									</div>
+<!-- 									<button type="submit" class="title-register-complete-btn">Complete</button> -->
+								</div>
+							</div>
 
                         <hr>
-                        <div class="setting">
-                            <div class="Password">
-                                <a href="/user/logout">LOG OUT</a>
-                            </div>
-                        </div>
-                        <hr>
+<!--                         <div class="setting"> -->
+<!--                             <div class="Password"> -->
+<!--                                 <a href="/user/logout">LOG OUT</a> -->
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                         <hr> -->
 
-                        <div class="compony">
-                            <div class="compony-infor">
-                                Copyright © 2018 LIPMAN. 모든 권리 보유.
-                            </div>
-                        </div>
+<!--                         <div class="compony"> -->
+<!--                             <div class="compony-infor"> -->
+<!--                                 Copyright © 2018 LIPMAN. 모든 권리 보유. -->
+<!--                             </div> -->
+<!--                         </div> -->
 
                     </div>
                     <!-- /.container -->
