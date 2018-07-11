@@ -18,9 +18,9 @@
         </div>
         <div class="mypage-profile-name">
             <h3>${userVO.uname}</h3>
-            <div class="mypage-profile-subscribe">
-            	<a href="/mypage/subscriber" class="subscribedCount" id="btn-subscribedCount"></a>
-            </div>
+        </div>
+        <div class="mypage-profile-subscribe">
+          	<a href="/mypage/subscriber" class="subscribedCount" id="btn-subscribedCount"></a>
         </div>
     </div>
 

@@ -397,7 +397,7 @@
     color: white;
 }
 
-/* mypage-home cards left */
+/* cards left */
 .expander-title-inner {
 	display: grid;
     grid-template-columns: 400px;
@@ -450,7 +450,7 @@
     width: 30px;
 }
 
-/* mypage-home cards left */
+/* cards right */
 .toggle-page{
 	width: 1040px;
 	height: 420px;
@@ -488,6 +488,10 @@
     font-size: 1em;
     padding-left: 20px;
 }
+
+
+/* mypage-home cards right time */
+
 
 /* ??????????????????????????? 시작 */
 /* .toggle-page .pagination .page-item{
