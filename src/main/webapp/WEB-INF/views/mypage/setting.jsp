@@ -39,7 +39,7 @@
                 <!--icon-->
 	<div class="mypage-profile-icon">
 		<div class="mypage-profile-icon-home">
-			<a href="/mypage/home" class="active">
+			<a href="/mypage/home">
 			<img src="/resources/png/comic.png" id="profile-img-home">
 			</a>
 		</div>
@@ -54,7 +54,7 @@
 			</a>
 		</div>
 		<div class="mypage-profile-icon-setting">
-			<a href="/mypage/setting">
+			<a href="/mypage/setting" class="active">
 				<img src="/resources/png/setting.png" id="profile-img-setting">
 			</a>
 		</div>
