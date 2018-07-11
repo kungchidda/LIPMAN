@@ -196,13 +196,11 @@
 
 /*setting*/
 .mypage-setting {
-<<<<<<< .merge_file_c5REDl
 	display: grid;
 	grid-template-columns: 400px 600px;
 	grid-template-areas: "a b" "c d" "e f" "g h" "i j" "k l";
 	justify-content: center;
 	justify-items: center;
-=======
     display: grid;
     grid-template-columns: 400px 600px;
     grid-template-areas: 
@@ -215,7 +213,6 @@
         "n n";
     justify-content: center;
     justify-items: center;
->>>>>>> .merge_file_tzQ7wq
 }
 
 .mypage-setting div {
@@ -243,17 +240,11 @@
 	grid-area: e;
 }
 
-<<<<<<< .merge_file_c5REDl
-.mypage-setting .mypage-setting-nickname {
-	grid-area: f;
-	justify-self: start;
-	padding-left: 100px;
-=======
+
 .mypage-setting .mypage-setting-nickname, .mypage-setting-nickname-input {
     grid-area: f;
     justify-self: start;
     padding-left: 100px;
->>>>>>> .merge_file_tzQ7wq
 }
 
 .mypage-setting .mypage-setting-nickname-button {
@@ -313,11 +304,7 @@
 }
 
 .mypage-setting .mypage-setting-genre-title {
-<<<<<<< .merge_file_c5REDl
-	grid-area:;
-=======
     grid-area: n;
->>>>>>> .merge_file_tzQ7wq
 }
 
 .mypage-setting .mypage-setting-genre-title,
