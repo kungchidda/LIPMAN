@@ -671,12 +671,17 @@ a:visited {color: black;}
     -o-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
     transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
     /* easeInOutBack */
+
 }
 
 .header img:hover {width: 40px;}
 
 .header .brand img {width: 150px;}
 
+.login-account-image {
+	border-radius: 10px;
+	border:  1px solid #d3d3d3;
+}
 
 
 /* @media query */
