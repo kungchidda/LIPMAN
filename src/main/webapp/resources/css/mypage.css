@@ -108,7 +108,7 @@
 
 
 
-/* ???? */
+/* ???? start */
 .upload-file-list {
 	overflow: auto;
 }
@@ -148,6 +148,7 @@
 .mypage-thumbnail-thumb span {
 	padding: 10px;
 }
+/* ??? end */
 
 
 /*subscriber*/
@@ -196,11 +197,6 @@
 
 /*setting*/
 .mypage-setting {
-	display: grid;
-	grid-template-columns: 400px 600px;
-	grid-template-areas: "a b" "c d" "e f" "g h" "i j" "k l";
-	justify-content: center;
-	justify-items: center;
     display: grid;
     grid-template-columns: 400px 600px;
     grid-template-areas: 
@@ -209,8 +205,7 @@
         "e f" 
         "g h"
         "i j"
-        "k l"
-        "n n";
+        "k l";
     justify-content: center;
     justify-items: center;
 }
@@ -303,9 +298,6 @@
 	padding-right: 150px;
 }
 
-.mypage-setting .mypage-setting-genre-title {
-    grid-area: n;
-}
 
 .mypage-setting .mypage-setting-genre-title,
 	.mypage-setting-subscriber-title, .mypage-setting-subscribe-title,
@@ -343,12 +335,33 @@
 	font-size: 1em;
 }
 
-/*mypage-genre-list*/
-.mypage-genre-list {
+/* mypage-setting-genre */
+.mypage-setting-genre {
+	text-align: center;
+}
+
+.mypage-setting-genre-list {
+	display: inline-block;
+}
+
+.mypage-setting-genre-left, .mypage-setting-gerne-right {
+	float: left;
+}
+
+.mypage-setting-genre-left {
+	width : 500px;
+}
+
+.mypage-setting-genre-right {
 	display: grid;
-	grid-template-columns: 400px 150px 150px 150px 150px;
-	grid-template-areas: "a b c d e" "a f g h i" "a j k l m" "a n o p q"
-		"a r s t u" "a . v v .";
+	grid-template-columns: 150px 150px 150px 150px;
+	grid-template-areas: 
+		"a b c d" 
+		"e f g h" 
+		"i j k l" 
+		"m n o p"
+		"q r s t" 
+		". u u .";
 	justify-content: center;
 	align-items: center;
 	grid-row-gap: 20px;
@@ -362,106 +375,102 @@ hr {
 	margin-left: auto;
 }
 
-.mypage-genre-list .mypage-genre-list-title {
+
+.mypage-setting-genre-right .genre-1 {
 	grid-area: a;
-	justify-self: center;
 }
 
-.mypage-genre-list .mypage-genre-list-01 {
+.mypage-setting-genre-right .genre-2 {
 	grid-area: b;
 }
 
-.mypage-genre-list .mypage-genre-list-02 {
+.mypage-setting-genre-right .genre-3 {
 	grid-area: c;
 }
 
-.mypage-genre-list .mypage-genre-list-03 {
+.mypage-setting-genre-right .genre-4 {
 	grid-area: d;
 }
 
-.mypage-genre-list .mypage-genre-list-04 {
+.mypage-setting-genre-right .genre-5 {
 	grid-area: e;
 }
 
-.mypage-genre-list .mypage-genre-list-05 {
+.mypage-setting-genre-right .genre-6 {
 	grid-area: f;
 }
 
-.mypage-genre-list .mypage-genre-list-06 {
+.mypage-setting-genre-right .genre-7 {
 	grid-area: g;
 }
 
-.mypage-genre-list .mypage-genre-list-07 {
+.mypage-setting-genre-right .genre-8 {
 	grid-area: h;
 }
 
-.mypage-genre-list .mypage-genre-list-08 {
+.mypage-setting-genre-right .genre-9 {
 	grid-area: i;
 }
 
-.mypage-genre-list .mypage-genre-list-09 {
+.mypage-setting-genre-right .genre-10 {
 	grid-area: j;
 }
 
-.mypage-genre-list .mypage-genre-list-10 {
+.mypage-setting-genre-right .genre-11 {
 	grid-area: k;
 }
 
-.mypage-genre-list .mypage-genre-list-11 {
+.mypage-setting-genre-right .genre-12 {
 	grid-area: l;
 }
 
-.mypage-genre-list .mypage-genre-list-12 {
+.mypage-setting-genre-right .genre-13 {
 	grid-area: m;
 }
 
-.mypage-genre-list .mypage-genre-list-13 {
+.mypage-setting-genre-right .genre-14 {
 	grid-area: n;
 }
 
-.mypage-genre-list .mypage-genre-list-14 {
+.mypage-setting-genre-right .genre-15 {
 	grid-area: o;
 }
 
-.mypage-genre-list .mypage-genre-list-15 {
+.mypage-setting-genre-right .genre-16 {
 	grid-area: p;
 }
 
-.mypage-genre-list .mypage-genre-list-16 {
+.mypage-setting-genre-right .genre-17 {
 	grid-area: q;
 }
 
-.mypage-genre-list .mypage-genre-liste-17 {
+.mypage-setting-genre-right .genre-18 {
 	grid-area: r;
 }
 
-.mypage-genre-list .mypage-genre-list-18 {
+.mypage-setting-genre-right .genre-19 {
 	grid-area: s;
 }
 
-.mypage-genre-list .mypage-genre-list-19 {
+.mypage-setting-genre-right .genre-20 {
 	grid-area: t;
 }
 
-.mypage-genre-list .mypage-genre-list-20 {
+.mypage-setting-genre-right .mypage-setting-genre-switch {
 	grid-area: u;
 }
 
-.mypage-genre-list .mypage-setting-genre-switch {
-	grid-area: v;
-}
-
-.mypage-genre-list .mypage-setting-genre-open {
-	grid-area: v;
+.mypage-setting-genre .mypage-setting-genre-open {
+	grid-area: u;
 	padding-left: 150px;
 }
 
-.mypage-genre-list .mypage-setting-genre-close {
-	grid-area: v;
+.mypage-setting-genre .mypage-setting-genre-close {
+	grid-area: u;
 	padding-right: 150px;
 }
 
-.mypage-genre-list .mypage-setting-genre-switch,
+.mypage-setting-genre .mypage-setting-genre-switch,
 	.mypage-setting-genre-open, .mypage-setting-genre-close {
 	align-self: center;
 	justify-self: center;
