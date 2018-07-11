@@ -27,7 +27,7 @@
                 <div class="profile">
                     <div class="profile-image">
                         <div class="uploadedList">
-                            <img src="/displayFile?fileName=${userVO.fullName}">
+                            <img src="/displayFile?fileName=${userVO.profileFullName}">
                         </div>
                     </div>
                     <div class="profile-infor">
