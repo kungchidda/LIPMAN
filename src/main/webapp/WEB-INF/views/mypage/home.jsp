@@ -47,10 +47,10 @@
 			<ul class="og-grid cards">
 
 				<li class="title-register">
-					<img class="mypage-home-start-image" src="/resources/images/start.png">
-					<div class="mypage-home-start-talk" style="height: 113px">
-						<span>Show it!</span><br>
-						<span>Your Comic :)</span>
+					<img class="mypage-home-start-image" src="/resources/png/register.png">
+					<div class="mypage-home-start-talk" style="height: 73px">
+						<!-- <span>Show it!</span><br>
+						<span>Your Comic :)</span> -->
 					</div>
 
 					<form id="registerForm" role="form" action="/title/register" method="post">
@@ -185,7 +185,7 @@
 								<img src="/resources/png/pencil.png"><span>${MyPageVO.titlelikecnt}</span>
 								<img src="/resources/png/eraser.png"><span>${MyPageVO.titledislikecnt}</span>
 							</div>
-							<div class="og-expander hide do-not-close" style="height: 550px;">
+							<div class="og-expander hide do-not-close">
 								<div class="og-expander-inner do-not-close">
 									<div class="expander-title-inner">
 										<div class="og-fullimg do-not-close">
@@ -481,7 +481,8 @@
 // 				printData(data.list, $(".og-expander-inner"),$('#subtitle-template'));
 				printData(data.list, $(".toggle-page"),$('#subtitle-template'));
 				printPaging(data.pageMaker, $(".pagination"), tno);
-				var str = '<div class="subtitleLi do-not-close register"><a href="/sboard/register?tno=' + tno + '" class="comic-list do-not-close"><div class="comic-list do-not-close"><img src="/resources/png/sub-gray.png"></div><div class="comic-list-text cursor do-not-close">New Subtitle</div></a></div>';
+// 				var str = '<div class="subtitleLi do-not-close register"><a href="/sboard/register?tno=' + tno + '" class="comic-list do-not-close"><div class="comic-list do-not-close"><img src="/resources/png/sub-gray.png"></div><div class="comic-list-text cursor do-not-close">New Subtitle</div></a></div>';
+				var str = '<div class="subtitleLi do-not-close register"><a href="/sboard/register?tno=' + tno + '" class="comic-list do-not-close"><div class="comic-list do-not-close"><img src="/resources/png/register.png"></div><div class="comic-list-text cursor do-not-close"></div></a></div>';
 				console.log("str = " + str);
 				$('.register').html(str);
 
