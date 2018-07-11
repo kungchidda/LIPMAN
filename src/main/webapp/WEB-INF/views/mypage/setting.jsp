@@ -8,59 +8,21 @@
             <head>
                 <title>LIPMAN</title>
                 <%@ include file="/WEB-INF/views/include/header.jsp"%>
+                <%@ include file="/WEB-INF/views/mypage/profile.jsp"%>
                 
                     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-
-                    <link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/default.css" />
-                    <link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/component.css" />
-                    <script src="/resources/ThumbnailGridExpandingPreview/js/modernizr.custom.js"></script>
-
-                    <link rel="stylesheet" type="text/css" href="/resources/css/banner/banner.css" />
-
-                    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <link href="/resources/css/mypage.css" rel="stylesheet">
             </head>
 
             <body>
-                <!--profile-->
-                <div class="profile">
-                    <div class="profile-image">
-                        <div class="uploadedList">
-                            <img src="/displayFile?fileName=${userVO.profileFullName}">
-                        </div>
-                    </div>
-                    <div class="profile-infor">
-                        <h3>${userVO.uname}</h3>
-                        <span>
-                            <a href="/mypage/subscriber" class="subscribedCount"></a>
-                        </span>
-                    </div>
-                </div>
 
 
 
                 <script>
 
                     $(document).ready(function () {
-                        var subscribed = '${login.uid}';
-
-                        $.ajax({
-                            type: 'post',
-                            url: '/subscribes/count',
-                            headers: {
-                                "Content-Type": "application/json",
-                                "X-HTTP-Method-Override": "POST"
-                            },
-                            dataType: 'text',
-                            data: JSON.stringify({ subscribed: subscribed }),
-                            success: function (result) {
-                                var html = result + " Subscriber";
-                                console.log("html:" + html);
-                                $(".subscribedCount").append(html);
-
-                            }
-                        });
 
                         
                         var genreStr = "${userVO.genre}";
@@ -76,28 +38,28 @@
                 </script>
 
                 <!--icon-->
-                <div class="profile-icon">
-                    <div class="profile-icon-home">
-                        <a href="/mypage/home">
-                            <img src="/resources/png/comic.png">
-                        </a>
-                    </div>
-                    <div class="profile-icon-subscribed">
-                        <a href="/mypage/subscribed">
-                            <img src="/resources/png/subscribe.png">
-                        </a>
-                    </div>
-                    <div class="profile-icon-subscriber">
-                        <a href="/mypage/subscriber">
-                            <img src="/resources/png/subscribed.png">
-                        </a>
-                    </div>
-                    <div class="profile-icon-setting">
-                        <a href="/mypage/setting" class="active">
-                            <img src="/resources/png/setting.png">
-                        </a>
-                    </div>
-                </div>
+	<div class="mypage-profile-icon">
+		<div class="mypage-profile-icon-home">
+			<a href="/mypage/home" class="active">
+			<img src="/resources/png/comic.png" id="profile-img-home">
+			</a>
+		</div>
+		<div class="mypage-profile-icon-subscribe">
+			<a href="/mypage/subscribed">
+				<img src="/resources/png/subscribe.png" id="profile-img-subscribed">
+			</a>
+		</div>
+		<div class="mypage-profile-icon-subscribed">
+			<a href="/mypage/subscriber"> 
+				<img src="/resources/png/subscribed.png" id="profile-img-subscriber">
+			</a>
+		</div>
+		<div class="mypage-profile-icon-setting">
+			<a href="/mypage/setting">
+				<img src="/resources/png/setting.png" id="profile-img-setting">
+			</a>
+		</div>
+	</div>
 
 
                 <form id="registerForm" action="/user/setting" role="form" method="post">

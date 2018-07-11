@@ -19,23 +19,23 @@
 	<!--icon-->
 	<div class="mypage-profile-icon">
 		<div class="mypage-profile-icon-home">
-			<a href="/mypage/home" class="active"> <img
-				src="/resources/png/comic.png" id="profile-img-home">
+			<a href="/mypage/home" class="active">
+			<img src="/resources/png/comic.png" id="profile-img-home">
 			</a>
 		</div>
 		<div class="mypage-profile-icon-subscribe">
-			<a href="/mypage/subscribed"> <img
-				src="/resources/png/subscribe.png" id="profile-img-subscribed">
+			<a href="/mypage/subscribed">
+				<img src="/resources/png/subscribe.png" id="profile-img-subscribed">
 			</a>
 		</div>
 		<div class="mypage-profile-icon-subscribed">
-			<a href="/mypage/subscriber"> <img
-				src="/resources/png/subscribed.png" id="profile-img-subscriber">
+			<a href="/mypage/subscriber"> 
+				<img src="/resources/png/subscribed.png" id="profile-img-subscriber">
 			</a>
 		</div>
 		<div class="mypage-profile-icon-setting">
-			<a href="/mypage/setting"> <img src="/resources/png/setting.png"
-				id="profile-img-setting">
+			<a href="/mypage/setting">
+				<img src="/resources/png/setting.png" id="profile-img-setting">
 			</a>
 		</div>
 	</div>
