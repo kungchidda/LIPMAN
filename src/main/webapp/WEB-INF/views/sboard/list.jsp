@@ -81,6 +81,7 @@
 
 		<!-- </section> -->
 		<!-- 				<ul id="og-grid" class="og-grid rf-content--projects"> -->
+		
 		<!--banner-->
 		<div class="banner">
 			<p class="banner-text">
@@ -125,6 +126,9 @@
 								<div class="comic-list-title do-not-close">
 									<div>${boardVO.title}</div>
 								</div>
+								<!-- <div class="comic-list-setting">
+									<img src="/resources/png/setting.png" onclick="#">
+								</div> -->
 							</div>
 								<div class="toggle-page">
 									<div class="subtitleLi do-not-close">
@@ -133,13 +137,65 @@
 												<img src="http://172.30.0.182:8080/displayFile?fileName=${boardVO.boardFullName}">
 											</div>
 											<div class="comic-list-text cursor do-not-close">
-												${boardVO.subtitle}</div>
+												${boardVO.subtitle}
+											</div>
 										</a>
 										<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
 									</div>
 								</div>
+							</div>
 						</div>
-					</div>
+						
+						
+						
+						
+						
+						<%-- <div class="og-expander-inner tablet-web do-not-close">
+							<div class="expander-title-inner">
+								<div class="og-fullimg do-not-close">
+									<img class="do-not-close" src="http://172.30.0.182:8080/displayFile?fileName=${boardVO.titleFullName}" style="display: inline;">
+								</div>
+                                <div class="comic-list-genre do-not-close">
+        							<div>${boardVO.gname}</div>
+    							</div>
+                                <div class="comic-list-title do-not-close">
+                                    <div>${boardVO.title}</div>
+                                </div>
+                                <!-- <div class="comic-list-setting">
+                                        <img src="resources/png/setting.png" onclick="#">
+                                </div> -->
+							</div>
+							
+							<div class="toggle-page">
+								<div class="subtitleLi do-not-close">
+				                    <div class="comic-list-01-img"  onclick="window.location='contents.html';">
+				                        <img src="resources/images/thumbnail-001.jpg">
+				                    </div>
+				                    <div class="comic-list-01-sub cursor">
+				                        No.1 Hello, Javascript :D
+				                    </div>
+				                    <div class="comic-list-time-01">1 hours ago</div>
+			                    
+				                    <!--    <div class="comic-list-pagination">
+				                        <span>1</span>
+				                        <span>2</span>
+				                        <span>3</span>
+				                    </div>  -->
+									<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
+								</div>
+							</div> --%>
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+<!-- 					</div> -->
 				</li>
 
 			</c:forEach>
