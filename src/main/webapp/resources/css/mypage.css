@@ -453,7 +453,8 @@ subscribe
         "e f" 
         "g h"
         "i j"
-        "k l";
+        "k l"
+        "n n";
     justify-content: center;
     justify-items: center;
 }
@@ -483,7 +484,7 @@ subscribe
     grid-area: e;
 }
 
-.mypage-setting .mypage-setting-nickname {
+.mypage-setting .mypage-setting-nickname, .mypage-setting-nickname-input {
     grid-area: f;
     justify-self: start;
     padding-left: 100px;
@@ -546,7 +547,7 @@ subscribe
 }
 
 .mypage-setting .mypage-setting-genre-title {
-    grid-area: ;
+    grid-area: n;
 }
 
 .mypage-setting .mypage-setting-genre-title,
