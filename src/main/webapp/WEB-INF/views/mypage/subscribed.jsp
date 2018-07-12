@@ -48,7 +48,7 @@
 	<ul class="og-grid cards">
 		<c:forEach items="${subscribedList}" var="MyPageVO">
 			<li class="expander" id="${MyPageVO.tno}">
-				<img class="thumbnail" src="http://172.30.0.182:8080/displayFile?fileName=${MyPageVO.titleFullName}" />
+				<img class="thumbnail" src="http://172.30.0.182:8080/displayFile?fileName=${MyPageVO.boardFullName}" />
 				<div class="title">${MyPageVO.title}</div>
 				
 				<div class="subtitle">${MyPageVO.subtitle}</div>

@@ -281,7 +281,7 @@
 .mypage-setting-nick .mypage-setting-nickname, .mypage-setting-nickname-input {
 	grid-area: b;
 	justify-self: center;
-	padding-right: 200px;
+/* 	padding-right: 200px; */
 }
 
 .mypage-setting-nick .mypage-setting-nickname-button {
@@ -624,13 +624,14 @@ input:checked+.slider:before {
 	height: 80px;
 }
 
-.mypage-setting-confirm .mypage-setting-cancel-button {
+.mypage-setting-confirm .mypage-setting-confirm-button {
 	grid-area: a;
 }
 
-.mypage-setting-confirm .mypage-setting-confirm-button {
+.mypage-setting-confirm .mypage-setting-logout-button {
 	grid-area: b;
 }
+
 
 .mypage-setting-cancel-button button {
 	width: 150px;
@@ -669,6 +670,19 @@ hr {
 	margin-right: auto;
 	margin-left: auto;
 }
+
+.input-text {
+	width: 150px;
+	background-color: white;
+	border: 1px solid #424242;
+	border-radius: 10px;
+/* 	padding: 15px; */
+	font-size: 1em;
+	color: #424242;
+	height: 50px;
+	text-align: center;
+}
+
 
 /*mypage-compony*/
 .mypage-compony {
