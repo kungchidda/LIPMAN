@@ -217,6 +217,9 @@
 	                Sign-Up
 	            </div>
             </div>
+            <h1 class="signup-or"><span>or</span></h1>
+            <div class="signup-facebook do-not-close">Facebook</div>
+            <div class="signup-google do-not-close">Google</div>
         </form>
     </div>
 
