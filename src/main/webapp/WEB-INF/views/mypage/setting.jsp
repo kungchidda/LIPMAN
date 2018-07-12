@@ -162,7 +162,7 @@
                         
 					<hr>
                         
-                        <script>
+                        <!-- <script>
                             $(function () {
                                 $('#edit-password').click(function (e) {
                                     $('#password-input').show().removeAttr("readonly").focus();
@@ -175,7 +175,7 @@
                             $("#submit-password").on("click", function () {
                                 formObj.submit();
                             });
-                        </script>
+                        </script> -->
                                                 
 				       <div class="mypage-setting-subscribe">
 					        <div class="mypage-setting-subscribe-title">
@@ -250,7 +250,7 @@
 								</div>
 								<div class="genre-10 do-not-close">
 									<input type="checkbox" name='genreArr' class="do-not-close hide genre-10" value='10'>
-									<span class="title-genre-10 do-not-close true">Medicine</span>
+									<span class="title-genre-10 do-not-close false">Medicine</span>
 								</div>
 								<div class="genre-11 do-not-close">
 									<input type="checkbox" name='genreArr' class="do-not-close hide genre-11" value='11'>
