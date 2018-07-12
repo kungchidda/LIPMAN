@@ -16,9 +16,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="read" resultType="com.kungchidda.domain.BoardVO">
 		select
-			a.tno, a.bno, t.title, a.subtitle, a.content, a.fileList, u.uid, u.uname, a.regdate, a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt,  
-	            (select titleFullName from tbl_title_attach where tno  = 
-										(select tno from tbl_board where bno = #{bno}) )as titleFullName
+			a.tno, a.bno, t.title,  ta.titleFullName, ba.boardFullName, a.subtitle, a.content, a.fileList, u.uid, u.uname, a.regdate, a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt
+	            
 		from
 			tbl_board a
             
@@ -29,8 +28,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         inner join
         tbl_title t
         on t.tno = a.tno
+        
+		inner join
+        tbl_title_attach ta
+        on ta.tno = a.tno
+        
+        inner join
+        tbl_attach ba
+        on ba.bno = a.bno
+        
             
-		where bno = #{bno}
+		where a.bno = #{bno}
 	</select>
 	
 	<update id="update">

@@ -450,6 +450,15 @@
     width: 30px;
 }
 
+
+.readpage-toggle-page{
+	width: 1040px;
+	height: 420px;
+	padding-top : 70px;
+	padding-bottom : 50px;
+	float : left ;
+}
+
 /* cards right */
 .toggle-page{
 	width: 1040px;
@@ -459,7 +468,7 @@
 	float : left ;
 }
 
-.subtitleLi a{
+.subtitleLi a, .thissubtitleLi a{
     display: grid;
     grid-template-columns: 150px 370px;
     grid-template-rows: 120px;

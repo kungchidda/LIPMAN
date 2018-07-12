@@ -345,9 +345,9 @@
 			<div class="uploadedList">
 				<img src="{{imgsrc}}" style="width:200px;" alt="Attachment">
 			<div class="mailbox-attachment-info" style="width:200px;">
-				<a href="{{getLink}}" target="_blank" class="mailbox-attachment-name">{{fileName}}</a>
+				<!-- <a href="{{getLink}}" target="_blank" class="mailbox-attachment-name">{{fileName}}</a> -->
 				<small data-src="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn">
-					<i class="fa fa-fw fa-remove"></i>
+					<!-- <i class="fa fa-fw fa-remove"></i> -->
 				</small>
 			</div>
 			</div>
@@ -423,9 +423,7 @@
 					$(".uploadedList .delbtn").each(
 							function(index) {
 								console.log(index);
-								str += "<input type='hidden' name='files["
-										+ index + "]' value='"
-										+ $(this).attr("data-src") + "'> ";
+								str += "<input type='hidden' name='files[" + index + "]' value='" + $(this).attr("data-src") + "'> ";
 							});
 					that.append(str);
 
