@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.kungchidda.mappers.userMapper">
 
 	<select id="login" resultType="UserVO">
-		select u.uid, u.upw, u.uname, p.profileFullName
+		select u.uid, u.upw, u.uname, IFNULL(p.profileFullName, '/account.png') as profileFullName
 		from tbl_user u
 		
 		left outer join
@@ -42,11 +42,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<insert id="addAttach">
-	insert into tbl_profile(fullname, tno) values (#{fullName}, LAST_INSERT_ID())
+	insert into tbl_profile(profileFullName, tno) values (#{profileFullName}, LAST_INSERT_ID())
 	</insert>
 	
 	<select id="getAttach" resultType="string">
-	select fullName from tbl_profile where uno = #{uno} order by regdate
+	select profileFullName from tbl_profile where uno = #{uno} order by regdate
 	</select>
 	
 	<delete id="deleteAttach">
@@ -54,7 +54,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	<insert id="replaceAttach">
-		insert into tbl_profile(fullName, uno) values (#{fullName}, #{uno})
+		insert into tbl_profile(profileFullName, uno) values (#{profileFullName}, #{uno})
 	</insert>
 	
 		<update id="update">
