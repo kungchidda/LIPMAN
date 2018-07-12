@@ -53,10 +53,6 @@
 				
 				<div class="subtitle">${MyPageVO.subtitle}</div>
 				
-				<div class="line">
-					<img src="/resources/svg/line.svg">
-				</div>
-				
 				<div class="thumbnail-thumb">
 					<img src="/resources/png/pencil.png"><span>${MyPageVO.titlelikecnt}</span>
 					<img src="/resources/png/eraser.png"><span>${MyPageVO.titledislikecnt}</span>

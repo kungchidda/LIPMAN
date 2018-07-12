@@ -156,28 +156,38 @@
 
 .mypage-subscriber li {
 	display: grid;
+	grid-template-columns: 80px 200px;
 	grid-template-areas: "a b";
 	float: left;
-	width: 14%;
+	width: 280px;
+	align-items: center;
 }
 
 .mypage-subscriber-img img {
-	width: 40px;
+	width: 50px;
+	border: 1px solid #d3d3d3;
 	border-radius: 5px;
-	margin-top: 5px;
-	margin-bottom: 5px;
+}
+
+.login-account-image {
+	
 }
 
 .mypage-subscriber-img {
 	grid-area: a;
-	text-align: center;
+	justify-self: center;
 }
 
 .mypage-subscriber-name {
 	grid-area: b;
-	align-self: center;
-	width: 130px;
 	word-break: break-all;
+	justify-self: start;
+}
+
+.mypage-subscriber-name button {
+	padding: 10px;
+	border: 1px solid white;
+	font-size: 1em;
 }
 
 .mypage-subscriber a:link {
