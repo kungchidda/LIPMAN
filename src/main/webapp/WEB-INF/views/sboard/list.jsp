@@ -127,21 +127,21 @@
 									<img src="/resources/png/setting.png" onclick="#">
 								</div> -->
 							</div>
-								<div class="toggle-page">
-									<div class="subtitleLi do-not-close">
-										<a href="#">
-											<div class="comic-list-img do-not-close">
-												<img src="http://172.30.0.182:8080/displayFile?fileName=${boardVO.boardFullName}">
-											</div>
-											<div class="comic-list-text cursor do-not-close">
-												${boardVO.subtitle}
-											</div>
-										</a>
-										<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
-									</div>
+							<div class="toggle-page">
+								<div class="subtitleLi do-not-close">
+									<a href="#">
+										<div class="comic-list-img do-not-close">
+											<img src="http://172.30.0.182:8080/displayFile?fileName=${boardVO.boardFullName}">
+										</div>
+										<div class="comic-list-text cursor do-not-close">
+											${boardVO.subtitle}
+										</div>
+									</a>
+									<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
 								</div>
 							</div>
 						</div>
+					</div>
 				</li>
 
 			</c:forEach>
