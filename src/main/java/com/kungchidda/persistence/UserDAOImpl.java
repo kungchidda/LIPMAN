@@ -63,8 +63,8 @@ public class UserDAOImpl implements UserDAO{
 	}
 	
 	@Override
-	public void addAttach(String fullName) throws Exception{
-		session.insert(namespace+".addAttach", fullName);
+	public void addAttach(String profileFullName) throws Exception{
+		session.insert(namespace+".addAttach", profileFullName);
 	}
 	
 	@Override
@@ -78,10 +78,10 @@ public class UserDAOImpl implements UserDAO{
 	}
 	
 	@Override
-	public void replaceAttach(String fullName, Integer uno) throws Exception {
+	public void replaceAttach(String profileFullName, Integer uno) throws Exception {
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		
-		paramMap.put("fullName", fullName);
+		paramMap.put("profileFullName", profileFullName);
 		paramMap.put("uno", uno);
 		
 		session.insert(namespace+".replaceAttach", paramMap);

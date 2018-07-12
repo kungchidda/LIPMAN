@@ -21,10 +21,10 @@ public interface UserDAO {
 	
 	public void update(UserVO user) throws Exception;
 	
-	public void addAttach(String fullName) throws Exception;
+	public void addAttach(String profileFullName) throws Exception;
 	public List<String> getAttach(Integer uno) throws Exception;
 	public void deleteAttach(Integer uno) throws Exception;
-	public void replaceAttach(String fullName, Integer uno) throws Exception;
+	public void replaceAttach(String profileFullName, Integer uno) throws Exception;
 	
 	public void insertGenre(UserVO user) throws Exception;
 	public void deleteGenre(UserVO user) throws Exception;
