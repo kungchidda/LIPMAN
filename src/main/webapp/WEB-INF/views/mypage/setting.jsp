@@ -63,7 +63,7 @@
 
                 <form id="registerForm" action="/user/setting" role="form" method="post">
                                            
-                        <div class="mypage-setting">
+                        <div class="mypage-setting-id">
                             <div class="mypage-setting-loginid-title">
                                 Log-in ID
                             </div>
@@ -74,7 +74,7 @@
                         
 					<hr>
                         
-                        <div class="mypage-setting">
+                        <div class="mypage-setting-pw">
         					<div class="mypage-setting-password-title">
                                 Password
                             </div>
@@ -87,7 +87,7 @@
                         
 					<hr>
 						
-                        <div class="mypage-setting">
+                        <div class="mypage-setting-nick">
                             <div class="mypage-setting-nickname-title">
                                 Nick Name
                             </div>
@@ -132,7 +132,7 @@
                         
 					<hr>
                         
-                        <div class="mypage-setting">
+                        <div class="mypage-setting-img">
                             <div class="mypage-setting-profileimage-title">
                                 <p>Profile image</p>
                             </div>
@@ -177,7 +177,7 @@
                             });
                         </script>
                                                 
-				       <div class="mypage-setting">
+				       <div class="mypage-setting-subscribe">
 					        <div class="mypage-setting-subscribe-title">
 					            Subscribe
 					        </div>
@@ -191,7 +191,7 @@
 				    	
 				    <hr>
 				    
-					    <div class="mypage-setting">
+					    <div class="mypage-setting-subscriber">
 					        <div class="mypage-setting-subscriber-title">
 					            Subscriber
 					        </div>
@@ -313,12 +313,12 @@
 					    
 				    <hr>
 				    
-					    <div class="mypage-setting-modify">
-					        <div class="mypage-setting-modify-button">
-					            <button type="button">Modify</button>
+					    <div class="mypage-setting-confirm">
+					        <div class="mypage-setting-cancel-button">
+					            <button type="button">Cancel</button>
 					        </div>
-					        <div class="mypage-setting-done-button">
-					            <button type="button">Done</button>
+					        <div class="mypage-setting-confirm-button">
+					            <button type="button">Confirm</button>
 					        </div>
 					    </div>
 								

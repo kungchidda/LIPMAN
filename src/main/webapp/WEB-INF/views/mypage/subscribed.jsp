@@ -48,8 +48,7 @@
 	<ul class="og-grid cards">
 		<c:forEach items="${subscribedList}" var="MyPageVO">
 			<li class="expander" id="${MyPageVO.tno}">
-				<img class="thumbnail" src="/displayFile?fileName=${MyPageVO.titleFullName}" />
-				
+				<img class="thumbnail" src="http://172.30.0.182:8080/displayFile?fileName=${MyPageVO.titleFullName}" />
 				<div class="title">${MyPageVO.title}</div>
 				
 				<div class="subtitle">${MyPageVO.subtitle}</div>
@@ -67,7 +66,7 @@
 				</div>
 				
 				<div class="thumbnail-writer">
-					<img src="/displayFile?fileName=${MyPageVO.profileFullName}">
+					<img src="http://172.30.0.182:8080/displayFile?fileName=${MyPageVO.profileFullName}">
 					<span>${MyPageVO.uname}</span>
 				</div>
 				
@@ -75,7 +74,7 @@
 						<div class="og-expander-inner do-not-close">
 							<div class="expander-title-inner">
 								<div class="og-fullimg do-not-close">
-									<img class="do-not-close" src="/displayFile?fileName=${MyPageVO.titleFullName}" style="display: inline;">
+									<img class="do-not-close" src="http://172.30.0.182:8080/displayFile?fileName=${MyPageVO.titleFullName}" style="display: inline;">
 								</div>
 								<div class="comic-list-genre do-not-close">
 									<div>${MyPageVO.gname}</div>
@@ -88,7 +87,7 @@
 									<div class="subtitleLi do-not-close">
 										<a href="#">
 											<div class="comic-list-img do-not-close">
-												<img src="/displayFile?fileName=${MyPageVO.boardFullName}">
+												<img src="http://172.30.0.182:8080/displayFile?fileName=${MyPageVO.boardFullName}">
 											</div>
 											<div class="comic-list-text cursor do-not-close">
 												${MyPageVO.subtitle}</div>
@@ -116,7 +115,7 @@
 		{{#each .}}
 		<div class="subtitleLi do-not-close">
 			<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>
-				<div class="comic-list-img do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
+				<div class="comic-list do-not-close"><img src="http://172.30.0.182:8080/displayFile?fileName={{boardFullName}}"></div>
 				<div class="comic-list-text cursor do-not-close">{{subtitle}}</div>
 			</a>
 		</div>

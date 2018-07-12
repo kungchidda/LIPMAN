@@ -105,9 +105,6 @@
 	border-bottom: 5px solid red;
 }
 
-
-
-
 /* ???? start */
 .upload-file-list {
 	overflow: auto;
@@ -149,7 +146,6 @@
 	padding: 10px;
 }
 /* ??? end */
-
 
 /*subscriber*/
 .mypage-subscriber {
@@ -193,116 +189,217 @@
 	color: black;
 }
 
-/*Mypage-Setting*/
+/* Mypage-Setting */
 
-/*setting*/
-.mypage-setting {
-    display: grid;
-    grid-template-columns: 400px 600px;
-    grid-template-areas: 
-        "a b" 
-        "c d" 
-        "e f" 
-        "g h"
-        "i j"
-        "k l";
-    justify-content: center;
-    justify-items: center;
+/* Mypage-Setting - login*/
+.mypage-setting-id {
+	display: grid;
+	grid-template-columns: 300px 700px;
+	grid-template-areas: 
+		"a b";
+	justify-content: center;	
+	justify-items: center;
+	align-items: center;
+	height: 80px;
 }
 
-.mypage-setting div {
-	padding: 20px;
-	align-self: center;
-}
-
-.mypage-setting .mypage-setting-loginid-title {
+.mypage-setting-id .mypage-setting-loginid-title {
 	grid-area: a;
 }
 
-.mypage-setting .mypage-setting-loginid-text {
+.mypage-setting-id .mypage-setting-loginid-text {
 	grid-area: b;
 }
 
-.mypage-setting .mypage-setting-password-title {
-	grid-area: c;
+/* Mypage-Setting - password */
+.mypage-setting-pw {
+	display: grid;
+	grid-template-columns: 300px 700px;
+	grid-template-areas: 
+		"a b";
+	justify-content: center;	
+	justify-items: center;
+	align-items: center;
+	height: 80px;
 }
 
-.mypage-setting .mypage-setting-password-title-button {
-	grid-area: d;
+.mypage-setting-pw .mypage-setting-password-title {
+	grid-area: a;
 }
 
-.mypage-setting .mypage-setting-nickname-title {
-	grid-area: e;
+.mypage-setting-pw .mypage-setting-password-title-button {
+	grid-area: b;
+}
+
+.mypage-setting-pw button {
+	width: 150px;
+	background-color: white;
+	border: 1px solid #424242;
+	border-radius: 10px;
+	padding: 15px;
+	font-size: 1em;
+	color: #424242;
+}
+
+.mypage-setting-pw button:hover {
+	width: 150px;
+	background-color: #1d8bf1;
+	border: 1px solid #1d8bf1;
+	border-radius: 10px;
+	padding: 15px;
+	font-size: 1em;
+	color: white;
 }
 
 
-.mypage-setting .mypage-setting-nickname, .mypage-setting-nickname-input {
-    grid-area: f;
-    justify-self: start;
-    padding-left: 100px;
+/* Mypage-Setting - nick */
+.mypage-setting-nick {
+	display: grid;
+	grid-template-columns: 300px 700px;
+	grid-template-areas: 
+		"a b";
+	justify-content: center;	
+	justify-items: center;
+	align-items: center;
+	height: 80px;
 }
 
-.mypage-setting .mypage-setting-nickname-button {
-	grid-area: f;
-	justify-self: end;
-	padding-right: 100px;
+.mypage-setting-nick .mypage-setting-nickname-title {
+	grid-area: a;
 }
 
-.mypage-setting .mypage-setting-profileimage-title {
-	grid-area: g;
+.mypage-setting-nick .mypage-setting-nickname, .mypage-setting-nickname-input {
+	grid-area: b;
+	justify-self: center;
+	padding-right: 200px;
 }
 
-.mypage-setting .mypage-setting-profileimage-button {
-	grid-area: h;
-}
-
-.mypage-setting .mypage-setting-subscribe-title {
-	grid-area: i;
-}
-
-.mypage-setting .mypage-setting-subscribe-switch {
-	grid-area: j;
-	align-self: center;
-}
-
-.mypage-setting .mypage-setting-subscribe-open {
-	grid-area: j;
-	align-self: center;
+.mypage-setting-nick .mypage-setting-nickname-button {
+	grid-area: b;
+	justify-self: center;
 	padding-left: 150px;
 }
 
-.mypage-setting .mypage-setting-subscribe-close {
-	grid-area: j;
-	align-self: center;
-	padding-right: 150px;
+.mypage-setting-nick button {
+	width: 150px;
+	background-color: white;
+	border: 1px solid #424242;
+	border-radius: 10px;
+	padding: 15px;
+	font-size: 1em;
+	color: #424242;
 }
 
-.mypage-setting .mypage-setting-subscriber-title {
-	grid-area: k;
+.mypage-setting-nick button:hover {
+	width: 150px;
+	background-color: #1d8bf1;
+	border: 1px solid #1d8bf1;
+	border-radius: 10px;
+	padding: 15px;
+	font-size: 1em;
+	color: white;
 }
 
-.mypage-setting .mypage-setting-subscriber-switch {
-	grid-area: l;
-	align-self: center;
+
+/* Mypage-Setting - profile img */
+.mypage-setting-img {
+	display: grid;
+	grid-template-columns: 300px 700px;
+	grid-template-areas: 
+		"a b";
+	justify-content: center;	
+	justify-items: center;
+	align-items: center;
+	height: 80px;
 }
 
-.mypage-setting .mypage-setting-subscriber-open {
-	grid-area: l;
-	align-self: center;
+.mypage-setting-img .mypage-setting-profileimage-title {
+	grid-area: a;
+}
+
+.mypage-setting-img .mypage-setting-profileimage-button {
+	grid-area: b;
+}
+
+.mypage-setting-img button {
+	width: 150px;
+	background-color: white;
+	border: 1px solid #424242;
+	border-radius: 10px;
+	padding: 15px;
+	font-size: 1em;
+	color: #424242;
+}
+
+.mypage-setting-img button:hover {
+	width: 150px;
+	background-color: #1d8bf1;
+	border: 1px solid #1d8bf1;
+	border-radius: 10px;
+	padding: 15px;
+	font-size: 1em;
+	color: white;
+}
+
+/* Mypage-Setting - subscribe */
+.mypage-setting-subscribe {
+	display: grid;
+	grid-template-columns: 300px 700px;
+	grid-template-areas: 
+		"a b";
+	justify-content: center;	
+	justify-items: center;
+	align-items: center;
+	height: 80px;
+}
+
+.mypage-setting-subscribe .mypage-setting-subscribe-title {
+	grid-area: a;
+}
+
+.mypage-setting-subscribe .mypage-setting-subscribe-switch {
+	grid-area: b;
+}
+
+.mypage-setting-subscribe .mypage-setting-subscribe-open {
+	grid-area: b;
 	padding-left: 150px;
 }
 
-.mypage-setting .mypage-setting-subscriber-close {
-	grid-area: l;
-	align-self: center;
+.mypage-setting-subscribe .mypage-setting-subscribe-close {
+	grid-area: b;
 	padding-right: 150px;
 }
 
 
-.mypage-setting .mypage-setting-genre-title,
-	.mypage-setting-subscriber-title, .mypage-setting-subscribe-title,
-	.mypage-setting-password-title, .mypage-setting-loginid-title {
-	padding: 30px;
+/* Mypage-Setting - subscriber */
+.mypage-setting-subscriber {
+	display: grid;
+	grid-template-columns: 300px 700px;
+	grid-template-areas: 
+		"a b";
+	justify-content: center;	
+	justify-items: center;
+	align-items: center;
+	height: 80px;
+}
+
+.mypage-setting-subscriber .mypage-setting-subscriber-title {
+	grid-area: a;
+}
+
+.mypage-setting-subscriber .mypage-setting-subscriber-switch {
+	grid-area: b;
+}
+
+.mypage-setting-subscriber .mypage-setting-subscriber-open {
+	grid-area: b;
+	padding-left: 150px;
+}
+
+.mypage-setting-subscriber .mypage-setting-subscriber-close {
+	grid-area: b;
+	padding-right: 150px;
 }
 
 .mypage-setting-subscribe-switch {
@@ -327,13 +424,6 @@
 	display: none;
 }
 
-.mypage-setting button {
-	width: 250px;
-	border: 1px solid black;
-	border-radius: 5px;
-	padding: 10px 20px;
-	font-size: 1em;
-}
 
 /* mypage-setting-genre */
 .mypage-setting-genre {
@@ -349,116 +439,51 @@
 }
 
 .mypage-setting-genre-left {
-	width : 500px;
+	width: 300px;
+	padding-top: 25px;
 }
 
 .mypage-setting-genre-right {
 	display: grid;
-	grid-template-columns: 150px 150px 150px 150px;
+	grid-template-columns: repeat(4, 175px);
+	grid-template-rows: repeat(6, 60px);
 	grid-template-areas: 
 		"a b c d" 
 		"e f g h" 
 		"i j k l" 
-		"m n o p"
-		"q r s t" 
+		"m n o p" 
+		"q r s t"
 		". u u .";
 	justify-content: center;
 	align-items: center;
-	grid-row-gap: 20px;
-	padding-top: 25px;
-	padding-bottom: 25px;
+	grid-row-gap: 10px;
+	padding-top: 20px;
+	padding-bottom: 10px;
 }
 
-hr {
-	width: 40%;
-	margin-right: auto;
-	margin-left: auto;
-}
-
-
-.mypage-setting-genre-right .genre-1 {
-	grid-area: a;
-}
-
-.mypage-setting-genre-right .genre-2 {
-	grid-area: b;
-}
-
-.mypage-setting-genre-right .genre-3 {
-	grid-area: c;
-}
-
-.mypage-setting-genre-right .genre-4 {
-	grid-area: d;
-}
-
-.mypage-setting-genre-right .genre-5 {
-	grid-area: e;
-}
-
-.mypage-setting-genre-right .genre-6 {
-	grid-area: f;
-}
-
-.mypage-setting-genre-right .genre-7 {
-	grid-area: g;
-}
-
-.mypage-setting-genre-right .genre-8 {
-	grid-area: h;
-}
-
-.mypage-setting-genre-right .genre-9 {
-	grid-area: i;
-}
-
-.mypage-setting-genre-right .genre-10 {
-	grid-area: j;
-}
-
-.mypage-setting-genre-right .genre-11 {
-	grid-area: k;
-}
-
-.mypage-setting-genre-right .genre-12 {
-	grid-area: l;
-}
-
-.mypage-setting-genre-right .genre-13 {
-	grid-area: m;
-}
-
-.mypage-setting-genre-right .genre-14 {
-	grid-area: n;
-}
-
-.mypage-setting-genre-right .genre-15 {
-	grid-area: o;
-}
-
-.mypage-setting-genre-right .genre-16 {
-	grid-area: p;
-}
-
-.mypage-setting-genre-right .genre-17 {
-	grid-area: q;
-}
-
-.mypage-setting-genre-right .genre-18 {
-	grid-area: r;
-}
-
-.mypage-setting-genre-right .genre-19 {
-	grid-area: s;
-}
-
-.mypage-setting-genre-right .genre-20 {
-	grid-area: t;
-}
+.mypage-setting-genre-right .genre-1 {grid-area: a;}
+.mypage-setting-genre-right .genre-2 {grid-area: b;}
+.mypage-setting-genre-right .genre-3 {grid-area: c;}
+.mypage-setting-genre-right .genre-4 {grid-area: d;}
+.mypage-setting-genre-right .genre-5 {grid-area: e;}
+.mypage-setting-genre-right .genre-6 {grid-area: f;}
+.mypage-setting-genre-right .genre-7 {grid-area: g;}
+.mypage-setting-genre-right .genre-8 {grid-area: h;}
+.mypage-setting-genre-right .genre-9 {grid-area: i;}
+.mypage-setting-genre-right .genre-10 {grid-area: j;}
+.mypage-setting-genre-right .genre-11 {grid-area: k;}
+.mypage-setting-genre-right .genre-12 {grid-area: l;}
+.mypage-setting-genre-right .genre-13 {grid-area: m;}
+.mypage-setting-genre-right .genre-14 {grid-area: n;}
+.mypage-setting-genre-right .genre-15 {grid-area: o;}
+.mypage-setting-genre-right .genre-16 {grid-area: p;}
+.mypage-setting-genre-right .genre-17 {grid-area: q;}
+.mypage-setting-genre-right .genre-18 {grid-area: r;}
+.mypage-setting-genre-right .genre-19 {grid-area: s;}
+.mypage-setting-genre-right .genre-20 {grid-area: t;}
 
 .mypage-setting-genre-right .mypage-setting-genre-switch {
-	grid-area: u;
-}
+	grid-area: u;}
 
 .mypage-setting-genre .mypage-setting-genre-open {
 	grid-area: u;
@@ -525,6 +550,7 @@ input:checked+.slider:before {
 	transform: translateX(26px);
 }
 
+
 /* Rounded sliders */
 .slider.round {
 	border-radius: 30px;
@@ -538,67 +564,100 @@ input:checked+.slider:before {
 	padding-left: 10px;
 }
 
+
 /*mypage-setting-logout*/
 .mypage-setting-logout {
 	display: grid;
-	grid-template-columns: 400px 600px;
-	grid-template-areas: ". a";
-	justify-content: center;
+	grid-template-columns: 300px 700px;
+	grid-template-areas: 
+		". a";
+	justify-content: center;	
 	justify-items: center;
+	align-items: center;
+	height: 80px;
 }
 
 .mypage-setting-logout .mypage-setting-logout-button {
 	grid-area: a;
-	justify-self: center;
-}
-
-.mypage-setting-logout {
-	padding: 20px;
-	align-self: center;
 }
 
 .mypage-setting-logout-button button {
-	width: 250px;
-	border: 1px solid black;
-	border-radius: 5px;
-	padding: 10px 20px;
+	width: 150px;
+	background-color: white;
+	border: 1px solid #424242;
+	border-radius: 10px;
+	padding: 15px;
 	font-size: 1em;
+	color: #424242;
 }
 
-/*mypage-setting-modify*/
-.mypage-setting-modify {
-	display: grid;
-	grid-template-columns: 300px 300px;
-	grid-template-areas: "a b";
-	justify-content: center;
-	justify-items: center;
-	padding-top: 20px;
-}
-
-.mypage-setting-modify .mypage-setting-modify-button {
-	grid-area: a;
-}
-
-.mypage-setting-modify .mypage-setting-done-button {
-	grid-area: b;
-}
-
-.mypage-setting-modify-button button {
-	width: 250px;
-	border: 1px solid #1d8bf1;
-	border-radius: 5px;
-	padding: 10px 20px;
-	font-size: 1em;
+.mypage-setting-logout-button button:hover {
+	width: 150px;
 	background-color: #1d8bf1;
+	border: 1px solid #1d8bf1;
+	border-radius: 10px;
+	padding: 15px;
+	font-size: 1em;
 	color: white;
 }
 
-.mypage-setting-done-button button {
-	width: 250px;
-	border: 1px solid black;
-	border-radius: 5px;
-	padding: 10px 20px;
+
+/* mypage-setting - confirm */
+.mypage-setting-confirm {
+	display: grid;
+	grid-template-columns: 200px 200px;
+	grid-template-areas: 
+		"a b";
+	justify-content: center;	
+	justify-items: center;
+	align-items: center;
+	height: 80px;
+}
+
+.mypage-setting-confirm .mypage-setting-cancel-button {
+	grid-area: a;
+}
+
+.mypage-setting-confirm .mypage-setting-confirm-button {
+	grid-area: b;
+}
+
+.mypage-setting-cancel-button button {
+	width: 150px;
+	background-color: white;
+	border: 1px solid #424242;
+	border-radius: 10px;
+	padding: 15px;
 	font-size: 1em;
+	color: #424242;
+}
+
+.mypage-setting-confirm-button button {
+	width: 150px;
+	background-color: white;
+	border: 1px solid #424242;
+	border-radius: 10px;
+	padding: 15px;
+	font-size: 1em;
+	color: #424242;
+}
+
+.mypage-setting-confirm button:hover {
+	width: 150px;
+	background-color: #1d8bf1;
+	border: 1px solid #1d8bf1;
+	border-radius: 10px;
+	padding: 15px;
+	font-size: 1em;
+	color: white;
+}
+
+
+/* hr */
+hr {
+	width: 40%;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 /*mypage-compony*/
