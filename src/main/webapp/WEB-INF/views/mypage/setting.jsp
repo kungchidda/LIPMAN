@@ -23,7 +23,7 @@
 	<div class="mypage-profile">
 		<div class="mypage-profile-image">
 			<div class="uploadedList">
-				<img src="http://172.30.0.182:8080/displayFile?fileName=${userVO.profileFullName}">
+				<img src="/displayFile?fileName=${userVO.profileFullName}">
 			</div>
 		</div>
 		<div class="mypage-profile-name">
@@ -299,7 +299,6 @@
 		</div>
 
 
-		<hr>
 
 		<!-- 						<div class="mypage-setting-logout"> -->
 		<!-- 					        <div class="mypage-setting-logout-button"> -->
@@ -323,7 +322,9 @@
 		</div>
 
 
-
+	<div class="compony">
+		<div class="compony-infor">Copyright © 2018 LIPMAN. 모든 권리 보유.</div>
+	</div>
 
 
 		<!--                         <div class="compony"> -->

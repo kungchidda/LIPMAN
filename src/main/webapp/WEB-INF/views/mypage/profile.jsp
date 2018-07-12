@@ -13,7 +13,7 @@
     <div class="mypage-profile">
         <div class="mypage-profile-image">
         	<div class="uploadedList">
-            	<img src="http://172.30.0.182:8080/displayFile?fileName=${userVO.profileFullName}">
+            	<img src="/displayFile?fileName=${userVO.profileFullName}">
             </div>
         </div>
         <div class="mypage-profile-name">

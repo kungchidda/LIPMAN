@@ -51,7 +51,7 @@
 					<c:forEach items="${list}" var="subscribeVO">
 						<li>
 						 		<div class="mypage-subscriber-img">
-									<a href="#"><img src="http://172.30.0.182:8080/displayFile?fileName=${subscribeVO.profileFullName}"></a>
+									<a href="#"><img src="/displayFile?fileName=${subscribeVO.profileFullName}"></a>
 						 		</div>
 						 		<div class="mypage-subscriber-name">
 						 			<form id="subscriberForm" role="form" action="/mypage/user/titleList" method="GET">

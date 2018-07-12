@@ -242,7 +242,7 @@
 }
 
 .mypage-setting-pw button {
-	width: 150px;
+	width: 200px;
 	background-color: white;
 	border: 1px solid #424242;
 	border-radius: 10px;
@@ -252,7 +252,7 @@
 }
 
 .mypage-setting-pw button:hover {
-	width: 150px;
+	width: 200px;
 	background-color: #1d8bf1;
 	border: 1px solid #1d8bf1;
 	border-radius: 10px;
@@ -291,7 +291,7 @@
 }
 
 .mypage-setting-nick button {
-	width: 150px;
+	width: 200px;
 	background-color: white;
 	border: 1px solid #424242;
 	border-radius: 10px;
@@ -301,7 +301,7 @@
 }
 
 .mypage-setting-nick button:hover {
-	width: 150px;
+	width: 200px;
 	background-color: #1d8bf1;
 	border: 1px solid #1d8bf1;
 	border-radius: 10px;
@@ -332,7 +332,7 @@
 }
 
 .mypage-setting-img button {
-	width: 150px;
+	width: 200px;
 	background-color: white;
 	border: 1px solid #424242;
 	border-radius: 10px;
@@ -342,7 +342,7 @@
 }
 
 .mypage-setting-img button:hover {
-	width: 150px;
+	width: 200px;
 	background-color: #1d8bf1;
 	border: 1px solid #1d8bf1;
 	border-radius: 10px;
@@ -592,7 +592,7 @@ input:checked+.slider:before {
 }
 
 .mypage-setting-logout-button button {
-	width: 150px;
+	width: 200px;
 	background-color: white;
 	border: 1px solid #424242;
 	border-radius: 10px;
@@ -602,7 +602,7 @@ input:checked+.slider:before {
 }
 
 .mypage-setting-logout-button button:hover {
-	width: 150px;
+	width: 200px;
 	background-color: #1d8bf1;
 	border: 1px solid #1d8bf1;
 	border-radius: 10px;
@@ -615,9 +615,10 @@ input:checked+.slider:before {
 /* mypage-setting - confirm */
 .mypage-setting-confirm {
 	display: grid;
-	grid-template-columns: 170px 170px;
+	grid-template-columns: 200px 200px;
 	grid-template-areas: 
 		"a b";
+	grid-column-gap: 15px;
 	justify-content: center;	
 	justify-items: center;
 	align-items: center;
@@ -634,7 +635,7 @@ input:checked+.slider:before {
 
 
 .mypage-setting-cancel-button button {
-	width: 150px;
+	width: 200px;
 	background-color: white;
 	border: 1px solid #424242;
 	border-radius: 10px;
@@ -644,7 +645,7 @@ input:checked+.slider:before {
 }
 
 .mypage-setting-confirm-button button {
-	width: 150px;
+	width: 200px;
 	background-color: white;
 	border: 1px solid #424242;
 	border-radius: 10px;
@@ -654,7 +655,7 @@ input:checked+.slider:before {
 }
 
 .mypage-setting-confirm button:hover {
-	width: 150px;
+	width: 200px;
 	background-color: #1d8bf1;
 	border: 1px solid #1d8bf1;
 	border-radius: 10px;
@@ -672,7 +673,7 @@ hr {
 }
 
 .input-text {
-	width: 150px;
+	width: 200px;
 	background-color: white;
 	border: 1px solid #424242;
 	border-radius: 10px;
@@ -685,7 +686,7 @@ hr {
 
 
 /*mypage-compony*/
-.mypage-compony {
+.compony {
 	display: grid;
 	grid-template-columns: repeat(1, 100%);
 	grid-template-rows: 300px;
@@ -693,11 +694,11 @@ hr {
 	justify-content: center;
 	justify-items: center;
 	background-color: dimgray;
-	margin-top: 200px;
+	margin-top: 100px;
 	bottom: 0;
 }
 
-.mypage-compony .mypage-compony-infor {
+.compony .compony-infor {
 	grid-area: a;
 	color: white;
 	font-size: 1em;
