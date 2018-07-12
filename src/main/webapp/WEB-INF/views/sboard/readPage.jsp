@@ -14,11 +14,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script type="text/javascript" src="/resources/js/upload.js"></script>
 
-<link href="/resources/css/contents.css" rel="stylesheet">
+<!-- <link href="/resources/css/contents.css" rel="stylesheet"> -->
 
-<link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/default.css" />
+<script src="/resources/js/subtitlePrint.js"></script>
+<script src="/resources/js/expander.js"></script>
+
+<!-- <link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/default.css" />
 <link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/component.css" />
-<script src="/resources/ThumbnailGridExpandingPreview/js/modernizr.custom.js"></script>
+<script src="/resources/ThumbnailGridExpandingPreview/js/modernizr.custom.js"></script> -->
 
 
 
@@ -57,110 +60,108 @@
         </div>
         <div class="evaluate-no-2 dislikesDiv">
         </div>
-        
-        
     </div>
+    
 </section>
     
 	
 
 	
-	<section>
-	
-	<!-- 첨부파일 목록 및 썸네일 -->
-	<!-- <ul class="mailbox-attachments clearfix uploadedList"></ul> -->
-	
-	<script id="templateAttach" type="text/x-handlebars-template">
-		<li data-src='{{boardFullName}}'>
-			<span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
-				<div class="mailbox-attachment-info">
-				<a href="{{getLink}}" class="mailbox-attachment-name" target="_blank">{{fileName}}</a>
-			</span>
-			</div>
-		</li>
-	</script>
-	</section>
-	
-    <hr>
-    <hr>
-	<!--writer-->
-	<section>
-    <div class="writer">
-        <div class="writer-image">
-            <a href="mypage-home.html"><img src="/resources/png/account.png"></a>
-        </div>
-        <div class="writer-name">
-            <a href="mypage-home.html">${boardVO.uname}</a>
-        </div>
-        <div class="writer-information">
-            <span><img src="/resources/png/comic.png">
-            	<fmt:formatDate value="${boardVO.regdate}" pattern="yyyy-MM-dd HH:mm:ss "/>
+<hr>    
+    
+    
+    
+    <!--comic-infor-->
+   <div class="comic-infor">
+       <div class="comic-thumbnail">
+<!--            <a href="mypage-home.html"><img src="images/thumbnail-001.jpg"></a> -->
+           <img src="/displayFile?fileName=${boardVO.boardFullName}">
+       </div>
+       <div class="comic-title">
+           <span>${boardVO.subtitle}</span>
+       </div>
+       <div class="comic-time">
+           <span><img src="/resources/png/comic.png">
+            	<fmt:formatDate value="${boardVO.regdate}" pattern="yyyy년 MM월 dd일  HH시 mm분 ss초 "/>
             </span> 
-            <span><img src="/resources/png/view.png"></span>${boardVO.viewcnt}
-            <a href="#"><span><img src="/resources/png/copy-link.png"></span>copy link</a>
-            <!-- <span><button class="subscribe">subscribe</button></span> -->
-            <span><button type="submit" class="subscribe" id="subscribeBtn">SUBSCRIBE</button>
-			<button type="submit" class="subscribed" id="unsubscribeBtn">SUBSCRIBED</button></span>
-        </div>
-        <div class="writer-comment">
-             ${boardVO.content}
-        </div>
-    </div>
+       </div>
+       <div class="comic-view">
+			<span><img src="/resources/png/view.png"></span>${boardVO.viewcnt}
+       </div>
+       <div class="comic-link">
+           <a href="#"><span><img src="/resources/png/copy-link.png"></span>copy link</a>
+       </div>
+       <div class="writer-subscribe">
+			<span>
+           		<button type="submit" class="subscribe" id="subscribeBtn">SUBSCRIBE</button>
+				<button type="submit" class="subscribed" id="unsubscribeBtn">SUBSCRIBED</button>
+			</span>
+       </div>
+   </div>
+   
+   <!--comic-comment-->
+      <div class="comic-infor-comment">
+           <div class="comic-comment">
+               ${boardVO.content}
+           </div>
+       </div>
 
-</section>
 
 				
 				
 					
 	
 	<hr>
-	<hr>
-	<section>
 	<!--next comic-->
     <div class="strapline">
         <h4>Comic List</h4>
     </div>
 
 
-	
+		<div class="margin-bottom">
+	<div class="og-expander do-not-close">
+		<div class="og-expander-inner do-not-close">
+			<div class="expander-title-inner">
+				<div class="og-fullimg do-not-close">
+					<img class="do-not-close" src="http://172.30.0.182:8080/displayFile?fileName=${boardVO.titleFullName}" style="display: inline;">
+				</div>
+				<div class="comic-list-genre do-not-close">
+					<div>${boardVO.gname}</div>
+				</div>
+				<div class="comic-list-title do-not-close">
+					<div>${boardVO.title}</div>
+				</div>
+				<!-- <div class="comic-list-setting">
+					<img src="/resources/png/setting.png" onclick="#">
+				</div> -->
+			</div>
+			<div class="readpage-toggle-page">
+				<div class="thissubtitleLi do-not-close">
+					<a href="#">
+						<div class="comic-list do-not-close">
+							<img src="http://172.30.0.182:8080/displayFile?fileName=${boardVO.boardFullName}">
+						</div>
+						<div class="comic-list-text cursor do-not-close">
+							${boardVO.subtitle}
+						</div>
+					</a>
+					<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-
-
-    <div class="next-comic">
-        <div class="main-comic">
-            <a href="#">
-            	<img src="/displayFile?fileName=${boardVO.titleFullName}">
-            </a><br>
-        </div>
-        <div class="main-comic-title">
-            <a href="#">${boardVO.title}</a>
-        </div>
-        <ul class="comic-list-left">
-                <li>
-                <div class="thissubtitlesDiv">
-	                <p class="bg-green">Subtitle List
-	                	<small class="thissubtitlecntSmall"></small>
-	                </p>
-                </div>
-                </li>
-        </ul>
-        <ul id="pagination" class="pagination"></ul>
-    </div>
-    </section>
     <hr>
     
-<section class="section">
     <!--another comic-->
     <div class="strapline">
         <h4>Another Comic</h4>
     </div>
 
-		<ul id="og-grid" class="og-grid cards">
+		<%-- <ul id="og-grid" class="og-grid cards">
 			<c:forEach items="${list}" var="boardVO">
 				<li class="expander" id="${boardVO.tno}">
-<%-- 				<li class="expander og-expanded" onclick="getSubtitle(${boardVO.tno});"> --%>
-					<%-- <a href="/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno=${boardVO.bno}" data-largesrc="/displayFile?fileName=${boardVO.titleFullName}" data-title="${boardVO.title}"
-						 class="expander" onclick="getSubtitle(${boardVO.tno});"> data-description="${boardVO.uname}"> --%>
 					<img class="thumbnail" src="/displayFile?fileName=${boardVO.boardFullName}" />
 								
 					<div class="title">
@@ -171,7 +172,6 @@
 		                ${boardVO.subtitle}
 		            </div>
 					
-					<div class="line"><img src="/resources/svg/line.svg"></div>
 					<div class="thumbnail-thumb">
 						<img src="/resources/png/pencil.png"><span>${boardVO.likecnt}</span>
 						<img src="/resources/png/eraser.png"><span>${boardVO.dislikecnt}</span>
@@ -206,8 +206,68 @@
 					</div>
 				</li>
 			</c:forEach>
+		</ul> --%>
+		
+		<ul class="og-grid cards">
+			<c:forEach items="${list}" var="boardVO">
+				<li class="expander" id="${boardVO.tno}">
+					<img class="thumbnail" src="http://172.30.0.182:8080/displayFile?fileName=${boardVO.boardFullName}">
+
+					<div class="title">${boardVO.title}</div>
+
+					<div class="subtitle">${boardVO.subtitle}</div>
+
+					<div class="thumbnail-thumb">
+						<img src="/resources/png/pencil.png"><span>${boardVO.likecnt}</span>
+						<img src="/resources/png/eraser.png"><span>${boardVO.dislikecnt}</span>
+					</div>
+					<div class="line">
+						<img src="/resources/svg/line.svg">
+					</div>
+
+					<div class="thumbnail-writer">
+<!-- 						<img src="/resources/png/account.png">  -->
+						<img src="http://172.30.0.182:8080/displayFile?fileName=${boardVO.profileFullName}">
+						<span>${boardVO.uname}</span>
+					</div> <!-- 					</a> -->
+
+					<div class="og-expander hide do-not-close" style="height: 550px;">
+						<div class="og-expander-inner do-not-close">
+							<div class="expander-title-inner">
+								<div class="og-fullimg do-not-close">
+									<img class="do-not-close" src="http://172.30.0.182:8080/displayFile?fileName=${boardVO.titleFullName}" style="display: inline;">
+								</div>
+								<div class="comic-list-genre do-not-close">
+									<div>${boardVO.gname}</div>
+								</div>
+								<div class="comic-list-title do-not-close">
+									<div>${boardVO.title}</div>
+								</div>
+								<!-- <div class="comic-list-setting">
+									<img src="/resources/png/setting.png" onclick="#">
+								</div> -->
+							</div>
+								<div class="toggle-page">
+									<div class="subtitleLi do-not-close">
+										<a href="#">
+											<div class="comic-list do-not-close">
+												<img src="http://172.30.0.182:8080/displayFile?fileName=${boardVO.boardFullName}">
+											</div>
+											<div class="comic-list-text cursor do-not-close">
+												${boardVO.subtitle}
+											</div>
+										</a>
+										<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
+									</div>
+								</div>
+							</div>
+						</div>
+				</li>
+
+			</c:forEach>
 		</ul>
-</section>
+		
+		
     <hr>
 <section class="section">
 	<div class="comments">
@@ -340,58 +400,6 @@
 		{{/each}}
 	</script>
 	
-	<script>
-	/**************************************************************************************/
-	/**************************************************************************************/
-	/*                               	expander	 	                                  */
-	/**************************************************************************************/
-	/**************************************************************************************/
-    $(document).ready(function(){
-    	// expander 클래스를 클릭했을때
-    	$(".expander").click(function() {
-        	
-            console.log("expander clicked");
-            var submenu = $(this).find(".og-expander");
-            var tno = $(this).attr('id');
-            console.log("tno = " + tno);
-
-            if (submenu.is(":visible")) { //보이면 올림
-            	
-                $(this).parents().find(".background-blur").removeClass("background-blur"); //blur 효과 없애기
-                submenu.slideUp(300);
-                $(this).removeClass("margin-bottom");
-                
-            } else {
-            	var getSubtitleResult = getSubtitle(tno);
-                if(getSubtitleResult){
-					
-                    if ($(this).parents().find(".og-expander").is(":visible")) { //열린 곳이 있으면
-                    	
-                        $(this).parents().find(".og-expander").hide(); //다른 곳은 닫음
-                        $(this).parents().find(".background-blur").removeClass("background-blur"); //blur 효과 없애기
-                        $(".expander").not(this).addClass("background-blur"); //blur 효과 주기
-                        $(this).parents().find(".margin-bottom").removeClass("margin-bottom"); //margin 삭제
-                        $(this).addClass("margin-bottom");
-                        
-                        submenu.show();
-
-                    } else { //열린 곳이 없으면
-                        
-                    	$(this).parents().find(".og-expander").hide(); //다른 곳은 닫음
-                        $(this).parents().find(".background-blur").removeClass("background-blur"); //blur 효과 없애기
-                        $(".expander").not(this).addClass("background-blur"); //blur 효과 주기
-                        $(this).parents().find(".margin-bottom").removeClass("margin-bottom"); //margin 삭제
-                        $(this).addClass("margin-bottom");
-                        
-                        submenu.slideDown(300);
-                    }
-                }
-                
-      
-            }
-        });
-    });
-	</script>
 	
 	<script>
 		
@@ -400,8 +408,7 @@
             var tno = ${boardVO.tno};
             var bno = ${boardVO.bno};
 			var replyPage = 1;
-			getThisSubtitlePage("/sboard/"+tno+"/1");
-			
+			getThisSubtitlePage("/sboard/"+tno+"/"+"1"+"/6");
 			
 			
 			getPage("/replies/"+bno+"/"+replyPage);
@@ -506,7 +513,7 @@
 				
 			});
 
-				console.log(" document.referrer = " +  document.referrer);			
+				console.log("document.referrer = " +  document.referrer);			
 				//console.log(strArray[3]);
 			$("#listPageBtn").on("click", function() {
 				formObj.attr("method", "get");
@@ -688,7 +695,7 @@
 			
 			
 			
-	var template = Handlebars.compile($("#templateAttach").html());
+/* 	var template = Handlebars.compile($("#templateAttach").html());
 	
 	$.getJSON("/sboard/getAttach/"+bno, function(list){
 		$(list).each(function(){
@@ -696,7 +703,7 @@
 			var html = template(fileInfo);
 			$(".uploadedList").append(html);
 		});
-	});
+	}); */
 	
 	
 	likeInfo();
@@ -1142,7 +1149,7 @@
 	</script>
 	
 	
-	<script id="subtitle_template" type="text/x-handlebars-template">
+	<script id="subtitle-template" type="text/x-handlebars-template">
 		{{#each .}}
 			<div class="subtitleLi">
 					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
@@ -1156,60 +1163,16 @@
 	
 	<script id="thissubtitle_template" type="text/x-handlebars-template">
 		{{#each .}}
-			<div style="height:50px;" class="thissubtitleLi" data-sno={{sno}}>
-					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>{{subtitle}}</a>
-			</div>
+			<div class="thissubtitleLi">
+					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
+						<div class="comic-list"><img src="/displayFile?fileName={{boardFullName}}"></div>
+						<div class="comic-list-text cursor">{{subtitle}}</div>
+					</a>
 		{{/each}}
 	</script>
 	
 	
 	<script> //subtitle print
-	var formObj = $("form[role='form']");
-
-	function getSubtitle(tno){
-		console.log("click getSubtitle start getPage tno = " + "[" + tno + "]");
-		getSubtitlePage("/sboard/"+tno+"/1");
-		return 1;
-	};	
-	
-	
-
-	
-	
-	$(".pagination").on("click", "li a", function(event){
-		event.preventDefault();
-		subtitlePage = $(this).attr("href");
-		getSubtitlePage("/subtitles/"+bno+"/5/"+subtitlePage);
-		
-	});
-	
-	
-		
-	var printData = function (subtitleArr, target, templateObject){
-		console.log("start printData");
-		var template = Handlebars.compile(templateObject.html());
-		
-		var html = template(subtitleArr);
-		console.log("subtitleArr = " + subtitleArr);
-		target.append(html);
-	}
-		
-		
-	function getSubtitlePage(pageInfo){
-		console.log("start getSubtitlePage pageInfo = " + "["+pageInfo+"]");
-		
-		$(".pagination").remove();
-		$(".subtitleLi").remove();
-		$.getJSON(pageInfo,function(data){
-// 			printData(data.list, $(".subtitlesDiv"), $('#subtitle_template'));
-			printData(data.list, $(".og-expander"), $('#subtitle_template'));
-			printPaging(data.pageMaker, $(".pagination"));
-// 			console.log("start subtitlecntSmall");
-// 			$(".subtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
-		});
-		
-		
-	}
 	
 	
 	function getThisSubtitlePage(pageInfo){
@@ -1218,7 +1181,7 @@
 		//$(".pagination").remove();
 		$(".thissubtitleLi").remove();
 		$.getJSON(pageInfo,function(data){
-			printData(data.list, $(".thissubtitlesDiv"), $('#thissubtitle_template'));
+			printData(data.list, $(".readpage-toggle-page"), $('#thissubtitle_template'));
 			printPaging(data.pageMaker, $(".pagination"));
 			console.log("start subtitlecntSmall");
 			$(".thissubtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
