@@ -97,9 +97,6 @@
 
 					<div class="subtitle">${boardVO.subtitle}</div>
 
-					<div class="line">
-						<img src="/resources/svg/line.svg">
-					</div>
 					<div class="thumbnail-thumb">
 						<img src="/resources/png/pencil.png"><span>${boardVO.likecnt}</span>
 						<img src="/resources/png/eraser.png"><span>${boardVO.dislikecnt}</span>

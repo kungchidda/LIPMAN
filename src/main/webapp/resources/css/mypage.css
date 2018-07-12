@@ -605,7 +605,7 @@ input:checked+.slider:before {
 /* mypage-setting - confirm */
 .mypage-setting-confirm {
 	display: grid;
-	grid-template-columns: 200px 200px;
+	grid-template-columns: 170px 170px;
 	grid-template-areas: 
 		"a b";
 	justify-content: center;	
