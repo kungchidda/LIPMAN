@@ -214,7 +214,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			tbl_user_genre ug
 			on ug.uno = a.uno
 
-			inner join
+			left outer join
 			tbl_genre_name gn
 			on gn.genre = ug.genre
 
