@@ -222,18 +222,18 @@
 
     
     <div id="signupBar" class="do-not-close dropdown-contents">
-        <form class="dropdown-signup do-not-close">
-            <input type="text" class="signup-email do-not-close" placeholder='Log-in e-mail'>
-            <input type="text" class="signup-pw do-not-close" placeholder='Password'>
-            <input type="text" class="signup-repw do-not-close" placeholder='Retype Password'>
-            <input type="text" class="signup-nickname do-not-close" placeholder='Nick name'>
-            <div type="submit" class="signup-button do-not-close">Sign-Up</div>
-            <div type="submit" class="hadaccount-button dropbtn" onclick="myPageFunction()">
+        <form class="dropdown-signup do-not-close" role="form" action="/user/join" method="post">
+            <input type="email" name='uid' class="signup-email do-not-close" placeholder='Log-in e-mail'>
+            <input type="password" name="upw" class="signup-pw do-not-close" placeholder='Password'>
+<!--             <input type="text" class="signup-repw do-not-close" placeholder='Retype Password'> -->
+            <input type="text" name="uname" class="signup-nickname do-not-close" placeholder='Nick name'>
+           	<div id="signup-submit" class="signup-button do-not-close">Sign-Up</div>
+            <div class="hadaccount-button dropbtn" onclick="myPageFunction()">
                 Had Account
             </div>
             <h1 class="signup-or"><span>or</span></h1>
-            <div type="submit" class="signup-facebook do-not-close">Facebook</div>
-            <div type="submit" class="signup-google do-not-close">Google</div>
+            <div class="signup-facebook do-not-close">Facebook</div>
+            <div class="signup-google do-not-close">Google</div>
         </form>
     </div>
     
@@ -384,8 +384,12 @@
 					$("#genreInput"+genreArr[i]).next().toggleClass("true");
 				}
 				
+				var formObj = $("form[role='form']");
+                console.log(formObj);
        
-       
+				$("#signup-submit").on("click", function () {
+                    formObj.submit();
+                });
        
        
 });
