@@ -39,6 +39,24 @@
 		<input type='hidden' name="uname" class="form-control" value="${boardVO.uname}" readonly="readonly">
 	</form>
 
+    <!--profile-->
+    <div class="content-writer-profile">
+        <div class="content-writer-img">
+            <img src="/displayFile?fileName=${boardVO.profileFullName}">
+        </div>
+        <div class="content-writer-name">
+            <h3>${boardVO.uname}</h3>
+        </div>
+        <div class="content-writer-subscribe">
+            <span>
+           		<button type="submit" class="subscribe subscribeBtn">SUBSCRIBE</button>
+				<button type="submit" class="subscribed unsubscribeBtn">SUBSCRIBED</button>
+			</span>
+        </div>
+    </div>
+    
+    <hr>
+
 	<!--contents-->
     <div class="contents">
         <div class="comic">
@@ -93,8 +111,8 @@
        </div>
        <div class="writer-subscribe">
 			<span>
-           		<button type="submit" class="subscribe" id="subscribeBtn">SUBSCRIBE</button>
-				<button type="submit" class="subscribed" id="unsubscribeBtn">SUBSCRIBED</button>
+           		<button type="submit" class="subscribe subscribeBtn">SUBSCRIBE</button>
+				<button type="submit" class="subscribed unsubscribeBtn">SUBSCRIBED</button>
 			</span>
        </div>
    </div>
@@ -310,7 +328,7 @@
 	</div>
 	</section>
 	
-	<div class="box-footer">
+	<%-- <div class="box-footer">
 	<button type="submit" class="btn" id="subscribeBtn">SUBSCRIBE</button>
 	<button type="submit" class="btn btn-danger" id="unsubscribeBtn">SUBSCRIBED</button>
 		<c:if test="${login.uid == boardVO.uid}">
@@ -318,7 +336,7 @@
 			<button type="submit" class="btn btn-danger" id="removePageBtn">REMOVE</button>
 		</c:if>
 			<button type="submit" class="btn btn-primary" id="listPageBtn">LIST ALL</button>
-	</div>
+	</div> --%>
 	<!-- /.box-body -->
 
  	<!--another comment-->
@@ -414,7 +432,7 @@
 			getPage("/replies/"+bno+"/"+replyPage);
 			getLikeList();
 			subscribedList();
-			$("#unsubscribeBtn").hide();
+			$(".unsubscribeBtn").hide();
 			
 			
 
@@ -716,7 +734,7 @@
 	/**************************************************************************************/
 	/**************************************************************************************/
 	
-	$("#subscribeBtn").on("click",function(){
+	$(".subscribeBtn").on("click",function(){
 		console.log("subscribeBtn start");
 		var subscribed = '${boardVO.uid}';
 		var subscriber = '${login.uid}';
@@ -732,14 +750,14 @@
 				console.log("result:" + result);
 				if(result=='SUCCESS'){
 					alert("등록 되었습니다.");
-					$("#subscribeBtn").toggle();
-					$("#unsubscribeBtn").toggle();
+					$(".subscribeBtn").toggle();
+					$(".unsubscribeBtn").toggle();
 				}
 			}
 			});
 	});
 	
-	$("#unsubscribeBtn").on("click",function(){
+	$(".unsubscribeBtn").on("click",function(){
 		console.log("unsubscribeBtn start");
 		var subscribed = '${boardVO.uid}';
 		var subscriber = '${login.uid}';
@@ -755,8 +773,8 @@
 				console.log("result:" + result);
 				if(result=='SUCCESS'){
 					alert("삭제 되었습니다.");
-					$("#subscribeBtn").toggle();
-					$("#unsubscribeBtn").toggle();
+					$(".subscribeBtn").toggle();
+					$(".unsubscribeBtn").toggle();
 				}
 			}
 			});
@@ -780,8 +798,8 @@
 						console.log("subscribeList result.length : " + result.length);
 						if(result.length != 0){
 							alert("조회 되었습니다.");
-							$("#subscribeBtn").toggle();
-							$("#unsubscribeBtn").toggle();
+							$(".subscribeBtn").toggle();
+							$(".unsubscribeBtn").toggle();
 						}
 					}
 				});
@@ -985,7 +1003,7 @@
 
 				var rno = $(this).parents().attr('data-rno');
 				console.log("rno = " + rno);
-		        $(this).parent().parent().find('#replytext').removeAttr("readonly");
+		        $(this).parent().parent().find('#replytext').removeAttr("readonly").focus();
 		        
 				$(this).hide();
 		        $(this).next().show();

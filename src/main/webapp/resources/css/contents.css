@@ -42,6 +42,7 @@ h4 {
 }
 
 .content-writer-profile img {
+	width: 200px;
     border-radius: 10px;
 }
 
@@ -236,21 +237,38 @@ h4 {
 
 
 .subscribe {
-    border: 2px solid black;
+    border: 2px solid #f44336;
     background-color: white;
     padding: 15px 20px;
     font-size: 1em;
     cursor: pointer;
     border-radius: 10px;
-}
-
-.subscribe {
-    border-color: #f44336;
-    color: red
+    color: red;
+    width : 170px;
 }
 
 .subscribe:hover {
     background: #f44336;
+    color: white;
+}
+
+.subscribed {
+    border: 2px solid #f44336;
+    background: #f44336;
+    color: white;
+    padding: 15px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 10px;
+    background: #f44336;
+    color: white;
+    width : 170px;
+}
+
+
+.subscribed:hover {
+	border: 2px solid gray;
+    background: gray;
     color: white;
 }
 
@@ -662,6 +680,9 @@ another comic css
 
 }
 
+textarea{
+	resize: none;
+}
 /*footer*/
 
 .footer {
