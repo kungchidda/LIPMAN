@@ -14,7 +14,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script type="text/javascript" src="/resources/js/upload.js"></script>
 
-<!-- <link href="/resources/css/contents.css" rel="stylesheet"> -->
+<link href="/resources/css/contents.css" rel="stylesheet">
 
 <script src="/resources/js/subtitlePrint.js"></script>
 <script src="/resources/js/expander.js"></script>
@@ -118,8 +118,8 @@
     </div>
 
 
-		<div class="margin-bottom">
-	<div class="og-expander do-not-close">
+		<div class="content-margin-bottom">
+	<div class="og-expanded do-not-close">
 		<div class="og-expander-inner do-not-close">
 			<div class="expander-title-inner">
 				<div class="og-fullimg do-not-close">
