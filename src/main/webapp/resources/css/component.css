@@ -13,7 +13,7 @@
     height: 350px;
 }
 
-.og-title-register, .og-expander, .og-expanded {
+.og-title-register, .og-expander {
     position: absolute;
     background: #fff;
     top: auto;
@@ -28,6 +28,18 @@
     text-align: center;
 }
 
+.og-expanded {
+    position: absolute;
+    background: #fff;
+    top: auto;
+    left: 0;
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+    height: 540px;
+    overflow: hidden;
+    text-align: center;
+}
 
 /*first-og-expander*/
 .title-register-inner, .og-expander-inner{
