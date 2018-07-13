@@ -13,7 +13,7 @@
     height: 350px;
 }
 
-.og-title-register, .og-expander {
+.og-title-register, .og-expander, .og-expanded {
     position: absolute;
     background: #fff;
     top: auto;
@@ -535,6 +535,6 @@
 /* ????????????????? 끝 */
 
 .hide{display: none;}
-.margin-bottom {margin-bottom: 550px !important;}
+.margin-bottom, .content-margin-bottom {margin-bottom: 550px !important;}
 .background-blur{opacity: 0.5;}
 
