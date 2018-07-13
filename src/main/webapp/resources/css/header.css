@@ -732,16 +732,9 @@ a:visited {color: black;}
 
 }
 
-.header .accountBtn .accountBtn-login {	
-    border: 1px solid #d3d3d3;
-}
-
-.header .accountBtn img {	
-    border-radius: 50%;
-}
-
+.header .accountBtn .accountBtn-login {border: 1px solid #d3d3d3;}
+.header .accountBtn img {border-radius: 50%;}
 .header img:hover {width: 40px;}
-
 .header .brand img {width: 150px;}
 
 
@@ -787,7 +780,7 @@ a:visited {color: black;}
         height: 330px;
         overflow-y: auto;
     }
-    .mypage {height: 305px;}
+    .mypage {height: 400px;}
     .signup {height: 485px;}
    
 /*dropdown search*/
@@ -918,13 +911,15 @@ a:visited {color: black;}
     .dropdown-mypage {
         display: grid;
         grid-template-columns: 340px;
-        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-rows: 50px 25px 50px 50px 50px 25px 50px;
         grid-template-areas: 
             "a" 
             "b" 
             "c" 
             "d" 
-            "e";
+            "e"
+            "f"
+            "g";
         justify-content: center;
         grid-gap: 10px;
         padding-top: 20px;
@@ -953,7 +948,6 @@ a:visited {color: black;}
 
     .dropdown-mypage .login-id, .login-pw {
         width: 310px;
-        justify-self: center;
         padding: 15px;
         font-size: 1em;
         border: 1px solid gray;
@@ -963,26 +957,94 @@ a:visited {color: black;}
     .dropdown-mypage .login-button {
         grid-area: d;
         width: 340px;
-        padding: 15px;
-        border: 1px solid #f95e4e;
-        background-color: #f95e4e;
+        border: 1px solid #f25144;
+        background-color: #f25144;
         justify-self: center;
-        font-size: 1em;
-        color: white;
-        border-radius: 10px;
     }
 
     .dropdown-mypage .signupBtn {
         grid-area: e;
         width: 310px;
-        padding: 15px;
         border: 1px solid #feb25f;
         background-color: #feb25f;
         justify-self: center;
-        font-size: 1em;
-        color: white;
-        border-radius: 10px;
     }
+
+	.dropdown-mypage .login-button, .signup-button {
+	    font-size: 1em;
+	    border-radius: 10px;
+	    color: white;
+	}
+	
+	
+	.dropdown-mypage .signupBtn {
+	    font-size: 1em;
+	    text-align: center;
+	    padding: 15px;
+	    border-radius: 10px;
+	    color: white;
+	}
+	
+	.dropdown-mypage .signup-button a {
+	    color: white;
+	    background-color: #fdb930;
+	}
+	
+	.dropdown-mypage .hr-text {
+	  line-height: 1em;
+	  position: relative;
+	  outline: 0;
+	  border: 0;
+	  color: black;
+	  text-align: center;
+	  height: 1.5em;
+	}
+	
+	.dropdown-mypage .signup-or {
+	    grid-area: f
+	}
+	
+	.dropdown-mypage .signup-or {
+	    text-align: center;
+	    font-size: 20px;
+	    color: gray;
+	}
+	
+	.dropdown-mypage h1 span {
+	    background-color: #fff;
+	    padding: 10px;
+	}
+	
+	.dropdown-mypage h1::after {
+	    display: block;
+	    content: "";
+	    border: 1px solid #d3d3d3;
+	    margin-top: -0.5em;
+	}
+	
+	.dropdown-mypage .signup-facebook {
+	    grid-area: g;
+	    justify-self: end;
+	    border: 1px solid #507dbd;
+	    background-color: #507dbd;
+	}
+	
+	.dropdown-mypage .signup-google {
+	    grid-area: g;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-mypage .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 162px;
+	    border-radius: 10px;
+	    color: white;
+	}
+
 
 /*dropdown-content signup*/
     .dropdown-signup {
@@ -1079,35 +1141,22 @@ a:visited {color: black;}
         padding-left: 5px;
     }
 
-    .header a:link {
-        text-decoration: none;
-    }
-
-    .header .brand {
-        grid-area: a;
-        justify-self: center;
-        align-self: center;
-    }
-
-    .header .searchBtn {
-        grid-area: b;
-        justify-self: center;
-        align-self: center;
-    }
-
-    .header .noticeBtn {
-        grid-area: c;
-        align-self: center;
-        justify-self: center;
-    }
-
-    .header .accountBtn {
-        grid-area: d;
-        align-self: center;
-        justify-self: center;
-    }
-
+    .header .brand {grid-area: a;}
+	.header .searchBtn {grid-area: b;}
+	.header .noticeBtn {grid-area: c;}
+	.header .accountBtn {grid-area: d;}
+	.header .signupBtn {grid-area: d;}
+	
+	.header .brand, .searchBtn, .genreBtn, .noticeBtn, .accountBtn {
+	    justify-self: center;
+	    align-self: center;
+	}
+	
+	.header .accountBtn .accountBtn-login {border: 1px solid #d3d3d3;}
+	.header .accountBtn img {border-radius: 50%;}
+	
     .header img {width: 25px;}
+    .header img:hover {width: 25px;}
     .header .brand img {width: 100px;}
 }
 
@@ -1151,22 +1200,24 @@ a:visited {color: black;}
         height: 330px;
         overflow-y: auto;
     }
-    .mypage {height: 305px;}
+    .mypage {height: 400px;}
     .signup {height: 485px;}
    
 /*dropdown search*/
     .dropdown-searchBar-01 {
         display: grid;
-        grid-template-columns: 55px 90px 90px 85px 65px 95px 115px 65px 75px 95px;
+        grid-template-columns: 80px 115px 115px 110px 90px 120px 140px 90px 100px 120px;
         grid-template-rows: 50px 50px;
         grid-template-areas: 
             "c d e f g h i j k l"
             "m n o p q r s t u v";
-        justify-content: center;
+        justify-content: start;
         align-items: center;
         grid-row-gap: 10px;
+        padding-left: 20px;
         padding-top: 20px;
         padding-bottom: 10px;
+        overflow: scroll;
     }
     
     .dropdown-searchBar-01 .dropdown-genre-01 {grid-area: c;}
@@ -1192,14 +1243,14 @@ a:visited {color: black;}
     .dropdown-searchBar-01 span {
         padding-top: 15px;
         padding-bottom: 15px;
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 15px;
+        padding-right: 15px;
         border-radius: 10px;
     }
     
     .dropdown-searchBar-02 {
         display: grid;
-        grid-template-columns: 760px 60px;
+        grid-template-columns: 735px 60px;
         grid-template-rows: 50px;
         grid-template-areas: 
             "a b";
@@ -1279,13 +1330,15 @@ a:visited {color: black;}
     .dropdown-mypage {
         display: grid;
         grid-template-columns: 340px;
-        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-rows: 50px 25px 50px 50px 50px 25px 50px;
         grid-template-areas: 
             "a" 
             "b" 
             "c" 
             "d" 
-            "e";
+            "e"
+            "f"
+            "g";
         justify-content: center;
         grid-gap: 10px;
         padding-top: 20px;
@@ -1314,7 +1367,6 @@ a:visited {color: black;}
 
     .dropdown-mypage .login-id, .login-pw {
         width: 310px;
-        justify-self: center;
         padding: 15px;
         font-size: 1em;
         border: 1px solid gray;
@@ -1324,26 +1376,93 @@ a:visited {color: black;}
     .dropdown-mypage .login-button {
         grid-area: d;
         width: 340px;
-        padding: 15px;
-        border: 1px solid #f95e4e;
-        background-color: #f95e4e;
+        border: 1px solid #f25144;
+        background-color: #f25144;
         justify-self: center;
-        font-size: 1em;
-        color: white;
-        border-radius: 10px;
     }
 
     .dropdown-mypage .signupBtn {
         grid-area: e;
         width: 310px;
-        padding: 15px;
         border: 1px solid #feb25f;
         background-color: #feb25f;
         justify-self: center;
-        font-size: 1em;
-        color: white;
-        border-radius: 10px;
     }
+
+	.dropdown-mypage .login-button, .signup-button {
+	    font-size: 1em;
+	    border-radius: 10px;
+	    color: white;
+	}
+	
+	
+	.dropdown-mypage .signupBtn {
+	    font-size: 1em;
+	    text-align: center;
+	    padding: 15px;
+	    border-radius: 10px;
+	    color: white;
+	}
+	
+	.dropdown-mypage .signup-button a {
+	    color: white;
+	    background-color: #fdb930;
+	}
+	
+	.dropdown-mypage .hr-text {
+	  line-height: 1em;
+	  position: relative;
+	  outline: 0;
+	  border: 0;
+	  color: black;
+	  text-align: center;
+	  height: 1.5em;
+	}
+	
+	.dropdown-mypage .signup-or {
+	    grid-area: f
+	}
+	
+	.dropdown-mypage .signup-or {
+	    text-align: center;
+	    font-size: 20px;
+	    color: gray;
+	}
+	
+	.dropdown-mypage h1 span {
+	    background-color: #fff;
+	    padding: 10px;
+	}
+	
+	.dropdown-mypage h1::after {
+	    display: block;
+	    content: "";
+	    border: 1px solid #d3d3d3;
+	    margin-top: -0.5em;
+	}
+	
+	.dropdown-mypage .signup-facebook {
+	    grid-area: g;
+	    justify-self: end;
+	    border: 1px solid #507dbd;
+	    background-color: #507dbd;
+	}
+	
+	.dropdown-mypage .signup-google {
+	    grid-area: g;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-mypage .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 162px;
+	    border-radius: 10px;
+	    color: white;
+	}
 
 /*dropdown-content signup*/
     .dropdown-signup {
@@ -1440,35 +1559,22 @@ a:visited {color: black;}
         padding-left: 5px;
     }
 
-    .header a:link {
-        text-decoration: none;
-    }
-
-    .header .brand {
-        grid-area: a;
-        justify-self: center;
-        align-self: center;
-    }
-
-    .header .searchBtn {
-        grid-area: b;
-        justify-self: center;
-        align-self: center;
-    }
-
-    .header .noticeBtn {
-        grid-area: c;
-        align-self: center;
-        justify-self: center;
-    }
-
-    .header .accountBtn {
-        grid-area: d;
-        align-self: center;
-        justify-self: center;
-    }
-
+    .header .brand {grid-area: a;}
+	.header .searchBtn {grid-area: b;}
+	.header .noticeBtn {grid-area: c;}
+	.header .accountBtn {grid-area: d;}
+	.header .signupBtn {grid-area: d;}
+	
+	.header .brand, .searchBtn, .genreBtn, .noticeBtn, .accountBtn {
+	    justify-self: center;
+	    align-self: center;
+	}
+	
+	.header .accountBtn .accountBtn-login {border: 1px solid #d3d3d3;}
+	.header .accountBtn img {border-radius: 50%;}
+	
     .header img {width: 25px;}
+    .header img:hover {width: 25px;}
     .header .brand img {width: 100px;}
 }
 
@@ -1512,13 +1618,13 @@ a:visited {color: black;}
         height: 330px;
         overflow-y: auto;
     }
-    .mypage {height: 305px;}
+    .mypage {height: 400px;}
     .signup {height: 485px;}
    
 /*dropdown search*/
     .dropdown-searchBar-01 {
         display: grid;
-        grid-template-columns: 70px 105px 105px 100px 80px 110px 130px 80px 90px 110px;
+        grid-template-columns: 80px 115px 115px 110px 90px 120px 140px 90px 100px 120px;
         grid-template-rows: 50px 50px;
         grid-template-areas: 
             "c d e f g h i j k l"
@@ -1555,8 +1661,8 @@ a:visited {color: black;}
     .dropdown-searchBar-01 span {
         padding-top: 15px;
         padding-bottom: 15px;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
         border-radius: 10px;
     }
     
@@ -1642,13 +1748,15 @@ a:visited {color: black;}
     .dropdown-mypage {
         display: grid;
         grid-template-columns: 340px;
-        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-rows: 50px 25px 50px 50px 50px 25px 50px;
         grid-template-areas: 
             "a" 
             "b" 
             "c" 
             "d" 
-            "e";
+            "e"
+            "f"
+            "g";
         justify-content: center;
         grid-gap: 10px;
         padding-top: 20px;
@@ -1677,7 +1785,6 @@ a:visited {color: black;}
 
     .dropdown-mypage .login-id, .login-pw {
         width: 310px;
-        justify-self: center;
         padding: 15px;
         font-size: 1em;
         border: 1px solid gray;
@@ -1687,26 +1794,94 @@ a:visited {color: black;}
     .dropdown-mypage .login-button {
         grid-area: d;
         width: 340px;
-        padding: 15px;
-        border: 1px solid #f95e4e;
-        background-color: #f95e4e;
+        border: 1px solid #f25144;
+        background-color: #f25144;
         justify-self: center;
-        font-size: 1em;
-        color: white;
-        border-radius: 10px;
     }
 
     .dropdown-mypage .signupBtn {
         grid-area: e;
         width: 310px;
-        padding: 15px;
         border: 1px solid #feb25f;
         background-color: #feb25f;
         justify-self: center;
-        font-size: 1em;
-        color: white;
-        border-radius: 10px;
     }
+
+	.dropdown-mypage .login-button, .signup-button {
+	    font-size: 1em;
+	    border-radius: 10px;
+	    color: white;
+	}
+	
+	
+	.dropdown-mypage .signupBtn {
+	    font-size: 1em;
+	    text-align: center;
+	    padding: 15px;
+	    border-radius: 10px;
+	    color: white;
+	}
+	
+	.dropdown-mypage .signup-button a {
+	    color: white;
+	    background-color: #fdb930;
+	}
+	
+	.dropdown-mypage .hr-text {
+	  line-height: 1em;
+	  position: relative;
+	  outline: 0;
+	  border: 0;
+	  color: black;
+	  text-align: center;
+	  height: 1.5em;
+	}
+	
+	.dropdown-mypage .signup-or {
+	    grid-area: f
+	}
+	
+	.dropdown-mypage .signup-or {
+	    text-align: center;
+	    font-size: 20px;
+	    color: gray;
+	}
+	
+	.dropdown-mypage h1 span {
+	    background-color: #fff;
+	    padding: 10px;
+	}
+	
+	.dropdown-mypage h1::after {
+	    display: block;
+	    content: "";
+	    border: 1px solid #d3d3d3;
+	    margin-top: -0.5em;
+	}
+	
+	.dropdown-mypage .signup-facebook {
+	    grid-area: g;
+	    justify-self: end;
+	    border: 1px solid #507dbd;
+	    background-color: #507dbd;
+	}
+	
+	.dropdown-mypage .signup-google {
+	    grid-area: g;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-mypage .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 162px;
+	    border-radius: 10px;
+	    color: white;
+	}
+	
 
 /*dropdown-content signup*/
     .dropdown-signup {
@@ -1803,35 +1978,22 @@ a:visited {color: black;}
         padding-left: 5px;
     }
 
-    .header a:link {
-        text-decoration: none;
-    }
-
-    .header .brand {
-        grid-area: a;
-        justify-self: center;
-        align-self: center;
-    }
-
-    .header .searchBtn {
-        grid-area: b;
-        justify-self: center;
-        align-self: center;
-    }
-
-    .header .noticeBtn {
-        grid-area: c;
-        align-self: center;
-        justify-self: center;
-    }
-
-    .header .accountBtn {
-        grid-area: d;
-        align-self: center;
-        justify-self: center;
-    }
-
+    .header .brand {grid-area: a;}
+	.header .searchBtn {grid-area: b;}
+	.header .noticeBtn {grid-area: c;}
+	.header .accountBtn {grid-area: d;}
+	.header .signupBtn {grid-area: d;}
+	
+	.header .brand, .searchBtn, .genreBtn, .noticeBtn, .accountBtn {
+	    justify-self: center;
+	    align-self: center;
+	}
+	
+	.header .accountBtn .accountBtn-login {border: 1px solid #d3d3d3;}
+	.header .accountBtn img {border-radius: 50%;}
+	
     .header img {width: 25px;}
+    .header img:hover {width: 25px;}
     .header .brand img {width: 100px;}
 }
 
@@ -1875,7 +2037,7 @@ a:visited {color: black;}
         height: 330px;
         overflow-y: auto;
     }
-    .mypage {height: 305px;}
+    .mypage {height: 400px;}
     .signup {height: 485px;}
    
 /*dropdown search*/
@@ -2005,13 +2167,15 @@ a:visited {color: black;}
     .dropdown-mypage {
         display: grid;
         grid-template-columns: 340px;
-        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-rows: 50px 25px 50px 50px 50px 25px 50px;
         grid-template-areas: 
             "a" 
             "b" 
             "c" 
             "d" 
-            "e";
+            "e"
+            "f"
+            "g";
         justify-content: center;
         grid-gap: 10px;
         padding-top: 20px;
@@ -2040,7 +2204,6 @@ a:visited {color: black;}
 
     .dropdown-mypage .login-id, .login-pw {
         width: 310px;
-        justify-self: center;
         padding: 15px;
         font-size: 1em;
         border: 1px solid gray;
@@ -2050,26 +2213,93 @@ a:visited {color: black;}
     .dropdown-mypage .login-button {
         grid-area: d;
         width: 340px;
-        padding: 15px;
-        border: 1px solid #f95e4e;
-        background-color: #f95e4e;
+        border: 1px solid #f25144;
+        background-color: #f25144;
         justify-self: center;
-        font-size: 1em;
-        color: white;
-        border-radius: 10px;
     }
 
     .dropdown-mypage .signupBtn {
         grid-area: e;
         width: 310px;
-        padding: 15px;
         border: 1px solid #feb25f;
         background-color: #feb25f;
         justify-self: center;
-        font-size: 1em;
-        color: white;
-        border-radius: 10px;
     }
+
+	.dropdown-mypage .login-button, .signup-button {
+	    font-size: 1em;
+	    border-radius: 10px;
+	    color: white;
+	}
+	
+	
+	.dropdown-mypage .signupBtn {
+	    font-size: 1em;
+	    text-align: center;
+	    padding: 15px;
+	    border-radius: 10px;
+	    color: white;
+	}
+	
+	.dropdown-mypage .signup-button a {
+	    color: white;
+	    background-color: #fdb930;
+	}
+	
+	.dropdown-mypage .hr-text {
+	  line-height: 1em;
+	  position: relative;
+	  outline: 0;
+	  border: 0;
+	  color: black;
+	  text-align: center;
+	  height: 1.5em;
+	}
+	
+	.dropdown-mypage .signup-or {
+	    grid-area: f
+	}
+	
+	.dropdown-mypage .signup-or {
+	    text-align: center;
+	    font-size: 20px;
+	    color: gray;
+	}
+	
+	.dropdown-mypage h1 span {
+	    background-color: #fff;
+	    padding: 10px;
+	}
+	
+	.dropdown-mypage h1::after {
+	    display: block;
+	    content: "";
+	    border: 1px solid #d3d3d3;
+	    margin-top: -0.5em;
+	}
+	
+	.dropdown-mypage .signup-facebook {
+	    grid-area: g;
+	    justify-self: end;
+	    border: 1px solid #507dbd;
+	    background-color: #507dbd;
+	}
+	
+	.dropdown-mypage .signup-google {
+	    grid-area: g;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-mypage .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 162px;
+	    border-radius: 10px;
+	    color: white;
+	}
 
 /*dropdown-content signup*/
     .dropdown-signup {
@@ -2166,35 +2396,22 @@ a:visited {color: black;}
         padding-left: 5px;
     }
 
-    .header a:link {
-        text-decoration: none;
-    }
-
-    .header .brand {
-        grid-area: a;
-        justify-self: center;
-        align-self: center;
-    }
-
-    .header .searchBtn {
-        grid-area: b;
-        justify-self: center;
-        align-self: center;
-    }
-
-    .header .noticeBtn {
-        grid-area: c;
-        align-self: center;
-        justify-self: center;
-    }
-
-    .header .accountBtn {
-        grid-area: d;
-        align-self: center;
-        justify-self: center;
-    }
-
+    .header .brand {grid-area: a;}
+	.header .searchBtn {grid-area: b;}
+	.header .noticeBtn {grid-area: c;}
+	.header .accountBtn {grid-area: d;}
+	.header .signupBtn {grid-area: d;}
+	
+	.header .brand, .searchBtn, .genreBtn, .noticeBtn, .accountBtn {
+	    justify-self: center;
+	    align-self: center;
+	}
+	
+	.header .accountBtn .accountBtn-login {border: 1px solid #d3d3d3;}
+	.header .accountBtn img {border-radius: 50%;}
+	
     .header img {width: 25px;}
+    .header img:hover {width: 25px;}
     .header .brand img {width: 100px;}
 }
 
@@ -2238,7 +2455,7 @@ a:visited {color: black;}
         height: 330px;
         overflow-y: auto;
     }
-    .mypage {height: 305px;}
+    .mypage {height: 400px;}
     .signup {height: 485px;}
    
 /*dropdown search*/
@@ -2368,13 +2585,15 @@ a:visited {color: black;}
     .dropdown-mypage {
         display: grid;
         grid-template-columns: 340px;
-        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-rows: 50px 25px 50px 50px 50px 25px 50px;
         grid-template-areas: 
             "a" 
             "b" 
             "c" 
             "d" 
-            "e";
+            "e"
+            "f"
+            "g";
         justify-content: center;
         grid-gap: 10px;
         padding-top: 20px;
@@ -2403,7 +2622,6 @@ a:visited {color: black;}
 
     .dropdown-mypage .login-id, .login-pw {
         width: 310px;
-        justify-self: center;
         padding: 15px;
         font-size: 1em;
         border: 1px solid gray;
@@ -2413,26 +2631,94 @@ a:visited {color: black;}
     .dropdown-mypage .login-button {
         grid-area: d;
         width: 340px;
-        padding: 15px;
-        border: 1px solid #f95e4e;
-        background-color: #f95e4e;
+        border: 1px solid #f25144;
+        background-color: #f25144;
         justify-self: center;
-        font-size: 1em;
-        color: white;
-        border-radius: 10px;
     }
 
     .dropdown-mypage .signupBtn {
         grid-area: e;
         width: 310px;
-        padding: 15px;
         border: 1px solid #feb25f;
         background-color: #feb25f;
         justify-self: center;
-        font-size: 1em;
-        color: white;
-        border-radius: 10px;
     }
+
+	.dropdown-mypage .login-button, .signup-button {
+	    font-size: 1em;
+	    border-radius: 10px;
+	    color: white;
+	}
+	
+	
+	.dropdown-mypage .signupBtn {
+	    font-size: 1em;
+	    text-align: center;
+	    padding: 15px;
+	    border-radius: 10px;
+	    color: white;
+	}
+	
+	.dropdown-mypage .signup-button a {
+	    color: white;
+	    background-color: #fdb930;
+	}
+	
+	.dropdown-mypage .hr-text {
+	  line-height: 1em;
+	  position: relative;
+	  outline: 0;
+	  border: 0;
+	  color: black;
+	  text-align: center;
+	  height: 1.5em;
+	}
+	
+	.dropdown-mypage .signup-or {
+	    grid-area: f
+	}
+	
+	.dropdown-mypage .signup-or {
+	    text-align: center;
+	    font-size: 20px;
+	    color: gray;
+	}
+	
+	.dropdown-mypage h1 span {
+	    background-color: #fff;
+	    padding: 10px;
+	}
+	
+	.dropdown-mypage h1::after {
+	    display: block;
+	    content: "";
+	    border: 1px solid #d3d3d3;
+	    margin-top: -0.5em;
+	}
+	
+	.dropdown-mypage .signup-facebook {
+	    grid-area: g;
+	    justify-self: end;
+	    border: 1px solid #507dbd;
+	    background-color: #507dbd;
+	}
+	
+	.dropdown-mypage .signup-google {
+	    grid-area: g;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-mypage .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 162px;
+	    border-radius: 10px;
+	    color: white;
+	}
+	
 
 /*dropdown-content signup*/
     .dropdown-signup {
@@ -2529,35 +2815,22 @@ a:visited {color: black;}
         padding-left: 5px;
     }
 
-    .header a:link {
-        text-decoration: none;
-    }
-
-    .header .brand {
-        grid-area: a;
-        justify-self: center;
-        align-self: center;
-    }
-
-    .header .searchBtn {
-        grid-area: b;
-        justify-self: center;
-        align-self: center;
-    }
-
-    .header .noticeBtn {
-        grid-area: c;
-        align-self: center;
-        justify-self: center;
-    }
-
-    .header .accountBtn {
-        grid-area: d;
-        align-self: center;
-        justify-self: center;
-    }
-
+    .header .brand {grid-area: a;}
+	.header .searchBtn {grid-area: b;}
+	.header .noticeBtn {grid-area: c;}
+	.header .accountBtn {grid-area: d;}
+	.header .signupBtn {grid-area: d;}
+	
+	.header .brand, .searchBtn, .genreBtn, .noticeBtn, .accountBtn {
+	    justify-self: center;
+	    align-self: center;
+	}
+	
+	.header .accountBtn .accountBtn-login {border: 1px solid #d3d3d3;}
+	.header .accountBtn img {border-radius: 50%;}
+	
     .header img {width: 25px;}
+    .header img:hover {width: 25px;}
     .header .brand img {width: 100px;}
 }
 
@@ -2601,7 +2874,7 @@ a:visited {color: black;}
         height: 330px;
         overflow-y: auto;
     }
-    .mypage {height: 305px;}
+    .mypage {height: 400px;}
     .signup {height: 485px;}
    
 /*dropdown search*/
@@ -2731,13 +3004,15 @@ a:visited {color: black;}
     .dropdown-mypage {
         display: grid;
         grid-template-columns: 340px;
-        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-rows: 50px 25px 50px 50px 50px 25px 50px;
         grid-template-areas: 
             "a" 
             "b" 
             "c" 
             "d" 
-            "e";
+            "e"
+            "f"
+            "g";
         justify-content: center;
         grid-gap: 10px;
         padding-top: 20px;
@@ -2766,7 +3041,6 @@ a:visited {color: black;}
 
     .dropdown-mypage .login-id, .login-pw {
         width: 310px;
-        justify-self: center;
         padding: 15px;
         font-size: 1em;
         border: 1px solid gray;
@@ -2776,26 +3050,93 @@ a:visited {color: black;}
     .dropdown-mypage .login-button {
         grid-area: d;
         width: 340px;
-        padding: 15px;
-        border: 1px solid #f95e4e;
-        background-color: #f95e4e;
+        border: 1px solid #f25144;
+        background-color: #f25144;
         justify-self: center;
-        font-size: 1em;
-        color: white;
-        border-radius: 10px;
     }
 
     .dropdown-mypage .signupBtn {
         grid-area: e;
         width: 310px;
-        padding: 15px;
         border: 1px solid #feb25f;
         background-color: #feb25f;
         justify-self: center;
-        font-size: 1em;
-        color: white;
-        border-radius: 10px;
     }
+
+	.dropdown-mypage .login-button, .signup-button {
+	    font-size: 1em;
+	    border-radius: 10px;
+	    color: white;
+	}
+	
+	
+	.dropdown-mypage .signupBtn {
+	    font-size: 1em;
+	    text-align: center;
+	    padding: 15px;
+	    border-radius: 10px;
+	    color: white;
+	}
+	
+	.dropdown-mypage .signup-button a {
+	    color: white;
+	    background-color: #fdb930;
+	}
+	
+	.dropdown-mypage .hr-text {
+	  line-height: 1em;
+	  position: relative;
+	  outline: 0;
+	  border: 0;
+	  color: black;
+	  text-align: center;
+	  height: 1.5em;
+	}
+	
+	.dropdown-mypage .signup-or {
+	    grid-area: f
+	}
+	
+	.dropdown-mypage .signup-or {
+	    text-align: center;
+	    font-size: 20px;
+	    color: gray;
+	}
+	
+	.dropdown-mypage h1 span {
+	    background-color: #fff;
+	    padding: 10px;
+	}
+	
+	.dropdown-mypage h1::after {
+	    display: block;
+	    content: "";
+	    border: 1px solid #d3d3d3;
+	    margin-top: -0.5em;
+	}
+	
+	.dropdown-mypage .signup-facebook {
+	    grid-area: g;
+	    justify-self: end;
+	    border: 1px solid #507dbd;
+	    background-color: #507dbd;
+	}
+	
+	.dropdown-mypage .signup-google {
+	    grid-area: g;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-mypage .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 162px;
+	    border-radius: 10px;
+	    color: white;
+	}
 
 /*dropdown-content signup*/
     .dropdown-signup {
@@ -2892,35 +3233,22 @@ a:visited {color: black;}
         padding-left: 5px;
     }
 
-    .header a:link {
-        text-decoration: none;
-    }
-
-    .header .brand {
-        grid-area: a;
-        justify-self: center;
-        align-self: center;
-    }
-
-    .header .searchBtn {
-        grid-area: b;
-        justify-self: center;
-        align-self: center;
-    }
-
-    .header .noticeBtn {
-        grid-area: c;
-        align-self: center;
-        justify-self: center;
-    }
-
-    .header .accountBtn {
-        grid-area: d;
-        align-self: center;
-        justify-self: center;
-    }
-
+    .header .brand {grid-area: a;}
+	.header .searchBtn {grid-area: b;}
+	.header .noticeBtn {grid-area: c;}
+	.header .accountBtn {grid-area: d;}
+	.header .signupBtn {grid-area: d;}
+	
+	.header .brand, .searchBtn, .genreBtn, .noticeBtn, .accountBtn {
+	    justify-self: center;
+	    align-self: center;
+	}
+	
+	.header .accountBtn .accountBtn-login {border: 1px solid #d3d3d3;}
+	.header .accountBtn img {border-radius: 50%;}
+	
     .header img {width: 25px;}
+    .header img:hover {width: 25px;}
     .header .brand img {width: 100px;}
 }
 
@@ -2964,7 +3292,7 @@ a:visited {color: black;}
         height: 330px;
         overflow-y: auto;
     }
-    .mypage {height: 305px;}
+    .mypage {height: 400px;}
     .signup {height: 485px;}
    
 /*dropdown search*/
@@ -3094,13 +3422,15 @@ a:visited {color: black;}
     .dropdown-mypage {
         display: grid;
         grid-template-columns: 290px;
-        grid-template-rows: 50px 25px 50px 50px 50px;
+        grid-template-rows: 50px 25px 50px 50px 50px 25px 50px;
         grid-template-areas: 
             "a" 
             "b" 
             "c" 
             "d" 
-            "e";
+            "e"
+            "f"
+            "g";
         justify-content: center;
         grid-gap: 10px;
         padding-top: 20px;
@@ -3129,7 +3459,6 @@ a:visited {color: black;}
 
     .dropdown-mypage .login-id, .login-pw {
         width: 260px;
-        justify-self: center;
         padding: 15px;
         font-size: 1em;
         border: 1px solid gray;
@@ -3139,26 +3468,93 @@ a:visited {color: black;}
     .dropdown-mypage .login-button {
         grid-area: d;
         width: 295px;
-        padding: 15px;
-        border: 1px solid #f95e4e;
-        background-color: #f95e4e;
+        border: 1px solid #f25144;
+        background-color: #f25144;
         justify-self: center;
-        font-size: 1em;
-        color: white;
-        border-radius: 10px;
     }
 
     .dropdown-mypage .signupBtn {
         grid-area: e;
         width: 260px;
-        padding: 15px;
         border: 1px solid #feb25f;
         background-color: #feb25f;
         justify-self: center;
-        font-size: 1em;
-        color: white;
-        border-radius: 10px;
     }
+
+	.dropdown-mypage .login-button, .signup-button {
+	    font-size: 1em;
+	    border-radius: 10px;
+	    color: white;
+	}
+	
+	
+	.dropdown-mypage .signupBtn {
+	    font-size: 1em;
+	    text-align: center;
+	    padding: 15px;
+	    border-radius: 10px;
+	    color: white;
+	}
+	
+	.dropdown-mypage .signup-button a {
+	    color: white;
+	    background-color: #fdb930;
+	}
+	
+	.dropdown-mypage .hr-text {
+	  line-height: 1em;
+	  position: relative;
+	  outline: 0;
+	  border: 0;
+	  color: black;
+	  text-align: center;
+	  height: 1.5em;
+	}
+	
+	.dropdown-mypage .signup-or {
+	    grid-area: f
+	}
+	
+	.dropdown-mypage .signup-or {
+	    text-align: center;
+	    font-size: 20px;
+	    color: gray;
+	}
+	
+	.dropdown-mypage h1 span {
+	    background-color: #fff;
+	    padding: 10px;
+	}
+	
+	.dropdown-mypage h1::after {
+	    display: block;
+	    content: "";
+	    border: 1px solid #d3d3d3;
+	    margin-top: -0.5em;
+	}
+	
+	.dropdown-mypage .signup-facebook {
+	    grid-area: g;
+	    justify-self: end;
+	    border: 1px solid #507dbd;
+	    background-color: #507dbd;
+	}
+	
+	.dropdown-mypage .signup-google {
+	    grid-area: g;
+	    justify-self: start;
+	    border: 1px solid #dd4b39;
+	    background-color: #dd4b39;
+	}
+	
+	.dropdown-mypage .signup-google, .signup-facebook {
+	    font-size: 1em;
+	    text-align: center;
+	    padding-top: 13px;
+	    width: 138px;
+	    border-radius: 10px;
+	    color: white;
+	}
 
 /*dropdown-content signup*/
     .dropdown-signup {
@@ -3255,35 +3651,22 @@ a:visited {color: black;}
         padding-left: 5px;
     }
 
-    .header a:link {
-        text-decoration: none;
-    }
-
-    .header .brand {
-        grid-area: a;
-        justify-self: center;
-        align-self: center;
-    }
-
-    .header .searchBtn {
-        grid-area: b;
-        justify-self: center;
-        align-self: center;
-    }
-
-    .header .noticeBtn {
-        grid-area: c;
-        align-self: center;
-        justify-self: center;
-    }
-
-    .header .accountBtn {
-        grid-area: d;
-        align-self: center;
-        justify-self: center;
-    }
-
+    .header .brand {grid-area: a;}
+	.header .searchBtn {grid-area: b;}
+	.header .noticeBtn {grid-area: c;}
+	.header .accountBtn {grid-area: d;}
+	.header .signupBtn {grid-area: d;}
+	
+	.header .brand, .searchBtn, .genreBtn, .noticeBtn, .accountBtn {
+	    justify-self: center;
+	    align-self: center;
+	}
+	
+	.header .accountBtn .accountBtn-login {border: 1px solid #d3d3d3;}
+	.header .accountBtn img {border-radius: 50%;}
+	
     .header img {width: 25px;}
+    .header img:hover {width: 25px;}
     .header .brand img {width: 100px;}
 }
 
