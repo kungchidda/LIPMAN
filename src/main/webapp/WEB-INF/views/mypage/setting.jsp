@@ -77,23 +77,19 @@
 	<!--icon-->
 	<div class="mypage-profile-icon">
 		<div class="mypage-profile-icon-home">
-			<a href="/mypage/home"> <img src="/resources/png/comic.png"
-				id="profile-img-home">
+			<a href="/mypage/home"> <img src="/resources/png/comic.png" id="profile-img-home">
 			</a>
 		</div>
 		<div class="mypage-profile-icon-subscribe">
-			<a href="/mypage/subscribed"> <img
-				src="/resources/png/subscribe.png" id="profile-img-subscribed">
+			<a href="/mypage/subscribed"> <img src="/resources/png/subscribe.png" id="profile-img-subscribed">
 			</a>
 		</div>
 		<div class="mypage-profile-icon-subscribed">
-			<a href="/mypage/subscriber"> <img
-				src="/resources/png/subscribed.png" id="profile-img-subscriber">
+			<a href="/mypage/subscriber"> <img src="/resources/png/subscribed.png" id="profile-img-subscriber">
 			</a>
 		</div>
 		<div class="mypage-profile-icon-setting">
-			<a href="/mypage/setting" class="active"> <img
-				src="/resources/png/setting.png" id="profile-img-setting">
+			<a href="/mypage/setting" class="active"> <img src="/resources/png/setting.png" id="profile-img-setting">
 			</a>
 		</div>
 	</div>
@@ -114,8 +110,7 @@
 		<div class="mypage-setting-pw">
 			<div class="mypage-setting-password-title">Password</div>
 			<div class="mypage-setting-password-title-button">
-				<input type="password" name="upw" class="input-text"
-					id="password-input">
+				<input type="password" name="upw" class="input-text" id="password-input">
 			</div>
 		</div>
 
@@ -124,8 +119,7 @@
 		<div class="mypage-setting-nick">
 			<div class="mypage-setting-nickname-title">Nick Name</div>
 			<div class="mypage-setting-nickname">
-				<input name="uname" class="input-text" value="${userVO.uname}"
-					id="uname-input">
+				<input name="uname" class="input-text" value="${userVO.uname}" id="uname-input">
 			</div>
 
 			<div class="mypage-setting-nickname-button">
@@ -165,8 +159,9 @@
 		<div class="mypage-setting-subscribe">
 			<div class="mypage-setting-subscribe-title">Subscribe</div>
 			<p class="mypage-setting-subscribe-close">Close</p>
-			<label class="mypage-setting-subscribe-switch"> <input
-				type="checkbox" checked> <span class="slider round"></span>
+			<label class="mypage-setting-subscribe-switch">
+				<input type="checkbox" checked>
+				<span class="slider round"></span>
 			</label>
 			<p class="mypage-setting-subscribe-open">Open</p>
 		</div>
@@ -176,8 +171,9 @@
 		<div class="mypage-setting-subscriber">
 			<div class="mypage-setting-subscriber-title">Subscriber</div>
 			<p class="mypage-setting-subscriber-close">Close</p>
-			<label class="mypage-setting-subscriber-switch"> <input
-				type="checkbox" checked> <span class="slider round"></span>
+			<label class="mypage-setting-subscriber-switch">
+				<input type="checkbox" checked>
+				<span class="slider round"></span>
 			</label>
 			<p class="mypage-setting-subscriber-open">Open</p>
 		</div>
@@ -477,6 +473,11 @@
 
 		$(".mypage-setting-confirm-button").on("click", function() {
 			formObj.submit();
+		});
+		
+		$("input").on("change", function(event) {
+			console.log("input change");
+			$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		});
 	</script>
 
