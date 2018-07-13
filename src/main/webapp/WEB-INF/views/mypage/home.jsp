@@ -48,7 +48,7 @@
 
 				<li class="title-register">
 					<img class="mypage-home-start-image" src="/resources/png/register.png">
-					<div class="mypage-home-start-talk" style="height: 73px">
+					<div class="mypage-home-start-talk" style="height: 75px">
 						<!-- <span>Show it!</span><br>
 						<span>Your Comic :)</span> -->
 					</div>
