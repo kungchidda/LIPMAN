@@ -274,7 +274,7 @@ h4 {
 
 /*next comic css*/
 
-.content-comic-list {
+/* .content-comic-list {
     display: grid;
     grid-template-columns: 300px 450px 450px;
     grid-template-rows: 100px 100px 100px 50px;
@@ -378,7 +378,7 @@ h4 {
 
 
 
-/*another comic css*/
+another comic css
 .cards {
     display: grid;
     grid-template-columns: repeat(5, 230px);
@@ -513,7 +513,7 @@ h4 {
 .cards .cards-12 {
     grid-area: l
 }
-
+ */
 /*comment css*/
 
 .comment {
