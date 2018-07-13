@@ -617,13 +617,13 @@ input:checked+.slider:before {
 	color: #424242;
 }
 
-.mypage-setting-confirm button:hover {
-	width: 200px;
+.mypage-setting-confirm .input-change {
+/* 	width: 200px; */
 	background-color: #1d8bf1;
 	border: 1px solid #1d8bf1;
-	border-radius: 10px;
-	padding: 15px;
-	font-size: 1em;
+/* 	border-radius: 10px; */
+/* 	padding: 15px; */
+/* 	font-size: 1em; */
 	color: white;
 }
 

@@ -343,9 +343,9 @@
 	{{/eqUid}}
         		</div>
 
-				<div class="modal-body another-user-comment comment">
-					<p><textarea class="comment-text" id="replytext" readonly>{{replytext}}</textarea></p>
-				</div>
+				<!-- <div class="modal-body another-user-comment comment"> -->
+					<textarea class="comment-text" id="replytext" readonly>{{replytext}}</textarea>
+				<!-- </div> -->
 
                 <div class="replylikesDiv another-comment-thumb" data-rno={{rno}}>
                     <img src="/resources/png/pencil-g.png" class="replylike replylikeAddBtn" id="replyLikeAddBtn">
@@ -360,9 +360,9 @@
                 	</span>
                 </div>
 
-				<div class="another-comment-more">
+				<!-- <div class="another-comment-more">
             		<a href="#">More comments</a>
-        		</div>
+        		</div> -->
 			</div>
 		</li>
 		{{/each}}
