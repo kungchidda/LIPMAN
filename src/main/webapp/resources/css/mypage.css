@@ -23,7 +23,7 @@
 .mypage-profile .mypage-profile-image img {
 	width: 200px;
 	border: 1px solid #d3d3d3;
-	border-radius: 10px;
+	border-radius: 50%;
 }
 
 .mypage-profile .mypage-profile-name {
@@ -166,7 +166,7 @@
 .mypage-subscriber-img img {
 	width: 50px;
 	border: 1px solid #d3d3d3;
-	border-radius: 5px;
+	border-radius: 50%;
 }
 
 .login-account-image {
@@ -186,7 +186,9 @@
 
 .mypage-subscriber-name button {
 	padding: 10px;
+	background: white;
 	border: 1px solid white;
+	color: black;
 	font-size: 1em;
 }
 
@@ -241,26 +243,6 @@
 	grid-area: b;
 }
 
-.mypage-setting-pw button {
-	width: 200px;
-	background-color: white;
-	border: 1px solid #424242;
-	border-radius: 10px;
-	padding: 15px;
-	font-size: 1em;
-	color: #424242;
-}
-
-.mypage-setting-pw button:hover {
-	width: 200px;
-	background-color: #1d8bf1;
-	border: 1px solid #1d8bf1;
-	border-radius: 10px;
-	padding: 15px;
-	font-size: 1em;
-	color: white;
-}
-
 
 /* Mypage-Setting - nick */
 .mypage-setting-nick {
@@ -288,26 +270,6 @@
 	grid-area: b;
 	justify-self: center;
 	padding-left: 150px;
-}
-
-.mypage-setting-nick button {
-	width: 200px;
-	background-color: white;
-	border: 1px solid #424242;
-	border-radius: 10px;
-	padding: 15px;
-	font-size: 1em;
-	color: #424242;
-}
-
-.mypage-setting-nick button:hover {
-	width: 200px;
-	background-color: #1d8bf1;
-	border: 1px solid #1d8bf1;
-	border-radius: 10px;
-	padding: 15px;
-	font-size: 1em;
-	color: white;
 }
 
 
@@ -466,6 +428,7 @@
 		". u u .";
 	justify-content: center;
 	align-items: center;
+	grid-column-gap: 0;
 	grid-row-gap: 10px;
 	padding-top: 20px;
 	padding-bottom: 10px;

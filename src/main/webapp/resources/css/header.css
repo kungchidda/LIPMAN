@@ -731,6 +731,11 @@ a:visited {color: black;}
 
 }
 
+.header .accountBtn img {	
+    border-radius: 50%;
+    border: 1px solid #d3d3d3;
+}
+
 .header img:hover {width: 40px;}
 
 .header .brand img {width: 150px;}
