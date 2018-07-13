@@ -526,7 +526,7 @@ another comic css
     padding-bottom: 20px;
 }
 
-.comment .comment-text {
+.comment-text {
     grid-area: a;
     padding: 15px;
     font-size: 1em;
@@ -538,6 +538,7 @@ another comic css
 .comment button {
     grid-area: b;
     border: 1px solid white;
+    background : white;
 }
 
 .comment img {
@@ -553,8 +554,11 @@ another comic css
 
 .another-comment {
     display: grid;
-    grid-template-columns: 60px 42%;
-    grid-template-areas: "a b" ". c" ". d";
+    grid-template-columns: 60px 42% 100px;
+    grid-template-areas:
+    	"a b ."
+    	"c c ."
+    	". d .";
     justify-items: center;
     justify-content: center;
     grid-gap: 10px;
@@ -619,20 +623,16 @@ another comic css
     width: 20px;
 }
 
-.another-comment .another-user-comment {
+.another-comment textarea {
     grid-area: c;
-    width: 95%;
-    justify-self: start;
+    width: 87%;
+    justify-self: center;
     word-wrap: break-word;
 }
 
-.another-comment textarea {
-    font-size: 1em;
-    padding: 10px;
-    overflow: visible;
-    border: none;
-    resize: none;
-}
+/* .another-comment textarea { */
+/*     width: 40%; */
+/* } */
 
 .another-comment text {}
 
