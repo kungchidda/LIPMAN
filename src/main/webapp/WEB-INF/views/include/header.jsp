@@ -52,7 +52,7 @@
             </c:if>
             <!-- <a href="#"><span><img class="dropbtn" onclick="myPageFunction()" src="/resources/png/account.png"></span></a> -->
 			<c:if test="${not empty login}">
-				<a href="/mypage/home"><span><img class="dropbtn" src="/displayFile?fileName=${login.profileFullName}"></span></a>
+				<a href="/mypage/home"><span><img class="dropbtn accountBtn-login" src="/displayFile?fileName=${login.profileFullName}"></span></a>
 			</c:if>
         </div>
 <!--
