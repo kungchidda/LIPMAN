@@ -540,7 +540,8 @@
 						$('.title-genre-checkbox').toggleClass("hide");
 						
 						$('.comic-title').toggle();
-						$('.comic-title-edit').toggleClass("hide");
+// 						$('.comic-title-edit').toggleClass("hide");
+						$('.comic-title-edit').toggle();
 						$('.input-title').removeAttr("readonly").focus();
 
 						var genreStr = $(this).parent().attr('genre');
