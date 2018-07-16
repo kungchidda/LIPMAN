@@ -15,8 +15,8 @@ public @Data class MyPageVO {
 	private Date regdate;
 	private int viewcnt;
 	private int replycnt;
-	private int titlelikecnt;
-	private int titledislikecnt;
+	private int likecnt;
+	private int dislikecnt;
 	
 	private String gname;
 	private String genre;
