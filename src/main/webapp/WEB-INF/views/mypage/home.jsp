@@ -182,8 +182,8 @@
 								<img src="/resources/svg/line.svg">
 							</div>
 							<div class="mypage-thumbnail-thumb">
-								<img src="/resources/png/pencil.png"><span>${MyPageVO.titlelikecnt}</span>
-								<img src="/resources/png/eraser.png"><span>${MyPageVO.titledislikecnt}</span>
+								<img src="/resources/png/pencil.png"><span>${MyPageVO.likecnt}</span>
+								<img src="/resources/png/eraser.png"><span>${MyPageVO.dislikecnt}</span>
 							</div>
 							<div class="og-expander hide do-not-close">
 								<div class="og-expander-inner do-not-close">

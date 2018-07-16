@@ -7,39 +7,17 @@
 <head>
 <title>LIPMAN</title>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-<%@ include file="/WEB-INF/views/mypage/profile.jsp"%>
+<%@ include file="/WEB-INF/views/mypage/user/profile.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <link href="/resources/css/mypage.css" rel="stylesheet">
+
 </head>
 
 <body>
 
-
-	<!--icon-->
-	<div class="mypage-profile-icon">
-		<div class="mypage-profile-icon-home">
-			<a href="/mypage/home" class="active"> <img
-				src="/resources/png/comic.png" id="profile-img-home">
-			</a>
-		</div>
-		<div class="mypage-profile-icon-subscribe">
-			<a href="/mypage/subscribed"> <img
-				src="/resources/png/subscribe.png" id="profile-img-subscribed">
-			</a>
-		</div>
-		<div class="mypage-profile-icon-subscribed">
-			<a href="/mypage/subscriber"> <img
-				src="/resources/png/subscribed.png" id="profile-img-subscriber">
-			</a>
-		</div>
-		<div class="mypage-profile-icon-setting">
-			<a href="/mypage/setting"> <img src="/resources/png/setting.png"
-				id="profile-img-setting">
-			</a>
-		</div>
-	</div>
+<%@ include file="/WEB-INF/views/mypage/user/userIcon.jsp"%>
 
 
 
@@ -79,107 +57,23 @@
 												<input type="text" name='title' class="do-not-close input-title" value="${MyPageVO.title}" placeholder="Comic Title">
 											</div>
 										</div>
-										<div class="edit-title-button comic-list-setting do-not-close" genre="${MyPageVO.genre}">
+										<%-- <div class="edit-title-button comic-list-setting do-not-close" genre="${MyPageVO.genre}">
 											<img src="/resources/png/setting.png" class="edit-title-img do-not-close">
-										</div>
+										</div> --%>
 									</div>
-								<div class="toggle-page">
-									<div class="register"></div>
-									<div class="subtitleLi do-not-close">
-										<div class="og-fullimg do-not-close">
-											<c:if test="${not empty MyPageVO.boardFullName}">
-												<img src="/displayFile?fileName=${MyPageVO.boardFullName}">
-											</c:if>
+									<div class="toggle-page">
+										<div class="register"></div>
+										<div class="subtitleLi do-not-close">
+											<div class="og-fullimg do-not-close">
+												<c:if test="${not empty MyPageVO.boardFullName}">
+													<img src="/displayFile?fileName=${MyPageVO.boardFullName}">
+												</c:if>
+											</div>
+											<div class="comic-list-text cursor do-not-close">
+												${MyPageVO.subtitle}
+											</div>
+											<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
 										</div>
-										<div class="comic-list-text cursor do-not-close">
-											${MyPageVO.subtitle}
-										</div>
-										<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
-									</div>
-								</div>
-								<div class="title-genre-checkbox hide">
-										<div class="genre-1 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-1" value='1'>
-											<span class="title-genre-1 do-not-close false">SF</span>
-										</div>
-										<div class="genre-2 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-2" value='2'>
-											<span class="title-genre-2 do-not-close false">Mystery</span>
-										</div>
-										<div class="genre-3 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-3" value='3'>
-											<span class="title-genre-3 do-not-close false">PureLove</span>
-										</div>
-										<div class="genre-4 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-4" value='4'>
-											<span class="title-genre-4 do-not-close false">Romance</span>
-										</div>
-										<div class="genre-5 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-5" value='5'>
-											<span class="title-genre-5 do-not-close false">Comic</span>
-										</div>
-										<div class="genre-6 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-6" value='6'>
-											<span class="title-genre-6 do-not-close false">Reasoning</span>
-										</div>
-										<div class="genre-7 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-7" value='7'>
-											<span class="title-genre-7 do-not-close false">SchoolLife</span>
-										</div>
-										<div class="genre-8 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-8" value='8'>
-											<span class="title-genre-8 do-not-close false">Sports</span>
-										</div>
-										<div class="genre-9 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-9" value='9'>
-											<span class="title-genre-9 do-not-close false">Fantasy</span>
-										</div>
-										<div class="genre-10 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-10" value='10'>
-											<span class="title-genre-10 do-not-close false">Medicine</span>
-										</div>
-										<div class="genre-11 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-11" value='11'>
-											<span class="title-genre-11 do-not-close false">Food</span>
-										</div>
-										<div class="genre-12 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-12" value='12'>
-											<span class="title-genre-12 do-not-close false">Education</span>
-										</div>
-										<div class="genre-13 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-13" value='13'>
-											<span class="title-genre-13 do-not-close false">Battle</span>
-										</div>
-										<div class="genre-14 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-14" value='14'>
-											<span class="title-genre-14 do-not-close false">Mecanic</span>
-										</div>
-										<div class="genre-15 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-15" value='15'>
-											<span class="title-genre-15 do-not-close false">Daily</span>
-										</div>
-										<div class="genre-16 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-16" value='16'>
-											<span class="title-genre-16 do-not-close false">Age</span>
-										</div>
-										<div class="genre-17 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-17" value='17'>
-											<span class="title-genre-17 do-not-close false">GraphicNovel</span>
-										</div>
-										<div class="genre-18 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-18" value='18'>
-											<span class="title-genre-18 do-not-close false">Thriller</span>
-										</div>
-										<div class="genre-19 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-19" value='19'>
-											<span class="title-genre-19 do-not-close false">Drama</span>
-										</div>
-										<div class="genre-20 do-not-close">
-											<input type="checkbox" name='genreArr' class="do-not-close hide genre-20" value='20'>
-											<span class="title-genre-20 do-not-close false">Adventure</span>
-										</div>
-										<button type="button" class="delete-title do-not-close title-register-delete-btn">Delete</button>
-										<button type="button" class="submit-title do-not-close title-register-complete-btn">submit</button>
 									</div>
 								</div>
 							</div>
@@ -392,7 +286,7 @@
 // 				printData(data.list, $(".og-expander-inner"),$('#subtitle-template'));
 				printData(data.list, $(".toggle-page"),$('#subtitle-template'));
 				printPaging(data.pageMaker, $(".pagination"), tno);
-				var str = '<div class="subtitleLi do-not-close register"><a href="/sboard/register?tno=' + tno + '" class="comic-list do-not-close"><div class="comic-list do-not-close"><img src="/resources/png/sub-gray.png"></div><div class="comic-list-text cursor do-not-close">New Subtitle</div></a></div>';
+				//var str = '<div class="subtitleLi do-not-close register"><a href="/sboard/register?tno=' + tno + '" class="comic-list do-not-close"><div class="comic-list do-not-close"><img src="/resources/png/sub-gray.png"></div><div class="comic-list-text cursor do-not-close">New Subtitle</div></a></div>';
 				console.log("str = " + str);
 				$('.register').html(str);
 
@@ -434,6 +328,9 @@
 
 	<script>
 		$(document).ready(function() {
+					
+					$('.mypage-profile-icon-home').addClass('active');
+			
 					$('#searchBtn').on("click", function(event) {
 						self.location = "list" + '${pageMaker.makeQuery(1)}' + "&searchType=" + $("select option:selected").val() + "&keyword=" + $('#keywordInput').val();
 					});
@@ -497,6 +394,21 @@
 						$(this).parent().parent().parent().parent().attr("action", "/title/removeTitle");
 						$(this).parent().parent().parent().parent().submit();
 						
+					});
+					
+					/**************************************************************************************/
+					/**************************************************************************************/
+					/*                               subscribeBtn start                                   */
+					/**************************************************************************************/
+					/**************************************************************************************/
+					
+					$(".subscribeBtn").on("click",function(){
+						
+						 subscribeBtnClick('${cri.uid}', '${login.uid}');
+					});
+					
+					$(".unsubscribeBtn").on("click",function(){
+						unsubscribeBtnClick('${cri.uid}', '${login.uid}');
 					});
 
 					//무한 스크롤 기능 일시 정지 

@@ -525,16 +525,29 @@
 /* mypage-home cards right time */
 
 
-/* ??????????????????????????? 시작 */
-/* .toggle-page .pagination .page-item{
+/* subtitle paging 시작 */
+.toggle-page, .readpage-toggle-page {
+	text-align: center;	
+}
+.toggle-page .pagination{
 	display: inline-block !important;
-	float : left ;
+}
+.toggle-page .pagination .page-item{
+	display: inline-block !important;
+/* 	float : left ; */
     list-style: none;
 }
 
+.readpage-toggle-page .this-pagination .page-item{
+	display: inline-block !important;
+/* 	float : left ; */
+    list-style: none;
+}
+
+
 .toggle-page .pagination .comic-list-prev, .comic-list-pagi, .comic-list-next {
-    grid-area: i;
-	float : left !important;
+/*     grid-area: i; */
+/* 	float : left !important; */
     list-style: none;
     align-self: center;
 }
@@ -547,15 +560,15 @@
     justify-self : end;
 }
 
-.toggle-page .pagination .comic-list-pagi {
+.comic-list-pagi {
     justify-self : center;
 }
 
-.toggle-page .comic-list-pagi .page-link {
+.comic-list-pagi {
     padding: 20px;
-} */
+}
 
-/* ????????????????? 끝 */
+/* subtitle paging 끝 */
 
 .hide{display: none;}
 .margin-bottom, .content-margin-bottom {margin-bottom: 550px !important;}

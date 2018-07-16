@@ -55,7 +55,7 @@
 	padding-bottom: 20px;
 }
 
-.mypage-profile-icon a.active img {
+.mypage-profile-icon .active img {
 	width: 40px;
 }
 
@@ -81,12 +81,38 @@
 	/* easeInOutBack */
 }
 
+<<<<<<< HEAD
 .mypage-profile-icon img:hover {width: 40px;}
 .mypage-profile-icon .mypage-profile-icon-home {grid-area: a;}
 .mypage-profile-icon .mypage-profile-icon-subscribe {grid-area: b;}
 .mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}
 .mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}
 .mypage-profile-icon a.active {border-bottom: 5px solid red;}
+=======
+.mypage-profile-icon img:hover {
+	width: 40px;
+}
+
+.mypage-profile-icon .mypage-profile-icon-home {
+	grid-area: a;
+}
+
+.mypage-profile-icon .mypage-profile-icon-subscribe {
+	grid-area: b;
+}
+
+.mypage-profile-icon .mypage-profile-icon-subscribed {
+	grid-area: c;
+}
+
+.mypage-profile-icon .mypage-profile-icon-setting {
+	grid-area: d;
+}
+
+.mypage-profile-icon .active {
+	border-bottom: 5px solid red;
+}
+>>>>>>> HONG
 
 /* ???? start */
 .upload-file-list {

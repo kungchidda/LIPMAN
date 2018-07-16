@@ -5,6 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="/resources/js/subscribe-check.js"></script>
+</head>
 
 <body>
 
@@ -20,7 +22,17 @@
             <h3>${userVO.uname}</h3>
         </div>
         <div class="mypage-profile-subscribe">
-          	<a href="/mypage/subscriber" class="subscribedCount" id="btn-subscribedCount"></a>
+        	<button type="submit" class="subscribedCount subscribe subscribeBtn"></button>
+			<button type="submit" class="subscribedCount subscribed unsubscribeBtn"></button>
+<!--           	<a href="/mypage/subscriber" class="subscribedCount" id="btn-subscribedCount"></a> -->
+			<div class="mypage-profile-icon-subscribed">
+<!-- 			<a href="/user/subscriberList"> -->
+<%-- 			<form action="/mypage/user/subscriberList" method="GET">
+				<input type="hidden" name="uid" value='${cri.uid}'>
+				<button type="submit" class="subscribedCount default-button-style"></button>
+<!-- 			</a> -->
+			</form> --%>
+		</div>
         </div>
     </div>
 
@@ -32,24 +44,9 @@ $(document).ready(function() {
 	
 	var subscribed = '${userVO.uid}';
 	
-	$.ajax({
-		type : 'post',
-		url : '/subscribes/count',
-		headers : {
-			"Content-Type" : "application/json",
-			"X-HTTP-Method-Override" : "POST" },
-		dataType : 'text',
-		data : JSON.stringify({subscribed:subscribed}),
-		success:function(result){
-			var html = result + " Subscriber";
-			console.log("html:" + html);
-			$(".subscribedCount").append(html);
-			
-		}
-		});
-		
+	subscribedList('${userVO.uid}', '${login.uid}');
+	
 	});
-
 </script>
    
 
