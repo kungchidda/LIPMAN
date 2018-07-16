@@ -30,7 +30,7 @@
 
 $(document).ready(function() {
 	
-	var subscribed = '${login.uid}';
+	var subscribed = '${userVO.uid}';
 	
 	$.ajax({
 		type : 'post',
