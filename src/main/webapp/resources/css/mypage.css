@@ -185,7 +185,7 @@
 /* Mypage-Setting - login*/
 .mypage-setting-id {
 	display: grid;
-	grid-template-columns: 300px 700px;
+	grid-template-columns: 500px 500px;
 	grid-template-areas: 
 		"a b";
 	justify-content: center;	
@@ -205,7 +205,7 @@
 /* Mypage-Setting - password */
 .mypage-setting-pw {
 	display: grid;
-	grid-template-columns: 300px 700px;
+	grid-template-columns: 500px 500px;
 	grid-template-areas: 
 		"a b";
 	justify-content: center;	
@@ -226,7 +226,7 @@
 /* Mypage-Setting - nick */
 .mypage-setting-nick {
 	display: grid;
-	grid-template-columns: 300px 700px;
+	grid-template-columns: 500px 500px;
 	grid-template-areas: 
 		"a b";
 	justify-content: center;	
@@ -255,7 +255,7 @@
 /* Mypage-Setting - profile img */
 .mypage-setting-img {
 	display: grid;
-	grid-template-columns: 300px 700px;
+	grid-template-columns: 500px 500px;
 	grid-template-areas: 
 		"a b";
 	justify-content: center;	
@@ -295,7 +295,7 @@
 /* Mypage-Setting - subscribe */
 .mypage-setting-subscribe {
 	display: grid;
-	grid-template-columns: 300px 700px;
+	grid-template-columns: 500px 500px;
 	grid-template-areas: 
 		"a b";
 	justify-content: center;	
@@ -326,7 +326,7 @@
 /* Mypage-Setting - subscriber */
 .mypage-setting-subscriber {
 	display: grid;
-	grid-template-columns: 300px 700px;
+	grid-template-columns: 500px 500px;
 	grid-template-areas: 
 		"a b";
 	justify-content: center;	
@@ -378,79 +378,32 @@
 
 /* mypage-setting-genre */
 .mypage-setting-genre {
-	text-align: center;
-}
-
-.mypage-setting-genre-list {
-	display: inline-block;
-}
-
-.mypage-setting-genre-left, .mypage-setting-gerne-right {
-	float: left;
-}
-
-.mypage-setting-genre-left {
-	width: 300px;
-	padding-top: 25px;
-}
-
-.mypage-setting-genre-right {
 	display: grid;
-	grid-template-columns: repeat(4, 175px);
-	grid-template-rows: repeat(6, 60px);
+	grid-template-columns: 500px 500px;
 	grid-template-areas: 
-		"a b c d" 
-		"e f g h" 
-		"i j k l" 
-		"m n o p" 
-		"q r s t"
-		". u u .";
-	justify-content: center;
+		"a b";
+	justify-content: center;	
+	justify-items: center;
 	align-items: center;
-	grid-column-gap: 0;
-	grid-row-gap: 10px;
-	padding-top: 20px;
-	padding-bottom: 10px;
+	height: 80px;
 }
 
-.mypage-setting-genre-right .genre-1 {grid-area: a;}
-.mypage-setting-genre-right .genre-2 {grid-area: b;}
-.mypage-setting-genre-right .genre-3 {grid-area: c;}
-.mypage-setting-genre-right .genre-4 {grid-area: d;}
-.mypage-setting-genre-right .genre-5 {grid-area: e;}
-.mypage-setting-genre-right .genre-6 {grid-area: f;}
-.mypage-setting-genre-right .genre-7 {grid-area: g;}
-.mypage-setting-genre-right .genre-8 {grid-area: h;}
-.mypage-setting-genre-right .genre-9 {grid-area: i;}
-.mypage-setting-genre-right .genre-10 {grid-area: j;}
-.mypage-setting-genre-right .genre-11 {grid-area: k;}
-.mypage-setting-genre-right .genre-12 {grid-area: l;}
-.mypage-setting-genre-right .genre-13 {grid-area: m;}
-.mypage-setting-genre-right .genre-14 {grid-area: n;}
-.mypage-setting-genre-right .genre-15 {grid-area: o;}
-.mypage-setting-genre-right .genre-16 {grid-area: p;}
-.mypage-setting-genre-right .genre-17 {grid-area: q;}
-.mypage-setting-genre-right .genre-18 {grid-area: r;}
-.mypage-setting-genre-right .genre-19 {grid-area: s;}
-.mypage-setting-genre-right .genre-20 {grid-area: t;}
+.mypage-setting-genre .mypage-setting-genre-title {
+	grid-area: a;
+}
 
-.mypage-setting-genre-right .mypage-setting-genre-switch {
-	grid-area: u;}
+.mypage-setting-genre .mypage-setting-genre-switch {
+	grid-area: b;
+}
 
 .mypage-setting-genre .mypage-setting-genre-open {
-	grid-area: u;
+	grid-area: b;
 	padding-left: 150px;
 }
 
 .mypage-setting-genre .mypage-setting-genre-close {
-	grid-area: u;
+	grid-area: b;
 	padding-right: 150px;
-}
-
-.mypage-setting-genre .mypage-setting-genre-switch,
-	.mypage-setting-genre-open, .mypage-setting-genre-close {
-	align-self: center;
-	justify-self: center;
 }
 
 .mypage-setting-genre-switch {
@@ -462,6 +415,65 @@
 
 .mypage-setting-genre-switch input {
 	display: none;
+}
+
+.mypage-setting-genre-switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+}
+
+.mypage-setting-genre-switch input {
+	display: none;
+}
+
+
+.mypage-setting-genre-list {
+	display: grid;
+	grid-template-columns: repeat(5, 160px);
+	grid-template-rows: repeat(4, 60px);
+	grid-template-areas: 
+		"a b c d e" 
+		"f g h i j" 
+		"k l m n o" 
+		"p q r s t";
+	justify-content: center;
+	justify-items: start;
+	align-items: center;
+	padding-left: 100px;
+	grid-column-gap: 0;
+	grid-row-gap: 10px;
+	padding-bottom: 30px;
+}
+
+.mypage-setting-genre-list .genre-1 {grid-area: a;}
+.mypage-setting-genre-list .genre-2 {grid-area: b;}
+.mypage-setting-genre-list .genre-3 {grid-area: c;}
+.mypage-setting-genre-list .genre-4 {grid-area: d;}
+.mypage-setting-genre-list .genre-5 {grid-area: e;}
+.mypage-setting-genre-list .genre-6 {grid-area: f;}
+.mypage-setting-genre-list .genre-7 {grid-area: g;}
+.mypage-setting-genre-list .genre-8 {grid-area: h;}
+.mypage-setting-genre-list .genre-9 {grid-area: i;}
+.mypage-setting-genre-list .genre-10 {grid-area: j;}
+.mypage-setting-genre-list .genre-11 {grid-area: k;}
+.mypage-setting-genre-list .genre-12 {grid-area: l;}
+.mypage-setting-genre-list .genre-13 {grid-area: m;}
+.mypage-setting-genre-list .genre-14 {grid-area: n;}
+.mypage-setting-genre-list .genre-15 {grid-area: o;}
+.mypage-setting-genre-list .genre-16 {grid-area: p;}
+.mypage-setting-genre-list .genre-17 {grid-area: q;}
+.mypage-setting-genre-list .genre-18 {grid-area: r;}
+.mypage-setting-genre-list .genre-19 {grid-area: s;}
+.mypage-setting-genre-list .genre-20 {grid-area: t;}
+
+.mypage-setting-genre-list span {
+	padding-right: 25px;
+    padding-left: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 10px;
 }
 
 .slider {
@@ -516,44 +528,6 @@ input:checked+.slider:before {
 	padding-left: 10px;
 }
 
-
-/*mypage-setting-logout*/
-.mypage-setting-logout {
-	display: grid;
-	grid-template-columns: 300px 700px;
-	grid-template-areas: 
-		". a";
-	justify-content: center;	
-	justify-items: center;
-	align-items: center;
-	height: 80px;
-}
-
-.mypage-setting-logout .mypage-setting-logout-button {
-	grid-area: a;
-}
-
-.mypage-setting-logout-button button {
-	width: 200px;
-	background-color: white;
-	border: 1px solid #424242;
-	border-radius: 10px;
-	padding: 15px;
-	font-size: 1em;
-	color: #424242;
-}
-
-.mypage-setting-logout-button button:hover {
-	width: 200px;
-	background-color: #1d8bf1;
-	border: 1px solid #1d8bf1;
-	border-radius: 10px;
-	padding: 15px;
-	font-size: 1em;
-	color: white;
-}
-
-
 /* mypage-setting - confirm */
 .mypage-setting-confirm {
 	display: grid;
@@ -576,16 +550,6 @@ input:checked+.slider:before {
 }
 
 
-.mypage-setting-cancel-button button {
-	width: 200px;
-	background-color: white;
-	border: 1px solid #424242;
-	border-radius: 10px;
-	padding: 15px;
-	font-size: 1em;
-	color: #424242;
-}
-
 .mypage-setting-confirm-button button {
 	width: 200px;
 	background-color: white;
@@ -594,15 +558,31 @@ input:checked+.slider:before {
 	padding: 15px;
 	font-size: 1em;
 	color: #424242;
+}	
+
+.mypage-setting-logout-button button {
+	width: 200px;
+	background-color: white;
+	border: 1px solid #424242;
+	border-radius: 10px;
+	padding: 15px;
+	font-size: 1em;
+	color: #424242;
 }
 
-.mypage-setting-confirm .input-change {
-/* 	width: 200px; */
+.mypage-setting-logout-button button:hover {
+	width: 200px;
 	background-color: #1d8bf1;
 	border: 1px solid #1d8bf1;
-/* 	border-radius: 10px; */
-/* 	padding: 15px; */
-/* 	font-size: 1em; */
+	border-radius: 10px;
+	padding: 15px;
+	font-size: 1em;
+	color: white;
+}
+	
+.mypage-setting-confirm .input-change {
+	background-color: #1d8bf1;
+	border: 1px solid #1d8bf1;
 	color: white;
 }
 
@@ -731,6 +711,440 @@ hr {
 	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
 	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
 	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+	
+	/* Mypage-Setting */
+
+	/* Mypage-Setting - login*/
+	.mypage-setting-id {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-text {
+		grid-area: b;
+	}
+	
+	/* Mypage-Setting - password */
+	.mypage-setting-pw {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title-button {
+		grid-area: b;
+	}
+	
+	
+	/* Mypage-Setting - nick */
+	.mypage-setting-nick {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname, .mypage-setting-nickname-input {
+		grid-area: b;
+		justify-self: center;
+	/* 	padding-right: 200px; */
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-button {
+		grid-area: b;
+		justify-self: center;
+		padding-left: 150px;
+	}
+	
+	
+	/* Mypage-Setting - profile img */
+	.mypage-setting-img {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-button {
+		grid-area: b;
+	}
+	
+	.mypage-setting-img button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	
+	/* Mypage-Setting - subscribe */
+	.mypage-setting-subscribe {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	
+	/* Mypage-Setting - subscriber */
+	.mypage-setting-subscriber {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-subscribe-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscribe-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-subscriber-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscriber-switch input {
+		display: none;
+	}
+	
+	
+	/* mypage-setting-genre */
+	.mypage-setting-genre {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	
+	.mypage-setting-genre-list {
+		display: grid;
+		grid-template-columns: repeat(5, 160px);
+		grid-template-rows: repeat(4, 60px);
+		grid-template-areas: 
+			"a b c d e" 
+			"f g h i j" 
+			"k l m n o" 
+			"p q r s t";
+		justify-content: center;
+		justify-items: start;
+		align-items: center;
+		padding-left: 50px;
+		grid-column-gap: 0;
+		grid-row-gap: 10px;
+		padding-bottom: 30px;
+	}
+	
+	.mypage-setting-genre-list .genre-1 {grid-area: a;}
+	.mypage-setting-genre-list .genre-2 {grid-area: b;}
+	.mypage-setting-genre-list .genre-3 {grid-area: c;}
+	.mypage-setting-genre-list .genre-4 {grid-area: d;}
+	.mypage-setting-genre-list .genre-5 {grid-area: e;}
+	.mypage-setting-genre-list .genre-6 {grid-area: f;}
+	.mypage-setting-genre-list .genre-7 {grid-area: g;}
+	.mypage-setting-genre-list .genre-8 {grid-area: h;}
+	.mypage-setting-genre-list .genre-9 {grid-area: i;}
+	.mypage-setting-genre-list .genre-10 {grid-area: j;}
+	.mypage-setting-genre-list .genre-11 {grid-area: k;}
+	.mypage-setting-genre-list .genre-12 {grid-area: l;}
+	.mypage-setting-genre-list .genre-13 {grid-area: m;}
+	.mypage-setting-genre-list .genre-14 {grid-area: n;}
+	.mypage-setting-genre-list .genre-15 {grid-area: o;}
+	.mypage-setting-genre-list .genre-16 {grid-area: p;}
+	.mypage-setting-genre-list .genre-17 {grid-area: q;}
+	.mypage-setting-genre-list .genre-18 {grid-area: r;}
+	.mypage-setting-genre-list .genre-19 {grid-area: s;}
+	.mypage-setting-genre-list .genre-20 {grid-area: t;}
+	
+	.mypage-setting-genre-list span {
+		padding-right: 25px;
+	    padding-left: 25px;
+	    padding-top: 15px;
+	    padding-bottom: 15px;
+	    border-radius: 10px;
+	}
+	
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 26px;
+		width: 26px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	input:checked+.slider {
+		background-color: #2196F3;
+	}
+	
+	input:focus+.slider {
+		box-shadow: 0 0 1px #2196F3;
+	}
+	
+	input:checked+.slider:before {
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
+	}
+	
+	
+	/* Rounded sliders */
+	.slider.round {
+		border-radius: 30px;
+	}
+	
+	.slider.round:before {
+		border-radius: 50%;
+	}
+	
+	.mypage-genre-list span {
+		padding-left: 10px;
+	}
+	
+		
+	/* mypage-setting - confirm */
+	.mypage-setting-confirm {
+		display: grid;
+		grid-template-columns: 200px 200px;
+		grid-template-areas: 
+			"a b";
+		grid-column-gap: 15px;
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-confirm-button {
+		grid-area: a;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-logout-button {
+		grid-area: b;
+	}
+	
+	.mypage-setting-confirm-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}	
+	
+	.mypage-setting-logout-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+		
+	.mypage-setting-confirm .input-change {
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		color: white;
+	}
+	
+	
+	/* hr */
+	hr {
+		width: 80%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+	.input-text {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		font-size: 1em;
+		color: #424242;
+		height: 50px;
+		text-align: center;
+	}
+	
+	
+	/*mypage-compony*/
+	.compony {
+		display: grid;
+		grid-template-columns: repeat(1, 100%);
+		grid-template-rows: 300px;
+		grid-template-areas: "a";
+		justify-content: center;
+		justify-items: center;
+		background-color: dimgray;
+		margin-top: 100px;
+		bottom: 0;
+	}
+	
+	.compony .compony-infor {
+		grid-area: a;
+		color: white;
+		font-size: 1em;
+		padding: 50px;
+		align-self: center;
+	}
+	
+	/*footer*/
+	.footer {
+		width: 100%;
+		height: 1000px;
+	}
 }
 
 /* iPad Pro-10.5 portrait */
@@ -807,6 +1221,449 @@ hr {
 	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
 	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
 	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+	
+	/* Mypage-Setting */
+
+	/* Mypage-Setting - login*/
+	.mypage-setting-id {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-text {
+		grid-area: b;
+	}
+	
+	/* Mypage-Setting - password */
+	.mypage-setting-pw {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title-button {
+		grid-area: b;
+	}
+	
+	
+	/* Mypage-Setting - nick */
+	.mypage-setting-nick {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname, .mypage-setting-nickname-input {
+		grid-area: b;
+		justify-self: center;
+	/* 	padding-right: 200px; */
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-button {
+		grid-area: b;
+		justify-self: center;
+		padding-left: 150px;
+	}
+	
+	
+	/* Mypage-Setting - profile img */
+	.mypage-setting-img {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-button {
+		grid-area: b;
+	}
+	
+	.mypage-setting-img button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-img button:hover {
+		width: 200px;
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: white;
+	}
+	
+	/* Mypage-Setting - subscribe */
+	.mypage-setting-subscribe {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	
+	/* Mypage-Setting - subscriber */
+	.mypage-setting-subscriber {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-subscribe-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscribe-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-subscriber-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscriber-switch input {
+		display: none;
+	}
+	
+	
+	/* mypage-setting-genre */
+	.mypage-setting-genre {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	
+	.mypage-setting-genre-list {
+		display: grid;
+		grid-template-columns: repeat(4, 165px);
+		grid-template-rows: repeat(5, 60px);
+		grid-template-areas: 
+			"a b c d" 
+			"e f g h" 
+			"i j k l" 
+			"m n o p"
+			"q r s t";
+		justify-content: center;
+		justify-items: start;
+		align-items: center;
+		padding-left: 50px;
+		grid-column-gap: 0;
+		grid-row-gap: 10px;
+		padding-bottom: 30px;
+	}
+	
+	.mypage-setting-genre-list .genre-1 {grid-area: a;}
+	.mypage-setting-genre-list .genre-2 {grid-area: b;}
+	.mypage-setting-genre-list .genre-3 {grid-area: c;}
+	.mypage-setting-genre-list .genre-4 {grid-area: d;}
+	.mypage-setting-genre-list .genre-5 {grid-area: e;}
+	.mypage-setting-genre-list .genre-6 {grid-area: f;}
+	.mypage-setting-genre-list .genre-7 {grid-area: g;}
+	.mypage-setting-genre-list .genre-8 {grid-area: h;}
+	.mypage-setting-genre-list .genre-9 {grid-area: i;}
+	.mypage-setting-genre-list .genre-10 {grid-area: j;}
+	.mypage-setting-genre-list .genre-11 {grid-area: k;}
+	.mypage-setting-genre-list .genre-12 {grid-area: l;}
+	.mypage-setting-genre-list .genre-13 {grid-area: m;}
+	.mypage-setting-genre-list .genre-14 {grid-area: n;}
+	.mypage-setting-genre-list .genre-15 {grid-area: o;}
+	.mypage-setting-genre-list .genre-16 {grid-area: p;}
+	.mypage-setting-genre-list .genre-17 {grid-area: q;}
+	.mypage-setting-genre-list .genre-18 {grid-area: r;}
+	.mypage-setting-genre-list .genre-19 {grid-area: s;}
+	.mypage-setting-genre-list .genre-20 {grid-area: t;}
+	
+	.mypage-setting-genre-list span {
+		padding-right: 25px;
+	    padding-left: 25px;
+	    padding-top: 15px;
+	    padding-bottom: 15px;
+	    border-radius: 10px;
+	}
+	
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 26px;
+		width: 26px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	input:checked+.slider {
+		background-color: #2196F3;
+	}
+	
+	input:focus+.slider {
+		box-shadow: 0 0 1px #2196F3;
+	}
+	
+	input:checked+.slider:before {
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
+	}
+	
+	
+	/* Rounded sliders */
+	.slider.round {
+		border-radius: 30px;
+	}
+	
+	.slider.round:before {
+		border-radius: 50%;
+	}
+	
+	.mypage-genre-list span {
+		padding-left: 10px;
+	}	
+	
+	/* mypage-setting - confirm */
+	.mypage-setting-confirm {
+		display: grid;
+		grid-template-columns: 200px 200px;
+		grid-template-areas: 
+			"a b";
+		grid-column-gap: 15px;
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-confirm-button {
+		grid-area: a;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-logout-button {
+		grid-area: b;
+	}
+	
+	.mypage-setting-confirm-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}	
+	
+	.mypage-setting-logout-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+		
+	.mypage-setting-confirm .input-change {
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		color: white;
+	}
+	
+	
+	/* hr */
+	hr {
+		width: 85%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+	.input-text {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		font-size: 1em;
+		color: #424242;
+		height: 50px;
+		text-align: center;
+	}
+	
+	
+	/*mypage-compony*/
+	.compony {
+		display: grid;
+		grid-template-columns: repeat(1, 100%);
+		grid-template-rows: 300px;
+		grid-template-areas: "a";
+		justify-content: center;
+		justify-items: center;
+		background-color: dimgray;
+		margin-top: 100px;
+		bottom: 0;
+	}
+	
+	.compony .compony-infor {
+		grid-area: a;
+		color: white;
+		font-size: 1em;
+		padding: 50px;
+		align-self: center;
+	}
+	
+	/*footer*/
+	.footer {
+		width: 100%;
+		height: 1000px;
+	}
 }
 
 /* iPad Pro-9.7 portrait */
@@ -883,6 +1740,440 @@ hr {
 	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
 	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
 	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+	
+	/* Mypage-Setting */
+
+	/* Mypage-Setting - login*/
+	.mypage-setting-id {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-text {
+		grid-area: b;
+	}
+	
+	/* Mypage-Setting - password */
+	.mypage-setting-pw {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title-button {
+		grid-area: b;
+	}
+	
+	
+	/* Mypage-Setting - nick */
+	.mypage-setting-nick {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname, .mypage-setting-nickname-input {
+		grid-area: b;
+		justify-self: center;
+	/* 	padding-right: 200px; */
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-button {
+		grid-area: b;
+		justify-self: center;
+		padding-left: 150px;
+	}
+	
+	
+	/* Mypage-Setting - profile img */
+	.mypage-setting-img {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-button {
+		grid-area: b;
+	}
+	
+	.mypage-setting-img button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	/* Mypage-Setting - subscribe */
+	.mypage-setting-subscribe {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	
+	/* Mypage-Setting - subscriber */
+	.mypage-setting-subscriber {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-subscribe-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscribe-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-subscriber-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscriber-switch input {
+		display: none;
+	}
+	
+	
+	/* mypage-setting-genre */
+	.mypage-setting-genre {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	
+	.mypage-setting-genre-list {
+		display: grid;
+		grid-template-columns: repeat(4, 165px);
+		grid-template-rows: repeat(5, 60px);
+		grid-template-areas: 
+			"a b c d" 
+			"e f g h" 
+			"i j k l" 
+			"m n o p"
+			"q r s t";
+		justify-content: center;
+		justify-items: start;
+		align-items: center;
+		padding-left: 50px;
+		grid-column-gap: 0;
+		grid-row-gap: 10px;
+		padding-bottom: 30px;
+	}
+	
+	.mypage-setting-genre-list .genre-1 {grid-area: a;}
+	.mypage-setting-genre-list .genre-2 {grid-area: b;}
+	.mypage-setting-genre-list .genre-3 {grid-area: c;}
+	.mypage-setting-genre-list .genre-4 {grid-area: d;}
+	.mypage-setting-genre-list .genre-5 {grid-area: e;}
+	.mypage-setting-genre-list .genre-6 {grid-area: f;}
+	.mypage-setting-genre-list .genre-7 {grid-area: g;}
+	.mypage-setting-genre-list .genre-8 {grid-area: h;}
+	.mypage-setting-genre-list .genre-9 {grid-area: i;}
+	.mypage-setting-genre-list .genre-10 {grid-area: j;}
+	.mypage-setting-genre-list .genre-11 {grid-area: k;}
+	.mypage-setting-genre-list .genre-12 {grid-area: l;}
+	.mypage-setting-genre-list .genre-13 {grid-area: m;}
+	.mypage-setting-genre-list .genre-14 {grid-area: n;}
+	.mypage-setting-genre-list .genre-15 {grid-area: o;}
+	.mypage-setting-genre-list .genre-16 {grid-area: p;}
+	.mypage-setting-genre-list .genre-17 {grid-area: q;}
+	.mypage-setting-genre-list .genre-18 {grid-area: r;}
+	.mypage-setting-genre-list .genre-19 {grid-area: s;}
+	.mypage-setting-genre-list .genre-20 {grid-area: t;}
+	
+	.mypage-setting-genre-list span {
+		padding-right: 25px;
+	    padding-left: 25px;
+	    padding-top: 15px;
+	    padding-bottom: 15px;
+	    border-radius: 10px;
+	}
+	
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 26px;
+		width: 26px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	input:checked+.slider {
+		background-color: #2196F3;
+	}
+	
+	input:focus+.slider {
+		box-shadow: 0 0 1px #2196F3;
+	}
+	
+	input:checked+.slider:before {
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
+	}
+	
+	
+	/* Rounded sliders */
+	.slider.round {
+		border-radius: 30px;
+	}
+	
+	.slider.round:before {
+		border-radius: 50%;
+	}
+	
+	.mypage-genre-list span {
+		padding-left: 10px;
+	}	
+	
+	/* mypage-setting - confirm */
+	.mypage-setting-confirm {
+		display: grid;
+		grid-template-columns: 200px 200px;
+		grid-template-areas: 
+			"a b";
+		grid-column-gap: 15px;
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-confirm-button {
+		grid-area: a;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-logout-button {
+		grid-area: b;
+	}
+	
+	
+	.mypage-setting-cancel-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm .input-change {
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		color: white;
+	}
+	
+	
+	/* hr */
+	hr {
+		width: 85%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+	.input-text {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		font-size: 1em;
+		color: #424242;
+		height: 50px;
+		text-align: center;
+	}
+	
+	
+	/*mypage-compony*/
+	.compony {
+		display: grid;
+		grid-template-columns: repeat(1, 100%);
+		grid-template-rows: 300px;
+		grid-template-areas: "a";
+		justify-content: center;
+		justify-items: center;
+		background-color: dimgray;
+		margin-top: 100px;
+		bottom: 0;
+	}
+	
+	.compony .compony-infor {
+		grid-area: a;
+		color: white;
+		font-size: 1em;
+		padding: 50px;
+		align-self: center;
+	}
+	
+	/*footer*/
+	.footer {
+		width: 100%;
+		height: 1000px;
+	}
 }
 
 /* iPhone-6+/7+/8+ portrait */
@@ -959,6 +2250,399 @@ hr {
 	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
 	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
 	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+	
+	/* Mypage-Setting */
+
+	/* Mypage-Setting - login*/
+	.mypage-setting-id {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-text {
+		grid-area: b;
+	}
+	
+	/* Mypage-Setting - password */
+	.mypage-setting-pw {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title {grid-area: a;}	
+	.mypage-setting-pw .mypage-setting-password-title-button {grid-area: b;}
+	
+	
+	/* Mypage-Setting - nick */
+	.mypage-setting-nick {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname, .mypage-setting-nickname-input {
+		grid-area: b;
+		justify-self: center;
+		width: 150px;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-button {
+		grid-area: b;
+		justify-self: center;
+		padding-left: 150px;
+	}
+	
+	
+	/* Mypage-Setting - profile img */
+	.mypage-setting-img {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-title {grid-area: a;}	
+	.mypage-setting-img .mypage-setting-profileimage-button {grid-area: b;}
+	
+	.mypage-setting-img button {
+		width: 150px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	/* Mypage-Setting - subscribe */
+	.mypage-setting-subscribe {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-title {grid-area: a;}	
+	.mypage-setting-subscribe .mypage-setting-subscribe-switch {grid-area: b;}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	
+	/* Mypage-Setting - subscriber */
+	.mypage-setting-subscriber {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-title {grid-area: a;}	
+	.mypage-setting-subscriber .mypage-setting-subscriber-switch {grid-area: b;}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-subscribe-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscribe-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-subscriber-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscriber-switch input {
+		display: none;
+	}
+	
+	
+	/* mypage-setting-genre */
+	.mypage-setting-genre {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-title {grid-area: a;}	
+	.mypage-setting-genre .mypage-setting-genre-switch {grid-area: b;}	
+	
+	.mypage-setting-genre .mypage-setting-genre-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	
+	.mypage-setting-genre-list {
+		display: grid;
+		grid-template-columns: 100px 135px 135px 130px 110px 140px 160px 110px 120px 140px;
+		grid-template-rows: repeat(2, 55px);
+		grid-template-areas: 
+			"a b c d e f g h i j"
+			"k l m n o p q r s t";
+		justify-content: start;
+		justify-items: start;
+		align-items: center;
+		padding-left: 30px;
+		grid-column-gap: 0;
+		grid-row-gap: 5px;
+		padding-bottom: 20px;
+		overflow: scroll;
+	}
+	
+	.mypage-setting-genre-list .genre-1 {grid-area: a;}
+	.mypage-setting-genre-list .genre-2 {grid-area: b;}
+	.mypage-setting-genre-list .genre-3 {grid-area: c;}
+	.mypage-setting-genre-list .genre-4 {grid-area: d;}
+	.mypage-setting-genre-list .genre-5 {grid-area: e;}
+	.mypage-setting-genre-list .genre-6 {grid-area: f;}
+	.mypage-setting-genre-list .genre-7 {grid-area: g;}
+	.mypage-setting-genre-list .genre-8 {grid-area: h;}
+	.mypage-setting-genre-list .genre-9 {grid-area: i;}
+	.mypage-setting-genre-list .genre-10 {grid-area: j;}
+	.mypage-setting-genre-list .genre-11 {grid-area: k;}
+	.mypage-setting-genre-list .genre-12 {grid-area: l;}
+	.mypage-setting-genre-list .genre-13 {grid-area: m;}
+	.mypage-setting-genre-list .genre-14 {grid-area: n;}
+	.mypage-setting-genre-list .genre-15 {grid-area: o;}
+	.mypage-setting-genre-list .genre-16 {grid-area: p;}
+	.mypage-setting-genre-list .genre-17 {grid-area: q;}
+	.mypage-setting-genre-list .genre-18 {grid-area: r;}
+	.mypage-setting-genre-list .genre-19 {grid-area: s;}
+	.mypage-setting-genre-list .genre-20 {grid-area: t;}
+	
+	.mypage-setting-genre-list span {
+		padding-right: 25px;
+	    padding-left: 25px;
+	    padding-top: 15px;
+	    padding-bottom: 15px;
+	    border-radius: 10px;
+	}
+	
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 26px;
+		width: 26px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	input:checked+.slider {
+		background-color: #2196F3;
+	}
+	
+	input:focus+.slider {
+		box-shadow: 0 0 1px #2196F3;
+	}
+	
+	input:checked+.slider:before {
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
+	}
+	
+	
+	/* Rounded sliders */
+	.slider.round {border-radius: 30px;}	
+	.slider.round:before {border-radius: 50%;}	
+	.mypage-genre-list span {padding-left: 10px;}	
+	
+	/* mypage-setting - confirm */
+	.mypage-setting-confirm {
+		display: grid;
+		grid-template-columns: 150px 150px;
+		grid-template-areas: 
+			"a b";
+		grid-column-gap: 15px;
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-confirm-button {grid-area: a;}	
+	.mypage-setting-confirm .mypage-setting-logout-button {grid-area: b;}	
+	
+	.mypage-setting-confirm-button button {
+		width: 150px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-logout-button button {
+		width: 150px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm .input-change {
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		color: white;
+	}
+	
+	
+	/* hr */
+	hr {
+		width: 90%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+	.input-text {
+		width: 150px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		font-size: 1em;
+		color: #424242;
+		height: 50px;
+		text-align: center;
+	}
+	
+	
+	/*mypage-compony*/
+	.compony {
+		display: grid;
+		grid-template-columns: repeat(1, 100%);
+		grid-template-rows: 300px;
+		grid-template-areas: "a";
+		justify-content: center;
+		justify-items: center;
+		background-color: dimgray;
+		margin-top: 100px;
+		bottom: 0;
+	}
+	
+	.compony .compony-infor {
+		grid-area: a;
+		color: white;
+		font-size: 1em;
+		padding: 50px;
+		align-self: center;
+	}
+	
+	/*footer*/
+	.footer {
+		width: 100%;
+		height: 1000px;
+	}
 }
 
 /* iPhone-X portrait  */
@@ -1035,6 +2719,399 @@ hr {
 	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
 	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
 	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+	
+	/* Mypage-Setting */
+
+	/* Mypage-Setting - login*/
+	.mypage-setting-id {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-text {
+		grid-area: b;
+	}
+	
+	/* Mypage-Setting - password */
+	.mypage-setting-pw {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title {grid-area: a;}	
+	.mypage-setting-pw .mypage-setting-password-title-button {grid-area: b;}
+	
+	
+	/* Mypage-Setting - nick */
+	.mypage-setting-nick {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname, .mypage-setting-nickname-input {
+		grid-area: b;
+		justify-self: center;
+		width: 150px;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-button {
+		grid-area: b;
+		justify-self: center;
+		padding-left: 150px;
+	}
+	
+	
+	/* Mypage-Setting - profile img */
+	.mypage-setting-img {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-title {grid-area: a;}	
+	.mypage-setting-img .mypage-setting-profileimage-button {grid-area: b;}
+	
+	.mypage-setting-img button {
+		width: 150px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	/* Mypage-Setting - subscribe */
+	.mypage-setting-subscribe {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-title {grid-area: a;}	
+	.mypage-setting-subscribe .mypage-setting-subscribe-switch {grid-area: b;}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	
+	/* Mypage-Setting - subscriber */
+	.mypage-setting-subscriber {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-title {grid-area: a;}	
+	.mypage-setting-subscriber .mypage-setting-subscriber-switch {grid-area: b;}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-subscribe-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscribe-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-subscriber-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscriber-switch input {
+		display: none;
+	}
+	
+	
+	/* mypage-setting-genre */
+	.mypage-setting-genre {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-title {grid-area: a;}	
+	.mypage-setting-genre .mypage-setting-genre-switch {grid-area: b;}	
+	
+	.mypage-setting-genre .mypage-setting-genre-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	
+	.mypage-setting-genre-list {
+		display: grid;
+		grid-template-columns: 100px 135px 135px 130px 110px 140px 160px 110px 120px 140px;
+		grid-template-rows: repeat(2, 55px);
+		grid-template-areas: 
+			"a b c d e f g h i j"
+			"k l m n o p q r s t";
+		justify-content: start;
+		justify-items: start;
+		align-items: center;
+		padding-left: 30px;
+		grid-column-gap: 0;
+		grid-row-gap: 5px;
+		padding-bottom: 20px;
+		overflow: scroll;
+	}
+	
+	.mypage-setting-genre-list .genre-1 {grid-area: a;}
+	.mypage-setting-genre-list .genre-2 {grid-area: b;}
+	.mypage-setting-genre-list .genre-3 {grid-area: c;}
+	.mypage-setting-genre-list .genre-4 {grid-area: d;}
+	.mypage-setting-genre-list .genre-5 {grid-area: e;}
+	.mypage-setting-genre-list .genre-6 {grid-area: f;}
+	.mypage-setting-genre-list .genre-7 {grid-area: g;}
+	.mypage-setting-genre-list .genre-8 {grid-area: h;}
+	.mypage-setting-genre-list .genre-9 {grid-area: i;}
+	.mypage-setting-genre-list .genre-10 {grid-area: j;}
+	.mypage-setting-genre-list .genre-11 {grid-area: k;}
+	.mypage-setting-genre-list .genre-12 {grid-area: l;}
+	.mypage-setting-genre-list .genre-13 {grid-area: m;}
+	.mypage-setting-genre-list .genre-14 {grid-area: n;}
+	.mypage-setting-genre-list .genre-15 {grid-area: o;}
+	.mypage-setting-genre-list .genre-16 {grid-area: p;}
+	.mypage-setting-genre-list .genre-17 {grid-area: q;}
+	.mypage-setting-genre-list .genre-18 {grid-area: r;}
+	.mypage-setting-genre-list .genre-19 {grid-area: s;}
+	.mypage-setting-genre-list .genre-20 {grid-area: t;}
+	
+	.mypage-setting-genre-list span {
+		padding-right: 25px;
+	    padding-left: 25px;
+	    padding-top: 15px;
+	    padding-bottom: 15px;
+	    border-radius: 10px;
+	}
+	
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 26px;
+		width: 26px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	input:checked+.slider {
+		background-color: #2196F3;
+	}
+	
+	input:focus+.slider {
+		box-shadow: 0 0 1px #2196F3;
+	}
+	
+	input:checked+.slider:before {
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
+	}
+	
+	
+	/* Rounded sliders */
+	.slider.round {border-radius: 30px;}	
+	.slider.round:before {border-radius: 50%;}	
+	.mypage-genre-list span {padding-left: 10px;}	
+	
+	/* mypage-setting - confirm */
+	.mypage-setting-confirm {
+		display: grid;
+		grid-template-columns: 150px 150px;
+		grid-template-areas: 
+			"a b";
+		grid-column-gap: 15px;
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-confirm-button {grid-area: a;}	
+	.mypage-setting-confirm .mypage-setting-logout-button {grid-area: b;}	
+	
+	.mypage-setting-confirm-button button {
+		width: 150px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-logout-button button {
+		width: 150px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm .input-change {
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		color: white;
+	}
+	
+	
+	/* hr */
+	hr {
+		width: 90%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+	.input-text {
+		width: 150px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		font-size: 1em;
+		color: #424242;
+		height: 50px;
+		text-align: center;
+	}
+	
+	
+	/*mypage-compony*/
+	.compony {
+		display: grid;
+		grid-template-columns: repeat(1, 100%);
+		grid-template-rows: 300px;
+		grid-template-areas: "a";
+		justify-content: center;
+		justify-items: center;
+		background-color: dimgray;
+		margin-top: 100px;
+		bottom: 0;
+	}
+	
+	.compony .compony-infor {
+		grid-area: a;
+		color: white;
+		font-size: 1em;
+		padding: 50px;
+		align-self: center;
+	}
+	
+	/*footer*/
+	.footer {
+		width: 100%;
+		height: 1000px;
+	}
 }
 
 /* iPhone-6/7/8 portrait */
@@ -1111,6 +3188,399 @@ hr {
 	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
 	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
 	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+	
+	/* Mypage-Setting */
+
+	/* Mypage-Setting - login*/
+	.mypage-setting-id {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-text {
+		grid-area: b;
+	}
+	
+	/* Mypage-Setting - password */
+	.mypage-setting-pw {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title {grid-area: a;}	
+	.mypage-setting-pw .mypage-setting-password-title-button {grid-area: b;}
+	
+	
+	/* Mypage-Setting - nick */
+	.mypage-setting-nick {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname, .mypage-setting-nickname-input {
+		grid-area: b;
+		justify-self: center;
+		width: 150px;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-button {
+		grid-area: b;
+		justify-self: center;
+		padding-left: 150px;
+	}
+	
+	
+	/* Mypage-Setting - profile img */
+	.mypage-setting-img {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-title {grid-area: a;}	
+	.mypage-setting-img .mypage-setting-profileimage-button {grid-area: b;}
+	
+	.mypage-setting-img button {
+		width: 150px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	/* Mypage-Setting - subscribe */
+	.mypage-setting-subscribe {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-title {grid-area: a;}	
+	.mypage-setting-subscribe .mypage-setting-subscribe-switch {grid-area: b;}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	
+	/* Mypage-Setting - subscriber */
+	.mypage-setting-subscriber {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-title {grid-area: a;}	
+	.mypage-setting-subscriber .mypage-setting-subscriber-switch {grid-area: b;}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-subscribe-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscribe-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-subscriber-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscriber-switch input {
+		display: none;
+	}
+	
+	
+	/* mypage-setting-genre */
+	.mypage-setting-genre {
+		display: grid;
+		grid-template-columns: 150px 200px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-title {grid-area: a;}	
+	.mypage-setting-genre .mypage-setting-genre-switch {grid-area: b;}	
+	
+	.mypage-setting-genre .mypage-setting-genre-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	
+	.mypage-setting-genre-list {
+		display: grid;
+		grid-template-columns: 100px 135px 135px 130px 110px 140px 160px 110px 120px 140px;
+		grid-template-rows: repeat(2, 55px);
+		grid-template-areas: 
+			"a b c d e f g h i j"
+			"k l m n o p q r s t";
+		justify-content: start;
+		justify-items: start;
+		align-items: center;
+		padding-left: 30px;
+		grid-column-gap: 0;
+		grid-row-gap: 5px;
+		padding-bottom: 20px;
+		overflow: scroll;
+	}
+	
+	.mypage-setting-genre-list .genre-1 {grid-area: a;}
+	.mypage-setting-genre-list .genre-2 {grid-area: b;}
+	.mypage-setting-genre-list .genre-3 {grid-area: c;}
+	.mypage-setting-genre-list .genre-4 {grid-area: d;}
+	.mypage-setting-genre-list .genre-5 {grid-area: e;}
+	.mypage-setting-genre-list .genre-6 {grid-area: f;}
+	.mypage-setting-genre-list .genre-7 {grid-area: g;}
+	.mypage-setting-genre-list .genre-8 {grid-area: h;}
+	.mypage-setting-genre-list .genre-9 {grid-area: i;}
+	.mypage-setting-genre-list .genre-10 {grid-area: j;}
+	.mypage-setting-genre-list .genre-11 {grid-area: k;}
+	.mypage-setting-genre-list .genre-12 {grid-area: l;}
+	.mypage-setting-genre-list .genre-13 {grid-area: m;}
+	.mypage-setting-genre-list .genre-14 {grid-area: n;}
+	.mypage-setting-genre-list .genre-15 {grid-area: o;}
+	.mypage-setting-genre-list .genre-16 {grid-area: p;}
+	.mypage-setting-genre-list .genre-17 {grid-area: q;}
+	.mypage-setting-genre-list .genre-18 {grid-area: r;}
+	.mypage-setting-genre-list .genre-19 {grid-area: s;}
+	.mypage-setting-genre-list .genre-20 {grid-area: t;}
+	
+	.mypage-setting-genre-list span {
+		padding-right: 25px;
+	    padding-left: 25px;
+	    padding-top: 15px;
+	    padding-bottom: 15px;
+	    border-radius: 10px;
+	}
+	
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 26px;
+		width: 26px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	input:checked+.slider {
+		background-color: #2196F3;
+	}
+	
+	input:focus+.slider {
+		box-shadow: 0 0 1px #2196F3;
+	}
+	
+	input:checked+.slider:before {
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
+	}
+	
+	
+	/* Rounded sliders */
+	.slider.round {border-radius: 30px;}	
+	.slider.round:before {border-radius: 50%;}	
+	.mypage-genre-list span {padding-left: 10px;}	
+	
+	/* mypage-setting - confirm */
+	.mypage-setting-confirm {
+		display: grid;
+		grid-template-columns: 150px 150px;
+		grid-template-areas: 
+			"a b";
+		grid-column-gap: 15px;
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-confirm-button {grid-area: a;}	
+	.mypage-setting-confirm .mypage-setting-logout-button {grid-area: b;}	
+	
+	.mypage-setting-confirm-button button {
+		width: 150px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-logout-button button {
+		width: 150px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm .input-change {
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		color: white;
+	}
+	
+	
+	/* hr */
+	hr {
+		width: 90%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+	.input-text {
+		width: 150px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		font-size: 1em;
+		color: #424242;
+		height: 50px;
+		text-align: center;
+	}
+	
+	
+	/*mypage-compony*/
+	.compony {
+		display: grid;
+		grid-template-columns: repeat(1, 100%);
+		grid-template-rows: 300px;
+		grid-template-areas: "a";
+		justify-content: center;
+		justify-items: center;
+		background-color: dimgray;
+		margin-top: 100px;
+		bottom: 0;
+	}
+	
+	.compony .compony-infor {
+		grid-area: a;
+		color: white;
+		font-size: 1em;
+		padding: 50px;
+		align-self: center;
+	}
+	
+	/*footer*/
+	.footer {
+		width: 100%;
+		height: 1000px;
+	}
 }
 
 /* iPhone-5/5S/SE portrait */
@@ -1187,7 +3657,401 @@ hr {
 	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
 	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
 	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+	
+	/* Mypage-Setting */
+
+	/* Mypage-Setting - login*/
+	.mypage-setting-id {
+		display: grid;
+		grid-template-columns: 130px 160px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 70px;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-text {
+		grid-area: b;
+	}
+	
+	/* Mypage-Setting - password */
+	.mypage-setting-pw {
+		display: grid;
+		grid-template-columns: 130px 160px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 70px;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title {grid-area: a;}	
+	.mypage-setting-pw .mypage-setting-password-title-button {grid-area: b;}
+	
+	
+	/* Mypage-Setting - nick */
+	.mypage-setting-nick {
+		display: grid;
+		grid-template-columns: 130px 160px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 70px;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname, .mypage-setting-nickname-input {
+		grid-area: b;
+		justify-self: center;
+		width: 150px;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-button {
+		grid-area: b;
+		justify-self: center;
+		padding-left: 150px;
+	}
+	
+	
+	/* Mypage-Setting - profile img */
+	.mypage-setting-img {
+		display: grid;
+		grid-template-columns: 130px 160px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 70px;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-title {grid-area: a;}	
+	.mypage-setting-img .mypage-setting-profileimage-button {grid-area: b;}
+	
+	.mypage-setting-img button {
+		width: 150px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	/* Mypage-Setting - subscribe */
+	.mypage-setting-subscribe {
+		display: grid;
+		grid-template-columns: 130px 160px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 70px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-title {grid-area: a;}	
+	.mypage-setting-subscribe .mypage-setting-subscribe-switch {grid-area: b;}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-open {
+		grid-area: b;
+		padding-left: 110px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-close {
+		grid-area: b;
+		padding-right: 110px;
+	}
+	
+	
+	/* Mypage-Setting - subscriber */
+	.mypage-setting-subscriber {
+		display: grid;
+		grid-template-columns: 130px 160px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 70px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-title {grid-area: a;}	
+	.mypage-setting-subscriber .mypage-setting-subscriber-switch {grid-area: b;}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-open {
+		grid-area: b;
+		padding-left: 110px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-close {
+		grid-area: b;
+		padding-right: 110px;
+	}
+	
+	.mypage-setting-subscribe-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscribe-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-subscriber-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscriber-switch input {
+		display: none;
+	}
+	
+	
+	/* mypage-setting-genre */
+	.mypage-setting-genre {
+		display: grid;
+		grid-template-columns: 130px 160px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 70px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-title {grid-area: a;}	
+	.mypage-setting-genre .mypage-setting-genre-switch {grid-area: b;}	
+	
+	.mypage-setting-genre .mypage-setting-genre-open {
+		grid-area: b;
+		padding-left: 110px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-close {
+		grid-area: b;
+		padding-right: 110px;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	
+	.mypage-setting-genre-list {
+		display: grid;
+		grid-template-columns: 100px 135px 135px 130px 110px 140px 160px 110px 120px 140px;
+		grid-template-rows: repeat(2, 55px);
+		grid-template-areas: 
+			"a b c d e f g h i j"
+			"k l m n o p q r s t";
+		justify-content: start;
+		justify-items: start;
+		align-items: center;
+		padding-left: 10px;
+		grid-column-gap: 0;
+		grid-row-gap: 5px;
+		padding-bottom: 20px;
+		overflow: scroll;
+	}
+	
+	.mypage-setting-genre-list .genre-1 {grid-area: a;}
+	.mypage-setting-genre-list .genre-2 {grid-area: b;}
+	.mypage-setting-genre-list .genre-3 {grid-area: c;}
+	.mypage-setting-genre-list .genre-4 {grid-area: d;}
+	.mypage-setting-genre-list .genre-5 {grid-area: e;}
+	.mypage-setting-genre-list .genre-6 {grid-area: f;}
+	.mypage-setting-genre-list .genre-7 {grid-area: g;}
+	.mypage-setting-genre-list .genre-8 {grid-area: h;}
+	.mypage-setting-genre-list .genre-9 {grid-area: i;}
+	.mypage-setting-genre-list .genre-10 {grid-area: j;}
+	.mypage-setting-genre-list .genre-11 {grid-area: k;}
+	.mypage-setting-genre-list .genre-12 {grid-area: l;}
+	.mypage-setting-genre-list .genre-13 {grid-area: m;}
+	.mypage-setting-genre-list .genre-14 {grid-area: n;}
+	.mypage-setting-genre-list .genre-15 {grid-area: o;}
+	.mypage-setting-genre-list .genre-16 {grid-area: p;}
+	.mypage-setting-genre-list .genre-17 {grid-area: q;}
+	.mypage-setting-genre-list .genre-18 {grid-area: r;}
+	.mypage-setting-genre-list .genre-19 {grid-area: s;}
+	.mypage-setting-genre-list .genre-20 {grid-area: t;}
+	
+	.mypage-setting-genre-list span {
+		padding-right: 25px;
+	    padding-left: 25px;
+	    padding-top: 15px;
+	    padding-bottom: 15px;
+	    border-radius: 10px;
+	}
+	
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 26px;
+		width: 26px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	input:checked+.slider {
+		background-color: #2196F3;
+	}
+	
+	input:focus+.slider {
+		box-shadow: 0 0 1px #2196F3;
+	}
+	
+	input:checked+.slider:before {
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
+	}
+	
+	
+	/* Rounded sliders */
+	.slider.round {border-radius: 30px;}	
+	.slider.round:before {border-radius: 50%;}	
+	.mypage-genre-list span {padding-left: 10px;}	
+	
+	/* mypage-setting - confirm */
+	.mypage-setting-confirm {
+		display: grid;
+		grid-template-columns: 150px 140px;
+		grid-template-areas: 
+			"a b";
+		grid-column-gap: 15px;
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 70px;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-confirm-button {grid-area: a;}	
+	.mypage-setting-confirm .mypage-setting-logout-button {grid-area: b;}	
+	
+	.mypage-setting-confirm-button button {
+		width: 150px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-logout-button button {
+		width: 140px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm .input-change {
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		color: white;
+	}
+	
+	
+	/* hr */
+	hr {
+		width: 90%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+	.input-text {
+		width: 150px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		font-size: 1em;
+		color: #424242;
+		height: 50px;
+		text-align: center;
+	}
+	
+	
+	/*mypage-compony*/
+	.compony {
+		display: grid;
+		grid-template-columns: repeat(1, 100%);
+		grid-template-rows: 300px;
+		grid-template-areas: "a";
+		justify-content: center;
+		justify-items: center;
+		background-color: dimgray;
+		margin-top: 100px;
+		bottom: 0;
+	}
+	
+	.compony .compony-infor {
+		grid-area: a;
+		color: white;
+		font-size: 1em;
+		padding: 50px;
+		align-self: center;
+	}
+	
+	/*footer*/
+	.footer {
+		width: 100%;
+		height: 1000px;
+	}
 }
+
 
 /* iPad Pro-12.9 landscape */
 @media (max-device-width: 1366px) and (max-device-height: 1024px) and (orientation: landscape) {
@@ -1263,6 +4127,480 @@ hr {
 	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
 	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
 	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+	
+	/* Mypage-Setting */
+
+	/* Mypage-Setting - login*/
+	.mypage-setting-id {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-text {
+		grid-area: b;
+	}
+	
+	/* Mypage-Setting - password */
+	.mypage-setting-pw {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title-button {
+		grid-area: b;
+	}
+	
+	
+	/* Mypage-Setting - nick */
+	.mypage-setting-nick {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname, .mypage-setting-nickname-input {
+		grid-area: b;
+		justify-self: center;
+	/* 	padding-right: 200px; */
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-button {
+		grid-area: b;
+		justify-self: center;
+		padding-left: 150px;
+	}
+	
+	
+	/* Mypage-Setting - profile img */
+	.mypage-setting-img {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-button {
+		grid-area: b;
+	}
+	
+	.mypage-setting-img button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-img button:hover {
+		width: 200px;
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: white;
+	}
+	
+	/* Mypage-Setting - subscribe */
+	.mypage-setting-subscribe {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	
+	/* Mypage-Setting - subscriber */
+	.mypage-setting-subscriber {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-subscribe-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscribe-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-subscriber-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscriber-switch input {
+		display: none;
+	}
+	
+	
+	/* mypage-setting-genre */
+	.mypage-setting-genre {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	
+	.mypage-setting-genre-list {
+		display: grid;
+		grid-template-columns: repeat(5, 165px);
+		grid-template-rows: repeat(4, 60px);
+		grid-template-areas: 
+			"a b c d e" 
+			"f g h i j" 
+			"k l m n o" 
+			"p q r s t";
+		justify-content: center;
+		justify-items: start;
+		align-items: center;
+		padding-left: 100px;
+		grid-column-gap: 0;
+		grid-row-gap: 10px;
+		padding-bottom: 30px;
+	}
+	
+	.mypage-setting-genre-list .genre-1 {grid-area: a;}
+	.mypage-setting-genre-list .genre-2 {grid-area: b;}
+	.mypage-setting-genre-list .genre-3 {grid-area: c;}
+	.mypage-setting-genre-list .genre-4 {grid-area: d;}
+	.mypage-setting-genre-list .genre-5 {grid-area: e;}
+	.mypage-setting-genre-list .genre-6 {grid-area: f;}
+	.mypage-setting-genre-list .genre-7 {grid-area: g;}
+	.mypage-setting-genre-list .genre-8 {grid-area: h;}
+	.mypage-setting-genre-list .genre-9 {grid-area: i;}
+	.mypage-setting-genre-list .genre-10 {grid-area: j;}
+	.mypage-setting-genre-list .genre-11 {grid-area: k;}
+	.mypage-setting-genre-list .genre-12 {grid-area: l;}
+	.mypage-setting-genre-list .genre-13 {grid-area: m;}
+	.mypage-setting-genre-list .genre-14 {grid-area: n;}
+	.mypage-setting-genre-list .genre-15 {grid-area: o;}
+	.mypage-setting-genre-list .genre-16 {grid-area: p;}
+	.mypage-setting-genre-list .genre-17 {grid-area: q;}
+	.mypage-setting-genre-list .genre-18 {grid-area: r;}
+	.mypage-setting-genre-list .genre-19 {grid-area: s;}
+	.mypage-setting-genre-list .genre-20 {grid-area: t;}
+	
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 26px;
+		width: 26px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	input:checked+.slider {
+		background-color: #2196F3;
+	}
+	
+	input:focus+.slider {
+		box-shadow: 0 0 1px #2196F3;
+	}
+	
+	input:checked+.slider:before {
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
+	}
+	
+	
+	/* Rounded sliders */
+	.slider.round {
+		border-radius: 30px;
+	}
+	
+	.slider.round:before {
+		border-radius: 50%;
+	}
+	
+	.mypage-genre-list span {
+		padding-left: 10px;
+	}
+	
+	
+	/*mypage-setting-logout*/
+	.mypage-setting-logout {
+		display: grid;
+		grid-template-columns: 300px 700px;
+		grid-template-areas: 
+			". a";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-logout .mypage-setting-logout-button {
+		grid-area: a;
+	}
+	
+	.mypage-setting-logout-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-logout-button button:hover {
+		width: 200px;
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: white;
+	}
+	
+	
+	/* mypage-setting - confirm */
+	.mypage-setting-confirm {
+		display: grid;
+		grid-template-columns: 200px 200px;
+		grid-template-areas: 
+			"a b";
+		grid-column-gap: 15px;
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-confirm-button {
+		grid-area: a;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-logout-button {
+		grid-area: b;
+	}
+	
+	
+	.mypage-setting-cancel-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm .input-change {
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		color: white;
+	}
+	
+	
+	/* hr */
+	hr {
+		width: 70%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+	.input-text {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+	/* 	padding: 15px; */
+		font-size: 1em;
+		color: #424242;
+		height: 50px;
+		text-align: center;
+	}
+	
+	
+	/*mypage-compony*/
+	.compony {
+		display: grid;
+		grid-template-columns: repeat(1, 100%);
+		grid-template-rows: 300px;
+		grid-template-areas: "a";
+		justify-content: center;
+		justify-items: center;
+		background-color: dimgray;
+		margin-top: 100px;
+		bottom: 0;
+	}
+	
+	.compony .compony-infor {
+		grid-area: a;
+		color: white;
+		font-size: 1em;
+		padding: 50px;
+		align-self: center;
+	}
+	
+	/*footer*/
+	.footer {
+		width: 100%;
+		height: 1000px;
+	}
 }
 
 /* iPad Pro-10.5 landscape */
@@ -1339,6 +4677,480 @@ hr {
 	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
 	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
 	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+	
+	/* Mypage-Setting */
+
+	/* Mypage-Setting - login*/
+	.mypage-setting-id {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-text {
+		grid-area: b;
+	}
+	
+	/* Mypage-Setting - password */
+	.mypage-setting-pw {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title-button {
+		grid-area: b;
+	}
+	
+	
+	/* Mypage-Setting - nick */
+	.mypage-setting-nick {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname, .mypage-setting-nickname-input {
+		grid-area: b;
+		justify-self: center;
+	/* 	padding-right: 200px; */
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-button {
+		grid-area: b;
+		justify-self: center;
+		padding-left: 150px;
+	}
+	
+	
+	/* Mypage-Setting - profile img */
+	.mypage-setting-img {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-button {
+		grid-area: b;
+	}
+	
+	.mypage-setting-img button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-img button:hover {
+		width: 200px;
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: white;
+	}
+	
+	/* Mypage-Setting - subscribe */
+	.mypage-setting-subscribe {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	
+	/* Mypage-Setting - subscriber */
+	.mypage-setting-subscriber {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-subscribe-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscribe-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-subscriber-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscriber-switch input {
+		display: none;
+	}
+	
+	
+	/* mypage-setting-genre */
+	.mypage-setting-genre {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	
+	.mypage-setting-genre-list {
+		display: grid;
+		grid-template-columns: repeat(5, 165px);
+		grid-template-rows: repeat(4, 60px);
+		grid-template-areas: 
+			"a b c d e" 
+			"f g h i j" 
+			"k l m n o" 
+			"p q r s t";
+		justify-content: center;
+		justify-items: start;
+		align-items: center;
+		padding-left: 100px;
+		grid-column-gap: 0;
+		grid-row-gap: 10px;
+		padding-bottom: 30px;
+	}
+	
+	.mypage-setting-genre-list .genre-1 {grid-area: a;}
+	.mypage-setting-genre-list .genre-2 {grid-area: b;}
+	.mypage-setting-genre-list .genre-3 {grid-area: c;}
+	.mypage-setting-genre-list .genre-4 {grid-area: d;}
+	.mypage-setting-genre-list .genre-5 {grid-area: e;}
+	.mypage-setting-genre-list .genre-6 {grid-area: f;}
+	.mypage-setting-genre-list .genre-7 {grid-area: g;}
+	.mypage-setting-genre-list .genre-8 {grid-area: h;}
+	.mypage-setting-genre-list .genre-9 {grid-area: i;}
+	.mypage-setting-genre-list .genre-10 {grid-area: j;}
+	.mypage-setting-genre-list .genre-11 {grid-area: k;}
+	.mypage-setting-genre-list .genre-12 {grid-area: l;}
+	.mypage-setting-genre-list .genre-13 {grid-area: m;}
+	.mypage-setting-genre-list .genre-14 {grid-area: n;}
+	.mypage-setting-genre-list .genre-15 {grid-area: o;}
+	.mypage-setting-genre-list .genre-16 {grid-area: p;}
+	.mypage-setting-genre-list .genre-17 {grid-area: q;}
+	.mypage-setting-genre-list .genre-18 {grid-area: r;}
+	.mypage-setting-genre-list .genre-19 {grid-area: s;}
+	.mypage-setting-genre-list .genre-20 {grid-area: t;}
+	
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 26px;
+		width: 26px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	input:checked+.slider {
+		background-color: #2196F3;
+	}
+	
+	input:focus+.slider {
+		box-shadow: 0 0 1px #2196F3;
+	}
+	
+	input:checked+.slider:before {
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
+	}
+	
+	
+	/* Rounded sliders */
+	.slider.round {
+		border-radius: 30px;
+	}
+	
+	.slider.round:before {
+		border-radius: 50%;
+	}
+	
+	.mypage-genre-list span {
+		padding-left: 10px;
+	}
+	
+	
+	/*mypage-setting-logout*/
+	.mypage-setting-logout {
+		display: grid;
+		grid-template-columns: 300px 700px;
+		grid-template-areas: 
+			". a";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-logout .mypage-setting-logout-button {
+		grid-area: a;
+	}
+	
+	.mypage-setting-logout-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-logout-button button:hover {
+		width: 200px;
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: white;
+	}
+	
+	
+	/* mypage-setting - confirm */
+	.mypage-setting-confirm {
+		display: grid;
+		grid-template-columns: 200px 200px;
+		grid-template-areas: 
+			"a b";
+		grid-column-gap: 15px;
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-confirm-button {
+		grid-area: a;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-logout-button {
+		grid-area: b;
+	}
+	
+	
+	.mypage-setting-cancel-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm .input-change {
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		color: white;
+	}
+	
+	
+	/* hr */
+	hr {
+		width: 80%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+	.input-text {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+	/* 	padding: 15px; */
+		font-size: 1em;
+		color: #424242;
+		height: 50px;
+		text-align: center;
+	}
+	
+	
+	/*mypage-compony*/
+	.compony {
+		display: grid;
+		grid-template-columns: repeat(1, 100%);
+		grid-template-rows: 300px;
+		grid-template-areas: "a";
+		justify-content: center;
+		justify-items: center;
+		background-color: dimgray;
+		margin-top: 100px;
+		bottom: 0;
+	}
+	
+	.compony .compony-infor {
+		grid-area: a;
+		color: white;
+		font-size: 1em;
+		padding: 50px;
+		align-self: center;
+	}
+	
+	/*footer*/
+	.footer {
+		width: 100%;
+		height: 1000px;
+	}
 }
 
 /* iPad Pro-9.7 landscape */
@@ -1415,6 +5227,479 @@ hr {
 	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
 	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
 	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+	
+	/* Mypage-Setting */
+
+	/* Mypage-Setting - login*/
+	.mypage-setting-id {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-text {
+		grid-area: b;
+	}
+	
+	/* Mypage-Setting - password */
+	.mypage-setting-pw {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title-button {
+		grid-area: b;
+	}
+	
+	
+	/* Mypage-Setting - nick */
+	.mypage-setting-nick {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname, .mypage-setting-nickname-input {
+		grid-area: b;
+		justify-self: center;
+	/* 	padding-right: 200px; */
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-button {
+		grid-area: b;
+		justify-self: center;
+		padding-left: 150px;
+	}
+	
+	
+	/* Mypage-Setting - profile img */
+	.mypage-setting-img {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-button {
+		grid-area: b;
+	}
+	
+	.mypage-setting-img button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-img button:hover {
+		width: 200px;
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: white;
+	}
+	
+	/* Mypage-Setting - subscribe */
+	.mypage-setting-subscribe {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	
+	/* Mypage-Setting - subscriber */
+	.mypage-setting-subscriber {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-subscribe-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscribe-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-subscriber-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscriber-switch input {
+		display: none;
+	}
+	
+	
+	/* mypage-setting-genre */
+	.mypage-setting-genre {
+		display: grid;
+		grid-template-columns: 500px 500px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	
+	.mypage-setting-genre-list {
+		display: grid;
+		grid-template-columns: repeat(5, 165px);
+		grid-template-rows: repeat(4, 60px);
+		grid-template-areas: 
+			"a b c d e" 
+			"f g h i j" 
+			"k l m n o" 
+			"p q r s t";
+		justify-content: center;
+		justify-items: start;
+		align-items: center;
+		padding-left: 100px;
+		grid-column-gap: 0;
+		grid-row-gap: 10px;
+		padding-bottom: 30px;
+	}
+	
+	.mypage-setting-genre-list .genre-1 {grid-area: a;}
+	.mypage-setting-genre-list .genre-2 {grid-area: b;}
+	.mypage-setting-genre-list .genre-3 {grid-area: c;}
+	.mypage-setting-genre-list .genre-4 {grid-area: d;}
+	.mypage-setting-genre-list .genre-5 {grid-area: e;}
+	.mypage-setting-genre-list .genre-6 {grid-area: f;}
+	.mypage-setting-genre-list .genre-7 {grid-area: g;}
+	.mypage-setting-genre-list .genre-8 {grid-area: h;}
+	.mypage-setting-genre-list .genre-9 {grid-area: i;}
+	.mypage-setting-genre-list .genre-10 {grid-area: j;}
+	.mypage-setting-genre-list .genre-11 {grid-area: k;}
+	.mypage-setting-genre-list .genre-12 {grid-area: l;}
+	.mypage-setting-genre-list .genre-13 {grid-area: m;}
+	.mypage-setting-genre-list .genre-14 {grid-area: n;}
+	.mypage-setting-genre-list .genre-15 {grid-area: o;}
+	.mypage-setting-genre-list .genre-16 {grid-area: p;}
+	.mypage-setting-genre-list .genre-17 {grid-area: q;}
+	.mypage-setting-genre-list .genre-18 {grid-area: r;}
+	.mypage-setting-genre-list .genre-19 {grid-area: s;}
+	.mypage-setting-genre-list .genre-20 {grid-area: t;}
+	
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 26px;
+		width: 26px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	input:checked+.slider {
+		background-color: #2196F3;
+	}
+	
+	input:focus+.slider {
+		box-shadow: 0 0 1px #2196F3;
+	}
+	
+	input:checked+.slider:before {
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
+	}
+	
+	
+	/* Rounded sliders */
+	.slider.round {
+		border-radius: 30px;
+	}
+	
+	.slider.round:before {
+		border-radius: 50%;
+	}
+	
+	.mypage-genre-list span {
+		padding-left: 10px;
+	}
+	
+	
+	/*mypage-setting-logout*/
+	.mypage-setting-logout {
+		display: grid;
+		grid-template-columns: 300px 700px;
+		grid-template-areas: 
+			". a";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-logout .mypage-setting-logout-button {
+		grid-area: a;
+	}
+	
+	.mypage-setting-logout-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-logout-button button:hover {
+		width: 200px;
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: white;
+	}
+	
+	
+	/* mypage-setting - confirm */
+	.mypage-setting-confirm {
+		display: grid;
+		grid-template-columns: 200px 200px;
+		grid-template-areas: 
+			"a b";
+		grid-column-gap: 15px;
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-confirm-button {
+		grid-area: a;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-logout-button {
+		grid-area: b;
+	}
+	
+	
+	.mypage-setting-cancel-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm .input-change {
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		color: white;
+	}
+	
+	
+	/* hr */
+	hr {
+		width: 85%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+	.input-text {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		font-size: 1em;
+		color: #424242;
+		height: 50px;
+		text-align: center;
+	}
+	
+	
+	/*mypage-compony*/
+	.compony {
+		display: grid;
+		grid-template-columns: repeat(1, 100%);
+		grid-template-rows: 300px;
+		grid-template-areas: "a";
+		justify-content: center;
+		justify-items: center;
+		background-color: dimgray;
+		margin-top: 100px;
+		bottom: 0;
+	}
+	
+	.compony .compony-infor {
+		grid-area: a;
+		color: white;
+		font-size: 1em;
+		padding: 50px;
+		align-self: center;
+	}
+	
+	/*footer*/
+	.footer {
+		width: 100%;
+		height: 1000px;
+	}
 }
 
 /* iPhone-6+/7+/8+ landscape */
@@ -1491,6 +5776,480 @@ hr {
 	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
 	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
 	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+	
+	/* Mypage-Setting */
+
+	/* Mypage-Setting - login*/
+	.mypage-setting-id {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-text {
+		grid-area: b;
+	}
+	
+	/* Mypage-Setting - password */
+	.mypage-setting-pw {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title-button {
+		grid-area: b;
+	}
+	
+	
+	/* Mypage-Setting - nick */
+	.mypage-setting-nick {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname, .mypage-setting-nickname-input {
+		grid-area: b;
+		justify-self: center;
+	/* 	padding-right: 200px; */
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-button {
+		grid-area: b;
+		justify-self: center;
+		padding-left: 150px;
+	}
+	
+	
+	/* Mypage-Setting - profile img */
+	.mypage-setting-img {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-button {
+		grid-area: b;
+	}
+	
+	.mypage-setting-img button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-img button:hover {
+		width: 200px;
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: white;
+	}
+	
+	/* Mypage-Setting - subscribe */
+	.mypage-setting-subscribe {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	
+	/* Mypage-Setting - subscriber */
+	.mypage-setting-subscriber {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-subscribe-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscribe-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-subscriber-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscriber-switch input {
+		display: none;
+	}
+	
+	
+	/* mypage-setting-genre */
+	.mypage-setting-genre {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	
+	.mypage-setting-genre-list {
+		display: grid;
+		grid-template-columns: repeat(4, 165px);
+		grid-template-rows: repeat(5, 60px);
+		grid-template-areas: 
+			"a b c d" 
+			"e f g h"
+			"i j k l" 
+			"m n o p" 
+			"q r s t";
+		justify-content: center;
+		justify-items: start;
+		align-items: center;
+		padding-left: 50px;
+		grid-column-gap: 0;
+		grid-row-gap: 10px;
+		padding-bottom: 30px;
+	}
+	
+	.mypage-setting-genre-list .genre-1 {grid-area: a;}
+	.mypage-setting-genre-list .genre-2 {grid-area: b;}
+	.mypage-setting-genre-list .genre-3 {grid-area: c;}
+	.mypage-setting-genre-list .genre-4 {grid-area: d;}
+	.mypage-setting-genre-list .genre-5 {grid-area: e;}
+	.mypage-setting-genre-list .genre-6 {grid-area: f;}
+	.mypage-setting-genre-list .genre-7 {grid-area: g;}
+	.mypage-setting-genre-list .genre-8 {grid-area: h;}
+	.mypage-setting-genre-list .genre-9 {grid-area: i;}
+	.mypage-setting-genre-list .genre-10 {grid-area: j;}
+	.mypage-setting-genre-list .genre-11 {grid-area: k;}
+	.mypage-setting-genre-list .genre-12 {grid-area: l;}
+	.mypage-setting-genre-list .genre-13 {grid-area: m;}
+	.mypage-setting-genre-list .genre-14 {grid-area: n;}
+	.mypage-setting-genre-list .genre-15 {grid-area: o;}
+	.mypage-setting-genre-list .genre-16 {grid-area: p;}
+	.mypage-setting-genre-list .genre-17 {grid-area: q;}
+	.mypage-setting-genre-list .genre-18 {grid-area: r;}
+	.mypage-setting-genre-list .genre-19 {grid-area: s;}
+	.mypage-setting-genre-list .genre-20 {grid-area: t;}
+	
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 26px;
+		width: 26px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	input:checked+.slider {
+		background-color: #2196F3;
+	}
+	
+	input:focus+.slider {
+		box-shadow: 0 0 1px #2196F3;
+	}
+	
+	input:checked+.slider:before {
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
+	}
+	
+	
+	/* Rounded sliders */
+	.slider.round {
+		border-radius: 30px;
+	}
+	
+	.slider.round:before {
+		border-radius: 50%;
+	}
+	
+	.mypage-genre-list span {
+		padding-left: 10px;
+	}
+	
+	
+	/*mypage-setting-logout*/
+	.mypage-setting-logout {
+		display: grid;
+		grid-template-columns: 300px 700px;
+		grid-template-areas: 
+			". a";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-logout .mypage-setting-logout-button {
+		grid-area: a;
+	}
+	
+	.mypage-setting-logout-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-logout-button button:hover {
+		width: 200px;
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: white;
+	}
+	
+	
+	/* mypage-setting - confirm */
+	.mypage-setting-confirm {
+		display: grid;
+		grid-template-columns: 200px 200px;
+		grid-template-areas: 
+			"a b";
+		grid-column-gap: 15px;
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-confirm-button {
+		grid-area: a;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-logout-button {
+		grid-area: b;
+	}
+	
+	
+	.mypage-setting-cancel-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm .input-change {
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		color: white;
+	}
+	
+	
+	/* hr */
+	hr {
+		width: 90%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+	.input-text {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		font-size: 1em;
+		color: #424242;
+		height: 50px;
+		text-align: center;
+	}
+	
+	
+	/*mypage-compony*/
+	.compony {
+		display: grid;
+		grid-template-columns: repeat(1, 100%);
+		grid-template-rows: 300px;
+		grid-template-areas: "a";
+		justify-content: center;
+		justify-items: center;
+		background-color: dimgray;
+		margin-top: 100px;
+		bottom: 0;
+	}
+	
+	.compony .compony-infor {
+		grid-area: a;
+		color: white;
+		font-size: 1em;
+		padding: 50px;
+		align-self: center;
+	}
+	
+	/*footer*/
+	.footer {
+		width: 100%;
+		height: 1000px;
+	}
 }
 
 /* iPhone-X landscape  */
@@ -1567,6 +6326,480 @@ hr {
 	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
 	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
 	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+	
+	/* Mypage-Setting */
+
+	/* Mypage-Setting - login*/
+	.mypage-setting-id {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-text {
+		grid-area: b;
+	}
+	
+	/* Mypage-Setting - password */
+	.mypage-setting-pw {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title-button {
+		grid-area: b;
+	}
+	
+	
+	/* Mypage-Setting - nick */
+	.mypage-setting-nick {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname, .mypage-setting-nickname-input {
+		grid-area: b;
+		justify-self: center;
+	/* 	padding-right: 200px; */
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-button {
+		grid-area: b;
+		justify-self: center;
+		padding-left: 150px;
+	}
+	
+	
+	/* Mypage-Setting - profile img */
+	.mypage-setting-img {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-button {
+		grid-area: b;
+	}
+	
+	.mypage-setting-img button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-img button:hover {
+		width: 200px;
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: white;
+	}
+	
+	/* Mypage-Setting - subscribe */
+	.mypage-setting-subscribe {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	
+	/* Mypage-Setting - subscriber */
+	.mypage-setting-subscriber {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-subscribe-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscribe-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-subscriber-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscriber-switch input {
+		display: none;
+	}
+	
+	
+	/* mypage-setting-genre */
+	.mypage-setting-genre {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	
+	.mypage-setting-genre-list {
+		display: grid;
+		grid-template-columns: repeat(4, 165px);
+		grid-template-rows: repeat(5, 60px);
+		grid-template-areas: 
+			"a b c d" 
+			"e f g h"
+			"i j k l" 
+			"m n o p" 
+			"q r s t";
+		justify-content: center;
+		justify-items: start;
+		align-items: center;
+		padding-left: 50px;
+		grid-column-gap: 0;
+		grid-row-gap: 10px;
+		padding-bottom: 30px;
+	}
+	
+	.mypage-setting-genre-list .genre-1 {grid-area: a;}
+	.mypage-setting-genre-list .genre-2 {grid-area: b;}
+	.mypage-setting-genre-list .genre-3 {grid-area: c;}
+	.mypage-setting-genre-list .genre-4 {grid-area: d;}
+	.mypage-setting-genre-list .genre-5 {grid-area: e;}
+	.mypage-setting-genre-list .genre-6 {grid-area: f;}
+	.mypage-setting-genre-list .genre-7 {grid-area: g;}
+	.mypage-setting-genre-list .genre-8 {grid-area: h;}
+	.mypage-setting-genre-list .genre-9 {grid-area: i;}
+	.mypage-setting-genre-list .genre-10 {grid-area: j;}
+	.mypage-setting-genre-list .genre-11 {grid-area: k;}
+	.mypage-setting-genre-list .genre-12 {grid-area: l;}
+	.mypage-setting-genre-list .genre-13 {grid-area: m;}
+	.mypage-setting-genre-list .genre-14 {grid-area: n;}
+	.mypage-setting-genre-list .genre-15 {grid-area: o;}
+	.mypage-setting-genre-list .genre-16 {grid-area: p;}
+	.mypage-setting-genre-list .genre-17 {grid-area: q;}
+	.mypage-setting-genre-list .genre-18 {grid-area: r;}
+	.mypage-setting-genre-list .genre-19 {grid-area: s;}
+	.mypage-setting-genre-list .genre-20 {grid-area: t;}
+	
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 26px;
+		width: 26px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	input:checked+.slider {
+		background-color: #2196F3;
+	}
+	
+	input:focus+.slider {
+		box-shadow: 0 0 1px #2196F3;
+	}
+	
+	input:checked+.slider:before {
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
+	}
+	
+	
+	/* Rounded sliders */
+	.slider.round {
+		border-radius: 30px;
+	}
+	
+	.slider.round:before {
+		border-radius: 50%;
+	}
+	
+	.mypage-genre-list span {
+		padding-left: 10px;
+	}
+	
+	
+	/*mypage-setting-logout*/
+	.mypage-setting-logout {
+		display: grid;
+		grid-template-columns: 300px 700px;
+		grid-template-areas: 
+			". a";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-logout .mypage-setting-logout-button {
+		grid-area: a;
+	}
+	
+	.mypage-setting-logout-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-logout-button button:hover {
+		width: 200px;
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: white;
+	}
+	
+	
+	/* mypage-setting - confirm */
+	.mypage-setting-confirm {
+		display: grid;
+		grid-template-columns: 200px 200px;
+		grid-template-areas: 
+			"a b";
+		grid-column-gap: 15px;
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-confirm-button {
+		grid-area: a;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-logout-button {
+		grid-area: b;
+	}
+	
+	
+	.mypage-setting-cancel-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm .input-change {
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		color: white;
+	}
+	
+	
+	/* hr */
+	hr {
+		width: 90%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+	.input-text {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		font-size: 1em;
+		color: #424242;
+		height: 50px;
+		text-align: center;
+	}
+	
+	
+	/*mypage-compony*/
+	.compony {
+		display: grid;
+		grid-template-columns: repeat(1, 100%);
+		grid-template-rows: 300px;
+		grid-template-areas: "a";
+		justify-content: center;
+		justify-items: center;
+		background-color: dimgray;
+		margin-top: 100px;
+		bottom: 0;
+	}
+	
+	.compony .compony-infor {
+		grid-area: a;
+		color: white;
+		font-size: 1em;
+		padding: 50px;
+		align-self: center;
+	}
+	
+	/*footer*/
+	.footer {
+		width: 100%;
+		height: 1000px;
+	}
 }
 
 /* iPhone-6/7/8 landscape  */
@@ -1643,6 +6876,480 @@ hr {
 	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
 	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
 	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+	
+	/* Mypage-Setting */
+
+	/* Mypage-Setting - login*/
+	.mypage-setting-id {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-text {
+		grid-area: b;
+	}
+	
+	/* Mypage-Setting - password */
+	.mypage-setting-pw {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title-button {
+		grid-area: b;
+	}
+	
+	
+	/* Mypage-Setting - nick */
+	.mypage-setting-nick {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname, .mypage-setting-nickname-input {
+		grid-area: b;
+		justify-self: center;
+	/* 	padding-right: 200px; */
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-button {
+		grid-area: b;
+		justify-self: center;
+		padding-left: 150px;
+	}
+	
+	
+	/* Mypage-Setting - profile img */
+	.mypage-setting-img {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-button {
+		grid-area: b;
+	}
+	
+	.mypage-setting-img button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-img button:hover {
+		width: 200px;
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: white;
+	}
+	
+	/* Mypage-Setting - subscribe */
+	.mypage-setting-subscribe {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	
+	/* Mypage-Setting - subscriber */
+	.mypage-setting-subscriber {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-subscribe-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscribe-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-subscriber-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscriber-switch input {
+		display: none;
+	}
+	
+	
+	/* mypage-setting-genre */
+	.mypage-setting-genre {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	
+	.mypage-setting-genre-list {
+		display: grid;
+		grid-template-columns: repeat(4, 160px);
+		grid-template-rows: repeat(5, 60px);
+		grid-template-areas: 
+			"a b c d" 
+			"e f g h"
+			"i j k l" 
+			"m n o p" 
+			"q r s t";
+		justify-content: center;
+		justify-items: start;
+		align-items: center;
+		padding-left: 40px;
+		grid-column-gap: 0;
+		grid-row-gap: 10px;
+		padding-bottom: 30px;
+	}
+	
+	.mypage-setting-genre-list .genre-1 {grid-area: a;}
+	.mypage-setting-genre-list .genre-2 {grid-area: b;}
+	.mypage-setting-genre-list .genre-3 {grid-area: c;}
+	.mypage-setting-genre-list .genre-4 {grid-area: d;}
+	.mypage-setting-genre-list .genre-5 {grid-area: e;}
+	.mypage-setting-genre-list .genre-6 {grid-area: f;}
+	.mypage-setting-genre-list .genre-7 {grid-area: g;}
+	.mypage-setting-genre-list .genre-8 {grid-area: h;}
+	.mypage-setting-genre-list .genre-9 {grid-area: i;}
+	.mypage-setting-genre-list .genre-10 {grid-area: j;}
+	.mypage-setting-genre-list .genre-11 {grid-area: k;}
+	.mypage-setting-genre-list .genre-12 {grid-area: l;}
+	.mypage-setting-genre-list .genre-13 {grid-area: m;}
+	.mypage-setting-genre-list .genre-14 {grid-area: n;}
+	.mypage-setting-genre-list .genre-15 {grid-area: o;}
+	.mypage-setting-genre-list .genre-16 {grid-area: p;}
+	.mypage-setting-genre-list .genre-17 {grid-area: q;}
+	.mypage-setting-genre-list .genre-18 {grid-area: r;}
+	.mypage-setting-genre-list .genre-19 {grid-area: s;}
+	.mypage-setting-genre-list .genre-20 {grid-area: t;}
+	
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 26px;
+		width: 26px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	input:checked+.slider {
+		background-color: #2196F3;
+	}
+	
+	input:focus+.slider {
+		box-shadow: 0 0 1px #2196F3;
+	}
+	
+	input:checked+.slider:before {
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
+	}
+	
+	
+	/* Rounded sliders */
+	.slider.round {
+		border-radius: 30px;
+	}
+	
+	.slider.round:before {
+		border-radius: 50%;
+	}
+	
+	.mypage-genre-list span {
+		padding-left: 10px;
+	}
+	
+	
+	/*mypage-setting-logout*/
+	.mypage-setting-logout {
+		display: grid;
+		grid-template-columns: 300px 700px;
+		grid-template-areas: 
+			". a";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-logout .mypage-setting-logout-button {
+		grid-area: a;
+	}
+	
+	.mypage-setting-logout-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-logout-button button:hover {
+		width: 200px;
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: white;
+	}
+	
+	
+	/* mypage-setting - confirm */
+	.mypage-setting-confirm {
+		display: grid;
+		grid-template-columns: 200px 200px;
+		grid-template-areas: 
+			"a b";
+		grid-column-gap: 15px;
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-confirm-button {
+		grid-area: a;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-logout-button {
+		grid-area: b;
+	}
+	
+	
+	.mypage-setting-cancel-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm .input-change {
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		color: white;
+	}
+	
+	
+	/* hr */
+	hr {
+		width: 95%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+	.input-text {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		font-size: 1em;
+		color: #424242;
+		height: 50px;
+		text-align: center;
+	}
+	
+	
+	/*mypage-compony*/
+	.compony {
+		display: grid;
+		grid-template-columns: repeat(1, 100%);
+		grid-template-rows: 300px;
+		grid-template-areas: "a";
+		justify-content: center;
+		justify-items: center;
+		background-color: dimgray;
+		margin-top: 100px;
+		bottom: 0;
+	}
+	
+	.compony .compony-infor {
+		grid-area: a;
+		color: white;
+		font-size: 1em;
+		padding: 50px;
+		align-self: center;
+	}
+	
+	/*footer*/
+	.footer {
+		width: 100%;
+		height: 1000px;
+	}
 }
 
 /* iPhone-5/5S/SE landscape  */
@@ -1719,4 +7426,480 @@ hr {
 	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
 	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
 	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+	
+	/* Mypage-Setting */
+
+	/* Mypage-Setting - login*/
+	.mypage-setting-id {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-id .mypage-setting-loginid-text {
+		grid-area: b;
+	}
+	
+	/* Mypage-Setting - password */
+	.mypage-setting-pw {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-pw .mypage-setting-password-title-button {
+		grid-area: b;
+	}
+	
+	
+	/* Mypage-Setting - nick */
+	.mypage-setting-nick {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname, .mypage-setting-nickname-input {
+		grid-area: b;
+		justify-self: center;
+	/* 	padding-right: 200px; */
+	}
+	
+	.mypage-setting-nick .mypage-setting-nickname-button {
+		grid-area: b;
+		justify-self: center;
+		padding-left: 150px;
+	}
+	
+	
+	/* Mypage-Setting - profile img */
+	.mypage-setting-img {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-img .mypage-setting-profileimage-button {
+		grid-area: b;
+	}
+	
+	.mypage-setting-img button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-img button:hover {
+		width: 200px;
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: white;
+	}
+	
+	/* Mypage-Setting - subscribe */
+	.mypage-setting-subscribe {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	
+	/* Mypage-Setting - subscriber */
+	.mypage-setting-subscriber {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-subscribe-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscribe-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-subscriber-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-subscriber-switch input {
+		display: none;
+	}
+	
+	
+	/* mypage-setting-genre */
+	.mypage-setting-genre {
+		display: grid;
+		grid-template-columns: 300px 300px;
+		grid-template-areas: 
+			"a b";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-title {
+		grid-area: a;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-switch {
+		grid-area: b;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-open {
+		grid-area: b;
+		padding-left: 150px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-close {
+		grid-area: b;
+		padding-right: 150px;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	.mypage-setting-genre-switch {
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 34px;
+	}
+	
+	.mypage-setting-genre-switch input {
+		display: none;
+	}
+	
+	
+	.mypage-setting-genre-list {
+		display: grid;
+		grid-template-columns: repeat(3, 165px);
+		grid-template-rows: repeat(7, 60px);
+		grid-template-areas: 
+			"a b c" 
+			"d e f"
+			"g h i" 
+			"j k l"
+			"m n o" 
+			"p q r"
+			"s t .";
+		justify-content: center;
+		justify-items: start;
+		align-items: center;
+		padding-left: 50px;
+		grid-column-gap: 0;
+		grid-row-gap: 10px;
+		padding-bottom: 30px;
+	}
+	
+	.mypage-setting-genre-list .genre-1 {grid-area: a;}
+	.mypage-setting-genre-list .genre-2 {grid-area: b;}
+	.mypage-setting-genre-list .genre-3 {grid-area: c;}
+	.mypage-setting-genre-list .genre-4 {grid-area: d;}
+	.mypage-setting-genre-list .genre-5 {grid-area: e;}
+	.mypage-setting-genre-list .genre-6 {grid-area: f;}
+	.mypage-setting-genre-list .genre-7 {grid-area: g;}
+	.mypage-setting-genre-list .genre-8 {grid-area: h;}
+	.mypage-setting-genre-list .genre-9 {grid-area: i;}
+	.mypage-setting-genre-list .genre-10 {grid-area: j;}
+	.mypage-setting-genre-list .genre-11 {grid-area: k;}
+	.mypage-setting-genre-list .genre-12 {grid-area: l;}
+	.mypage-setting-genre-list .genre-13 {grid-area: m;}
+	.mypage-setting-genre-list .genre-14 {grid-area: n;}
+	.mypage-setting-genre-list .genre-15 {grid-area: o;}
+	.mypage-setting-genre-list .genre-16 {grid-area: p;}
+	.mypage-setting-genre-list .genre-17 {grid-area: q;}
+	.mypage-setting-genre-list .genre-18 {grid-area: r;}
+	.mypage-setting-genre-list .genre-19 {grid-area: s;}
+	.mypage-setting-genre-list .genre-20 {grid-area: t;}
+	
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 26px;
+		width: 26px;
+		left: 4px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+	
+	input:checked+.slider {
+		background-color: #2196F3;
+	}
+	
+	input:focus+.slider {
+		box-shadow: 0 0 1px #2196F3;
+	}
+	
+	input:checked+.slider:before {
+		-webkit-transform: translateX(26px);
+		-ms-transform: translateX(26px);
+		transform: translateX(26px);
+	}
+	
+	
+	/* Rounded sliders */
+	.slider.round {
+		border-radius: 30px;
+	}
+	
+	.slider.round:before {
+		border-radius: 50%;
+	}
+	
+	.mypage-genre-list span {
+		padding-left: 10px;
+	}
+	
+	
+	/*mypage-setting-logout*/
+	.mypage-setting-logout {
+		display: grid;
+		grid-template-columns: 300px 700px;
+		grid-template-areas: 
+			". a";
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-logout .mypage-setting-logout-button {
+		grid-area: a;
+	}
+	
+	.mypage-setting-logout-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-logout-button button:hover {
+		width: 200px;
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: white;
+	}
+	
+	
+	/* mypage-setting - confirm */
+	.mypage-setting-confirm {
+		display: grid;
+		grid-template-columns: 200px 200px;
+		grid-template-areas: 
+			"a b";
+		grid-column-gap: 15px;
+		justify-content: center;	
+		justify-items: center;
+		align-items: center;
+		height: 80px;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-confirm-button {
+		grid-area: a;
+	}
+	
+	.mypage-setting-confirm .mypage-setting-logout-button {
+		grid-area: b;
+	}
+	
+	
+	.mypage-setting-cancel-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm-button button {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		padding: 15px;
+		font-size: 1em;
+		color: #424242;
+	}
+	
+	.mypage-setting-confirm .input-change {
+		background-color: #1d8bf1;
+		border: 1px solid #1d8bf1;
+		color: white;
+	}
+	
+	
+	/* hr */
+	hr {
+		width: 90%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	
+	.input-text {
+		width: 200px;
+		background-color: white;
+		border: 1px solid #424242;
+		border-radius: 10px;
+		font-size: 1em;
+		color: #424242;
+		height: 50px;
+		text-align: center;
+	}
+	
+	
+	/*mypage-compony*/
+	.compony {
+		display: grid;
+		grid-template-columns: repeat(1, 100%);
+		grid-template-rows: 300px;
+		grid-template-areas: "a";
+		justify-content: center;
+		justify-items: center;
+		background-color: dimgray;
+		margin-top: 100px;
+		bottom: 0;
+	}
+	
+	.compony .compony-infor {
+		grid-area: a;
+		color: white;
+		font-size: 1em;
+		padding: 50px;
+		align-self: center;
+	}
+	
+	/*footer*/
+	.footer {
+		width: 100%;
+		height: 1000px;
+	}
 }
