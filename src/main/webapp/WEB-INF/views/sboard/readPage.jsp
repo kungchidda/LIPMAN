@@ -15,7 +15,7 @@
 <script type="text/javascript" src="/resources/js/upload.js"></script>
 
 <link href="/resources/css/contents.css" rel="stylesheet">
-
+<script src="/resources/js/subscribe-check.js"></script>
 <script src="/resources/js/subtitlePrint.js"></script>
 <script src="/resources/js/expander.js"></script>
 
@@ -45,12 +45,16 @@
             <img src="/displayFile?fileName=${boardVO.profileFullName}">
         </div>
         <div class="content-writer-name">
-            <h3>${boardVO.uname}</h3>
+        	<form id="subscriberForm" role="form" action="/mypage/user/titleList" method="GET">
+				<input type="hidden" name="uid" value='${boardVO.uid}'>
+				<button type="submit" class="default-button-style"><h3>${boardVO.uname}</h3></button>
+			</form>
+<%--             <h3>${boardVO.uname}</h3> --%>
         </div>
         <div class="content-writer-subscribe">
             <span>
-           		<button type="submit" class="subscribe subscribeBtn">SUBSCRIBE</button>
-				<button type="submit" class="subscribed unsubscribeBtn">SUBSCRIBED</button>
+           		<button type="submit" class="subscribedCount subscribe subscribeBtn">SUBSCRIBE</button>
+				<button type="submit" class="subscribedCount subscribed unsubscribeBtn">SUBSCRIBED</button>
 			</span>
         </div>
     </div>
@@ -111,8 +115,8 @@
        </div>
        <div class="writer-subscribe">
 			<span>
-           		<button type="submit" class="subscribe subscribeBtn">SUBSCRIBE</button>
-				<button type="submit" class="subscribed unsubscribeBtn">SUBSCRIBED</button>
+           		<button type="submit" class="subscribedCount subscribe subscribeBtn">SUBSCRIBE</button>
+				<button type="submit" class="subscribedCount subscribed unsubscribeBtn">SUBSCRIBED</button>
 			</span>
        </div>
    </div>
@@ -426,13 +430,13 @@
             var tno = ${boardVO.tno};
             var bno = ${boardVO.bno};
 			var replyPage = 1;
-			getThisSubtitlePage("/sboard/"+tno+"/"+"1"+"/6");
+			getThisPage("/sboard/"+tno+"/"+"1"+"/6", tno);
 			
 			
 			getPage("/replies/"+bno+"/"+replyPage);
 			getLikeList();
-			subscribedList();
-			$(".unsubscribeBtn").hide();
+			subscribedList('${boardVO.uid}', '${login.uid}');
+// 			$(".unsubscribeBtn").hide();
 			
 			
 
@@ -473,7 +477,7 @@
 		
 
 			
-			var printPaging = function(pageMaker, target){
+/* 			var printPaging = function(pageMaker, target){
 				var str = "";
 				
 				if(pageMaker.prev){
@@ -490,7 +494,7 @@
 				}
 				
 				target.html(str);
-			}
+			} */
 			
 			var formObj = $("form[role='form']");
 
@@ -735,75 +739,14 @@
 	/**************************************************************************************/
 	
 	$(".subscribeBtn").on("click",function(){
-		console.log("subscribeBtn start");
-		var subscribed = '${boardVO.uid}';
-		var subscriber = '${login.uid}';
-		$.ajax({
-			type : 'post',
-			url : '/subscribes/',
-			headers : {
-				"Content-Type" : "application/json",
-				"X-HTTP-Method-Override" : "POST" },
-			dataType : 'text',
-			data : JSON.stringify({subscribed : subscribed, subscriber : subscriber}),
-			success:function(result){
-				console.log("result:" + result);
-				if(result=='SUCCESS'){
-					alert("등록 되었습니다.");
-					$(".subscribeBtn").toggle();
-					$(".unsubscribeBtn").toggle();
-				}
-			}
-			});
+		
+		 subscribeBtnClick('${boardVO.uid}', '${login.uid}');
 	});
 	
 	$(".unsubscribeBtn").on("click",function(){
-		console.log("unsubscribeBtn start");
-		var subscribed = '${boardVO.uid}';
-		var subscriber = '${login.uid}';
-		$.ajax({
-			type : 'post',
-			url : '/subscribes/delete',
-			headers : {
-				"Content-Type" : "application/json",
-				"X-HTTP-Method-Override" : "POST" },
-			dataType : 'text',
-			data : JSON.stringify({subscribed : subscribed, subscriber : subscriber}),
-			success:function(result){
-				console.log("result:" + result);
-				if(result=='SUCCESS'){
-					alert("삭제 되었습니다.");
-					$(".subscribeBtn").toggle();
-					$(".unsubscribeBtn").toggle();
-				}
-			}
-			});
-		
-		
+		unsubscribeBtnClick('${boardVO.uid}', '${login.uid}');
 	});
 
-    function subscribedList(){
-				console.log("subscribedList start");
-				var subscribed = '${boardVO.uid}';
-				var subscriber = '${login.uid}';
-				$.ajax({
-					type : 'post',
-					url : '/subscribes/subscribeList',
-					headers : {
-						"Content-Type" : "application/json",
-						"X-HTTP-Method-Override" : "POST" },
-					dataType : 'json',
-					data : JSON.stringify({subscribed : subscribed, subscriber : subscriber}),
-					success:function(result){
-						console.log("subscribeList result.length : " + result.length);
-						if(result.length != 0){
-							alert("조회 되었습니다.");
-							$(".subscribeBtn").toggle();
-							$(".unsubscribeBtn").toggle();
-						}
-					}
-				});
-	}
 	
     function getLikeList(){
         console.log("getLikeList start");
@@ -1067,7 +1010,7 @@
 				});
             
             
-            printPaging(data.pageMaker, $(".pagination"));
+            //printPaging(data.pageMaker, $(".pagination"));
             
             $("#replycntSmall").html("Comment [ " + data.pageMaker.totalCount +" ]");
             
@@ -1176,7 +1119,7 @@
 					</a>
 			</div>
 		{{/each}}
-		<ul id="pagination" class="pagination"></ul>
+		<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
 	</script>
 	
 	<script id="thissubtitle_template" type="text/x-handlebars-template">
@@ -1186,51 +1129,54 @@
 						<div class="comic-list"><img src="/displayFile?fileName={{boardFullName}}"></div>
 						<div class="comic-list-text cursor">{{subtitle}}</div>
 					</a>
+			</div>
 		{{/each}}
+		<ul class="this-pagination do-not-close comic-list-pagi"></ul>
 	</script>
 	
 	
 	<script> //subtitle print
+	function getThisSubtitle(tno, page){
+		console.log("click getSubtitle start getPage");
+		getThisPage("/sboard/"+tno+"/"+page+"/6", tno);
+		return 1;
+	};	
 	
-	
-	function getThisSubtitlePage(pageInfo){
+	function getThisPage(pageInfo, tno){
 		console.log("start getSubtitlePage");
-		
-		//$(".pagination").remove();
+		$(".this-pagination").remove();
 		$(".thissubtitleLi").remove();
 		$.getJSON(pageInfo,function(data){
 			printData(data.list, $(".readpage-toggle-page"), $('#thissubtitle_template'));
-			printPaging(data.pageMaker, $(".pagination"));
+			thisPrintPaging(data.pageMaker, $(".this-pagination"), tno);
 			console.log("start subtitlecntSmall");
-			$(".thissubtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
+// 			$(".thissubtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
 		});
 		
 		
 	}
 	
 	
-	var printPaging = function(pageMaker, target){
+	var thisPrintPaging = function(pageMaker, target, tno){
 		console.log("start printPaging");
 		var str = "";
 		if(pageMaker.endPage != '1'){
-		if(pageMaker.prev){
-			str += "<li><a href='"+(pageMaker.startPage-1)+"'> << </a></li>";
-		}
-		
-		for(var i=pageMaker.startPage, len= pageMaker.endPage; i <= len; i++){
-			var strClass = pageMaker.cri.page == i?'class=active':'';
-			str += "<li class='page-item' "+strClass+"><a class='page-link' href='"+i+"'>"+i+"</a></li>";
-		}
-		
-		if(pageMaker.next){
-			str += "<li><a href='"+(pageMaker.endPage+1)+"'> >> </a></li>";
-		}
-
+			if(pageMaker.prev){
+				str += //"<li><a href='"+(pageMaker.startPage-1)+"'> << </a></li>"
+				'<li class="page-link do-not-close comic-list-prev" onclick="getThisSubtitle('+tno+','+(pageMaker.startPage-1)+');"> << </li>';
+			}
+			
+			for(var i=pageMaker.startPage, len= pageMaker.endPage; i <= len; i++){
+				var strClass = pageMaker.cri.page == i?'class=active':'';
+				str += '<li class="page-item do-not-close comic-list-pagi" '+strClass+'><div class="comic-list do-not-close" onclick="getThisSubtitle('+tno+','+i+');">'+i+'</div></li>';
+			}
+			
+			if(pageMaker.next){
+				str += //"<li><div href='/sboard/" + tno + "/" + (pageMaker.endPage+1)+"'> >> </div></li>";
+					'<li class="page-link do-not-close comic-list-next" onclick="getThisSubtitle('+tno+','+ (pageMaker.endPage+1) +');"> >> </li>';
+			}
 		}
 		target.html(str);
-				
-		
-		
 	}
 
 	</script>
