@@ -6574,7 +6574,7 @@ a:visited {color: black;}
 }
 
 /* iPhone-5/5S/SE landscape : Complete */
-@media (max-device-width: 586px) and (max-device-height: 320px) and (orientation: landscape) {
+@media (max-device-width: 568px) and (max-device-height: 320px) and (orientation: landscape) {
     .dropbtn {
         border: none;
         cursor: pointer;

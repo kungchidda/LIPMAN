@@ -5,7 +5,7 @@
 	grid-template-rows: 100px 100px;
 	grid-template-areas: "a b" "a c";
 	justify-content: center;
-	grid-column-gap: 50px;
+	grid-column-gap: 10px;
 	grid-row-gap: 10px;
 	padding-top: 45px;
 	padding-bottom: 40px;
@@ -28,7 +28,7 @@
 
 .mypage-profile .mypage-profile-name {
 	grid-area: b;
-	justify-self: start;
+	justify-self: center;
 	align-self: end;
 	font-size: 1em;
 	padding-bottom: 10px;
@@ -36,7 +36,7 @@
 
 .mypage-profile .mypage-profile-subscribe {
 	grid-area: c;
-	justify-self: start;
+	justify-self: center;
 	align-self: start;
 	font-size: 1em;
 	padding-top: 10px;
@@ -81,29 +81,12 @@
 	/* easeInOutBack */
 }
 
-.mypage-profile-icon img:hover {
-	width: 40px;
-}
-
-.mypage-profile-icon .mypage-profile-icon-home {
-	grid-area: a;
-}
-
-.mypage-profile-icon .mypage-profile-icon-subscribe {
-	grid-area: b;
-}
-
-.mypage-profile-icon .mypage-profile-icon-subscribed {
-	grid-area: c;
-}
-
-.mypage-profile-icon .mypage-profile-icon-setting {
-	grid-area: d;
-}
-
-.mypage-profile-icon a.active {
-	border-bottom: 5px solid red;
-}
+.mypage-profile-icon img:hover {width: 40px;}
+.mypage-profile-icon .mypage-profile-icon-home {grid-area: a;}
+.mypage-profile-icon .mypage-profile-icon-subscribe {grid-area: b;}
+.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}
+.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}
+.mypage-profile-icon a.active {border-bottom: 5px solid red;}
 
 /* ???? start */
 .upload-file-list {
@@ -167,10 +150,6 @@
 	width: 50px;
 	border: 1px solid #d3d3d3;
 	border-radius: 50%;
-}
-
-.login-account-image {
-	
 }
 
 .mypage-subscriber-img {
@@ -673,4 +652,1071 @@ hr {
 .footer {
 	width: 100%;
 	height: 1000px;
+}
+
+
+/* Media query */
+/* iPad Pro-12.9 portrait */
+@media (max-device-width: 1024px) and (max-device-height: 1366px) and (orientation: portrait){
+/* mypage - profile */
+	.mypage-profile {
+		display: grid;
+		grid-template-columns: 200px 200px;
+		grid-template-rows: 100px 100px;
+		grid-template-areas: "a b" "a c";
+		justify-content: center;
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		padding-top: 45px;
+		padding-bottom: 40px;
+	}
+	
+	.mypage-profile .mypage-profile-image {
+		grid-area: a;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe a:link {
+		text-decoration: none;
+		color: black;
+	}
+	
+	.mypage-profile .mypage-profile-image img {
+		width: 200px;
+		border: 1px solid #d3d3d3;
+		border-radius: 50%;
+	}
+	
+	.mypage-profile .mypage-profile-name {
+		grid-area: b;
+		justify-self: center;
+		align-self: end;
+		font-size: 1em;
+		padding-bottom: 10px;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe {
+		grid-area: c;
+		justify-self: center;
+		align-self: start;
+		font-size: 1em;
+		padding-top: 10px;
+	}
+	
+	/* mypage - profile-icon */
+	.mypage-profile-icon {
+		display: grid;
+		grid-template-columns: repeat(4, 200px);
+		grid-template-rows: 60px;
+		grid-template-areas: "a b c d";
+		justify-content: center;
+		align-items: center;
+		justify-items: center;
+		padding-top: 10px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile-icon a.active img {
+		width: 40px;
+	}
+	
+	.mypage-profile-icon img {
+		width: 30px;
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-bottom: 10px;
+	}
+		
+	.mypage-profile-icon .mypage-profile-icon-home {grid-area: a;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribe {grid-area: b;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
+	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
+	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+}
+
+/* iPad Pro-10.5 portrait */
+@media (max-device-width: 834px) and (max-device-height: 1112px) and (orientation: portrait) {
+	.mypage-profile {
+		display: grid;
+		grid-template-columns: 200px 200px;
+		grid-template-rows: 100px 100px;
+		grid-template-areas: "a b" "a c";
+		justify-content: center;
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		padding-top: 45px;
+		padding-bottom: 40px;
+	}
+	
+	.mypage-profile .mypage-profile-image {
+		grid-area: a;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe a:link {
+		text-decoration: none;
+		color: black;
+	}
+	
+	.mypage-profile .mypage-profile-image img {
+		width: 200px;
+		border: 1px solid #d3d3d3;
+		border-radius: 50%;
+	}
+	
+	.mypage-profile .mypage-profile-name {
+		grid-area: b;
+		justify-self: center;
+		align-self: end;
+		font-size: 1em;
+		padding-bottom: 10px;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe {
+		grid-area: c;
+		justify-self: center;
+		align-self: start;
+		font-size: 1em;
+		padding-top: 10px;
+	}
+	
+	/* mypage - profile-icon */
+	.mypage-profile-icon {
+		display: grid;
+		grid-template-columns: repeat(4, 200px);
+		grid-template-rows: 60px;
+		grid-template-areas: "a b c d";
+		justify-content: center;
+		align-items: center;
+		justify-items: center;
+		padding-top: 10px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile-icon a.active img {
+		width: 40px;
+	}
+	
+	.mypage-profile-icon img {
+		width: 30px;
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-bottom: 10px;
+	}
+		
+	.mypage-profile-icon .mypage-profile-icon-home {grid-area: a;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribe {grid-area: b;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
+	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
+	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+}
+
+/* iPad Pro-9.7 portrait */
+@media (max-device-width: 768px) and (max-device-height: 1024px) and (orientation: portrait) {
+	.mypage-profile {
+		display: grid;
+		grid-template-columns: 200px 200px;
+		grid-template-rows: 100px 100px;
+		grid-template-areas: "a b" "a c";
+		justify-content: center;
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		padding-top: 45px;
+		padding-bottom: 40px;
+	}
+	
+	.mypage-profile .mypage-profile-image {
+		grid-area: a;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe a:link {
+		text-decoration: none;
+		color: black;
+	}
+	
+	.mypage-profile .mypage-profile-image img {
+		width: 200px;
+		border: 1px solid #d3d3d3;
+		border-radius: 50%;
+	}
+	
+	.mypage-profile .mypage-profile-name {
+		grid-area: b;
+		justify-self: center;
+		align-self: end;
+		font-size: 1em;
+		padding-bottom: 10px;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe {
+		grid-area: c;
+		justify-self: center;
+		align-self: start;
+		font-size: 1em;
+		padding-top: 10px;
+	}
+	
+	/* mypage - profile-icon */
+	.mypage-profile-icon {
+		display: grid;
+		grid-template-columns: repeat(4, 200px);
+		grid-template-rows: 60px;
+		grid-template-areas: "a b c d";
+		justify-content: center;
+		align-items: center;
+		justify-items: center;
+		padding-top: 10px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile-icon a.active img {
+		width: 40px;
+	}
+	
+	.mypage-profile-icon img {
+		width: 30px;
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-bottom: 10px;
+	}
+		
+	.mypage-profile-icon .mypage-profile-icon-home {grid-area: a;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribe {grid-area: b;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
+	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
+	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+}
+
+/* iPhone-6+/7+/8+ portrait */
+@media (max-device-width: 414px) and (max-device-height: 736px) and (orientation: portrait) {
+	.mypage-profile {
+		display: grid;
+		grid-template-columns: 150px 150px;
+		grid-template-rows: 75px 75px;
+		grid-template-areas: "a b" "a c";
+		justify-content: center;
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		padding-top: 30px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile .mypage-profile-image {
+		grid-area: a;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe a:link {
+		text-decoration: none;
+		color: black;
+	}
+	
+	.mypage-profile .mypage-profile-image img {
+		width: 150px;
+		border: 1px solid #d3d3d3;
+		border-radius: 50%;
+	}
+	
+	.mypage-profile .mypage-profile-name {
+		grid-area: b;
+		justify-self: center;
+		align-self: end;
+		font-size: 1em;
+		padding-bottom: 10px;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe {
+		grid-area: c;
+		justify-self: center;
+		align-self: start;
+		font-size: 1em;
+		padding-top: 10px;
+	}
+	
+	/* mypage - profile-icon */
+	.mypage-profile-icon {
+		display: grid;
+		grid-template-columns: repeat(4, 100px);
+		grid-template-rows: 50px;
+		grid-template-areas: "a b c d";
+		justify-content: center;
+		align-items: center;
+		justify-items: center;
+		padding-top: 10px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile-icon a.active img {
+		width: 30px;
+	}
+	
+	.mypage-profile-icon img {
+		width: 25px;
+		padding-left: 25px;
+		padding-right: 25px;
+		padding-bottom: 10px;
+	}
+		
+	.mypage-profile-icon .mypage-profile-icon-home {grid-area: a;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribe {grid-area: b;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
+	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
+	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+}
+
+/* iPhone-X portrait  */
+@media (max-device-width: 375px) and (max-device-height: 812px) and (orientation: portrait) {
+	.mypage-profile {
+		display: grid;
+		grid-template-columns: 150px 150px;
+		grid-template-rows: 75px 75px;
+		grid-template-areas: "a b" "a c";
+		justify-content: center;
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		padding-top: 30px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile .mypage-profile-image {
+		grid-area: a;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe a:link {
+		text-decoration: none;
+		color: black;
+	}
+	
+	.mypage-profile .mypage-profile-image img {
+		width: 150px;
+		border: 1px solid #d3d3d3;
+		border-radius: 50%;
+	}
+	
+	.mypage-profile .mypage-profile-name {
+		grid-area: b;
+		justify-self: center;
+		align-self: end;
+		font-size: 1em;
+		padding-bottom: 10px;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe {
+		grid-area: c;
+		justify-self: center;
+		align-self: start;
+		font-size: 1em;
+		padding-top: 10px;
+	}
+	
+	/* mypage - profile-icon */
+	.mypage-profile-icon {
+		display: grid;
+		grid-template-columns: repeat(4, 90px);
+		grid-template-rows: 50px;
+		grid-template-areas: "a b c d";
+		justify-content: center;
+		align-items: center;
+		justify-items: center;
+		padding-top: 10px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile-icon a.active img {
+		width: 30px;
+	}
+	
+	.mypage-profile-icon img {
+		width: 25px;
+		padding-left: 25px;
+		padding-right: 25px;
+		padding-bottom: 10px;
+	}
+		
+	.mypage-profile-icon .mypage-profile-icon-home {grid-area: a;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribe {grid-area: b;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
+	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
+	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+}
+
+/* iPhone-6/7/8 portrait */
+@media (max-device-width: 375px) and (max-device-height: 667px) and (orientation: portrait) {
+	.mypage-profile {
+		display: grid;
+		grid-template-columns: 150px 150px;
+		grid-template-rows: 75px 75px;
+		grid-template-areas: "a b" "a c";
+		justify-content: center;
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		padding-top: 30px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile .mypage-profile-image {
+		grid-area: a;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe a:link {
+		text-decoration: none;
+		color: black;
+	}
+	
+	.mypage-profile .mypage-profile-image img {
+		width: 150px;
+		border: 1px solid #d3d3d3;
+		border-radius: 50%;
+	}
+	
+	.mypage-profile .mypage-profile-name {
+		grid-area: b;
+		justify-self: center;
+		align-self: end;
+		font-size: 1em;
+		padding-bottom: 10px;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe {
+		grid-area: c;
+		justify-self: center;
+		align-self: start;
+		font-size: 1em;
+		padding-top: 10px;
+	}
+	
+	/* mypage - profile-icon */
+	.mypage-profile-icon {
+		display: grid;
+		grid-template-columns: repeat(4, 90px);
+		grid-template-rows: 50px;
+		grid-template-areas: "a b c d";
+		justify-content: center;
+		align-items: center;
+		justify-items: center;
+		padding-top: 10px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile-icon a.active img {
+		width: 30px;
+	}
+	
+	.mypage-profile-icon img {
+		width: 25px;
+		padding-left: 25px;
+		padding-right: 25px;
+		padding-bottom: 10px;
+	}
+		
+	.mypage-profile-icon .mypage-profile-icon-home {grid-area: a;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribe {grid-area: b;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
+	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
+	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+}
+
+/* iPhone-5/5S/SE portrait */
+@media (max-device-width: 320px) and (max-device-height: 568px) and (orientation: portrait){
+	.mypage-profile {
+		display: grid;
+		grid-template-columns: 150px 150px;
+		grid-template-rows: 75px 75px;
+		grid-template-areas: "a b" "a c";
+		justify-content: center;
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		padding-top: 30px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile .mypage-profile-image {
+		grid-area: a;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe a:link {
+		text-decoration: none;
+		color: black;
+	}
+	
+	.mypage-profile .mypage-profile-image img {
+		width: 150px;
+		border: 1px solid #d3d3d3;
+		border-radius: 50%;
+	}
+	
+	.mypage-profile .mypage-profile-name {
+		grid-area: b;
+		justify-self: center;
+		align-self: end;
+		font-size: 1em;
+		padding-bottom: 10px;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe {
+		grid-area: c;
+		justify-self: center;
+		align-self: start;
+		font-size: 1em;
+		padding-top: 10px;
+	}
+	
+	/* mypage - profile-icon */
+	.mypage-profile-icon {
+		display: grid;
+		grid-template-columns: repeat(4, 75px);
+		grid-template-rows: 50px;
+		grid-template-areas: "a b c d";
+		justify-content: center;
+		align-items: center;
+		justify-items: center;
+		padding-top: 10px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile-icon a.active img {
+		width: 30px;
+	}
+	
+	.mypage-profile-icon img {
+		width: 25px;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-bottom: 10px;
+	}
+		
+	.mypage-profile-icon .mypage-profile-icon-home {grid-area: a;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribe {grid-area: b;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
+	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
+	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+}
+
+/* iPad Pro-12.9 landscape */
+@media (max-device-width: 1366px) and (max-device-height: 1024px) and (orientation: landscape) {
+	.mypage-profile {
+		display: grid;
+		grid-template-columns: 200px 200px;
+		grid-template-rows: 100px 100px;
+		grid-template-areas: "a b" "a c";
+		justify-content: center;
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		padding-top: 45px;
+		padding-bottom: 40px;
+	}
+	
+	.mypage-profile .mypage-profile-image {
+		grid-area: a;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe a:link {
+		text-decoration: none;
+		color: black;
+	}
+	
+	.mypage-profile .mypage-profile-image img {
+		width: 200px;
+		border: 1px solid #d3d3d3;
+		border-radius: 50%;
+	}
+	
+	.mypage-profile .mypage-profile-name {
+		grid-area: b;
+		justify-self: center;
+		align-self: end;
+		font-size: 1em;
+		padding-bottom: 10px;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe {
+		grid-area: c;
+		justify-self: center;
+		align-self: start;
+		font-size: 1em;
+		padding-top: 10px;
+	}
+	
+	/* mypage - profile-icon */
+	.mypage-profile-icon {
+		display: grid;
+		grid-template-columns: repeat(4, 200px);
+		grid-template-rows: 60px;
+		grid-template-areas: "a b c d";
+		justify-content: center;
+		align-items: center;
+		justify-items: center;
+		padding-top: 10px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile-icon a.active img {
+		width: 40px;
+	}
+	
+	.mypage-profile-icon img {
+		width: 30px;
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-bottom: 10px;
+	}
+		
+	.mypage-profile-icon .mypage-profile-icon-home {grid-area: a;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribe {grid-area: b;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
+	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
+	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+}
+
+/* iPad Pro-10.5 landscape */
+@media (max-device-width: 1112px) and (max-device-height: 834px) and (orientation: landscape) {
+	.mypage-profile {
+		display: grid;
+		grid-template-columns: 200px 200px;
+		grid-template-rows: 100px 100px;
+		grid-template-areas: "a b" "a c";
+		justify-content: center;
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		padding-top: 45px;
+		padding-bottom: 40px;
+	}
+	
+	.mypage-profile .mypage-profile-image {
+		grid-area: a;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe a:link {
+		text-decoration: none;
+		color: black;
+	}
+	
+	.mypage-profile .mypage-profile-image img {
+		width: 200px;
+		border: 1px solid #d3d3d3;
+		border-radius: 50%;
+	}
+	
+	.mypage-profile .mypage-profile-name {
+		grid-area: b;
+		justify-self: center;
+		align-self: end;
+		font-size: 1em;
+		padding-bottom: 10px;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe {
+		grid-area: c;
+		justify-self: center;
+		align-self: start;
+		font-size: 1em;
+		padding-top: 10px;
+	}
+	
+	/* mypage - profile-icon */
+	.mypage-profile-icon {
+		display: grid;
+		grid-template-columns: repeat(4, 200px);
+		grid-template-rows: 60px;
+		grid-template-areas: "a b c d";
+		justify-content: center;
+		align-items: center;
+		justify-items: center;
+		padding-top: 10px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile-icon a.active img {
+		width: 40px;
+	}
+	
+	.mypage-profile-icon img {
+		width: 30px;
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-bottom: 10px;
+	}
+		
+	.mypage-profile-icon .mypage-profile-icon-home {grid-area: a;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribe {grid-area: b;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
+	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
+	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+}
+
+/* iPad Pro-9.7 landscape */
+@media (max-device-width: 1024px) and (max-device-height: 768px) and (orientation: landscape) {
+	.mypage-profile {
+		display: grid;
+		grid-template-columns: 200px 200px;
+		grid-template-rows: 100px 100px;
+		grid-template-areas: "a b" "a c";
+		justify-content: center;
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		padding-top: 45px;
+		padding-bottom: 40px;
+	}
+	
+	.mypage-profile .mypage-profile-image {
+		grid-area: a;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe a:link {
+		text-decoration: none;
+		color: black;
+	}
+	
+	.mypage-profile .mypage-profile-image img {
+		width: 200px;
+		border: 1px solid #d3d3d3;
+		border-radius: 50%;
+	}
+	
+	.mypage-profile .mypage-profile-name {
+		grid-area: b;
+		justify-self: center;
+		align-self: end;
+		font-size: 1em;
+		padding-bottom: 10px;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe {
+		grid-area: c;
+		justify-self: center;
+		align-self: start;
+		font-size: 1em;
+		padding-top: 10px;
+	}
+	
+	/* mypage - profile-icon */
+	.mypage-profile-icon {
+		display: grid;
+		grid-template-columns: repeat(4, 200px);
+		grid-template-rows: 60px;
+		grid-template-areas: "a b c d";
+		justify-content: center;
+		align-items: center;
+		justify-items: center;
+		padding-top: 10px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile-icon a.active img {
+		width: 40px;
+	}
+	
+	.mypage-profile-icon img {
+		width: 30px;
+		padding-left: 50px;
+		padding-right: 50px;
+		padding-bottom: 10px;
+	}
+		
+	.mypage-profile-icon .mypage-profile-icon-home {grid-area: a;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribe {grid-area: b;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
+	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
+	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+}
+
+/* iPhone-6+/7+/8+ landscape */
+@media (max-device-width: 736px) and (max-device-height: 414px) and (orientation: landscape) {
+	.mypage-profile {
+		display: grid;
+		grid-template-columns: 150px 150px;
+		grid-template-rows: 75px 75px;
+		grid-template-areas: "a b" "a c";
+		justify-content: center;
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		padding-top: 30px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile .mypage-profile-image {
+		grid-area: a;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe a:link {
+		text-decoration: none;
+		color: black;
+	}
+	
+	.mypage-profile .mypage-profile-image img {
+		width: 150px;
+		border: 1px solid #d3d3d3;
+		border-radius: 50%;
+	}
+	
+	.mypage-profile .mypage-profile-name {
+		grid-area: b;
+		justify-self: center;
+		align-self: end;
+		font-size: 1em;
+		padding-bottom: 10px;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe {
+		grid-area: c;
+		justify-self: center;
+		align-self: start;
+		font-size: 1em;
+		padding-top: 10px;
+	}
+	
+	/* mypage - profile-icon */
+	.mypage-profile-icon {
+		display: grid;
+		grid-template-columns: repeat(4, 120px);
+		grid-template-rows: 50px;
+		grid-template-areas: "a b c d";
+		justify-content: center;
+		align-items: center;
+		justify-items: center;
+		padding-top: 10px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile-icon a.active img {
+		width: 30px;
+	}
+	
+	.mypage-profile-icon img {
+		width: 25px;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-bottom: 10px;
+	}
+		
+	.mypage-profile-icon .mypage-profile-icon-home {grid-area: a;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribe {grid-area: b;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
+	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
+	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+}
+
+/* iPhone-X landscape  */
+@media (max-device-width: 812px) and (max-device-height: 375px) and (orientation: landscape) {
+	.mypage-profile {
+		display: grid;
+		grid-template-columns: 150px 150px;
+		grid-template-rows: 75px 75px;
+		grid-template-areas: "a b" "a c";
+		justify-content: center;
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		padding-top: 30px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile .mypage-profile-image {
+		grid-area: a;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe a:link {
+		text-decoration: none;
+		color: black;
+	}
+	
+	.mypage-profile .mypage-profile-image img {
+		width: 150px;
+		border: 1px solid #d3d3d3;
+		border-radius: 50%;
+	}
+	
+	.mypage-profile .mypage-profile-name {
+		grid-area: b;
+		justify-self: center;
+		align-self: end;
+		font-size: 1em;
+		padding-bottom: 10px;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe {
+		grid-area: c;
+		justify-self: center;
+		align-self: start;
+		font-size: 1em;
+		padding-top: 10px;
+	}
+	
+	/* mypage - profile-icon */
+	.mypage-profile-icon {
+		display: grid;
+		grid-template-columns: repeat(4, 120px);
+		grid-template-rows: 50px;
+		grid-template-areas: "a b c d";
+		justify-content: center;
+		align-items: center;
+		justify-items: center;
+		padding-top: 10px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile-icon a.active img {
+		width: 30px;
+	}
+	
+	.mypage-profile-icon img {
+		width: 25px;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-bottom: 10px;
+	}
+		
+	.mypage-profile-icon .mypage-profile-icon-home {grid-area: a;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribe {grid-area: b;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
+	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
+	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+}
+
+/* iPhone-6/7/8 landscape  */
+@media (max-device-width: 667px) and (max-device-height: 375px) and (orientation: landscape) {
+	.mypage-profile {
+		display: grid;
+		grid-template-columns: 150px 150px;
+		grid-template-rows: 75px 75px;
+		grid-template-areas: "a b" "a c";
+		justify-content: center;
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		padding-top: 30px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile .mypage-profile-image {
+		grid-area: a;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe a:link {
+		text-decoration: none;
+		color: black;
+	}
+	
+	.mypage-profile .mypage-profile-image img {
+		width: 150px;
+		border: 1px solid #d3d3d3;
+		border-radius: 50%;
+	}
+	
+	.mypage-profile .mypage-profile-name {
+		grid-area: b;
+		justify-self: center;
+		align-self: end;
+		font-size: 1em;
+		padding-bottom: 10px;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe {
+		grid-area: c;
+		justify-self: center;
+		align-self: start;
+		font-size: 1em;
+		padding-top: 10px;
+	}
+	
+	/* mypage - profile-icon */
+	.mypage-profile-icon {
+		display: grid;
+		grid-template-columns: repeat(4, 120px);
+		grid-template-rows: 50px;
+		grid-template-areas: "a b c d";
+		justify-content: center;
+		align-items: center;
+		justify-items: center;
+		padding-top: 10px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile-icon a.active img {
+		width: 30px;
+	}
+	
+	.mypage-profile-icon img {
+		width: 25px;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-bottom: 10px;
+	}
+		
+	.mypage-profile-icon .mypage-profile-icon-home {grid-area: a;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribe {grid-area: b;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
+	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
+	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
+}
+
+/* iPhone-5/5S/SE landscape  */
+@media (max-device-width: 568px) and (max-device-height: 320px) and (orientation: landscape) {
+	.mypage-profile {
+		display: grid;
+		grid-template-columns: 150px 150px;
+		grid-template-rows: 75px 75px;
+		grid-template-areas: "a b" "a c";
+		justify-content: center;
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+		padding-top: 30px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile .mypage-profile-image {
+		grid-area: a;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe a:link {
+		text-decoration: none;
+		color: black;
+	}
+	
+	.mypage-profile .mypage-profile-image img {
+		width: 150px;
+		border: 1px solid #d3d3d3;
+		border-radius: 50%;
+	}
+	
+	.mypage-profile .mypage-profile-name {
+		grid-area: b;
+		justify-self: center;
+		align-self: end;
+		font-size: 1em;
+		padding-bottom: 10px;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe {
+		grid-area: c;
+		justify-self: center;
+		align-self: start;
+		font-size: 1em;
+		padding-top: 10px;
+	}
+	
+	/* mypage - profile-icon */
+	.mypage-profile-icon {
+		display: grid;
+		grid-template-columns: repeat(4, 120px);
+		grid-template-rows: 50px;
+		grid-template-areas: "a b c d";
+		justify-content: center;
+		align-items: center;
+		justify-items: center;
+		padding-top: 10px;
+		padding-bottom: 20px;
+	}
+	
+	.mypage-profile-icon a.active img {
+		width: 30px;
+	}
+	
+	.mypage-profile-icon img {
+		width: 25px;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-bottom: 10px;
+	}
+		
+	.mypage-profile-icon .mypage-profile-icon-home {grid-area: a;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribe {grid-area: b;}	
+	.mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}	
+	.mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}	
+	.mypage-profile-icon a.active {border-bottom: 5px solid red;}
 }
