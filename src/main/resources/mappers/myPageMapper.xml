@@ -100,7 +100,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			on gn.genre = tg.genre
 			
 			where a.uid = #{uid}
-			group by a.tno
+			group by a.tno, u.uname, b.titleFullName
 		]]>
 		<include refid="search"></include>
 		<![CDATA[
@@ -219,6 +219,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			on gn.genre = ug.genre
 
 		where uid = #{uid}
+		group by a.uno, a.uid, b.profileFullName
 	</select>
 	
 	

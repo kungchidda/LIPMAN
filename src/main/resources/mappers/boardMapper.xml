@@ -196,11 +196,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			on t.tno = a.tno
 			
 			left outer join
-            (SELECT  bno, boardFullName from tbl_attach group by bno) b    
+            (SELECT  bno, boardFullName from tbl_attach group by bno, boardFullName) b    
 			on b.bno = a.bno
 			
             inner join 
-			(SELECT max(bno) as bno, subtitle, tno FROM tbl_board group by tno) x 
+			(SELECT max(bno) as bno, tno FROM tbl_board group by tno) x 
             on x.bno = a.bno
             
             inner join
@@ -224,7 +224,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<include refid="search"></include>
 		<![CDATA[
 			group by
-            a.bno
+            a.bno, u.uname, profileFullName, titleFullName, boardFullName
 			order by a.bno desc
 			limit #{pageStart}, #{perPageNum}
 		]]>
@@ -246,11 +246,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			on t.tno = a.tno
 			
 			left outer join
-            (SELECT  bno, boardFullName from tbl_attach group by bno) b    
+            (SELECT  bno, boardFullName from tbl_attach group by bno, boardFullName) b    
 			on b.bno = a.bno
 			
             inner join 
-			(SELECT max(bno) as bno, subtitle, tno FROM tbl_board group by tno) x 
+			(SELECT max(bno) as bno, subtitle, tno FROM tbl_board group by subtitle, tno) x 
             on x.bno = a.bno
             
             inner join
@@ -320,7 +320,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		on t.tno = b.tno
 		
 		where b.tno = #{tno}
-		group by bno
+		group by bno, boardFullName
 		order by bno desc
 		limit #{cri.pageStart}, #{cri.perPageNum}
 	</select>
