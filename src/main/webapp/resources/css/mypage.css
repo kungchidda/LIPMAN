@@ -55,7 +55,7 @@
 	padding-bottom: 20px;
 }
 
-.mypage-profile-icon a.active img {
+.mypage-profile-icon .active img {
 	width: 40px;
 }
 
@@ -101,7 +101,7 @@
 	grid-area: d;
 }
 
-.mypage-profile-icon a.active {
+.mypage-profile-icon .active {
 	border-bottom: 5px solid red;
 }
 
