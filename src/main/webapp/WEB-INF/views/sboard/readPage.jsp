@@ -739,12 +739,21 @@
 	/**************************************************************************************/
 	
 	$(".subscribeBtn").on("click",function(){
-		
-		 subscribeBtnClick('${boardVO.uid}', '${login.uid}');
+		if('${login.uid}' == ""){
+			alert("로그인이 필요합니다");
+			location.href="/user/login";
+		}else{
+		 	subscribeBtnClick('${boardVO.uid}', '${login.uid}');
+		}
 	});
 	
 	$(".unsubscribeBtn").on("click",function(){
-		unsubscribeBtnClick('${boardVO.uid}', '${login.uid}');
+		if('${login.uid}' == ""){
+			alert("로그인이 필요합니다");
+			location.href="/user/login";
+		}else{
+			unsubscribeBtnClick('${boardVO.uid}', '${login.uid}');
+		}
 	});
 
 	
