@@ -682,9 +682,12 @@ a:visited {color: black;}
 .dropdown-signup .signup-button, .hadaccount-button {
     font-size: 1em;
     text-align: center;
-    padding-top: 13px;
+/*     padding-top: 13px; */
     border-radius: 10px;
     color: white;
+}
+.dropdown-signup .hadaccount-button {
+	padding-top: 13px;
 }
 
 .dropdown-signup .signup-google, .signup-facebook {

@@ -231,7 +231,7 @@
             <input type="password" class="signup-repw do-not-close" placeholder='Retype Password' required>
             <input type="text" name="uname" class="signup-nickname do-not-close" placeholder='Nick name' required>
 <!--            	<div id="signup-submit" class="signup-button do-not-close">Sign-Up</div> -->
-			<button type="submit" id="signup-submit" class="signup-button do-not-close">Sign-Up</button>
+			<button type="button" id="signup-submit" class="signup-button do-not-close">Sign-Up</button>
             <div class="hadaccount-button dropbtn" onclick="myPageFunction()">
                 Had Account
             </div>
@@ -392,16 +392,16 @@
                 console.log(formObj);
        
 				$("#signup-submit").on("click", function () {
-					e.preventDefault();
 					if($(".signup-email").hasClass("check-please") === true){
-						alert("Email exist");					
+						alert("Email exist");		
 					}
 					
 					if($(".signup-pw").hasClass("check-please") === true){
-						alert("Please Check Your Password");					
+						alert("Please Check Your Password");	
 					}
 					
-					if($(".signup-email").hasClass("check-ok") === true && $(".signup-pw").hasClass("check-ok") === true){
+					if( $(".signup-email").hasClass("check-ok") && $(".signup-pw").hasClass("check-ok")){
+						console.log("check-ok true");						
 	                    formObj.submit();
 					}
 					
@@ -436,6 +436,30 @@
 				});
 				
 				$(".signup-repw").on("change", function(event) {
+					
+					var signupPw = $(".signup-pw").val();
+					var signupRepw = $(".signup-repw").val();
+					
+					$(".signup-pw").removeClass("check-please");
+					$(".signup-repw").removeClass("check-please");
+					$(".signup-pw").removeClass("check-ok");
+					$(".signup-repw").removeClass("check-ok");
+					
+					if(signupPw != signupRepw){
+// 						alert("check your password");
+						$(".signup-pw").addClass("check-please");
+						$(".signup-repw").addClass("check-please");
+					}
+					
+					if(signupPw == signupRepw){
+// 						alert("check your password");
+						$(".signup-pw").addClass("check-ok");
+						$(".signup-repw").addClass("check-ok");
+					}
+					
+				});
+				
+				$(".signup-pw").on("change", function(event) {
 					
 					var signupPw = $(".signup-pw").val();
 					var signupRepw = $(".signup-repw").val();
