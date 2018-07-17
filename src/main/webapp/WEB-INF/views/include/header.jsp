@@ -226,11 +226,12 @@
     
     <div id="signupBar" class="do-not-close dropdown-contents">
         <form class="dropdown-signup do-not-close" role="form" action="/user/join" method="post">
-            <input type="email" name='uid' class="signup-email do-not-close" placeholder='Log-in e-mail'>
-            <input type="password" name="upw" class="signup-pw do-not-close" placeholder='Password'>
-<!--             <input type="text" class="signup-repw do-not-close" placeholder='Retype Password'> -->
-            <input type="text" name="uname" class="signup-nickname do-not-close" placeholder='Nick name'>
-           	<div id="signup-submit" class="signup-button do-not-close">Sign-Up</div>
+            <input type="email" name='uid' class="signup-email do-not-close" placeholder='Log-in e-mail' required>
+            <input type="password" name="upw" class="signup-pw do-not-close" placeholder='Password' required>
+            <input type="password" class="signup-repw do-not-close" placeholder='Retype Password' required>
+            <input type="text" name="uname" class="signup-nickname do-not-close" placeholder='Nick name' required>
+<!--            	<div id="signup-submit" class="signup-button do-not-close">Sign-Up</div> -->
+			<button type="submit" id="signup-submit" class="signup-button do-not-close">Sign-Up</button>
             <div class="hadaccount-button dropbtn" onclick="myPageFunction()">
                 Had Account
             </div>
@@ -391,8 +392,74 @@
                 console.log(formObj);
        
 				$("#signup-submit").on("click", function () {
-                    formObj.submit();
+					e.preventDefault();
+					if($(".signup-email").hasClass("check-please") === true){
+						alert("Email exist");					
+					}
+					
+					if($(".signup-pw").hasClass("check-please") === true){
+						alert("Please Check Your Password");					
+					}
+					
+					if($(".signup-email").hasClass("check-ok") === true && $(".signup-pw").hasClass("check-ok") === true){
+	                    formObj.submit();
+					}
+					
                 });
+				
+				$(".signup-email").on("change", function(event) {
+					console.log("signup-email change");
+					$(".signup-email").removeClass("check-please");
+					$(".signup-email").removeClass("check-ok");
+					var uid = $(".signup-email").val();
+					$.ajax({
+			            type : 'post',
+			            url : '/user/existAccount',
+			            headers : {
+			                "Content-Type": "application/json"
+			                },
+			            dataType:'json',
+			            data : JSON.stringify({uid:uid}),
+			            success:function(result){
+			                
+// 			            	console.log("getLikeList result.length : " + result.length);
+
+			                if(result != 0){
+			                   $(".signup-email").addClass("check-please");
+			                   
+			                }
+			                if(result == 0){
+			                	$(".signup-email").addClass("check-ok");
+				            }
+			            }
+			        });
+				});
+				
+				$(".signup-repw").on("change", function(event) {
+					
+					var signupPw = $(".signup-pw").val();
+					var signupRepw = $(".signup-repw").val();
+					
+					$(".signup-pw").removeClass("check-please");
+					$(".signup-repw").removeClass("check-please");
+					$(".signup-pw").removeClass("check-ok");
+					$(".signup-repw").removeClass("check-ok");
+					
+					if(signupPw != signupRepw){
+// 						alert("check your password");
+						$(".signup-pw").addClass("check-please");
+						$(".signup-repw").addClass("check-please");
+					}
+					
+					if(signupPw == signupRepw){
+// 						alert("check your password");
+						$(".signup-pw").addClass("check-ok");
+						$(".signup-repw").addClass("check-ok");
+					}
+					
+				});
+				
+				
        
        
 });
