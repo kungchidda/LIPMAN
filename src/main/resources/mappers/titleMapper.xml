@@ -35,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert> -->
 	
 	<select id="read" resultType="com.kungchidda.domain.TitleVO">
-		select a.tno, a.title, titlelikecnt, titledislikecnt, b.titleFullName as fullName, a.regdate
+		select a.tno, a.title, b.titleFullName as fullName, a.regdate
 			from tbl_title a
 			inner join
 			(SELECT  tno, titleFullName from tbl_title_attach) b    
@@ -152,7 +152,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="listSearch" resultType="TitleVO">
 		<![CDATA[
 			select
-					a.bno, a.title, a.subtitle, a.uname, a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, a.regdate, IFNULL(b.fullName, '/sampleImage.jpg') as fullName
+					a.bno, a.title, a.subtitle, a.uname, a.viewcnt, a.replycnt, a.regdate, IFNULL(b.fullName, '/sampleImage.jpg') as fullName
 			from
             tbl_board a
             

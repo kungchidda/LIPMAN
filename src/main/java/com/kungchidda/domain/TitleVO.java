@@ -9,8 +9,8 @@ public @Data class TitleVO {
 	private Integer tno;
 	private String title;
 	private String uid;
-	private int titlelikecnt;
-	private int titledislikecnt;
+	private int likecnt;
+	private int dislikecnt;
 	private Date regdate;
 	
 	private String[] genreArr;
