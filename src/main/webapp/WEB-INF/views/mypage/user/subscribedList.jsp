@@ -32,8 +32,8 @@
 				<div class="subtitle">${MyPageVO.subtitle}</div>
 				
 				<div class="thumbnail-thumb">
-					<img src="/resources/png/pencil.png"><span>${MyPageVO.titlelikecnt}</span>
-					<img src="/resources/png/eraser.png"><span>${MyPageVO.titledislikecnt}</span>
+					<img src="/resources/png/pencil.png"><span>${MyPageVO.likecnt}</span>
+					<img src="/resources/png/eraser.png"><span>${MyPageVO.dislikecnt}</span>
 				</div>
 				<div class="line">
 					<img src="/resources/svg/line.svg">
@@ -131,13 +131,22 @@
 			/**************************************************************************************/
 			
 			$(".subscribeBtn").on("click",function(){
-				
-				 subscribeBtnClick('${cri.uid}', '${login.uid}');
-			});
-			
-			$(".unsubscribeBtn").on("click",function(){
-				unsubscribeBtnClick('${cri.uid}', '${login.uid}');
-			});
+						if('${login.uid}' == ""){
+							alert("로그인이 필요합니다");
+							location.href="/user/login";
+						}else{
+						 	subscribeBtnClick('${cri.uid}', '${login.uid}');
+						}
+					});
+					
+					$(".unsubscribeBtn").on("click",function(){
+						if('${login.uid}' == ""){
+							alert("로그인이 필요합니다");
+							location.href="/user/login";
+						}else{
+							unsubscribeBtnClick('${cri.uid}', '${login.uid}');
+						}
+					});
 			
 			
 			//무한 스크롤 기능 일시 정지 

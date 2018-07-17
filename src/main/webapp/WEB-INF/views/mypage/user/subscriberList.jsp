@@ -154,12 +154,21 @@
 			/**************************************************************************************/
 			
 			$(".subscribeBtn").on("click",function(){
-				
-				 subscribeBtnClick('${cri.uid}', '${login.uid}');
+				if('${login.uid}' == ""){
+					alert("로그인이 필요합니다");
+					location.href="/user/login";
+				}else{
+				 	subscribeBtnClick('${cri.uid}', '${login.uid}');
+				}
 			});
 			
 			$(".unsubscribeBtn").on("click",function(){
-				unsubscribeBtnClick('${cri.uid}', '${login.uid}');
+				if('${login.uid}' == ""){
+					alert("로그인이 필요합니다");
+					location.href="/user/login";
+				}else{
+					unsubscribeBtnClick('${cri.uid}', '${login.uid}');
+				}
 			});
 			
 		});
