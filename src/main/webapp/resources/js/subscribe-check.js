@@ -6,9 +6,10 @@
 	
 	 function subscribeBtnClick(subscribed, subscriber){
 		console.log("subscribeBtn start");
+
 		$.ajax({
 			type : 'post',
-			url : '/subscribes/',
+			url : '/subscribes/add',
 			headers : {
 				"Content-Type" : "application/json",
 				"X-HTTP-Method-Override" : "POST" },
@@ -26,6 +27,7 @@
 	
 	function unsubscribeBtnClick(subscribed, subscriber){
 		console.log("unsubscribeBtn start");
+		
 		$.ajax({
 			type : 'post',
 			url : '/subscribes/delete',
@@ -68,7 +70,8 @@
 							$(".subscribeBtn").hide();
 							$(".unsubscribeBtn").show();
 							str = " Subscribed";
-						}else{
+						}
+						if(result.length == 0){
 							$(".subscribeBtn").show();
 							$(".unsubscribeBtn").hide();
 							str = " Subscriber";

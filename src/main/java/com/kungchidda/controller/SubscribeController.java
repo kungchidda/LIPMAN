@@ -22,7 +22,7 @@ public class SubscribeController {
 	@Inject
 	private SubscribeService service;
 	
-	@RequestMapping(value = "", method = RequestMethod.POST)
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public ResponseEntity<String> addLike(@RequestBody SubscribeVO vo) {
 		
 		ResponseEntity<String> entity = null;
