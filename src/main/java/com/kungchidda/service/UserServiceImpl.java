@@ -70,4 +70,9 @@ public class UserServiceImpl implements UserService {
 			dao.insertGenre(user);
 		}
 	}
+	
+	@Override
+	public int existAccount(UserVO vo) throws Exception{
+		return dao.existAccount(vo);
+	}
 }

@@ -15,4 +15,6 @@ public interface UserService {
 	
 	public void modify(UserVO user) throws Exception;
 	
+	public int existAccount(UserVO vo) throws Exception;
+	
 }

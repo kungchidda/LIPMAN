@@ -95,4 +95,9 @@ public class UserDAOImpl implements UserDAO{
 	public void deleteGenre(UserVO user) throws Exception{
 		session.delete(namespace+".deleteGenre", user);
 	}
+	
+	@Override
+	public int existAccount(UserVO vo) throws Exception{
+		return session.selectOne(namespace + ".existAccount", vo);
+	}
 }

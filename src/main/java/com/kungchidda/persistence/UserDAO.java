@@ -28,4 +28,6 @@ public interface UserDAO {
 	
 	public void insertGenre(UserVO user) throws Exception;
 	public void deleteGenre(UserVO user) throws Exception;
+	
+	public int existAccount(UserVO vo) throws Exception;
 }
