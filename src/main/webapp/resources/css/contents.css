@@ -73,15 +73,22 @@ h4 {
 /*contents css*/
 
 .contents {
-    display: grid;
-    grid-template-columns: 60%;
-    grid-template-areas: "a";
-    justify-content: center;
+/*     display: grid; */
+/*     grid-template-columns: 60%; */
+/*     grid-template-areas: "a"; */
+/*     justify-content: center; */
+	text-align: center;
+	
 }
 
 .contents .comic {
-    grid-area: a;
-    justify-self: center;
+/*     grid-area: a; */
+/*     justify-self: center; */
+	display: inline-block;
+    text-align: center;
+}
+.contents .comic img{
+	width: 1200px;	
 }
 
 /*thumb css*/
