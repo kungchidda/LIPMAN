@@ -77,7 +77,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select> -->
 		<select id="listSearch" resultType="MyPageVO">
 		<![CDATA[
-			select a.tno, a.title, u.uname, d.likecnt, d.dislikecnt, b.titleFullName, c.regdate, GROUP_CONCAT(gn.genre SEPARATOR ',') as genre, GROUP_CONCAT(gn.gname SEPARATOR ' ') as gname
+			select a.tno, a.title, u.uname, d.likecnt, d.dislikecnt, b.titleFullName, c.regdate, GROUP_CONCAT(gn.genre SEPARATOR ',') as genre, GROUP_CONCAT(gn.gname SEPARATOR ' / ') as gname
 			from tbl_title a
 			inner join
 			(SELECT  tno, titleFullName from tbl_title_attach) b    
@@ -99,7 +99,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			tbl_genre_name gn
 			on gn.genre = tg.genre
             
-            inner join
+            left outer join
             (select tno, sum(likecnt) as likecnt, sum(dislikecnt) as dislikecnt from tbl_board group by tno) d
             on d.tno = a.tno
 			
@@ -116,7 +116,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="listSubscribedSearch" resultType="MyPageVO">
 		<![CDATA[
 			select
-			title.tno, a.bno, title.title, a.subtitle, u.uname,  IFNULL(p.profileFullName, '/account.png') as profileFullName , a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, a.regdate, IFNULL(t.titleFullName, '/sampleImage.jpg') as titleFullName, IFNULL(b.boardFullName, '/sampleImage.jpg') as boardFullName, GROUP_CONCAT(gn.gname SEPARATOR ' ') as gname
+			title.tno, a.bno, title.title, a.subtitle, u.uname,  IFNULL(p.profileFullName, '/account.png') as profileFullName , a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, a.regdate, IFNULL(t.titleFullName, '/sampleImage.jpg') as titleFullName, IFNULL(b.boardFullName, '/sampleImage.jpg') as boardFullName, GROUP_CONCAT(gn.gname SEPARATOR ' / ') as gname
 			from
             tbl_board a
             
