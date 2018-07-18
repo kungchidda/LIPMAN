@@ -1,13 +1,11 @@
 package com.kungchidda.controller;
 
 
-import java.util.Locale;
 
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -30,19 +28,10 @@ public class HomeController {
 		return "redirect:/sboard/list";
 	}
 	
-	@RequestMapping(value = "/doA", method = RequestMethod.GET)
-	public String doA(Locale locale, Model model) {
-		System.out.println("doA....................");
+	@RequestMapping(value = "/error", method = RequestMethod.GET)
+	public String error() {
 		
-		return "home";
+		return "error";
 	}
 	
-	@RequestMapping(value = "/doB", method = RequestMethod.GET)
-	public String doB(Locale locale, Model model) {
-		System.out.println("doB....................");
-		
-		model.addAttribute("result", "DOB RESULT");
-		
-		return "home";
-	}
 }
