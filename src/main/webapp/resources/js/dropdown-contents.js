@@ -6,6 +6,7 @@
         document.getElementById("genreBar").classList.remove("genre");
         document.getElementById("noticeBar").classList.remove("notice");
         document.getElementById("myPageBar").classList.remove("mypage");
+		document.getElementById("forgotBar").classList.remove("forgot");
         document.getElementById("signupBar").classList.remove("signup");
         }
 
@@ -15,6 +16,7 @@
         document.getElementById("genreBar").classList.add("genre");
         document.getElementById("noticeBar").classList.remove("notice");
         document.getElementById("myPageBar").classList.remove("mypage");
+		document.getElementById("forgotBar").classList.remove("forgot");
         document.getElementById("signupBar").classList.remove("signup");
         }
 
@@ -24,6 +26,7 @@
         document.getElementById("genreBar").classList.remove("genre");
         document.getElementById("noticeBar").classList.add("notice");
         document.getElementById("myPageBar").classList.remove("mypage");
+		document.getElementById("forgotBar").classList.remove("forgot");
         document.getElementById("signupBar").classList.remove("signup");
         }
  
@@ -33,6 +36,17 @@
         document.getElementById("genreBar").classList.remove("genre");
         document.getElementById("noticeBar").classList.remove("notice");
         document.getElementById("myPageBar").classList.add("mypage");
+		document.getElementById("forgotBar").classList.remove("forgot");
+        document.getElementById("signupBar").classList.remove("signup");
+        }
+
+		function forgotFunction() {
+            /* document.getElementById("myPageBar").classList.toggle("mypage"); */
+        document.getElementById("searchBar").classList.remove("search");
+        document.getElementById("genreBar").classList.remove("genre");
+        document.getElementById("noticeBar").classList.remove("notice");
+        document.getElementById("myPageBar").classList.remove("mypage");
+		document.getElementById("forgotBar").classList.add("forgot");
         document.getElementById("signupBar").classList.remove("signup");
         }
 
@@ -42,6 +56,7 @@
         document.getElementById("genreBar").classList.remove("genre");
         document.getElementById("noticeBar").classList.remove("notice");
         document.getElementById("myPageBar").classList.remove("mypage");
+        document.getElementById("forgotBar").classList.remove("forgot");
         document.getElementById("signupBar").classList.add("signup");
         }
 
@@ -58,12 +73,14 @@
                     if (openDropdown.classList.contains('search') || 
                         openDropdown.classList.contains('genre') || 
                         openDropdown.classList.contains('notice') || 
-                        openDropdown.classList.contains('mypage') || 
+                        openDropdown.classList.contains('mypage') ||
+                        openDropdown.classList.contains('forgot') ||
                         openDropdown.classList.contains('signup')) {
                         openDropdown.classList.remove('search');
                         openDropdown.classList.remove('genre');
                         openDropdown.classList.remove('notice');
                         openDropdown.classList.remove('mypage');
+						openDropdown.classList.remove('forgot');
                         openDropdown.classList.remove('signup');
                     }
                 }
