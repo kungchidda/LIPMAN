@@ -55,8 +55,8 @@
         .homeBtn {
             width: 130px;
             padding: 15px;
-            background-color: #3d79bd;
-            border: 1px solid #3d79bd;
+            background-color: #489ad8;
+            border: 1px solid #489ad8;
             color: white;
             border-radius: 10px;
             font-size: 1em;
@@ -73,15 +73,6 @@
             font-size: 1em;
         }
         
-        .backBtn:hover {
-            width: 130px;
-            padding: 15px;
-            background-color: #3d79bd;
-            border: 1px solid #3d79bd;
-            color: white;
-            border-radius: 10px;
-            font-size: 1em;
-        }
     </style>
 </head>
 
@@ -95,8 +86,8 @@
         <img src="/resources/png/error.png" class="error-img">
         <p class="error-text-1">서비스 에러가 발생했습니다.</p>
         <p class="error-text-2">서비스 이용에 불편을 드려 죄송합니다.</p>
-        <button onclick="location='/sboard/list'" class="homeBtn">홈으로</button>
-        <button onclick="location='javascript:history.back()'" class="backBtn">뒤로</button>
+        <button onclick="location='/sboard/list'" class="homeBtn">Home</button>
+        <button onclick="location='javascript:history.back()'" class="backBtn">Back</button>
     </div>
 
 	
