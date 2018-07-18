@@ -17,7 +17,7 @@
     <link href="/resources/css/header.css" rel="stylesheet">
     <link href="/resources/css/main.css" rel="stylesheet">
 
-    <script src="/resources/js/dropdown-contents.js"></script>
+    <!-- <script src="/resources/js/dropdown-contents.js"></script> -->
     <script src="/resources/js/genre-check.js"></script>
 
     <!--expander style sheet-->
@@ -205,7 +205,7 @@
     
     <div id="myPageBar" class="do-not-close dropdown-contents">
         <form class="dropdown-mypage do-not-close" action="/user/loginPost" method="post">
-            <input type="email" name="uid" class="login-id do-not-close" placeholder='ID' required>
+            <input type="email" name="uid" class="login-id do-not-close" placeholder='E-mail' required>
             <div class="remember do-not-close">
             	<span><input type="checkbox" class="do-not-close" name="useCookie"></span>
             	<span>Remember your ID</span>
@@ -217,16 +217,34 @@
 	                Sign-Up
 	            </div>
             </div>
-            <h1 class="signup-or"><span>or</span></h1>
+            <div class="forgotBtn do-not-close">
+	            <div class="forgot-button dropbtn do-not-close" onclick="forgotFunction()">
+	                Forgot Password
+	            </div>
+            </div>
+            <h1 class="signup-or"><span>Log-in with</span></h1>
             <div class="signup-facebook do-not-close">Facebook</div>
             <div class="signup-google do-not-close">Google</div>
         </form>
     </div>
 
-    
+
+<!-- forgot password -->
+    <div id="forgotBar" class="do-not-close dropdown-contents">
+        <form class="dropdown-forgot do-not-close" role="form" action="/user/join" method="post">
+            <input type="email" name='uid' class="signup-email do-not-close" placeholder='E-mail' required>
+         	<button class="send-email do-not-close">Send</button>
+            <button class="cancel-btn dropbtn do-not-close" onclick="myPageFunction()">
+                Cancel
+            </button>
+        </form>
+    </div>
+
+
+<!-- sign-up password -->
     <div id="signupBar" class="do-not-close dropdown-contents">
         <form class="dropdown-signup do-not-close" role="form" action="/user/join" method="post">
-            <input type="email" name='uid' class="signup-email do-not-close" placeholder='Log-in e-mail' required>
+            <input type="email" name='uid' class="signup-email do-not-close" placeholder='E-mail' required>
             <input type="password" name="upw" class="signup-pw do-not-close" placeholder='Password' required>
             <input type="password" class="signup-repw do-not-close" placeholder='Retype Password' required>
             <input type="text" name="uname" class="signup-nickname do-not-close" placeholder='Nick name' required>
@@ -235,11 +253,19 @@
             <div class="hadaccount-button dropbtn" onclick="myPageFunction()">
                 Had Account
             </div>
-            <h1 class="signup-or"><span>or</span></h1>
+            <div class="forgotBtn do-not-close">
+	            <div class="forgot-button dropbtn" onclick="forgotFunction()">
+	                Forgot Password
+	            </div>
+            </div>
+            <h1 class="signup-or"><span>Sign-up with</span></h1>
             <div class="signup-facebook do-not-close">Facebook</div>
             <div class="signup-google do-not-close">Google</div>
         </form>
     </div>
+    
+    
+    
     
 
     <!-- <script>
@@ -263,6 +289,7 @@
 //         	document.getElementById("genreBar").classList.remove("genre");
         	document.getElementById("noticeBar").classList.remove("notice");
         	document.getElementById("myPageBar").classList.remove("mypage");
+        	document.getElementById("forgotBar").classList.remove("forgot");
         	document.getElementById("signupBar").classList.remove("signup");
         }
 
@@ -292,6 +319,7 @@
 //         	document.getElementById("genreBar").classList.remove("genre");
         	//document.getElementById("noticeBar").classList.add("notice");
         	document.getElementById("myPageBar").classList.remove("mypage");
+        	document.getElementById("forgotBar").classList.remove("forgot");
         	document.getElementById("signupBar").classList.remove("signup");
         	
         }
@@ -307,6 +335,23 @@
 //         	document.getElementById("genreBar").classList.remove("genre");
         	document.getElementById("noticeBar").classList.remove("notice");
         	//document.getElementById("myPageBar").classList.add("mypage");
+        	document.getElementById("forgotBar").classList.remove("forgot");
+        	document.getElementById("signupBar").classList.remove("signup");
+        	
+        }
+        
+        function forgotFunction() {
+        	if($('.forgot').is(":visible")){
+        		document.getElementById("forgotBar").classList.remove("forgot");
+        	}else{
+        		document.getElementById("forgotBar").classList.add("forgot");	
+        	}
+            /* document.getElementById("myPageBar").classList.toggle("mypage"); */
+        	document.getElementById("searchBar").classList.remove("search");
+//         	document.getElementById("genreBar").classList.remove("genre");
+        	document.getElementById("noticeBar").classList.remove("notice");
+        	document.getElementById("myPageBar").classList.remove("mypage");
+        	//document.getElementById("forgotBar").classList.add("forgot");
         	document.getElementById("signupBar").classList.remove("signup");
         	
         }
@@ -322,6 +367,7 @@
 // 			document.getElementById("genreBar").classList.remove("genre");
 			document.getElementById("noticeBar").classList.remove("notice");
 			document.getElementById("myPageBar").classList.remove("mypage");
+			document.getElementById("forgotBar").classList.remove("forgot");
 			//document.getElementById("signupBar").classList.add("signup");
 			
 		}
@@ -337,11 +383,12 @@
                 var i;
                 for (i = 0; i < dropdowns.length; i++) {
                     var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('search') || openDropdown.classList.contains('genre') || openDropdown.classList.contains('notice') || openDropdown.classList.contains('mypage') || openDropdown.classList.contains('signup')) {
+                    if (openDropdown.classList.contains('search') || openDropdown.classList.contains('genre') || openDropdown.classList.contains('notice') || openDropdown.classList.contains('mypage') || openDropdown.classList.contains('forgot') || openDropdown.classList.contains('signup')) {
                         openDropdown.classList.remove('search');
 //                         openDropdown.classList.remove('genre');
                         openDropdown.classList.remove('notice');
                         openDropdown.classList.remove('mypage');
+                        openDropdown.classList.remove('forgot');
                         openDropdown.classList.remove('signup');
                     }
                 }
