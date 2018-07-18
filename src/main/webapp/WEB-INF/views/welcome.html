@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIPMAN</title>
+
+    <!--    google web font link-->
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+
+    <!--   style sheet-->
+    <link href="css/header.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+    <script src="js/dropdown-contents.js"></script>
+
+    <!--expander style sheet-->
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+
+    <!--expander script-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="js/expander.js"></script>
+
+    <style>
+        .error {
+            display: grid;
+            grid-template-columns: 200px 200px;
+            grid-template-rows: 180px 40px 30px 50px;
+            grid-template-areas: 
+                "a a"
+                "b b"
+                "c c"
+                "d d";
+            justify-content: center;
+            grid-row-gap: 10px;
+            grid-column-gap: 10px;
+            align-items: center;
+            justify-items: center;
+            padding-top: 50px;
+        }
+        
+        .error .error-img {
+            grid-area: a;
+        }
+        
+        .error img {
+            width: 150px;
+        }
+        
+        .error .error-text-1 {
+            grid-area: b;
+            font-size: 2em;
+        }
+        
+        .error .error-text-2 {
+            grid-area: c;
+            font-size: 1em;
+        }
+        
+        .error .homeBtn {
+            grid-area: d;
+        }
+        
+        .homeBtn {
+            width: 130px;
+            padding: 15px;
+            background-color: #489ad8;
+            border: 1px solid #489ad8;
+            color: white;
+            border-radius: 10px;
+            font-size: 1em;
+        }
+        
+        .error span {
+            color: #f95e3a;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header dropdown">
+        <div class="brand">
+            <a href="main.html"><img src="png/logo.png"></a>
+        </div>
+        <div class="searchBtn ">
+            <img class="dropbtn" onclick="searchFunction()" src="png/search.png">
+        </div>
+        <div class="noticeBtn ">
+            <img class="dropbtn" onclick="noticeFunction()" src="png/notice-1.png">
+        </div>
+        <div class="accountBtn ">
+            <img class="dropbtn" onclick="myPageFunction()" src="png/account.png">
+        </div>
+<!--
+        <div class="signupBtn">
+            <img class="dropbtn" onclick="signupFunction()" src="png/account.png">
+        </div>
+-->
+    </div>
+
+    <!--dropdown content-->
+    <div id="searchBar" class="dropdown-content">
+        <div class="dropdown-contents">
+           <div class="dropdown-genre-01">
+                <span>SF</span> 
+            </div>
+            <div class="dropdown-genre-02">
+                <span>Mystery</span> 
+            </div>
+            <div class="dropdown-genre-03">
+                <span>Pure Love</span> 
+            </div>
+            <div class="dropdown-genre-04">
+                <span>Romance</span> 
+            </div>
+            <div class="dropdown-genre-05">
+                <span>Comic</span> 
+            </div>
+            <div class="dropdown-genre-06">
+                <span>Reasoning</span> 
+            </div>
+            <div class="dropdown-genre-07">
+                <span>School Life</span> 
+            </div>
+            <div class="dropdown-genre-08">
+                <span>Sports</span> 
+            </div>
+            <div class="dropdown-genre-09">
+                <span>Fantasy</span> 
+            </div>
+            <div class="dropdown-genre-10">
+                <span>Medicine</span> 
+            </div>
+            <div class="dropdown-genre-11">
+                <span>Food</span> 
+            </div>
+            <div class="dropdown-genre-12">
+                <span>Education</span> 
+            </div>
+            <div class="dropdown-genre-13">
+                <span>Battle</span> 
+            </div>
+            <div class="dropdown-genre-14">
+                <span>Mecanic</span> 
+            </div>
+            <div class="dropdown-genre-15">
+                <span>Daily</span> 
+            </div>
+            <div class="dropdown-genre-16">
+                <span>Age</span> 
+            </div>
+            <div class="dropdown-genre-17">
+                <span>Graphic Novel</span> 
+            </div>
+            <div class="dropdown-genre-18">
+                <span>thriller</span> 
+            </div>
+            <div class="dropdown-genre-19">
+                <span>Drama</span> 
+            </div>
+            <div class="dropdown-genre-20">
+                <span>Adventure</span> 
+            </div>
+            <input type="text" class="searchBar" placeholder='Search Webtoons'>
+            <button type="submit" class="searchBar-button"><img src="png/search.png"></button>
+        </div>
+    </div>    
+    <div id="noticeBar" class="dropdown-content">
+        <div class="dropdown-notice">
+            <div class="img-01 cursor" onclick="window.location='#';">
+                <img src="images/overwatch.jpg">
+            </div>
+            <div class="text-01 cursor" onclick="window.location='#';">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum placeat nesciunt ndus amet, voluptas, fuga vitae accusantium delectus laborum, alias sit quisquam quia culpa sapiente?
+            </div>
+            <div class="time-01">
+                1 hours ago
+            </div>
+
+            <div class="img-02 cursor" onclick="window.location='#';">
+                <img src="images/test-01.jpg">
+            </div>
+            <div class="text-02 cursor" onclick="window.location='#';">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eumm quia culpa sapiente?
+            </div>
+            <div class="time-02">
+                2 hours ago
+            </div>
+
+            <div class="img-03 cursor" onclick="window.location='#';">
+                <img src="images/test-02.jpg">
+            </div>
+            <div class="text-03 cursor" onclick="window.location='#';">
+                Lorem ipsum dolor sit amet, consectetur advitae accusantium delectus laborum, alias sit quisquam quia culpa sapiente.
+            </div>
+            <div class="time-03">
+                3 hours ago
+            </div>
+
+            <div class="img-04 cursor" onclick="window.location='#';">
+                <img src="images/overwatch.jpg">
+            </div>
+            <div class="text-04 cursor" onclick="window.location='#';">
+                Lorem ipsum dolor sit amet, consectetur adipisicing fuga vitae accusantium delectus laborum, alias sit quisquam quia culpa sapiente!
+            </div>
+            <div class="time-04">
+                4 hours ago
+            </div>
+
+            <div class="img-05 cursor" onclick="window.location='#';">
+                <img src="images/test-03.jpg">
+            </div>
+            <div class="text-05 cursor" onclick="window.location='#';">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum placeat nesciunt ndus amet, voluptas, fuga vitae accusantium delectus laborum, alias sit quisquam quia culpa sapiente?
+            </div>
+            <div class="time-05">
+                1 days ago
+            </div>
+
+            <div class="img-06 cursor" onclick="window.location='#';">
+                <img src="images/test-04.jpg">
+            </div>
+            <div class="text-06 cursor" onclick="window.location='#';">
+                Lorem ipsum dolor sit amet, consecteturvoluptas, fuga vitae accusantium delectus laborum, alias sit quisquam quia culpa sapiente?
+            </div>
+            <div class="time-06">
+                2 hours ago
+            </div>
+        </div>
+    </div>
+    <div id="myPageBar" class="dropdown-content">
+        <form class="dropdown-mypage">
+            <input type="text" class="login-id" placeholder='ID'>
+            <div class="remember">
+                <span><input type="radio"></span>
+                <span>Remember your ID</span>
+            </div>
+            <input type="text" class="login-pw" placeholder='Password'>
+            <button type="submit" class="login-button">Log-In</button>
+            <div class="signupBtn">
+            <div class="signup-button dropbtn" onclick="signupFunction()">
+                Sign-Up
+            </div>
+            </div>
+        </form>
+    </div>
+    <div id="signupBar" class="dropdown-content">
+        <form class="dropdown-signup">
+            <input type="text" class="signup-email" placeholder='Log-in e-mail'>
+            <input type="text" class="signup-pw" placeholder='Password'>
+            <input type="text" class="signup-repw" placeholder='Retype Password'>
+            <input type="text" class="signup-nickname" placeholder='Nick name'>
+            <div type="submit" class="signup-button">Sign-Up</div>
+            <div type="submit" class="hadaccount-button dropbtn" onclick="myPageFunction()">
+                Had Account
+            </div>
+        </form>
+    </div>
+
+    <!-- error page -->
+    <div class="error">
+        <img src="/resources/png/welcome.png" class="error-img">
+        <p class="error-text-1">진심으로 환영합니다!!!</p>
+        <p class="error-text-2"><span>이메일 인증 후</span> 이용해 주시기 바랍니다!</p>
+        <button class="homeBtn">Home</button>
+    </div>
+    
+
+</body>
+
+</html>
