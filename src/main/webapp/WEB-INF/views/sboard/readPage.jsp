@@ -63,9 +63,9 @@
 
 	<!--contents-->
     <div class="contents">
-        <div class="comic">
+        <p class="comic">
             ${boardVO.fileList}
-        </div>
+        </p>
     </div>
     
     <!--thumb-->
