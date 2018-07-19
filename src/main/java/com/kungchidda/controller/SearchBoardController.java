@@ -119,19 +119,11 @@ public class SearchBoardController {
 	}
 
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
-	public String modifyPagingPOST(BoardVO board, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
-		logger.info(cri.toString());
+	public String modifyPagingPOST(BoardVO board) throws Exception {
+
 		service.modify(board);
+		logger.info("subtitle = " + board.getSubtitle());
 
-		rttr.addAttribute("page", cri.getPage());
-		rttr.addAttribute("perPageNum", cri.getPerPageNum());
-		rttr.addAttribute("searchType", cri.getSearchType());
-		rttr.addAttribute("keyword", cri.getKeyword());
-		
-		rttr.addFlashAttribute("msg", "SUCCESS");
-
-		logger.info(rttr.toString());
-		
 		return "redirect:/sboard/list";
 	}
 	
