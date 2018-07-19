@@ -98,7 +98,7 @@
 		method="post">
 
 		<div class="mypage-setting-id">
-			<div class="mypage-setting-loginid-title">Log-in ID</div>
+			<div class="mypage-setting-loginid-title">E-mail</div>
 			<div class="mypage-setting-loginid-text">
 				<span>${userVO.uid}</span>
 			</div>
@@ -133,7 +133,7 @@
 
 		<div class="mypage-setting-img">
 			<div class="mypage-setting-profileimage-title">
-				<p>Profile image</p>
+				<p>Profile Image</p>
 			</div>
 			<div class="mypage-setting-profileimage-button">
 				<button type="button" id="edit-profile">change</button>
