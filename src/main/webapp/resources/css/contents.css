@@ -26,14 +26,16 @@ h4 {
 
 .content-writer-profile {
     display: grid;
-    grid-template-columns: repeat(2, 200px);
-    grid-template-rows: 45px 45px 75px 45px;
-    grid-template-areas: "a ." "a b" "a c" "a .";
-    justify-content: center;
-    justify-items: center;
-    grid-column-gap: 70px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+	grid-template-columns: 200px 200px;
+	grid-template-rows: 100px 100px;
+	grid-template-areas: 
+		"a b" 
+		"a c";
+	justify-content: center;
+	grid-column-gap: 20px;
+	grid-row-gap: 10px;
+	padding-top: 45px;
+	padding-bottom: 40px;
 }
 
 .content-writer-profile .content-writer-img {
@@ -42,21 +44,24 @@ h4 {
 
 .content-writer-profile img {
 	width: 200px;
-    border-radius: 10px;
+	border: 1px solid #d3d3d3;
+    border-radius: 50%;
 }
 
 .content-writer-profile .content-writer-name {
     grid-area: b;
-    justify-self: start;
-    align-self: center;
-    font-size: 1em;
+    justify-self: center;
+	align-self: end;
+	font-size: 1em;
+	padding-bottom: 10px;
 }
 
 .content-writer-profile .content-writer-subscribe {
     grid-area: c;
-    justify-self: start;
-    align-self: center;
-    font-size: 1em;
+	justify-self: center;
+	align-self: start;
+	font-size: 1em;
+	padding-top: 10px
 }
 
 .content-writer-profile a:visited {
@@ -97,12 +102,13 @@ h4 {
     display: grid;
     grid-template-columns: 60px 20px 30px 60px 20px;
     grid-template-rows: 70px;
-    grid-template-areas: "a b . c d";
+    grid-template-areas: 
+    	"a b . c d";
     justify-items: center;
     justify-content: center;
     padding-top: 80px;
     padding-bottom: 80px;
-    grid-gap: 30px;
+    grid-column-gap: 20px;
 }
 
 .evaluate a:link {
@@ -162,7 +168,12 @@ h4 {
     display: grid;
     grid-template-columns: repeat(2, 400px);
     grid-template-rows: 35px 35px 35px 35px 70px;
-    grid-template-areas: "a b" "a c" "a d" "a e" "a f";
+    grid-template-areas: 
+	    "a b" 
+	    "a c" 
+	    "a d" 
+	    "a e" 
+	    "a f";
     justify-content: center;
     justify-items: center;
     grid-column-gap: 70px;
@@ -187,6 +198,7 @@ h4 {
 
 .comic-infor .comic-thumbnail img {
 	width: 200px;
+	border: 1px solid #d3d3d3;
     border-radius: 10px;
 }
 
