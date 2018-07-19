@@ -208,7 +208,7 @@
             <input type="email" name="uid" class="login-id do-not-close" placeholder='E-mail' required>
             <div class="remember do-not-close">
             	<span><input type="checkbox" class="do-not-close" name="useCookie"></span>
-            	<span>Remember your ID</span>
+            	<span>Remember your E-mail</span>
             </div>
             <input type="password" name="upw" class="login-pw do-not-close" placeholder='Password' required>
             <button type="submit" class="login-button do-not-close">Log-In</button>
