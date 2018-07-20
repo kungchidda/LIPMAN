@@ -212,7 +212,7 @@
             <input type="email" name="uid" class="login-id do-not-close" placeholder='E-mail' required>
             <div class="remember do-not-close">
             	<span><input type="checkbox" class="do-not-close" name="useCookie"></span>
-            	<span>Remember your ID</span>
+            	<span>Remember your E-mail</span>
             </div>
             <input type="password" name="upw" class="login-pw do-not-close" placeholder='Password' required>
             <button type="submit" class="login-button do-not-close">Log-In</button>
@@ -251,7 +251,7 @@
             <input type="email" name='uid' class="signup-email do-not-close" placeholder='E-mail' required>
             <input type="password" name="upw" class="signup-pw do-not-close" placeholder='Password' required>
             <input type="password" class="signup-repw do-not-close" placeholder='Retype Password' required>
-            <input type="text" name="uname" class="signup-nickname do-not-close" placeholder='Nick name' required>
+            <input type="text" name="uname" class="signup-nickname do-not-close" placeholder='Nick Name' required>
 <!--            	<div id="signup-submit" class="signup-button do-not-close">Sign-Up</div> -->
 			<button type="button" id="signup-submit" class="signup-button do-not-close">Sign-Up</button>
             <div class="hadaccount-button dropbtn" onclick="myPageFunction()">
@@ -262,7 +262,7 @@
 	                Forgot Password
 	            </div>
             </div>
-            <h1 class="signup-or"><span>Sign-up with</span></h1>
+            <h1 class="signup-or"><span>Sign-Up with</span></h1>
             <div class="signup-facebook do-not-close">Facebook</div>
             <div class="signup-google do-not-close">Google</div>
         </form>

@@ -5,7 +5,7 @@
 	grid-template-rows: 100px 100px;
 	grid-template-areas: "a b" "a c";
 	justify-content: center;
-	grid-column-gap: 10px;
+	grid-column-gap: 20px;
 	grid-row-gap: 10px;
 	padding-top: 45px;
 	padding-bottom: 40px;
@@ -228,13 +228,47 @@
 	height: 80px;
 }
 
-.mypage-setting-id .mypage-setting-loginid-title {
+.mypage-setting-id .mypage-setting-loginid-text {
 	grid-area: a;
 }
 
-.mypage-setting-id .mypage-setting-loginid-text {
+
+.mypage-setting-id .mypage-setting-id-switch {
 	grid-area: b;
 }
+
+.mypage-setting-id .mypage-setting-id-open {
+	grid-area: b;
+	padding-left: 150px;
+}
+
+.mypage-setting-id .mypage-setting-id-close {
+	grid-area: b;
+	padding-right: 150px;
+}
+
+.mypage-setting-id-switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+}
+
+.mypage-setting-id-switch input {
+	display: none;
+}
+
+.mypage-setting-id-switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+}
+
+.mypage-setting-id-switch input {
+	display: none;
+}
+
 
 /* Mypage-Setting - password */
 .mypage-setting-pw {
