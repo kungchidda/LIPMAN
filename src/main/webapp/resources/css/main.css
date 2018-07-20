@@ -147,7 +147,7 @@
     .banner {
         height: 300px;
         width: 100%;
-        background: no-repeat url('../images/wallpaper-02.jpg') scroll;
+        background: no-repeat url('/resources/images/wallpaper-02.jpg') scroll;
         background-size: cover;
         text-align: center;
     }
@@ -272,10 +272,10 @@
         display: grid;
         grid-template-columns: 200px 200px 200px;
         grid-template-areas: 
-            "a b c"
-            "d e f"
-            "g h i"
-            "j . .";
+            "a b c";
+/*             "d e f" */
+/*             "g h i" */
+/*             "j . ."; */
         justify-items: center;
         justify-content: center;
         grid-row-gap: 30px;
