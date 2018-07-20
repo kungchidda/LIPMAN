@@ -20,25 +20,21 @@
     display: grid;
 /*     grid-template-columns: repeat(10, 230px); */
     grid-template-areas: 
-        "a a a a a a a a a a" ;
+        "a a a a a a a a a a";
     justify-items: center;
-    justify-content: center;
+    justify-content: start;
     grid-row-gap: 25px;
-    padding-top: 30px;
-    padding-bottom: 50px;
+    /* padding-top: 30px;
+    padding-bottom: 50px; */
 }
 
-.cards a:link {
+/* .cards a:link {
     text-decoration: none;
     color: black;
-}
+} */
 
-/* .cards .cards-01, .cards-02, .cards-03, .cards-04, .cards-05, .cards-06, .cards-07, .cards-08, .cards-09, .cards-10 { */
 .cards  {
     text-align: center;
-    padding-top: 5px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
 }
 
 .cards .expander {
@@ -98,52 +94,19 @@
     vertical-align: 35%;
 }
 
-.cards .cards-01 {
-    grid-area: a
-}
-
-.cards .cards-02 {
-    grid-area: b
-}
-
-.cards .cards-03 {
-    grid-area: c
-}
-
-.cards .cards-04 {
-    grid-area: d
-}
-
-.cards .cards-05 {
-    grid-area: e
-}
-
-.cards .cards-06 {
-    grid-area: f
-}
-
-.cards .cards-07 {
-    grid-area: g
-}
-
-.cards .cards-08 {
-    grid-area: h
-}
-
-.cards .cards-09 {
-    grid-area: i
-}
-
-.cards .cards-10 {
-    grid-area: j
-}
 
 
 
 
 
-/*media query*/
-@media (max-device-width: 1024px) and (max-device-height: 1366px) and (orientation: portrait) {
+/* Media query */
+/* iPad Pro-10.5 portrait  */
+@media only screen 
+  and (min-device-width: 834px) 
+  and (max-device-width: 834px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+	/* banner */
     .banner {
         height: 300px;
         width: 100%;
@@ -160,98 +123,96 @@
         padding-top: 75px;
     }
 
+
+	/* cards */
     .cards {
         display: grid;
-/*         grid-template-columns: 200px 200px 200px 200px; */
         grid-template-areas: 
-            "a a a a";
+<<<<<<< HEAD
+            "a b c";
+/*             "d e f" */
+/*             "g h i" */
+/*             "j . ."; */
+=======
+            "a a a";
+>>>>>>> b419e01ad265aad4ce9b919385ba23e3ad82692c
         justify-items: center;
-        justify-content: center;
+        justify-content: start;
         grid-row-gap: 30px;
 /*         grid-column-gap: 30px; */
-        padding-top: 20px;
-        padding-bottom: 50px;
-    }
-    .cards .thumbnail-thumb img {
-        width: 25px;
-    }
-
-    .cards .line img {
-        width: 180px;
     }
     
-    .cards .thumbnail-thumb span {
-        vertical-align: 20%;
-    }
-
-    .cards .thumbnail-writer {
-        text-align: left;
-        padding-left: 15px;
-        padding-bottom: 5px;
-    }
-
-    .cards .thumbnail-writer img {
-        width: 25px;
-    }
-
-    .cards .thumbnail-writer span {
-        padding-left: 5px;
-        vertical-align: 15%;
-    }
-
-    .cards .thumbnail {
-        width: 200px;
-    }
-
-    .cards .thumbnail-thumb span {
-        padding: 10px;
-    }
-    
-    .cards .cards-01, .cards-02, .cards-03, .cards-04, .cards-05, .cards-06, .cards-07, .cards-08, .cards-09, .cards-10 {
-        width: 200px;
-    }
-    .cards .cards-01 {
-        grid-area: a;
-    }
-
-    .cards .cards-02 {
-        grid-area: b;
-    }
-
-    .cards .cards-03 {
-        grid-area: c;
-    }
-
-    .cards .cards-04 {
-        grid-area: d;
-    }
-
-    .cards .cards-05 {
-        grid-area: e;
-    }
-
-    .cards .cards-06 {
-        grid-area: f;
-    }
-
-    .cards .cards-07 {
-        grid-area: g;
-    }
-
-    .cards .cards-08 {
-        grid-area: h;
-    }
-
-    .cards .cards-09 {
-        grid-area: i;
-    }
-
-    .cards .cards-10 {
-        grid-area: j;
-    }
+    .cards  {
+	    text-align: center;
+	}
+	
+	.cards .expander {
+	    border: 1px solid #d3d3d3;
+	    border-radius: 10px;
+	    box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.05);
+	}
+	
+	.cards .thumbnail {
+	    width: 200px;
+	    border-top-left-radius: 10px;
+	    border-top-right-radius: 10px;
+	    border-bottom: 1px solid #d3d3d3;
+	}
+	
+	.cards .title, .subtitle, .thumbnail-thumb {
+	    width: 188px;
+	    text-align: center;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	  	overflow: hidden;
+	    padding: 6px;
+	}
+	
+	.cards .thumbnail-thumb img {
+	    width: 20px;
+	}
+	
+	.cards .thumbnail-thumb span {
+		padding-left: 5px;
+		padding: 10px;
+	    vertical-align: 20%;
+	}
+	
+	.cards .line {
+		margin-top: -15px;
+	    padding: 4px;
+	}
+	
+	.cards .ling img {
+		width: 180px;
+	}
+	
+	.cards .thumbnail-writer{
+	    text-align: left;
+	    padding-left: 15px;
+	}
+	
+	.cards .thumbnail-writer img{
+	    width: 25px;
+	    border: 1px solid #d3d3d3;
+	    border-radius: 50%;
+	}
+	
+	.cards .thumbnail-writer span{
+	    padding-left: 5px;
+	    vertical-align: 35%;
+	}
 }
 
-@media (max-device-width: 834px) and (max-device-height: 1112px) and (orientation: portrait) {
+
+
+/* iPad Pro-10.5 landscape  */
+@media only screen 
+  and (min-device-width: 1112px) 
+  and (max-device-width: 1112px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+	/* banner */
     .banner {
         height: 300px;
         width: 100%;
@@ -268,544 +229,76 @@
         padding-top: 75px;
     }
 
+
+	/* cards */
     .cards {
         display: grid;
-        grid-template-columns: 200px 200px 200px;
         grid-template-areas: 
-            "a b c";
-/*             "d e f" */
-/*             "g h i" */
-/*             "j . ."; */
+            "a a a a";
         justify-items: center;
-        justify-content: center;
+        justify-content: start;
         grid-row-gap: 30px;
-        grid-column-gap: 30px;
-        padding-top: 20px;
-        padding-bottom: 50px;
-    }
-    .cards .thumbnail-thumb img {
-        width: 25px;
+/*         grid-column-gap: 30px; */
     }
     
-    .cards .line img {
-        width: 180px;
-    }
-
-    .cards .thumbnail-thumb span {
-        vertical-align: 20%;
-    }
-
-    .cards .thumbnail-writer {
-        text-align: left;
-        padding-left: 15px;
-        padding-bottom: 5px;
-    }
-
-    .cards .thumbnail-writer img {
-        width: 25px;
-    }
-
-    .cards .thumbnail-writer span {
-        padding-left: 5px;
-        vertical-align: 15%;
-    }
-
-    .cards .thumbnail {
-        width: 200px;
-    }
-
-    .cards .thumbnail-thumb span {
-        padding: 10px;
-    }
-    
-    .cards .cards-01, .cards-02, .cards-03, .cards-04, .cards-05, .cards-06, .cards-07, .cards-08, .cards-09, .cards-10 {
-        width: 200px;
-    }
-    .cards .cards-01 {
-        grid-area: a;
-    }
-
-    .cards .cards-02 {
-        grid-area: b;
-    }
-
-    .cards .cards-03 {
-        grid-area: c;
-    }
-
-    .cards .cards-04 {
-        grid-area: d;
-    }
-
-    .cards .cards-05 {
-        grid-area: e;
-    }
-
-    .cards .cards-06 {
-        grid-area: f;
-    }
-
-    .cards .cards-07 {
-        grid-area: g;
-    }
-
-    .cards .cards-08 {
-        grid-area: h;
-    }
-
-    .cards .cards-09 {
-        grid-area: i;
-    }
-
-    .cards .cards-10 {
-        grid-area: j;
-    }
-}
-
-@media only screen and (max-device-width: 414px) and (max-device-height:736px) {
-    .banner {
-        height: 300px;
-        width: 100%;
-        background: no-repeat url('../images/wallpaper-02.jpg') scroll;
-        background-size: cover;
-        text-align: center;
-    }
-
-    .banner p {
-        font-family: 'Righteous', cursive;
-        font-size: 50px;
-        font-weight: bold;
-        color: white;
-        padding-top: 50px;
-    }
-
-    .cards {
-        display: grid;
-        grid-template-columns: repeat(2, 180px);
-        grid-template-areas: 
-            "a b" 
-            "c d" 
-            "e f" 
-            "g h" 
-            "i j";
-        justify-items: center;
-        justify-content: center;
-        grid-row-gap: 20px;
-        grid-column-gap: 20px;
-        padding-top: 20px;
-        padding-bottom: 50px;
-    }
-    .cards .thumbnail-thumb img {
-        width: 25px;
-    }
-
-    .cards .line img {
-        width: 160px;
-    }
-    
-    .cards .thumbnail-thumb span {
-        vertical-align: 20%;
-    }
-
-    .cards .thumbnail-writer {
-        text-align: left;
-        padding-left: 15px;
-        padding-bottom: 5px;
-    }
-
-    .cards .thumbnail-writer img {
-        width: 25px;
-    }
-
-    .cards .thumbnail-writer span {
-        padding-left: 5px;
-        vertical-align: 15%;
-    }
-
-    .cards .thumbnail {
-        width: 180px;
-    }
-
-    .cards .thumbnail-thumb span {
-        padding: 10px;
-    }
-    
-    .cards .cards-01, .cards-02, .cards-03, .cards-04, .cards-05, .cards-06, .cards-07, .cards-08, .cards-09, .cards-10 {
-        width: 180px;
-    }
-    .cards .cards-01 {
-        grid-area: a;
-    }
-
-    .cards .cards-02 {
-        grid-area: b;
-    }
-
-    .cards .cards-03 {
-        grid-area: c;
-    }
-
-    .cards .cards-04 {
-        grid-area: d;
-    }
-
-    .cards .cards-05 {
-        grid-area: e;
-    }
-
-    .cards .cards-06 {
-        grid-area: f;
-    }
-
-    .cards .cards-07 {
-        grid-area: g;
-    }
-
-    .cards .cards-08 {
-        grid-area: h;
-    }
-
-    .cards .cards-09 {
-        grid-area: i;
-    }
-
-    .cards .cards-10 {
-        grid-area: j;
-    }
-}
-
-@media only screen and (max-device-width: 375px) and (max-device-height:812px) {
-    .banner {
-        height: 300px;
-        width: 100%;
-        background: no-repeat url('../images/wallpaper-02.jpg') scroll;
-        background-size: cover;
-        text-align: center;
-    }
-
-    .banner p {
-        font-family: 'Righteous', cursive;
-        font-size: 50px;
-        font-weight: bold;
-        color: white;
-        padding-top: 50px;
-    }
-
-    .cards {
-        display: grid;
-        grid-template-columns: repeat(2, 170px);
-        grid-template-areas: 
-            "a b" 
-            "c d" 
-            "e f" 
-            "g h" 
-            "i j";
-        justify-items: center;
-        justify-content: center;
-        grid-row-gap: 10px;
-        grid-column-gap: 10px;
-        padding-top: 20px;
-        padding-bottom: 50px;
-    }
-    .cards .thumbnail-thumb img {
-        width: 20px;
-    }
-
-    .cards .line img {
-        width: 150px;
-    }
-    
-    .cards .thumbnail-thumb span {
-        vertical-align: 20%;
-    }
-
-    .cards .thumbnail-writer {
-        text-align: left;
-        padding-left: 15px;
-        padding-bottom: 5px;
-    }
-
-    .cards .thumbnail-writer img {
-        width: 20px;
-    }
-
-    .cards .thumbnail-writer span {
-        padding-left: 5px;
-        vertical-align: 15%;
-    }
-
-    .cards .thumbnail {
-        width: 170px;
-    }
-
-    .cards .thumbnail-thumb span {
-        padding: 10px;
-    }
-    
-    .cards .cards-01, .cards-02, .cards-03, .cards-04, .cards-05, .cards-06, .cards-07, .cards-08, .cards-09, .cards-10 {
-        width: 170px;
-    }
-    .cards .cards-01 {
-        grid-area: a;
-    }
-
-    .cards .cards-02 {
-        grid-area: b;
-    }
-
-    .cards .cards-03 {
-        grid-area: c;
-    }
-
-    .cards .cards-04 {
-        grid-area: d;
-    }
-
-    .cards .cards-05 {
-        grid-area: e;
-    }
-
-    .cards .cards-06 {
-        grid-area: f;
-    }
-
-    .cards .cards-07 {
-        grid-area: g;
-    }
-
-    .cards .cards-08 {
-        grid-area: h;
-    }
-
-    .cards .cards-09 {
-        grid-area: i;
-    }
-
-    .cards .cards-10 {
-        grid-area: j;
-    }
-}
-
-@media only screen and (max-device-width: 375px) and (max-device-height:667px){
-    .banner {
-        height: 300px;
-        width: 100%;
-        background: no-repeat url('../images/wallpaper-02.jpg') scroll;
-        background-size: cover;
-        text-align: center;
-    }
-
-    .banner p {
-        font-family: 'Righteous', cursive;
-        font-size: 50px;
-        font-weight: bold;
-        color: white;
-        padding-top: 50px;
-    }
-
-    .cards {
-        display: grid;
-        grid-template-columns: repeat(2, 170px);
-        grid-template-areas: 
-            "a b" 
-            "c d" 
-            "e f" 
-            "g h" 
-            "i j";
-        justify-items: center;
-        justify-content: center;
-        grid-row-gap: 10px;
-        grid-column-gap: 10px;
-        padding-top: 20px;
-        padding-bottom: 50px;
-    }
-    .cards .thumbnail-thumb img {
-        width: 20px;
-    }
-
-    .cards .line img {
-        width: 150px;
-    }
-    
-    .cards .thumbnail-thumb span {
-        vertical-align: 20%;
-    }
-
-    .cards .thumbnail-writer {
-        text-align: left;
-        padding-left: 15px;
-        padding-bottom: 5px;
-    }
-
-    .cards .thumbnail-writer img {
-        width: 20px;
-    }
-
-    .cards .thumbnail-writer span {
-        padding-left: 5px;
-        vertical-align: 15%;
-    }
-
-    .cards .thumbnail {
-        width: 170px;
-    }
-
-    .cards .thumbnail-thumb span {
-        padding: 10px;
-    }
-    
-    .cards .cards-01, .cards-02, .cards-03, .cards-04, .cards-05, .cards-06, .cards-07, .cards-08, .cards-09, .cards-10 {
-        width: 170px;
-    }
-    .cards .cards-01 {
-        grid-area: a;
-    }
-
-    .cards .cards-02 {
-        grid-area: b;
-    }
-
-    .cards .cards-03 {
-        grid-area: c;
-    }
-
-    .cards .cards-04 {
-        grid-area: d;
-    }
-
-    .cards .cards-05 {
-        grid-area: e;
-    }
-
-    .cards .cards-06 {
-        grid-area: f;
-    }
-
-    .cards .cards-07 {
-        grid-area: g;
-    }
-
-    .cards .cards-08 {
-        grid-area: h;
-    }
-
-    .cards .cards-09 {
-        grid-area: i;
-    }
-
-    .cards .cards-10 {
-        grid-area: j;
-    }
-}
-
-@media only screen and (max-device-width: 320px) and (max-device-height:568px) {
-    .banner {
-        height: 300px;
-        width: 100%;
-        background: no-repeat url('../images/wallpaper-02.jpg') scroll;
-        background-size: cover;
-        text-align: center;
-    }
-
-    .banner p {
-        font-family: 'Righteous', cursive;
-        font-size: 50px;
-        font-weight: bold;
-        color: white;
-        padding-top: 50px;
-    }
-
-    .cards {
-        display: grid;
-        grid-template-columns: repeat(2, 140px);
-        grid-template-areas: 
-            "a b" 
-            "c d" 
-            "e f" 
-            "g h" 
-            "i j";
-        justify-items: center;
-        justify-content: center;
-        grid-row-gap: 10px;
-        grid-column-gap: 10px;
-        padding-top: 20px;
-        padding-bottom: 50px;
-    }
-    .cards .thumbnail-thumb img {
-        width: 20px;
-    }
-    
-    .cards .line img {
-        width: 130px;
-    }
-
-    .cards .thumbnail-thumb span {
-        vertical-align: 20%;
-    }
-
-    .cards .thumbnail-writer {
-        text-align: left;
-        padding-left: 15px;
-        padding-bottom: 5px;
-    }
-
-    .cards .thumbnail-writer img {
-        width: 20px;
-    }
-
-    .cards .thumbnail-writer span {
-        padding-left: 5px;
-        vertical-align: 15%;
-    }
-
-    .cards .thumbnail {
-        width: 140px;
-    }
-
-    .cards .thumbnail-thumb span {
-        padding: 5px;
-    }
-    
-    .cards .cards-01, .cards-02, .cards-03, .cards-04, .cards-05, .cards-06, .cards-07, .cards-08, .cards-09, .cards-10 {
-        width: 140px;
-    }
-    .cards .cards-01 {
-        grid-area: a;
-    }
-
-    .cards .cards-02 {
-        grid-area: b;
-    }
-
-    .cards .cards-03 {
-        grid-area: c;
-    }
-
-    .cards .cards-04 {
-        grid-area: d;
-    }
-
-    .cards .cards-05 {
-        grid-area: e;
-    }
-
-    .cards .cards-06 {
-        grid-area: f;
-    }
-
-    .cards .cards-07 {
-        grid-area: g;
-    }
-
-    .cards .cards-08 {
-        grid-area: h;
-    }
-
-    .cards .cards-09 {
-        grid-area: i;
-    }
-
-    .cards .cards-10 {
-        grid-area: j;
-    }
+    .cards  {
+	    text-align: center;
+	}
+	
+	.cards .expander {
+	    border: 1px solid #d3d3d3;
+	    border-radius: 10px;
+	    box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.05);
+	}
+	
+	.cards .thumbnail {
+	    width: 200px;
+	    border-top-left-radius: 10px;
+	    border-top-right-radius: 10px;
+	    border-bottom: 1px solid #d3d3d3;
+	}
+	
+	.cards .title, .subtitle, .thumbnail-thumb {
+	    width: 188px;
+	    text-align: center;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	  	overflow: hidden;
+	    padding: 6px;
+	}
+	
+	.cards .thumbnail-thumb img {
+	    width: 20px;
+	}
+	
+	.cards .thumbnail-thumb span {
+		padding-left: 5px;
+		padding: 10px;
+	    vertical-align: 20%;
+	}
+	
+	.cards .line {
+		margin-top: -15px;
+	    padding: 4px;
+	}
+	
+	.cards .ling img {
+		width: 180px;
+	}
+	
+	.cards .thumbnail-writer{
+	    text-align: left;
+	    padding-left: 15px;
+	}
+	
+	.cards .thumbnail-writer img{
+	    width: 25px;
+	    border: 1px solid #d3d3d3;
+	    border-radius: 50%;
+	}
+	
+	.cards .thumbnail-writer span{
+	    padding-left: 5px;
+	    vertical-align: 35%;
+	}
 }
