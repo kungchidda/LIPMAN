@@ -81,14 +81,13 @@
 	/* easeInOutBack */
 }
 
-<<<<<<< HEAD
 .mypage-profile-icon img:hover {width: 40px;}
 .mypage-profile-icon .mypage-profile-icon-home {grid-area: a;}
 .mypage-profile-icon .mypage-profile-icon-subscribe {grid-area: b;}
 .mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}
 .mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}
 .mypage-profile-icon a.active {border-bottom: 5px solid red;}
-=======
+
 .mypage-profile-icon img:hover {
 	width: 40px;
 }
@@ -176,6 +175,15 @@
 	width: 50px;
 	border: 1px solid #d3d3d3;
 	border-radius: 50%;
+}
+
+.subscriber-img-button{
+	display: inline;
+	width: 50px;
+	height: 50px;
+    border: 0px;
+    border-radius: 50%;
+    background-color: white;
 }
 
 .mypage-subscriber-img {

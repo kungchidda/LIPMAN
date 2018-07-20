@@ -92,12 +92,12 @@
 <!-- 		<a href = "javascript:moveItem( 'T', 'file-list-name' );">맨위</a> -->
 			<a href = "javascript:moveItem( 'U', 'file-list-name' );">
 				<div class="write-comic-up">
-					위
+					▲
 				</div>
 			</a>
 			<a href = "javascript:moveItem( 'D', 'file-list-name' );">
 				<div class="write-comic-down">
-					아래
+					▼
 				</div>
 			</a>
 <!-- 		<a href = "javascript:moveItem( 'B', 'file-list-name' );">맨아래</a> -->
@@ -184,7 +184,7 @@
 			console.log("fileList = " + fileList);
 
 			$(".file-list-value").each(function(index){
-				$('#fileList').val($('#fileList').val()+"<img src='" + $(this).attr("value") + "'><br>");
+				$("#fileList").val($("#fileList").val()+"<img src='" + $(this).attr("value") +"'><br>");
 			});
 
 			

@@ -7,7 +7,7 @@
 <head>
 <title>LIPMAN</title>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-<%@ include file="/WEB-INF/views/mypage/user/profile.jsp"%>
+<%@ include file="/WEB-INF/views/mypage//profile.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <link href="/resources/css/mypage.css" rel="stylesheet">
@@ -18,7 +18,7 @@
 
 
 
-	<%@ include file="/WEB-INF/views/mypage/user/userIcon.jsp"%>
+	<%@ include file="/WEB-INF/views/mypage/userIcon.jsp"%>
     
 
 

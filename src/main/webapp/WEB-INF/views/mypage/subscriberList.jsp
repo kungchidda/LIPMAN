@@ -7,7 +7,7 @@
 <head>
 <title>LIPMAN</title>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-<%@ include file="/WEB-INF/views/mypage/user/profile.jsp"%>
+<%@ include file="/WEB-INF/views/mypage/profile.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="/resources/css/mypage.css" rel="stylesheet">
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script> -->
@@ -22,20 +22,24 @@
 <body>
 
 <!-- sourcetree test -->
-	<%@ include file="/WEB-INF/views/mypage/user/userIcon.jsp"%>
+	<%@ include file="/WEB-INF/views/mypage/userIcon.jsp"%>
 
 <!-- 				<ul id="og-grid" class="og-grid rf-content--projects"> -->
 				<ul class="mypage-subscriber">
 					<c:forEach items="${list}" var="subscribeVO">
 						<li>
 						 		<div class="mypage-subscriber-img">
-									<a href="#"><img src="/displayFile?fileName=${subscribeVO.profileFullName}"></a>
+							 			<form id="subscriberForm" role="form" action="/mypage/titleList" method="GET">
+							 				<input type="hidden" name="uid" value='${subscribeVO.subscriber}'>
+							 				<button type="submit" class="subscriber-img-button"><img src="/displayFile?fileName=${subscribeVO.profileFullName}"></button>
+							 			</form>
+									<%-- <a href="#"><img src="/displayFile?fileName=${subscribeVO.profileFullName}"></a> --%>
 						 		</div>
 						 		<div class="mypage-subscriber-name">
-						 			<form id="subscriberForm" role="form" action="/mypage/user/titleList" method="GET">
-						 				<input type="hidden" name="uid" value='${subscribeVO.subscriber}'>
-						 				<button type="submit">${subscribeVO.uname}</button>
-						 			</form>
+							 			<form id="subscriberForm" role="form" action="/mypage/titleList" method="GET">
+							 				<input type="hidden" name="uid" value='${subscribeVO.subscriber}'>
+							 				<button type="submit">${subscribeVO.uname}</button>
+							 			</form>
 						 		</div>
 						</li>
 						
