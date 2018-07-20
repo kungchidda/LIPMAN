@@ -11,7 +11,7 @@
 <!--icon-->
 	<div class="mypage-profile-icon">
 		<div class="mypage-profile-icon-home">
-			<form action="/mypage/user/titleList" method="GET">
+			<form action="/mypage/titleList" method="GET">
 				<input type="hidden" name="uid" value='${cri.uid}'>
 				<button type="submit"><img src="/resources/png/comic.png" id="profile-img-home"></button>
 			</form>
@@ -20,7 +20,7 @@
 		</div>
 		<div class="mypage-profile-icon-subscribe">
 <!-- 			<a href="/user/subscribedList"> -->
-			<form action="/mypage/user/subscribedList" method="GET">
+			<form action="/mypage/subscribedList" method="GET">
 				<input type="hidden" name="uid" value='${cri.uid}'>
 				<button type="submit"><img src="/resources/png/subscribe.png" id="profile-img-subscribed"></button>
 			</form>
@@ -28,7 +28,7 @@
 		</div>
 		<div class="mypage-profile-icon-subscribed">
 <!-- 			<a href="/user/subscriberList"> -->
-			<form action="/mypage/user/subscriberList" method="GET">
+			<form action="/mypage/subscriberList" method="GET">
 				<input type="hidden" name="uid" value='${cri.uid}'>
 				<button type="submit"><img src="/resources/png/subscribed.png" id="profile-img-subscriber"></button>
 <!-- 			</a> -->
@@ -36,7 +36,7 @@
 		</div>
 		<div class="mypage-profile-icon-setting">
 <!-- 			<a href="/user/setting"> -->
-			<form action="/mypage/user/settingList" method="GET">
+			<form action="/mypage/settingList" method="GET">
 				<input type="hidden" name="uid" value='${cri.uid}'>
 				<button type="submit"><img src="/resources/png/setting.png" id="profile-img-setting"></button>
 <!-- 			</a> -->

@@ -5,6 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script src="/resources/js/subscribe-check.js"></script>
+</head>
 
 <body>
 
@@ -20,7 +22,16 @@
             <h3>${userVO.uname}</h3>
         </div>
         <div class="mypage-profile-subscribe">
-          	<a href="/mypage/subscriber" class="subscribedCount" id="btn-subscribedCount"></a>
+			<c:if test="${login.uid == cri.uid}">
+			<form action="/mypage/subscriberList" method="GET">
+			<input type="hidden" name="uid" value='${cri.uid}'>
+				<button type="submit" class="subscribedCount" id="btn-subscribedCount"></button>
+				</form>
+			</c:if>
+        	<c:if test="${login.uid != cri.uid}">
+	        	<button type="submit" class="subscribedCount subscribe subscribeBtn"></button>
+				<button type="submit" class="subscribedCount subscribed unsubscribeBtn"></button>
+			</c:if>
         </div>
     </div>
 
@@ -30,9 +41,11 @@
 
 $(document).ready(function() {
 	
-	var subscribed = '${userVO.uid}';
+	var subscribed = '${cri.uid}';
 	
-	$.ajax({
+	subscribedList('${cri.uid}', '${login.uid}');
+	
+/* 	$.ajax({
 		type : 'post',
 		url : '/subscribes/count',
 		headers : {
@@ -46,10 +59,9 @@ $(document).ready(function() {
 			$(".subscribedCount").append(html);
 			
 		}
-		});
-		
+		}); */
+	
 	});
-
 </script>
    
 

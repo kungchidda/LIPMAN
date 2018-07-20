@@ -12,37 +12,15 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <link href="/resources/css/mypage.css" rel="stylesheet">
+
 </head>
 
 <body>
 
-	<!--icon-->
-	<div class="mypage-profile-icon">
-		<div class="mypage-profile-icon-home">
-			<a href="/mypage/home" class="active">
-			<img src="/resources/png/comic.png" id="profile-img-home">
-			</a>
-		</div>
-		<div class="mypage-profile-icon-subscribe">
-			<a href="/mypage/subscribed">
-				<img src="/resources/png/subscribe.png" id="profile-img-subscribed">
-			</a>
-		</div>
-		<div class="mypage-profile-icon-subscribed">
-			<a href="/mypage/subscriber"> 
-				<img src="/resources/png/subscribed.png" id="profile-img-subscriber">
-			</a>
-		</div>
-		<div class="mypage-profile-icon-setting">
-			<a href="/mypage/setting">
-				<img src="/resources/png/setting.png" id="profile-img-setting">
-			</a>
-		</div>
-	</div>
+<%@ include file="/WEB-INF/views/mypage/userIcon.jsp"%>
 
-
-
-	<section id="mypage-home">
+<c:if test="${login.uid == cri.uid}">
+<section id="mypage-home">
 		<div class="container">
 			<ul class="og-grid cards">
 
@@ -55,8 +33,8 @@
 
 					<form id="registerForm" role="form" action="/title/register" method="post">
 						<div class="og-title-register hide do-not-close">
-							<div class="title-register-inner">
-								<div class="title-edit-input">
+							<div class="title-register-inner do-not-close">
+								<div class="title-edit-input do-not-close">
 									<div class="og-fullimg do-not-close" id="fileDrop">
 										<div class="uploadedList do-not-close">
 											<img src="/resources/png/thumbnail.png" class="do-not-close"
@@ -74,11 +52,11 @@
 											});
 										});
 									</script>
-									<div class="comic-list-title">
+									<div class="comic-list-title do-not-close">
 										<input type="text" name='title' class="do-not-close input-title" placeholder="Comic Title">
 									</div>
 								</div>
-								<div class="title-genre-checkbox">
+								<div class="title-genre-checkbox do-not-close">
 									<div class="genre-1 do-not-close">
 										<input type="checkbox" name='genreArr' class="do-not-close hide genre-1" value='1'>
 										<span class="title-genre-1 do-not-close false">SF</span>
@@ -206,21 +184,21 @@
 											<img src="/resources/png/setting.png" class="edit-title-img do-not-close">
 										</div>
 									</div>
-								<div class="toggle-page">
-									<div class="register"></div>
-									<div class="subtitleLi do-not-close">
-										<div class="og-fullimg do-not-close">
-											<c:if test="${not empty MyPageVO.boardFullName}">
-												<img src="/displayFile?fileName=${MyPageVO.boardFullName}">
-											</c:if>
+									<div class="toggle-page do-not-close">
+										<div class="register"></div>
+										<div class="subtitleLi do-not-close">
+											<div class="og-fullimg do-not-close">
+												<c:if test="${not empty MyPageVO.boardFullName}">
+													<img src="/displayFile?fileName=${MyPageVO.boardFullName}">
+												</c:if>
+											</div>
+											<div class="comic-list-text cursor do-not-close">
+												${MyPageVO.subtitle}
+											</div>
+											<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
 										</div>
-										<div class="comic-list-text cursor do-not-close">
-											${MyPageVO.subtitle}
-										</div>
-										<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
 									</div>
-								</div>
-								<div class="title-genre-checkbox hide">
+									<div class="title-genre-checkbox hide do-not-close">
 										<div class="genre-1 do-not-close">
 											<input type="checkbox" name='genreArr' class="do-not-close hide genre-1" value='1'>
 											<span class="title-genre-1 do-not-close false">SF</span>
@@ -313,6 +291,77 @@
 		</div>
 	</section>
 
+</c:if>
+
+	<c:if test="${login.uid != cri.uid}">
+									
+	<section id="mypage-home">
+		<div class="container">
+			<ul class="og-grid cards">
+				<c:forEach items="${homeList}" var="MyPageVO">
+					<li class="expander" id="${MyPageVO.tno}">
+						<form id="modifyForm-${MyPageVO.tno}" role="form" method="post">
+							<input type="text" class="do-not-close hide" name="tno" value="${MyPageVO.tno}" readonly>
+							<img class="thumbnail" src="/displayFile?fileName=${MyPageVO.titleFullName}">
+
+							<div class="mypage-home-title">${MyPageVO.title}</div>
+
+
+							<div class="line">
+								<img src="/resources/svg/line.svg">
+							</div>
+							<div class="mypage-thumbnail-thumb">
+								<img src="/resources/png/pencil.png"><span>${MyPageVO.likecnt}</span>
+								<img src="/resources/png/eraser.png"><span>${MyPageVO.dislikecnt}</span>
+							</div>
+							<div class="og-expander hide do-not-close" style="height: 550px;">
+								<div class="og-expander-inner do-not-close">
+									<div class="expander-title-inner">
+										<div class="og-fullimg do-not-close">
+											<img class="do-not-close" src="/displayFile?fileName=${MyPageVO.titleFullName}" style="display: inline;">
+										</div>
+										<div class="comic-list-genre do-not-close">
+											${MyPageVO.gname}
+										</div>
+										<div class="comic-list-title do-not-close">
+											<div class="comic-title">
+												${MyPageVO.title}
+											</div>
+											<div class="comic-title-edit hide">
+												<input type="text" name='title' class="do-not-close input-title" value="${MyPageVO.title}" placeholder="Comic Title">
+											</div>
+										</div>
+										<%-- <div class="edit-title-button comic-list-setting do-not-close" genre="${MyPageVO.genre}">
+											<img src="/resources/png/setting.png" class="edit-title-img do-not-close">
+										</div> --%>
+									</div>
+									<div class="toggle-page">
+										<div class="register"></div>
+										<div class="subtitleLi do-not-close">
+											<div class="og-fullimg do-not-close">
+												<c:if test="${not empty MyPageVO.boardFullName}">
+													<img src="/displayFile?fileName=${MyPageVO.boardFullName}">
+												</c:if>
+											</div>
+											<div class="comic-list-text cursor do-not-close">
+												${MyPageVO.subtitle}
+											</div>
+											<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</li>
+				</c:forEach>
+			</ul>
+		</div>
+	</section>
+	</c:if>
+	<div class="compony">
+		<div class="compony-infor">Copyright © 2018 LIPMAN. 모든 권리 보유.</div>
+	</div>
+
 
 
 	<script>
@@ -330,36 +379,46 @@
 				var tno = $(this).attr('id');
 				console.log("tno = " + tno);
 				
+				
+				//$('.input-title').attr("readonly").focus();
+				
+		
 				if (submenu.is(":visible")) { //보이면 올림
-					
 					if (!event.target.matches('.do-not-close')) {
-						submenu.slideUp(300);
 						$(".background-blur").removeClass("background-blur"); //blur 효과 없애기
+						submenu.slideUp(300);
 						$(this).removeClass("margin-bottom");
 					}
-				
-				} else { //내림
-					
+				} else {
 					var getSubtitleResult = getSubtitle(tno, 1);
 					if (getSubtitleResult) {
 		
-							
-							$(".og-title-register").hide(); //다른 곳은 닫음
+						if ($(".og-expander").is(":visible") || $(".og-title-register").is(":visible")) { //열린 곳이 있으면
+		
+							//$(".og-title-register").hide(); //다른 곳은 닫음
 							$(".og-expander").hide(); //다른 곳은 닫음
 							$(".background-blur").removeClass("background-blur"); //blur 효과 없애기
 							$(".expander").not(this).addClass("background-blur"); //blur 효과 주기
 							$(".margin-bottom").removeClass("margin-bottom"); //margin 삭제
-							$(this).addClass("margin-bottom"); //margin 추가
+							$(this).addClass("margin-bottom");
 							
-							$('.toggle-page').show(); //subtitle list 보이기
-							$('.title-genre-checkbox').addClass("hide"); //장르 체크박스 숨기기
+							$('.toggle-page').show();
+							$('.title-genre-checkbox').addClass("hide");
 							
-							$('.comic-title').show(); //타이틀 이름 보이기
-							$('.comic-title-edit').hide(); //타이틀 input 박스 가리기
-							$('.input-title').attr("readonly"); //타이틀 input 박스 읽기 전용
+							$('.comic-title').show();
+							$('.comic-title-edit').addClass("hide");
+							$('.input-title').attr("readonly");
 							
 							submenu.slideDown(300);
 		
+						} else { //열린 곳이 없으면
+							$(".expander").not(this).addClass("background-blur"); //blur 효과 주기
+							$(this).addClass("margin-bottom");
+		
+							$('.toggle-page').show();
+							$('.title-genre-checkbox').addClass("hide");
+							submenu.slideDown(300);
+						}
 					}
 				}
 			});
@@ -372,33 +431,57 @@
 				
 				var submenu = $(".og-title-register");
 				if (submenu.is(":visible")) { //보이면 올림
-					
 					if (!event.target.matches('.do-not-close')) {
-						submenu.slideUp(300);
 						$(".background-blur").removeClass("background-blur"); //blur 효과 없애기
+						submenu.slideUp(300);
 						$(this).removeClass("margin-bottom");
 					}
-				
 				} else {
 		
-						$(".og-title-register").hide(); //다른 곳은 닫음
+					if ($(".og-expander").is(":visible") || $(".og-title-register").is(":visible")) { //열린 곳이 있으면
+		
+						
+						$('.toggle-page').hide();
+						$('.title-genre-checkbox').removeClass("hide");
+						
+						$('.comic-title').show();
+						$('.comic-title-edit').addClass("hide");
+						$('.input-title').attr("readonly");
+						
+						$('.title-register-inner').show();
+						$('.title-input').attr("readonly");
+						for(var i=1; i<=20; i++){
+	 						$(".genre-" + i).prop("checked", false);
+	 						$(".genre-"+ i).next().removeClass("true");
+	 						$(".genre-"+ i).next().addClass("false");
+						}
+						
 						$(".og-expander").hide(); //다른 곳은 닫음
 						$(".background-blur").removeClass("background-blur"); //blur 효과 없애기
-						$(".expander").not(this).addClass("background-blur"); //blur 효과 주기
+						$(".title-register").not(this).addClass("background-blur"); //blur 효과 주기
 						$(".margin-bottom").removeClass("margin-bottom"); //margin 삭제
 						$(this).addClass("margin-bottom");
+		
+						//submenu.show();
+						submenu.slideDown(300);
+		
+					} else { //열린 곳이 없으면
 						
- 						$('.toggle-page').hide(); //subtitle list 숨기기
-						$('.title-genre-checkbox').show(); //장르 체크박스 보이기
 						
+						$('.title-register-inner').show();
+						$('.title-input').attr("readonly");
 						for(var i=1; i<=20; i++){
 	 						$(".genre-" + i).prop("checked", false);
 	 						$(".genre-"+ i).next().removeClass("true");
 	 						$(".genre-"+ i).next().addClass("false");
 						}
 		
-						submenu.slideDown(300);
+						$(".title-register").not(this).addClass("background-blur"); //blur 효과 주기
+						$(this).addClass("margin-bottom");
 		
+						$(".og-expander").hide(); //다른 곳은 닫음
+						submenu.slideDown(300);
+					}
 				}
 			});
 		});
@@ -477,10 +560,12 @@
 // 				printData(data.list, $(".og-expander-inner"),$('#subtitle-template'));
 				printData(data.list, $(".toggle-page"),$('#subtitle-template'));
 				printPaging(data.pageMaker, $(".pagination"), tno);
-// 				var str = '<div class="subtitleLi do-not-close register"><a href="/sboard/register?tno=' + tno + '" class="comic-list do-not-close"><div class="comic-list do-not-close"><img src="/resources/png/sub-gray.png"></div><div class="comic-list-text cursor do-not-close">New Subtitle</div></a></div>';
+				//var str = '<div class="subtitleLi do-not-close register"><a href="/sboard/register?tno=' + tno + '" class="comic-list do-not-close"><div class="comic-list do-not-close"><img src="/resources/png/sub-gray.png"></div><div class="comic-list-text cursor do-not-close">New Subtitle</div></a></div>';
+				if('${cri.uid}'== '${login.uid}'){
 				var str = '<div class="subtitleLi do-not-close register"><a href="/sboard/register?tno=' + tno + '" class="comic-list do-not-close"><div class="comic-list do-not-close"><img src="/resources/png/register.png"></div><div class="comic-list-text cursor do-not-close"></div></a></div>';
 				console.log("str = " + str);
 				$('.register').html(str);
+				}
 
 			});
 		}
@@ -520,6 +605,9 @@
 
 	<script>
 		$(document).ready(function() {
+					
+					$('.mypage-profile-icon-home').addClass('active');
+			
 					$('#searchBtn').on("click", function(event) {
 						self.location = "list" + '${pageMaker.makeQuery(1)}' + "&searchType=" + $("select option:selected").val() + "&keyword=" + $('#keywordInput').val();
 					});
@@ -535,27 +623,26 @@
 	 						$(".genre-"+ i).next().removeClass("true");
 	 						$(".genre-"+ i).next().addClass("false");
 						}
-					
-						$('.toggle-page').toggle();
-						$('.title-genre-checkbox').toggleClass("hide");
 						
-						$('.comic-title').toggle();
-// 						$('.comic-title-edit').toggleClass("hide");
-						$('.comic-title-edit').toggle();
-						$('.input-title').removeAttr("readonly").focus();
+							$('.toggle-page').toggle();
+							$('.title-genre-checkbox').toggleClass("hide");
+							
+							$('.comic-title').toggle();
+							$('.comic-title-edit').toggle();
+							$('.input-title').removeAttr("readonly").focus();
 
-						var genreStr = $(this).parent().attr('genre');
-						
-						console.log("genreStr = " + genreStr);
-						var genreArr = genreStr.split(',');
-						var genreLen = genreArr.length;
+							var genreStr = $(this).parent().attr('genre');
+							
+							console.log("genreStr = " + genreStr);
+							var genreArr = genreStr.split(',');
+							var genreLen = genreArr.length;
 
-						for (var i = 0; i < genreLen; i++) {
-							console.log("genreArr[" + i + "] = "+ genreArr[i]);
-							$(".genre-" + genreArr[i]).prop("checked", true);
-							$(".genre-"+genreArr[i]).next().toggleClass("false");
-							$(".genre-"+genreArr[i]).next().toggleClass("true");
-						}
+							for (var i = 0; i < genreLen; i++) {
+								console.log("genreArr[" + i + "] = "+ genreArr[i]);
+								$(".genre-" + genreArr[i]).prop("checked", true);
+								$(".genre-"+genreArr[i]).next().toggleClass("false");
+								$(".genre-"+genreArr[i]).next().toggleClass("true");
+							}
 					});
 
 					$('.cancel-title').click(
@@ -584,6 +671,30 @@
 						$(this).parent().parent().parent().parent().attr("action", "/title/removeTitle");
 						$(this).parent().parent().parent().parent().submit();
 						
+					});
+					
+					/**************************************************************************************/
+					/**************************************************************************************/
+					/*                               subscribeBtn start                                   */
+					/**************************************************************************************/
+					/**************************************************************************************/
+					
+					$(".subscribeBtn").on("click",function(){
+						if('${login.uid}' == ""){
+							alert("로그인이 필요합니다");
+							location.href="/user/login";
+						}else{
+						 	subscribeBtnClick('${cri.uid}', '${login.uid}');
+						}
+					});
+					
+					$(".unsubscribeBtn").on("click",function(){
+						if('${login.uid}' == ""){
+							alert("로그인이 필요합니다");
+							location.href="/user/login";
+						}else{
+							unsubscribeBtnClick('${cri.uid}', '${login.uid}');
+						}
 					});
 
 					//무한 스크롤 기능 일시 정지 
