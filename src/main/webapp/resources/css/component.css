@@ -578,40 +578,9 @@
 
 
 /* Media query */
-/* iPad Pro-12.9 portrait */
-@media (max-device-width: 1024px) and (max-device-height: 1366px) and (orientation: portrait) {
-	.og-grid {
-	    list-style: none;
-	    padding: 0px 0;
-	    margin: 0 auto;
-	    text-align: center;
-	    padding-left: 39px;
-	    padding-right: 38px;
-	}
-}
-
-/* iPad Pro-10.5 portrait  */
-@media only screen 
-  and (min-device-width: 834px) 
-  and (max-device-width: 834px) 
-  and (orientation: portrait) 
-  and (-webkit-min-device-pixel-ratio: 2) {
-	.og-grid {
-	    list-style: none;
-	    padding: 0px 0;
-	    margin: 0 auto;
-	    text-align: center;
-	    padding-left: 61px;
-	    padding-right: 60px;
-	}
-}
-
 /* iPad Pro-9.7 portrait */
-@media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: portrait) 
-  and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) 
+  and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
 	.og-grid {
 	    list-style: none;
 	    padding: 0px 0;
@@ -622,8 +591,36 @@
 	}
 }
 
+/* iPad Pro-10.5 portrait  */
+@media only screen and (min-device-width: 833px) and (max-device-width: 834px) and 
+(min-device-height: 1111px) and (max-device-height: 1112px) and (orientation: portrait) {
+	.og-grid {
+	    list-style: none;
+	    padding: 0px 0;
+	    margin: 0 auto;
+	    text-align: center;
+	    padding-left: 61px;
+	    padding-right: 60px;
+	}
+}
+
+/* iPad Pro-12.9 portrait */
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) 
+  and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+	.og-grid {
+	    list-style: none;
+	    padding: 0px 0;
+	    margin: 0 auto;
+	    text-align: center;
+	    padding-left: 39px;
+	    padding-right: 38px;
+	}
+}
+
+
 /* iPad Pro-12.9 landscape */
-@media (max-device-width: 1366px) and (max-device-height: 1024px) and (orientation: landscape) {
+@media only screen and (min-device-width: 1365px) and (max-device-width: 1366px) and 
+(min-device-height: 1023px) and (max-device-height: 1024px) and (orientation: landscape) {
 	.og-grid {
 	    list-style: none;
 	    padding: 0px 0;
@@ -635,11 +632,8 @@
 }
 
 /* iPad Pro-10.5 landscape  */
-@media only screen 
-  and (min-device-width: 1112px) 
-  and (max-device-width: 1112px) 
-  and (orientation: landscape) 
-  and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 1111px) and (max-device-width: 1112px) and 
+(min-device-height: 833px) and (max-device-height: 834px) and (orientation: landscape) {
 	.og-grid {
 	    list-style: none;
 	    padding: 0px 0;
@@ -651,11 +645,8 @@
 }
 
 /* iPad Pro-9.7 landscape  */
-@media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: landscape) 
-  and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 1023px) and (max-device-width: 1024px) and 
+(min-device-height: 767px) and (max-device-height: 768px) and (orientation: landscape) {
 	.og-grid {
 	    list-style: none;
 	    padding: 0px 0;
