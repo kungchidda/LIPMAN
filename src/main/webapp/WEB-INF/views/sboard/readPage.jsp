@@ -28,7 +28,7 @@
 </head>
 <body>
 <section>
-	<form role="form" action="modifyPage" method="post">
+	<form role="modifyForm" action="modifyPage" method="post">
 		<input type='hidden' name='bno' value="${boardVO.bno}">
 		<!-- <input type='hidden' name='page' value="${cri.page}"> --> <!-- 무한스크롤 적용을 위한 주석처리 무조건 1페이지로 이동 -->
 		<!-- <input type='hidden' name='perPageNum' value="${cri.perPageNum}"> --> <!-- 무한스크롤 적용을 위한 주석처리 무조건 1페이지로 이동 -->
@@ -45,22 +45,28 @@
             <img src="/displayFile?fileName=${boardVO.profileFullName}">
         </div>
         <div class="content-writer-name">
-        	<form id="subscriberForm" role="form" action="/mypage/user/titleList" method="GET">
-				<input type="hidden" name="uid" value='${boardVO.uid}'>
-				<button type="submit" class="default-button-style"><h3>${boardVO.uname}</h3></button>
-			</form>
+	        	<form id="subscriberForm" role="form" action="/mypage/titleList" method="GET">
+					<input type="hidden" name="uid" value='${boardVO.uid}'>
+					<button type="submit" class="default-button-style"><h3>${boardVO.uname}</h3></button>
+				</form>
 <%--             <h3>${boardVO.uname}</h3> --%>
         </div>
         <div class="content-writer-subscribe">
             <span>
-           		<button type="submit" class="subscribedCount subscribe subscribeBtn">SUBSCRIBE</button>
-				<button type="submit" class="subscribedCount subscribed unsubscribeBtn">SUBSCRIBED</button>
+				<c:if test="${login.uid == boardVO.uid}">
+					<button type="button" class="modifyPageBtn">Modify</button>
+					<button type="button" class="removePageBtn">REMOVE</button>
+				</c:if>
+            	<c:if test="${login.uid != boardVO.uid}">
+           			<button type="submit" class="subscribedCount subscribe subscribeBtn">SUBSCRIBE</button>
+					<button type="submit" class="subscribedCount subscribed unsubscribeBtn">SUBSCRIBED</button>
+				</c:if>
 			</span>
         </div>
     </div>
     
     <hr>
-
+	<br>
 	<!--contents-->
     <div class="contents">
         <p class="comic">
@@ -115,17 +121,26 @@
        </div>
        <div class="writer-subscribe">
 			<span>
-           		<button type="submit" class="subscribedCount subscribe subscribeBtn">SUBSCRIBE</button>
-				<button type="submit" class="subscribedCount subscribed unsubscribeBtn">SUBSCRIBED</button>
+				<c:if test="${login.uid == boardVO.uid}">
+					<button type="button" class="modifyPageBtn">Modify</button>
+					<button type="button" class="removePageBtn">REMOVE</button>
+				</c:if>
+            	<c:if test="${login.uid != boardVO.uid}">
+           			<button type="submit" class="subscribedCount subscribe subscribeBtn">SUBSCRIBE</button>
+					<button type="submit" class="subscribedCount subscribed unsubscribeBtn">SUBSCRIBED</button>
+				</c:if>
 			</span>
        </div>
    </div>
    
    <!--comic-comment-->
+   <div class="strapline">
+      	<h4>Author Comment</h4>
+    </div>
       <div class="comic-infor-comment">
-           <div class="comic-comment">
-               ${boardVO.content}
-           </div>
+      	<div class="comic-comment">
+      		${boardVO.content}
+      	</div>
        </div>
 
 
@@ -288,7 +303,7 @@
 
 			</c:forEach>
 		</ul>
-		
+		<br>
 		
     <hr>
 <section class="section">
@@ -313,8 +328,15 @@
 				
 					
 				<c:if test="${empty login}">
-					<div class="box-body">
+					<!-- <div class="box-body">
 						<div><a href="/user/login">Login Please</a></div>
+					</div> -->
+					<div class="comment">
+						
+						<textarea class="comment-text" id="newReplyText" placeholder="Comment" readonly>Login Please</textarea>
+            			<button type="button" class="comment-button"><img src="/resources/png/comic.png"></button>
+            			
+            
 					</div>
 				</c:if>
 	</div>
@@ -349,11 +371,17 @@
 		<li class="replyLi" data-rno={{rno}}>
     		<div class="another-comment">
 				<div class="another-user-image">
-            		<a href="/mypage/home"><img src="/resources/png/account.png"></a>
+						<form id="subscriberForm" role="form" action="/mypage/titleList" method="GET">
+							<input type="hidden" name="uid" value='{{uid}}'>
+							<button type="submit" class="reply-profile-img-button"><img src="/displayFile?fileName={{profileFullName}}"></button>
+						</form>
         		</div>
 				<div class="another-user-name">
 					<h4 class="modal-title" style="display:none">{{rno}}</h4>
-					<a href="mypage-home.html">{{uname}}</a>
+						<form id="subscriberForm" role="form" action="/mypage/titleList" method="GET">
+							<input type="hidden" name="uid" value='{{uid}}'>
+							<button type="submit" class="reply-profile-name-button">{{uname}}</button>
+						</form>
 					<span class="another-user-time">{{prettifyDate regdate}}</span>
 				</div>
 
@@ -427,6 +455,13 @@
 		
 		$(document).ready(function() {
 			
+			
+			$('img').each(function() {
+			    if((typeof this.naturalWidth != "undefined" && this.naturalWidth == 0 ) || this.readyState == 'uninitialized' ) {
+			    	$(this).hide();
+			    }
+			});
+			
             var tno = ${boardVO.tno};
             var bno = ${boardVO.bno};
 			var replyPage = 1;
@@ -496,18 +531,18 @@
 				target.html(str);
 			} */
 			
-			var formObj = $("form[role='form']");
+			var formObj = $("form[role='modifyForm']");
 
 			console.log(formObj);
 			
 			
-			$("#modifyPageBtn").on("click", function() {
+			$(".modifyPageBtn").on("click", function() {
 				formObj.attr("action", "/sboard/modifyPage");
 				formObj.attr("method", "get");
 				formObj.submit();
 			});
 
-			$("#removePageBtn").on("click", function() {
+			$(".removePageBtn").on("click", function() {
 				
 				var replyCnt = $("#replycntSmall").html();
 				
@@ -541,7 +576,7 @@
 				formObj.attr("method", "get");
 				var strArray=document.referrer.split('/');
 				if(strArray[3] == 'mypage'){
-					formObj.attr("action", "/mypage/home");				
+					formObj.attr("action", "/mypage/titleList");				
 				}else{
 					formObj.attr("action", "/sboard/list");	
 				}
@@ -607,6 +642,10 @@
 			/**************************************************************************************/
 			
 			$("#likeAddBtn").on("click",function(){
+				if('${login.uid}' == ""){
+					alert("로그인이 필요합니다");
+					location.href="/user/login";
+				}else{
 				var bno = ${boardVO.bno};
 				var uid = '${login.uid}';
 				var lpo = '1';
@@ -631,9 +670,14 @@
 						}
 					}
 					});
+			}
 			});
 			
 			$("#likeDelBtn").on("click", function(){
+				if('${login.uid}' == ""){
+					alert("로그인이 필요합니다");
+					location.href="/user/login";
+				}else{
 				var bno = ${boardVO.bno};
 				var uid = '${login.uid}';
 				var lpo = '1';
@@ -658,9 +702,14 @@
 						}
 					}
 					});	
+				}
 			});
 			
 			$("#dislikeAddBtn").on("click",function(){
+				if('${login.uid}' == ""){
+					alert("로그인이 필요합니다");
+					location.href="/user/login";
+				}else{
 				var bno = ${boardVO.bno};
 				var uid = '${login.uid}';
 				var lpo = '-1';
@@ -685,9 +734,14 @@
 						}
 					}
 					});
+				}
 			});
 			
 			$("#dislikeDelBtn").on("click", function(){
+				if('${login.uid}' == ""){
+					alert("로그인이 필요합니다");
+					location.href="/user/login";
+				}else{
 				var bno = ${boardVO.bno};
 				var uid = '${login.uid}';
 				var lpo = '-1';
@@ -712,6 +766,7 @@
 						}
 					}
 					});
+				}
 			});
 			
 			
@@ -830,6 +885,10 @@
 			
 			
 			$(".replylikeAddBtn").on("click",function(){
+				if('${login.uid}' == ""){
+					alert("로그인이 필요합니다");
+					location.href="/user/login";
+				}else{
 				console.log("replylikeAddBtn clicked");
 				var rno = $(this).parent().parent().find('.modal-footer').attr('data-rno');
 				console.log("rno = " + rno);
@@ -857,9 +916,14 @@
 				$(this).parent().find("#replyLikeDelBtn").show();
 				$(this).parent().find("#replyDislikeAddBtn").show();
 				$(this).parent().find("#replyDislikeDelBtn").hide();
+				}
 			});
 			
 			$(".replylikeDelBtn").on("click", function(){
+				if('${login.uid}' == ""){
+					alert("로그인이 필요합니다");
+					location.href="/user/login";
+				}else{
 				console.log("replylikeDelBtn clicked");
 				var rno = $(this).parent().parent().find('.modal-footer').attr('data-rno');
 				console.log("rno = " + rno);
@@ -887,9 +951,14 @@
 				$(this).parent().find("#replyLikeDelBtn").hide();
 				$(this).parent().find("#replyDislikeAddBtn").show();
 				$(this).parent().find("#replyDislikeDelBtn").hide();
+				}
 			});
 			
 			$(".replydislikeAddBtn").on("click",function(){
+				if('${login.uid}' == ""){
+					alert("로그인이 필요합니다");
+					location.href="/user/login";
+				}else{
 				console.log("replydislikeAddBtn clicked");
 				var rno = $(this).parent().parent().find('.modal-footer').attr('data-rno');
 				console.log("rno = " + rno);
@@ -917,9 +986,14 @@
 				$(this).parent().find("#replyLikeDelBtn").hide();
 				$(this).parent().find("#replyDislikeAddBtn").hide();
 				$(this).parent().find("#replyDislikeDelBtn").show();
+				}
 			});
 			
 			$(".replydislikeDelBtn").on("click", function(){
+				if('${login.uid}' == ""){
+					alert("로그인이 필요합니다");
+					location.href="/user/login";
+				}else{
 				console.log("replydislikeDelBtn clicked");
 				var rno = $(this).parent().parent().find('.modal-footer').attr('data-rno');
 				console.log("rno = " + rno);
@@ -947,6 +1021,7 @@
 				$(this).parent().find("#replyLikeDelBtn").hide();
 				$(this).parent().find("#replyDislikeAddBtn").show();
 				$(this).parent().find("#replyDislikeDelBtn").hide();
+				}
 			});
             
             
