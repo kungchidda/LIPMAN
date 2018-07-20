@@ -84,29 +84,6 @@
 			
 			
 			<button id="file-delete-button" class="write-comic-delete"> - </button>
-			<script>
-			$(function () {
-				$('#file-delete-button').click(function (e) {
-					e.preventDefault();
-					$("select[name='file-list-name'] option:selected").remove();
-					/* var dataSrc = $("select[name='file-list-name'] option:selected").attr("data-src");
-					console.log("dataSrc = " + dataSrc);
-						
-						$.ajax({
-							url : "deleteFile",
-							type : "post",
-							data : {fileName:dataSrc},
-							dataType : "text",
-							success : function(result){
-								if(result == 'deleted'){
-									alert("deleted");
-									$("select[name='file-list-name'] option:selected").remove();
-								}
-							}
-						}); */
- 			    });
-			});
-			</script>
 			
 			
 <!-- 		<a href = "javascript:moveItem( 'T', 'file-list-name' );">맨위</a> -->
@@ -195,9 +172,45 @@
 	    	
 			
 	    });
+		var arr = []
+
+		$('#file-delete-button').click(function (e) {
+			e.preventDefault();
+			
+			var dataSrc = $("select[name='file-list-name'] option:selected").attr("data-src");
+			console.log("dataSrc = " + dataSrc);
+			arr.push(dataSrc);
+			var front = dataSrc.substring(0, 12);
+			var end = dataSrc.substring(12);
+			
+			thumbnailSrc = front + "s_" + end;
+			arr.push(thumbnailSrc);
+			
+			$("select[name='file-list-name'] option:selected").remove();
+				/* $.ajax({
+					url : "deleteFile",
+					type : "post",
+					data : {fileName:dataSrc},
+					dataType : "text",
+					success : function(result){
+						if(result == 'deleted'){
+							alert("deleted");
+							$("select[name='file-list-name'] option:selected").remove();
+						}
+					}
+				}); */
+		    });
 		
 		$("#registerForm").submit(function(event){
 			event.preventDefault();
+			
+			
+			if(arr.length > 0){
+				$.post("/deleteAllFiles",{files:arr}, function(){
+					
+				});
+			}
+			
 			
 			console.log("$('.write-comic-subtitle').val() = " + $('.write-comic-subtitle').val());
 			var that = $(this);
