@@ -52,7 +52,11 @@
             </c:if>
             <!-- <a href="#"><span><img class="dropbtn" onclick="myPageFunction()" src="/resources/png/account.png"></span></a> -->
 			<c:if test="${not empty login}">
-				<a href="/mypage/home"><span><img class="dropbtn accountBtn-login" src="/displayFile?fileName=${login.profileFullName}"></span></a>
+				<form id="subscriberForm" role="form" action="/mypage/titleList" method="GET">
+	 				<input type="hidden" name="uid" value='${login.uid}'>
+	 				<button type="submit" class="accountBtn-login profile-img-button"><img src="/displayFile?fileName=${login.profileFullName}"></button>
+	 			</form>
+<%-- 				<a href="/mypage/titleList"><span><img class="dropbtn accountBtn-login" src="/displayFile?fileName=${login.profileFullName}"></span></a> --%>
 			</c:if>
         </div>
 <!--
