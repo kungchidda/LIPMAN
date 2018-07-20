@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.kungchidda.domain.PageMaker;
 import com.kungchidda.domain.SearchCriteria;
 import com.kungchidda.domain.TitleVO;
+import com.kungchidda.domain.UserVO;
 import com.kungchidda.service.TitleService;
 import com.kungchidda.util.MediaUtils;
 
@@ -86,9 +89,12 @@ public class TitleController {
 	}
 
 	@RequestMapping(value = "/removeTitle", method = RequestMethod.POST)
-	public String remove(@RequestParam("tno") int tno, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
+	public String remove(HttpServletRequest request, @RequestParam("tno") int tno, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
 		service.remove(tno);
 		
+		HttpSession session = request.getSession();
+		UserVO vo = (UserVO)session.getAttribute("login");
+		rttr.addAttribute("uid", vo.getUid());
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addAttribute("searchType", cri.getSearchType());
@@ -96,7 +102,7 @@ public class TitleController {
 		
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		
-		return "redirect:/mypage/home";
+		return "redirect:/mypage/titleList";
 	}
 	
 	@RequestMapping(value = "/modifyTitle", method = RequestMethod.GET)
@@ -105,7 +111,7 @@ public class TitleController {
 	}
 
 	@RequestMapping(value = "/modifyTitle", method = RequestMethod.POST)
-	public String modifyPagingPOST(TitleVO title, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
+	public String modifyPagingPOST(HttpServletRequest request, TitleVO title, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
 		logger.info(cri.toString());
 		
 		int tno = title.getTno();
@@ -114,6 +120,9 @@ public class TitleController {
 		logger.info("tno = " + tno);
 		
 		service.modify(title);
+		HttpSession session = request.getSession();
+		UserVO vo = (UserVO)session.getAttribute("login");
+		rttr.addAttribute("uid", vo.getUid());
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addAttribute("searchType", cri.getSearchType());
@@ -123,7 +132,7 @@ public class TitleController {
 
 		logger.info(rttr.toString());
 		
-		return "redirect:/mypage/home";
+		return "redirect:/mypage/titleList";
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -132,15 +141,18 @@ public class TitleController {
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registPOST(TitleVO title, RedirectAttributes rttr) throws Exception {
+	public String registPOST(HttpServletRequest request, TitleVO title, RedirectAttributes rttr) throws Exception {
 		logger.info("regist post ..........");
 		logger.info(title.toString());
 
 		service.regist(title);
 
+		HttpSession session = request.getSession();
+		UserVO vo = (UserVO)session.getAttribute("login");
+		rttr.addAttribute("uid", vo.getUid());
 		rttr.addFlashAttribute("msg", "SUCCESS");
 
-		return "redirect:/mypage/home";
+		return "redirect:/mypage/titleList";
 	}
 	
 	@ResponseBody
