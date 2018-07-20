@@ -98,10 +98,15 @@
 		method="post">
 
 		<div class="mypage-setting-id">
-			<div class="mypage-setting-loginid-title">E-mail</div>
 			<div class="mypage-setting-loginid-text">
 				<span>${userVO.uid}</span>
 			</div>
+			<p class="mypage-setting-id-close">Close</p>
+			<label class="mypage-setting-id-switch">
+				<input type="checkbox" checked>
+				<span class="slider round"></span>
+			</label>
+			<p class="mypage-setting-id-open">Open</p>
 		</div>
 
 		<hr>
