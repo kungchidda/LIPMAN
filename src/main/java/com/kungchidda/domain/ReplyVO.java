@@ -15,6 +15,8 @@ public @Data class ReplyVO {
 	private Integer replylikecnt;
 	private Integer replydislikecnt;
 	
+	private String profileFullName;
+	
 	private Date regdate;
 	private Date updatedate;
 
