@@ -32,98 +32,98 @@ public class MyPageController {
 	private MyPageService service;
 	
 	
-	@RequestMapping(value="/home", method = RequestMethod.GET)
-	public void home(HttpServletRequest request, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
-			
-		
-			logger.info(cri.toString());
-
-			HttpSession session = request.getSession();
-			UserVO vo = (UserVO)session.getAttribute("login");
-			String uid = vo.getUid();
-			logger.info("vo.uid = " + vo.getUid());
-			logger.info("uid = " + uid);
-			model.addAttribute(service.setting(uid));
-			model.addAttribute("homeList", service.listSearchCriteria(uid, cri));
-			
-			PageMaker pageMaker = new PageMaker();
-			
-			pageMaker.setCri(cri);
-			
-			pageMaker.setTotalCount(service.listSearchCount(cri));
-			
-			model.addAttribute("pageMaker", pageMaker);
-	}
+//	@RequestMapping(value="/home", method = RequestMethod.GET)
+//	public void home(HttpServletRequest request, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
+//			
+//		
+//			logger.info(cri.toString());
+//
+//			HttpSession session = request.getSession();
+//			UserVO vo = (UserVO)session.getAttribute("login");
+//			String uid = vo.getUid();
+//			logger.info("vo.uid = " + vo.getUid());
+//			logger.info("uid = " + uid);
+//			model.addAttribute(service.setting(uid));
+//			model.addAttribute("homeList", service.listSearchCriteria(uid, cri));
+//			
+//			PageMaker pageMaker = new PageMaker();
+//			
+//			pageMaker.setCri(cri);
+//			
+//			pageMaker.setTotalCount(service.listSearchCount(cri));
+//			
+//			model.addAttribute("pageMaker", pageMaker);
+//	}
+//	
+//	
+//	@RequestMapping(value="/subscribed", method = RequestMethod.GET)
+//	public void subscribed(HttpServletRequest request, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
+//			
+//		
+//			logger.info("/mypage/subscribed/ GET start");
+//			logger.info(cri.toString());
+//
+//			HttpSession session = request.getSession();
+//			UserVO vo = (UserVO)session.getAttribute("login");
+//			String uid = vo.getUid();
+//			logger.info("vo.uid = " + vo.getUid());
+//			logger.info("uid = " + uid);
+//			model.addAttribute(service.setting(uid));
+//			model.addAttribute("subscribedList", service.listSubscribedSearchCriteria(uid, cri));
+////			model.addAttribute("subscriberList", service.listSubscriberSearchCriteria(uid, cri));
+//			
+//			PageMaker pageMaker = new PageMaker();
+//			
+//			pageMaker.setCri(cri);
+//			
+//			pageMaker.setTotalCount(service.listSearchCount(cri));
+//			
+//			model.addAttribute("pageMaker", pageMaker);
+//			
+//	}
+//	
+//	
+//	@RequestMapping(value="/subscriber", method = RequestMethod.GET)
+//	public void subscriber(HttpServletRequest request, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
+//			
+//		
+//			logger.info("/mypage/subscriber/ GET start");
+//			logger.info(cri.toString());
+//
+//			HttpSession session = request.getSession();
+//			UserVO vo = (UserVO)session.getAttribute("login");
+//			String uid = vo.getUid();
+//			logger.info("vo.uid = " + vo.getUid());
+//			logger.info("uid = " + uid);
+//			model.addAttribute(service.setting(uid));
+//			model.addAttribute("list", service.listSubscriberSearchCriteria(uid, cri));
+//			PageMaker pageMaker = new PageMaker();
+//			
+//			pageMaker.setCri(cri);
+//			
+//			pageMaker.setTotalCount(service.listSearchCount(cri));
+//			
+//			model.addAttribute("pageMaker", pageMaker);
+//			
+//	}
+//	
+//	
+//	@RequestMapping(value="/setting", method = RequestMethod.GET)
+//	public void setting(HttpServletRequest request, Model model) throws Exception{
+//			
+//		
+//			HttpSession session = request.getSession();
+//			UserVO vo = (UserVO)session.getAttribute("login");
+//			String uid = vo.getUid();
+//			logger.info("vo.uid = " + vo.getUid());
+//			logger.info("uid = " + uid);
+//			
+//			model.addAttribute(service.setting(uid));
+//			
+//			
+//	}
 	
-	
-	@RequestMapping(value="/subscribed", method = RequestMethod.GET)
-	public void subscribed(HttpServletRequest request, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
-			
-		
-			logger.info("/mypage/subscribed/ GET start");
-			logger.info(cri.toString());
-
-			HttpSession session = request.getSession();
-			UserVO vo = (UserVO)session.getAttribute("login");
-			String uid = vo.getUid();
-			logger.info("vo.uid = " + vo.getUid());
-			logger.info("uid = " + uid);
-			model.addAttribute(service.setting(uid));
-			model.addAttribute("subscribedList", service.listSubscribedSearchCriteria(uid, cri));
-//			model.addAttribute("subscriberList", service.listSubscriberSearchCriteria(uid, cri));
-			
-			PageMaker pageMaker = new PageMaker();
-			
-			pageMaker.setCri(cri);
-			
-			pageMaker.setTotalCount(service.listSearchCount(cri));
-			
-			model.addAttribute("pageMaker", pageMaker);
-			
-	}
-	
-	
-	@RequestMapping(value="/subscriber", method = RequestMethod.GET)
-	public void subscriber(HttpServletRequest request, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
-			
-		
-			logger.info("/mypage/subscriber/ GET start");
-			logger.info(cri.toString());
-
-			HttpSession session = request.getSession();
-			UserVO vo = (UserVO)session.getAttribute("login");
-			String uid = vo.getUid();
-			logger.info("vo.uid = " + vo.getUid());
-			logger.info("uid = " + uid);
-			model.addAttribute(service.setting(uid));
-			model.addAttribute("list", service.listSubscriberSearchCriteria(uid, cri));
-			PageMaker pageMaker = new PageMaker();
-			
-			pageMaker.setCri(cri);
-			
-			pageMaker.setTotalCount(service.listSearchCount(cri));
-			
-			model.addAttribute("pageMaker", pageMaker);
-			
-	}
-	
-	
-	@RequestMapping(value="/setting", method = RequestMethod.GET)
-	public void setting(HttpServletRequest request, Model model) throws Exception{
-			
-		
-			HttpSession session = request.getSession();
-			UserVO vo = (UserVO)session.getAttribute("login");
-			String uid = vo.getUid();
-			logger.info("vo.uid = " + vo.getUid());
-			logger.info("uid = " + uid);
-			
-			model.addAttribute(service.setting(uid));
-			
-			
-	}
-	
-	@RequestMapping(value="/user/titleList", method = RequestMethod.GET)
+	@RequestMapping(value="/titleList", method = RequestMethod.GET)
 	public void userHome(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
 			
 		
@@ -145,7 +145,7 @@ public class MyPageController {
 	}
 	
 	
-	@RequestMapping(value="/user/subscribedList", method = RequestMethod.GET)
+	@RequestMapping(value="/subscribedList", method = RequestMethod.GET)
 	public void subscribedList(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
 			
 		
@@ -171,7 +171,7 @@ public class MyPageController {
 	}
 	
 	
-	@RequestMapping(value="/user/subscriberList", method = RequestMethod.GET)
+	@RequestMapping(value="/subscriberList", method = RequestMethod.GET)
 	public void subscriberList(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
 			
 		
@@ -199,7 +199,7 @@ public class MyPageController {
 	}
 	
 	
-	@RequestMapping(value="/user/settingList", method = RequestMethod.GET)
+	@RequestMapping(value="/settingList", method = RequestMethod.GET)
 	public void settingList(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
 			
 		
