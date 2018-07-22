@@ -887,15 +887,6 @@ hr {
 		color: #424242;
 	}
 	
-	.mypage-setting-img button:hover {
-		width: 200px;
-		background-color: #1d8bf1;
-		border: 1px solid #1d8bf1;
-		border-radius: 10px;
-		padding: 15px;
-		font-size: 1em;
-		color: white;
-	}
 	
 	/* Mypage-Setting - subscribe */
 	.mypage-setting-subscribe {
