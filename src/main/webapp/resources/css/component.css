@@ -579,6 +579,7 @@
 
 /* Media query */
 
+
 /* iPad Pro-10.5 landscape */
 @media only screen and (max-width: 1112px) and (orientation: landscape) {
 	.og-grid {
@@ -586,9 +587,8 @@
 	    padding: 0px 0;
 	    margin: 0 auto;
 	    text-align: center;
-	    /* width: 100%; */
-	    padding-left: 86px;
-	    padding-right: 85px;
+	    padding-left: 82px;
+	    padding-right: 82px;
 	}
 	
 	.og-grid .expander, .title-register {
@@ -1168,9 +1168,8 @@
 	    padding: 0px 0;
 	    margin: 0 auto;
 	    text-align: center;
-	    /* width: 100%; */
-	    padding-left: 86px;
-	    padding-right: 85px;
+	    padding-left: 38px;
+	    padding-right: 38px;
 	}
 	
 	.og-grid .expander, .title-register {
