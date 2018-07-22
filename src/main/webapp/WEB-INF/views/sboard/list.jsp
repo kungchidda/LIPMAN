@@ -111,7 +111,7 @@
 						<span>${boardVO.uname}</span>
 					</div> <!-- 					</a> -->
 
-					<div class="og-expander hide do-not-close" style="height: 550px;">
+					<div class="og-expander hide do-not-close">
 						<div class="og-expander-inner do-not-close">
 							<div class="expander-title-inner">
 								<div class="og-fullimg do-not-close">
