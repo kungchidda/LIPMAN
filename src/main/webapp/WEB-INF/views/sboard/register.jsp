@@ -70,6 +70,13 @@
 					e.preventDefault();
 					
 					var dataSrc = $("select[name='file-list-name'] option:selected").attr("data-src");
+					var test;
+					
+/* 					$("select[name='file-list-name'] > option").each(function(index){
+						test = $(this).attr("data-src");
+						console.log("test = " + test);
+					}); */
+					
 					console.log("dataSrc = " + dataSrc);
 						
 						$.ajax({
@@ -134,6 +141,8 @@
 	
 	
 	<script>
+	$(document).ready(function () {
+
 		var template = Handlebars.compile($("#template").html());
 		
 		$("#thumbnail-file-drop").on("dragenter dragover", function(event){
@@ -175,8 +184,46 @@
 	    	
 			
 	    });
-		
+		var checkUnload = true;
+ 		$(window).on("beforeunload", function(){
+			if(checkUnload){
+				var arr = [];
+				
+				$("select[name='file-list-name'] > option").each(function(index){
+					var dataSrc = $(this).attr("data-src")
+					console.log("dataSrc" + dataSrc);
+					arr.push(dataSrc);
+				});
+				console.log("arr.length = " + arr.length);
+				
+				for(i=0; i<arr.length; i++){
+					console.log("arr["+i+"] = " + arr[i]);
+				}
+				
+				if(arr.length > 0){
+					console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!test!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+					/* $.post("/deleteAllFiles",{files:arr}, function(){
+					}); */
+					
+					$.ajax({
+						  type: 'POST',
+						  url: "/deleteAllFiles",
+						  data: {files:arr},
+						  dataType : "text",
+						  async:false,
+						  success : function(result){
+							}
+						});
+				}
+				
+				console.log("beforeunload event");
+// 				return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
+			}
+			
+		});
+
 		$("#registerForm").submit(function(event){
+			checkUnload = false;
 			event.preventDefault();
 			var that = $(this);
 			var str = "";
@@ -271,6 +318,7 @@
 			
 			});
 	    }
+	});
 	</script>
 	
 	 <script language="JavaScript">
