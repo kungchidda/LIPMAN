@@ -639,9 +639,9 @@
 
 							for (var i = 0; i < genreLen; i++) {
 								console.log("genreArr[" + i + "] = "+ genreArr[i]);
-								$(".genre-" + genreArr[i]).prop("checked", true);
-								$(".genre-"+genreArr[i]).next().toggleClass("false");
-								$(".genre-"+genreArr[i]).next().toggleClass("true");
+								$(this).parent().parent().parent().find(".genre-" + genreArr[i]).prop("checked", true);
+								$(this).parent().parent().parent().find(".genre-"+genreArr[i]).next().toggleClass("false");
+								$(this).parent().parent().parent().find(".genre-"+genreArr[i]).next().toggleClass("true");
 							}
 					});
 
