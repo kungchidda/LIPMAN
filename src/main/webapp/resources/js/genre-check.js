@@ -365,6 +365,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-1').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 //		if ($(".genre-1").prop("checked")) {
 		if($(this).prev().prop("checked")){
 //			$(".genre-1").prop("checked", false);
@@ -386,6 +387,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-2').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-2").prop("checked", false);
 			$(this).prev().prop("checked", false);
@@ -406,6 +408,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-3').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-3").prop("checked", false);
 			$(this).prev().prop("checked", false);
@@ -426,6 +429,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-4').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-4").prop("checked", false);
 			$(this).prev().prop("checked", false);
@@ -446,6 +450,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-5').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-5").prop("checked", false);
 			$(this).prev().prop("checked", false);
@@ -466,6 +471,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-6').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-6").prop("checked", false);
 			$(this).prev().prop("checked", false);
@@ -486,6 +492,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-7').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-7").prop("checked", false);
 			$(this).prev().prop("checked", false);
@@ -506,6 +513,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-8').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-8").prop("checked", false);
 			$(this).prev().prop("checked", false);
@@ -526,6 +534,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-9').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-9").prop("checked", false);
 			$(this).prev().prop("checked", false);
@@ -546,6 +555,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-10').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-10").prop("checked", false);
 			$(this).prev().prop("checked", false);
@@ -566,6 +576,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-11').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-11").prop("checked", false);
 			$(this).prev().prop("checked", false);
@@ -586,6 +597,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-12').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-12").prop("checked", false);
 			$(this).prev().prop("checked", false);
@@ -606,6 +618,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-13').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-13").prop("checked", false);
 			$(this).prev().prop("checked", false);
@@ -626,6 +639,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-14').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-14").prop("checked", false);
 			$(this).prev().prop("checked", false);
@@ -646,6 +660,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-15').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-15").prop("checked", false);
 			$(this).prev().prop("checked", false);
@@ -666,6 +681,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-16').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-16").prop("checked", false);
 			$(this).prev().prop("checked", false);
@@ -686,6 +702,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-17').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-17").prop("checked", false);
 			$(this).prev().prop("checked", false);
@@ -706,6 +723,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-18').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-18").prop("checked", false);
 			$(this).prev().prop("checked", false);
@@ -726,6 +744,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-19').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-19").prop("checked", false);
 			$(this).prev().prop("checked", false);
@@ -746,6 +765,7 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-20').on("click", function(event) {
+		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-20").prop("checked", false);
 			$(this).prev().prop("checked", false);
