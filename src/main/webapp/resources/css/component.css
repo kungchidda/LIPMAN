@@ -413,7 +413,7 @@
 	color: #424242;
 }
 
-.title-genre-checkbox button:hover {
+/* .title-genre-checkbox button:hover {
 	width: 200px;
 	background-color: #1d8bf1;
 	border: 1px solid #1d8bf1;
@@ -421,7 +421,7 @@
 	padding: 15px;
 	font-size: 1em;
 	color: white;
-}
+} */
 
 /* cards left */
 .expander-title-inner {

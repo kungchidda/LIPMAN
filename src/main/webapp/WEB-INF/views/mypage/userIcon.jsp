@@ -36,7 +36,7 @@
 		</div>
 		<div class="mypage-profile-icon-setting">
 <!-- 			<a href="/user/setting"> -->
-			<form action="/mypage/settingList" method="GET">
+			<form action="/mypage/setting" method="GET">
 				<input type="hidden" name="uid" value='${cri.uid}'>
 				<button type="submit"><img src="/resources/png/setting.png" id="profile-img-setting"></button>
 <!-- 			</a> -->

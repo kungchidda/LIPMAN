@@ -326,7 +326,7 @@
 	color: #424242;
 }
 
-.mypage-setting-img button:hover {
+.title-register-complete-btn:hover {
 	width: 200px;
 	background-color: #1d8bf1;
 	border: 1px solid #1d8bf1;
@@ -336,6 +336,15 @@
 	color: white;
 }
 
+.title-register-delete-btn:hover{
+    width: 200px;
+	background-color: #f44336;
+	border: 1px solid #f44336;
+	border-radius: 10px;
+	padding: 15px;
+	font-size: 1em;
+	color: white;
+}
 /* Mypage-Setting - subscribe */
 .mypage-setting-subscribe {
 	display: grid;
@@ -624,10 +633,10 @@ input:checked+.slider:before {
 	color: white;
 }
 	
-.mypage-setting-confirm .input-change {
-	background-color: #1d8bf1;
-	border: 1px solid #1d8bf1;
-	color: white;
+.input-change {
+	background-color: #1d8bf1 !important;
+	border: 1px solid #1d8bf1 !important;
+	color: white !important;
 }
 
 
@@ -1175,6 +1184,11 @@ hr {
 		font-size: 1em;
 		color: #424242;
 	}
+	.input-change{
+		background-color: #1d8bf1 !important;
+		border: 1px solid #1d8bf1 !important;
+		color: white !important;
+	}
 	
 	.mypage-setting-confirm-button button {
 		width: 200px;
@@ -1186,11 +1200,6 @@ hr {
 		color: #424242;
 	}
 	
-	.mypage-setting-confirm .input-change {
-		background-color: #1d8bf1;
-		border: 1px solid #1d8bf1;
-		color: white;
-	}
 	
 	
 	/* hr */
@@ -1745,10 +1754,10 @@ hr {
 		color: #424242;
 	}
 	
-	.mypage-setting-confirm .input-change {
-		background-color: #1d8bf1;
-		border: 1px solid #1d8bf1;
-		color: white;
+	.input-change {
+		background-color: #1d8bf1 !important;
+		border: 1px solid #1d8bf1 !important;
+		color: white !important;
 	}
 	
 	
@@ -2306,10 +2315,10 @@ hr {
 		color: #424242;
 	}
 	
-	.mypage-setting-confirm .input-change {
-		background-color: #1d8bf1;
-		border: 1px solid #1d8bf1;
-		color: white;
+	.input-change {
+		background-color: #1d8bf1 !important;
+		border: 1px solid #1d8bf1 !important;
+		color: white !important;
 	}
 	
 	
@@ -2848,10 +2857,10 @@ hr {
 		color: #424242;
 	}
 		
-	.mypage-setting-confirm .input-change {
-		background-color: #1d8bf1;
-		border: 1px solid #1d8bf1;
-		color: white;
+	.input-change {
+		background-color: #1d8bf1 !important;
+		border: 1px solid #1d8bf1 !important;
+		color: white !important;
 	}
 	
 	
@@ -3386,10 +3395,10 @@ hr {
 		color: #424242;
 	}
 		
-	.mypage-setting-confirm .input-change {
-		background-color: #1d8bf1;
-		border: 1px solid #1d8bf1;
-		color: white;
+	.input-change {
+		background-color: #1d8bf1 !important;
+		border: 1px solid #1d8bf1 !important;
+		color: white !important;
 	}
 	
 	
@@ -3947,10 +3956,10 @@ hr {
 		color: #424242;
 	}
 	
-	.mypage-setting-confirm .input-change {
-		background-color: #1d8bf1;
-		border: 1px solid #1d8bf1;
-		color: white;
+	.input-change {
+		background-color: #1d8bf1 !important;
+		border: 1px solid #1d8bf1 !important;
+		color: white !important;
 	}
 	
 	
@@ -4488,10 +4497,10 @@ hr {
 		color: #424242;
 	}
 	
-	.mypage-setting-confirm .input-change {
-		background-color: #1d8bf1;
-		border: 1px solid #1d8bf1;
-		color: white;
+	.input-change {
+		background-color: #1d8bf1 !important;
+		border: 1px solid #1d8bf1 !important;
+		color: white !important;
 	}
 	
 	
@@ -5048,10 +5057,10 @@ hr {
 		color: #424242;
 	}
 	
-	.mypage-setting-confirm .input-change {
-		background-color: #1d8bf1;
-		border: 1px solid #1d8bf1;
-		color: white;
+	.input-change {
+		background-color: #1d8bf1 !important;
+		border: 1px solid #1d8bf1 !important;
+		color: white !important;
 	}
 	
 	
@@ -5610,10 +5619,10 @@ hr {
 		color: #424242;
 	}
 	
-	.mypage-setting-confirm .input-change {
-		background-color: #1d8bf1;
-		border: 1px solid #1d8bf1;
-		color: white;
+	.input-change {
+		background-color: #1d8bf1 !important;
+		border: 1px solid #1d8bf1 !important;
+		color: white !important;
 	}
 	
 	
@@ -6173,10 +6182,10 @@ hr {
 		color: #424242;
 	}
 	
-	.mypage-setting-confirm .input-change {
-		background-color: #1d8bf1;
-		border: 1px solid #1d8bf1;
-		color: white;
+	.input-change {
+		background-color: #1d8bf1 !important;
+		border: 1px solid #1d8bf1 !important;
+		color: white !important;
 	}
 	
 	
@@ -6671,10 +6680,10 @@ hr {
 		color: #424242;
 	}
 	
-	.mypage-setting-confirm .input-change {
-		background-color: #1d8bf1;
-		border: 1px solid #1d8bf1;
-		color: white;
+	.input-change {
+		background-color: #1d8bf1 !important;
+		border: 1px solid #1d8bf1 !important;
+		color: white !important;
 	}
 	
 	
@@ -7170,10 +7179,10 @@ hr {
 		color: #424242;
 	}
 	
-	.mypage-setting-confirm .input-change {
-		background-color: #1d8bf1;
-		border: 1px solid #1d8bf1;
-		color: white;
+	.input-change {
+		background-color: #1d8bf1 !important;
+		border: 1px solid #1d8bf1 !important;
+		color: white !important;
 	}
 	
 	
@@ -7669,10 +7678,10 @@ hr {
 		color: #424242;
 	}
 	
-	.mypage-setting-confirm .input-change {
-		background-color: #1d8bf1;
-		border: 1px solid #1d8bf1;
-		color: white;
+	.input-change {
+		background-color: #1d8bf1 !important;
+		border: 1px solid #1d8bf1 !important;
+		color: white !important;
 	}
 	
 	

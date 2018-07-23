@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.WebUtils;
 
+import com.kungchidda.domain.SearchCriteria;
 import com.kungchidda.domain.UserVO;
 import com.kungchidda.dto.LoginDTO;
 import com.kungchidda.service.UserService;
@@ -128,7 +129,13 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/setting", method = RequestMethod.POST)
-	public String modifyProfilePOST(UserVO user, RedirectAttributes rttr) throws Exception {
+	public String modifyProfilePOST(@ModelAttribute("cri") SearchCriteria cri, UserVO user, RedirectAttributes rttr) throws Exception {
+		String uid = cri.getUid();
+		logger.info("cir.uid = " + cri.getUid());
+		logger.info("uid = " + uid);
+		
+		user.setUid(uid);
+		
 		logger.info("uid = " + user.getUid());
 		logger.info("upw = " + user.getUpw());
 		logger.info("uname = " + user.getUname());
@@ -146,6 +153,7 @@ public class UserController {
 		service.modify(user);
 
 		rttr.addFlashAttribute("msg", "SUCCESS");
+		rttr.addAttribute("uid", user.getUid());
 
 		logger.info(rttr.toString());
 		

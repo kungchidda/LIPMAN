@@ -365,8 +365,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-1').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 //		if ($(".genre-1").prop("checked")) {
+		$(".confirm-button").addClass("input-change");
 		if($(this).prev().prop("checked")){
 //			$(".genre-1").prop("checked", false);
 			$(this).prev().prop("checked", false);
@@ -375,6 +375,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-1").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");
@@ -387,8 +388,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-2').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
+			$(".confirm-button").addClass("input-change");
 //			$(".genre-2").prop("checked", false);
 			$(this).prev().prop("checked", false);
 			$(this).toggleClass("false");
@@ -396,6 +397,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-2").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");
@@ -408,8 +410,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-3').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
+			$(".confirm-button").addClass("input-change");
 //			$(".genre-3").prop("checked", false);
 			$(this).prev().prop("checked", false);
 			$(this).toggleClass("false");
@@ -417,6 +419,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-3").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");
@@ -429,8 +432,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-4').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
+			$(".confirm-button").addClass("input-change");
 //			$(".genre-4").prop("checked", false);
 			$(this).prev().prop("checked", false);
 			$(this).toggleClass("false");
@@ -438,6 +441,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-4").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");
@@ -450,8 +454,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-5').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
+			$(".confirm-button").addClass("input-change");
 //			$(".genre-5").prop("checked", false);
 			$(this).prev().prop("checked", false);
 			$(this).toggleClass("false");
@@ -459,6 +463,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-5").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");
@@ -471,8 +476,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-6').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
+			$(".confirm-button").addClass("input-change");
 //			$(".genre-6").prop("checked", false);
 			$(this).prev().prop("checked", false);
 			$(this).toggleClass("false");
@@ -480,6 +485,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-6").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");
@@ -492,8 +498,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-7').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
+			$(".confirm-button").addClass("input-change");
 //			$(".genre-7").prop("checked", false);
 			$(this).prev().prop("checked", false);
 			$(this).toggleClass("false");
@@ -501,6 +507,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-7").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");
@@ -513,8 +520,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-8').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
+			$(".confirm-button").addClass("input-change");
 //			$(".genre-8").prop("checked", false);
 			$(this).prev().prop("checked", false);
 			$(this).toggleClass("false");
@@ -522,6 +529,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-8").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");
@@ -534,8 +542,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-9').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
+			$(".confirm-button").addClass("input-change");
 //			$(".genre-9").prop("checked", false);
 			$(this).prev().prop("checked", false);
 			$(this).toggleClass("false");
@@ -543,6 +551,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-9").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");
@@ -555,8 +564,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-10').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
+			$(".confirm-button").addClass("input-change");
 //			$(".genre-10").prop("checked", false);
 			$(this).prev().prop("checked", false);
 			$(this).toggleClass("false");
@@ -564,6 +573,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-10").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");
@@ -576,8 +586,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-11').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
+			$(".confirm-button").addClass("input-change");
 //			$(".genre-11").prop("checked", false);
 			$(this).prev().prop("checked", false);
 			$(this).toggleClass("false");
@@ -585,6 +595,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-11").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");
@@ -597,8 +608,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-12').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
+			$(".confirm-button").addClass("input-change");
 //			$(".genre-12").prop("checked", false);
 			$(this).prev().prop("checked", false);
 			$(this).toggleClass("false");
@@ -606,6 +617,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-12").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");
@@ -618,8 +630,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-13').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
+			$(".confirm-button").addClass("input-change");
 //			$(".genre-13").prop("checked", false);
 			$(this).prev().prop("checked", false);
 			$(this).toggleClass("false");
@@ -627,6 +639,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-13").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");
@@ -639,8 +652,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-14').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
+			$(".confirm-button").addClass("input-change");
 //			$(".genre-14").prop("checked", false);
 			$(this).prev().prop("checked", false);
 			$(this).toggleClass("false");
@@ -648,6 +661,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-14").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");
@@ -660,8 +674,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-15').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
+			$(".confirm-button").addClass("input-change");
 //			$(".genre-15").prop("checked", false);
 			$(this).prev().prop("checked", false);
 			$(this).toggleClass("false");
@@ -669,6 +683,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-15").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");
@@ -681,8 +696,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-16').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
+			$(".confirm-button").addClass("input-change");
 //			$(".genre-16").prop("checked", false);
 			$(this).prev().prop("checked", false);
 			$(this).toggleClass("false");
@@ -690,6 +705,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-16").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");
@@ -702,8 +718,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-17').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
+			$(".confirm-button").addClass("input-change");
 //			$(".genre-17").prop("checked", false);
 			$(this).prev().prop("checked", false);
 			$(this).toggleClass("false");
@@ -711,6 +727,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-17").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");
@@ -723,8 +740,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-18').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
+			$(".confirm-button").addClass("input-change");
 //			$(".genre-18").prop("checked", false);
 			$(this).prev().prop("checked", false);
 			$(this).toggleClass("false");
@@ -732,6 +749,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-18").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");
@@ -744,8 +762,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-19').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
+			$(".confirm-button").addClass("input-change");
 //			$(".genre-19").prop("checked", false);
 			$(this).prev().prop("checked", false);
 			$(this).toggleClass("false");
@@ -753,6 +771,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-19").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");
@@ -765,8 +784,8 @@ $(document).ready(function() {
 	});
 
 	$('.title-genre-20').on("click", function(event) {
-		$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		if($(this).prev().prop("checked")){
+			$(".confirm-button").addClass("input-change");
 //			$(".genre-20").prop("checked", false);
 			$(this).prev().prop("checked", false);
 			$(this).toggleClass("false");
@@ -774,6 +793,7 @@ $(document).ready(function() {
 			console.log("!!false!!");
 		} else {
 			if ($("input[name='genreArr']:checked").length < 5) {
+				$(".confirm-button").addClass("input-change");
 //				$(".genre-20").prop("checked", true);
 				$(this).prev().prop("checked", true);
 				$(this).toggleClass("false");

@@ -35,6 +35,34 @@
 				$(".genre-" + genreArr[i]).next().toggleClass("false");
 				$(".genre-" + genreArr[i]).next().toggleClass("true");
 			}
+			
+			var uid_p = "${userVO.uid_p}";
+			var subscribe_p = "${userVO.subscribe_p}";
+			var subscriber_p = "${userVO.subscriber_p}";
+			var genre_p = "${userVO.genre_p}";
+
+			if(uid_p == 0){
+				$("input[name='uid_p']").prop("checked", false);
+			}else{
+				$("input[name='uid_p']").prop("checked", true);
+			}
+			if(subscribe_p == 0){
+				$("input[name='subscribe_p']").prop("checked", false);
+			}else{
+				$("input[name='subscribe_p']").prop("checked", true);
+			}
+			if(subscriber_p == 0){
+				$("input[name='subscriber_p']").prop("checked", false);
+			}else{
+				$("input[name='subscriber_p']").prop("checked", true);
+			}
+			if(genre_p == 0){
+				$("input[name='genre_p']").prop("checked", false);
+			}else{
+				$("input[name='genre_p']").prop("checked", true);
+			}
+				
+			
 		});
 		
 		/**************************************************************************************/
@@ -64,19 +92,18 @@
 
 	<%@ include file="/WEB-INF/views/mypage/userIcon.jsp"%>
 <c:if test="${login.uid == cri.uid}">
-	<form id="registerForm" action="/user/setting" role="form"
-		method="post">
+	<form id="registerForm" action="/user/setting" role="form" method="post">
 
 		<div class="mypage-setting-id">
 			<div class="mypage-setting-loginid-text">
 				<span>${userVO.uid}</span>
 			</div>
-			<p class="mypage-setting-id-close">Close</p>
+			<p class="mypage-setting-id-close">Private</p>
 			<label class="mypage-setting-id-switch">
-				<input type="checkbox" checked>
+				<input type="checkbox" name="uid_p" value="1" checked>
 				<span class="slider round"></span>
 			</label>
-			<p class="mypage-setting-id-open">Open</p>
+			<p class="mypage-setting-id-open">Public</p>
 		</div>
 
 		<hr>
@@ -132,139 +159,120 @@
 
 		<div class="mypage-setting-subscribe">
 			<div class="mypage-setting-subscribe-title">Subscribe</div>
-			<p class="mypage-setting-subscribe-close">Close</p>
+			<p class="mypage-setting-subscribe-close">Private</p>
 			<label class="mypage-setting-subscribe-switch">
-				<input type="checkbox" checked>
+				<input type="checkbox" name="subscribe_p" value="1" checked>
 				<span class="slider round"></span>
 			</label>
-			<p class="mypage-setting-subscribe-open">Open</p>
+			<p class="mypage-setting-subscribe-open">Public</p>
 		</div>
 
 		<hr>
 
 		<div class="mypage-setting-subscriber">
 			<div class="mypage-setting-subscriber-title">Subscriber</div>
-			<p class="mypage-setting-subscriber-close">Close</p>
+			<p class="mypage-setting-subscriber-close">Private</p>
 			<label class="mypage-setting-subscriber-switch">
-				<input type="checkbox" checked>
+				<input type="checkbox" name="subscriber_p" value="1" checked>
 				<span class="slider round"></span>
 			</label>
-			<p class="mypage-setting-subscriber-open">Open</p>
+			<p class="mypage-setting-subscriber-open">Public</p>
 		</div>
 
 		<hr>
 
 		<div class="mypage-setting-genre">
 			<div class="mypage-setting-genre-left">Preferred Genre</div>
-			<p class="mypage-setting-genre-close">Close</p>
-				<label class="mypage-setting-genre-switch"> <input
-					type="checkbox" checked> <span class="slider round"></span>
+			<p class="mypage-setting-genre-close">Private</p>
+				<label class="mypage-setting-genre-switch">
+				<input type="checkbox" name="genre_p" value="1" checked>
+				<span class="slider round"></span>
 				</label>
-			<p class="mypage-setting-genre-open">Open</p>
+			<p class="mypage-setting-genre-open">Public</p>
 		</div>
 					
 					
 		<div class="mypage-setting-genre-list">
-			<div class="genre-1 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-1" value='1'> <span
-					class="title-genre-1 do-not-close false">SF</span>
-			</div>
-			<div class="genre-2 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-2" value='2'> <span
-					class="title-genre-2 do-not-close false">Mystery</span>
-			</div>
-			<div class="genre-3 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-3" value='3'> <span
-					class="title-genre-3 do-not-close false">PureLove</span>
-			</div>
-			<div class="genre-4 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-4" value='4'> <span
-					class="title-genre-4 do-not-close false">Romance</span>
-			</div>
-			<div class="genre-5 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-5" value='5'> <span
-					class="title-genre-5 do-not-close false">Comic</span>
-			</div>
-			<div class="genre-6 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-6" value='6'> <span
-					class="title-genre-6 do-not-close false">Reasoning</span>
-			</div>
-			<div class="genre-7 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-7" value='7'> <span
-					class="title-genre-7 do-not-close false">SchoolLife</span>
-			</div>
-			<div class="genre-8 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-8" value='8'> <span
-					class="title-genre-8 do-not-close false">Sports</span>
-			</div>
-			<div class="genre-9 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-9" value='9'> <span
-					class="title-genre-9 do-not-close false">Fantasy</span>
-			</div>
-			<div class="genre-10 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-10" value='10'> <span
-					class="title-genre-10 do-not-close false">Medicine</span>
-			</div>
-			<div class="genre-11 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-11" value='11'> <span
-					class="title-genre-11 do-not-close false">Food</span>
-			</div>
-			<div class="genre-12 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-12" value='12'> <span
-					class="title-genre-12 do-not-close false">Education</span>
-			</div>
-			<div class="genre-13 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-13" value='13'> <span
-					class="title-genre-13 do-not-close false">Battle</span>
-			</div>
-			<div class="genre-14 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-14" value='14'> <span
-					class="title-genre-14 do-not-close false">Mecanic</span>
-			</div>
-			<div class="genre-15 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-15" value='15'> <span
-					class="title-genre-15 do-not-close false">Daily</span>
-			</div>
-			<div class="genre-16 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-16" value='16'> <span
-					class="title-genre-16 do-not-close false">Age</span>
-			</div>
-			<div class="genre-17 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-17" value='17'> <span
-					class="title-genre-17 do-not-close false">GraphicNovel</span>
-			</div>
-			<div class="genre-18 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-18" value='18'> <span
-					class="title-genre-18 do-not-close false">Thriller</span>
-			</div>
-			<div class="genre-19 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-19" value='19'> <span
-					class="title-genre-19 do-not-close false">Drama</span>
-			</div>
-			<div class="genre-20 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-20" value='20'> <span
-					class="title-genre-20 do-not-close false">Adventure</span>
-			</div>
+		    <div class="genre-1 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-1" value='1'>
+		        <span class="title-genre-1 do-not-close false">SF</span>
+		    </div>
+		    <div class="genre-2 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-2" value='2'>
+		        <span class="title-genre-2 do-not-close false">Mystery</span>
+		    </div>
+		    <div class="genre-3 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-3" value='3'>
+		        <span class="title-genre-3 do-not-close false">PureLove</span>
+		    </div>
+		    <div class="genre-4 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-4" value='4'>
+		        <span class="title-genre-4 do-not-close false">Romance</span>
+		    </div>
+		    <div class="genre-5 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-5" value='5'>
+		        <span class="title-genre-5 do-not-close false">Comic</span>
+		    </div>
+		    <div class="genre-6 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-6" value='6'>
+		        <span class="title-genre-6 do-not-close false">Reasoning</span>
+		    </div>
+		    <div class="genre-7 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-7" value='7'>
+		        <span class="title-genre-7 do-not-close false">SchoolLife</span>
+		    </div>
+		    <div class="genre-8 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-8" value='8'>
+		        <span class="title-genre-8 do-not-close false">Sports</span>
+		    </div>
+		    <div class="genre-9 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-9" value='9'>
+		        <span class="title-genre-9 do-not-close false">Fantasy</span>
+		    </div>
+		    <div class="genre-10 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-10" value='10'>
+		        <span class="title-genre-10 do-not-close false">Medicine</span>
+		    </div>
+		    <div class="genre-11 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-11" value='11'>
+		        <span class="title-genre-11 do-not-close false">Food</span>
+		    </div>
+		    <div class="genre-12 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-12" value='12'>
+		        <span class="title-genre-12 do-not-close false">Education</span>
+		    </div>
+		    <div class="genre-13 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-13" value='13'>
+		        <span class="title-genre-13 do-not-close false">Battle</span>
+		    </div>
+		    <div class="genre-14 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-14" value='14'>
+		        <span class="title-genre-14 do-not-close false">Mecanic</span>
+		    </div>
+		    <div class="genre-15 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-15" value='15'>
+		        <span class="title-genre-15 do-not-close false">Daily</span>
+		    </div>
+		    <div class="genre-16 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-16" value='16'>
+		        <span class="title-genre-16 do-not-close false">Age</span>
+		    </div>
+		    <div class="genre-17 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-17" value='17'>
+		        <span class="title-genre-17 do-not-close false">GraphicNovel</span>
+		    </div>
+		    <div class="genre-18 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-18" value='18'>
+		        <span class="title-genre-18 do-not-close false">Thriller</span>
+		    </div>
+		    <div class="genre-19 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-19" value='19'>
+		        <span class="title-genre-19 do-not-close false">Drama</span>
+		    </div>
+		    <div class="genre-20 do-not-close">
+		        <input type="checkbox" name='genreArr' class="do-not-close hide genre-20" value='20'>
+		        <span class="title-genre-20 do-not-close false">Adventure</span>
+		    </div>
 		</div>
 
 
@@ -281,7 +289,7 @@
 
 		<div class="mypage-setting-confirm">
 			<div class="mypage-setting-confirm-button">
-				<button type="button">Modify Confirm</button>
+				<button type="button" class="confirm-button">Modify Confirm</button>
 			</div>
 			<div class="mypage-setting-logout-button">
 				<a href="/user/logout">
@@ -462,12 +470,14 @@
 
 <c:if test="${login.uid != cri.uid}">
 
-		<div class="mypage-setting-id">
-			<div class="mypage-setting-loginid-title">Log-in ID</div>
-			<div class="mypage-setting-loginid-text">
-				<span>${userVO.uid}</span>
+		<c:if test="${userVO.uid_p == 1}">
+			<div class="mypage-setting-id">
+				<div class="mypage-setting-loginid-title">Log-in ID</div>
+				<div class="mypage-setting-loginid-text">
+						<span>${userVO.uid}</span>
+				</div>
 			</div>
-		</div>
+		</c:if>
 
 		<hr>
 
@@ -545,118 +555,100 @@
 
 		<hr> -->
 		
-		<div class="mypage-setting-genre">
-			<div class="mypage-setting-genre-left">Preferred Genre</div>
-			<!-- <p class="mypage-setting-genre-close">Close</p>
-				<label class="mypage-setting-genre-switch"> <input
-					type="checkbox" checked> <span class="slider round"></span>
-				</label>
-			<p class="mypage-setting-genre-open">Open</p> -->
-		</div>
-					
-					
-		<div class="mypage-setting-genre-list">
-			<div class="genre-1 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-1" value='1'> <span
-					class="do-not-close false">SF</span>
+		<c:if test="${userVO.genre_p == 1}">
+			<div class="mypage-setting-genre">
+				<div class="mypage-setting-genre-left">Preferred Genre</div>
+				<!-- <p class="mypage-setting-genre-close">Close</p>
+					<label class="mypage-setting-genre-switch"> <input
+						type="checkbox" checked> <span class="slider round"></span>
+					</label>
+				<p class="mypage-setting-genre-open">Open</p> -->
 			</div>
-			<div class="genre-2 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-2" value='2'> <span
-					class="do-not-close false">Mystery</span>
+						
+						
+			<div class="mypage-setting-genre-list">
+			    <div class="genre-1 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-1" value='1'>
+			        <span class="do-not-close false">SF</span>
+			    </div>
+			    <div class="genre-2 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-2" value='2'>
+			        <span class="do-not-close false">Mystery</span>
+			    </div>
+			    <div class="genre-3 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-3" value='3'>
+			        <span class="do-not-close false">PureLove</span>
+			    </div>
+			    <div class="genre-4 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-4" value='4'>
+			        <span class="do-not-close false">Romance</span>
+			    </div>
+			    <div class="genre-5 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-5" value='5'>
+			        <span class="do-not-close false">Comic</span>
+			    </div>
+			    <div class="genre-6 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-6" value='6'>
+			        <span class="do-not-close false">Reasoning</span>
+			    </div>
+			    <div class="genre-7 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-7" value='7'>
+			        <span class="do-not-close false">SchoolLife</span>
+			    </div>
+			    <div class="genre-8 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-8" value='8'>
+			        <span class="do-not-close false">Sports</span>
+			    </div>
+			    <div class="genre-9 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-9" value='9'>
+			        <span class="do-not-close false">Fantasy</span>
+			    </div>
+			    <div class="genre-10 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-10" value='10'>
+			        <span class="do-not-close false">Medicine</span>
+			    </div>
+			    <div class="genre-11 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-11" value='11'>
+			        <span class="do-not-close false">Food</span>
+			    </div>
+			    <div class="genre-12 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-12" value='12'>
+			        <span class="do-not-close false">Education</span>
+			    </div>
+			    <div class="genre-13 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-13" value='13'>
+			        <span class="do-not-close false">Battle</span>
+			    </div>
+			    <div class="genre-14 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-14" value='14'>
+			        <span class="do-not-close false">Mecanic</span>
+			    </div>
+			    <div class="genre-15 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-15" value='15'>
+			        <span class="do-not-close false">Daily</span>
+			    </div>
+			    <div class="genre-16 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-16" value='16'>
+			        <span class="do-not-close false">Age</span>
+			    </div>
+			    <div class="genre-17 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-17" value='17'>
+			        <span class="do-not-close false">GraphicNovel</span>
+			    </div>
+			    <div class="genre-18 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-18" value='18'>
+			        <span class="do-not-close false">Thriller</span>
+			    </div>
+			    <div class="genre-19 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-19" value='19'>
+			        <span class="do-not-close false">Drama</span>
+			    </div>
+			    <div class="genre-20 do-not-close">
+			        <input type="checkbox" name='genreArr' class="do-not-close hide genre-20" value='20'>
+			        <span class="do-not-close false">Adventure</span>
+			    </div>
 			</div>
-			<div class="genre-3 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-3" value='3'> <span
-					class="do-not-close false">PureLove</span>
-			</div>
-			<div class="genre-4 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-4" value='4'> <span
-					class="do-not-close false">Romance</span>
-			</div>
-			<div class="genre-5 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-5" value='5'> <span
-					class="do-not-close false">Comic</span>
-			</div>
-			<div class="genre-6 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-6" value='6'> <span
-					class="do-not-close false">Reasoning</span>
-			</div>
-			<div class="genre-7 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-7" value='7'> <span
-					class="do-not-close false">SchoolLife</span>
-			</div>
-			<div class="genre-8 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-8" value='8'> <span
-					class="do-not-close false">Sports</span>
-			</div>
-			<div class="genre-9 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-9" value='9'> <span
-					class="do-not-close false">Fantasy</span>
-			</div>
-			<div class="genre-10 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-10" value='10'> <span
-					class="do-not-close false">Medicine</span>
-			</div>
-			<div class="genre-11 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-11" value='11'> <span
-					class="do-not-close false">Food</span>
-			</div>
-			<div class="genre-12 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-12" value='12'> <span
-					class="do-not-close false">Education</span>
-			</div>
-			<div class="genre-13 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-13" value='13'> <span
-					class="do-not-close false">Battle</span>
-			</div>
-			<div class="genre-14 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-14" value='14'> <span
-					class="do-not-close false">Mecanic</span>
-			</div>
-			<div class="genre-15 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-15" value='15'> <span
-					class="do-not-close false">Daily</span>
-			</div>
-			<div class="genre-16 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-16" value='16'> <span
-					class="do-not-close false">Age</span>
-			</div>
-			<div class="genre-17 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-17" value='17'> <span
-					class="do-not-close false">GraphicNovel</span>
-			</div>
-			<div class="genre-18 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-18" value='18'> <span
-					class="do-not-close false">Thriller</span>
-			</div>
-			<div class="genre-19 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-19" value='19'> <span
-					class="do-not-close false">Drama</span>
-			</div>
-			<div class="genre-20 do-not-close">
-				<input type="checkbox" name='genreArr'
-					class="do-not-close hide genre-20" value='20'> <span
-					class="do-not-close false">Adventure</span>
-			</div>
-		</div>
+		</c:if>
 </c:if>
 
 
