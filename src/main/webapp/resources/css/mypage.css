@@ -5,7 +5,7 @@
 	grid-template-rows: 100px 100px;
 	grid-template-areas: "a b" "a c";
 	justify-content: center;
-	grid-column-gap: 20px;
+	grid-column-gap: 50px;
 	grid-row-gap: 10px;
 	padding-top: 45px;
 	padding-bottom: 40px;
@@ -28,7 +28,7 @@
 
 .mypage-profile .mypage-profile-name {
 	grid-area: b;
-	justify-self: center;
+	justify-self: start;
 	align-self: end;
 	font-size: 1em;
 	padding-bottom: 10px;
@@ -36,7 +36,7 @@
 
 .mypage-profile .mypage-profile-subscribe {
 	grid-area: c;
-	justify-self: center;
+	justify-self: start;
 	align-self: start;
 	font-size: 1em;
 	padding-top: 10px;
