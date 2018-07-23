@@ -827,12 +827,13 @@ a:visited {color: black;}
     background-color: white;
 }
 
-.header .accountBtn .accountBtn-login {
+/* .header .accountBtn .accountBtn-login {
+} */
+
+.header .accountBtn img {
 	border: 1px solid #d3d3d3;
-	width: 30px;
-	height: 30px;
+	border-radius: 50%;
 }
-.header .accountBtn img {border-radius: 50%;}
 .header img:hover {width: 40px;}
 .header .brand img {width: 150px;}
 
