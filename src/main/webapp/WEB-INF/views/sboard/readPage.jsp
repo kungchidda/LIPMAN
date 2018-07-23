@@ -156,8 +156,8 @@
 
 
 		<div class="content-margin-bottom">
-	<div class="og-expanded do-not-close">
-		<div class="og-expander-inner do-not-close">
+	<div class="og-expanded list-og-expanded another-og-expanded do-not-close">
+		<div class="og-expander-inner list-og-expander-inner another-og-expander-inner do-not-close">
 			<div class="expander-title-inner">
 				<div class="og-fullimg do-not-close">
 					<img class="do-not-close" src="/displayFile?fileName=${boardVO.titleFullName}" style="display: inline;">
@@ -172,13 +172,13 @@
 					<img src="/resources/png/setting.png" onclick="#">
 				</div> -->
 			</div>
-			<div class="readpage-toggle-page">
+			<div class="readpage-toggle-page list-readpage-toggle-page another-readpage-toggle-page">
 				<div class="thissubtitleLi do-not-close">
 					<a href="#">
-						<div class="comic-list do-not-close">
+						<div class="comic-list list-comic-list another-comic-list do-not-close">
 							<img src="/displayFile?fileName=${boardVO.boardFullName}">
 						</div>
-						<div class="comic-list-text cursor do-not-close">
+						<div class="comic-list-text list-comic-list-text another-comic-list-text cursor do-not-close">
 							${boardVO.subtitle}
 						</div>
 					</a>
@@ -268,23 +268,23 @@
 						<span>${boardVO.uname}</span>
 					</div> <!-- 					</a> -->
 
-					<div class="og-expander hide do-not-close" style="height: 550px;">
+					<div class="og-expander hide do-not-close">
 						<div class="og-expander-inner do-not-close">
-							<div class="expander-title-inner">
-								<div class="og-fullimg do-not-close">
+							<div class="expander-title-inner another-expander-title-inner">
+								<div class="og-fullimg another-og-fullimg do-not-close">
 									<img class="do-not-close" src="/displayFile?fileName=${boardVO.titleFullName}" style="display: inline;">
 								</div>
-								<div class="comic-list-genre do-not-close">
+								<div class="comic-list-genre another-comic-list-genre do-not-close">
 									<div>${boardVO.gname}</div>
 								</div>
-								<div class="comic-list-title do-not-close">
+								<div class="comic-list-title another-comic-list-title do-not-close">
 									<div>${boardVO.title}</div>
 								</div>
 								<!-- <div class="comic-list-setting">
 									<img src="/resources/png/setting.png" onclick="#">
 								</div> -->
 							</div>
-								<div class="toggle-page">
+								<div class="toggle-page another-toggle-page">
 									<div class="subtitleLi do-not-close">
 										<a href="#">
 											<div class="comic-list do-not-close">

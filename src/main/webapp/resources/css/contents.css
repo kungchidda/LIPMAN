@@ -1,17 +1,20 @@
 hr {
-    width: 60%;
+    width: 1350px;
     margin-right: auto;
     margin-left: auto;
 }
 
+body {
+	border-radius: 10px;
+}
+
 
 /*subtitle h4 css*/
-
 .strapline {
     padding-top: 30px;
     display: grid;
-    grid-template-columns: repeat(2, 25%);
-    grid-template-areas: "a .";
+    grid-template-columns: 1250px;
+    grid-template-areas: "a";
     justify-content: center;
 }
 
@@ -22,8 +25,7 @@ h4 {
 }
 
 
-/*profile*/
-
+/* profile */
 .content-writer-profile {
     display: grid;
 	grid-template-columns: 200px 200px;
@@ -75,29 +77,59 @@ h4 {
 }
 
 
-/*contents css*/
+/* profile : Modify & Remove Btn */
+.modifyPageBtn {
+    border: 1px solid #424242;
+    background-color: white;
+    padding: 15px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 10px;
+    color: #424242;
+    width : 80px;
+}
 
+.modifyPageBtn:hover {
+    background-color: #1d8bf1;
+    border: 1px solid #1d8bf1;
+    color: white;
+}
+
+.removePageBtn {
+    border: 1px solid #d3d3d3;
+    background-color: #d3d3d3;
+    padding: 15px;
+    font-size: 1em; 
+    cursor: pointer;
+    border-radius: 10px;
+    color: white;
+    width : 100px;
+}
+
+.removePageBtn:hover {
+    background-color: #f44336;
+    border: 1px solid #f44336;
+    color: white;
+}
+
+
+/* contents */
 .contents {
-/*     display: grid; */
-/*     grid-template-columns: 60%; */
-/*     grid-template-areas: "a"; */
-/*     justify-content: center; */
 	text-align: center;
 	
 }
 
 .contents .comic {
-/*     grid-area: a; */
-/*     justify-self: center; */
 	display: inline-block;
     text-align: center;
 }
+
 .contents .comic img{
 	width: 1200px;	
 }
 
-/*thumb css*/
 
+/* thumb css */
 .evaluate {
     display: grid;
     grid-template-columns: 60px 20px 30px 60px 20px;
@@ -109,6 +141,7 @@ h4 {
     padding-top: 80px;
     padding-bottom: 80px;
     grid-column-gap: 20px;
+    font-size: 1em;
 }
 
 .evaluate a:link {
@@ -123,7 +156,6 @@ h4 {
 
 .evaluate .evaluate-no-1 {
     grid-area: b;
-    font-size: 1em;
     align-self: center;
 }
 
@@ -134,7 +166,6 @@ h4 {
 
 .evaluate .evaluate-no-2 {
     grid-area: d;
-    font-size: 1em;
     align-self: center;
 }
 
@@ -162,8 +193,7 @@ h4 {
 }
 
 
-/*writer css*/
-
+/* writer css */
 .comic-infor {
     display: grid;
     grid-template-columns: repeat(2, 400px);
@@ -254,13 +284,299 @@ h4 {
 }
 
 
+/* Comic list : left */
+.expander-title-inner {
+	display: grid;
+    grid-template-columns: 330px;
+    grid-template-rows: 320px 30px 50px;
+    grid-template-areas: 
+        "a"
+        "b"
+        "c";
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-row-gap: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    float : left;
+}
+
+.og-expander-inner a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.og-expander-inner a:visited {
+    color: black;
+}
+
+.expander-title-inner .og-fullimg {
+    grid-area: a;
+    align-self: center;
+}
+
+.expander-title-inner .comic-list-genre {
+    grid-area: b;
+    color: gray;
+    font-size: 1em;
+}
+
+.expander-title-inner .comic-list-title, .comic-title {
+    grid-area: c;
+    font-size: 20px;
+}
 
 
-/*comic-comment*/
+/* Comic list : right */
+.list-readpage-toggle-page {
+	width: 850px;
+	height: 420px;
+	padding-top : 20px;
+	padding-bottom : 20px;
+	float : left ;
+}
 
+.thissubtitleLi a {
+    display: grid;
+    grid-template-columns: 170px 255px;
+    grid-template-rows: 120px;
+    grid-template-areas: 
+        "a b";
+    float: left;
+}
+
+.list-comic-list {
+    grid-area: a;
+    align-self: center;
+    justify-self: end;
+}
+
+.list-og-expander-inner .comic-list img {
+    width: 100px;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+}
+
+.list-comic-list-text {
+    grid-area: b;
+    justify-self: start;
+    align-self: center;
+    word-break: break-all;
+    font-size: 1em;
+    padding-left: 20px;
+}
+
+.list-og-expanded {
+    position: absolute;
+    background: #fff;
+    top: auto;
+    left: 0;
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+    height: 460px;
+    overflow: hidden;
+    text-align: center;
+}
+
+
+/* content-margin-bottom */
+.content-margin-bottom {margin-bottom: 470px !important;}
+
+
+/* Another Comic */
+.cards {
+    display: grid;
+    grid-template-areas: 
+        "a a a a a";
+    justify-items: center;
+    justify-content: center;
+}
+
+.cards  {
+    text-align: center;
+}
+
+.cards .expander {
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.cards .thumbnail {
+    width: 200px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.cards .title, .subtitle, .thumbnail-thumb {
+    width: 188px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  	overflow: hidden;
+    padding: 6px;
+}
+
+.cards .thumbnail-thumb img {
+    width: 20px;
+}
+
+.cards .thumbnail-thumb span {
+	padding-left: 5px;
+	padding: 10px;
+    vertical-align: 20%;
+}
+
+.cards .line {
+	margin-top: -15px;
+    padding: 4px;
+}
+
+.cards .ling img {
+	width: 180px;
+}
+
+.cards .thumbnail-writer{
+    text-align: left;
+    padding-left: 15px;
+}
+
+.cards .thumbnail-writer img{
+    width: 25px;
+    border: 1px solid #d3d3d3;
+    border-radius: 50%;
+}
+
+.cards .thumbnail-writer span{
+    padding-left: 5px;
+    vertical-align: 35%;
+}
+
+
+/* Another comic : expand-inner */
+.og-title-register, .og-expander {
+    position: absolute;
+    background: #fff;
+    top: auto;
+    left: 0;
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+    height: 540px;
+    overflow: hidden;
+    border: 1px solid #d3d3d3;
+    box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+
+/* Another comic : expand-inner left */
+.another-expander-title-inner {
+	display: grid;
+    grid-template-columns: 330px;
+    grid-template-rows: 320px 30px 50px;
+    grid-template-areas: 
+        "a"
+        "b"
+        "c";
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-row-gap: 10px;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    float : left;
+}
+
+.another-og-expander-inner a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.another-og-expander-inner a:visited {
+    color: black;
+}
+
+.another-expander-title-inner .another-og-fullimg {
+    grid-area: a;
+    align-self: center;
+}
+
+.another-expander-title-inner .another-comic-list-genre {
+    grid-area: b;
+    color: gray;
+    font-size: 1em;
+}
+
+.another-expander-title-inner .another-comic-list-title, .another-comic-title {
+    grid-area: c;
+    font-size: 20px;
+}
+
+
+/* Another comic : expand-inner right */
+.another-toggle-page{
+	width: 850px;
+	height: 420px;
+	padding-top : 70px;
+	padding-bottom : 50px;
+	float : left ;
+}
+
+.subtitleLi a {
+    display: grid;
+    grid-template-columns: 170px 255px;
+    grid-template-rows: 120px;
+    grid-template-areas: 
+        "a b";
+    float: left;
+}
+
+.another-comic-list {
+    grid-area: a;
+    align-self: center;
+    justify-self: end;
+}
+
+.another-og-expander-inner .comic-list img {
+    width: 100px;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+}
+
+.another-comic-list-text {
+    grid-area: b;
+    justify-self: start;
+    align-self: center;
+    word-break: break-all;
+    font-size: 1em;
+    padding-left: 20px;
+}
+
+.another-og-expanded {
+    position: absolute;
+    background: #fff;
+    top: auto;
+    left: 0;
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+    height: 460px;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Another comic : margin-bottom */
+.margin-bottom {margin-bottom: 535px !important;}
+
+
+/* comic-comment */
 .comic-infor-comment {
     display: grid;
-    grid-template-columns: 40%;
+    grid-template-columns: 1100px;
     grid-template-areas: "a";
     justify-content: center;
 }
@@ -273,285 +589,43 @@ h4 {
 }
 
 
-/*next comic css*/
-
-/* .content-comic-list {
-    display: grid;
-    grid-template-columns: 300px 450px 450px;
-    grid-template-rows: 100px 100px 100px 50px;
-    grid-template-areas: 
-        "a c d"
-        "a e f"
-        "a g h"
-        "b i i";
-    justify-items: center;
-    justify-content: center;
-    grid-column-gap: 30px;
-    grid-row-gap: 10px;
-    padding-top: 20px;
-    padding-bottom: 30px;
-}
-
-.content-comic-list a:link {
-    text-decoration: none;
-    color: black;
-}
-
-.content-comic-list a:visited {
-    color: black;
-}
-
-.content-comic-list .content-comic-main-img {
-    grid-area: a;
-    align-self: center;
-}
-
-.content-comic-list .content-comic-genre {
-    grid-area: a;
-    align-self: end;
-    font-size: 1em;
-    color: gray;
-}
-
-.content-comic-list .content-comic-main-title {
-    grid-area: b;
-    align-self: center;
-    font-size: 1em;
-    font-weight: bold;
-}
-
-.content-comic-list .content-comic-main-img img {
-    width: 250px;
-    border-radius: 10px;
-}
-
-.content-comic-list .content-comic-01-img, .content-comic-01-title {
-    grid-area: c;
-}
-
-.content-comic-list .content-comic-02-img, .content-comic-02-title {
-    grid-area: d;
-}
-
-.content-comic-list .content-comic-03-img, .content-comic-03-title {
-    grid-area: e;
-}
-
-.content-comic-list .content-comic-04-img, .content-comic-04-title {
-    grid-area: f;
-}
-
-.content-comic-list .content-comic-05-img, .content-comic-05-title {
-    grid-area: g;
-}
-
-.content-comic-list .content-comic-06-img, .content-comic-06-title {
-    grid-area: h;
-}
-
-.content-comic-list .content-comic-list-pagi {
-    grid-area: i;
-    align-self: center;
-}
-
-.content-comic-list .content-comic-list-pagi span {
-    padding: 10px;
-}
-
-.content-comic-list .content-comic-01-img, .content-comic-02-img, .content-comic-03-img, .content-comic-04-img, .content-comic-05-img, .content-comic-06-img {
-    align-self: center;
-    justify-self: start;
-    border-radius: 10px;
-}
-
-.content-comic-list img {
-    width: 80px;
-    justify-self: start;
-    align-self: center;
-}
-
-.content-comic-list .content-comic-01-title, .content-comic-02-title, .content-comic-03-title, .content-comic-04-title, .content-comic-05-title, .content-comic-06-title {
-    align-self: center;
-    justify-self: start;
-    padding-left: 100px;
-}
-
-
-
-
-another comic css
-.cards {
-    display: grid;
-    grid-template-columns: repeat(5, 230px);
-    grid-template-areas: "a b c d e" "f g h i j";
-    justify-items: center;
-    justify-content: center;
-    grid-row-gap: 25px;
-    padding-top: 20px;
-    padding-bottom: 50px;
-}
-
-.cards a:link {
-    text-decoration: none;
-    color: black;
-}
-
-.cards .cards-01,
-.cards-02,
-.cards-03,
-.cards-04,
-.cards-05,
-.cards-06,
-.cards-07,
-.cards-08,
-.cards-09,
-.cards-10,
-.cards-11,
-.cards-12 {
-    border: 1px solid #d3d3d3;
-    border-radius: 10px;
-    box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.cards img {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.cards .title,
-.subtitle {
-    text-align: left;
-    padding-left: 15px;
-    padding-top: 5px;
-}
-
-
-.cards .line {
-    text-align: center;
-}
-
-.cards .thumbnail-thumb {
-    text-align: center;
-    padding-top: 5px;
-    vertical-align: 50%;
-}
-
-.cards .thumbnail-thumb img {
-    width: 20px;
-}
-
-.cards .thumbnail-thumb span {
-    vertical-align: 20%;
-}
-
-.cards .thumbnail-writer {
-    text-align: left;
-    padding-left: 15px;
-    padding-bottom: 5px;
-}
-
-.cards .thumbnail-writer img {
-    width: 20px;
-}
-
-.cards .thumbnail-writer span {
-    padding-left: 5px;
-    vertical-align: 15%;
-}
-
-.cards .thumbnail {
-    width: 200px;
-}
-
-.cards .thumbnail-thumb span {
-    padding: 10px;
-}
-
-.cards .cards-01 {
-    grid-area: a
-}
-
-.cards .cards-02 {
-    grid-area: b
-}
-
-.cards .cards-03 {
-    grid-area: c
-}
-
-.cards .cards-04 {
-    grid-area: d
-}
-
-.cards .cards-05 {
-    grid-area: e
-}
-
-.cards .cards-06 {
-    grid-area: f
-}
-
-.cards .cards-07 {
-    grid-area: g
-}
-
-.cards .cards-08 {
-    grid-area: h
-}
-
-.cards .cards-09 {
-    grid-area: i
-}
-
-.cards .cards-10 {
-    grid-area: j
-}
-
-.cards .cards-11 {
-    grid-area: k
-}
-
-.cards .cards-12 {
-    grid-area: l
-}
- */
-/*comment css*/
-
+/* comment css */
 .comment {
     display: grid;
-    grid-template-columns: 40% 100px;
+    grid-template-columns: 1050px 80px;
     grid-template-areas: "a b";
     justify-content: center;
-    grid-gap: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
 .comment-text {
     grid-area: a;
+    width: 1010px;
     padding: 15px;
     font-size: 1em;
-    border: 1px solid gray;
-    border-radius: 5px;
+    border-bottom: 1px solid gray;
+    border-radius: 10px;
 }
 
 
 .comment button {
     grid-area: b;
+    width: 80px;
     border: 1px solid white;
     background : white;
 }
 
 .comment img {
-    width: 28px;
+    width: 30px;
     background-color: white;
     padding: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 
-/*another comment css*/
+/* another comment css */
 
 .another-comment {
     display: grid;
@@ -675,60 +749,20 @@ textarea{
 
 
 .reply-profile-img-button img {
-/* 	width: 50px; */
 	border: 1px solid #d3d3d3;
 	border-radius: 50%;
 }
 
 .reply-profile-img-button{
-/* 	display: inline; */
-/* 	width: 50px; */
-/* 	height: 50px; */
     border: 0px;
     border-radius: 50%;
     background-color: white;
 }
 
 .reply-profile-name-button {
-/* padding: 10px; */
 background: white;
 border: 1px solid white;
 color: black;
 font-size: 1em;
 }
 
-.modifyPageBtn {
-    border: 2px solid #feb25f;
-    background-color: white;
-/*     padding: 15px 20px; */
-    padding: 15px;
-/*     font-size: 1em; */
-	font-size: 10px;
-    cursor: pointer;
-    border-radius: 10px;
-    color: #feb25f;
-    width : 80px;
-}
-
-.modifyPageBtn:hover {
-    background: #feb25f;
-    color: white;
-}
-
-.removePageBtn {
-    border: 2px solid #f44336;
-    background-color: white;
-/*     padding: 15px 20px; */
-    padding: 15px;
-/*     font-size: 1em; */
-	font-size: 10px;
-    cursor: pointer;
-    border-radius: 10px;
-    color: red;
-    width : 80px;
-}
-
-.removePageBtn:hover {
-    background: #f44336;
-    color: white;
-}

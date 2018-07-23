@@ -15,23 +15,14 @@
     padding-top: 70px;
 }
 
-/*subscribe*/
+/* subscribe */
 .cards {
     display: grid;
-/*     grid-template-columns: repeat(10, 230px); */
     grid-template-areas: 
         "a a a a a a a a a a";
     justify-items: center;
     justify-content: start;
-    grid-row-gap: 25px;
-    /* padding-top: 30px;
-    padding-bottom: 50px; */
 }
-
-/* .cards a:link {
-    text-decoration: none;
-    color: black;
-} */
 
 .cards  {
     text-align: center;
