@@ -111,7 +111,11 @@
 						<span>${boardVO.uname}</span>
 					</div> <!-- 					</a> -->
 
+<<<<<<< HEAD
 					<div class="og-expander hide do-not-close">
+=======
+					<div class="og-expander hide do-not-close" >
+>>>>>>> HONG
 						<div class="og-expander-inner do-not-close">
 							<div class="expander-title-inner">
 								<div class="og-fullimg do-not-close">
@@ -149,16 +153,16 @@
 	</div>
 
 	<script id="subtitle-template" type="text/x-handlebars-template">
-                    {{#each .}}
-                    <div class="subtitleLi do-not-close">
-                        <a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>
-                            <div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
-                            <div class="comic-list-text cursor do-not-close">{{subtitle}}</div>
-                        </a>
-                    </div>
-                    {{/each}}
-                    <ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
-                </script>
+		{{#each .}}
+			<div class="subtitleLi do-not-close">
+				<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>
+					<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
+					<div class="comic-list-text cursor do-not-close">{{subtitle}}</div>
+				</a>
+			</div>
+		{{/each}}
+		<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
+	</script>
 
 
 
