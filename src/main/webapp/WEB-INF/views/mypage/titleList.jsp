@@ -35,17 +35,16 @@
 						<div class="og-title-register hide do-not-close">
 							<div class="title-register-inner do-not-close">
 								<div class="title-edit-input do-not-close">
-									<div class="og-fullimg do-not-close" id="fileDrop">
+									<div class="og-fullimg do-not-close fileDrop">
 										<div class="uploadedList do-not-close">
-											<img src="/resources/png/thumbnail.png" class="do-not-close"
-												style="display: inline;">
+											<img src="/resources/png/thumbnail.png" class="do-not-close" style="display: inline;">
 										</div>
 									</div>
 									<input type="hidden" name="uid" class="form-control" value='${login.uid}'>
 									<input type="file" id="upload-input" style="display: none;">
 									<script>
 										$(function() {
-											$('#fileDrop').click(function(e) {
+											$('.fileDrop').click(function(e) {
 												e.preventDefault();
 												$('#upload-input').click();
 	
@@ -166,9 +165,21 @@
 							<div class="og-expander hide do-not-close">
 								<div class="og-expander-inner do-not-close">
 									<div class="expander-title-inner">
-										<div class="og-fullimg do-not-close">
-											<img class="do-not-close" src="/displayFile?fileName=${MyPageVO.titleFullName}" style="display: inline;">
+										<div class="og-fullimg do-not-close fileDrop">
+											<div class="uploadedList do-not-close">
+												<img class="do-not-close title-fileDrop" src="/displayFile?fileName=${MyPageVO.titleFullName}" style="display: inline;">
+											</div>
 										</div>
+										<input type="file" class="title-upload-input" style="display: none;">
+										<script>
+											$(function() {
+												$('.title-fileDrop').click(function(e) {
+													e.preventDefault();
+													$(this).parent().next().click();
+			
+												});
+											});
+										</script>
 										<div class="comic-list-genre do-not-close">
 											${MyPageVO.gname}
 										</div>
@@ -280,7 +291,7 @@
 											<span class="title-genre-20 do-not-close false">Adventure</span>
 										</div>
 										<button type="button" class="delete-title do-not-close title-register-delete-btn">Delete</button>
-										<button type="button" class="submit-title do-not-close title-register-complete-btn">submit</button>
+										<button type="button" class="submit-title do-not-close title-register-complete-btn confirm-button">submit</button>
 									</div>
 								</div>
 							</div>
@@ -293,7 +304,7 @@
 
 </c:if>
 
-	<c:if test="${login.uid != cri.uid}">
+<c:if test="${login.uid != cri.uid}">
 									
 	<section id="mypage-home">
 		<div class="container">
@@ -304,6 +315,7 @@
 							<input type="text" class="do-not-close hide" name="tno" value="${MyPageVO.tno}" readonly>
 							<img class="thumbnail" src="/displayFile?fileName=${MyPageVO.titleFullName}">
 
+							
 							<div class="mypage-home-title">${MyPageVO.title}</div>
 
 
@@ -320,6 +332,7 @@
 										<div class="og-fullimg do-not-close">
 											<img class="do-not-close" src="/displayFile?fileName=${MyPageVO.titleFullName}" style="display: inline;">
 										</div>
+										
 										<div class="comic-list-genre do-not-close">
 											${MyPageVO.gname}
 										</div>
@@ -406,7 +419,8 @@
 							$('.title-genre-checkbox').addClass("hide");
 							
 							$('.comic-title').show();
-							$('.comic-title-edit').addClass("hide");
+// 							$('.comic-title-edit').addClass("hide");
+							$('.comic-title-edit').hide();
 							$('.input-title').attr("readonly");
 							
 							submenu.slideDown(300);
@@ -445,7 +459,8 @@
 						$('.title-genre-checkbox').removeClass("hide");
 						
 						$('.comic-title').show();
-						$('.comic-title-edit').addClass("hide");
+// 						$('.comic-title-edit').addClass("hide");
+						$('.comic-title-edit').hide();
 						$('.input-title').attr("readonly");
 						
 						$('.title-register-inner').show();
@@ -493,9 +508,9 @@
 		<div class="uploadedList do-not-close">
 			<img src="{{imgsrc}}" alt="Attachment" class="do-not-close" style="display: inline;">
 		<div class="mailbox-attachment-info do-not-close"style="width:200px;">
-				<a href="{{getLink}}" target="_blank" class="mailbox-attachment-name">{{fileName}}</a>
+				<!-- <a href="{{getLink}}" target="_blank" class="mailbox-attachment-name">{{fileName}}</a> -->
 				<small data-src="{{fullName}}" class="hide btn btn-default btn-xs pull-right delbtn">
-				<i class="fa fa-fw fa-remove"></i>
+				<!-- <i class="fa fa-fw fa-remove"></i> -->
 				</small>
 		</div>
 		</div>
@@ -607,6 +622,16 @@
 		$(document).ready(function() {
 					
 					$('.mypage-profile-icon-home').addClass('active');
+					
+					$("input").on("change", function(event) {
+						console.log("input change");
+						$(".confirm-button").addClass("input-change");
+					});
+					
+					$("input[type='checkbox']").on("change", function(event) {
+						console.log("input change");
+						$(".confirm-button").addClass("input-change");
+					});
 			
 					$('#searchBtn').on("click", function(event) {
 						self.location = "list" + '${pageMaker.makeQuery(1)}' + "&searchType=" + $("select option:selected").val() + "&keyword=" + $('#keywordInput').val();
@@ -662,6 +687,7 @@
 
 					$(".submit-title").on("click",function() {
 						console.log("clicked submit-title");
+						
 						$(this).parent().parent().parent().parent().attr("action", "/title/modifyTitle");
 						$(this).parent().parent().parent().parent().submit();
 					});
@@ -778,6 +804,17 @@
 				uploadFile(file);
 			}
 		});
+		
+		$(".title-upload-input").on("change", function(event) {
+
+			event.preventDefault();
+
+			var files = event.target.files
+			for (i = 0; i < files.length; i++) {
+				var file = event.target.files[i]
+				uploadFile(file);
+			}
+		});
 
 		$("#registerForm").submit(
 				function(event) {
@@ -787,7 +824,7 @@
 
 					var str = "";
 					console.log("str = " + str);
-					$(".uploadedList .delbtn").each(
+					$("#registerForm").find(".uploadedList .delbtn").each(
 							function(index) {
 								console.log(index);
 								str += "<input type='hidden' name='files["+ index + "]' value='"+ $(this).attr("data-src") + "'> ";
@@ -834,7 +871,7 @@
 					var html = template(fileInfo);
 					console.log("html = " + html);
 					$(".uploadedList").remove();
-					$("#fileDrop").append(html);
+					$(".fileDrop").append(html);
 
 				}
 			});
