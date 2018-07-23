@@ -822,14 +822,16 @@ a:visited {color: black;}
 
 .profile-img-button{
 	display: inline;
-/* 	width: 50px; */
-/* 	height: 50px; */
     border: 0px;
     border-radius: 50%;
     background-color: white;
 }
 
-.header .accountBtn .accountBtn-login {border: 1px solid #d3d3d3;}
+.header .accountBtn .accountBtn-login {
+	border: 1px solid #d3d3d3;
+	width: 30px;
+	height: 30px;
+}
 .header .accountBtn img {border-radius: 50%;}
 .header img:hover {width: 40px;}
 .header .brand img {width: 150px;}
