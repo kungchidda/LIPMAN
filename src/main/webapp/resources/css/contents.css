@@ -4,12 +4,17 @@ hr {
     margin-left: auto;
 }
 
-body {
-	border-radius: 10px;
+body a:visited {
+    text-decoration: none;
+    color: black;
 }
 
+body a:link {
+    text-decoration: none;
+    color: black;
+}
 
-/*subtitle h4 css*/
+/* subtitle h4 css */
 .strapline {
     padding-top: 30px;
     display: grid;
@@ -66,16 +71,6 @@ h4 {
 	padding-top: 10px
 }
 
-.content-writer-profile a:visited {
-    text-decoration: none;
-    color: black;
-}
-
-.content-writer-profile a:link {
-    text-decoration: none;
-    color: black;
-}
-
 
 /* profile : Modify & Remove Btn */
 .modifyPageBtn {
@@ -117,11 +112,9 @@ h4 {
 /* contents */
 .contents {
 	text-align: center;
-	
 }
 
 .contents .comic {
-	display: inline-block;
     text-align: center;
 }
 
@@ -138,6 +131,7 @@ h4 {
     grid-template-areas: 
     	"a b . c d";
     justify-items: center;
+    align-items: center;
     justify-content: center;
     padding-top: 80px;
     padding-bottom: 80px;
@@ -145,56 +139,29 @@ h4 {
     font-size: 1em;
 }
 
-.evaluate a:link {
-    text-decoration: none;
-    color: black;
-}
-
 .evaluate .evaluate-pencil {
     grid-area: a;
-    align-self: center;
 }
 
 .evaluate .evaluate-no-1 {
     grid-area: b;
-    align-self: center;
 }
 
 .evaluate .evaluate-eraser {
     grid-area: c;
-    align-self: center;
 }
 
 .evaluate .evaluate-no-2 {
     grid-area: d;
-    align-self: center;
 }
 
 .evaluate img {
     width: 50px;
     padding-left: 20px;
-    transition: -webkit-transition: all 300ms cubic-bezier(0.680, 0, 0.265, 1);
-    /* older webkit */
-    -webkit-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
-    -moz-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
-    -o-transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
-    transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
-    /* easeInOutBack */
-    -webkit-transition-timing-function: cubic-bezier(0.680, 0, 0.265, 1);
-    /* older webkit */
-    -webkit-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
-    -moz-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
-    -o-transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
-    transition-timing-function: cubic-bezier(0.680, -0.550, 0.265, 1.550);
-    /* easeInOutBack */
-}
-
-.evaluate img:hover {
-    width: 60px;
 }
 
 
-/* writer css */
+/* Comic-information */
 .comic-infor {
     display: grid;
     grid-template-columns: 400px 400px;
@@ -206,15 +173,12 @@ h4 {
 	    "a e" 
 	    "a f";
     justify-content: center;
-    justify-items: center;
+    justify-items: start;
+    align-items: center;
     grid-column-gap: 50px;
     padding-top: 50px;
     padding-bottom: 20px;
-}
-
-.comic-infor a:link {
-    text-decoration: none;
-    color: black;
+    font-size: 1em;
 }
 
 .comic-infor span {
@@ -223,7 +187,6 @@ h4 {
 
 .comic-infor .comic-thumbnail {
     grid-area: a;
-    align-self: end;
     justify-self: end;
 }
 
@@ -233,20 +196,13 @@ h4 {
     border-radius: 10px;
 }
 
-
 .comic-infor .comic-title {
     grid-area: b;
-    justify-self: start;
-    align-self: center;
     font-weight: bold;
-    font-size: 1em;
 }
 
 .comic-infor .comic-time {
     grid-area: c;
-    justify-self: start;
-    align-self: center;
-    font-size: 1em;
 }
 
 .comic-infor .comic-time img {
@@ -256,9 +212,6 @@ h4 {
 
 .comic-infor .comic-view {
     grid-area: d;
-    justify-self: start;
-    align-self: center;
-    font-size: 1em;
 }
 
 .comic-infor .comic-view img {
@@ -268,9 +221,6 @@ h4 {
 
 .comic-infor .comic-link {
     grid-area: e;
-    justify-self: start;
-    align-self: center;
-    font-size: 1em;
 }
 
 .comic-infor .comic-link img {
@@ -280,8 +230,6 @@ h4 {
 
 .comic-infor .writer-subscribe {
     grid-area: f;
-    justify-self: start;
-    align-self: center;
 }
 
 
@@ -303,18 +251,8 @@ h4 {
     float : left;
 }
 
-.og-expander-inner a:link {
-    text-decoration: none;
-    color: black;
-}
-
-.og-expander-inner a:visited {
-    color: black;
-}
-
 .expander-title-inner .og-fullimg {
     grid-area: a;
-    align-self: center;
 }
 
 .expander-title-inner .comic-list-genre {
@@ -344,12 +282,12 @@ h4 {
     grid-template-rows: 120px;
     grid-template-areas: 
         "a b";
+    align-items: center;
     float: left;
 }
 
 .list-comic-list {
     grid-area: a;
-    align-self: center;
     justify-self: end;
 }
 
@@ -362,7 +300,6 @@ h4 {
 .list-comic-list-text {
     grid-area: b;
     justify-self: start;
-    align-self: center;
     word-break: break-all;
     font-size: 1em;
     padding-left: 20px;
@@ -375,14 +312,13 @@ h4 {
     left: 0;
     width: 100%;
     margin-top: 10px;
-    text-align: left;
     height: 460px;
     overflow: hidden;
     text-align: center;
 }
 
 
-/* content-margin-bottom */
+/* Comic list : content-margin-bottom */
 .content-margin-bottom {margin-bottom: 470px !important;}
 
 
@@ -393,67 +329,7 @@ h4 {
         "a a a a a";
     justify-items: center;
     justify-content: center;
-}
-
-.cards  {
     text-align: center;
-}
-
-.cards .expander {
-    border: 1px solid #d3d3d3;
-    border-radius: 10px;
-    box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.cards .thumbnail {
-    width: 200px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom: 1px solid #d3d3d3;
-}
-
-.cards .title, .subtitle, .thumbnail-thumb {
-    width: 188px;
-    text-align: center;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  	overflow: hidden;
-    padding: 6px;
-}
-
-.cards .thumbnail-thumb img {
-    width: 20px;
-}
-
-.cards .thumbnail-thumb span {
-	padding-left: 5px;
-	padding: 10px;
-    vertical-align: 20%;
-}
-
-.cards .line {
-	margin-top: -15px;
-    padding: 4px;
-}
-
-.cards .ling img {
-	width: 180px;
-}
-
-.cards .thumbnail-writer{
-    text-align: left;
-    padding-left: 15px;
-}
-
-.cards .thumbnail-writer img{
-    width: 25px;
-    border: 1px solid #d3d3d3;
-    border-radius: 50%;
-}
-
-.cards .thumbnail-writer span{
-    padding-left: 5px;
-    vertical-align: 35%;
 }
 
 
@@ -465,7 +341,6 @@ h4 {
     left: 0;
     width: 100%;
     margin-top: 10px;
-    text-align: left;
     height: 540px;
     overflow: hidden;
     border: 1px solid #d3d3d3;
@@ -492,31 +367,6 @@ h4 {
     float : left;
 }
 
-.another-og-expander-inner a:link {
-    text-decoration: none;
-    color: black;
-}
-
-.another-og-expander-inner a:visited {
-    color: black;
-}
-
-.another-expander-title-inner .another-og-fullimg {
-    grid-area: a;
-    align-self: center;
-}
-
-.another-expander-title-inner .another-comic-list-genre {
-    grid-area: b;
-    color: gray;
-    font-size: 1em;
-}
-
-.another-expander-title-inner .another-comic-list-title, .another-comic-title {
-    grid-area: c;
-    font-size: 20px;
-}
-
 
 /* Another comic : expand-inner right */
 .another-toggle-page{
@@ -533,41 +383,9 @@ h4 {
     grid-template-rows: 120px;
     grid-template-areas: 
         "a b";
-    float: left;
-}
-
-.another-comic-list {
-    grid-area: a;
-    align-self: center;
-    justify-self: end;
-}
-
-.another-og-expander-inner .comic-list img {
-    width: 100px;
-    border: 1px solid #d3d3d3;
-    border-radius: 10px;
-}
-
-.another-comic-list-text {
-    grid-area: b;
-    justify-self: start;
-    align-self: center;
-    word-break: break-all;
+    align-items: center;
     font-size: 1em;
-    padding-left: 20px;
-}
-
-.another-og-expanded {
-    position: absolute;
-    background: #fff;
-    top: auto;
-    left: 0;
-    width: 100%;
-    margin-top: 10px;
-    text-align: left;
-    height: 460px;
-    overflow: hidden;
-    text-align: center;
+    float: left;
 }
 
 
@@ -636,7 +454,7 @@ h4 {
 }
 
 
-/* another comment css */
+/* Another comment */
 .another-comment {
     display: grid;
     grid-template-columns: 60px 1050px;
@@ -645,20 +463,15 @@ h4 {
     	". c"
     	". d";
     justify-items: center;
+    align-items: center;
     justify-content: center;
     grid-gap: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
-.another-comment a:link {
-    text-decoration: none;
-    color: black;
-}
-
 .another-comment .another-user-image {
     grid-area: a;
-    align-self: center;
 }
 
 .another-comment .another-user-image img {
@@ -668,7 +481,6 @@ h4 {
 .another-comment .another-user-name {
     grid-area: b;
     justify-self: start;
-    align-self: center;
 }
 
 .another-comment .another-user-time {
@@ -678,7 +490,6 @@ h4 {
 
 .another-comment .another-comment-modify {
     grid-area: b;
-    align-self: center;
     justify-self: end;
     padding-right: 20px;
 }
@@ -697,7 +508,6 @@ h4 {
 .another-comment .another-comment-thumb {
     grid-area: d;
     justify-self: start;
-    align-self: center;
     padding-left: 10px;
 }
 
@@ -710,28 +520,20 @@ h4 {
     vertical-align: 20%;
 }
 
-
 .another-comment .another-comment-more {
     grid-area: d;
     justify-self: start;
-    align-self: center;
     padding-left: 180px;
     font-size: 14px;
     color: gray;
-
 }
 
 textarea{
 	resize: none;
 }
 
-/*footer*/
-.footer {
-    width: 100%;
-    height: 300px;
-}
 
-
+/* Another comment : Replay profile */
 .reply-profile-img-button img {
 	border: 1px solid #d3d3d3;
 	border-radius: 50%;
@@ -750,3 +552,8 @@ textarea{
 	font-size: 1em;
 }
 
+/* Footer */
+.footer {
+    width: 100%;
+    height: 200px;
+}

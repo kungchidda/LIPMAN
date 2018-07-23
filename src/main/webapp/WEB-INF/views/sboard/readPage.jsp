@@ -354,6 +354,8 @@
 	</div>
 	</section>
 	
+	<div class="footer"></div>
+	
 	<%-- <div class="box-footer">
 	<button type="submit" class="btn" id="subscribeBtn">SUBSCRIBE</button>
 	<button type="submit" class="btn btn-danger" id="unsubscribeBtn">SUBSCRIBED</button>
