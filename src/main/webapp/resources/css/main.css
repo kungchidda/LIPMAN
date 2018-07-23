@@ -92,31 +92,15 @@
 /* Web - 2520 */
 @media only screen and (max-width: 2520px) {
 	/* Banner */
-    .banner {
-        height: 300px;
-        width: 100%;
-        background: no-repeat url('/resources/images/wallpaper-02.jpg') scroll;
-        background-size: cover;
-        text-align: center;
-    }
-
     .banner p {
-        font-family: 'Righteous', cursive;
-        font-size: 50px;
-        font-weight: bold;
-        color: white;
-        padding-top: 75px;
+        padding-top: 80px;
     }
 
 
 	/* cards */
     .cards {
-        display: grid;
         grid-template-areas: 
             "a a a a a a a a a a";
-        justify-items: center;
-        justify-content: start;
-        grid-row-gap: 30px;
     }
 }
 
@@ -143,12 +127,8 @@
 
 	/* cards */
     .cards {
-        display: grid;
         grid-template-areas: 
             "a a a a a a a a";
-        justify-items: center;
-        justify-content: start;
-        grid-row-gap: 30px;
     }
 }
 
@@ -156,193 +136,61 @@
 
 /* iPad Pro-12.9 landscape */
 @media only screen and (max-width: 1366px) and (orientation: landscape) {
-	/* Banner */
-    .banner {
-        height: 300px;
-        width: 100%;
-        background: no-repeat url('/resources/images/wallpaper-02.jpg') scroll;
-        background-size: cover;
-        text-align: center;
-    }
-
-    .banner p {
-        font-family: 'Righteous', cursive;
-        font-size: 50px;
-        font-weight: bold;
-        color: white;
-        padding-top: 75px;
-    }
-
+	/* banner */
+    .banner p {padding-top: 80px;}
 
 	/* cards */
-    .cards {
-        display: grid;
-        grid-template-areas: 
-            "a a a a a";
-        justify-items: center;
-        justify-content: start;
-        grid-row-gap: 30px;
-    }
+    .cards {grid-template-areas:"a a a a a";}
 }
 
 
 /* iPad Pro-10.5 landscape */
 @media only screen and (max-width: 1112px) and (orientation: landscape) {
 	/* banner */
-    .banner {
-        height: 300px;
-        width: 100%;
-        background: no-repeat url('/resources/images/wallpaper-02.jpg') scroll;
-        background-size: cover;
-        text-align: center;
-    }
-
-    .banner p {
-        font-family: 'Righteous', cursive;
-        font-size: 50px;
-        font-weight: bold;
-        color: white;
-        padding-top: 75px;
-    }
-
+    .banner p {padding-top: 80px;}
 
 	/* cards */
-    .cards {
-        display: grid;
-        grid-template-areas: 
-            "a a a a";
-        justify-items: center;
-        justify-content: start;
-        grid-row-gap: 30px;
-    }
+    .cards {grid-template-areas:"a a a a";}
 }
 
 
 /* iPad Pro-9.7 landscape */
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
 	/* banner */
-    .banner {
-        height: 300px;
-        width: 100%;
-        background: no-repeat url('/resources/images/wallpaper-02.jpg') scroll;
-        background-size: cover;
-        text-align: center;
-    }
-
-    .banner p {
-        font-family: 'Righteous', cursive;
-        font-size: 50px;
-        font-weight: bold;
-        color: white;
-        padding-top: 75px;
-    }
-
+    .banner p {padding-top: 80px;}
 
 	/* cards */
-    .cards {
-        display: grid;
-        grid-template-areas: 
-            "a a a a";
-        justify-items: center;
-        justify-content: start;
-        grid-row-gap: 30px;
-    }
+    .cards {grid-template-areas:"a a a a";}
 }
 
 
 /* iPad Pro-12.9 portrait */
 @media only screen and (max-width: 1024px) and (orientation: portrait) {
-	/* Banner */
-    .banner {
-        height: 300px;
-        width: 100%;
-        background: no-repeat url('/resources/images/wallpaper-02.jpg') scroll;
-        background-size: cover;
-        text-align: center;
-    }
-
-    .banner p {
-        font-family: 'Righteous', cursive;
-        font-size: 50px;
-        font-weight: bold;
-        color: white;
-        padding-top: 75px;
-    }
-
+	/* banner */
+    .banner p {padding-top: 80px;}
 
 	/* cards */
-    .cards {
-        display: grid;
-        grid-template-areas: 
-            "a a a a";
-        justify-items: center;
-        justify-content: start;
-        grid-row-gap: 30px;
-    }
+    .cards {grid-template-areas:"a a a a";}
 }
 
 
 /* iPad Pro-10.5 portrait */
 @media only screen and (max-width: 834px) and (orientation: portrait) {
-	/* Banner */
-    .banner {
-        height: 300px;
-        width: 100%;
-        background: no-repeat url('/resources/images/wallpaper-02.jpg') scroll;
-        background-size: cover;
-        text-align: center;
-    }
-
-    .banner p {
-        font-family: 'Righteous', cursive;
-        font-size: 50px;
-        font-weight: bold;
-        color: white;
-        padding-top: 75px;
-    }
-
+	/* banner */
+    .banner p {padding-top: 80px;}
 
 	/* cards */
-    .cards {
-        display: grid;
-        grid-template-areas: 
-            "a a a";
-        justify-items: center;
-        justify-content: start;
-        grid-row-gap: 30px;
-    }
+    .cards {grid-template-areas:"a a a";}
 }
 
 
 /* iPad Pro-9.7 portrait */
 @media only screen and (max-width: 768px) and (orientation: portrait) {
 	/* banner */
-    .banner {
-        height: 300px;
-        width: 100%;
-        background: no-repeat url('/resources/images/wallpaper-02.jpg') scroll;
-        background-size: cover;
-        text-align: center;
-    }
-
-    .banner p {
-        font-family: 'Righteous', cursive;
-        font-size: 50px;
-        font-weight: bold;
-        color: white;
-        padding-top: 75px;
-    }
-
+    .banner p {padding-top: 80px;}
 
 	/* cards */
-    .cards {
-        display: grid;
-        grid-template-areas: 
-            "a a a";
-        justify-items: center;
-        justify-content: start;
-        grid-row-gap: 30px;
-    }
+    .cards {grid-template-areas:"a a a";}
 }
 
 
