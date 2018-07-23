@@ -534,6 +534,9 @@
 }
 .toggle-page .pagination{
 	display: inline-block !important;
+	position: absolute;
+    bottom: 35px;
+    right: 1000px;
 }
 .toggle-page .pagination .page-item{
 	display: inline-block !important;
