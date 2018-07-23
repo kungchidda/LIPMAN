@@ -24,6 +24,8 @@
 <!-- sourcetree test -->
 	<%@ include file="/WEB-INF/views/mypage/userIcon.jsp"%>
 
+<c:if test="${userVO.subscriber_p == 1 || login.uid == cri.uid}">
+
 <!-- 				<ul id="og-grid" class="og-grid rf-content--projects"> -->
 				<ul class="mypage-subscriber">
 					<c:forEach items="${list}" var="subscribeVO">
@@ -45,7 +47,7 @@
 						
 					</c:forEach>
 				</ul>
-	
+</c:if>	
 	<script id="template" type="text/x-handlebars-template">
 		{{#each .}}
 			<div style="height:50px;" class="subtitleLi" data-sno={{sno}}>

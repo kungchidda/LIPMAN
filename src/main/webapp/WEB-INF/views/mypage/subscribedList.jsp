@@ -21,62 +21,60 @@
 	<%@ include file="/WEB-INF/views/mypage/userIcon.jsp"%>
     
 
-
-	
-	<ul class="og-grid cards">
-		<c:forEach items="${subscribedList}" var="MyPageVO">
-			<li class="expander" id="${MyPageVO.tno}">
-				<img class="thumbnail" src="/displayFile?fileName=${MyPageVO.boardFullName}" />
-				<div class="title">${MyPageVO.title}</div>
-				
-				<div class="subtitle">${MyPageVO.subtitle}</div>
-				
-				<div class="thumbnail-thumb">
-					<img src="/resources/png/pencil.png"><span>${MyPageVO.likecnt}</span>
-					<img src="/resources/png/eraser.png"><span>${MyPageVO.dislikecnt}</span>
-				</div>
-				<div class="line">
-					<img src="/resources/svg/line.svg">
-				</div>
-				
-				<div class="thumbnail-writer">
-					<img src="/displayFile?fileName=${MyPageVO.profileFullName}">
-					<span>${MyPageVO.uname}</span>
-				</div>
-				
-				<div class="og-expander hide do-not-close" style="height: 550px;">
-						<div class="og-expander-inner do-not-close">
-							<div class="expander-title-inner">
-								<div class="og-fullimg do-not-close">
-									<img class="do-not-close" src="/displayFile?fileName=${MyPageVO.titleFullName}" style="display: inline;">
-								</div>
-								<div class="comic-list-genre do-not-close">
-									<div>${MyPageVO.gname}</div>
-								</div>
-								<div class="comic-list-title do-not-close">
-									<div>${MyPageVO.title}</div>
-								</div>
-							</div>
-								<div class="toggle-page">
-									<div class="subtitleLi do-not-close">
-										<a href="#">
-											<div class="comic-list-img do-not-close">
-												<img src="/displayFile?fileName=${MyPageVO.boardFullName}">
-											</div>
-											<div class="comic-list-text cursor do-not-close">
-												${MyPageVO.subtitle}</div>
-										</a>
-										<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
+	<c:if test="${userVO.subscriber_p == 1 || login.uid == cri.uid}">
+		<ul class="og-grid cards">
+			<c:forEach items="${subscribedList}" var="MyPageVO">
+				<li class="expander" id="${MyPageVO.tno}">
+					<img class="thumbnail" src="/displayFile?fileName=${MyPageVO.boardFullName}" />
+					<div class="title">${MyPageVO.title}</div>
+					
+					<div class="subtitle">${MyPageVO.subtitle}</div>
+					
+					<div class="thumbnail-thumb">
+						<img src="/resources/png/pencil.png"><span>${MyPageVO.likecnt}</span>
+						<img src="/resources/png/eraser.png"><span>${MyPageVO.dislikecnt}</span>
+					</div>
+					<div class="line">
+						<img src="/resources/svg/line.svg">
+					</div>
+					
+					<div class="thumbnail-writer">
+						<img src="/displayFile?fileName=${MyPageVO.profileFullName}">
+						<span>${MyPageVO.uname}</span>
+					</div>
+					
+					<div class="og-expander hide do-not-close" style="height: 550px;">
+							<div class="og-expander-inner do-not-close">
+								<div class="expander-title-inner">
+									<div class="og-fullimg do-not-close">
+										<img class="do-not-close" src="/displayFile?fileName=${MyPageVO.titleFullName}" style="display: inline;">
+									</div>
+									<div class="comic-list-genre do-not-close">
+										<div>${MyPageVO.gname}</div>
+									</div>
+									<div class="comic-list-title do-not-close">
+										<div>${MyPageVO.title}</div>
 									</div>
 								</div>
+									<div class="toggle-page">
+										<div class="subtitleLi do-not-close">
+											<a href="#">
+												<div class="comic-list-img do-not-close">
+													<img src="/displayFile?fileName=${MyPageVO.boardFullName}">
+												</div>
+												<div class="comic-list-text cursor do-not-close">
+													${MyPageVO.subtitle}</div>
+											</a>
+											<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
+										</div>
+									</div>
+							</div>
 						</div>
-					</div>
-				
-			</li>
-		</c:forEach>
-	</ul>
-	    
-    
+					
+				</li>
+			</c:forEach>
+		</ul>
+	</c:if>
 	
 	<!-- /.container -->
 

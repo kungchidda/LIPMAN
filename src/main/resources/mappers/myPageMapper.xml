@@ -206,7 +206,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="setting" resultType="UserVO">
 		select
-			a.uno, a.uid, a.uname, IFNULL(b.profileFullName, '/account.png') as profileFullName, GROUP_CONCAT(gn.genre SEPARATOR ',') as genre, GROUP_CONCAT(gn.gname SEPARATOR ',') as gname
+			a.uno, a.uid, a.uname, IFNULL(b.profileFullName, '/account.png') as profileFullName, GROUP_CONCAT(gn.genre SEPARATOR ',') as genre, GROUP_CONCAT(gn.gname SEPARATOR ',') as gname, uid_p, subscribe_p, subscriber_p, genre_p
 		from
 			tbl_user a
 
