@@ -78,7 +78,6 @@ h4 {
 
 
 /* profile : Modify & Remove Btn */
-
 .modifyPageBtn {
     border: 1px solid #424242;
     background-color: white;
@@ -479,7 +478,7 @@ h4 {
 .another-expander-title-inner {
 	display: grid;
     grid-template-columns: 330px;
-    grid-template-rows: 320px 30px 50px;
+    grid-template-rows: 320px 40px 40px;
     grid-template-areas: 
         "a"
         "b"
@@ -571,6 +570,16 @@ h4 {
     text-align: center;
 }
 
+
+/* Another comic : pagination */
+.toggle-page .pagination{
+	display: inline-block !important;
+	position: absolute;
+    bottom: 18px;
+    right: 1000px;
+}
+
+
 /* Another comic : margin-bottom */
 .margin-bottom {margin-bottom: 535px !important;}
 
@@ -628,14 +637,13 @@ h4 {
 
 
 /* another comment css */
-
 .another-comment {
     display: grid;
-    grid-template-columns: 60px 42% 100px;
+    grid-template-columns: 60px 1050px;
     grid-template-areas:
-    	"a b ."
-    	"c c ."
-    	". d .";
+    	"a b"
+    	". c"
+    	". d";
     justify-items: center;
     justify-content: center;
     grid-gap: 10px;
@@ -648,14 +656,13 @@ h4 {
     color: black;
 }
 
-
 .another-comment .another-user-image {
     grid-area: a;
     align-self: center;
 }
 
 .another-comment .another-user-image img {
-    width: 30px;
+    width: 40px;
 }
 
 .another-comment .another-user-name {
@@ -667,51 +674,25 @@ h4 {
 .another-comment .another-user-time {
     font-size: 14px;
     color: gray;
-    padding-right: 200px;
-}
-
-.another-comment span {
-    padding-left: 20px;
 }
 
 .another-comment .another-comment-modify {
     grid-area: b;
     align-self: center;
     justify-self: end;
-    font-size: 14px;
-    color: gray;
-    padding-right: 60px;
+    padding-right: 20px;
 }
 
 .another-comment .another-comment-modify img {
     width: 20px;
 }
 
-.another-comment .another-comment-Delete {
-    grid-area: b;
-    align-self: center;
-    justify-self: end;
-    font-size: 14px;
-    color: gray;
-    padding-right: 20px;
-}
-
-.another-comment .another-comment-Delete img {
-    width: 20px;
-}
-
 .another-comment textarea {
     grid-area: c;
-    width: 87%;
-    justify-self: center;
+    width: 1000px;
+    justify-self: start;
     word-wrap: break-word;
 }
-
-/* .another-comment textarea { */
-/*     width: 40%; */
-/* } */
-
-.another-comment text {}
 
 .another-comment .another-comment-thumb {
     grid-area: d;
@@ -726,6 +707,7 @@ h4 {
 
 .another-comment .another-comment-thumb span {
     padding: 10px;
+    vertical-align: 20%;
 }
 
 
@@ -742,8 +724,8 @@ h4 {
 textarea{
 	resize: none;
 }
-/*footer*/
 
+/*footer*/
 .footer {
     width: 100%;
     height: 300px;
@@ -762,9 +744,9 @@ textarea{
 }
 
 .reply-profile-name-button {
-background: white;
-border: 1px solid white;
-color: black;
-font-size: 1em;
+	background: white;
+	border: 1px solid white;
+	color: black;
+	font-size: 1em;
 }
 

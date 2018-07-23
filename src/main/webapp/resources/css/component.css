@@ -427,7 +427,7 @@
 .expander-title-inner {
 	display: grid;
     grid-template-columns: 400px;
-    grid-template-rows: 320px 30px 50px;
+    grid-template-rows: 320px 40px 40px;
     grid-template-areas: 
         "a"
         "b"
@@ -532,28 +532,25 @@
 .toggle-page, .readpage-toggle-page {
 	text-align: center;	
 }
+
 .toggle-page .pagination{
 	display: inline-block !important;
 	position: absolute;
-    bottom: 35px;
+    bottom: 29px;
     right: 1000px;
 }
+
 .toggle-page .pagination .page-item{
 	display: inline-block !important;
-/* 	float : left ; */
     list-style: none;
 }
 
 .readpage-toggle-page .this-pagination .page-item{
 	display: inline-block !important;
-/* 	float : left ; */
     list-style: none;
 }
 
-
 .toggle-page .pagination .comic-list-prev, .comic-list-pagi, .comic-list-next {
-/*     grid-area: i; */
-/* 	float : left !important; */
     list-style: none;
     align-self: center;
 }
