@@ -448,6 +448,13 @@
 			console.log("input change");
 			$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		});
+		
+// 		$("input[name='genre']").on("change", function(event) {
+		$("input[type='checkbox']").on("change", function(event) {
+			console.log("input change");
+			$(".mypage-setting-confirm-button").find("button").addClass("input-change");
+		});
+		
 
 		
 	</script>
