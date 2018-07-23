@@ -34,7 +34,7 @@ h4 {
 		"a b" 
 		"a c";
 	justify-content: center;
-	grid-column-gap: 20px;
+	grid-column-gap: 50px;
 	grid-row-gap: 10px;
 	padding-top: 45px;
 	padding-bottom: 40px;
@@ -52,7 +52,7 @@ h4 {
 
 .content-writer-profile .content-writer-name {
     grid-area: b;
-    justify-self: center;
+    justify-self: start;
 	align-self: end;
 	font-size: 1em;
 	padding-bottom: 10px;
@@ -60,7 +60,7 @@ h4 {
 
 .content-writer-profile .content-writer-subscribe {
     grid-area: c;
-	justify-self: center;
+	justify-self: start;
 	align-self: start;
 	font-size: 1em;
 	padding-top: 10px
@@ -196,7 +196,7 @@ h4 {
 /* writer css */
 .comic-infor {
     display: grid;
-    grid-template-columns: repeat(2, 400px);
+    grid-template-columns: 400px 400px;
     grid-template-rows: 35px 35px 35px 35px 70px;
     grid-template-areas: 
 	    "a b" 
@@ -206,7 +206,7 @@ h4 {
 	    "a f";
     justify-content: center;
     justify-items: center;
-    grid-column-gap: 70px;
+    grid-column-gap: 50px;
     padding-top: 50px;
     padding-bottom: 20px;
 }
