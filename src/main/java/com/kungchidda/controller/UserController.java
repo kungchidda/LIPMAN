@@ -52,7 +52,9 @@ public class UserController {
 
 
 	@RequestMapping(value = "/loginPost", method = RequestMethod.POST)
-	public void loginPOST(LoginDTO dto, HttpSession session, Model model) throws Exception {
+	public void loginPOST(LoginDTO dto, HttpSession session, Model model, HttpServletRequest request) throws Exception {
+		String referer = request.getHeader("Referer");
+		request.getSession().setAttribute("referer", referer);
 
 //		String encPassword = passwordEncoder.encode(dto.getUpw());
 //		dto.setUpw(encPassword);
@@ -110,7 +112,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public String joinPOST(UserVO user, RedirectAttributes rttr) throws Exception {
+	public void joinPOST(LoginDTO dto, UserVO user, RedirectAttributes rttr, Model model, HttpSession session) throws Exception {
 		logger.info("join post ..........");
 		logger.info(user.toString());
 
@@ -123,25 +125,44 @@ public class UserController {
 		
 		service.join(user);
 
-		rttr.addFlashAttribute("msg", "SUCCESS");
+		dto.setUid(user.getUid());
+		dto.setUpw(user.getUpw());
+		
+		UserVO vo = service.login(dto);
+		logger.info("getUname");
+		logger.info("userVO vo.toString = " + vo.toString());
 
-		return "redirect:/sboard/list";
+		model.addAttribute("userVO", vo);
+		// loginCookie 값이 유지되는 시간 정보를 데이터 베이스에 저장
+		if (dto.isUseCookie()) {
+			int amount = 60 * 60 * 24 * 7;
+
+			Date sessionLimit = new Date(System.currentTimeMillis() + (1000 * amount));
+
+			service.keepLogin(vo.getUid(), session.getId(), sessionLimit);
+		}
+
+		rttr.addFlashAttribute("msg", "SUCCESS");
+//		return "redirect:/sboard/list";
 	}
 	
 	@RequestMapping(value = "/setting", method = RequestMethod.POST)
-	public String modifyProfilePOST(@ModelAttribute("cri") SearchCriteria cri, UserVO user, RedirectAttributes rttr) throws Exception {
+	public void modifyProfilePOST(@ModelAttribute("cri") SearchCriteria cri, LoginDTO dto, UserVO user, RedirectAttributes rttr, Model model, HttpServletRequest request) throws Exception {
+	
+		String referer = request.getHeader("Referer");
+		request.getSession().setAttribute("referer", referer);
 		String uid = cri.getUid();
 		logger.info("cir.uid = " + cri.getUid());
 		logger.info("uid = " + uid);
 		
 		user.setUid(uid);
 		
-		logger.info("uid = " + user.getUid());
-		logger.info("upw = " + user.getUpw());
-		logger.info("uname = " + user.getUname());
-		logger.info("file = " + user.getFiles());
-		logger.info("genre = " + user.getGenre());
-		logger.info("genreArr = " + user.getGenreArr());
+//		logger.info("uid = " + user.getUid());
+//		logger.info("upw = " + user.getUpw());
+//		logger.info("uname = " + user.getUname());
+//		logger.info("file = " + user.getFiles());
+//		logger.info("genre = " + user.getGenre());
+//		logger.info("genreArr = " + user.getGenreArr());
 		
 		if(user.getUpw() != "") {
 			logger.info("upw != ''" + user.getUpw());
@@ -151,13 +172,19 @@ public class UserController {
 			user.setUpw(passwordEncoding.encode(user.getUpw()));
 		}
 		service.modify(user);
+		
+		dto.setUid(uid);
+		UserVO vo = service.refresh(dto);
+		logger.info("userVO vo.toString = " + vo.toString());
 
+		model.addAttribute("userVO", vo);
+		
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		rttr.addAttribute("uid", user.getUid());
 
 		logger.info(rttr.toString());
 		
-		return "redirect:/mypage/setting";
+//		return "redirect:/mypage/setting";
 	}
 	
 	@RequestMapping(value = "/existAccount", method = RequestMethod.POST)

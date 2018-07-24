@@ -23,7 +23,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		
 		ModelMap modelMap = modelAndView.getModelMap();
 		Object userVO = modelMap.get("userVO");
-		
+
 		if(userVO != null) {
 			
 			logger.info("new login success");
@@ -37,7 +37,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 				loginCookie.setMaxAge(60 * 60 * 24 * 7); //브라우저에 1주일간 저장
 				response.addCookie(loginCookie);
 				
-		}
+			}
 
 			//response.sendRedirect("/");
 			Object dest = session.getAttribute("dest");

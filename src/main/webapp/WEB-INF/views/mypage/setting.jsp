@@ -315,7 +315,7 @@
 		src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 
 	<script id="template" type="text/x-handlebars-template">
-			<div class="uploadedList">
+			<div class="profile-uploadedList">
 				<img src="{{imgsrc}}" style="width:200px;" alt="Attachment">
 			<div class="mailbox-attachment-info" style="width:200px;">
 				<!-- <a href="{{getLink}}" target="_blank" class="mailbox-attachment-name">{{fileName}}</a> -->
@@ -348,7 +348,7 @@
 						console.log(data);
 						console.log(fileInfo);
 						console.log(html);
-						$(".uploadedList").append(html);
+						$(".profile-uploadedList").append(html);
 						editor.summernote('editor.insertImage',
 								fileInfo.getLink);
 						//editor.insertImage(welEditable, data.url);
@@ -387,24 +387,41 @@
 
 		$("#registerForm").submit(
 				function(event) {
+					
+					arr.pop();
+					deleteArr = deleteArr.concat(arr);
+					deleteArr = deleteArr.concat(registedArr);
+					if(deleteArr.length > 0){
+						
+						$.ajax({
+							  type: 'POST',
+							  url: "/deleteAllFiles",
+							  data: {files:deleteArr},
+							  dataType : "text",
+							  async:false,
+							  success : function(result){
+								}
+							});
+					}
+					
 					event.preventDefault();
 
 					var that = $(this);
 
 					var str = "";
 
-					$(".uploadedList .delbtn").each(
+					$(".profile-uploadedList .delbtn").each(
 							function(index) {
 								console.log(index);
 								str += "<input type='hidden' name='files[" + index + "]' value='" + $(this).attr("data-src") + "'> ";
 							});
 					that.append(str);
-
+					
 					that.get(0).submit();
 
 				});
 
-		$(".uploadedList").on("click", "small", function(event) {
+		$(".profile-uploadedList").on("click", "small", function(event) {
 
 			var that = $(this);
 
@@ -423,7 +440,11 @@
 				}
 			});
 		});
-
+		
+		var arr = [];
+		var registedArr = [];
+		var deleteArr = [];
+		
 		function uploadFile(file) {
 			var formData = new FormData();
 
@@ -439,7 +460,15 @@
 					var fileInfo = getFileInfo(data);
 					var html = template(fileInfo);
 					console.log("html = " + html);
-					$(".uploadedList").remove();
+					
+					var registedImgSrc = $(".registed-img").attr("src");
+					if(registedImgSrc != null){
+						registedImgSrc = registedImgSrc.substring(22);
+						registedArr.push(registedImgSrc);
+					}
+					
+					arr.push(data);
+					$(".profile-uploadedList").remove();
 					$(".mypage-profile-image").append(html);
 				}
 			});
@@ -463,6 +492,30 @@
 			$(".mypage-setting-confirm-button").find("button").addClass("input-change");
 		});
 		
+		
+		var checkUnload = true;
+ 		$(window).on("beforeunload", function(){
+			if(checkUnload){
+				console.log("arr.length = " + arr.length);
+				
+				if(arr.length > 0){
+					
+					$.ajax({
+						  type: 'POST',
+						  url: "/deleteAllFiles",
+						  data: {files:arr},
+						  dataType : "text",
+						  async:false,
+						  success : function(result){
+							}
+						});
+				}
+				
+				console.log("beforeunload event");
+// 				return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
+			}
+			
+		});
 
 		
 	</script>

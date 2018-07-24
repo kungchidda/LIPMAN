@@ -24,18 +24,18 @@
 		<div class="container">
 			<ul class="og-grid cards">
 
-				<li class="title-register">
+				<li class="title-register" id="0">
 					<img class="mypage-home-start-image" src="/resources/png/register.png">
 					<div class="mypage-home-start-talk" style="height: 75px">
 						<!-- <span>Show it!</span><br>
 						<span>Your Comic :)</span> -->
 					</div>
 
-					<form id="registerForm" role="form" action="/title/register" method="post">
+					<form id="registerForm" role="registerForm" action="/title/register" method="post">
 						<div class="og-title-register hide do-not-close">
 							<div class="title-register-inner do-not-close">
 								<div class="title-edit-input do-not-close">
-									<div class="og-fullimg do-not-close fileDrop">
+									<div class="og-fullimg do-not-close" id="fileDrop">
 										<div class="uploadedList do-not-close">
 											<img src="/resources/png/thumbnail.png" class="do-not-close" style="display: inline;">
 										</div>
@@ -44,7 +44,7 @@
 									<input type="file" id="upload-input" style="display: none;">
 									<script>
 										$(function() {
-											$('.fileDrop').click(function(e) {
+											$('#fileDrop').click(function(e) {
 												e.preventDefault();
 												$('#upload-input').click();
 	
@@ -136,7 +136,7 @@
 										<input type="checkbox" name='genreArr' class="do-not-close hide genre-20" value='20'>
 										<span class="title-genre-20 do-not-close false">Adventure</span>
 									</div>
-									<button type="submit" class="title-register-complete-btn">Complete</button>
+									<button type="submit" class="title-register-complete-btn" id="register-title">Complete</button>
 								</div>
 							</div>
 						</div>
@@ -164,22 +164,14 @@
 							</div>
 							<div class="og-expander hide do-not-close">
 								<div class="og-expander-inner do-not-close">
-									<div class="expander-title-inner">
-										<div class="og-fullimg do-not-close fileDrop">
+									<div class="expander-title-inner do-not-close">
+										<div class="og-fullimg do-not-close title-fileDrop">
 											<div class="uploadedList do-not-close">
-												<img class="do-not-close title-fileDrop" src="/displayFile?fileName=${MyPageVO.titleFullName}" style="display: inline;">
+												<img class="do-not-close" src="/displayFile?fileName=${MyPageVO.titleFullName}" style="display: inline;">
 											</div>
 										</div>
-										<input type="file" class="title-upload-input" style="display: none;">
-										<script>
-											$(function() {
-												$('.title-fileDrop').click(function(e) {
-													e.preventDefault();
-													$(this).parent().next().click();
-			
-												});
-											});
-										</script>
+										<input type="file" class="title-upload-input do-not-close" style="display: none;">
+										
 										<div class="comic-list-genre do-not-close">
 											${MyPageVO.gname}
 										</div>
@@ -393,35 +385,48 @@
 				console.log("tno = " + tno);
 				
 				
+				
+				
 				//$('.input-title').attr("readonly").focus();
 				
 		
 				if (submenu.is(":visible")) { //보이면 올림
 					if (!event.target.matches('.do-not-close')) {
 						$(".background-blur").removeClass("background-blur"); //blur 효과 없애기
+
 						submenu.slideUp(300);
 						$(this).removeClass("margin-bottom");
+						
+						initialExpander();
+						
 					}
 				} else {
 					var getSubtitleResult = getSubtitle(tno, 1);
+					
+					var imgSrc = $(this).find('.thumbnail').attr("src");
+					imgSrc = imgSrc.substring(22);
+					console.log("imgSrc = " + imgSrc);
+					var fileInfo = getFileInfo(imgSrc);
+					var html = template(fileInfo);
+					
+					$(".uploadedList").remove();
+//	 				$("#fileDrop").append(html);
+					$(".title-fileDrop").append(html);
+					
+					
+					
 					if (getSubtitleResult) {
 		
 						if ($(".og-expander").is(":visible") || $(".og-title-register").is(":visible")) { //열린 곳이 있으면
 		
-							//$(".og-title-register").hide(); //다른 곳은 닫음
+							$(".og-title-register").hide(); //다른 곳은 닫음
 							$(".og-expander").hide(); //다른 곳은 닫음
 							$(".background-blur").removeClass("background-blur"); //blur 효과 없애기
 							$(".expander").not(this).addClass("background-blur"); //blur 효과 주기
 							$(".margin-bottom").removeClass("margin-bottom"); //margin 삭제
 							$(this).addClass("margin-bottom");
 							
-							$('.toggle-page').show();
-							$('.title-genre-checkbox').addClass("hide");
-							
-							$('.comic-title').show();
-// 							$('.comic-title-edit').addClass("hide");
-							$('.comic-title-edit').hide();
-							$('.input-title').attr("readonly");
+							initialExpander();
 							
 							submenu.slideDown(300);
 		
@@ -429,8 +434,9 @@
 							$(".expander").not(this).addClass("background-blur"); //blur 효과 주기
 							$(this).addClass("margin-bottom");
 		
-							$('.toggle-page').show();
-							$('.title-genre-checkbox').addClass("hide");
+							initialExpander();
+
+							
 							submenu.slideDown(300);
 						}
 					}
@@ -441,25 +447,34 @@
 		
 				console.log("title-register clicked");
 				$('.title-genre-checkbox').removeClass("hide");
+				
+				
 
 				
 				var submenu = $(".og-title-register");
 				if (submenu.is(":visible")) { //보이면 올림
 					if (!event.target.matches('.do-not-close')) {
 						$(".background-blur").removeClass("background-blur"); //blur 효과 없애기
+						
 						submenu.slideUp(300);
+						
 						$(this).removeClass("margin-bottom");
 					}
 				} else {
 		
+					var fileInfo = getFileInfo("/thumbnail.png");
+					var html = template(fileInfo);
+					
+					$(".uploadedList").remove();
+					$("#fileDrop").append(html);
+//	 				$(".title-fileDrop").append(html);
+					
 					if ($(".og-expander").is(":visible") || $(".og-title-register").is(":visible")) { //열린 곳이 있으면
 		
-						
 						$('.toggle-page').hide();
 						$('.title-genre-checkbox').removeClass("hide");
 						
 						$('.comic-title').show();
-// 						$('.comic-title-edit').addClass("hide");
 						$('.comic-title-edit').hide();
 						$('.input-title').attr("readonly");
 						
@@ -481,7 +496,6 @@
 						submenu.slideDown(300);
 		
 					} else { //열린 곳이 없으면
-						
 						
 						$('.title-register-inner').show();
 						$('.title-input').attr("readonly");
@@ -506,7 +520,19 @@
 	<script type="text/javascript" src="/resources/js/upload.js"></script>
 	<script id="template" type="text/x-handlebars-template">
 		<div class="uploadedList do-not-close">
-			<img src="{{imgsrc}}" alt="Attachment" class="do-not-close" style="display: inline;">
+			<img src="{{imgsrc}}" alt="Attachment" class="registed-img do-not-close" style="display: inline;">
+		<div class="mailbox-attachment-info do-not-close"style="width:200px;">
+				<!-- <a href="{{getLink}}" target="_blank" class="mailbox-attachment-name">{{fileName}}</a> -->
+				<small data-src="{{fullName}}" class="hide btn btn-default btn-xs pull-right delbtn">
+				<!-- <i class="fa fa-fw fa-remove"></i> -->
+				</small>
+		</div>
+		</div>
+	</script>
+	
+	<script id="upload-template" type="text/x-handlebars-template">
+		<div class="uploadedList do-not-close">
+			<img src="{{imgsrc}}" alt="Attachment" class="do-not-close submit-yet" style="display: inline;">
 		<div class="mailbox-attachment-info do-not-close"style="width:200px;">
 				<!-- <a href="{{getLink}}" target="_blank" class="mailbox-attachment-name">{{fileName}}</a> -->
 				<small data-src="{{fullName}}" class="hide btn btn-default btn-xs pull-right delbtn">
@@ -530,6 +556,15 @@
 	</script>
 
 	<script>
+		function initialExpander(){
+			$('.toggle-page').show();
+			$('.title-genre-checkbox').addClass("hide");
+			
+			$('.comic-title').show();
+			$('.comic-title-edit').hide();
+			$('.input-title').attr("readonly");
+		}
+	
 		//subtitle print
 		// 	var formObj = $("form[role='form']");
 
@@ -632,6 +667,14 @@
 						console.log("input change");
 						$(".confirm-button").addClass("input-change");
 					});
+					
+ 					$('.title-fileDrop').click(function(e) {
+						e.preventDefault();
+						if ($(".title-genre-checkbox").is(":visible")) {
+							console.log('$(".title-genre-checkbox").is(":visible") = ' + $(".title-genre-checkbox").is(":visible"));
+							$(this).parent().find("input[type='file']").click();
+						};
+					});
 			
 					$('#searchBtn').on("click", function(event) {
 						self.location = "list" + '${pageMaker.makeQuery(1)}' + "&searchType=" + $("select option:selected").val() + "&keyword=" + $('#keywordInput').val();
@@ -670,7 +713,7 @@
 							}
 					});
 
-					$('.cancel-title').click(
+/* 					$('.cancel-title').click(
 							function(e) {
 								$('.comic-title').show();
 								$('.comic-title-edit').hide();
@@ -682,13 +725,41 @@
 									$(".genre-"+ i).next().removeClass("true");
 									$(".genre-"+ i).next().addClass("false");
 								}
-							});
+					}); */
 
 
 					$(".submit-title").on("click",function() {
-						console.log("clicked submit-title");
+						checkUnload = false;
 						
+						var deleteArr = [];
+						arr.pop();
+						console.log("arr.length = " + arr.length);
+						console.log("registedArr.length = " + registedArr.length);
+						
+						deleteArr = arr.concat(registedArr);
+						
+						 if(deleteArr.length > 0){
+								$.ajax({
+									  type: 'POST',
+									  url: "/deleteAllFiles",
+									  data: {files:deleteArr},
+									  dataType : "text",
+									  async:false,
+									  success : function(result){
+										}
+								});
+						}
+						
+						var str = "";
+						console.log("clicked submit-title");
 						$(this).parent().parent().parent().parent().attr("action", "/title/modifyTitle");
+						$(this).parent().parent().parent().find(".uploadedList .delbtn").each(
+								function(index) {
+									console.log(index);
+									str += "<input type='hidden' name='files["+ index + "]' value='"+ $(this).attr("data-src") + "'> ";
+									console.log("str = " + str);
+								});
+						$(this).parent().parent().parent().parent().append(str);
 						$(this).parent().parent().parent().parent().submit();
 					});
 					
@@ -696,6 +767,56 @@
 						console.log("clicked delete-title");
 						$(this).parent().parent().parent().parent().attr("action", "/title/removeTitle");
 						$(this).parent().parent().parent().parent().submit();
+						
+					});
+					
+					
+					/**************************************************************************************/
+					/**************************************************************************************/
+					/*                               beforeunload start                                   */
+					/**************************************************************************************/
+					/**************************************************************************************/
+					
+					var arr = [];
+					var registedArr = [];
+					var checkUnload = true;
+
+					$(window).on("beforeunload", function(){
+						if(checkUnload){
+							/* $(".submit-yet").each(function(index){
+								var dataSrc = $(this).attr("src");
+								dataSrc = dataSrc.substring(22);
+								console.log("dataSrc = " + dataSrc);
+								arr.push(dataSrc);
+								
+								var front = dataSrc.substring(0, 12);
+								var end = dataSrc.substring(12);
+								thumbnailSrc = front + "s_" + end;
+								console.log("thumbnailSrc" + thumbnailSrc);
+								arr.push(thumbnailSrc);
+							}); */
+							console.log("arr.length = " + arr.length);
+							
+							for(i=0; i<arr.length; i++){
+								console.log("arr["+i+"] = " + arr[i]);
+							}
+							
+							if(arr.length > 0){
+								
+								$.ajax({
+									  type: 'POST',
+									  url: "/deleteAllFiles",
+									  data: {files:arr},
+									  dataType : "text",
+									  async:false,
+									  success : function(result){
+										}
+									});
+							}
+							
+							console.log("beforeunload event");
+//			 				return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
+						}
 						
 					});
 					
@@ -723,6 +844,13 @@
 						}
 					});
 
+					
+					
+					/**************************************************************************************/
+					/**************************************************************************************/
+					/*                            infinity scroll start                                   */
+					/**************************************************************************************/
+					/**************************************************************************************/
 					//무한 스크롤 기능 일시 정지 
 					//현재 페이지 받아옴
 					var i = ${pageMaker.cri.page};
@@ -772,11 +900,7 @@
 
 					});
 
-				});
-	</script>
 
-	<script>
-		var template = Handlebars.compile($("#template").html());
 
 		$("#fileDrop").on("dragenter dragover", function(event) {
 			event.preventDefault();
@@ -786,10 +910,10 @@
 			event.preventDefault();
 
 			var files = event.originalEvent.dataTransfer.files;
-
+			var tno = $(this).parent().parent().parent().parent().parent().attr("id");
 			for (i = 0; i < files.length; i++) {
 				var file = files[i]
-				uploadFile(file);
+				uploadFile(file, tno);
 			}
 
 		});
@@ -797,29 +921,51 @@
 		$("#upload-input").on("change", function(event) {
 
 			event.preventDefault();
-
+			var tno = $(this).parent().parent().parent().parent().parent().attr("id");
 			var files = event.target.files
 			for (i = 0; i < files.length; i++) {
 				var file = event.target.files[i]
-				uploadFile(file);
+				uploadFile(file, tno);
 			}
 		});
 		
 		$(".title-upload-input").on("change", function(event) {
 
 			event.preventDefault();
-
+			var tno = $(this).parent().parent().parent().parent().parent().attr("id");
+			console.log("upload-input tno = " + tno);
 			var files = event.target.files
 			for (i = 0; i < files.length; i++) {
 				var file = event.target.files[i]
-				uploadFile(file);
+				uploadFile(file, tno);
 			}
 		});
 
 		$("#registerForm").submit(
 				function(event) {
+					checkUnload = false;
 					event.preventDefault();
 
+					var deleteArr = [];
+					arr.pop();
+					console.log("arr.length = " + arr.length);
+					console.log("registedArr.length = " + registedArr.length);
+					
+					deleteArr = arr.concat(registedArr);
+					
+					 if(deleteArr.length > 0){
+							$.ajax({
+								  type: 'POST',
+								  url: "/deleteAllFiles",
+								  data: {files:deleteArr},
+								  dataType : "text",
+								  async:false,
+								  success : function(result){
+									}
+							});
+					}
+					
+					
 					var that = $(this);
 
 					var str = "";
@@ -855,7 +1001,7 @@
 			});
 		});
 
-		function uploadFile(file) {
+		function uploadFile(file, tno) {
 			var formData = new FormData();
 
 			formData.append("file", file);
@@ -867,20 +1013,61 @@
 				contentType : false,
 				type : 'POST',
 				success : function(data) {
+					
+					arr.push(data);
+					
+					/* $(".uploadedList .submit-yet").each(function(index){
+						var dataSrc = $(this).attr("src");
+						dataSrc = dataSrc.substring(22);
+						console.log("dataSrc = " + dataSrc);
+						arr.push(dataSrc);
+					}); */
+					
 					var fileInfo = getFileInfo(data);
-					var html = template(fileInfo);
+					var html = uploadTemplate(fileInfo);
+					
+					
+					
 					console.log("html = " + html);
-					$(".uploadedList").remove();
-					$(".fileDrop").append(html);
+					console.log("tno = " + tno);
+					
+					
+					if(tno == 0){
+						$(".uploadedList").remove();
+						$("#fileDrop").append(html);
+					
+					}else{
+						registedArr = [];
+						var registedImgSrc = $("#"+tno).find(".uploadedList .registed-img").attr("src");
+						console.log("registedImgSrc = " + registedImgSrc);
+						if(registedImgSrc != null){
+							registedImgSrc = registedImgSrc.substring(22);
+							registedArr.push(registedImgSrc);
+						}
+						
+						/* $(".uploadedList .submit-yet").each(function(index){
+							var dataSrc = $(this).attr("src");
+							dataSrc = dataSrc.substring(22);
+							console.log("dataSrc = " + dataSrc);
+							arr.push(dataSrc);
+						}); */
+						
+						$("#"+tno).find(".uploadedList").remove();
+						$("#"+tno).find(".title-fileDrop").append(html);
+					}
 
 				}
 			});
 		}
 
-		var formObj = $("form[role='form']");
-		$("#submit-title").on("click", function() {
+/* 		var formObj = $("form[role='registerForm']");
+		$("#register-title").on("click", function() {
 			formObj.submit();
-		});
+		}); */
+	});
+
+		var template = Handlebars.compile($("#template").html());
+		var uploadTemplate = Handlebars.compile($("#upload-template").html());
 	</script>
 
 

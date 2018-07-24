@@ -29,6 +29,12 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
+	@PreAuthorize("#userVO.uid == authentication.name or hasRole(‘ROLE_ADMIN')")
+	public UserVO refresh(LoginDTO dto) throws Exception {
+		return dao.refresh(dto);
+	}
+	
+	@Override
 	public void keepLogin(String uid, String sessionId, Date next) throws Exception {
 		dao.keepLogin(uid, sessionId, next);
 		

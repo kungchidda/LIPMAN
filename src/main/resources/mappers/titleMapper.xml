@@ -206,7 +206,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	<insert id="replaceAttach">
-		insert into tbl_title_attach(titleFullName, bno) values (#{titleFullName}, #{tno})
+		insert into tbl_title_attach(titleFullName, tno) values (#{titleFullName}, #{tno})
 	</insert>
 	
 	<delete id="deleteReplyAll">

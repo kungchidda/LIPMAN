@@ -119,11 +119,11 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 	
 	@Override
-	public void replaceAttach(String fullName, Integer bno) throws Exception {
+	public void replaceAttach(String boardFullName, Integer bno) throws Exception {
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		
 		paramMap.put("bno", bno);
-		paramMap.put("fullName", fullName);
+		paramMap.put("boardFullName", boardFullName);
 		
 		session.insert(namespace+".replaceAttach", paramMap);
 	}

@@ -54,7 +54,8 @@
 			<c:if test="${not empty login}">
 				<form id="subscriberForm" role="form" action="/mypage/titleList" method="GET">
 	 				<input type="hidden" name="uid" value='${login.uid}'>
-	 				<button type="submit" class="accountBtn-login profile-img-button"><img src="/displayFile?fileName=${login.profileFullName}"></button>
+	 				<button type="submit" class="accountBtn-login profile-img-button"><img src="/displayFile?fileName=${login.profileFullName}" id="header-profile-img"></button>
+	 				
 	 			</form>
 <%-- 				<a href="/mypage/titleList"><span><img class="dropbtn accountBtn-login" src="/displayFile?fileName=${login.profileFullName}"></span></a> --%>
 			</c:if>
@@ -235,8 +236,9 @@
 
 <!-- forgot password -->
     <div id="forgotBar" class="do-not-close dropdown-contents">
-        <form class="dropdown-forgot do-not-close" role="form" action="/user/join" method="post">
-            <input type="email" name='uid' class="signup-email do-not-close" placeholder='E-mail' required>
+        <form class="dropdown-forgot do-not-close" role="form" action="" method="post">
+<!--             <input type="email" name='uid' class="signup-email do-not-close" placeholder='E-mail' required> -->
+            <input type="email" name='uid' class="do-not-close" placeholder='E-mail' required>
          	<button class="send-email do-not-close">Send</button>
             <button class="cancel-btn dropbtn do-not-close" onclick="myPageFunction()">
                 Cancel
