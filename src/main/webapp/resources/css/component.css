@@ -1,3 +1,7 @@
+html{
+	-webkit-overflow-scrolling : touch;
+}
+
 .og-grid {
     list-style: none;
     padding: 0px 0;
@@ -24,7 +28,8 @@
     text-align: left;
     height: 540px;
     overflow: hidden;
-    border: 1px solid #d3d3d3;
+    border-top: 1px solid #d3d3d3;
+    border-bottom: 1px solid #d3d3d3;
     box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.05);
     text-align: center;
     height: 550px;
@@ -577,6 +582,46 @@
 	    padding-left: 86px;
 	    padding-right: 85px;
 	}
+	
+	.og-title-register, .og-expander {
+	    height: 520px;
+	}
+	
+	
+/* Main-cards-expander-inner : cards-left */
+	.expander-title-inner {
+	    grid-template-columns: 350px;
+	    padding-top: 50px;
+	}
+	
+	
+/* Main-cards-expander-inner : cards-right */
+	.toggle-page{
+		display: grid;
+		grid-template-columns: 510px;
+		grid-template-rows: 120px;
+		grid-template-areas:
+		 "a";
+		justify-content: start;
+		align-items:center;
+		overflow: scroll;
+		width: 520px;
+		height: 420px;
+		padding-left: 30px;
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+	
+	.subtitleLi a{
+	    grid-template-columns: 170px 340px;
+	    grid-template-rows: 120px;
+	}
+	
+	
+/* Margin-bottom */
+	.margin-bottom {
+		margin-bottom: 535px !important;
+	}
 } 
 
 
@@ -597,6 +642,16 @@
 	    padding-left: 37px;
 	    padding-right: 37px;
 	}
+	
+	
+/* Main-cards-expander-inner : cards-right */
+	.toggle-page{
+		width: 700px;
+	}
+	
+	.subtitleLi a{
+	    grid-template-columns: 140px 210px;
+	}
 }
 
 
@@ -606,6 +661,49 @@
 	.og-grid {
 	    padding-left: 37px;
 	    padding-right: 37px;
+	}
+	
+	.og-title-register, .og-expander {
+	    height: 470px;
+	}
+	
+/* Main-cards-expander-inner : cards-left */
+	.expander-title-inner {
+	    grid-template-columns: 270px;
+	    grid-template-rows: 270px 40px 40px;
+	    padding-top: 50px;
+	}
+	
+	.og-fullimg img {
+		width: 250px;
+	}
+	
+	
+/* Main-cards-expander-inner : cards-right */
+	.toggle-page{
+		display: grid;
+		grid-template-columns: 450px;
+		grid-template-rows: 120px;
+		grid-template-areas:
+		 "a";
+		justify-content: start;
+		align-items:center;
+		overflow: scroll;
+		width: 460px;
+		height: 370px;
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+	
+	.subtitleLi a{
+	    grid-template-columns: 170px 280px;
+	    grid-template-rows: 120px;
+	}
+	
+	
+/* Margin-bottom */
+	.margin-bottom {
+		margin-bottom: 465px !important;
 	}
 }
 
@@ -641,6 +739,12 @@
 	.og-grid {
 	    padding-left: 29px;
 	    padding-right: 28px;
+	}
+	
+	
+/* Main-cards-expander-inner : cards-top */
+	.expander-title-inner {
+	    width: 768px;
 	}
 }
 
