@@ -572,48 +572,160 @@
 
 /* iPad Pro-12.9 landscape */
 @media only screen and (max-width: 1366px) and (orientation: landscape) {
+/* Main-cards */
 	.og-grid {
 	    padding-left: 86px;
 	    padding-right: 85px;
 	}
 } 
 
+
 /* iPad Pro-10.5 landscape */
 @media only screen and (max-width: 1112px) and (orientation: landscape) {
+/* Main-cards */
 	.og-grid {
 	    padding-left: 82px;
 	    padding-right: 82px;
 	}
 }
 
+
 /* iPad Pro-9.7 landscape */
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
+/* Main-cards */
 	.og-grid {
 	    padding-left: 37px;
 	    padding-right: 37px;
 	}
 }
+
 
 /* iPad Pro-12.9 portrait */
 @media only screen and (max-width: 1024px) and (orientation: portrait) {
+/* Main-cards */
 	.og-grid {
 	    padding-left: 37px;
 	    padding-right: 37px;
 	}
 }
 
+
 /* iPad Pro-10.5 portrait */
 @media only screen and (max-width: 834px) and (orientation: portrait) {
+/* Main-cards */
 	.og-grid {
 	    padding-left: 61px;
 	    padding-right: 61px;
 	}
 }
 
+
+/* iPad Pro-X landscape */
+@media only screen and (max-width: 812px) and (orientation: landscape) {
+/* Main-cards */
+	.og-grid {
+	    padding-left: 12px;
+	    padding-right: 11px;
+	}
+	
+	.og-grid .expander, .title-register {
+	    width: 160px;
+	    height: 310px;
+	}
+}
+
+
 /* iPad Pro-9.7 portrait */
 @media only screen and (max-width: 768px) and (orientation: portrait) {
+/* Main-cards */
 	.og-grid {
 	    padding-left: 29px;
 	    padding-right: 28px;
 	}
 }
+
+
+/* iPad Pro-6+/7+/8+  landscape */
+@media only screen and (max-width: 736px) and (orientation:  landscape) {
+/* Main-cards */
+	.og-grid {
+	    padding-left: 72px;
+	    padding-right: 72px;
+	}
+}
+
+
+/* iPad Pro-6/7/8 landscape */
+@media only screen and (max-width: 667px) and (orientation: landscape) {
+/* Main-cards */
+	.og-grid {
+	    padding-left: 38px;
+	    padding-right: 38px;
+	}
+}
+
+
+/* iPad Pro-5/SE/5S  landscape */
+@media only screen and (max-width: 568px) and (orientation:  landscape) {
+/* Main-cards */
+	.og-grid {
+	    padding-left: 11px;
+	    padding-right: 11px;
+	}
+	
+	.og-grid .expander, .title-register {
+	    width: 160px;
+	    margin: 10px 10px 0 10px;
+	    height: 310px;
+	}
+}
+
+
+/* iPad Pro-6+/7+/8+ portrait */
+@media only screen and (max-width: 414px) and (orientation: portrait) {
+/* Main-cards */
+	.og-grid {
+	    padding-left: 20px;
+	    padding-right: 20px;
+	}
+	
+	.og-grid .expander, .title-register {
+	    width: 160px;
+	    margin: 15px 15px 0 10px;
+	    height: 310px;
+	}	
+}
+
+
+/* iPad Pro-6/7/8/X portrait */
+@media only screen and (max-width: 375px) and (orientation: portrait) {
+/* Main-cards */
+	.og-grid {
+	    padding-left: 5px;
+	    padding-right: 5px;
+	}
+	
+	.og-grid .expander, .title-register {
+	    margin: 10px 10px 0 10px;
+	}
+}
+
+
+/* iPad Pro-5/SE/5S portrait */
+@media only screen and (max-width: 320px) and (orientation: portrait) {
+/* Main-cards */
+	.og-grid {
+	    padding-left: 2px;
+	    padding-right: 2px;
+	}
+	
+	.og-grid .expander, .title-register {
+		width: 140px;
+	    margin: 5px 5px 0 10px;
+	    height: 290px;
+	}
+}
+
+
+
+
