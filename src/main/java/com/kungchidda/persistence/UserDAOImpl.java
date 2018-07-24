@@ -25,6 +25,10 @@ public class UserDAOImpl implements UserDAO{
 	public UserVO login(LoginDTO dto) throws Exception {
 		return session.selectOne(namespace +".login", dto);
 	}
+	@Override
+	public UserVO refresh(LoginDTO dto) throws Exception {
+		return session.selectOne(namespace +".refresh", dto);
+	}
 	
 	@Override
 	public void keepLogin(String uid, String sessionId, Date next) {

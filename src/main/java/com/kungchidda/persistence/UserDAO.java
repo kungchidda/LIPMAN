@@ -9,6 +9,7 @@ import com.kungchidda.dto.LoginDTO;
 public interface UserDAO {
 	
 	public UserVO login(LoginDTO dto) throws Exception;
+	public UserVO refresh(LoginDTO dto) throws Exception;
 	
 	public void keepLogin(String uid, String sessionId, Date next);
 	
