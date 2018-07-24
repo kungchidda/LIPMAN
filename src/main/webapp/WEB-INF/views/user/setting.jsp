@@ -9,7 +9,7 @@
 <body>
 
 	<script type="text/javascript">
-		self.location = "/sboard/list";
+		self.location = "/mypage/setting";
 	</script>
 
 </body>

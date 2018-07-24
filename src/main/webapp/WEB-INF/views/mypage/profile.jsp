@@ -14,8 +14,8 @@
  <!--profile-->
     <div class="mypage-profile">
         <div class="mypage-profile-image">
-        	<div class="uploadedList">
-            	<img src="/displayFile?fileName=${userVO.profileFullName}">
+        	<div class="profile-uploadedList">
+            	<img src="/displayFile?fileName=${userVO.profileFullName}" class="registed-img">
             </div>
         </div>
         <div class="mypage-profile-name">

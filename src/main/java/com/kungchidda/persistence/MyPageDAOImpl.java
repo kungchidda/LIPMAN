@@ -133,7 +133,6 @@ public class MyPageDAOImpl implements MyPageDAO{
 	
 	@Override
 	public UserVO setting(String uid) throws Exception{
-		
 		return session.selectOne(namespace + ".setting", uid);
 	}
 
