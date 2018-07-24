@@ -105,11 +105,11 @@ public class TitleDAOImpl implements TitleDAO{
 	}
 	
 	@Override
-	public void replaceAttach(String fullName, Integer bno) throws Exception {
+	public void replaceAttach(String titleFullName, Integer tno) throws Exception {
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		
-		paramMap.put("bno", bno);
-		paramMap.put("fullName", fullName);
+		paramMap.put("tno", tno);
+		paramMap.put("titleFullName", titleFullName);
 		
 		session.insert(namespace+".replaceAttach", paramMap);
 	}
