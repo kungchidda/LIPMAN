@@ -32,7 +32,7 @@
 			
 	        <div class="write-comic-thumbnail" id="thumbnail-file-drop">
 	        	<div class="uploadedList">
-	            	<img src="/displayFile?fileName=${boardVO.boardFullName}" id="select-file" style="display: inline;">
+	            	<img src="/displayFile?fileName=${boardVO.boardFullName}" class="registed-img" id="select-file" style="display: inline;">
 	            </div>
 	        </div>
             <input type="file" style="display:none;" id="thumbnail-upload-input">
@@ -119,7 +119,7 @@
 	
 	<script id="template" type="text/x-handlebars-template">
 		<div class="uploadedList">
-			<img src="{{imgsrc}}" style="width:300px;" alt="Attachment">
+			<img src="{{imgsrc}}" class="submit-yet" style="width:300px;" alt="Attachment">
 			<div class="mailbox-attachment-info" style="width:200px;">
 					<a href="{{getLink}}" target="_blank" class="mailbox-attachment-name">{{fileName}}</a>
 					<small data-src="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn">
@@ -172,19 +172,24 @@
 	    	
 			
 	    });
-		var arr = []
+		var arr = [];
+		var registedArr = [];
+		var listArr = [];
+		var deleteArr = [];
+		
 
 		$('#file-delete-button').click(function (e) {
 			e.preventDefault();
 			
 			var dataSrc = $("select[name='file-list-name'] option:selected").attr("data-src");
 			console.log("dataSrc = " + dataSrc);
-			arr.push(dataSrc);
+			deleteArr.push(dataSrc);
+
 			var front = dataSrc.substring(0, 12);
 			var end = dataSrc.substring(12);
 			
-			thumbnailSrc = front + "s_" + end;
-			arr.push(thumbnailSrc);
+			var thumbnailSrc = front + "s_" + end;
+			deleteArr.push(thumbnailSrc);
 			
 			$("select[name='file-list-name'] option:selected").remove();
 				/* $.ajax({
@@ -203,13 +208,39 @@
 		
 		$("#registerForm").submit(function(event){
 			event.preventDefault();
+			checkUnload = false;
 			
 			
+			arr.pop();
+			console.log("arr.length = " + arr.length);
+// 			console.log("listArr.length = " + listArr.length);
+			console.log("registedArr.length = " + registedArr.length);
+			
+			deleteArr = deleteArr.concat(arr);
+// 			deleteArr = deleteArr.concat(listArr);
+			deleteArr = deleteArr.concat(registedArr);
+			
+			for(i=0; i<deleteArr.length; i++){
+				console.log("deleteArr["+i+"] = "+ deleteArr[i]);
+			}
+			
+			 if(deleteArr.length > 0){
+					$.ajax({
+						  type: 'POST',
+						  url: "/deleteAllFiles",
+						  data: {files:deleteArr},
+						  dataType : "text",
+						  async:false,
+						  success : function(result){
+							}
+					});
+			}
+			/* 
 			if(arr.length > 0){
 				$.post("/deleteAllFiles",{files:arr}, function(){
 					
 				});
-			}
+			} */
 			
 			
 			console.log("$('.write-comic-subtitle').val() = " + $('.write-comic-subtitle').val());
@@ -268,6 +299,20 @@
 					var fileInfo = getFileInfo(data);
 					
 					var html = template(fileInfo);
+					var registedImgSrc = $(".registed-img").attr("src");
+					if(registedImgSrc != null){
+						registedImgSrc = registedImgSrc.substring(22);
+						registedArr.push(registedImgSrc);
+					}
+					
+					/* $(".uploadedList .submit-yet").each(function(index){
+						var dataSrc = $(this).attr("src");
+						dataSrc = dataSrc.substring(22);
+						console.log("dataSrc = " + dataSrc);
+						arr.push(dataSrc);
+					}); */
+					arr.push(data);
+					
 					$(".uploadedList").remove();
 					$("#thumbnail-file-drop").append(html);
 				}
@@ -286,7 +331,18 @@
 				contentType : false,
 				type : 'POST',
 				success : function(data) {
-					console.log("data = " + data);
+					console.log("uploadFileList data = " + data);
+					
+					listArr.push(data);
+					
+					var front = data.substring(0, 12);
+					var end = data.substring(12);
+					var thumbnailSrc = front + "s_" + end;
+					console.log("thumbnailSrc" + thumbnailSrc);
+					listArr.push(thumbnailSrc);
+					
+					
+					
 					var fileInfo = getFileInfo(data);
 					
 					console.log("fileInfo.fileName = " + fileInfo.fileName);
@@ -295,9 +351,9 @@
 					
 					$(function() {
 						  $('.upload-file-list').each(function() {
-						  	var select = this;
-						    $( 'option', this ).sort(function(a,b) {
-						     return $(a).text() > $(b).text();
+								var select = this;
+						    	$( 'option', this ).sort(function(a,b) {
+						     		return $(a).text() > $(b).text();
 								}).appendTo(select);
 						  });
 					});
@@ -305,6 +361,48 @@
 			
 			});
 	    }
+	    
+	    var checkUnload = true;
+ 		$(window).on("beforeunload", function(){
+			if(checkUnload){
+//  				var deleteArr = [];
+				console.log("arr.length = " + arr.length);
+ 				console.log("listArr.length = " + listArr.length);
+				
+				
+/* 				$(".uploadedList .submit-yet").each(function(index){
+						var dataSrc = $(this).attr("src");
+						dataSrc = dataSrc.substring(22);
+						console.log("dataSrc = " + dataSrc);
+						arr.push(dataSrc);
+				}); */
+				
+ 				deleteArr = arr.concat(listArr);
+				
+				for(i=0; i<deleteArr.length; i++){
+					console.log("arr["+i+"] = " + deleteArr[i]);
+				}
+				
+				if(deleteArr.length > 0){
+					
+					$.ajax({
+						  type: 'POST',
+						  url: "/deleteAllFiles",
+						  data: {files:deleteArr},
+						  dataType : "text",
+						  async:false,
+						  success : function(result){
+							}
+						});
+				}
+				
+				console.log("beforeunload event");
+// 				return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
+			}
+			
+		});
+	    
+	   
 	</script>
 	
 	 <script language="JavaScript">
