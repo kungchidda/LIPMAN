@@ -111,14 +111,7 @@
 						<span>${boardVO.uname}</span>
 					</div> <!-- 					</a> -->
 
-<<<<<<< HEAD
-
-
-					<div class="og-expander hide do-not-close" >
-
-=======
 					<div class="og-expander hide do-not-close">
->>>>>>> HONG
 						<div class="og-expander-inner do-not-close">
 							<div class="expander-title-inner">
 								<div class="og-fullimg do-not-close">
