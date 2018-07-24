@@ -1,4 +1,4 @@
-/* mypage - profile */
+/* Mypage - profile */
 .mypage-profile {
 	display: grid;
 	grid-template-columns: 200px 200px;
@@ -42,7 +42,7 @@
 	padding-top: 10px;
 }
 
-/* mypage - profile-icon */
+/* Mypage - profile-icon */
 .mypage-profile-icon {
 	display: grid;
 	grid-template-columns: repeat(4, 200px);
@@ -131,7 +131,7 @@
 }
 /* ??? end */
 
-/*subscriber*/
+/* subscriber */
 .mypage-subscriber {
 	margin-left: 10%;
 	margin-right: 10%;
@@ -207,7 +207,6 @@
 .mypage-setting-id .mypage-setting-loginid-text {
 	grid-area: a;
 }
-
 
 .mypage-setting-id .mypage-setting-id-switch {
 	grid-area: b;
@@ -286,7 +285,6 @@
 .mypage-setting-nick .mypage-setting-nickname, .mypage-setting-nickname-input {
 	grid-area: b;
 	justify-self: center;
-/* 	padding-right: 200px; */
 }
 
 .mypage-setting-nick .mypage-setting-nickname-button {
@@ -345,6 +343,8 @@
 	font-size: 1em;
 	color: white;
 }
+
+
 /* Mypage-Setting - subscribe */
 .mypage-setting-subscribe {
 	display: grid;
@@ -602,7 +602,6 @@ input:checked+.slider:before {
 	grid-area: b;
 }
 
-
 .mypage-setting-confirm-button button {
 	width: 200px;
 	background-color: white;
@@ -640,19 +639,20 @@ input:checked+.slider:before {
 }
 
 
-/* hr */
+/* Mypage-setting - hr */
 hr {
 	width: 880px;
 	margin-right: auto;
 	margin-left: auto;
 }
 
+
+/* Mypage-setting - input */
 .input-text {
 	width: 200px;
 	background-color: white;
 	border: 1px solid #424242;
 	border-radius: 10px;
-/* 	padding: 15px; */
 	font-size: 1em;
 	color: #424242;
 	height: 50px;
@@ -660,7 +660,7 @@ hr {
 }
 
 
-/*mypage-compony*/
+/* Mypage-setting - compony */
 .compony {
 	display: grid;
 	grid-template-columns: 100%;
