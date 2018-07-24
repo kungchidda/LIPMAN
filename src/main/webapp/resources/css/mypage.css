@@ -875,19 +875,7 @@ hr {
 	.mypage-setting-confirm {
 		grid-template-columns: 200px 200px;
 	}
-	
-
-/* Mypage-setting - switch */
-	.slider:before {
-		left: 4px;
-	}
-	
-	input:checked+.slider:before {
-	-webkit-transform: translateX(16px);
-	-ms-transform: translateX(16px);
-	transform: translateX(16px);
-	}
-	
+		
 
 /* Mypage-setting - hr */
 	hr {
