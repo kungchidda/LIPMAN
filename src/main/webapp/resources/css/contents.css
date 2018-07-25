@@ -916,7 +916,7 @@ textarea{
 	}	
 }
 
-/* iPad Pro-X landscape */
+/* iPhone - X landscape : complete */
 @media only screen and (max-width: 812px) and (orientation: landscape) {
 /* subtitle h4 css */
 	.strapline {
@@ -939,7 +939,7 @@ textarea{
 	}
 
 
-/* profile : Modify & Remove Btn */
+/* Profile : Modify & Remove Btn */
 	.modifyPageBtn {
 		padding-right: 5px;
 	    padding-top: 15px;
@@ -956,26 +956,39 @@ textarea{
 	    width : 90px;
 	}
 	
-/* thumb css */
+/* Profile : subscribe : complete */	
+	.subscribe {
+	    width: 150px;
+	}
+		
+	
+/* Thumb css : complete */
 	.evaluate {
-	    grid-template-columns: 50px 20px 30px 50px 20px;
+	    grid-template-columns: 50px 20px 50px 20px;
+	    grid-template-areas: "a b c d";
+	    grid-template-rows: 60px;
+	    padding-top: 30px;
+	    padding-bottom: 30px;
 	}
 	
 	.evaluate img {
 	    width: 40px;
 	    padding-left: 20px;
-	}	
+	}
 	
-/* Comic-information */
+/* Comic-information : complete */
 	.comic-infor {
-	    grid-template-columns: 300px 300px;
+	    grid-template-columns: 160px 200px;
 	    grid-template-rows: 35px 35px 35px 35px 70px;
+	    grid-column-gap: 20px;
+	    padding-top: 30px;
 	}
 	
 	
 	.comic-infor .comic-thumbnail img {
-		width: 200px;
+		width: 150px;
 	}
+	
 	
 /* Comic-comment */
 	.comic-infor-comment {
@@ -1123,14 +1136,55 @@ textarea{
 	
 }
 
-/* iPad Pro-6+/7+/8+  landscape */
+/* iPhone - 6+/7+/8+  landscape : complete */
 @media only screen and (max-width: 736px) and (orientation:  landscape) {
+/* Subtitle h4 css : complete */
+	.strapline {
+	    grid-template-columns: 670px;
+	}
+
+/* Comic-comment : complete */
+	.comic-infor-comment {
+	    grid-template-columns: 640px;
+	}
 	
+/* Another Comic : complete */
+	.cards {
+	    grid-template-areas: 
+	        "a a a";
+	}	
+	
+/* Comment css : complete */
+	.comment {
+	    grid-template-columns: 540px 80px;
+	}
+	
+	.comment-text {
+	    width: 500px;
+	}			
 }
 
-/* iPad Pro-6/7/8/ landscape */
+/* iPhone - 6/7/8/ landscape : complete */
 @media only screen and (max-width: 667px) and (orientation: landscape) {
+/* Subtitle h4 css : complete */
+	.strapline {
+	    grid-template-columns: 600px;
+	}
 
+/* Comic-comment : complete */
+	.comic-infor-comment {
+	    grid-template-columns: 560px;
+	}
+	
+	
+/* Comment css : complete */
+	.comment {
+	    grid-template-columns: 490px 80px;
+	}
+	
+	.comment-text {
+	    width: 450px;
+	}
 }
 
 /* iPhone - 5/SE/5S  landscape */
@@ -1138,7 +1192,7 @@ textarea{
 	
 }
 
-/* iPhone - 6+/7+/8+ portrait */
+/* iPhone - 6+/7+/8+ portrait : complete */
 @media only screen and (max-width: 414px) and (orientation: portrait) {
 /* subtitle h4 css : complete */
 	.strapline {
@@ -1322,7 +1376,7 @@ textarea{
 }
 
 
-/* iPhone - 6/7/8/X portrait */
+/* iPhone - 6/7/8/X portrait : complete */
 @media only screen and (max-width: 375px) and (orientation: portrait) {
 /* subtitle h4 css : complete */
 	.strapline {
