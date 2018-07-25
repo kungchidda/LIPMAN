@@ -7,6 +7,8 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +29,7 @@ import com.kungchidda.domain.BoardVO;
 import com.kungchidda.domain.Criteria;
 import com.kungchidda.domain.PageMaker;
 import com.kungchidda.domain.SearchCriteria;
+import com.kungchidda.domain.UserVO;
 import com.kungchidda.service.BoardService;
 import com.kungchidda.service.TitleService;
 import com.kungchidda.util.MediaUtils;
@@ -124,7 +127,8 @@ public class SearchBoardController {
 		service.modify(board);
 		logger.info("subtitle = " + board.getSubtitle());
 
-		return "redirect:/sboard/list";
+//		return "redirect:/sboard/list";
+		return "redirect:/mypage/titleList";
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -142,7 +146,8 @@ public class SearchBoardController {
 
 		rttr.addFlashAttribute("msg", "SUCCESS");
 
-		return "redirect:/sboard/list";
+//		return "redirect:/sboard/list";
+		return "redirect:/mypage/titleList";
 	}
 	
 	@ResponseBody
@@ -179,9 +184,27 @@ public class SearchBoardController {
 		// 페이징 처리를 위해서 PART 2 에서 작성된 PageMaker를 가져와서 사용
 		// Criteria와 이를 상속한 SearchCriteria, PageMaker는 모든 페이징 처리에서 공통으로 사용할 수 있도록 만들어진 클래스
 		@RequestMapping(value = "/{tno}/{page}/{perPage}", method = RequestMethod.GET)
-		public ResponseEntity<Map<String, Object>> listPage(@PathVariable("tno") Integer tno, @PathVariable("page") Integer page, @PathVariable("perPage") Integer perPage){
+		public ResponseEntity<Map<String, Object>> listPage(@PathVariable("tno") Integer tno, @PathVariable("page") Integer page, @PathVariable("perPage") Integer perPage, @ModelAttribute("cri") SearchCriteria scri, Model model, HttpServletRequest request){
 			
 			logger.info("/tno/page start");
+			logger.info(scri.toString());
+			String criUid = scri.getUid();
+			HttpSession session = request.getSession();
+			UserVO vo = (UserVO)session.getAttribute("login");
+			String loginUid = "";
+			if(vo != null) {
+				loginUid = vo.getUid();
+				if(loginUid != null) {
+					loginUid = loginUid.trim();
+				}
+			}
+			if(criUid != null) {
+				criUid = criUid.trim();
+			}
+
+//			logger.info("criUid = " + criUid);
+//			logger.info("loginUid = " + loginUid);
+			
 			ResponseEntity<Map<String, Object>> entity = null;
 			
 			try {
@@ -196,13 +219,23 @@ public class SearchBoardController {
 				//Ajax로 호출될 것이므로 Model을 사용하지 못함
 				//전달해야 하는 데이터들을 담기 위해서 Map 타입의 객체를 별도로 생성
 				Map<String, Object> map = new HashMap<String, Object>();
-				List<BoardVO> list = service.listSubtitlePage(tno, cri);
+				List<BoardVO> list;
+//				List<BoardVO> list = service.listSubtitlePage(tno, cri);
+//				List<BoardVO> list = service.mylistSubtitlePage(tno, cri);
 				
+				
+				int SubtitleCount;
+				
+				if(loginUid.equals(criUid) && loginUid != null && criUid != null) {
+					list = service.mylistSubtitlePage(tno, cri);
+					SubtitleCount = service.mycount(tno);
+				}else {
+					list = service.listSubtitlePage(tno, cri);
+					SubtitleCount = service.count(tno);
+				}
 				map.put("list", list);
 				
-				int SubtitleCount = service.count(tno);
 				pageMaker.setTotalCount(SubtitleCount);
-				
 				map.put("pageMaker", pageMaker);
 				
 				entity = new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
