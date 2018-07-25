@@ -189,6 +189,7 @@
 	
 	.cards .title, .subtitle, .thumbnail-thumb {
 	    width: 150px;
+	    padding: 3px;
 	}
 		
 	.cards .line img {
@@ -217,7 +218,7 @@
 }
 
 
-/* iPad Pro-5/SE/5S  landscape */
+/* iPhone - 5/SE/5S  landscape */
 @media only screen and (max-width: 568px) and (orientation:  landscape) {
 /* Banner */
 .banner {
@@ -238,14 +239,12 @@
 }
 
 
-/* iPad Pro-6+/7+/8+ portrait */
+/* iPhone - 6+/7+/8+ portrait */
 @media only screen and (max-width: 414px) and (orientation: portrait) {
-/* Banner */
-
+/* Banner : OK*/
 .banner p {
     padding-top: 50px;
 }
-
 	
 /* Cards */
     .cards {
@@ -259,6 +258,7 @@
 	
 	.cards .title, .subtitle, .thumbnail-thumb {
 	    width: 150px;
+	    padding: 3px;
 	}
 		
 	.cards .line img {

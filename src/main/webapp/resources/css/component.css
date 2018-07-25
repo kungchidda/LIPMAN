@@ -738,7 +738,7 @@ html{
 	
 	.og-grid .expander, .title-register {
 	    width: 160px;
-	    height: 310px;
+	    height: 295px;
 	}
 	
 	.og-title-register, .og-expander {
@@ -763,7 +763,7 @@ html{
 /* Main-cards-expander-inner : cards-right */
 	.toggle-page{
 		grid-template-columns: 400px;
-		width: 410px;
+		width: 400px;
 		height: 290px;
 		justify-items: center;
 		padding-left: 20px;
@@ -779,7 +779,7 @@ html{
 	
 /* Margin-bottom */
 	.margin-bottom {
-		margin-bottom: 345px !important;
+		margin-bottom: 340px !important;
 	}
 }
 
@@ -841,12 +841,12 @@ html{
 	.og-grid .expander, .title-register {
 	    width: 160px;
 	    margin: 10px 10px 0 10px;
-	    height: 310px;
+	    height: 295px;
 	}
 }
 
 
-/* iPad Pro-6+/7+/8+ portrait */
+/* iPhone - 6+/7+/8+ portrait */
 @media only screen and (max-width: 414px) and (orientation: portrait) {
 /* Main-cards */
 	.og-grid {
@@ -857,7 +857,7 @@ html{
 	.og-grid .expander, .title-register {
 	    width: 160px;
 	    margin: 15px 15px 0 10px;
-	    height: 310px;
+	    height: 295px;
 	}	
 	
 	.og-title-register, .og-expander {
@@ -876,6 +876,7 @@ html{
 	    padding-top: 30px;
 	    padding-bottom: 10px;
 	    width: 410px;
+	    border-bottom: 1px solid #d3d3d3;
 	}
 	
 	.og-fullimg img {
@@ -890,7 +891,6 @@ html{
 		width: 410px;
 		height: 250px;
 		justify-items: center;
-		padding-left: 0px;
 		padding-top: 10px;
 		padding-bottom: 30px;
 	}
@@ -903,7 +903,7 @@ html{
 	
 /* Margin-bottom */
 	.margin-bottom {
-		margin-bottom: 505px !important;
+		margin-bottom: 495px !important;
 	}	
 }
 
@@ -932,6 +932,7 @@ html{
 	.toggle-page{
 		grid-template-columns: 370px;
 		width: 370px;
+		padding-left: 0px;
 	}
 }
 
@@ -947,7 +948,7 @@ html{
 	.og-grid .expander, .title-register {
 		width: 140px;
 	    margin: 5px 5px 0 10px;
-	    height: 290px;
+	    height: 273px;
 	}
 }
 
