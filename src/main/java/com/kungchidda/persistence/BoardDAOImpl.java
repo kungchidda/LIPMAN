@@ -144,9 +144,26 @@ public class BoardDAOImpl implements BoardDAO{
 		
 		return session.selectList(namespace + ".listPage", paramMap);
 	}
+
+	
+	@Override
+	public List<BoardVO> mylistPage(Integer tno, Criteria cri) throws Exception {
+		
+		Map<String, Object> paramMap = new HashMap<>();
+		
+		paramMap.put("tno", tno);
+		paramMap.put("cri", cri);
+		
+		return session.selectList(namespace + ".mylistPage", paramMap);
+	}
+	
 	
 	@Override
 	public int count(Integer tno) throws Exception {
 		return session.selectOne(namespace + ".count", tno);
+	}
+	@Override
+	public int mycount(Integer tno) throws Exception {
+		return session.selectOne(namespace + ".mycount", tno);
 	}
 }

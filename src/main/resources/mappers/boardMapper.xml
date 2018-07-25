@@ -308,7 +308,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="listPage" resultType="com.kungchidda.domain.BoardVO">
 		select 
-		b.tno, b.bno, t.title, b.subtitle, b.uid, IFNULL(a.boardFullName, '/sampleImage.jpg') as boardFullName
+		b.tno, b.bno, t.title, b.subtitle, b.uid, IFNULL(a.boardFullName, '/sampleImage.jpg') as boardFullName, b.regdate
+		from tbl_board b
+        
+        left outer join
+        tbl_attach a
+        on a.bno = b.bno
+		
+		inner join
+		tbl_title t
+		on t.tno = b.tno
+		
+		where b.tno = #{tno}
+		group by bno, boardFullName
+		order by bno desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	
+	<select id="mylistPage" resultType="com.kungchidda.domain.BoardVO">
+	
+		select #{tno} as tno,  (select max(bno)+1 from tbl_board where tno = #{tno}) as bno, "" as title, "" as subtitle, "" as uid, "/register.png" as boardFullName, now() as regdate from tbl_board
+
+		union
+	
+		select 
+		b.tno, b.bno, t.title, b.subtitle, b.uid, IFNULL(a.boardFullName, '/sampleImage.jpg') as boardFullName, b.regdate
 		from tbl_board b
         
         left outer join
@@ -327,6 +351,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="count" resultType="int">
 	select count(*) from tbl_board where tno = #{tno}
+	</select>
+	
+	<select id="mycount" resultType="int">
+	select count(*)+1 from tbl_board where tno = #{tno}
 	</select>
 	
 

@@ -104,8 +104,18 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	@Override
-	public int count(Integer bno) throws Exception {
-		return dao.count(bno);
+	public List<BoardVO> mylistSubtitlePage(Integer tno, Criteria cri) throws Exception {
+		return dao.mylistPage(tno, cri);
+	}
+	
+	@Override
+	public int count(Integer tno) throws Exception {
+		return dao.count(tno);
+	}
+	
+	@Override
+	public int mycount(Integer tno) throws Exception {
+		return dao.mycount(tno);
 	}
 	
 	
