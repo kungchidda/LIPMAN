@@ -648,6 +648,17 @@ html{
 	    padding-left: 37px;
 	    padding-right: 37px;
 	}
+		
+	
+/* Main-cards-expander-inner : cards-right */
+	.toggle-page{
+		grid-template-columns: 420px;
+		padding-left: 20px;
+	}
+	
+	.subtitleLi a{
+	    grid-template-columns: 120px 300px;
+	}	
 }
 
 
@@ -783,8 +794,13 @@ html{
 	
 /* Main-cards-expander-inner : cards-right */
 	.toggle-page{
+		grid-template-columns: 420px;
 		padding-left: 20px;
-	}	
+	}
+	
+	.subtitleLi a{
+	    grid-template-columns: 120px 300px;
+	}		
 }
 
 
