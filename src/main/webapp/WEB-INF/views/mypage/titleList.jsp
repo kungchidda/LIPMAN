@@ -543,14 +543,37 @@
 	</script>
 
 
+	<script id="subtitle-template-first-page" type="text/x-handlebars-template">
+		{{#each .}}
+ 			{{#if @first}}
+				<div class="subtitleLi do-not-close register">
+					<a href="/sboard/register?tno={{tno}}" class="comic-list do-not-close">
+						<div class="comic-list do-not-close">
+							<img src="/resources/png/register.png">
+						</div>
+						<div class="comic-list-text cursor do-not-close">
+						</div>
+					</a>
+				</div>
+ 			{{else}}
+				<div class="subtitleLi">
+						<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
+							<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
+							<div class="comic-list-text cursor do-not-close">{{subtitle}} {{prettifyDate regdate}}</div>
+						</a>
+				</div>
+			{{/if}}
+		{{/each}}
+		<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
+	</script>
 	<script id="subtitle-template" type="text/x-handlebars-template">
 		{{#each .}}
-			<div class="subtitleLi">
-					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
-						<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
-						<div class="comic-list-text cursor do-not-close">{{subtitle}}</div>
-					</a>
-			</div>
+				<div class="subtitleLi">
+						<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
+							<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
+							<div class="comic-list-text cursor do-not-close">{{subtitle}} {{prettifyDate regdate}}</div>
+						</a>
+				</div>
 		{{/each}}
 		<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
 	</script>
@@ -571,18 +594,52 @@
 		function getSubtitle(tno, page) {
 			console.log("click getSubtitle start getPage");
 			console.log("1. tno = " + tno);
-			getPage("/sboard/" + tno + "/"+ page +"/5", tno);
+			getPage("/sboard/" + tno + "/"+ page +"/6?uid="+'${cri.uid}', tno, page);
 			return 1;
 
 		};
 
-		Handlebars.registerHelper("prettifyDate", function(timeValue) {
+/* 		Handlebars.registerHelper("prettifyDate", function(timeValue) {
 			var dateObj = new Date(timeValue);
 			var year = dateObj.getFullYear();
 			var month = dateObj.getMonth() + 1;
 			var date = dateObj.getDate();
 			return year + "/" + month + "/" + date;
-		});
+		}); */
+		
+		Handlebars.registerHelper("prettifyDate", function(timeValue){
+			var regdate = new Date(timeValue);
+			var regdateTime = new Date(timeValue).getTime();
+			regdateTime = regdateTime / 1000;
+			console.log("regdateTime = " + regdateTime);
+			
+			var current = new Date();
+			var currentTime = new Date().getTime();
+			currentTime = currentTime / 1000;
+			console.log("currentTime = " + currentTime);
+			
+			var diff = currentTime - regdateTime;
+			console.log("diff = " + diff);
+			var year = regdate.getFullYear();
+			var month = regdate.getMonth() + 1;
+			var date = regdate.getDate();
+			
+			var prettifyDate;
+			    if(diff < 60) {
+			    	prettifyDate = "방금";
+			    } else if(diff >= 60 && diff < 3600) {
+			    	prettifyDate = Math.floor(diff/60) + "분 전";
+			    } else if(diff >= 3600 && diff < 86400) {
+			    	prettifyDate = Math.floor(diff/3600) + "시간 전";
+			    } else if(diff >= 86400 && diff < 2419200) {
+			    	prettifyDate = Math.floor(diff/86400) + "일 전";
+			    } else {
+			    	prettifyDate = year+"-"+month+"-"+date;
+			    }
+			     
+			    return prettifyDate;
+			});
+		
 
 // 		$(".pagination").on("click", "li a", function(event) {
 // 			event.preventDefault();
@@ -600,7 +657,7 @@
 			target.append(html);
 		}
 
-		function getPage(pageInfo, tno) {
+		function getPage(pageInfo, tno, page) {
 			console.log("2. tno = " + tno);
 			console.log("start getPage");
 
@@ -608,14 +665,19 @@
 			$(".subtitleLi").remove();
 			$.getJSON(pageInfo,function(data) {
 // 				printData(data.list, $(".og-expander-inner"),$('#subtitle-template'));
-				printData(data.list, $(".toggle-page"),$('#subtitle-template'));
+				if("${login.uid}" == "${cri.uid}" && page == 1){
+					printData(data.list, $(".toggle-page"),$('#subtitle-template-first-page'));
+				}else{
+					printData(data.list, $(".toggle-page"),$('#subtitle-template'));
+				}
 				printPaging(data.pageMaker, $(".pagination"), tno);
 				//var str = '<div class="subtitleLi do-not-close register"><a href="/sboard/register?tno=' + tno + '" class="comic-list do-not-close"><div class="comic-list do-not-close"><img src="/resources/png/sub-gray.png"></div><div class="comic-list-text cursor do-not-close">New Subtitle</div></a></div>';
-				if('${cri.uid}'== '${login.uid}'){
-				var str = '<div class="subtitleLi do-not-close register"><a href="/sboard/register?tno=' + tno + '" class="comic-list do-not-close"><div class="comic-list do-not-close"><img src="/resources/png/register.png"></div><div class="comic-list-text cursor do-not-close"></div></a></div>';
-				console.log("str = " + str);
-				$('.register').html(str);
-				}
+
+				/* if('${cri.uid}'== '${login.uid}' && page == 1){
+					var str = '<div class="subtitleLi do-not-close register"><a href="/sboard/register?tno=' + tno + '" class="comic-list do-not-close"><div class="comic-list do-not-close"><img src="/resources/png/register.png"></div><div class="comic-list-text cursor do-not-close"></div></a></div>';
+					console.log("str = " + str);
+					$('.register').html(str);
+				} */
 
 			});
 		}
@@ -623,6 +685,9 @@
 		var printPaging = function(pageMaker, target, tno) {
 			console.log("start printPaging");
 			console.log("3. tno = " + tno);
+			console.log("pageMaker.totalCount = " + pageMaker.totalCount);
+			console.log("pageMaker.startPage = " + pageMaker.startPage);
+			console.log("pageMaker.endPage = " + pageMaker.endPage);
 			var str = "";
 			if (pageMaker.endPage != '1') {
 				if (pageMaker.prev) {
