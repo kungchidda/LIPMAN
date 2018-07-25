@@ -779,7 +779,7 @@ hr {
 /* Mypage - profile-icon */
 	.mypage-profile {
 		display: grid;
-		grid-template-columns: 150px 150px;
+		grid-template-columns: 170px 170px;
 		grid-template-rows: 75px 75px;
 		grid-template-areas: "a b" "a c";
 		justify-content: center;
@@ -790,6 +790,10 @@ hr {
 	}
 		
 	.mypage-profile .mypage-profile-image img {
+		width: 150px;
+	}
+	
+	.subscribed, #btn-subscribedCount {
 		width: 150px;
 	}
 	
@@ -953,7 +957,7 @@ hr {
 @media only screen and (max-width: 414px) and (orientation: portrait) {
 /* Mypage - profile */
 	.mypage-profile {
-		grid-template-columns: 150px 150px;
+		grid-template-columns: 170px 170px;
 		grid-template-rows: 75px 75px;
 		grid-column-gap: 20px;
 		padding-top: 30px;
