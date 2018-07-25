@@ -6,6 +6,8 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +25,9 @@ import com.kungchidda.service.SubtitleService;
 @RestController
 @RequestMapping("/subtitles")
 public class SubtitleController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(SubtitleController.class);
+	
 	@Inject
 	private SubtitleService service;
 
@@ -52,6 +57,11 @@ public class SubtitleController {
 			map.put("list", list);
 			
 			int SubtitleCount = service.count(bno);
+			logger.info("SubtitleCount = " + SubtitleCount);
+			if(page == 1) {
+				SubtitleCount++;
+				logger.info("SubtitleCount + 1 = " + SubtitleCount);
+			}
 			pageMaker.setTotalCount(SubtitleCount);
 			
 			map.put("pageMaker", pageMaker);

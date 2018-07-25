@@ -36,7 +36,9 @@ public interface BoardDAO {
 	
 	// 페이징 처리를 하기 위해 Criteria cri 파라미터 추가
 	public List<BoardVO> listPage(Integer tno, Criteria cri) throws Exception;
+	public List<BoardVO> mylistPage(Integer tno, Criteria cri) throws Exception;
 	// 페이징 처리를 하기 위해 count 추가
 	public int count(Integer tno) throws Exception;
+	public int mycount(Integer tno) throws Exception;
 	
 }

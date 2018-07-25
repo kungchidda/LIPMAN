@@ -13,13 +13,48 @@
 		return 1;
 	};	
 	
+//	Handlebars.registerHelper("prettifyDate", function(timeValue){
+//			var dateObj = new Date(timeValue);
+//			var year = dateObj.getFullYear();
+//			var month = dateObj.getMonth() + 1;
+//			var date = dateObj.getDate();
+//			return year+"/"+month+"/"+date;
+//	});
+	
 	Handlebars.registerHelper("prettifyDate", function(timeValue){
-			var dateObj = new Date(timeValue);
-			var year = dateObj.getFullYear();
-			var month = dateObj.getMonth() + 1;
-			var date = dateObj.getDate();
-			return year+"/"+month+"/"+date;
-	});
+		
+		var regdate = new Date(timeValue);
+		var regdateTime = new Date(timeValue).getTime();
+		regdateTime = regdateTime / 1000;
+		console.log("regdateTime = " + regdateTime);
+		
+		var current = new Date();
+		var currentTime = new Date().getTime();
+		currentTime = currentTime / 1000;
+		console.log("currentTime = " + currentTime);
+		
+		var diff = currentTime - regdateTime;
+		console.log("diff = " + diff);
+		var year = regdate.getFullYear();
+		var month = regdate.getMonth() + 1;
+		var date = regdate.getDate();
+		
+		var prettifyDate;
+		    if(diff < 60) {
+		    	timeValue = "방금";
+		    } else if(diff >= 60 && diff < 3600) {
+		    	prettifyDate = Math.floor(diff/60) + "분 전";
+		    } else if(diff >= 3600 && diff < 86400) {
+		    	prettifyDate = Math.floor(diff/3600) + "시간 전";
+		    } else if(diff >= 86400 && diff < 2419200) {
+		    	prettifyDate = Math.floor(diff/86400) + "일 전";
+		    } else {
+		    	prettifyDate = year+"-"+month+"-"+date;
+		    }
+		     
+		    return prettifyDate;
+		});
+
 	
 	/* $(".pagination").on("click", "li a", function(event){
 		event.preventDefault();
@@ -56,6 +91,9 @@
 	
 	var printPaging = function(pageMaker, target, tno){
 		console.log("start printPaging");
+		console.log("pageMaker = " + pageMaker);
+		console.log("target = " + target);
+		console.log("tno = " + tno);
 		var str = "";
 		if(pageMaker.endPage != '1'){
 			if(pageMaker.prev){

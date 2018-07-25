@@ -26,5 +26,7 @@ public interface BoardService {
 	
 
 	public List<BoardVO> listSubtitlePage(Integer tno, Criteria cri) throws Exception;
-	public int count(Integer bno) throws Exception;
+	public List<BoardVO> mylistSubtitlePage(Integer tno, Criteria cri) throws Exception;
+	public int count(Integer tno) throws Exception;
+	public int mycount(Integer tno) throws Exception;
 }
