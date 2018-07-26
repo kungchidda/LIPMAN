@@ -1337,7 +1337,7 @@
 			<div class="subtitleLi">
 					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
 						<div class="comic-list"><img src="/displayFile?fileName={{boardFullName}}"></div>
-						<div class="comic-list-text cursor">{{subtitle}}</div>
+						<div class="comic-list-text cursor">{{subtitle}} {{prettifyDate regdate}}</div>
 					</a>
 			</div>
 		{{/each}}
@@ -1349,7 +1349,7 @@
 			<div class="thissubtitleLi">
 					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
 						<div class="comic-list"><img src="/displayFile?fileName={{boardFullName}}"></div>
-						<div class="comic-list-text cursor">{{subtitle}}</div>
+						<div class="comic-list-text cursor">{{subtitle}} {{prettifyDate regdate}}</div>
 					</a>
 			</div>
 		{{/each}}
