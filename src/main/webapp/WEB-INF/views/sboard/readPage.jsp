@@ -19,6 +19,8 @@
 <script src="/resources/js/subtitlePrint.js"></script>
 <script src="/resources/js/expander.js"></script>
 
+<script type="text/javascript" src="/resources/js/date.js"></script>
+
 <!-- <link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/default.css" />
 <link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/component.css" />
 <script src="/resources/ThumbnailGridExpandingPreview/js/modernizr.custom.js"></script> -->
@@ -108,9 +110,15 @@
        <div class="comic-title">
            <span>${boardVO.subtitle}</span>
        </div>
+       <div class="raw-time hide">
+			<fmt:formatDate value="${boardVO.regdate}" pattern="yyyy-MM-dd-HH-mm-ss"/>
+       </div>
+       
        <div class="comic-time">
            <span><img src="/resources/png/comic.png">
-            	<fmt:formatDate value="${boardVO.regdate}" pattern="yyyy년 MM월 dd일  HH시 mm분 ss초 "/>
+<%--             	<fmt:formatDate value="${boardVO.regdate}" pattern="yyyy-MM-dd-HH-mm-ss"/> --%>
+<%--             	<fmt:parseDate var="startDate_D"  value="${boardVO.regdate}" pattern="yyyy-MM-dd"/> --%>
+<%--             	<fmt:parseNumber var="startTime_N" value="${startDate_D.time}" integerOnly="true" /> --%>
             </span> 
        </div>
        <div class="comic-view">
@@ -451,11 +459,64 @@
                	</span>
 		{{/each}}
 	</script>
+	<script id="prettifyDate_template" type="text/x-handlebars-template">
+		{{#each .}}
+			<span><img src="/resources/png/comic.png">
+				{{prettifyDate regdate}}
+			</span>
+		{{/each}} 
+	</script>
 	
 	
 	<script>
 		
 		$(document).ready(function() {
+			var regdate = $(".raw-time").text().trim();			
+			console.log("raw-time span regdate = " + regdate);
+			var regdateArr = [];
+			regdateArr = regdate.split("-");
+			for(i=0; i<regdateArr.length; i++){
+				console.log("regdateArr["+i+"] = " + regdateArr[i]);				
+			}
+			
+			console.log("regdateArr[3] = " + regdateArr[3]);
+// 			regdateArr[3] = regdateArr[3]-9;
+			console.log("regdateArr[3] = " + regdateArr[3]);
+			
+			var regdateTime = new Date(regdateArr[0], regdateArr[1]-1, regdateArr[2], regdateArr[3], regdateArr[4], regdateArr[5], 0).getTime();;
+			regdateTime = regdateTime / 1000;
+			var current = new Date();
+			console.log("current = " + current);
+			
+			var currentTime = current.getTime();
+			currentTime = currentTime/1000;
+			console.log("currentTime = " + currentTime);
+			console.log("regdate = " + regdate);
+			console.log("regdateTime = " + regdateTime);
+
+			var diff = currentTime - regdateTime;
+			console.log("diff = " + diff);
+			
+			var prettifyDate;
+			if(diff < 60) {
+		    	prettifyDate = "방금";
+		    } else if(diff >= 60 && diff < 3600) {
+		    	prettifyDate = Math.floor(diff/60) + "분 전";
+		    } else if(diff >= 3600 && diff < 86400) {
+		    	prettifyDate = Math.floor(diff/3600) + "시간 전";
+		    } else if(diff >= 86400 && diff < 2419200) {
+		    	prettifyDate = Math.floor(diff/86400) + "일 전";
+		    } else {
+		    	prettifyDate = year+"-"+month+"-"+date;
+		    }
+		    $(".comic-time").append(prettifyDate);
+		    
+			
+			
+			
+			
+			
+			
 			
 			
 			$('img').each(function() {
@@ -478,16 +539,47 @@
 			
 
 			
-			Handlebars.registerHelper("prettifyDate", function(timeValue){
-				var dateObj = new Date(timeValue);
-				var year = dateObj.getFullYear();
-				var month = dateObj.getMonth() + 1;
-				var date = dateObj.getDate();
-				var hours = dateObj.getHours();
-				var minutes = dateObj.getMinutes();
-				var seconds = dateObj.getSeconds();
-				return year + "/" + month + "/" + date + " " + hours + ":" + minutes + ":" + seconds;
-			});
+			//	Handlebars.registerHelper("prettifyDate", function(timeValue){
+//			var dateObj = new Date(timeValue);
+//			var year = dateObj.getFullYear();
+//			var month = dateObj.getMonth() + 1;
+//			var date = dateObj.getDate();
+//			return year+"/"+month+"/"+date;
+//	});
+	
+	Handlebars.registerHelper("prettifyDate", function(timeValue){
+		console.log("timeValue = " + timeValue);
+		var regdate = new Date(timeValue);
+		var regdateTime = new Date(timeValue).getTime();
+		regdateTime = regdateTime / 1000;
+		console.log("regdateTime = " + regdateTime);
+		
+		var current = new Date();
+		var currentTime = new Date().getTime();
+		currentTime = currentTime / 1000;
+		console.log("currentTime = " + currentTime);
+		
+		var diff = currentTime - regdateTime;
+		console.log("diff = " + diff);
+		var year = regdate.getFullYear();
+		var month = regdate.getMonth() + 1;
+		var date = regdate.getDate();
+		
+		var prettifyDate;
+		    if(diff < 60) {
+		    	prettifyDate = "방금";
+		    } else if(diff >= 60 && diff < 3600) {
+		    	prettifyDate = Math.floor(diff/60) + "분 전";
+		    } else if(diff >= 3600 && diff < 86400) {
+		    	prettifyDate = Math.floor(diff/3600) + "시간 전";
+		    } else if(diff >= 86400 && diff < 2419200) {
+		    	prettifyDate = Math.floor(diff/86400) + "일 전";
+		    } else {
+		    	prettifyDate = year+"-"+month+"-"+date;
+		    }
+		     
+		    return prettifyDate;
+		});
 			
 			
 			//로그인한 사용자가 작성한 본인의 댓글만 수정이 가능
@@ -556,13 +648,57 @@
 				formObj.attr("action", "/sboard/removePage");
 				formObj.submit();
 				
-				var arr = []
-				$(".uploadedList li").each(function(index){
+				var deleteArr = [];
+				var front;
+				var end;
+				var thumbnailSrc =  "${boardVO.boardFullName}"
+				var dataSrc;
+				var fileList = "${boardVO.fileList}";
+				console.log("fileList = " + fileList);
+		        var fileArray = fileList.split("<br>");
+
+		        console.log("thumbnailSrc = " + thumbnailSrc);
+			    deleteArr.push(thumbnailSrc);
+		        
+		        front = thumbnailSrc.substring(0, 12);
+		        end = thumbnailSrc.substring(14);
+		        dataSrc = front + end;
+		        
+		        console.log("thumbnail dataSrc = " + dataSrc);
+		        deleteArr.push(dataSrc);
+			        
+			        
+		        for(var i=0; i<fileArray.length-1; i++){
+		        	
+		        	var fileNameLength = fileArray[i].length - 2;
+		        	console.log('fileArray[' + i + '] = ' + fileArray[i]);
+		        	var value = fileArray[i].substring(10, fileNameLength);
+		        	var dataSrc = fileArray[i].substring(32, fileNameLength);
+		        	var fileName = fileArray[i].substring(81, fileNameLength);
+		        	
+		        	console.log('value = ' + value);
+			        console.log('list dataSrc = ' + dataSrc);
+			        console.log('fileName = ' + fileName);
+			        front = dataSrc.substring(0, 12);
+					end = dataSrc.substring(12);
+					thumbnailSrc = front + "s_" + end;
+					
+			        
+					deleteArr.push(thumbnailSrc);
+					deleteArr.push(dataSrc);
+		        }
+		        
+		        
+		        
+		        for(var i=0; i<deleteArr.length; i++){
+			        console.log("deleteArr["+i+"] = " + deleteArr[i]);
+		        }
+				/* $(".uploadedList li").each(function(index){
 					arr.push($(this).attr("data-src"));
-				});
+				}); */
 				
-				if(arr.length > 0){
-					$.post("/deleteAllFiles",{files:arr}, function(){
+				if(deleteArr.length > 0){
+					$.post("/deleteAllFiles",{files:deleteArr}, function(){
 						
 					});
 				}
