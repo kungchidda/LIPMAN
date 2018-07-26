@@ -52,7 +52,7 @@ public class UserController {
 
 
 	@RequestMapping(value = "/loginPost", method = RequestMethod.POST)
-	public void loginPOST(LoginDTO dto, HttpSession session, Model model, HttpServletRequest request) throws Exception {
+	public String loginPOST(LoginDTO dto, HttpSession session, Model model, HttpServletRequest request) throws Exception {
 		String referer = request.getHeader("Referer");
 		request.getSession().setAttribute("referer", referer);
 
@@ -65,7 +65,11 @@ public class UserController {
 		UserVO vo = service.login(dto);
 
 		if (vo == null) {
-			return;
+			return "redirect:/sboard/list";
+		}
+		
+		if(vo.getAuth() == 0) {
+			return "redirect:/user/join?uid="+dto.getUid();
 		}
 
 		model.addAttribute("userVO", vo);
@@ -78,6 +82,7 @@ public class UserController {
 
 			service.keepLogin(vo.getUid(), session.getId(), sessionLimit);
 		}
+		return "/sboard/list";
 
 	}
 
@@ -107,12 +112,13 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
-	public void joinGET(UserVO user, Model model) throws Exception {
+	public void joinGET(@ModelAttribute("cri") SearchCriteria cri, UserVO user, Model model) throws Exception {
 		logger.info("join get ..........");
 	}
 
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public void joinPOST(LoginDTO dto, UserVO user, RedirectAttributes rttr, Model model, HttpSession session) throws Exception {
+//	public void joinPOST(LoginDTO dto, UserVO user, RedirectAttributes rttr, Model model, HttpSession session) throws Exception {
+	public String joinPOST(LoginDTO dto, UserVO user, RedirectAttributes rttr, Model model, HttpSession session) throws Exception {
 		logger.info("join post ..........");
 		logger.info(user.toString());
 
@@ -125,25 +131,26 @@ public class UserController {
 		
 		service.join(user);
 
-		dto.setUid(user.getUid());
-		dto.setUpw(user.getUpw());
-		
-		UserVO vo = service.login(dto);
-		logger.info("getUname");
-		logger.info("userVO vo.toString = " + vo.toString());
-
-		model.addAttribute("userVO", vo);
-		// loginCookie 값이 유지되는 시간 정보를 데이터 베이스에 저장
-		if (dto.isUseCookie()) {
-			int amount = 60 * 60 * 24 * 7;
-
-			Date sessionLimit = new Date(System.currentTimeMillis() + (1000 * amount));
-
-			service.keepLogin(vo.getUid(), session.getId(), sessionLimit);
-		}
-
-		rttr.addFlashAttribute("msg", "SUCCESS");
+//		dto.setUid(user.getUid());
+//		dto.setUpw(user.getUpw());
+//		
+//		UserVO vo = service.login(dto);
+//		logger.info("getUname");
+//		logger.info("userVO vo.toString = " + vo.toString());
+//
+//		model.addAttribute("userVO", vo);
+//		// loginCookie 값이 유지되는 시간 정보를 데이터 베이스에 저장
+//		if (dto.isUseCookie()) {
+//			int amount = 60 * 60 * 24 * 7;
+//
+//			Date sessionLimit = new Date(System.currentTimeMillis() + (1000 * amount));
+//
+//			service.keepLogin(vo.getUid(), session.getId(), sessionLimit);
+//		}
+//
+//		rttr.addFlashAttribute("msg", "SUCCESS");
 //		return "redirect:/sboard/list";
+		return "/user/join?uid="+dto.getUid();
 	}
 	
 	@RequestMapping(value = "/setting", method = RequestMethod.POST)
@@ -200,6 +207,18 @@ public class UserController {
 		}
 		
 		return entity;
+	}
+	
+	@RequestMapping(value = "/emailConfirm", method = RequestMethod.GET)
+	public String emailConfirm(@ModelAttribute("cri") SearchCriteria cri, String uid, Model model) throws Exception { // 이메일인증
+		String authKey = cri.getAuthKey();
+		int result = service.auth(uid, authKey);
+		model.addAttribute("uid", uid);
+		if(result == 1) {
+			return "/user/emailConfirm";
+		}else {
+			return "/user/email";
+		}
 	}
 	
 	

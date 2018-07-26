@@ -8,6 +8,8 @@ public class SearchCriteria extends Criteria{
 	private String genre;
 	private String[] genreArr;
 	private String uid;
+	private String authKey;
+	
 	
 	public String getSearchType() {
 		return searchType;
@@ -44,6 +46,14 @@ public class SearchCriteria extends Criteria{
 	
 	public String getUid() {
 		return uid;
+	}
+	
+	public void setAuthKey(String authKey) {
+		this.authKey = authKey;
+	}
+	
+	public String getAuthKey() {
+		return authKey;
 	}
 	
 	
