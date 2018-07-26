@@ -2,6 +2,7 @@ package com.kungchidda.service;
 
 import java.util.List;
 
+import com.kungchidda.domain.BoardVO;
 import com.kungchidda.domain.SearchCriteria;
 import com.kungchidda.domain.TitleVO;
 
@@ -15,6 +16,6 @@ public interface TitleService {
 	public List<TitleVO> listSearchCriteria(SearchCriteria cri) throws Exception;
 	public int listSearchCount(SearchCriteria cri) throws Exception;
 	
-	public List<String> getAttach(Integer bno) throws Exception;
+	public List<BoardVO> getAttach(Integer tno) throws Exception;
 
 }

@@ -17,4 +17,5 @@ public @Data class TitleVO {
 	
 	private String[] files;
 	private String profileFullName;
+	
 }

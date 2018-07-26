@@ -197,8 +197,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	insert into tbl_title_attach(titleFullName, tno) values (#{titleFullName}, LAST_INSERT_ID())
 	</insert>
 	
-	<select id="getAttach" resultType="string">
-	select fullname from tbl_attach where bno = #{bno} order by regdate
+	<select id="getAttach" resultType="com.kungchidda.domain.BoardVO">
+			select ta.boardFullName, tb.fileList, t.titleFullName
+			
+			from tbl_attach ta
+			
+			left outer join
+			tbl_board tb
+			on tb.bno = ta.bno
+			
+			left outer join
+			tbl_title_attach t
+			on t.tno = tb.tno
+			
+			where tb.tno = #{tno};
 	</select>
 	
 	<delete id="deleteAttach">
