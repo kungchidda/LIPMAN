@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="read" resultType="com.kungchidda.domain.BoardVO">
 		select
-			a.tno, a.bno, t.title,  ta.titleFullName, ba.boardFullName, IFNULL(p.profileFullName, '/account.png') as profileFullName , a.subtitle, a.content, a.fileList, u.uid, u.uname, a.regdate, a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt
+			a.tno, a.bno, t.title,  ta.titleFullName, ba.boardFullName, IFNULL(p.profileFullName, '/account.png') as profileFullName , a.subtitle, a.content, a.fileList, u.uid, u.uname, a.regdate, a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, GROUP_CONCAT(gn.gname SEPARATOR ' / ') as gname
 	            
 		from
 			tbl_board a
@@ -40,6 +40,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         inner join
         tbl_attach ba
         on ba.bno = a.bno
+        
+        inner join
+		tbl_title_genre tg
+		on tg.tno = t.tno
+            
+		inner join
+		tbl_genre_name gn
+		on gn.genre = tg.genre
             
 		where a.bno = #{bno}
 	</select>
