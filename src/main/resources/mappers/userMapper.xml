@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.kungchidda.mappers.userMapper">
 
 	<select id="login" resultType="UserVO">
-		select u.uid, u.upw, u.uname, IFNULL(p.profileFullName, '/account.png') as profileFullName
+		select u.uid, u.upw, u.uname, IFNULL(p.profileFullName, '/account.png') as profileFullName, u.auth
 		from tbl_user u
 		
 		left outer join
@@ -95,6 +95,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="existAccount" resultType="int">
 		select count(uid) from tbl_user where uid =#{uid}
 	</select>
+	
+	<update id="createAuthKey">
+		update tbl_user set authKey = #{authKey} where uid = #{uid}
+	</update>
+	
+	<update id="auth">
+		update tbl_user set auth = 1 where uid = #{uid} and authKey = #{authKey}
+	</update>
 	
 	
 </mapper>
