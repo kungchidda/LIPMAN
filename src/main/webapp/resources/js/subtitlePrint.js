@@ -41,7 +41,7 @@
 		
 		var prettifyDate;
 		    if(diff < 60) {
-		    	timeValue = "방금";
+		    	prettifyDate = "방금";
 		    } else if(diff >= 60 && diff < 3600) {
 		    	prettifyDate = Math.floor(diff/60) + "분 전";
 		    } else if(diff >= 3600 && diff < 86400) {
