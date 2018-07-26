@@ -2,6 +2,7 @@ package com.kungchidda.persistence;
 
 import java.util.List;
 
+import com.kungchidda.domain.BoardVO;
 import com.kungchidda.domain.SearchCriteria;
 import com.kungchidda.domain.TitleVO;
 
@@ -23,7 +24,7 @@ public interface TitleDAO {
 	
 	public void addAttach(String titleFullName) throws Exception;
 	
-	public List<String> getAttach(Integer bno) throws Exception;
+	public List<BoardVO> getAttach(Integer tno) throws Exception;
 	
 	public void deleteAttach(Integer tno) throws Exception;
 	public void replaceAttach(String fullName, Integer tno) throws Exception;

@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.kungchidda.domain.BoardVO;
 import com.kungchidda.domain.SearchCriteria;
 import com.kungchidda.domain.TitleVO;
 
@@ -90,7 +91,7 @@ public class TitleDAOImpl implements TitleDAO{
 	}
 	
 	@Override
-	public List<String> getAttach(Integer tno) throws Exception {
+	public List<BoardVO> getAttach(Integer tno) throws Exception {
 		return session.selectList(namespace+".getAttach", tno);
 	}
 	
