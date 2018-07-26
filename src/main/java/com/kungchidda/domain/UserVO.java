@@ -24,4 +24,7 @@ public @Data class UserVO {
 	private int subscribe_p;
 	private int subscriber_p;
 	private int genre_p;
+	
+	private String authKey;
+	private int auth;
 }

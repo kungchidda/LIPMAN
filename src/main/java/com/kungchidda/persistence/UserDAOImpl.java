@@ -104,4 +104,22 @@ public class UserDAOImpl implements UserDAO{
 	public int existAccount(UserVO vo) throws Exception{
 		return session.selectOne(namespace + ".existAccount", vo);
 	}
+	
+	@Override
+	public void createAuthKey(String uid, String authKey) throws Exception {
+		UserVO vo = new UserVO();
+		vo.setAuthKey(authKey);
+		vo.setUid(uid);
+
+		session.selectOne(namespace + ".createAuthKey", vo);
+	}
+	
+	@Override
+	public int auth(String uid, String authKey) throws Exception {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		
+		paramMap.put("uid", uid);
+		paramMap.put("authKey", authKey);
+		return session.update(namespace + ".auth", paramMap);
+	}
 }

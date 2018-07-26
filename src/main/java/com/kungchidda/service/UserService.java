@@ -18,4 +18,6 @@ public interface UserService {
 	
 	public int existAccount(UserVO vo) throws Exception;
 	
+	public int auth(String uid, String authKey) throws Exception;
+	
 }

@@ -31,4 +31,6 @@ public interface UserDAO {
 	public void deleteGenre(UserVO user) throws Exception;
 	
 	public int existAccount(UserVO vo) throws Exception;
+	public void createAuthKey(String uid, String authKey) throws Exception;
+	public int auth(String uid, String authKey) throws Exception;
 }
