@@ -8,9 +8,11 @@
 </head>
 <body>
 
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		self.location = "/sboard/list";
-	</script>
+	</script> -->
+${cri.uid} 님 회원가입을 축하드립니다.
+이메일 인증 후 이용바랍니다.
 
 </body>
 </html>
