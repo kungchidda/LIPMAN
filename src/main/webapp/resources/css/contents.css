@@ -304,11 +304,12 @@ h4 {
 
 .thissubtitleLi a {
     display: grid;
-    grid-template-columns: 130px 380px;
+    grid-template-columns: 170px 255px;
     grid-template-rows: 120px;
     grid-template-areas: 
         "a b";
     align-items: center;
+    font-size: 1em;
     float: left;
 }
 
