@@ -138,10 +138,14 @@ public class SearchBoardController {
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registPOST(BoardVO board, RedirectAttributes rttr) throws Exception {
+	public String registPOST(BoardVO board, RedirectAttributes rttr, HttpServletRequest request) throws Exception {
 		logger.info("regist post ..........");
 		logger.info(board.toString());
-
+		
+		HttpSession session = request.getSession();
+		UserVO vo = (UserVO)session.getAttribute("login");
+		rttr.addAttribute("uid", vo.getUid());
+		
 		service.regist(board);
 
 		rttr.addFlashAttribute("msg", "SUCCESS");

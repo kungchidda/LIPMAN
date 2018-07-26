@@ -28,5 +28,5 @@ public @Data class BoardVO {
 	private String titleFullName;
 	private String boardFullName;
 	private String profileFullName;
-
+	
 }

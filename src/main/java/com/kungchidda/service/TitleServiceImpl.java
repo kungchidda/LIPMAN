@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.kungchidda.domain.BoardVO;
 import com.kungchidda.domain.SearchCriteria;
 import com.kungchidda.domain.TitleVO;
 import com.kungchidda.persistence.TitleDAO;
@@ -84,7 +85,7 @@ public class TitleServiceImpl implements TitleService{
 	}
 	
 	@Override
-	public List<String> getAttach(Integer bno) throws Exception{
-		return dao.getAttach(bno);
+	public List<BoardVO> getAttach(Integer tno) throws Exception{
+		return dao.getAttach(tno);
 	}
 }
