@@ -9,6 +9,7 @@ body {
     box-sizing: border-box;
     background-color: white;
     overflow-y: scroll;
+    font-size: 15px;
 }
 
 a:visited {color: black;}
@@ -25,7 +26,7 @@ a:visited {color: black;}
     display: inline-block;
 }
 
-/* .dropdown-content */
+/* Dropdown-content */
 .dropdown-contents {
     display: block;
     position: absolute;
@@ -50,30 +51,31 @@ a:visited {color: black;}
 }
 
 
-/* Show the dropdown menu */
-.search {height: 220px;}
+/* Dropdown menu */
+.search {height: 180px;}
 .notice {
     height: 400px;
     overflow-y: auto;
 }
-.mypage {height: 400px;}
-.forgot {height: 210px;}
-.signup {height: 485px;}
+.mypage {height: 320px;}
+.forgot {height: 170px;}
+.signup {height: 390px;}
 
 
-/* dropdown search */
+/* Dropdown-content : search */
 .dropdown-searchBar-01 {
     display: grid;
-    grid-template-columns: 100px 135px 135px 130px 110px 140px 160px 110px 120px 140px;
-    grid-template-rows: 50px 50px;
+    grid-template-columns: 55px 88px 90px 85px 65px 92px 117px 68px 75px 92px;
+    grid-template-rows: 40px 40px;
     grid-template-areas: 
         "c d e f g h i j k l"
         "m n o p q r s t u v";
     justify-content: center;
     align-items: center;
     grid-row-gap: 10px;
+	grid-column-gap: 10px;
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
 }
 
 .dropdown-searchBar-01 .dropdown-genre-01 {grid-area: c;}
@@ -97,37 +99,34 @@ a:visited {color: black;}
 .dropdown-searchBar-01 .dropdown-genre-19 {grid-area: u;}
 .dropdown-searchBar-01 .dropdown-genre-20 {grid-area: v;}
 .dropdown-searchBar-01 span {
-    padding-right: 25px;
-    padding-left: 25px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border-radius: 10px;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .dropdown-searchBar-02 {
     display: grid;
-    grid-template-columns: 1180px 100px;
-    grid-template-rows: 50px;
+    grid-template-columns: 870px 50px;
+    grid-template-rows: 40px;
     grid-template-areas: 
         "a b";
     justify-content: center;
-    padding-top: 0;
+    padding-top: 5px;
     padding-bottom: 20px;
 }
 
 .dropdown-searchBar-02 .searchBar {
     grid-area: a;
     align-self: center;
-    padding: 15px;
-    font-size: 1em;
+    padding: 10px;
+    font-size: 15px;
     border: 1px solid gray;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .dropdown-searchBar-02 .searchBar-button {
     grid-area: b;
     justify-self: center;
-    width: 50px;
+    width: 40px;
     background-color: white;
     border: 1px solid white;
 }
@@ -381,16 +380,16 @@ a:visited {color: black;}
 }
 
 
-/* .dropdown-content img { */
+/* dropdown-content img { */
 .dropdown-contents img {
     width: 30px;
 }
 
 
-/*dropdown notice*/
+/* Dropdown-content : notice */
 .dropdown-notice {
     display: grid;
-    grid-template-columns: 700px;
+    grid-template-columns: 400px;
     grid-template-areas: "a" "b" "c" "d" "e" "f";
     justify-items: center;
     justify-content: center;
@@ -440,11 +439,11 @@ a:visited {color: black;}
     border-radius: 10px;
 }
 
-/* dropdown mypage */
+/* Dropdown-content : mypage */
 .dropdown-mypage {
     display: grid;
     grid-template-columns: 400px;
-    grid-template-rows: 50px 25px 50px 50px 50px 25px 50px;
+    grid-template-rows: 37px 15px 37px 37px 37px 20px 37px;
     grid-template-areas: 
         "a" 
         "b" 
@@ -465,7 +464,7 @@ a:visited {color: black;}
 
 .dropdown-mypage .remember {
     grid-area: b;
-    font-size: 1em;
+    font-size: 15px;
     padding-left: 5px;
     color: gray;
 }
@@ -479,18 +478,18 @@ a:visited {color: black;}
 }
 
 .dropdown-mypage .login-id, .login-pw {
-    padding: 15px;
-    font-size: 1em;
+    padding: 10px;
+    font-size: 15px;
     border: 1px solid gray;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .dropdown-mypage .login-button {
     grid-area: d;
     border: 1px solid #489ad8;
     background-color: #489ad8;
-    font-size: 1em;
-    border-radius: 10px;
+    font-size: 15px;
+    border-radius: 5px;
     color: white;
 }
 
@@ -505,11 +504,11 @@ a:visited {color: black;}
 }
  
 .dropdown-mypage .signupBtn, .forgotBtn {
-	width: 163px;
-    font-size: 1em;
+	width: 175px;
+    font-size: 15px;
     text-align: center;
-    padding: 15px;
-    border-radius: 10px;
+    padding: 10px;
+    border-radius: 5px;
     border: 1px solid gray;
     background-color: white;
     color: gray;
@@ -522,7 +521,6 @@ a:visited {color: black;}
   border: 0;
   color: black;
   text-align: center;
-  /* height: 1.5em; */
 }
 
 .dropdown-mypage .signup-or {
@@ -531,7 +529,7 @@ a:visited {color: black;}
 
 .dropdown-mypage .signup-or {
     text-align: center;
-    font-size: 20px;
+    font-size: 15px;
     color: gray;
 }
 
@@ -564,19 +562,19 @@ a:visited {color: black;}
     color: #dd4b39;
 }
 
-.dropdown-mypage .signup-google, .signup-facebook {
-    font-size: 1em;
+.signup-google, .signup-facebook {
+    ffont-size: 15px;
     text-align: center;
-    padding-top: 13px;
-    width: 193px;
-    border-radius: 10px;
+    padding-top: 10px;
+    width: 195px;
+    border-radius: 5px;
 }
 
-/* dropdown-content forgot */
+/* Dropdown-content : forgot */
 .dropdown-forgot {
     display: grid;
     grid-template-columns: 400px;
-    grid-template-rows: 50px 50px 50px;
+    grid-template-rows: 37px 37px 37px;
     grid-template-areas: 
 	    "a" 
 	    "b" 
@@ -592,10 +590,10 @@ a:visited {color: black;}
 }
 
 .dropdown-forgot input {
-	padding: 15px;
-    font-size: 1em;
+	padding: 10px;
+    font-size: 15px;
     border: 1px solid gray;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .check-please{
@@ -621,17 +619,17 @@ a:visited {color: black;}
 }
 
 .dropdown-forgot button {
-	padding: 15px;
-	font-size: 1em;
-	border-radius: 10px;
+	padding: 10px;
+	font-size: 15px;
+	border-radius: 5px;
 }
  
 
-/* dropdown-content signup */
+/* Dropdown-content signup */
 .dropdown-signup {
     display: grid;
     grid-template-columns: 400px;
-    grid-template-rows: 50px 50px 50px 50px 50px 50px 25px 50px;
+    grid-template-rows: 37px 37px 37px 37px 37px 37px 20px 37px;
     grid-template-areas: 
 	    "a" 
 	    "b" 
@@ -664,10 +662,10 @@ a:visited {color: black;}
 }
 
 .dropdown-signup .signup-email, .signup-pw, .signup-repw, .signup-nickname {
-    padding: 15px;
-    font-size: 1em;
+    padding: 10px;
+    font-size: 15px;
     border: 1px solid gray;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .check-please{
@@ -696,11 +694,11 @@ a:visited {color: black;}
 }
  
 .dropdown-signup .hadaccount-button, .forgotBtn {
-	width: 163px;
-    font-size: 1em;
+	width: 175px;
+    font-size: 15px;
     text-align: center;
-    padding: 15px;
-    border-radius: 10px;
+    padding: 10px;
+    border-radius: 5px;
     border: 1px solid gray;
     background-color: white;
     color: gray;
@@ -709,13 +707,13 @@ a:visited {color: black;}
 .dropdown-signup .signup-button, .hadaccount-button {
     font-size: 1em;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .dropdown-signup .signup-or {
     grid-area: g;
     text-align: center;
-    font-size: 20px;
+    font-size: 15px;
     color: gray;
 }
 
@@ -748,19 +746,12 @@ a:visited {color: black;}
     color: #dd4b39;
 }
 
-.dropdown-signup .signup-google, .signup-facebook {
-    font-size: 1em;
-    text-align: center;
-    padding-top: 13px;
-    width: 193px;
-    border-radius: 10px;
-}
 
 
-/* header css */
+/* Header css */
 .header {
     display: grid;
-    grid-template-columns: 150px auto 70px 70px 70px;
+    grid-template-columns: 150px auto 50px 50px 50px;
     grid-template-rows: 50px;
     grid-template-areas: 
         "a . b c d";
@@ -849,38 +840,64 @@ a:visited {color: black;}
 
 /* Media query */
 
-/* iPad Pro-12.9 landscape */
+/* iPad Pro-12.9 landscape : Complete */
 @media only screen and (max-width: 1366px) and (orientation: landscape) {
+/* Body */	
+	body{
+		font-size: 13px;
+	}
+	
 /* Show the dropdown menu */
-    .notice {
-        height: 330px;
-    }
-   
-/* dropdown search */
+	.mypage {height: 320px;}	
+	.search {height: 180px;}
+	.signup {height: 389px;}
+	.forgot {height: 170px;}	
+	   
+/* Dropdown-content : search */
     .dropdown-searchBar-01 {
-        grid-template-columns: 80px 115px 115px 110px 90px 120px 140px 90px 100px 120px;
-        padding-bottom: 20px;
-        padding-left: 20px;
-        padding-right: 10px;
-        overflow: scroll;
+        grid-template-columns: 51px 81px 82px 80px 60px 85px 105px 63px 67px 82px;
+        grid-template-rows: 37px 37px;
+        justify-content: center;        
+	    grid-gap: 10px;
+	    padding-top: 20px;
+	    padding-bottom: 20px;
+	    overflow: scroll;
     }
     
     .dropdown-searchBar-01 span {
-        padding-left: 15px;
-        padding-right: 15px;
+        padding: 10px;
     }
     
     .dropdown-searchBar-02 {
-        grid-template-columns: 1000px 70px;
+        grid-template-columns: 805px 40px;
+        grid-template-rows: 37px;
         padding-top: 0;
+        padding-bottom: 20px;
     }
     
-/* dropdown notice */
+    .dropdown-contents img {
+	    width: 20px;
+	}
+        
+    .dropdown-searchBar-02 .searchBar-button {
+	    width: 30px;
+	}
+	
+	.dropdown-searchBar-02 .searchBar {
+	    font-size: 13px;
+	    border-radius: 5px;
+	    padding: 10px;
+	    width: 780px;
+	}
+    
+    
+/* Dropdown-content : notice */
     .dropdown-notice {
-        grid-template-columns: 500px;
+        grid-template-columns: 400px;
     }
 
     .dropdown-notice .text-01, .text-02, .text-03, .text-04, .text-05, .text-06 {
+    	font-size: 13px;
         justify-self: start;
         padding-left: 70px;
         width: 430px;
@@ -899,77 +916,126 @@ a:visited {color: black;}
         width: 25px;
     }
 
-/*dropdown mypage*/
+
+/* Dropdown-content : mypage */
     .dropdown-mypage {
-        grid-template-columns: 340px;
-        font-size: 1em;
+        grid-template-columns: 300px;
+        grid-template-rows: 37px 15px 37px 37px 37px 20px 37px;
+        grid-row-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+	    font-size: 13px;
     }
     
-    .dropdown-mypage button {
-    	border-radius: 10px;
-    }
-
-    .dropdown-mypage .remember {
-        width: 340px;
-        justify-self: center;
-    }
-	 
+    .dropdown-mypage .login-id, .login-pw {
+	    padding: 10px;
+	    border-radius: 5px;
+	    font-size: 13px;
+	    height: 16px;
+	}
+	
+	.dropdown-mypage .login-button {
+	    font-size: 13px;
+	    border-radius: 5px;
+	    height: 38px;
+	}
+    	
 	.dropdown-mypage .signupBtn, .forgotBtn {
-		width: 133px;
+		width: 123px;
+	    font-size: 13px;
+	    padding: 10px;
+	    border-radius: 5px;
 	}
 	
-	.dropdown-mypage .signup-facebook {
-	    width: 163px;
+	.dropdown-mypage .signup-or {
+	    font-size: 15px;
 	}
 	
-	.dropdown-mypage .signup-google {
-	    width: 163px;
+	.dropdown-mypage span {
+	    font-size: 13px;
 	}
 	
-
-/* dropdown-content forgot */
+	.dropdown-mypage h1 span {
+	    font-size: 11px;
+	}
+		
+	.dropdown-mypage .signup-google, .signup-facebook {
+	    font-size: 13px;
+	    padding-top: 10px;
+	    border-radius: 5px;
+	    width: 143px;
+	}	
+	
+	
+/* Dropdown-content forgot */	
 	.dropdown-forgot {
-	    grid-template-columns: 340px;
-	    font-size: 1em;
+	    grid-template-columns: 300px;
+	    grid-template-rows: 37px 37px 37px;
+	    justify-content: center;
+	    grid-gap: 10px;
+	    padding-top: 20px;
+	    padding-bottom: 20px;
+	    font-size: 13px;
+	}		
+	
+	.dropdown-forgot input {
+	    padding: 10px;
+	    font-size: 13px;
+	    border-radius: 5px;
 	}
 	
 	.dropdown-forgot button {
-		border-radius: 10px;
+	    padding: 10px;
+	    font-size: 13px;
+	    border-radius: 5px;
 	}
-
-/* dropdown-content signup */
+    
+    
+/* Dropdown-content signup */
     .dropdown-signup {
-        grid-template-columns: 340px;
-        font-size: 1em;
+        grid-template-columns: 300px;
+        grid-template-rows: 37px 37px 37px 37px 37px 37px 20px 37px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+	    font-size: 13px;
     }
     
-    .dropdown-signup button {
-		border-radius: 10px;
-	}
-
     .dropdown-signup .signup-email, .signup-pw, .signup-repw, .signup-nickname {
-        width: 310px;
-        justify-self: center;
-    }
-
+	    padding: 10px;
+	    font-size: 13px;
+	    border: 1px solid gray;
+	    border-radius: 5px;
+	}
+    
     .dropdown-signup .signup-button {
-        width: 340px;
+    	border-radius: 5px;
+        width: 300px;
     }
 	
 	.dropdown-signup .hadaccount-button, .forgotBtn {
-		width: 133px;	    
-	}
-
-    .dropdown-signup .signup-facebook {
-        width: 163px;
-	}
-
-	.dropdown-signup .signup-google {
-	    width: 163px;
+		width: 123px;
+	    font-size: 13px;
+	    padding: 10px;
+	    border-radius: 5px;
 	}
 	
+	.dropdown-signup .signup-or {
+	    font-size: 15px;
+	}
+	
+	.dropdown-signup h1 span {
+	    font-size: 11px;
+	}
 
-/* header */
+    .dropdown-signup .signup-google, .signup-facebook {
+	    font-size: 13px;
+	    padding-top: 10px;
+	    border-radius: 5px;
+	    width: 143px;
+	}   
+	
+	
+/* Header */
     .header {
         grid-template-columns: 120px auto 40px 40px 40px;
         grid-template-rows: 40px;
@@ -979,41 +1045,193 @@ a:visited {color: black;}
         padding-left: 5px;
     }
 	
-    .header img {width: 25px;}
+    .header img {width: 20px;}
     .header .brand img {width: 100px;}
 }
 
 
-/* iPad Pro-10.5 landscape */
+/* iPad Pro-10.5 landscape : Complete */
 @media only screen and (max-width: 1112px) and (orientation: landscape) {
 	
 }
 
 
-/* iPad Pro-12.9 portrait */
+/* iPad Pro-12.9 portrait : Complete */
 @media only screen and (max-width: 1024px) and (orientation: portrait) {  
-/* dropdown notice */
+/* Body */	
+	body{
+		font-size: 13px;
+	}
+	
+/* Show the dropdown menu */
+	.mypage {height: 320px;}	
+	.search {height: 180px;}
+	.signup {height: 389px;}
+	.forgot {height: 170px;}
+
+
+/* Dropdown-content : notice */
     .dropdown-notice {
-        grid-template-columns: 500px;
+        grid-template-columns: 400px;
     }
 	
 	
-/* dropdown search */
+/* Dropdown-content : search */
     .dropdown-searchBar-01 {
-        grid-template-columns: 70px 105px 105px 100px 80px 110px 130px 80px 90px 110px;
+        grid-template-columns: 51px 81px 82px 80px 60px 85px 105px 63px 67px 95px;
+        grid-template-rows: 37px 37px;
+        justify-content: center;        
+	    grid-gap: 10px;
+	    padding-top: 20px;
+	    padding-bottom: 20px;
+	    overflow: scroll;	    
     }
     
     .dropdown-searchBar-01 span {
-        padding-left: 10px;
-        padding-right: 10px;
+        padding: 10px;
+        border-radius: 5px;
     }
     
     .dropdown-searchBar-02 {
-        grid-template-columns: 910px 70px;
+        grid-template-columns: 818px 40px;
+        grid-template-rows: 37px;
+        padding-top: 0;
+        padding-bottom: 20px;
     }
     
+    .dropdown-contents img {
+	    width: 20px;
+	}
+	
+	.dropdown-searchBar-02 .searchBar-button {
+	    width: 30px;
+	}
+	
+	.dropdown-searchBar-02 .searchBar {
+	    font-size: 13px;
+	    border-radius: 5px;
+	    padding: 10px;
+	    width: 795px;
+	}
+	
+	
+/* Dropdown mypage */
+    .dropdown-mypage {
+        grid-template-columns: 300px;
+        grid-template-rows: 37px 15px 37px 37px 37px 20px 37px;
+        grid-row-gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+	    font-size: 13px;
+    }
     
-/* header */
+    .dropdown-mypage .login-id, .login-pw {
+	    padding: 10px;
+	    border-radius: 5px;
+	    font-size: 13px;
+	    height: 16px;
+	}
+	
+	.dropdown-mypage .login-button {
+	    font-size: 13px;
+	    border-radius: 5px;
+	    height: 38px;
+	}
+    	
+	.dropdown-mypage .signupBtn, .forgotBtn {
+		width: 123px;
+	    font-size: 13px;
+	    padding: 10px;
+	    border-radius: 5px;
+	}
+	
+	.dropdown-mypage .signup-or {
+	    font-size: 15px;
+	}
+	
+	.dropdown-mypage h1 span {
+	    font-size: 11px;
+	}
+	
+	.dropdown-mypage span {
+	    font-size: 13px;
+	}
+		
+	.dropdown-mypage .signup-google, .signup-facebook {
+	    font-size: 13px;
+	    padding-top: 10px;
+	    border-radius: 5px;
+	    width: 143px;
+	}	
+	
+
+/* Dropdown-content forgot */	
+	.dropdown-forgot {
+	    grid-template-columns: 300px;
+	    grid-template-rows: 37px 37px 37px;
+	    justify-content: center;
+	    grid-gap: 10px;
+	    padding-top: 20px;
+	    padding-bottom: 20px;
+	    font-size: 13px;
+	}		
+	
+	.dropdown-forgot input {
+	    padding: 10px;
+	    font-size: 13px;
+	    border-radius: 5px;
+	}
+	
+	.dropdown-forgot button {
+	    padding: 10px;
+	    font-size: 13px;
+	    border-radius: 5px;
+	}
+    
+/* Dropdown-content signup */
+    .dropdown-signup {
+        grid-template-columns: 300px;
+        grid-template-rows: 37px 37px 37px 37px 37px 37px 20px 37px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+	    font-size: 13px;
+    }
+    
+    .dropdown-signup .signup-email, .signup-pw, .signup-repw, .signup-nickname {
+	    padding: 10px;
+	    font-size: 13px;
+	    border: 1px solid gray;
+	    border-radius: 5px;
+	}
+    
+    .dropdown-signup .signup-button {
+    	border-radius: 5px;
+        width: 300px;
+    }
+	
+	.dropdown-signup .hadaccount-button, .forgotBtn {
+		width: 123px;
+	    font-size: 13px;
+	    padding: 10px;
+	    border-radius: 5px;
+	}
+	
+	.dropdown-signup .signup-or {
+	    font-size: 15px;
+	}
+	
+	.dropdown-signup h1 span {
+	    font-size: 11px;
+	}
+
+    .dropdown-signup .signup-google, .signup-facebook {
+	    font-size: 13px;
+	    padding-top: 10px;
+	    border-radius: 5px;
+	    width: 143px;
+	}   
+    
+/* Header */
     .header {
         display: grid;
         grid-template-columns: 120px auto 40px 40px 40px;
@@ -1026,325 +1244,140 @@ a:visited {color: black;}
         padding-left: 5px;
     }
     
-    .header img {width: 25px;}
+    .header img {width: 20px;}
     .header .brand img {width: 100px;}
 }
 
 
-/* iPad Pro-9.7 landscape */
+/* iPad Pro-9.7 landscape : Complete */
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
-/* dropdown search */
-    .dropdown-searchBar-01 {
-        grid-template-columns: 80px 115px 115px 110px 90px 120px 140px 90px 100px 120px;
-        justify-content: start;
-        padding-bottom: 15px;
-        padding-left: 15px;
-        padding-right: 15px;
-        overflow: scroll;
-    }
-    
-    .dropdown-searchBar-01 span {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-    
-    .dropdown-searchBar-02 {
-        grid-template-columns: 935px 60px;
-        padding-top: 5px;
-    }
 } 
 
-/* iPad Pro-10.5 portrait */
+/* iPad Pro-10.5 portrait : Complete */
 @media only screen and (max-width: 834px) and (orientation: portrait) {
-/* dropdown search */
+/* Dropdown-content : search */
     .dropdown-searchBar-01 {
-        grid-template-columns: 80px 115px 115px 110px 90px 120px 140px 90px 100px 120px;
-        justify-content: start;
-        padding-bottom: 15px;
-        padding-left: 15px;
-        padding-right: 15px;
-        overflow: scroll;
-    }
-    
-    .dropdown-searchBar-01 span {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-    
-    .dropdown-searchBar-02 {
-        grid-template-columns: 745px 60px;
-        padding-top: 5px;
-    }
-}
-
-
-/* iPad Pro-X landscape */
-@media only screen and (max-width: 812px) and (orientation: landscape) {
-/* Show the dropdown menu */
-    .search {height: 160px;}
-   
-/* dropdown search */
-    .dropdown-searchBar-01 {
-        display: grid;
-        grid-template-columns: 50px 90px 100px 100px 80px 110px 110px 80px 90px 100px 70px 105px 75px 95px 70px 60px 130px 80px 80px 90px;
-        grid-template-rows: 50px;
-        grid-template-areas: 
-            "c d e f g h i j k l m n o p q r s t u v";
-        justify-content: start;
-        align-items: center;
-        grid-row-gap: 10px;
-        padding-top: 20px;
-        padding-bottom: 15px;
-        padding-left: 10px;
-        padding-right: 10px;
-        overflow: scroll;
-    }
-    
-    .dropdown-searchBar-01 span {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 10px;
-        padding-right: 10px;
-        border-radius: 10px;
-    }
-    
-    .dropdown-searchBar-02 {
-        grid-template-columns: 720px 70px;
-        padding-top: 5px;
-        padding-bottom: 20px;
-    }
-}
-
-
-/* iPad Pro-9.7 portrait */
-@media only screen and (max-width: 768px) and (orientation: portrait) {
-/* dropdown search */    
-    .dropdown-searchBar-02 {
-        grid-template-columns: 677px 60px;
-    }
-}
-
-
-/* iPad Pro-6+/7+/8+  landscape */
-@media only screen and (max-width: 736px) and (orientation:  landscape) {
-/* dropdown search */    
-    .dropdown-searchBar-02 {
-        grid-template-columns: 645px 70px;
-    }
-}
-
-
-/* iPad Pro-6/7/8 landscape */
-@media only screen and (max-width: 667px) and (orientation: landscape) {
-/* dropdown search */
-    .dropdown-searchBar-02 {
-        grid-template-columns: 575px 70px;
-    }
-}
-
-
-/* iPad Pro-5/SE/5S landscape */
-@media only screen and (max-width: 568px) and (orientation: landscape) {
-/* dropdown search */    
-    .dropdown-searchBar-02 {
-        grid-template-columns: 475px 70px;
-    }
-}
-
-/* iPad Pro-6+/7+/8+ portrait */
-@media only screen and (max-width: 414px) and (orientation: portrait) {
-/* Show the dropdown menu */
-    .search {height: 220px;}
-   
-/* dropdown search */
-    .dropdown-searchBar-01 {
-        grid-template-columns: 80px 115px 115px 110px 90px 120px 140px 90px 100px 120px;
-        grid-template-rows: 50px 50px;
-        grid-row-gap: 10px;
+        grid-template-columns: 51px 81px 82px 80px 60px 85px 105px 63px 67px 100px;
         padding-left: 20px;
-        padding-top: 20px;
-        padding-bottom: 15px;
-    }
-    
-    .dropdown-searchBar-01 span {
-        padding-top: 15px;
-        padding-bottom: 15px;
-        padding-left: 15px;
-        padding-right: 15px;
-        border-radius: 10px;
+        justify-content: start;  
     }
     
     .dropdown-searchBar-02 {
-        grid-template-columns: 320px 50px;
-        padding-top: 5px;
-        padding-bottom: 20px;
-    }
-    
-    
-/* dropdown notice */
-    .dropdown-notice {
-        grid-template-columns: 340px;
-    }
-
-    .dropdown-notice .text-01, .text-02, .text-03, .text-04, .text-05, .text-06 {
-        padding-left: 60px;
-        width: 230px;
-    }
-
-    .dropdown-notice .time-01, .time-02, .time-03, .time-04, .time-05, .time-06 {
-        align-self: end;
-        font-size: 12px;
-        padding-bottom: 5px;
-    }
-
-
-/* dropdown mypage */
-    .dropdown-mypage {
-        grid-template-columns: 340px;
-        grid-template-rows: 50px 25px 50px 50px 50px 25px 50px;
-    }
-    
-    .dropdown-mypage .signupBtn {
-        width: 133px;
+        grid-template-columns: 755px 40px;
     }
 	
-	.dropdown-mypage .forgotBtn {
-	    width: 133px;
-	}
-	
-	.dropdown-mypage .signup-facebook {
-	    width: 163px;
-	}
-	
-	.dropdown-mypage .signup-google {
-	    width: 163px;
-	}
-
-/* dropdown-content forgot */
-	.dropdown-forgot {
-	    grid-template-columns: 340px;
-	    grid-template-rows: 50px 50px 50px;
-	}
-	
-
-/* dropdown-content signup */
-    .dropdown-signup {
-        grid-template-columns: 340px;
-        grid-template-rows: 50px 50px 50px 50px 50px 50px 25px 50px;
-    }
-    
-    .dropdown-signup .signup-button {
-        width: 342px;
-    }
-
-    .dropdown-signup .hadaccount-button {
-        width: 133px;
-    }
-    
-    .dropdown-signup .forgotBtn {
-	    width: 133px;
-	}
-
-    .dropdown-signup .signup-facebook {
-        width: 162px;
-	}
-
-	.dropdown-signup .signup-google {
-	    width: 162px;
+	.dropdown-searchBar-02 .searchBar {
+	    width: 725px;
 	}
 }
 
 
-/* iPad Pro-6/7/8/X portrait */
+/* iPhone - X landscape : Complete */
+@media only screen and (max-width: 812px) and (orientation: landscape) {
+/* Dropdown-content : search */
+    .dropdown-searchBar-01 {
+    	grid-template-columns: 51px 81px 82px 80px 60px 85px 105px 63px 67px 100px;
+        padding-left: 20px;
+        justify-content: start;  
+    }
+    
+    .dropdown-searchBar-02 {
+        grid-template-columns: 731px 40px;
+    }
+	
+	.dropdown-searchBar-02 .searchBar {
+	    width: 701px;
+	}
+
+	
+/* Header */	
+	.header {
+	    grid-template-columns: 120px auto 35px 35px 35px;
+	}	
+}
+
+
+/* iPad Pro-9.7 portrait : Complete */
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+/* Dropdown-content : search */
+    .dropdown-searchBar-02 {
+        grid-template-columns: 688px 40px;
+    }
+	
+	.dropdown-searchBar-02 .searchBar {
+	    width: 658px;
+	}	
+}
+
+
+/* iPhone - 6+/7+/8+ landscape : Complete */
+@media only screen and (max-width: 736px) and (orientation:  landscape) {
+/* Dropdown-content : search */
+    .dropdown-searchBar-02 {
+        grid-template-columns: 656px 40px;
+    }
+	
+	.dropdown-searchBar-02 .searchBar {
+	    width: 626px;
+	}	
+}
+
+
+/* iPhone - 6/7/8/X landscape : Complete */
+@media only screen and (max-width: 667px) and (orientation: landscape) {
+/* Dropdown-content : search */
+    .dropdown-searchBar-02 {
+        grid-template-columns: 586px 40px;
+    }
+	
+	.dropdown-searchBar-02 .searchBar {
+	    width: 556px;
+	}
+}
+
+
+/* iPhone - 5/SE/5S landscape */
+@media only screen and (max-width: 568px) and (orientation: landscape) {
+	
+}
+
+/* iPhone - 6+/7+/8+ portrait : Complete */
+@media only screen and (max-width: 414px) and (orientation: portrait) {
+/* Dropdown-content : search */ 	
+	.dropdown-searchBar-01 {
+	    padding-left: 10px;
+	}
+	
+	.dropdown-searchBar-02 {
+        grid-template-columns: 353px 40px;
+    }
+	
+	.dropdown-searchBar-02 .searchBar {
+	    width: 323px;
+	}
+	
+
+/* Header */	
+	.header {
+	    grid-template-columns: 120px auto 35px 35px 35px;
+	}	
+}
+
+
+/* iPhone - 6/7/8/X portrait : Complete */
 @media only screen and (max-width: 375px) and (orientation: portrait) {
-/* dropdown search */    
-    .dropdown-searchBar-02 {
-        grid-template-columns: 285px 50px;
+/* Dropdown-content : search */ 	
+	.dropdown-searchBar-02 {
+        grid-template-columns: 314px 40px;
     }
+	
+	.dropdown-searchBar-02 .searchBar {
+	    width: 284px;
+	}
 }
 
 
-/* iPad Pro-5/SE/5S portrait */
+/* iPhone - 5/SE/5S portrait */
 @media only screen and (max-width: 320px) and (orientation: portrait) {
-/* dropdown search */
-    .dropdown-searchBar-02 {
-        grid-template-columns: 230px 50px;
-    }
-    
-    
-/* dropdown notice */
-    .dropdown-notice {
-        grid-template-columns: 290px;
-    }
-    
-
-/* dropdown mypage */
-    .dropdown-mypage {
-        grid-template-columns: 290px;
-        grid-template-rows: 50px 25px 50px 50px 50px 25px 50px;
-    }
-    
-    .dropdown-mypage .remember {
-        width: 290px;
-    }
-
-    .dropdown-mypage .login-id, .login-pw {
-        width: 260px;
-    }
-
-    .dropdown-mypage .login-button {
-        width: 292px;
-    }
-
-    .dropdown-mypage .signupBtn {
-        width: 95px;
-    }
 	
-	.dropdown-mypage .forgotBtn {
-	    width: 123px;
-	}
-	
-	.dropdown-mypage .signup-facebook {
-	    width: 138px;
-	}
-	
-	.dropdown-mypage .signup-google {
-	    width: 138px;
-	}
-	
-	
-/* dropdown-content forgot */
-	.dropdown-forgot {
-	    grid-template-columns: 290px;
-	}
-	
-
-/* dropdown-content signup */
-    .dropdown-signup {
-        grid-template-columns: 290px;
-    }
-    
-    .dropdown-signup .signup-email, .signup-pw, .signup-repw, .signup-nickname {
-        width: 260px;
-    }
-    
-    .dropdown-signup .signup-button {
-        width: 292px;
-    }
-
-    .dropdown-signup .hadaccount-button {
-        width: 95px;
-    }
-    
-    .dropdown-signup .forgotBtn {
-	    width: 123px;
-	}
-
-    .dropdown-signup .signup-facebook {
-        width: 138px;
-	}
-
-	.dropdown-signup .signup-google {
-	    width: 138px;
-	}
 }

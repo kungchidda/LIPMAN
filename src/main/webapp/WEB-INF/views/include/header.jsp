@@ -227,7 +227,7 @@
 	                Forgot Password
 	            </div>
             </div>
-            <h1 class="signup-or"><span>Log-in with</span></h1>
+            <h1 class="signup-or"><span>Log-In with</span></h1>
             <div class="signup-facebook do-not-close">Facebook</div>
             <div class="signup-google do-not-close">Google</div>
         </form>

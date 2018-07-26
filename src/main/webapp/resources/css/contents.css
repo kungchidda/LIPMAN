@@ -1204,38 +1204,54 @@ textarea{
 /* Profile : complete */
 	.content-writer-profile {
 		grid-template-columns: 170px 170px;
-		grid-template-rows: 75px 75px;
+		grid-template-rows: 41px 61px;
 		grid-column-gap: 20px;
 		grid-row-gap: 10px;
 		padding-top: 30px;
 		padding-bottom: 20px;
 	}
+	
+	.content-writer-profile .content-writer-name {
+	    padding-bottom: 0;
+	}
+	
+	.content-writer-profile .content-writer-img {
+	    justify-self: end;
+	}
 
 	.content-writer-profile img {
-		width: 150px;
+		width: 100px;
+	}
+	
+	.content-writer-profile .content-writer-subscribe {
+	    padding-top: 0;
 	}
 
 
 /* Profile : Modify & Remove Btn : complete */
 	.modifyPageBtn {
 		padding-right: 5px;
-	    padding-top: 15px;
+	    padding-top: 10px;
 	    padding-left: 5px;
-	    padding-bottom: 15px;
+	    padding-bottom: 10px;
 	    width : 70px;
 	}
 	
 	.removePageBtn {
 		padding-right: 5px;
-	    padding-top: 15px;
+	    padding-top: 10px;
 	    padding-left: 5px;
-	    padding-bottom: 15px;
+	    padding-bottom: 10px;
 	    width : 90px;
 	}
 	
 /* Profile : subscribe : complete */	
 	.subscribe {
-	    width: 150px;
+		padding-right: 5px;
+	    padding-top: 10px;
+	    padding-left: 5px;
+	    padding-bottom: 10px;
+	    width: 130px;
 	}
 	
 	
@@ -1264,7 +1280,7 @@ textarea{
 	
 	
 	.comic-infor .comic-thumbnail img {
-		width: 150px;
+		width: 100px;
 	}
 	
 /* Comic-comment : complete */
@@ -1344,7 +1360,7 @@ textarea{
 	}
 	
 	.og-fullimg img {
-		width: 160px;
+		width: 100px;
 	}
 	
 	
