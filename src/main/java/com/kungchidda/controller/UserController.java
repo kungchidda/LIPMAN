@@ -150,7 +150,7 @@ public class UserController {
 //
 //		rttr.addFlashAttribute("msg", "SUCCESS");
 //		return "redirect:/sboard/list";
-		return "/user/join?uid="+dto.getUid();
+		return "redirect:/user/join?uid="+dto.getUid();
 	}
 	
 	@RequestMapping(value = "/setting", method = RequestMethod.POST)
