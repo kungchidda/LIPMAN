@@ -12,7 +12,8 @@
 <%@ include file="/WEB-INF/views/mypage/profile.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script> -->
+<script src="/resources/js/handlebars.js"></script>
 <link href="/resources/css/mypage.css" rel="stylesheet">
 </head>
 
@@ -311,8 +312,8 @@
 	<%-- <%@ include file="/WEB-INF/views/include/footer.html"%> --%>
 
 	<script type="text/javascript" src="/resources/js/upload.js"></script>
-	<script
-		src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<!-- 	<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script> -->
+	<script src="/resources/js/handlebars.js"></script>
 
 	<script id="template" type="text/x-handlebars-template">
 			<div class="profile-uploadedList">

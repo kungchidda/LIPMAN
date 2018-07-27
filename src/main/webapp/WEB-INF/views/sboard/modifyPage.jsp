@@ -115,7 +115,8 @@
 
 	
 	<script type="text/javascript" src="/resources/js/upload.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<!-- 	<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script> -->
+	<script src="/resources/js/handlebars.js"></script>
 	
 	<script id="template" type="text/x-handlebars-template">
 		<div class="uploadedList">
