@@ -65,8 +65,8 @@ public class UserServiceImpl implements UserService {
 		MailHandler sendMail = new MailHandler(mailSender);
 		sendMail.setSubject("[LIPMAN 서비스 이메일 인증]");
 		sendMail.setText(
-//				new StringBuffer().append("<h1>메일인증</h1>").append("<a href='http://127.0.0.1:8080/user/emailConfirm?uid=").append(user.getUid()).append("&authKey=").append(key).append("' target='_blenk'>이메일 인증 확인</a>").toString());
-				new StringBuffer().append("<h1>메일인증</h1>").append("<a href='https://lipman.app/user/emailConfirm?uid=").append(user.getUid()).append("&authKey=").append(key).append("' target='_blenk'>이메일 인증 확인</a>").toString());
+				new StringBuffer().append("<h1>메일인증</h1>").append("<a href='http://127.0.0.1:8080/user/emailConfirm?uid=").append(user.getUid()).append("&authKey=").append(key).append("' target='_blenk'>이메일 인증 확인</a>").toString());
+//				new StringBuffer().append("<h1>메일인증</h1>").append("<a href='https://lipman.app/user/emailConfirm?uid=").append(user.getUid()).append("&authKey=").append(key).append("' target='_blenk'>이메일 인증 확인</a>").toString());
 		sendMail.setFrom("kungchidda@gmail.com", "LIPMAN 개발자");
 		sendMail.setTo(user.getUid());
 		sendMail.send();
