@@ -48,7 +48,7 @@
         <div class="content-writer-name">
 	        	<form id="subscriberForm" role="form" action="/mypage/titleList" method="GET">
 					<input type="hidden" name="uid" value='${boardVO.uid}'>
-					<button type="submit" class="default-button-style"><h3>${boardVO.uname}</h3></button>
+					<button type="submit" class="default-button-style"><p>${boardVO.uname}</p></button>
 				</form>
 <%--             <h3>${boardVO.uname}</h3> --%>
         </div>
@@ -96,7 +96,7 @@
 	
 
 	
-<hr>    
+<!-- <hr>  -->   
     
     
     
@@ -141,9 +141,9 @@
    </div>
    
    <!--comic-comment-->
-   <div class="strapline">
+   <!-- <div class="strapline">
       	<h4>Author Comment</h4>
-    </div>
+    </div> -->
       <div class="comic-infor-comment">
       	<div class="comic-comment">
       		${boardVO.content}
@@ -165,14 +165,14 @@
 		<div class="content-margin-bottom">
 	<div class="og-expanded list-og-expanded another-og-expanded do-not-close">
 		<div class="og-expander-inner list-og-expander-inner another-og-expander-inner do-not-close">
-			<div class="expander-title-inner">
-				<div class="og-fullimg do-not-close">
+			<div class="expander-title-inner list-expander-title-inner">
+				<div class="og-fullimg list-og-fullimg do-not-close">
 					<img class="do-not-close" src="/displayFile?fileName=${boardVO.titleFullName}" style="display: inline;">
 				</div>
-				<div class="comic-list-genre do-not-close">
+				<div class="comic-list-genre list-comic-list-genre do-not-close">
 					<div>${boardVO.gname}</div>
 				</div>
-				<div class="comic-list-title do-not-close">
+				<div class="comic-list-title list-comic-list-title do-not-close">
 					<div>${boardVO.title}</div>
 				</div>
 				<!-- <div class="comic-list-setting">
@@ -185,9 +185,10 @@
 						<div class="comic-list list-comic-list another-comic-list do-not-close">
 							<img src="/displayFile?fileName=${boardVO.boardFullName}">
 						</div>
-						<div class="comic-list-text list-comic-list-text another-comic-list-text cursor do-not-close">
+						<div class="comic-list-text another-comic-list-text cursor do-not-close">
 							${boardVO.subtitle}
 						</div>
+						<div class="comic-list-time">  </div>
 					</a>
 					<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
 				</div>
@@ -1336,7 +1337,8 @@
 			<div class="subtitleLi">
 					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
 						<div class="comic-list"><img src="/displayFile?fileName={{boardFullName}}"></div>
-						<div class="comic-list-text cursor">{{subtitle}} {{prettifyDate regdate}}</div>
+						<div class="comic-list-text cursor">{{subtitle}} </div>
+						<div class="comic-list-time"> {{prettifyDate regdate}} </div>
 					</a>
 			</div>
 		{{/each}}
@@ -1348,7 +1350,8 @@
 			<div class="thissubtitleLi">
 					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
 						<div class="comic-list"><img src="/displayFile?fileName={{boardFullName}}"></div>
-						<div class="comic-list-text cursor">{{subtitle}} {{prettifyDate regdate}}</div>
+						<div class="comic-list-text cursor">{{subtitle}} </div>
+						<div class="comic-list-time"> {{prettifyDate regdate}} </div>
 					</a>
 			</div>
 		{{/each}}
