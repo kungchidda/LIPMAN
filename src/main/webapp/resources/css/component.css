@@ -501,7 +501,7 @@ html{
 .comic-list {
     grid-area: a;
     align-self: center;
-    justify-self: end;
+    justify-self: center;
 }
 
 .og-expander-inner .comic-list img {
@@ -516,7 +516,7 @@ html{
     align-self: center;
     word-break: break-all;
     font-size: 1em;
-    padding-left: 20px;
+    padding-left: 0;
 }
 
 
@@ -528,12 +528,12 @@ html{
 	text-align: center;	
 }
 
-.toggle-page .pagination{
+/* .toggle-page .pagination{
 	display: inline-block !important;
 	position: absolute;
     bottom: 29px;
     right: 1000px;
-}
+} */
 
 .toggle-page .pagination .page-item{
 	display: inline-block !important;
@@ -691,7 +691,7 @@ html{
 /* Main-cards-expander-inner : cards-right */
 	.toggle-page{
 		grid-template-columns: 440px;
-		grid-template-rows: 120px;
+		/* grid-template-rows: 120px; */
 		overflow: scroll;
 		width: 440px;
 		height: 380px;
@@ -857,7 +857,7 @@ html{
 	.og-grid .expander, .title-register {
 	    width: 160px;
 	    margin: 15px 15px 0 10px;
-	    height: 295px;
+	    height: 285px;
 	}	
 	
 	.og-title-register, .og-expander {
@@ -865,29 +865,27 @@ html{
 	}
 	
 	
-/* Main-cards-expander-inner : cards-left */
+/* Cards-expander-inner - title */
 	.expander-title-inner {
-	    grid-template-columns: 160px 170px;
-	    grid-template-rows: 60px 100px;
-	    grid-template-areas: 
-		    "a b"
-		    "a c";
-		grid-column-gap: 10px;
-	    padding-top: 30px;
-	    padding-bottom: 10px;
-	    width: 410px;
+	    grid-template-columns: 80px 250px;
+	    grid-template-rows: 30px 50px;
+	    grid-template-areas: "a b" "a c";
+	    grid-column-gap: 10px;
+	    width: 412px;
 	    border-bottom: 1px solid #d3d3d3;
+	    padding-top: 20px;
+	    padding-bottom: 0;
 	}
 	
 	.og-fullimg img {
-		width: 160px;
+		width: 70px;
 	}
 	
 	
-/* Main-cards-expander-inner : cards-right */
+/* Cards-expander-inner - subtitle */
 	.toggle-page{
 		grid-template-columns: 410px;
-		grid-template-rows: 120px;
+		/* grid-template-rows: 120px; */
 		width: 410px;
 		height: 250px;
 		justify-items: center;
@@ -920,20 +918,11 @@ html{
 	    margin: 10px 10px 0 10px;
 	}
 	
-	
-/* Main-cards-expander-inner : cards-left */
+/* Cards-expander-inner - title */
 	.expander-title-inner {
-	    grid-template-columns: 160px 160px;
-	    width: 370px;
-	}
-	
-	
-/* Main-cards-expander-inner : cards-right */
-	.toggle-page{
-		grid-template-columns: 370px;
-		width: 370px;
-		padding-left: 0px;
-	}
+	    width: 373px;
+	}	
+
 }
 
 
