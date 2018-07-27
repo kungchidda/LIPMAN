@@ -19,6 +19,7 @@
 
     <!-- <script src="/resources/js/dropdown-contents.js"></script> -->
     <script src="/resources/js/genre-check.js"></script>
+    
 
     <!--expander style sheet-->
     <link rel="stylesheet" type="text/css" href="/resources/css/component.css" />
@@ -52,7 +53,7 @@
             </c:if>
             <!-- <a href="#"><span><img class="dropbtn" onclick="myPageFunction()" src="/resources/png/account.png"></span></a> -->
 			<c:if test="${not empty login}">
-				<form id="subscriberForm" role="form" action="/mypage/titleList" method="GET">
+				<form id="loginForm" role="form" action="/mypage/titleList" method="GET">
 	 				<input type="hidden" name="uid" value='${login.uid}'>
 	 				<button type="submit" class="accountBtn-login profile-img-button"><img src="/displayFile?fileName=${login.profileFullName}" id="header-profile-img"></button>
 	 				
@@ -236,10 +237,10 @@
 
 <!-- forgot password -->
     <div id="forgotBar" class="do-not-close dropdown-contents">
-        <form class="dropdown-forgot do-not-close" role="form" action="" method="post">
+        <form class="dropdown-forgot do-not-close" role="forgotPasswordForm" action="/user/forgotPassword" method="get">
 <!--             <input type="email" name='uid' class="signup-email do-not-close" placeholder='E-mail' required> -->
             <input type="email" name='uid' class="do-not-close" placeholder='E-mail' required>
-         	<button class="send-email do-not-close">Send</button>
+         	<button type="submit" class="send-email do-not-close">Send</button>
             <button class="cancel-btn dropbtn do-not-close" onclick="myPageFunction()">
                 Cancel
             </button>
@@ -284,6 +285,7 @@
         /* When the user clicks on the button, 
                             toggle between hiding and showing the dropdown content */
         function searchFunction() {
+        	$('input').val("");
         	if($('.search').is(":visible")){
         		document.getElementById("searchBar").classList.remove("search");
         	}else{
@@ -315,6 +317,7 @@
         } */
         
         function noticeFunction() {
+        	$('input').val("");
         	if($('.notice').is(":visible")){
         		document.getElementById("noticeBar").classList.remove("notice");
         	}else{
@@ -331,6 +334,7 @@
         }
  
         function myPageFunction() {
+        	$('input').val("");
         	if($('.mypage').is(":visible")){
         		document.getElementById("myPageBar").classList.remove("mypage");
         	}else{
@@ -347,6 +351,7 @@
         }
         
         function forgotFunction() {
+        	$('input').val("");
         	if($('.forgot').is(":visible")){
         		document.getElementById("forgotBar").classList.remove("forgot");
         	}else{
@@ -363,6 +368,7 @@
         }
         
 		function signupFunction() {
+			$('input').val("");
 			if($('.signup').is(":visible")){
         		document.getElementById("signupBar").classList.remove("signup");
         	}else{
