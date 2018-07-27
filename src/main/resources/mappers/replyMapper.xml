@@ -30,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="listPage" resultType="ReplyVO">
 		select
-		r.rno, r.bno, r.replytext, r.uid, u.uname, p.profileFullName, r.regdate, r.updatedate, r.replylikecnt, r.replydislikecnt
+		r.rno, r.bno, r.replytext, r.uid, u.uname, IFNULL(p.profileFullName, '/account.png') as profileFullName, r.regdate, r.updatedate, r.replylikecnt, r.replydislikecnt
 		from
 		tbl_reply r
         
