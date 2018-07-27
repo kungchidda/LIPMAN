@@ -16,6 +16,8 @@ import com.kungchidda.dto.LoginDTO;
 import com.kungchidda.mail.MailHandler;
 import com.kungchidda.mail.TempKey;
 import com.kungchidda.persistence.UserDAO;
+import com.kungchidda.util.PasswordEncoding;
+import com.kungchidda.util.SHAPasswordEncoder;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -63,7 +65,8 @@ public class UserServiceImpl implements UserService {
 		MailHandler sendMail = new MailHandler(mailSender);
 		sendMail.setSubject("[LIPMAN 서비스 이메일 인증]");
 		sendMail.setText(
-				new StringBuffer().append("<h1>메일인증</h1>").append("<a href='http://127.0.0.1:8080/user/emailConfirm?uid=").append(user.getUid()).append("&authKey=").append(key).append("' target='_blenk'>이메일 인증 확인</a>").toString());
+//				new StringBuffer().append("<h1>메일인증</h1>").append("<a href='http://127.0.0.1:8080/user/emailConfirm?uid=").append(user.getUid()).append("&authKey=").append(key).append("' target='_blenk'>이메일 인증 확인</a>").toString());
+				new StringBuffer().append("<h1>메일인증</h1>").append("<a href='https://lipman.app/user/emailConfirm?uid=").append(user.getUid()).append("&authKey=").append(key).append("' target='_blenk'>이메일 인증 확인</a>").toString());
 		sendMail.setFrom("kungchidda@gmail.com", "LIPMAN 개발자");
 		sendMail.setTo(user.getUid());
 		sendMail.send();
@@ -103,4 +106,36 @@ public class UserServiceImpl implements UserService {
 	public int auth(String uid, String authKey) throws Exception {
 		return dao.auth(uid, authKey);
 	}
+	
+	@Override
+	public void forgotPassword(String uid) throws Exception {
+		String upw = new TempKey().getKey(50, false); // 인증키 생성
+		upw = upw.substring(0, 10);
+		
+		
+		MailHandler sendMail = new MailHandler(mailSender);
+		sendMail.setSubject("[LIPMAN 임시 비밀번호]");
+		sendMail.setText(
+				new StringBuffer().append("<h1>임시 비밀번호</h1>").append(upw).toString());
+		sendMail.setFrom("kungchidda@gmail.com", "LIPMAN 개발자");
+		sendMail.setTo(uid);
+		sendMail.send();
+		
+		
+		SHAPasswordEncoder shaPasswordEncoder = new SHAPasswordEncoder(512);
+		shaPasswordEncoder.setEncodeHashAsBase64(true);
+		PasswordEncoding passwordEncoding = new PasswordEncoding(shaPasswordEncoder);
+		upw = passwordEncoding.encode(upw);
+		
+		
+		dao.forgotPassword(uid, upw);
+	}
+	
+	@Override
+	public int forgotPasswordCheck(String uid) throws Exception {
+		return dao.forgotPasswordCheck(uid);
+	}
+	
+	
+	
 }

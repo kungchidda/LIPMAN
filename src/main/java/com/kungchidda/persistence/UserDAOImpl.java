@@ -122,4 +122,16 @@ public class UserDAOImpl implements UserDAO{
 		paramMap.put("authKey", authKey);
 		return session.update(namespace + ".auth", paramMap);
 	}
+	@Override
+	public void forgotPassword(String uid, String upw) throws Exception{
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("uid", uid);
+		paramMap.put("upw", upw);
+		session.update(namespace +".forgotPassword", paramMap);
+	}
+	
+	@Override
+	public int forgotPasswordCheck(String uid) throws Exception {
+		return session.selectOne(namespace + ".forgotPasswordCheck", uid);
+	}
 }

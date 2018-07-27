@@ -33,4 +33,7 @@ public interface UserDAO {
 	public int existAccount(UserVO vo) throws Exception;
 	public void createAuthKey(String uid, String authKey) throws Exception;
 	public int auth(String uid, String authKey) throws Exception;
+	
+	public void forgotPassword(String uid, String upw) throws Exception;
+	public int forgotPasswordCheck(String uid) throws Exception;
 }

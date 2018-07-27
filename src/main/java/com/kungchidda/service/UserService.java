@@ -20,4 +20,6 @@ public interface UserService {
 	
 	public int auth(String uid, String authKey) throws Exception;
 	
+	public void forgotPassword(String uid) throws Exception;
+	public int forgotPasswordCheck(String uid) throws Exception;
 }

@@ -75,7 +75,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		, subscriber_p = IFNULL(#{subscriber_p}, '0')
 		, genre_p = IFNULL(#{genre_p}, '0')
 		<if test="upw != ''">
-		, upw = #{upw}  
+		, upw = #{upw}
+		, forgotPassword = 0
 		</if> 
 		where uno = #{uno}
 	</update>
@@ -104,5 +105,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update tbl_user set auth = 1 where uid = #{uid} and authKey = #{authKey}
 	</update>
 	
+	<update id="forgotPassword">
+		update tbl_user set forgotPassword = 1, upw = #{upw} where uid = #{uid}
+	</update>
+	
+	<select id="forgotPasswordCheck" resultType="int">
+		select forgotPassword from tbl_user where uid =#{uid}
+	</select>
 	
 </mapper>
