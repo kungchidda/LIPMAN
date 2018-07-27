@@ -69,7 +69,7 @@ public class UserController {
 		}
 		
 		if(vo.getAuth() == 0) {
-			return "redirect:/user/join?uid="+dto.getUid();
+			return "redirect:/user/welcome?uid="+dto.getUid();
 		}
 
 		model.addAttribute("userVO", vo);
@@ -111,7 +111,7 @@ public class UserController {
 		return "redirect:/sboard/list";
 	}
 
-	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public void joinGET(@ModelAttribute("cri") SearchCriteria cri, UserVO user, Model model) throws Exception {
 		logger.info("join get ..........");
 	}
@@ -150,7 +150,7 @@ public class UserController {
 //
 //		rttr.addFlashAttribute("msg", "SUCCESS");
 //		return "redirect:/sboard/list";
-		return "redirect:/user/join?uid="+dto.getUid();
+		return "redirect:/user/welcome?uid="+dto.getUid();
 	}
 	
 	@RequestMapping(value = "/setting", method = RequestMethod.POST)
@@ -219,6 +219,19 @@ public class UserController {
 		}else {
 			return "/user/email";
 		}
+	}
+	
+	@RequestMapping(value = "/forgotPassword", method = RequestMethod.GET)
+	public void forgotPassword(String uid, Model model) throws Exception { // 이메일인증
+		logger.info("forgotPassword get...");
+		int check = service.forgotPasswordCheck(uid);
+
+		if(check == 0) {
+			service.forgotPassword(uid);
+		}
+		model.addAttribute("uid", uid);
+//		return "/user/forgotPassword?uid="+uid;
+		
 	}
 	
 	

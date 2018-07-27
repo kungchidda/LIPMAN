@@ -19,7 +19,6 @@
 <script src="/resources/js/subtitlePrint.js"></script>
 <script src="/resources/js/expander.js"></script>
 
-<script type="text/javascript" src="/resources/js/date.js"></script>
 
 <!-- <link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/default.css" />
 <link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/component.css" />
