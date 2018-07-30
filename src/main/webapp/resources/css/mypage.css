@@ -328,7 +328,7 @@
 	width: 200px;
 	background-color: #1d8bf1;
 	border: 1px solid #1d8bf1;
-	border-radius: 10px;
+	border-radius: 5px;
 	padding: 15px;
 	font-size: 1em;
 	color: white;
@@ -652,10 +652,10 @@ hr {
 	width: 200px;
 	background-color: white;
 	border: 1px solid #424242;
-	border-radius: 10px;
+	border-radius: 5px;
 	font-size: 1em;
 	color: #424242;
-	height: 50px;
+	/* height: 50px; */
 	text-align: center;
 }
 
@@ -955,22 +955,41 @@ hr {
 
 /* iPhone-6+/7+/8+ portrait */
 @media only screen and (max-width: 414px) and (orientation: portrait) {
+	* {
+		font-size: 13px;
+	}
+	
 /* Mypage - profile */
 	.mypage-profile {
-		grid-template-columns: 170px 170px;
-		grid-template-rows: 75px 75px;
-		grid-column-gap: 20px;
-		padding-top: 30px;
-		padding-bottom: 20px;
+		grid-template-columns: 140px 140px;
+	    grid-template-rows: 40px 40px;
+	    grid-gap: 10px;
+	    padding-top: 30px;
+	    padding-bottom: 30px;
 	}
 	
 	.mypage-profile .mypage-profile-image img {
-		width: 150px;
+		width: 70px;
 	}
 	
 	.subscribed, #btn-subscribedCount {
-		width: 150px;
+		width: 120px;
+	    padding: 5px;
+	    border-radius: 5px;
 	}
+	
+	.mypage-profile .mypage-profile-image {
+		align-self: center;
+    	justify-self: end;
+	}
+	
+	.mypage-profile .mypage-profile-name {
+	    padding-bottom: 0;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe {
+	    padding-top: 0;
+	}	
 	
 /* Mypage - profile-icon */
 	.mypage-profile-icon {
@@ -979,156 +998,180 @@ hr {
 	}
 	
 	.mypage-profile-icon img {
-		width: 25px;
+		width: 20px;
 		padding-left: 25px;
 		padding-right: 25px;
 	}
-		
+	
+
 		
 /* Mypage-Setting */
 /* Mypage-Setting - login*/
 	.mypage-setting-id {
-		grid-template-columns: 150px 200px;
+		grid-template-columns: 200px 160px;
+		height: 60px;
 	}
 	
 	
 	.mypage-setting-id .mypage-setting-id-open {
-		padding-left: 110px;
+		padding-left: 85px;
 	}
 	
 	.mypage-setting-id .mypage-setting-id-close {
-		padding-right: 110px;
+		padding-right: 88px;
 	}
 	
 	.mypage-setting-id-switch {
-		width: 50px;
+	    width: 38px;
+	    height: 20px;
 	}
 	
 	
 /* Mypage-Setting - password */
 	.mypage-setting-pw {
-		grid-template-columns: 150px 200px;
+		grid-template-columns: 200px 160px;
+		height: 60px;
 	}
 	
 	
 /* Mypage-Setting - nick */
 	.mypage-setting-nick {
-		grid-template-columns: 150px 200px;
+		grid-template-columns: 200px 160px;
+		height: 60px;
 	}
 	
 	
 /* Mypage-Setting - profile img */
 	.mypage-setting-img {
-		grid-template-columns: 150px 200px;
+		grid-template-columns: 200px 160px;
+		height: 60px;
 	}
 	
 	.mypage-setting-img button {
-		width: 150px;
+		padding: 5px;
+	    width: 132px;
+	    border-radius: 5px;
 	}
 	
 	
 /* Mypage-Setting - subscribe */
 	.mypage-setting-subscribe {
-		grid-template-columns: 150px 200px;
+		grid-template-columns: 200px 160px;
+		height: 60px;
 	}
 	
 	.mypage-setting-subscribe .mypage-setting-subscribe-open {
-		padding-left: 110px;
+		padding-left: 85px;
 	}
 	
 	.mypage-setting-subscribe .mypage-setting-subscribe-close {
-		padding-right: 110px;
+		padding-right: 88px;
 	}
 	
 	.mypage-setting-subscribe-switch {
-		width: 50px;
+	    width: 38px;
+	    height: 20px;
 	}
 	
 	
 /* Mypage-Setting - subscriber */
 	.mypage-setting-subscriber {
-		grid-template-columns: 150px 200px;
+		grid-template-columns: 200px 160px;
+		height: 60px;
 	}
 	
 	.mypage-setting-subscriber .mypage-setting-subscriber-open {
-		padding-left: 110px;
+		padding-left: 85px;
 	}
 	
 	.mypage-setting-subscriber .mypage-setting-subscriber-close {
-		padding-right: 110px;
+		padding-right: 88px;
 	}
 	
 	.mypage-setting-subscriber-switch {
-		width: 50px;
+		width: 38px;
+	    height: 20px;
 	}
 	
 	
 /* Mypage-setting - genre */
 	.mypage-setting-genre {
-		grid-template-columns: 150px 200px;
+		grid-template-columns: 200px 160px;
+		height: 60px;
 	}
 	
 	.mypage-setting-genre .mypage-setting-genre-open {
-		padding-left: 110px;
+		padding-left: 85px;
 	}
 	
 	.mypage-setting-genre .mypage-setting-genre-close {
-		padding-right: 110px;
+		padding-right: 88px;
 	}
 	
 	.mypage-setting-genre-switch {
-		width: 50px;
+		width: 38px;
+	    height: 20px;
 	}
 	
 	
 /* Mypage-setting - genre-list */
 	.mypage-setting-genre-list {
-        grid-template-columns: 80px 115px 115px 110px 90px 120px 140px 90px 100px 120px;
-        grid-template-rows: 50px 50px;
-		grid-template-areas: 
-			"a b c d e f g h i j"
-			"k l m n o p q r s t";
-		justify-content: start;
-        align-items: center;
-        grid-row-gap: 10px;
-        padding-left: 20px;
-        padding-top: 5px;
-        padding-bottom: 20px;
-        overflow: scroll;
+        grid-template-columns: 53px 83px 84px 83px 63px 88px 109px 65px 71px 100px;
+	    grid-template-rows: 37px 37px;
+	    grid-template-areas: "a b c d e f g h i j" "k l m n o p q r s t";
+	    justify-content: start;
+	    align-items: center;
+	    grid-gap: 10px;
+	    padding-left: 10px;
+	    padding-top: 5px;
+	    padding-bottom: 15px;
+	    overflow: scroll;
 	}
 	
 	.mypage-setting-genre-list span {
-		padding-top: 15px;
-        padding-bottom: 15px;
-        padding-left: 15px;
-        padding-right: 15px;
-        border-radius: 10px;
+		padding: 10px;
+    	border-radius: 5px;
 	}
 	
 	
 /* Mypage-setting - confirm */
 	.mypage-setting-confirm {
-		grid-template-columns: 150px 150px;
+		grid-template-columns: 132px 132px;
 	}
 	
 	.mypage-setting-confirm-button button {
-		width: 150px;
+		width: 132px;
+	    border-radius: 5px;
+	    padding: 5px;
 	}
 	
 	.mypage-setting-logout-button button {
-		width: 150px;
+		width: 132px;
+	    border-radius: 5px;
+	    padding: 5px;
 	}	
+	
+	.mypage-setting-confirm {
+	    grid-column-gap: 10px;
+	    height: 60px;
+	}
 	
 	
 /* Mypage-setting - input-text */	
 	.input-text {
-		width: 150px;
+		width: 120px;
+	    padding: 5px;
+	    border-radius: 5px;
 	}
 	
 	
 /* Mypage-setting - switch */
 	.slider:before {
 		left: 4px;
+		height: 15px;
+	    width: 15px;
+	    left: 4px;
+	    bottom: 2.5px;
 	}
 	
 	input:checked+.slider:before {

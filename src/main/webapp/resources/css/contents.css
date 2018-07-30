@@ -116,39 +116,7 @@ h4 {
     color: white;
 }
 
-/* Profile - Subscribe Btn */
-.subscribe {
-    border: 2px solid #f44336;
-    background-color: white;
-    padding: 15px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    border-radius: 5px;
-    color: red;
-    width : 170px;
-}
 
-.subscribe:hover {
-    background: #f44336;
-    color: white;
-}
-
-.subscribed, #btn-subscribedCount {
-    border: 2px solid #f44336;
-    padding: 15px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    border-radius: 10px;
-    background: #f44336;
-    color: white;
-    width : 170px;
-}
-
-.subscribed:hover {
-	border: 2px solid gray;
-    background: gray;
-    color: white;
-}
 
 /* contents */
 .contents {
