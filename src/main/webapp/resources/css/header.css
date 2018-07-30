@@ -1030,6 +1030,13 @@ a:visited {color: black;}
 	
     .header img {width: 25px;}
     .header .brand img {width: 100px;}
+    
+/* Subscribe button */	
+	.subscribe {
+	    padding: 10px;
+	    font-size: 13px;
+	    width: 145px;
+	} 
 }
 
 
@@ -1211,6 +1218,13 @@ a:visited {color: black;}
     
     .header img {width: 25px;}
     .header .brand img {width: 100px;}
+    
+/* Subscribe button */	
+	.subscribe {
+	    padding: 10px;
+	    font-size: 13px;
+	    width: 145px;
+	}
 }
 
 
