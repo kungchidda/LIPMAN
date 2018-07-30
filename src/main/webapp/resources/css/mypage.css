@@ -774,24 +774,39 @@ hr {
 }
 
 
-/* iPhone-X landscape  */
+/* iPhone-X landscape : complete */
 @media only screen and (max-width: 812px) and (orientation: landscape) {
-/* Mypage - profile-icon */
+/* Mypage - profile */
 	.mypage-profile {
-		display: grid;
-		grid-template-columns: 170px 170px;
-		grid-template-rows: 75px 75px;
-		grid-template-areas: "a b" "a c";
-		justify-content: center;
-		grid-column-gap: 30px;
-		grid-row-gap: 10px;
-		padding-top: 30px;
-		padding-bottom: 20px;
+		grid-template-columns: 140px 140px;
+	    grid-template-rows: 40px 40px;
+	    grid-gap: 10px;
+	    padding-top: 30px;
+	    padding-bottom: 30px;
 	}
-		
+	
 	.mypage-profile .mypage-profile-image img {
-		width: 150px;
+		width: 70px;
 	}
+	
+	.subscribed, #btn-subscribedCount {
+		width: 120px;
+	    padding: 5px;
+	    border-radius: 5px;
+	}
+	
+	.mypage-profile .mypage-profile-image {
+		align-self: center;
+    	justify-self: end;
+	}
+	
+	.mypage-profile .mypage-profile-name {
+	    padding-bottom: 0;
+	}
+	
+	.mypage-profile .mypage-profile-subscribe {
+	    padding-top: 0;
+	}		
 	
 	.subscribed, #btn-subscribedCount {
 		width: 150px;
@@ -800,90 +815,196 @@ hr {
 	
 /* Mypage - profile-icon */
 	.mypage-profile-icon {
-		grid-template-columns: repeat(4, 120px);
+		grid-template-columns: repeat(4, 100px);
 		grid-template-rows: 50px;
 	}
 	
 	.mypage-profile-icon img {
-		width: 25px;
-		padding-left: 20px;
-		padding-right: 20px;
-		padding-bottom: 10px;
+		width: 20px;
+		padding-left: 25px;
+		padding-right: 25px;
 	}
 		
 	
 /* Mypage-Setting */
 /* Mypage-Setting - login*/
 	.mypage-setting-id {
-		grid-template-columns: 300px 300px;
+		grid-template-columns: 250px 200px;
+		height: 60px;
+	}
+	
+	
+	.mypage-setting-id .mypage-setting-id-open {
+		padding-left: 85px;
+	}
+	
+	.mypage-setting-id .mypage-setting-id-close {
+		padding-right: 88px;
+	}
+	
+	.mypage-setting-id-switch {
+	    width: 38px;
+	    height: 20px;
 	}
 	
 	
 /* Mypage-Setting - password */
 	.mypage-setting-pw {
-		grid-template-columns: 300px 300px;
+		grid-template-columns: 250px 200px;
+		height: 60px;
 	}
 	
 	
 /* Mypage-Setting - nick */
 	.mypage-setting-nick {
-		grid-template-columns: 300px 300px;
+		grid-template-columns: 250px 200px;
+		height: 60px;
 	}
 	
 	
 /* Mypage-Setting - profile img */
 	.mypage-setting-img {
-		grid-template-columns: 300px 300px;
+		grid-template-columns: 250px 200px;
+		height: 60px;
 	}
-
+	
+	.mypage-setting-img button {
+		padding: 5px;
+	    width: 132px;
+	    border-radius: 5px;
+	}
+	
 	
 /* Mypage-Setting - subscribe */
 	.mypage-setting-subscribe {
-		grid-template-columns: 300px 300px;
+		grid-template-columns: 250px 200px;
+		height: 60px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-open {
+		padding-left: 85px;
+	}
+	
+	.mypage-setting-subscribe .mypage-setting-subscribe-close {
+		padding-right: 88px;
+	}
+	
+	.mypage-setting-subscribe-switch {
+	    width: 38px;
+	    height: 20px;
 	}
 	
 	
 /* Mypage-Setting - subscriber */
 	.mypage-setting-subscriber {
-		grid-template-columns: 300px 300px;
+		grid-template-columns: 250px 200px;
+		height: 60px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-open {
+		padding-left: 85px;
+	}
+	
+	.mypage-setting-subscriber .mypage-setting-subscriber-close {
+		padding-right: 88px;
+	}
+	
+	.mypage-setting-subscriber-switch {
+		width: 38px;
+	    height: 20px;
 	}
 	
 	
 /* Mypage-setting - genre */
 	.mypage-setting-genre {
-		grid-template-columns: 300px 300px;
+		grid-template-columns: 250px 200px;
+		height: 60px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-open {
+		padding-left: 85px;
+	}
+	
+	.mypage-setting-genre .mypage-setting-genre-close {
+		padding-right: 88px;
+	}
+	
+	.mypage-setting-genre-switch {
+		width: 38px;
+	    height: 20px;
 	}
 	
 	
 /* Mypage-setting - genre-list */
 	.mypage-setting-genre-list {
-		grid-template-columns: repeat(4, 165px);
-		grid-template-rows: repeat(5, 60px);
-		grid-template-areas: 
-			"a b c d" 
-			"e f g h" 
-			"i j k l" 
-			"m n o p"
-			"q r s t";
-		padding-left: 50px;
+        grid-template-columns: 53px 83px 84px 83px 63px 88px 109px 65px 71px 100px;
+	    grid-template-rows: 37px 37px;
+	    grid-template-areas: "a b c d e f g h i j" "k l m n o p q r s t";
+	    justify-content: start;
+	    align-items: center;
+	    grid-gap: 10px;
+	    padding-left: 20px;
+	    padding-top: 5px;
+	    padding-bottom: 15px;
+	    overflow: scroll;
 	}
 	
-	
-/* Mypage-setting - logout*/
-	.mypage-setting-logout {
-		grid-template-columns: 300px 700px;
+	.mypage-setting-genre-list span {
+		padding: 10px;
+    	border-radius: 5px;
 	}
-		
+	
 	
 /* Mypage-setting - confirm */
 	.mypage-setting-confirm {
-		grid-template-columns: 200px 200px;
+		grid-template-columns: 132px 132px;
 	}
-		
-
+	
+	.mypage-setting-confirm-button button {
+		width: 132px;
+	    border-radius: 5px;
+	    padding: 5px;
+	}
+	
+	.mypage-setting-logout-button button {
+		width: 132px;
+	    border-radius: 5px;
+	    padding: 5px;
+	}	
+	
+	.mypage-setting-confirm {
+	    grid-column-gap: 10px;
+	    height: 60px;
+	}
+	
+	
+/* Mypage-setting - input-text */	
+	.input-text {
+		width: 120px;
+	    padding: 5px;
+	    border-radius: 5px;
+	}
+	
+	
+/* Mypage-setting - switch */
+	.slider:before {
+		left: 4px;
+		height: 15px;
+	    width: 15px;
+	    left: 4px;
+	    bottom: 2.5px;
+	}
+	
+	input:checked+.slider:before {
+	-webkit-transform: translateX(16px);
+	-ms-transform: translateX(16px);
+	transform: translateX(16px);
+	}
+	
+	
 /* Mypage-setting - hr */
 	hr {
-		width: 700px;
+		width: 410px;
 	}
 }
 
@@ -898,62 +1019,23 @@ hr {
 }
 
 
-/* iPhone-6+/7+/8+ landscape */
+/* iPhone - 6+/7+/8+ landscape : complete */
 @media only screen and (max-width: 736px) and (orientation:  landscape) {
 }
 
 
-/* iPhone-6/7/8 landscape  */
+/* iPhone - 6/7/8 landscape : complete  */
 @media only screen and (max-width: 667px) and (orientation: landscape) {
-/* Mypage-setting - genre-list */
-	.mypage-setting-genre-list {
-		display: grid;
-		grid-template-columns: repeat(4, 160px);
-		grid-template-rows: repeat(5, 60px);
-		grid-template-areas: 
-			"a b c d" 
-			"e f g h"
-			"i j k l" 
-			"m n o p" 
-			"q r s t";
-		padding-left: 30px;
-	}
-	
-	
-/* Mypage-setting - hr */
-	hr {
-		width: 630px;
-	}
 }
 
 
-/* iPhone-5/5S/SE landscape  */
+/* iPhone - 5/5S/SE landscape  */
 @media only screen and (max-width: 568px) and (orientation:  landscape) {
-/* Mypage-setting - genre-list */
-	.mypage-setting-genre-list {
-		display: grid;
-		grid-template-columns: repeat(3, 165px);
-		grid-template-rows: repeat(7, 60px);
-		grid-template-areas: 
-			"a b c" 
-			"d e f"
-			"g h i" 
-			"j k l"
-			"m n o" 
-			"p q r"
-			"s t .";
-		padding-left: 40px;
-	}
 	
-	
-/* Mypage-setting - hr */
-	hr {
-		width: 520px;
-	}
 }
 
 
-/* iPhone-6+/7+/8+ portrait */
+/* iPhone - 6+/7+/8+ portrait */
 @media only screen and (max-width: 414px) and (orientation: portrait) {
 	* {
 		font-size: 13px;
