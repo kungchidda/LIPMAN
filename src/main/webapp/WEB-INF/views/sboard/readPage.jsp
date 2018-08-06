@@ -190,9 +190,9 @@
 						</div>
 						<div class="comic-list-time">  </div>
 					</a>
-					<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
 				</div>
 			</div>
+			<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
 		</div>
 	</div>
 </div>
@@ -301,6 +301,7 @@
 											<div class="comic-list-text cursor do-not-close">
 												${boardVO.subtitle}
 											</div>
+											<div class="comic-list-time">  </div>
 										</a>
 										<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
 									</div>

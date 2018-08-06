@@ -136,6 +136,8 @@
 										<input type="checkbox" name='genreArr' class="do-not-close hide genre-20" value='20'>
 										<span class="title-genre-20 do-not-close false">Adventure</span>
 									</div>
+								</div>
+								<div class="title-complete-btn">
 									<button type="submit" class="title-register-complete-btn" id="register-title">Complete</button>
 								</div>
 							</div>
@@ -282,6 +284,8 @@
 											<input type="checkbox" name='genreArr' class="do-not-close hide genre-20" value='20'>
 											<span class="title-genre-20 do-not-close false">Adventure</span>
 										</div>
+									</div>
+									<div class="title-register-btn hide">
 										<button type="button" class="delete-title do-not-close title-register-delete-btn">Delete</button>
 										<button type="button" class="submit-title do-not-close title-register-complete-btn confirm-button">submit</button>
 									</div>
@@ -351,6 +355,7 @@
 											<div class="comic-list-text cursor do-not-close">
 												${MyPageVO.subtitle}
 											</div>
+											<div class="comic-list-time cursor do-not-close">{{prettifyDate regdate}}</div>
 											<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
 										</div>
 									</div>
@@ -559,7 +564,8 @@
 				<div class="subtitleLi">
 						<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
 							<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
-							<div class="comic-list-text cursor do-not-close">{{subtitle}} {{prettifyDate regdate}}</div>
+							<div class="comic-list-text cursor do-not-close">{{subtitle}}</div>
+							<div class="comic-list-time cursor do-not-close">{{prettifyDate regdate}}</div>
 						</a>
 				</div>
 			{{/if}}
@@ -571,7 +577,8 @@
 				<div class="subtitleLi">
 						<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
 							<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
-							<div class="comic-list-text cursor do-not-close">{{subtitle}} {{prettifyDate regdate}}</div>
+							<div class="comic-list-text cursor do-not-close">{{subtitle}}</div>
+							<div class="comic-list-time cursor do-not-close">{{prettifyDate regdate}}</div>
 						</a>
 				</div>
 		{{/each}}
@@ -762,6 +769,7 @@
 							
 							$('.comic-title').toggle();
 							$('.comic-title-edit').toggle();
+							$('.title-register-btn').toggle();
 							$('.input-title').removeAttr("readonly").focus();
 
 							var genreStr = $(this).parent().attr('genre');

@@ -138,10 +138,12 @@
 											<div class="comic-list-text cursor do-not-close">
 												${boardVO.subtitle}
 											</div>
+											<div class="comic-list-time cursor do-not-close">
+											</div>
 										</a>
-										<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
 									</div>
 								</div>
+							<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
 							</div>
 						</div>
 				</li>
@@ -155,7 +157,8 @@
 			<div class="subtitleLi do-not-close">
 				<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>
 					<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
-					<div class="comic-list-text cursor do-not-close">{{subtitle}} {{prettifyDate regdate}}</div>
+					<div class="comic-list-text cursor do-not-close">{{subtitle}} </div>
+					<div class="comic-list-time"> {{prettifyDate regdate}} </div>
 				</a>
 			</div>
 		{{/each}}
