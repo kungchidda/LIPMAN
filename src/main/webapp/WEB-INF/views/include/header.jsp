@@ -272,39 +272,7 @@
     </div>
     
 
-<!-- Check account -->    
-     <div id="checkBar" class="do-not-close dropdown-contents">
-        <form class="dropdown-mypage do-not-close" action="/user/loginPost" method="post">
-            <input type="email" name="uid" class="login-id do-not-close" placeholder='E-mail' required>
-            <div class="remember do-not-close">
-            	<span><input type="checkbox" class="do-not-close" name="useCookie"></span>
-            	<span>Remember your E-mail</span>
-            </div>
-            <input type="password" name="upw" class="login-pw do-not-close" placeholder='Password' required>
-            <p class="checktext">
-            	이메일 또는 비밀번호를 다시 확인하세요.<br>
-				등록되지 않은 이메일이거나, 이메일 또는 비밀번호를 잘못 입력하셨습니다.
-			</p>
-            <button type="submit" class="login-button do-not-close">Log-In</button>
-            <div class="signupBtn do-not-close">
-	            <div class="signup-button dropbtn do-not-close" onclick="signupFunction()">
-	                Sign-Up
-	            </div>
-            </div>
-            <div class="forgotBtn do-not-close">
-	            <div class="forgot-button dropbtn do-not-close" onclick="forgotFunction()">
-	                Forgot Password
-	            </div>
-            </div>
-            <h1 class="signup-or"><span>Log-In with</span></h1>
-            <div class="signup-facebook do-not-close">Facebook</div>
-            <div class="signup-google do-not-close">Google</div>
-        </form>
-    </div>
-    
-    
-    
-    
+   
 
     <!-- <script>
     function dropDownSearchBar(){

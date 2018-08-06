@@ -213,13 +213,17 @@
 	<!-- 20180702 before -->
     
     <div id="myPageBar" class="do-not-close dropdown-contents">
-        <form class="dropdown-mypage do-not-close" action="/user/loginPost" method="post">
+        <form class="dropdown-mypage dropdown-wrong do-not-close" action="/user/loginPost" method="post">
             <input type="email" name="uid" class="login-id do-not-close" placeholder='E-mail' required>
             <div class="remember do-not-close">
             	<span><input type="checkbox" class="do-not-close" name="useCookie"></span>
             	<span>Remember your E-mail</span>
             </div>
             <input type="password" name="upw" class="login-pw do-not-close" placeholder='Password' required>
+            <div class="wrong">
+            	이메일 또는 비밀번호를 다시 확인하세요.<br>
+            	등록되지 않은 이메일이거나, 이메일 또는 비밀번호를 잘못 입력하셨습니다.
+            </div>
             <button type="submit" class="login-button do-not-close">Log-In</button>
             <div class="signupBtn do-not-close">
 	            <div class="signup-button dropbtn do-not-close" onclick="signupFunction()">
@@ -338,10 +342,10 @@
  
         function myPageFunction() {
         	$('input').val("");
-        	if($('.mypage').is(":visible")){
-        		document.getElementById("myPageBar").classList.remove("mypage");
+        	if($('.mypage-wrong').is(":visible")){
+        		document.getElementById("myPageBar").classList.remove("mypage-wrong");
         	}else{
-        		document.getElementById("myPageBar").classList.add("mypage");	
+        		document.getElementById("myPageBar").classList.add("mypage-wrong");	
         	}
             /* document.getElementById("myPageBar").classList.toggle("mypage"); */
         	document.getElementById("searchBar").classList.remove("search");
