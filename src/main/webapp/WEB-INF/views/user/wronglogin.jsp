@@ -1,10 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 
 <head>
-    <meta charset="UTF-8">
+   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LIPMAN</title>
 
@@ -32,8 +33,7 @@
 
 
 <body>
-    
-        <!--header-->
+<!--header-->
     <div class="header dropdown">
         <div class="brand">
             <a href="/"><img src="/resources/png/logo.png"></a>
@@ -223,7 +223,7 @@
             <div class="wrong">
             	이메일 또는 비밀번호를 다시 확인하세요.<br>
             	등록되지 않은 이메일이거나, 이메일 또는 비밀번호를 잘못 입력하셨습니다.
-            </div>
+			</div>
             <button type="submit" class="login-button do-not-close">Log-In</button>
             <div class="signupBtn do-not-close">
 	            <div class="signup-button dropbtn do-not-close" onclick="signupFunction()">
@@ -368,7 +368,7 @@
         	document.getElementById("searchBar").classList.remove("search");
 //         	document.getElementById("genreBar").classList.remove("genre");
         	document.getElementById("noticeBar").classList.remove("notice");
-        	document.getElementById("myPageBar").classList.remove("mypage");
+        	document.getElementById("myPageBar").classList.remove("mypage-wrong");
         	//document.getElementById("forgotBar").classList.add("forgot");
         	document.getElementById("signupBar").classList.remove("signup");
         	
@@ -385,7 +385,7 @@
 			document.getElementById("searchBar").classList.remove("search");
 // 			document.getElementById("genreBar").classList.remove("genre");
 			document.getElementById("noticeBar").classList.remove("notice");
-			document.getElementById("myPageBar").classList.remove("mypage");
+			document.getElementById("myPageBar").classList.remove("mypage-wrong");
 			document.getElementById("forgotBar").classList.remove("forgot");
 			//document.getElementById("signupBar").classList.add("signup");
 			
@@ -418,10 +418,10 @@
             //  $("#searchForm").submit(function(event){
               	event.preventDefault();
               	
-              	var checkArr = [];     // ë°°ì´ ì´ê¸°í
+              	var checkArr = [];     // Ã«Â°Â°Ã¬ÂÂ´ Ã¬Â´ÂÃªÂ¸Â°Ã­ÂÂ
                 
               	$("input[name='genre']:checked").each(function(i) {
-                    checkArr.push($(this).val());     // ì²´í¬ë ê²ë§ ê°ì ë½ìì ë°°ì´ì push
+                    checkArr.push($(this).val());     // Ã¬Â²Â´Ã­ÂÂ¬Ã«ÂÂ ÃªÂ²ÂÃ«Â§Â ÃªÂ°ÂÃ¬ÂÂ Ã«Â½ÂÃ¬ÂÂÃ¬ÂÂ Ã«Â°Â°Ã¬ÂÂ´Ã¬ÂÂ push
                 });
               	
               	console.log("checkArr = " + checkArr);

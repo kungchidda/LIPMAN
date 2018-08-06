@@ -524,6 +524,9 @@
 
 <c:if test="${login.uid != cri.uid}">
 
+
+		<hr>
+
 		<c:if test="${userVO.uid_p == 1}">
 			<div class="mypage-setting-id">
 				<div class="mypage-setting-loginid-title">Log-in ID</div>
@@ -544,10 +547,10 @@
 
 		<hr> -->
 
-		<div class="mypage-setting-nick">
+		<%-- <div class="mypage-setting-nick">
 			<div class="mypage-setting-nickname-title">Nick Name</div>
 			<div class="mypage-setting-nickname">
-<%-- 				<input name="uname" class="input-text" value="${userVO.uname}" id="uname-input"> --%>
+				<input name="uname" class="input-text" value="${userVO.uname}" id="uname-input">
 				<span>${userVO.uname}</span>
 			</div>
 
@@ -559,7 +562,7 @@
 			</div>
 		</div>
 
-		<hr>
+		<hr> --%>
 
 		<!-- <div class="mypage-setting-img">
 			<div class="mypage-setting-profileimage-title">
@@ -702,6 +705,10 @@
 			        <span class="do-not-close false">Adventure</span>
 			    </div>
 			</div>
+		</c:if>
+		
+		<c:if test="${userVO.uid_p != 1 && userVO.genre_p != 1}">
+			<%@ include file="/WEB-INF/views/mypage/private.jsp"%>
 		</c:if>
 </c:if>
 

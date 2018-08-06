@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -68,7 +69,8 @@
         <img src="/resources/png/send.png" class="error-img">
         <p class="error-text-1">이메일로 임시 비밀번호를 발송하였습니다.</p>
         <p class="error-text-2">임시 비밀번호로 로그인을 하여 주시기 바랍니다.</p>
-        <button class="homeBtn">Home</button>
+        <!-- 		<button onclick="location='http://127.0.0.1:8080/sboard/list'" class="homeBtn">Home</button> -->
+        <button onclick="location='https://lipman.app/sboard/list'" class="homeBtn">Home</button>
     </div>
     
 
