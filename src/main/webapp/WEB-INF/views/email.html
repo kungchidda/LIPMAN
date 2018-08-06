@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIPMAN</title>
+
+    <style>
+        .email {
+            display: grid;
+            grid-template-columns: 600px;
+            grid-template-rows: 180px 30px 30px 30px;
+            grid-template-areas: 
+                "a"
+                "b"
+                "c"
+                "d";
+            justify-content: center;
+            grid-gap: 5px;
+            align-items: center;
+            justify-items: center;
+            padding-top: 50px;
+        }
+        
+        .email .error-img {
+            grid-area: a;
+        }
+        
+        .email img {
+            width: 450px;
+        }
+        
+        .email .email-text-1 {
+            grid-area: b;
+            font-size: 15px;
+        }
+        
+        .email .email-text-2 {
+            grid-area: c;
+            font-size: 15px;
+        }
+        
+        .email .email-link {
+            grid-area: d;
+            font-size: 15px;
+            color: blue;
+            text-decoration: underline;
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+    
+    <!-- email page -->
+    <div class="email">
+        <img src="png/logo-back.png" class="email-img">
+        <p class="email-text-1">가입 절차가 거의 완료되었습니다!</p>
+        <p class="email-text-2">가입을 완료하시려면 아래 링크를 열어주세요!</p>
+        <p class="email-link">https://www.youtube.com/watch?v=fHQkdIGue3k</p>
+    </div>
+    
+
+
+    
+
+
+</body>
+
+</html>
