@@ -48,6 +48,9 @@
 					</c:forEach>
 				</ul>
 </c:if>	
+<c:if test="${userVO.subscriber_p != 1 && login.uid != cri.uid}">
+   	<%@ include file="/WEB-INF/views/mypage/private.jsp"%>
+</c:if>
 	<script id="template" type="text/x-handlebars-template">
 		{{#each .}}
 			<div style="height:50px;" class="subtitleLi" data-sno={{sno}}>
