@@ -65,7 +65,7 @@ public class UserController {
 		UserVO vo = service.login(dto);
 
 		if (vo == null) {
-			return "redirect:/sboard/list";
+			return "redirect:/user/wronglogin";
 		}
 		
 		if(vo.getAuth() == 0) {
@@ -217,7 +217,7 @@ public class UserController {
 		if(result == 1) {
 			return "/user/emailConfirm";
 		}else {
-			return "/user/email";
+			return "/user/emailError";
 		}
 	}
 	
@@ -232,6 +232,13 @@ public class UserController {
 		model.addAttribute("uid", uid);
 //		return "/user/forgotPassword?uid="+uid;
 		
+	}
+	
+	@RequestMapping(value = "/wronglogin", method = RequestMethod.GET)
+	public String wronglogin() {
+		
+		logger.info("redirect /user/wronglogin");
+		return "/user/wronglogin";
 	}
 	
 	

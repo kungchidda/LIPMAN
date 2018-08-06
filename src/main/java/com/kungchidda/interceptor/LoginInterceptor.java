@@ -45,7 +45,12 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			logger.info("referer = " + referer);
 			logger.info("dest = " + dest);
 			if(dest == null) {
-				response.sendRedirect(referer != null ? (String)referer:"/");
+//				if(referer.equals("http://127.0.0.1:8080/user/wronglogin") || referer.equals("http://127.0.0.1:8080/user/login")) {
+				if(referer.equals("http://lipman.app/user/wronglogin") || referer.equals("http://lipman.app/user/login") || referer.equals("https://lipman.app/user/wronglogin") || referer.equals("https://lipman.app/user/login")) {
+					response.sendRedirect("/");
+				}else {
+					response.sendRedirect(referer != null ? (String)referer:"/");
+				}
 			}else {
 				response.sendRedirect(dest != null ? (String)dest:"/");
 			}
