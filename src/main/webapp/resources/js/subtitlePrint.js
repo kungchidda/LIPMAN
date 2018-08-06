@@ -26,15 +26,15 @@
 		var regdate = new Date(timeValue);
 		var regdateTime = new Date(timeValue).getTime();
 		regdateTime = regdateTime / 1000;
-		console.log("regdateTime = " + regdateTime);
+//		console.log("regdateTime = " + regdateTime);
 		
 		var current = new Date();
 		var currentTime = new Date().getTime();
 		currentTime = currentTime / 1000;
-		console.log("currentTime = " + currentTime);
+//		console.log("currentTime = " + currentTime);
 		
 		var diff = currentTime - regdateTime;
-		console.log("diff = " + diff);
+//		console.log("diff = " + diff);
 		var year = regdate.getFullYear();
 		var month = regdate.getMonth() + 1;
 		var date = regdate.getDate();
@@ -79,13 +79,27 @@
 		
 		$(".pagination").remove();
 		$(".subtitleLi").remove();
-		$.getJSON(pageInfo,function(data){
-//			printData(data.list, $(".og-expander-inner"), $('#template'));
-			printData(data.list, $(".toggle-page"),$('#subtitle-template'));
-			printPaging(data.pageMaker, $(".pagination"), tno);
-// 			$(".subtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
-			
-		});
+		
+		$.ajax({
+			  type: 'GET',
+			  url: pageInfo,
+			  //data: data,
+			  dataType : "JSON",
+			  async:false,
+			  success : function(data){
+				  printData(data.list, $(".toggle-page"),$('#subtitle-template'));
+				  printPaging(data.pageMaker, $(".pagination"), tno);
+				}
+			});
+		
+		
+//		$.getJSON(pageInfo,function(data){
+////			printData(data.list, $(".og-expander-inner"), $('#template'));
+//			printData(data.list, $(".toggle-page"),$('#subtitle-template'));
+//			printPaging(data.pageMaker, $(".pagination"), tno);
+//// 			$(".subtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
+//			
+//		});
 		
 	}
 	

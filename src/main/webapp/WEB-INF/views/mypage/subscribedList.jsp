@@ -6,9 +6,9 @@
 <html>
 <head>
 <title>LIPMAN</title>
+<meta charset="UTF-8">
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/mypage//profile.jsp"%>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <link href="/resources/css/mypage.css" rel="stylesheet">
 <script src="/resources/js/subtitlePrint.js"></script>
@@ -74,6 +74,9 @@
 				</li>
 			</c:forEach>
 		</ul>
+	</c:if>
+	<c:if test="${userVO.subscriber_p != 1 && login.uid != cri.uid}">
+    	<%@ include file="/WEB-INF/views/mypage/private.jsp"%>
 	</c:if>
 	
 	<!-- /.container -->

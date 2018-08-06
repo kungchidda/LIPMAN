@@ -8,7 +8,7 @@
 <head>
 <title>LIPMAN</title>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>

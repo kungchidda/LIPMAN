@@ -1,8 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
+
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LIPMAN</title>
 
@@ -36,17 +38,13 @@
         
         
     </style>
+
+
 </head>
-
 <body>
-
-    <!-- error page -->
-    <div class="secret">
-        <img src="png/secret.png" class="error-img">
-        <p class="secret-text">사용자가 비공개로 설정하였습니다.</p>
-    </div>
-
-
+<div class="secret">
+        <img src="/resources/png/secret.png" class="error-img">
+		<p>사용자가 비공개로 설정하였습니다.</p>
+</div>
 </body>
-
 </html>

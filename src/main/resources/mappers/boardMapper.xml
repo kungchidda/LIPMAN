@@ -50,6 +50,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		on gn.genre = tg.genre
             
 		where a.bno = #{bno}
+		group by ta.titleFullName, ba.boardFullName, p.profileFullName
 	</select>
 	
 	<update id="update">
