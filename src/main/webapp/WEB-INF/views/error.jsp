@@ -34,12 +34,12 @@
         
         .error .error-text-1 {
             grid-area: b;
-            font-size: 2em;
+            font-size: 30px;
         }
         
         .error .error-text-2 {
             grid-area: c;
-            font-size: 1em;
+            font-size: 15px;
         }
         
         .error .homeBtn {
@@ -54,23 +54,23 @@
         
         .homeBtn {
             width: 130px;
-            padding: 15px;
+            padding: 10px;
             background-color: #489ad8;
             border: 1px solid #489ad8;
             color: white;
-            border-radius: 10px;
-            font-size: 1em;
+            border-radius: 5px;
+            font-size: 15px;
             align: center;
         }
         
         .backBtn {
             width: 130px;
-            padding: 15px;
+            padding: 10px;
             background-color: white;
             border: 1px solid #d3d3d3;
             color: gray;
-            border-radius: 10px;
-            font-size: 1em;
+            border-radius: 5px;
+            font-size: 15px;
         }
         
     </style>
