@@ -10,8 +10,6 @@
         "c c c c"
         "k l m n"
         "d d d d"
-/*         "e e e e" */
-/*         "f f g g" */
         "h h h h"
         "i i j j";
     grid-column-gap: 20px;
@@ -42,17 +40,6 @@
     grid-area: d;
 }
 
-/* .write-comic .write-comic-tag { */
-/*     grid-area: e; */
-/* } */
-
-/* .write-comic .write-comic-delete {
-    grid-area: g;
-}
-
-.write-comic .write-comic-open {
-    grid-area: f;
-} */
 
 .write-comic .write-comic-add {
     grid-area: k;
@@ -101,28 +88,28 @@
 .write-comic .write-comic-thumbnail img {
     width: 300px;
     border: 1px solid #d3d3d3;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .write-comic .write-comic-title, .write-comic-comment, .write-comic-tag, .write-comic-file, .upload-file-list, .write-comic-subtitle {
     padding: 15px;
-    font-size: 1em;
+    font-size: 15px;
     border: 1px solid #d3d3d3;
-    border-radius: 10px;    
+    border-radius: 5px;    
 }
 
 .write-comic .write-comic-delete, .write-comic-open, .write-comic-preview, .write-comic-cancel, .write-comic-complete, .write-comic-add {
     height: 50px;
     padding: 15px;
-    font-size: 1em;
-    border-radius: 10px;
+    font-size: 15px;
+    border-radius: 5px;
 }
 
 .write-comic-up, .write-comic-down {
     height: 18px;
     padding: 15px;
-    font-size: 1em;
-    border-radius: 10px;
+    font-size: 15px;
+    border-radius: 5px;
     text-align :  center;
 }
 

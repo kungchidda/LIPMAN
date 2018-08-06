@@ -67,7 +67,7 @@ h4 {
     grid-area: b;
     justify-self: start;
 	align-self: end;
-	font-size: 1em;
+	font-size: 15px;
 	padding-bottom: 10px;
 }
 
@@ -75,7 +75,7 @@ h4 {
     grid-area: c;
 	justify-self: start;
 	align-self: start;
-	font-size: 1em;
+	font-size: 15px;
 	padding-top: 10px;
 }
 
@@ -84,9 +84,9 @@ h4 {
 .modifyPageBtn {
     border: 1px solid #424242;
     background-color: white;
-    padding: 15px;
+    padding: 10px;
     margin-right: 5px;
-    font-size: 1em;
+    font-size: 15px;
     cursor: pointer;
     border-radius: 5px;
     color: #424242;
@@ -102,8 +102,8 @@ h4 {
 .removePageBtn {
     border: 1px solid #d3d3d3;
     background-color: #d3d3d3;
-    padding: 15px;
-    font-size: 1em; 
+    padding: 10px;
+    font-size: 15px; 
     cursor: pointer;
     border-radius: 5px;
     color: white;
@@ -145,7 +145,7 @@ h4 {
     padding-top: 80px;
     padding-bottom: 80px;
     grid-column-gap: 20px;
-    font-size: 1em;
+    font-size: 15px;
 }
 
 .evaluate .evaluate-pencil {
@@ -187,7 +187,7 @@ h4 {
     grid-column-gap: 50px;
     padding-top: 50px;
     padding-bottom: 20px;
-    font-size: 1em;
+    font-size: 15px;
 }
 
 
@@ -258,92 +258,32 @@ h4 {
     left: 0;
     width: 100%;
     margin-top: 10px;
-    height: 460px;
+    height: 550px;
     overflow: hidden;
     text-align: center;
 }
 
 .content-margin-bottom {
-	margin-bottom: 470px !important;
+	margin-bottom: 560px !important;
 }
 
 
 /* Comic list - title */
 .list-expander-title-inner {
 	display: grid;
-    grid-template-columns: 330px;
-    grid-template-rows: 320px 30px 50px;
+    width: 1200px;
+    grid-template-columns: 150px 400px;
+    grid-template-rows: 75px 75px;
     grid-template-areas: 
-        "a"
-        "b"
-        "c";
+	    "a b" 
+	    "a c";
     justify-content: center;
     justify-items: center;
     align-items: center;
-    grid-row-gap: 10px;
-    padding-top: 20px;
+    grid-gap: 10px;
+    padding-top: 10px;
     padding-bottom: 20px;
-    float : left;
-}
-
-.list-expander-title-inner .og-fullimg {
-    grid-area: a;
-}
-
-.list-expander-title-inner .list-comic-list-title { 
-    grid-area: b;
-    font-size: 20px;
-}
-
-.list-expander-title-inner .list-comic-list-genre {
-    grid-area: c;
-    color: gray;
-    font-size: 1em;
-}
-
-
-/* Comic list - subtitle */
-.list-readpage-toggle-page {
-	width: 850px;
-	height: 420px;
-	padding-top : 20px;
-	padding-bottom : 20px;
-	float : left ;
-}
-
-.thissubtitleLi a {
-    display: grid;
-    grid-template-columns: 170px 255px;
-    grid-template-rows: 120px;
-    grid-template-areas: 
-        "a b";
-    align-items: center;
-    grid-column-gap: 10px;
-    font-size: 1em;
-    float: left;
-}
-
-.list-comic-list {
-    grid-area: a;
-    justify-self: end;
-}
-
-.list-og-expander-inner .list-comic-list img {
-    width: 100px;
-    border: 1px solid #d3d3d3;
-    border-radius: 10px;
-}
-
-.comic-list-text {
-    grid-area: b;
-    justify-self: start;
-    word-break: break-all;
-    font-size: 1em;
-}
-
-.comic-list-time {
-	grid-area: b;
-	justify-self: end;
+    border-bottom: 1px solid #d3d3d3;
 }
 
 
@@ -357,66 +297,6 @@ h4 {
     text-align: center;
 }
 
-
-/* Another comic - expand-inner */
-.og-expander {
-    position: absolute;
-    background: #fff;
-    top: auto;
-    left: 0;
-    width: 100%;
-    margin-top: 10px;
-    height: 540px;
-    overflow: hidden;
-    border-top: 1px solid #d3d3d3;
-    border-bottom: 1px solid #d3d3d3;
-    box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.05);
-    text-align: center;
-}
-
-
-/* Another comic - expand-inner title */
-.another-expander-title-inner {
-	display: grid;
-    grid-template-columns: 330px;
-    grid-template-rows: 320px 40px 40px;
-    grid-template-areas: 
-        "a"
-        "b"
-        "c";
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    grid-row-gap: 10px;
-    padding-top: 70px;
-    padding-bottom: 50px;
-    float : left;
-}
-
-
-/* Another comic - expand-inner subtitle */
-.another-toggle-page{
-	width: 850px;
-	height: 420px;
-	padding-top : 70px;
-	padding-bottom : 50px;
-	float : left ;
-}
-
-.subtitleLi a {
-    display: grid;
-    grid-template-columns: 170px 255px;
-    grid-template-rows: 120px;
-    grid-template-areas: 
-        "a b";
-    align-items: center;
-    font-size: 1em;
-    float: left;
-}
-
-
-/* Another comic - margin-bottom */
-.margin-bottom {margin-bottom: 535px !important;}
 
 
 /* Comic - comment */
@@ -450,7 +330,7 @@ h4 {
     justify-self: center;
     width: 1010px;
     padding: 15px;
-    font-size: 1em;
+    font-size: 15px;
     border-bottom: 1px solid gray;
     border-radius: 10px;
 }
@@ -567,7 +447,7 @@ textarea{
 	background: white;
 	border: 1px solid white;
 	color: black;
-	font-size: 1em;
+	font-size: 15px;
 }
 
 /* Footer */
@@ -580,41 +460,614 @@ textarea{
 /* Media query */
 /* iPad Pro-12.9 landscape */
 @media only screen and (max-width: 1366px) and (orientation: landscape) {
+	* {font-size: 15px;}
+	
+/* hr */
+	hr {width: 90%;}	
+	
+/* Subtitle h4 */
+	.strapline {
+		padding-top: 10px;
+		padding-bottom: 0;
+	    grid-template-columns: 1180px;
+	}	
+
+/* Profile */
+	.content-writer-profile {
+		grid-template-columns: 200px 200px;
+	    grid-template-rows: 90px 90px;
+	    grid-gap: 20px;
+	    padding-top: 20px;
+	    padding-bottom: 20px;
+	}
+	
+	.content-writer-profile .content-writer-name {
+	    padding-bottom: 0;
+	}
+	
+	.content-writer-profile .content-writer-img {
+		align-self: center;
+	    justify-self: end;
+	}
+
+	.content-writer-profile img {
+		width: 150px;
+	}
+	
+	.content-writer-profile .content-writer-subscribe {
+	    padding-top: 0;
+	}	
+	
+/* Contents */
+	.contents .comic img{width: 100%;}
+
+/* Profile : subscribe */	
+	.subscribe {
+		width: 145px;
+		padding: 10px;
+	    border-radius: 5px;
+	}
+	
+/* Thumb css */
+	.evaluate {
+	    grid-template-columns: 30px 10px 30px 30px 10px;
+	    grid-gap: 5px;
+	    grid-template-rows: 30px;
+	    grid-template-areas: "a b . c d";
+	    padding-top: 20px;
+	    padding-bottom: 30px;
+	}
+	
+	.evaluate img {
+	    width: 28px;
+	    padding-left: 0;
+	}	
+	
+/* Comic-information : complete */
+	.comic-infor {
+	    grid-template-columns: 110px 100px 200px;
+	    grid-template-rows: 40px 40px 40px;
+	    grid-template-areas: 
+		    "a b b" 
+		    "a c e" 
+		    "a d f";
+	    grid-column-gap: 20px;
+	    padding-top: 20px;
+	    padding-bottom: 5px;
+	}
+	
+	.comic-infor .comic-thumbnail img {
+		width: 100px;
+	}
+	
+	.comic-infor .comic-thumbnail {
+    	justify-self: center;
+	}
+	
+	.comic-infor .comic-title {
+	    justify-self: start;
+	}
+			
+	.comic-infor .comic-time {
+	    justify-self: start;
+	}
+	
+	.comic-infor .comic-view {
+	    justify-self: start;
+	}
+
+	.comic-infor .comic-link {
+	    justify-self: start;
+	}	
+	
+
+/* Comic-comment */	
+	.comic-infor-comment {
+	    grid-template-columns: 1000px;
+	    padding-top: 5px;
+	    padding-bottom: 20px;
+	}				
+
+/* Comic-list : title */
+	.list-expander-title-inner {
+	    width: 1366px;
+	    grid-template-columns: 120px 350px;
+	    grid-template-rows: 50px 50px;
+	    grid-gap: 10px;
+	    padding-top: 0;
+	    padding-bottom: 20px;
+	}
+	
+/* Comic-list : pagination */	
+	.this-pagination, .pagination {
+	    bottom: 15px;
+	    left: 587px;
+	}	
+
+/* Comic-list */	
+	.list-og-expanded {height: 445px;}
+	.content-margin-bottom {margin-bottom: 455px !important;}
+
 }
 
 /* iPad Pro-10.5 landscape */
 @media only screen and (max-width: 1112px) and (orientation: landscape) {
+/* Subtitle h4 css */
+	.strapline {
+	    grid-template-columns: 950px;
+	}
+	
+/* Comic-comment */	
+	.comic-infor-comment {
+	    grid-template-columns: 880px;
+	}		
+		
+/* Comic-list : title */
+	.list-expander-title-inner {
+	    width: 1112px;
+	}
+		
+/* Comic-list : pagination */	
+	.this-pagination, .pagination {
+	    left: 462px;
+	}	
+
+/* Comic-list */	
+	.list-og-expanded {height: 585px;}
+	.content-margin-bottom {margin-bottom: 595px !important;}		
+		
+/* Another cards */	
+	.cards {
+	    grid-template-areas: "a a a a";
+	}	
+	
+/* Comment css : complete */
+	.comment {
+	    grid-template-columns: 290px 70px;
+	}
+	
+	.comment-text {
+	    width: 250px;
+	}	
 }
 
 /* iPad Pro-9.7 landscape */
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
+/* Subtitle h4 css */
+	.strapline {
+	    grid-template-columns: 920px;
+	}	
+
+/* Comic-comment */	
+	.comic-infor-comment {
+	    grid-template-columns: 800px;
+	}
+	
+/* Comic-list : title */
+	.list-expander-title-inner {
+	    width: 1024px;
+	}
+		
+/* Comic-list : pagination */	
+	.this-pagination, .pagination {
+	    left: 420px;
+	}	
+	
+/* Comic-list */	
+	.list-og-expanded {height: 580px;}
+	.content-margin-bottom {margin-bottom: 590px !important;}			
+
 }
 
 /* iPad Pro-12.9 portrait */
 @media only screen and (max-width: 1024px) and (orientation: portrait) {
+	* {font-size: 15px;}
+	
+/* hr */
+	hr {width: 90%;}
+	
+/* Subtitle h4 css */
+	.strapline {
+		padding-top: 10px;
+		padding-bottom: 0;
+	    grid-template-columns: 920px;
+	}
+
+
+/* Profile */
+	.content-writer-profile {
+		grid-template-columns: 200px 200px;
+	    grid-template-rows: 90px 90px;
+	    grid-gap: 20px;
+	    padding-top: 20px;
+	    padding-bottom: 20px;
+	}
+	
+	.content-writer-profile .content-writer-name {
+	    padding-bottom: 0;
+	}
+	
+	.content-writer-profile .content-writer-img {
+		align-self: center;
+	    justify-self: end;
+	}
+
+	.content-writer-profile img {
+		width: 150px;
+	}
+	
+	.content-writer-profile .content-writer-subscribe {
+	    padding-top: 0;
+	}	
+	
+
+/* Profile : subscribe */	
+	.subscribe {
+		width: 145px;
+		padding: 10px;
+	    border-radius: 5px;
+	}
+	
+
+/* Contents */
+	.contents .comic img{width: 100%;}		
+	
+	
+/* Thumb css */
+	.evaluate {
+	    grid-template-columns: 30px 10px 30px 30px 10px;
+	    grid-gap: 5px;
+	    grid-template-rows: 30px;
+	    grid-template-areas: "a b . c d";
+	    padding-top: 20px;
+	    padding-bottom: 30px;
+	}
+	
+	.evaluate img {
+	    width: 28px;
+	    padding-left: 0;
+	}		
+	
+/* Comic-information */
+	.comic-infor {
+	    grid-template-columns: 110px 100px 200px;
+	    grid-template-rows: 40px 40px 40px;
+	    grid-template-areas: 
+		    "a b b" 
+		    "a c e" 
+		    "a d f";
+	    grid-column-gap: 20px;
+	    padding-top: 20px;
+	    padding-bottom: 5px;
+	}
+	
+	.comic-infor .comic-thumbnail img {
+		width: 100px;
+	}
+	
+	.comic-infor .comic-thumbnail {
+    	justify-self: center;
+	}
+	
+	.comic-infor .comic-title {
+	    justify-self: start;
+	}
+			
+	.comic-infor .comic-time {
+	    justify-self: start;
+	}
+	
+	.comic-infor .comic-view {
+	    justify-self: start;
+	}
+
+	.comic-infor .comic-link {
+	    justify-self: start;
+	}	
+	
+
+/* Comic-comment */	
+	.comic-infor-comment {
+	    grid-template-columns: 700px;
+	    padding-top: 5px;
+	    padding-bottom: 20px;
+	}	
+	
+/* Comic-list : title */
+	.list-expander-title-inner {
+	    width: 1024px;
+	    grid-template-columns: 120px 350px;
+	    grid-template-rows: 50px 50px;
+	    grid-gap: 10px;
+	    padding-top: 0;
+	    padding-bottom: 20px;
+	}
+	
+/* Comic-list : pagination */	
+	.this-pagination, .pagination {
+	    bottom: 15px;
+	    left: 418px;
+	}	
+
+/* Comic-list */	
+	.list-og-expanded {height: 565px;}
+	.content-margin-bottom {margin-bottom: 575px !important;}
+
+/* Another cards */	
+	.cards {
+	    grid-template-areas: "a a a a";
+	}	
+	
+/* Comment css : complete */
+	.comment {
+	    grid-template-columns: 290px 70px;
+	}
+	
+	.comment-text {
+	    width: 250px;
+	}	
 }
 
 /* iPad Pro-10.5 portrait */
 @media only screen and (max-width: 834px) and (orientation: portrait) {
+/* Subtitle h4 css */
+	.strapline {
+	    grid-template-columns: 725px;
+	}
+		
+/* Comic-comment */	
+	.comic-infor-comment {
+	    grid-template-columns: 650px;
+	}
+	
+/* Comic-list : title */
+	.list-expander-title-inner {
+	    width: 1112px;
+	}
+		
+/* Comic-list : pagination */	
+	.this-pagination, .pagination {
+	    left: 325px;
+	}	
+
+/* Comic-list */	
+	.list-og-expanded {height: 595px;}
+	.content-margin-bottom {margin-bottom: 605px !important;}		
+			
+/* Another cards */	
+	.cards {
+	    grid-template-areas: "a a a";
+	}	
 
 }
 
 /* iPhone - X landscape :  */
 @media only screen and (max-width: 812px) and (orientation: landscape) {
+* {font-size: 13px;}	
+
+/* Subtitle h4 css : complete */
+	.strapline {
+		padding-top: 10px;
+		padding-bottom: 0;
+	    grid-template-columns: 700px;
+	}
+
+
+/* Profile : complete */
+	.content-writer-profile {
+		grid-template-columns: 140px 140px;
+	    grid-template-rows: 40px 40px;
+	    grid-gap: 10px;
+	    padding-top: 30px;
+	    padding-bottom: 30px;
+	}
+	
+	.content-writer-profile .content-writer-name {
+	    padding-bottom: 0;
+	}
+	
+	.content-writer-profile .content-writer-img {
+		align-self: center;
+	    justify-self: end;
+	}
+
+	.content-writer-profile img {
+		width: 75px;
+	}
+	
+	.content-writer-profile .content-writer-subscribe {
+	    padding-top: 0;
+	}
+
+
+/* Profile : Modify & Remove Btn : complete */
+	.modifyPageBtn {
+		font-size: 13px;
+		padding: 5px;
+	    width : 60px;
+	    border-radius: 5px;
+	}
+	
+	.removePageBtn {
+		font-size: 13px;
+		padding: 5px;
+	    width : 70px;
+	    border-radius: 5px;
+	}
+	
+/* Profile : subscribe : complete */	
+	.subscribe {
+		font-size: 13px;
+		width: 120px;
+		padding: 5px;
+	    border-radius: 5px;
+	}
+	
+
+/* Contents : complete */
+	.contents .comic img{
+		width: 100%;	
+	}	
+	
+	
+/* Thumb css : complete */
+	.evaluate {
+	    grid-template-columns: 30px 10px 10px 30px 10px;
+	    grid-gap: 5px;
+	    grid-template-rows: 30px;
+	    grid-template-areas: "a b . c d";
+	    padding-top: 20px;
+	    padding-bottom: 30px;
+	}
+	
+	.evaluate img {
+	    width: 23px;
+	    padding-left: 0;
+	}
+	
+	
+/* Comic-information : complete */
+	.comic-infor {
+	    grid-template-columns: 80px 80px 170px;
+	    grid-template-rows: 32px 32px 32px;
+	    grid-template-areas:
+		     "a b b" 
+		     "a c e" 
+		     "a d f";
+	    grid-column-gap: 10px;
+	    padding-top: 20px;
+	    padding-bottom: 5px;
+	}
+	
+	.comic-infor .comic-thumbnail img {
+		width: 75px;
+	}
+	
+	.comic-infor .comic-thumbnail {
+    	justify-self: center;
+	}
+	
+	.comic-infor .comic-title {
+	    justify-self: start;
+	}
+			
+	.comic-infor .comic-time {
+	    justify-self: start;
+	}
+	
+	.comic-infor .comic-view {
+	    justify-self: start;
+	}
+
+	.comic-infor .comic-link {
+	    justify-self: start;
+	}	
+		
+	
+/* Comic-comment */	
+	.comic-infor-comment {
+	    grid-template-columns: 650px;
+	    padding-top: 5px;
+	    padding-bottom: 20px;
+	}	
+
+/* Comic-list : title */
+	.list-expander-title-inner {
+	    width: 812px;
+	    grid-template-columns: 80px 250px;
+   		grid-template-rows: 40px 40px;
+	    grid-gap: 10px;
+	    padding-top: 0;
+	    padding-bottom: 5px;
+	}
+	
+/* Comic-list : pagination */	
+	.this-pagination, .pagination {
+	    bottom: 15px;
+	    left: 118px;
+	    position: unset;
+	}	
+
+/* Comic-list */	
+	.list-og-expanded {height: 465px;}
+	.content-margin-bottom {margin-bottom: 475px !important;}
+
+
+/* Another Comic :  */
+	.cards {
+	    grid-template-areas: 
+	        "a a a";
+	}	
+	
+
+/* Comment css : complete */
+	.comment {
+	    grid-template-columns: 290px 70px;
+	}
+	
+	.comment-text {
+	    width: 250px;
+	}	
 	
 }
 
 /* iPad Pro-9.7 portrait */
 @media only screen and (max-width: 768px) and (orientation: portrait) {
+/* Subtitle h4 css  */
+	.strapline {
+	    grid-template-columns: 680px;
+	}
 	
+/* Comic-comment */	
+	.comic-infor-comment {
+	    grid-template-columns: 600px;
+	}	
+	
+/* Comic-list : title */
+	.list-expander-title-inner {
+	    width: 768px;
+	}	
+	
+/* Comic-list : pagination */	
+	.this-pagination, .pagination {
+	    left: 294px;
+	}		
 }
 
 /* iPhone - 6+/7+/8+  landscape :  */
 @media only screen and (max-width: 736px) and (orientation:  landscape) {
+/* Subtitle h4 css : complete */
+	.strapline {
+	    grid-template-columns: 650px;
+	}	
+	
+/* Comic-comment */	
+	.comic-infor-comment {
+	    grid-template-columns: 600px;
+	}		
+
+/* Comic-list : title */
+	.list-expander-title-inner {
+	    width: 736px;
+	}
 }
 
 /* iPhone - 6/7/8/ landscape :  */
 @media only screen and (max-width: 667px) and (orientation: landscape) {
+/* Subtitle h4 css : complete */
+	.strapline {
+	    grid-template-columns: 590px;
+	}	
+	
+/* Comic-comment */	
+	.comic-infor-comment {
+	    grid-template-columns: 550px;
+	}		
+
+/* Comic-list : title */
+	.list-expander-title-inner {
+	    width: 667px;
+	}	
 }
 
 /* iPhone - 5/SE/5S  landscape */
@@ -630,9 +1083,9 @@ textarea{
 	
 	
 /* hr */
-hr {
-    width: 394px;
-}
+	hr {
+	    width: 394px;
+	}
 	
 /* Subtitle h4 css : complete */
 	.strapline {
@@ -661,7 +1114,7 @@ hr {
 	}
 
 	.content-writer-profile img {
-		width: 70px;
+		width: 75px;
 	}
 	
 	.content-writer-profile .content-writer-subscribe {
@@ -671,12 +1124,14 @@ hr {
 
 /* Profile : Modify & Remove Btn : complete */
 	.modifyPageBtn {
+		font-size: 13px;
 		padding: 5px;
 	    width : 60px;
 	    border-radius: 5px;
 	}
 	
 	.removePageBtn {
+		font-size: 13px;
 		padding: 5px;
 	    width : 70px;
 	    border-radius: 5px;
@@ -684,6 +1139,7 @@ hr {
 	
 /* Profile : subscribe : complete */	
 	.subscribe {
+		font-size: 13px;
 		width: 120px;
 		padding: 5px;
 	    border-radius: 5px;
@@ -721,12 +1177,13 @@ hr {
 		    "a c e" 
 		    "a d f";
 	    grid-column-gap: 10px;
+	    padding-left: 11px;
 	    padding-top: 20px;
 	    padding-bottom: 5px;
 	}
 	
 	.comic-infor .comic-thumbnail img {
-		width: 70px;
+		width: 75px;
 	}
 	
 	.comic-infor .comic-thumbnail {
@@ -757,85 +1214,26 @@ hr {
 	    padding-bottom: 20px;
 	}	
 
-
-/* Comic list - expand : complete */
-	.list-og-expanded {height: 330px;}
-
-
-/* Comic list - content-margin-bottom : complete */
-	.content-margin-bottom {
-		margin-bottom: 345px !important;
-		margin-top: -5px;
-	}
-	
-	
-/* Comic list - title :  */
+/* Comic-list : title */
 	.list-expander-title-inner {
+	    width: 414px;
 	    grid-template-columns: 80px 250px;
-	    grid-template-rows: 30px 50px;
-	    grid-template-areas: 
-		    "a b"
-		    "a c";
-		grid-column-gap: 10px;
-	    width: 412px;
-	    border-bottom: 1px solid #d3d3d3;
+   		grid-template-rows: 40px 40px;
+	    grid-gap: 10px;
 	    padding-top: 0;
-    	padding-bottom: 0;
-    	
+	    padding-bottom: 5px;
 	}
 	
-	.list-og-fullimg img {
-	    width: 70px;
+/* Comic-list : pagination */	
+	.this-pagination, .pagination {
+	    bottom: 15px;
+	    left: 118px;
+	    position: unset;
 	}	
-	
-	.list-expander-title-inner .comic-list-title, .comic-title {
-	    justify-self: start;
-	    font-size: 13px;
-	}
-	
-	.list-expander-title-inner .comic-list-genre {
-		justify-self: start;
-	    font-size: 13px;
-	}
-	
-	
-/* Comic list - subtitle :  */
-	.list-readpage-toggle-page {
-		display: grid;
-		justify-items: center;
-		width: 412px;
-		height: 240px;
-		justify-items: center;
-		padding-left: 0;
-		padding-top : 10px;
-		padding-bottom : 0;
-		overflow: scroll;
-	}
-	
-	.thissubtitleLi a {
-		display: grid;
-	    grid-template-columns: 80px 250px;
-	    grid-template-rows: 80px;
-	}	
-	
-	.list-comic-list {
-	    justify-self: center;
-	}
-	
-	.list-og-expander-inner .list-comic-list img {
-	    width: 70px;
-	}
-	
-	.list-comic-list-text {
-	    word-break: break-all;
-	    font-size: 13px;
-	    padding-left: 0;
-	}
 
-/* Comic list - pagination : */		
-	.comic-list-pagi {
-	    padding: 10px;
-	}
+/* Comic-list */	
+	.list-og-expanded {height: 405px;}
+	.content-margin-bottom {margin-bottom: 415px !important;}
 
 
 /* Another Comic :  */
@@ -843,71 +1241,6 @@ hr {
 	    grid-template-areas: 
 	        "a a";
 	}	
-	
-/* Another comic - Margin-bottom : complete */
-	.margin-bottom {margin-bottom: 375px !important;}
-
-	
-/* Another comic - og-expander : complete */	
-	.og-expander {height: 370px;}
-
-	
-/* Another comic - expand-inner left :  */
-	.another-expander-title-inner {
-	    grid-template-columns: 80px 250px;
-	    grid-template-rows: 30px 50px;
-	    grid-template-areas: 
-		    "a b"
-		    "a c";
-		grid-column-gap: 10px;
-	    width: 412px;
-	    border-bottom: 1px solid #d3d3d3;
-	    padding-top: 20px;
-    	padding-bottom: 0;
-	}
-	
-	.another-expander-title-inner .another-comic-list-title {
-	    justify-self: start;
-	    grid-area: b;
-	}
-	
-	.another-expander-title-inner .another-comic-list-genre {
-	    justify-self: start;
-	    grid-area: c;
-	}
-	
-	.another-og-fullimg img {
-		width: 70px;
-	}
-	
-		
-/* Another comic - expand-inner subtitle */
-	.another-toggle-page{
-		display: grid;
-		justify-content: center;
-		justify-items: center;
-		width: 412px;
-		height: 240px;
-		padding-left: 0;
-		padding-top : 10px;
-		padding-bottom : 0;
-		overflow: scroll;
-	}
-	
-	.og-expander-inner .comic-list img {
-	    width: 70px;
-	    border: 1px solid #d3d3d3;
-	    border-radius: 10px;
-	}
-	
-	.subtitleLi a{
-		display: grid;
-	    grid-template-columns: 80px 250px;
-	    grid-column-gap: 10px;
-	    grid-template-rows: 80px;
-	}
-	
-/*Another comic - expand-inner - pagination : */
 	
 
 /* Comment css : complete */
@@ -924,50 +1257,43 @@ hr {
 /* iPhone - 6/7/8/X portrait : complete */
 @media only screen and (max-width: 375px) and (orientation: portrait) {
 /* hr */
-hr {
-    width: 355px;
-}	
+	hr {
+	    width: 355px;
+	}	
 	
-/* Subtitle h4 css : complete */
+/* Subtitle h4 css */
 	.strapline {
 	    grid-template-columns: 350px;
 	}
 
-/* Comic list - title : complete */
-	.expander-title-inner {
-	    grid-template-rows: 30px 50px;
-	    grid-row-gap: 0;
-	    width: 373px;
+/* Comic-information : complete */
+	.comic-infor {
+	    padding-left: 11px;
 	}
-	
-/* Comic list - subtitle :  */
-	.list-readpage-toggle-page {
-		width: 373px;
-		padding-left: 0;
-		padding-bottom : 20px;
-	}
-	
-	.thissubtitleLi a {
+
+/* Comic-list : title */
+	.list-expander-title-inner {
+	    width: 375px;
 	    grid-template-columns: 80px 250px;
-	    grid-template-rows: 80px;
-	}	
-	
-	.list-og-expander-inner .comic-list img {
-	    width: 70px;
+   		grid-template-rows: 40px 40px;
+	    grid-gap: 10px;
+	    padding-top: 0;
+	    padding-bottom: 5px;
 	}
 	
-	
-/* Another comic - expand-inner title :  */
-	.another-expander-title-inner {
-	    width: 373px;
+/* Comic-list : pagination */	
+	.this-pagination, .pagination {
+	    bottom: 15px;
+	    left: 115px;
 	}	
+
+/* Comic-list */	
+	.list-og-expanded {height: 405px;}
+	.content-margin-bottom {margin-bottom: 415px !important;}
 	
-/* Another comic - expand-inner subtitle :  */
-	.another-toggle-page{
-		width: 373px;
-	}	
 	
-/* Comment css : complete */
+		
+/* Comment css */
 	.comment {
 	    grid-template-columns: 250px 70px;
 	}

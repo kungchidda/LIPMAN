@@ -2,6 +2,7 @@ html{
 	-webkit-overflow-scrolling : touch;
 }
 
+/* Cards property */
 .og-grid {
     list-style: none;
     padding: 0px 0;
@@ -18,6 +19,12 @@ html{
     height: 350px;
 }
 
+/* Main & Mypage : expander */
+.og-expander-inner {
+	width: 1200px;
+	text-align: center;
+}
+
 .og-title-register, .og-expander {
     position: absolute;
     background: #fff;
@@ -26,13 +33,12 @@ html{
     width: 100%;
     margin-top: 10px;
     text-align: left;
-    height: 540px;
     overflow: hidden;
     border-top: 1px solid #d3d3d3;
     border-bottom: 1px solid #d3d3d3;
     box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.05);
     text-align: center;
-    height: 550px;
+    height: 600px;
 }
 
 .og-expanded {
@@ -48,26 +54,28 @@ html{
     text-align: center;
 }
 
-/*first-og-expander*/
+
+/* Mypage : first-og-expander - title */
 .title-register-inner, .og-expander-inner{
 	display: inline-block;
 }
 
 .title-edit-input {
-	display: grid;	
-    grid-template-columns: 400px;
-    grid-template-rows: 320px 30px 50px;
+	display: grid;
+    width: 1200px;
+    grid-template-columns: 150px 400px;
+    grid-template-rows: 75px 75px;
     grid-template-areas: 
-        "a"
-        "."
-        "c";
+	    "a b" 
+	    "a c";
     justify-content: center;
     justify-items: center;
     align-items: center;
-    grid-row-gap: 10px;
-    padding-top: 70px;
-    padding-bottom: 50px;
-    float : left;
+    grid-gap: 10px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    /* float: left; */
+    border-bottom: 1px solid #d3d3d3;
 }
 
 .og-fullimg {
@@ -75,47 +83,45 @@ html{
     align-self: center;
 }
 
+.og-fullimg img {
+    width: 150px;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+}
+
 .comic-list-title {
-    grid-area: c;
+    grid-area: b;
     align-self: center;
-    font-size: 1em;
+    font-size: 15px;
 }
 
 .input-title {
     width: 270px;
-    padding: 15px;
-    font-size: 1em;
+    padding: 10px;
+    font-size: 15px;
     border: 1px solid #d3d3d3;
-    border-radius: 10px;
+    border-radius: 5px;
     text-align: center;
 }
 
-.og-fullimg img {
-    width: 300px;
-    border: 1px solid #d3d3d3;
-    border-radius: 10px;
-}
 
-/* .title-register-inner { */
+
+/* Mypage : title-register-inner { */
 .title-genre-checkbox {
 	display: grid;
-    grid-template-columns: 200px 200px 200px 200px 200px;
-    grid-template-rows: 70px 70px 70px 70px 40px 50px;
+    grid-template-columns: 58px 92px 94px 89px 66px 96px 122px 70px 79px 110px;
+    grid-template-rows: 42px 42px;
+    width: 1200px;
     grid-template-areas: 
-        "c d e f g"
-        "h i j k l"
-        "m n o p q"
-        "r s t u v"
-        ". . . . ."
-        ". . . x y";
-	justify-items: start;
+	    "c d e f g h i j k l" 
+	    "m n o p q r s t u v";
     justify-content: center;
-    grid-column-gap: 10px;
+    justify-items: start;
+    align-items: center;
     grid-row-gap: 10px;
+    grid-column-gap: 10px;
     padding-top: 70px;
     padding-bottom: 50px;
-    align-items: center;
-    float : left;
 }
 
 .og-title-register-inner a:link {
@@ -151,11 +157,8 @@ html{
 .title-register-complete-btn {grid-area: y;}
 
 .title-genre-checkbox span {
-	padding-right: 25px;
-    padding-left: 25px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border-radius: 10px;
+	padding: 10px;
+    border-radius: 5px;
 } 
 
 .genre-1 .false,
@@ -397,43 +400,90 @@ html{
     color: white;
 }
 
-.title-register-delete-btn, .title-register-cancel-btn {
-    width: 200px;
-    padding: 15px;
-    border: 1px solid #e2e2df;
-    border-radius: 10px;
-    background-color: #e2e2df;
-    font-size: 1em;
-    color: white;
-}
-
-.title-register-complete-btn {
-	width: 200px;
-	background-color: white;
-	border: 1px solid #424242;
-	border-radius: 10px;
-	padding: 15px;
-	font-size: 1em;
-	color: #424242;
-}
-
-
-/* cards left */
-.expander-title-inner {
+/* Title-complete-btn */
+.title-complete-btn {
 	display: grid;
-    grid-template-columns: 400px;
-    grid-template-rows: 320px 40px 40px;
+	width: 1200px;
+    grid-template-columns: 170px;
+    grid-template-rows: 42px;
     grid-template-areas: 
-        "a"
-        "b"
-        "c";
+        "a";
     justify-content: center;
     justify-items: center;
     align-items: center;
-    grid-row-gap: 10px;
-    padding-top: 70px;
-    padding-bottom: 50px;
-    float : left;
+    grid-gap: 10px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.title-complete-btn .title-register-complete-btn {
+	grid-area: a;
+	width: 170px;
+	background-color: white;
+	border: 1px solid #424242;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 15px;
+	color: #424242;
+}
+
+/* Title-register-btn */
+.title-register-btn {
+	display: grid;
+	width: 1200px;
+    grid-template-columns: 170px 170px;
+    grid-template-rows: 42px;
+    grid-template-areas: 
+        "a b";
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-gap: 10px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.title-register-btn .title-register-complete-btn {
+	grid-area: b;
+	width: 170px;
+	background-color: white;
+	border: 1px solid #424242;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 15px;
+	color: #424242;
+}
+
+.title-register-delete-btn, .title-register-cancel-btn {
+	grid-area: a;
+	justify-self: end;
+    width: 170px;
+    padding: 10px;
+    border: 1px solid #e2e2df;
+    border-radius: 5px;
+    background-color: #e2e2df;
+    font-size: 15px;
+    color: white;
+}
+
+
+/* Main : expander-inner - title  */
+.expander-title-inner {
+	display: grid;
+	width: 1200px;
+    grid-template-columns: 150px 400px;
+    grid-template-rows: 75px 75px;
+    grid-template-areas: 
+        "a b"
+        "a c";
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-gap: 10px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    /* float : left; */
+    border-bottom: 1px solid #d3d3d3;
 }
 
 .og-expander-inner a:link {
@@ -450,21 +500,26 @@ html{
     align-self: center;
 }
 
+.og-fullimg img {
+    width: 150px;
+}
+
 .expander-title-inner .comic-list-genre {
     grid-area: c;
     color: gray;
-    font-size: 1em;
+    font-size: 15px;
+    align-self: start;
 }
 
 .expander-title-inner .comic-list-title, .comic-title {
     grid-area: b;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .expander-title-inner .comic-list-setting {
     grid-area: b;
     justify-self : end;
-    align-self: start;
+    align-self: center;
 }
 
 .expander-title-inner .comic-list-setting img {
@@ -472,30 +527,22 @@ html{
 }
 
 
-.readpage-toggle-page{
-	width: 1040px;
-	height: 420px;
-	padding-top : 70px;
-	padding-bottom : 50px;
-	float : left ;
-}
-
-/* cards right */
-.toggle-page{
-	width: 1040px;
-	height: 420px;
-	padding-top : 70px;
-	padding-bottom : 50px;
-	float : left ;
+/* Main & Mypage Cards : expander-inner - subtitle */
+.toggle-page {
+	width: 1200px;
 }
 
 .subtitleLi a, .thissubtitleLi a{
     display: grid;
-    grid-template-columns: 150px 370px;
-    grid-template-rows: 120px;
+    grid-template-columns: 110px 250px;
+    grid-template-rows: 50px 50px;
     grid-template-areas: 
-        "a b";
+	    "a b" 
+	    "a c";
     float: left;
+    grid-gap: 10px;
+    padding-left: 20px;
+    padding-top: 20px;
 }
 
 .comic-list {
@@ -504,7 +551,7 @@ html{
     justify-self: center;
 }
 
-.og-expander-inner .comic-list img {
+.comic-list img {
     width: 100px;
     border: 1px solid #d3d3d3;
     border-radius: 10px;
@@ -513,14 +560,27 @@ html{
 .comic-list-text {
     grid-area: b;
     justify-self: start;
-    align-self: center;
+    align-self: end;
     word-break: break-all;
-    font-size: 1em;
+    font-size: 15px;
     padding-left: 0;
 }
 
+.comic-list-time {
+	grid-area: c;
+	justify-self: start;
+	align-self: start;
+    font-size: 13px;
+    color: gray;
+}
 
-/* mypage-home cards right time */
+/* Pagination */
+.this-pagination, .pagination {
+	bottom: 40px;
+    left: 1200px;
+    display: inline-block;
+    position: absolute;
+}
 
 
 /* subtitle paging 시작 */
@@ -563,13 +623,15 @@ html{
 }
 
 .comic-list-pagi {
-    padding: 20px;
+    padding: 10px 20px 10px 20px;
 }
 
 /* subtitle paging 끝 */
 
+/* Margin-bottom */
+.margin-bottom, .content-margin-bottom {margin-bottom: 595px !important;}
+
 .hide{display: none;}
-.margin-bottom, .content-margin-bottom {margin-bottom: 550px !important;}
 .background-blur{opacity: 0.5;}
 
 
@@ -577,6 +639,55 @@ html{
 
 /* iPad Pro-12.9 landscape */
 @media only screen and (max-width: 1366px) and (orientation: landscape) {
+/* Mypage : first-og-expander - title */	
+	.title-edit-input {
+	    width: 1200px;
+	    grid-template-columns: 120px 350px;
+    	grid-template-rows: 50px 50px;
+    	padding-top: 30px;
+	}
+	
+	.og-fullimg img {
+	    width: 100px;
+	}
+	
+	.input-title {
+	    width: 230px;
+	}
+	
+/* Mypage : first-og-expander - genre */	
+	.title-genre-checkbox {
+	    width: 1200px;
+	    overflow: scroll;
+	}	
+	
+/* Title-complete-btn */
+	.title-complete-btn {
+		width: 1200px;
+	}
+
+
+	.title-complete-btn .title-register-complete-btn {
+		width: 145px;
+		padding: 10px;
+		font-size: 15px;
+		color: #424242;
+	}
+
+/* Title-register-btn */
+	.title-register-btn {
+		width: 1200px;
+	}
+	
+	.title-register-btn .title-register-complete-btn {
+		width: 145px;
+	}
+	
+	.title-register-delete-btn, .title-register-cancel-btn {
+	    width: 145px;
+	}
+	
+		
 /* Main-cards */
 	.og-grid {
 	    padding-left: 86px;
@@ -584,86 +695,139 @@ html{
 	}
 	
 	.og-title-register, .og-expander {
-	    height: 480px;
+	    height: 500px;
 	}
 	
 	
-/* Main-cards-expander-inner : cards-left */
+/* Main-cards-expander-inner : title */
 	.expander-title-inner {
-	    grid-template-columns: 270px;
-	    grid-template-rows: 270px 40px 60px;
-	    grid-row-gap: 5px;
-	    padding-top: 50px;
+	    grid-template-columns: 120px 350px;
+	    grid-template-rows: 50px 50px;
+	    grid-gap: 10px;
+	    padding-top: 30px;
+	    padding-bottom: 20px;
+	    width: 1200px;
 	}
 	
 	.og-fullimg img {
-		width: 250px;
+		width: 100px;
 	}
 	
 	
-/* Main-cards-expander-inner : cards-right */
-	.toggle-page{
-		grid-template-columns: 510px;
-		grid-template-rows: 120px;
-		overflow: scroll;
-		width: 510px;
-		height: 380px;
-		padding-left: 50px;
-		padding-top: 50px;
-		padding-bottom: 50px;
+/* Main-cards-expander-inner : subtitle */
+	.toggle-page, .readpage-toggle-page {
+	    width: 1200px;
+	    padding-top: 20px;
+	    padding-bottom: 30px;
 	}
 	
-	.subtitleLi a{
-	    grid-template-columns: 130px 380px;
-	    grid-template-rows: 120px;
+	.subtitleLi a, .thissubtitleLi a {
+	    padding-left: 20px;
+	    padding-top: 10px;
 	}
+		
+	
+/* Main-cards-expander-inner : pagination */	
+	.toggle-page .pagination {
+	    left: 585px;
+	    bottom: 15px;
+	}	
 	
 	
 /* Margin-bottom */
 	.margin-bottom {
-		margin-bottom: 475px !important;
+		margin-bottom: 495px !important;
 	}
 } 
 
 
 /* iPad Pro-10.5 landscape */
 @media only screen and (max-width: 1112px) and (orientation: landscape) {
+/* Mypage : first-og-expander - title */	
+	.title-edit-input {
+	    width: 1112px;
+	}
+	
+/* Mypage : first-og-expander - genre */	
+	.title-genre-checkbox {
+	    width: 1112px;
+	    overflow: scroll;
+	}	
+	
+/* Title-complete-btn */
+	.title-complete-btn {
+		width: 1112px;
+	}
+
+/* Title-register-btn */
+	.title-register-btn {
+		width: 1112px;
+	}
+	
 /* Main-cards */
 	.og-grid {
 	    padding-left: 82px;
 	    padding-right: 82px;
 	}
 	
-/* Main-cards-expander-inner : cards-right */
-	.toggle-page{
-		padding-left: 40px;
+	.og-title-register, .og-expander {
+	    height: 620px;
+	}
+	
+	
+/* Main-cards-expander-inner : title */
+	.expander-title-inner {
+	    width: 1112px;
 	}	
+	
+/* Main-cards-expander-inner : subtitle */
+	.toggle-page, .readpage-toggle-page {
+	    width: 1112px;
+	}
+	
+	.subtitleLi a, .thissubtitleLi a {
+	    padding-left: 115px;
+	    padding-top: 10px;
+	}
+		
+	
+/* Main-cards-expander-inner : pagination */	
+	.toggle-page .pagination {
+	    left: 463px;
+	    bottom: 15px;
+	}	
+	
+	
+/* Margin-bottom */
+	.margin-bottom {
+		margin-bottom: 615px !important;
+	}	
+
 }
 
 
 /* iPad Pro-9.7 landscape */
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
-/* Main-cards */
-	.og-grid {
-	    padding-left: 37px;
-	    padding-right: 37px;
-	}
-		
-	
-/* Main-cards-expander-inner : cards-right */
-	.toggle-page{
-		grid-template-columns: 420px;
-		padding-left: 20px;
+/* Mypage : first-og-expander - title */	
+	.title-edit-input {
+	    width: 1024px;
 	}
 	
-	.subtitleLi a{
-	    grid-template-columns: 120px 300px;
+/* Mypage : first-og-expander - genre */	
+	.title-genre-checkbox {
+	    width: 1024px;
 	}	
-}
+	
+/* Title-complete-btn */
+	.title-complete-btn {
+		width: 1024px;
+	}
 
-
-/* iPad Pro-12.9 portrait */
-@media only screen and (max-width: 1024px) and (orientation: portrait) {
+/* Title-register-btn */
+	.title-register-btn {
+		width: 1024px;
+	}	
+	
 /* Main-cards */
 	.og-grid {
 	    padding-left: 37px;
@@ -671,65 +835,282 @@ html{
 	}
 	
 	.og-title-register, .og-expander {
-	    height: 480px;
+	    height: 620px;
 	}
 	
 	
-/* Main-cards-expander-inner : cards-left */
+/* Main-cards-expander-inner : title */
 	.expander-title-inner {
-	    grid-template-columns: 270px;
-	    grid-template-rows: 270px 40px 60px;
-	    grid-row-gap: 5px;
-	    padding-top: 50px;
+	    width: 1024px;
+	}	
+	
+/* Main-cards-expander-inner : subtitle */
+	.toggle-page, .readpage-toggle-page {
+	    width: 1024px;
 	}
 	
-	.og-fullimg img {
-		width: 250px;
+	.subtitleLi a, .thissubtitleLi a {
+	    padding-left: 95px;
+	    padding-top: 10px;
 	}
+		
 	
-	
-/* Main-cards-expander-inner : cards-right */
-	.toggle-page{
-		grid-template-columns: 440px;
-		/* grid-template-rows: 120px; */
-		overflow: scroll;
-		width: 440px;
-		height: 380px;
-		padding-left: 40px;
-		padding-top: 50px;
-		padding-bottom: 50px;
-	}
-	
-	.subtitleLi a{
-	    grid-template-columns: 120px 320px;
-	    grid-template-rows: 120px;
-	}
+/* Main-cards-expander-inner : pagination */	
+	.toggle-page .pagination {
+	    left: 420px;
+	    bottom: 15px;
+	}	
 	
 	
 /* Margin-bottom */
 	.margin-bottom {
-		margin-bottom: 475px !important;
+		margin-bottom: 615px !important;
+	}	
+}
+
+
+/* iPad Pro-12.9 portrait */
+@media only screen and (max-width: 1024px) and (orientation: portrait) {
+/* Mypage : first-og-expander - title */	
+	.title-edit-input {
+	    width: 1024px;
+	    grid-template-columns: 120px 350px;
+    	grid-template-rows: 50px 50px;
+    	padding-top: 30px;
+	}
+	
+	.og-fullimg img {
+	    width: 100px;
+	}
+	
+	.input-title {
+	    width: 230px;
+	}
+	
+/* Mypage : first-og-expander - genre */	
+	.title-genre-checkbox {
+	    width: 1024px;
+	    overflow: scroll;
+	}	
+	
+/* Title-complete-btn */
+	.title-complete-btn {
+		width: 1024px;
+	}
+
+
+	.title-complete-btn .title-register-complete-btn {
+		width: 145px;
+		padding: 10px;
+		font-size: 15px;
+		color: #424242;
+	}
+
+/* Title-register-btn */
+	.title-register-btn {
+		width: 1024px;
+	}
+	
+	.title-register-btn .title-register-complete-btn {
+		width: 145px;
+	}
+	
+	.title-register-delete-btn, .title-register-cancel-btn {
+	    width: 145px;
+	}
+	
+/* Main-cards */
+	.og-grid {
+	    padding-left: 37px;
+	    padding-right: 37px;
+	}
+	
+	.og-title-register, .og-expander {
+	    height: 630px;
+	}
+	
+	
+/* Main-cards-expander-inner : title */
+	.expander-title-inner {
+	    grid-template-columns: 120px 350px;
+	    grid-template-rows: 50px 50px;
+	    grid-gap: 10px;
+	    padding-top: 30px;
+	    padding-bottom: 20px;	    
+	    width: 1024px;
+	}
+	
+	.og-fullimg img {
+	    width: 100px;
+	}
+		
+	
+/* Main-cards-expander-inner : subtitle */
+	.toggle-page, .readpage-toggle-page {
+	    width: 1024px;
+	    padding-top: 20px;
+	    padding-bottom: 30px;
+	}
+	
+	.subtitleLi a, .thissubtitleLi a {
+	    padding-left: 90px;
+	    padding-top: 10px;
+	}
+		
+	
+/* Main-cards-expander-inner : pagination */	
+	.toggle-page .pagination {
+	    left: 415px;
+	    bottom: 15px;
+	}	
+	
+	
+/* Margin-bottom */
+	.margin-bottom {
+		margin-bottom: 625px !important;
 	}
 }
 
 
 /* iPad Pro-10.5 portrait */
 @media only screen and (max-width: 834px) and (orientation: portrait) {
+/* Mypage : first-og-expander - title */	
+	.title-edit-input {
+	    width: 834px;
+	}
+	
+/* Mypage : first-og-expander - genre */	
+	.title-genre-checkbox {
+	    justify-content: start;
+	    overflow: scroll;
+	    padding-left: 20px;
+	    width: 814px;
+	}
+	
+/* Title-complete-btn */	
+	.title-complete-btn {
+	    width: 834px;
+	}
+	
+/* Title-register-btn */
+	.title-register-btn {
+		width: 834px;
+	}	
+	
 /* Main-cards */
 	.og-grid {
 	    padding-left: 61px;
 	    padding-right: 61px;
 	}
 	
-/* Main-cards-expander-inner : cards-right */
-	.toggle-page{
-		padding-left: 30px;
+	.og-title-register, .og-expander {
+	    height: 630px;
+	}
+	
+	
+/* Main-cards-expander-inner : title */
+	.expander-title-inner {
+	    padding-top: 30px;
+	    padding-bottom: 20px;	    
+	    width: 834px;
+	}
+		
+	
+/* Main-cards-expander-inner : subtitle */
+	.toggle-page, .readpage-toggle-page {
+	    width: 834px;
+	    padding-top: 20px;
+	    padding-bottom: 30px;
+	}
+	
+	.subtitleLi a, .thissubtitleLi a {
+	    padding-left: 30px;
+	    padding-top: 15px;
+	}
+		
+	
+/* Main-cards-expander-inner : pagination */	
+	.toggle-page .pagination {
+	    left: 325px;
+	    bottom: 10px;
+	}	
+	
+	
+/* Margin-bottom */
+	.margin-bottom {
+		margin-bottom: 625px !important;
 	}	
 }
 
 
 /* iPad Pro-X landscape */
 @media only screen and (max-width: 812px) and (orientation: landscape) {
+	* {font-size: 13px;}	
+	
+/* Mypage : first-og-expander - title */	
+	.title-edit-input {
+	    width: 812px;
+	    grid-template-columns: 80px 250px;
+    	grid-template-rows: 35px 45px;
+    	padding-top: 20px;
+    	padding-bottom: 5px;
+	}
+	
+	.og-fullimg img {
+	    width: 100px;
+	}
+	
+	.input-title {
+		font-size: 13px;
+		padding: 5px;
+	    width: 175px;
+	}
+	
+/* Mypage : first-og-expander - genre */	
+	.title-genre-checkbox {
+		grid-template-columns: 53px 83px 84px 83px 63px 88px 109px 65px 71px 104px;
+	    grid-template-rows: 37px 37px;
+	    padding-left: 20px;
+	    justify-content: start;
+	    font-size: 13px;
+	    width: 792px;
+	    overflow: scroll;
+	}	
+	
+/* Title-complete-btn */
+	.title-complete-btn {
+		width: 812px;
+	}
+
+	.title-complete-btn .title-register-complete-btn {
+		width: 120px;
+		padding: 5px;
+		font-size: 13px;
+		color: #424242;
+	}
+
+/* Title-register-btn */
+	.title-register-btn {
+		width: 812px;
+	}
+	
+	.title-register-btn .title-register-complete-btn {
+		width: 120px;
+		padding: 5px;
+		font-size: 13px;
+	}
+	
+	.title-register-delete-btn, .title-register-cancel-btn {
+	    width: 120px;
+		padding: 5px;
+		font-size: 13px;
+	}	
+
+	.expander-title-inner .comic-list-setting img {
+	    width: 20px;
+	}
+	
+		
 /* Main-cards */
 	.og-grid {
 	    padding-left: 12px;
@@ -738,116 +1119,341 @@ html{
 	
 	.og-grid .expander, .title-register {
 	    width: 160px;
-	    height: 295px;
+	    height: 285px;
 	}
 	
 	.og-title-register, .og-expander {
-	    height: 350px;
+	    height: 475px;
 	}
+
 	
-	
-/* Main-cards-expander-inner : cards-left */
+/* Cards-expander-inner - title */
 	.expander-title-inner {
-	    grid-template-columns: 200px;
-	    grid-template-rows: 180px 40px 60px;
-	    grid-row-gap: 5px;
-	    padding-top: 30px;
-	    padding-bottom: 30px;
-	}
+	    width: 812px;
+	    grid-template-columns: 80px 250px;
+	    grid-template-rows: 35px 45px;
+	    grid-column-gap: 10px;
+	    padding-top: 20px;
+	    padding-bottom: 5px;
+	}	
 	
 	.og-fullimg img {
-		width: 160px;
+	    width: 75px;
 	}
 	
-	
-/* Main-cards-expander-inner : cards-right */
-	.toggle-page{
-		grid-template-columns: 400px;
-		width: 400px;
-		height: 290px;
-		justify-items: center;
-		padding-left: 20px;
-		padding-top: 30px;
-		padding-bottom: 30px;
+	.expander-title-inner .comic-list-title, .comic-title {
+	    font-size: 13px;
 	}
 	
-	.subtitleLi a{
-	    grid-template-columns: 120px 280px;
-	    grid-template-rows: 120px;
+	.expander-title-inner .comic-list-genre {
+	    font-size: 13px;
 	}
+	
+/* Main-cards-expander-inner : subtitle */
+	.subtitleLi a, .thissubtitleLi a {
+		grid-template-columns: 80px 250px;
+    	grid-template-rows: 40px 40px;
+	    padding-left: 30px;
+	    padding-top: 10px;
+	}
+
+	.toggle-page, .readpage-toggle-page {
+	    width: 812px;
+	    padding-top: 0;
+	    padding-bottom: 30px;
+	}
+				
+	.comic-list img {
+	    width: 75px;
+	}
+	
+/* Main-cards-expander-inner : pagination */	
+	.toggle-page .pagination {
+	    left: 314px;
+	    bottom: 15px;
+	    position: absolute;
+	}	
 	
 	
 /* Margin-bottom */
 	.margin-bottom {
-		margin-bottom: 340px !important;
+		margin-bottom: 465px !important;
 	}
 }
 
 
 /* iPad Pro-9.7 portrait */
-@media only screen and (max-width: 768px) and (orientation: portrait) {
+@media only screen and (max-width: 768px) and (orientation: portrait) {		
+/* Mypage : first-og-expander - title */	
+	.title-edit-input {
+	    width: 768px;
+	}
+	
+/* Mypage : first-og-expander - genre */	
+	.title-genre-checkbox {
+	    width: 748px;
+	    padding-left: 20px;
+	    justify-content: start;
+	}	
+	
+/* Title-complete-btn */	
+	.title-complete-btn {
+	    width: 768px;
+	}	
+	
+/* Title-register-btn */
+	.title-register-btn {
+		width: 768px;
+	}		
+	
+/* Main-cards-expander-inner : title */	
+	.expander-title-inner {
+	    width: 768px;
+	}		
+	
 /* Main-cards */
 	.og-grid {
 	    padding-left: 29px;
 	    padding-right: 28px;
 	}
 	
-/* Main-cards-expander-inner : cards-right */
-	.toggle-page{
-		grid-template-columns: 420px;
-		padding-left: 20px;
+	.og-title-register, .og-expander {
+	    height: 630px;
 	}
 	
-	.subtitleLi a{
-	    grid-template-columns: 120px 300px;
-	}		
+	
+/* Main-cards-expander-inner : title */
+	.expander-title-inner {
+	    padding-top: 30px;
+	    padding-bottom: 20px;	    
+	    width: 768px;
+	}
+		
+	
+/* Main-cards-expander-inner : subtitle */
+	.toggle-page, .readpage-toggle-page {
+	    width: 768px;
+	}
+	
+	.subtitleLi a, .thissubtitleLi a {
+	    padding-left: 15px;
+	    padding-top: 15px;
+	}
+	
+	.subtitleLi a, .thissubtitleLi a {
+	    grid-template-columns: 110px 240px;
+	}
+		
+	
+/* Main-cards-expander-inner : pagination */	
+	.toggle-page .pagination {
+	    left: 294px;
+	    bottom: 10px;
+	}	
+	
+	
+/* Margin-bottom */
+	.margin-bottom {
+		margin-bottom: 625px !important;
+	}	
+			
 }
 
 
-/* iPad Pro-6+/7+/8+  landscape */
+/* iPhone - 6+/7+/8+  landscape */
 @media only screen and (max-width: 736px) and (orientation:  landscape) {
 /* Main-cards */
 	.og-grid {
 	    padding-left: 72px;
 	    padding-right: 72px;
 	}
+	
+	.og-title-register, .og-expander {
+	    height: 475px;
+	}
+
+
+/* Mypage : first-og-expander - genre */	
+	.title-genre-checkbox {
+	    width: 716px;
+	}	
+	
+/* Title-complete-btn */
+	.title-complete-btn {
+		width: 736px;
+	}
+
+/* Title-register-btn */
+	.title-register-btn {
+		width: 736px;
+	}
+	
+	
+/* Cards-expander-inner - title */
+	.expander-title-inner {
+	    width: 736px;
+	}	
+	
+/* Main-cards-expander-inner : subtitle */
+	.subtitleLi a, .thissubtitleLi a {
+	    padding-left: 18px;
+	}
+
+	.toggle-page, .readpage-toggle-page {
+	    width: 736px;
+	}
+	
+/* Main-cards-expander-inner : pagination */	
+	.toggle-page .pagination {
+	    left: 280px;
+	    bottom: 10px;
+	}	
+	
+/* Margin-bottom */
+	.margin-bottom {
+		margin-bottom: 465px !important;
+	}
 }
 
 
-/* iPad Pro-6/7/8 landscape */
+/* iPhone - 6/7/8 landscape */
 @media only screen and (max-width: 667px) and (orientation: landscape) {
+/* Mypage : first-og-expander - title */	
+	.title-edit-input {
+	    width: 667px;
+	}
+	
+	.input-title {
+	    width: 175px;
+	}
+		
 /* Main-cards */
 	.og-grid {
 	    padding-left: 38px;
 	    padding-right: 38px;
 	}
 	
-	
-/* Main-cards-expander-inner : cards-left */
-	.expander-title-inner {
-	    grid-template-columns: 180px;
+	.og-title-register, .og-expander {
+	    height: 475px;
+	}
+
+
+/* Mypage : first-og-expander - genre */	
+	.title-genre-checkbox {
+	    width: 647px;
 	}	
+	
+/* Title-complete-btn */
+	.title-complete-btn {
+		width: 667px;
+	}
+
+/* Title-register-btn */
+	.title-register-btn {
+		width: 667px;
+	}
+	
+	
+/* Cards-expander-inner - title */
+	.expander-title-inner {
+	    width: 667px;
+	}	
+	
+/* Main-cards-expander-inner : subtitle */
+	.subtitleLi a, .thissubtitleLi a {
+		grid-template-columns: 80px 230px;
+	    padding-left: 10px;
+	}
+
+	.toggle-page, .readpage-toggle-page {
+	    width: 667px;
+	}
+	
+/* Main-cards-expander-inner : pagination */	
+	.toggle-page .pagination {
+	    left: 246px;
+	    bottom: 10px;
+	}	
+	
+/* Margin-bottom */
+	.margin-bottom {
+		margin-bottom: 465px !important;
+	}
 }
 
 
-/* iPad Pro-5/SE/5S  landscape */
+/* iPhone - 5/SE/5S  landscape */
 @media only screen and (max-width: 568px) and (orientation:  landscape) {
-/* Main-cards */
-	.og-grid {
-	    padding-left: 11px;
-	    padding-right: 11px;
-	}
-	
-	.og-grid .expander, .title-register {
-	    width: 160px;
-	    margin: 10px 10px 0 10px;
-	    height: 295px;
-	}
 }
 
 
 /* iPhone - 6+/7+/8+ portrait */
 @media only screen and (max-width: 414px) and (orientation: portrait) {
+/* Mypage : first-og-expander - title */	
+	.title-edit-input {
+	    width: 414px;
+	    grid-template-columns: 80px 250px;
+    	grid-template-rows: 35px 45px;
+    	padding-top: 20px;
+    	padding-bottom: 5px;
+	}
+	
+	.og-fullimg img {
+	    width: 100px;
+	}
+	
+	.input-title {
+		font-size: 13px;
+		padding: 5px;
+	    width: 175px;
+	}
+	
+/* Mypage : first-og-expander - genre */	
+	.title-genre-checkbox {
+	    grid-template-columns: 53px 83px 84px 83px 63px 88px 109px 65px 71px 104px;
+	    grid-template-rows: 37px 37px;
+	    width: 404px;
+	    padding-left: 10px;
+	    justify-content: start;
+	    font-size: 13px;
+	    overflow: scroll;
+	}	
+	
+/* Title-complete-btn */
+	.title-complete-btn {
+		width: 414px;
+	}
+
+	.title-complete-btn .title-register-complete-btn {
+		width: 120px;
+		padding: 5px;
+		font-size: 13px;
+		color: #424242;
+	}
+
+/* Title-register-btn */
+	.title-register-btn {
+		width: 414px;
+	}
+	
+	.title-register-btn .title-register-complete-btn {
+		width: 120px;
+		padding: 5px;
+		font-size: 13px;
+		
+	}
+	
+	.title-register-delete-btn, .title-register-cancel-btn {
+	    width: 120px;
+		padding: 5px;
+		font-size: 13px;
+	}	
+
+	.expander-title-inner .comic-list-setting img {
+	    width: 20px;
+	}
+	
+	
 /* Main-cards */
 	.og-grid {
 	    padding-left: 20px;
@@ -861,52 +1467,64 @@ html{
 	}	
 	
 	.og-title-register, .og-expander {
-	    height: 500px;
+	    height: 430px;
 	}
 	
 	
 /* Cards-expander-inner - title */
 	.expander-title-inner {
 	    grid-template-columns: 80px 250px;
-	    grid-template-rows: 30px 50px;
-	    grid-template-areas: "a b" "a c";
+	    grid-template-rows: 35px 45px;
+	    grid-template-areas:
+			"a b" 
+			"a c";
 	    grid-column-gap: 10px;
-	    width: 412px;
+	    width: 414px;
 	    border-bottom: 1px solid #d3d3d3;
 	    padding-top: 20px;
-	    padding-bottom: 0;
+	    padding-bottom: 5px;
 	}
 	
 	.og-fullimg img {
-		width: 70px;
+		width: 75px;
 	}
 	
-	
-/* Cards-expander-inner - subtitle */
-	.toggle-page{
-		grid-template-columns: 410px;
-		/* grid-template-rows: 120px; */
-		width: 410px;
-		height: 250px;
-		justify-items: center;
-		padding-top: 10px;
-		padding-bottom: 30px;
+/* Main-cards-expander-inner : subtitle */
+	.toggle-page, .readpage-toggle-page {
+	    width: 414px;
+	    height: 276px;
+	    overflow: scroll;
+	    padding-top: 0;
+	    padding-bottom: 30px;
 	}
 	
-	.subtitleLi a{
-	    grid-template-columns: 120px 250px;
-	    grid-template-rows: 120px;
+	.subtitleLi a, .thissubtitleLi a {
+	    grid-template-columns: 80px 250px;
+	    grid-template-rows: 40px 40px;
+	    padding-left: 37px;
+	    padding-top: 10px;
 	}
-		
+				
+	.comic-list img {
+	    width: 75px;
+	}
+	
+/* Main-cards-expander-inner : pagination */	
+	.toggle-page .pagination {
+	    left: 115px;
+	    bottom: 15px;
+	    position: unset;
+	}	
+	
 	
 /* Margin-bottom */
 	.margin-bottom {
-		margin-bottom: 495px !important;
-	}	
+		margin-bottom: 425px !important;
+	}
 }
 
 
-/* iPad Pro-6/7/8/X portrait */
+/* iPhone - 6/7/8/X portrait */
 @media only screen and (max-width: 375px) and (orientation: portrait) {
 /* Main-cards */
 	.og-grid {
@@ -918,26 +1536,68 @@ html{
 	    margin: 10px 10px 0 10px;
 	}
 	
+	.og-title-register, .og-expander {
+	    height: 420px;
+	}
+	
+/* Mypage : first-og-expander - title */	
+	.title-edit-input {
+	    width: 375px;
+	}	
+	
+/* Mypage : first-og-expander - genre */	
+	.title-genre-checkbox {
+	    width: 365px;
+	}	
+	
+/* Title-complete-btn */
+	.title-complete-btn {
+		width: 375px;
+	}
+
+/* Title-register-btn */
+	.title-register-btn {
+		width: 375px;
+	}
+	
 /* Cards-expander-inner - title */
 	.expander-title-inner {
-	    width: 373px;
+	    width: 375px;
 	}	
+	
+/* Main-cards-expander-inner : subtitle */
+	.subtitleLi a, .thissubtitleLi a {
+	    padding-left: 17px;
+	    padding-top: 10px;
+	}
+
+	.toggle-page, .readpage-toggle-page {
+	    width: 375px;
+	    padding-top: 0;
+	    padding-bottom: 30px;
+	}
+				
+	.comic-list img {
+	    width: 75px;
+	}
+	
+/* Main-cards-expander-inner : pagination */	
+	.toggle-page .pagination {
+	    left: 115px;
+	    bottom: 15px;
+	}	
+	
+	
+/* Margin-bottom */
+	.margin-bottom {
+		margin-bottom: 425px !important;
+	}
 
 }
 
 
-/* iPad Pro-5/SE/5S portrait */
+/* iPhone - 5/SE/5S portrait */
 @media only screen and (max-width: 320px) and (orientation: portrait) {
-/* Main-cards */
-	.og-grid {
-	    padding-left: 2px;
-	    padding-right: 2px;
-	}
-	
-	.og-grid .expander, .title-register {
-		width: 140px;
-	    margin: 5px 5px 0 10px;
-	    height: 273px;
 	}
 }
 

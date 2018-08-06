@@ -5,7 +5,7 @@
 	grid-template-rows: 100px 100px;
 	grid-template-areas: "a b" "a c";
 	justify-content: center;
-	grid-column-gap: 50px;
+	grid-column-gap: 40px;
 	grid-row-gap: 10px;
 	padding-top: 45px;
 	padding-bottom: 40px;
@@ -30,7 +30,7 @@
 	grid-area: b;
 	justify-self: start;
 	align-self: end;
-	font-size: 1em;
+	font-size: 15px;
 	padding-bottom: 10px;
 }
 
@@ -38,7 +38,7 @@
 	grid-area: c;
 	justify-self: start;
 	align-self: start;
-	font-size: 1em;
+	font-size: 15px;
 	padding-top: 10px;
 }
 
@@ -106,7 +106,7 @@
 }
 
 .mypage-home-title {
-	font-size: 1em;
+	font-size: 15px;
 	text-align: center;
 	padding-top: 25px;
 	padding-bottom: 25px;
@@ -178,7 +178,7 @@
 	background: white;
 	border: 1px solid white;
 	color: black;
-	font-size: 1em;
+	font-size: 15px;
 }
 
 .mypage-subscriber a:link {
@@ -214,12 +214,12 @@
 
 .mypage-setting-id .mypage-setting-id-open {
 	grid-area: b;
-	padding-left: 150px;
+	padding-left: 130px;
 }
 
 .mypage-setting-id .mypage-setting-id-close {
 	grid-area: b;
-	padding-right: 150px;
+	padding-right: 130px;
 }
 
 .mypage-setting-id-switch {
@@ -290,7 +290,7 @@
 .mypage-setting-nick .mypage-setting-nickname-button {
 	grid-area: b;
 	justify-self: center;
-	padding-left: 150px;
+	padding-left: 130px;
 }
 
 
@@ -315,32 +315,32 @@
 }
 
 .mypage-setting-img button {
-	width: 200px;
+	width: 170px;
 	background-color: white;
 	border: 1px solid #424242;
-	border-radius: 10px;
-	padding: 15px;
-	font-size: 1em;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 15px;
 	color: #424242;
 }
 
 .title-register-complete-btn:hover {
-	width: 200px;
+	width: 170px;
 	background-color: #1d8bf1;
 	border: 1px solid #1d8bf1;
 	border-radius: 5px;
-	padding: 15px;
-	font-size: 1em;
+	padding: 10px;
+	font-size: 15px;
 	color: white;
 }
 
 .title-register-delete-btn:hover{
-    width: 200px;
+    width: 170px;
 	background-color: #f44336;
 	border: 1px solid #f44336;
-	border-radius: 10px;
-	padding: 15px;
-	font-size: 1em;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 15px;
 	color: white;
 }
 
@@ -367,12 +367,12 @@
 
 .mypage-setting-subscribe .mypage-setting-subscribe-open {
 	grid-area: b;
-	padding-left: 150px;
+	padding-left: 130px;
 }
 
 .mypage-setting-subscribe .mypage-setting-subscribe-close {
 	grid-area: b;
-	padding-right: 150px;
+	padding-right: 130px;
 }
 
 
@@ -398,12 +398,12 @@
 
 .mypage-setting-subscriber .mypage-setting-subscriber-open {
 	grid-area: b;
-	padding-left: 150px;
+	padding-left: 130px;
 }
 
 .mypage-setting-subscriber .mypage-setting-subscriber-close {
 	grid-area: b;
-	padding-right: 150px;
+	padding-right: 130px;
 }
 
 .mypage-setting-subscribe-switch {
@@ -451,12 +451,12 @@
 
 .mypage-setting-genre .mypage-setting-genre-open {
 	grid-area: b;
-	padding-left: 150px;
+	padding-left: 130px;
 }
 
 .mypage-setting-genre .mypage-setting-genre-close {
 	grid-area: b;
-	padding-right: 150px;
+	padding-right: 130px;
 }
 
 .mypage-setting-genre-switch {
@@ -484,18 +484,16 @@
 
 .mypage-setting-genre-list {
 	display: grid;
-	grid-template-columns: repeat(5, 160px);
-	grid-template-rows: repeat(4, 60px);
+	grid-template-columns: 58px 91px 93px 88px 68px 95px 122px 71px 78px 95px;
+    grid-template-rows: 40px 40px;
 	grid-template-areas: 
-		"a b c d e" 
-		"f g h i j" 
-		"k l m n o" 
-		"p q r s t";
+	    "a b c d e f g h i j" 
+	    "k l m n o p q r s t";
 	justify-content: center;
 	justify-items: start;
 	align-items: center;
-	padding-left: 100px;
-	grid-column-gap: 0;
+	padding-left: 0;
+	grid-gap: 10px;
 	grid-row-gap: 10px;
 	padding-bottom: 30px;
 }
@@ -522,11 +520,8 @@
 .mypage-setting-genre-list .genre-20 {grid-area: t;}
 
 .mypage-setting-genre-list span {
-	padding-right: 25px;
-    padding-left: 25px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border-radius: 10px;
+	padding: 10px;
+    border-radius: 5px;
 }
 
 .slider {
@@ -584,14 +579,14 @@ input:checked+.slider:before {
 /* mypage-setting - confirm */
 .mypage-setting-confirm {
 	display: grid;
-	grid-template-columns: 200px 200px;
+	grid-template-columns: 170px 170px;
 	grid-template-areas: 
 		"a b";
 	grid-column-gap: 15px;
 	justify-content: center;	
 	justify-items: center;
 	align-items: center;
-	height: 80px;
+	height: 90px;
 }
 
 .mypage-setting-confirm .mypage-setting-confirm-button {
@@ -603,22 +598,22 @@ input:checked+.slider:before {
 }
 
 .mypage-setting-confirm-button button {
-	width: 200px;
-	background-color: white;
-	border: 1px solid #424242;
-	border-radius: 10px;
-	padding: 15px;
-	font-size: 1em;
-	color: #424242;
+	width: 170px;
+    background-color: white;
+    border: 1px solid #424242;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    color: #424242;
 }	
 
 .mypage-setting-logout-button button {
-	width: 200px;
+	width: 170px;
 	background-color: white;
 	border: 1px solid #424242;
-	border-radius: 10px;
-	padding: 15px;
-	font-size: 1em;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 15px;
 	color: #424242;
 }
 
@@ -628,7 +623,7 @@ input:checked+.slider:before {
 	border: 1px solid #1d8bf1;
 	border-radius: 10px;
 	padding: 15px;
-	font-size: 1em;
+	font-size: 15px;
 	color: white;
 }
 	
@@ -641,7 +636,7 @@ input:checked+.slider:before {
 
 /* Mypage-setting - hr */
 hr {
-	width: 880px;
+	width: 970px;
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -649,14 +644,15 @@ hr {
 
 /* Mypage-setting - input */
 .input-text {
-	width: 200px;
-	background-color: white;
-	border: 1px solid #424242;
-	border-radius: 5px;
-	font-size: 1em;
-	color: #424242;
-	/* height: 50px; */
-	text-align: center;
+	width: 148px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #424242;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #424242;
+    /* height: 50px; */
+    text-align: center;
 }
 
 
@@ -676,7 +672,7 @@ hr {
 .compony .compony-infor {
 	grid-area: a;
 	color: white;
-	font-size: 1em;
+	font-size: 15px;
 	padding: 50px;
 	align-self: center;
 }
@@ -919,7 +915,7 @@ hr {
 	
 /* Mypage-setting - hr */
 	hr {
-		width: 510px;
+		width: 1000px;
 	}	
 }
 
@@ -931,6 +927,10 @@ hr {
 
 /* iPad Pro-9.7 landscape */
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
+/* Mypage-setting - hr */
+	hr {
+		width: 970px;
+	}
 }
 
 
@@ -1163,7 +1163,7 @@ hr {
 	
 /* Mypage-setting - hr */
 	hr {
-		width: 510px;
+		width: 960px;
 	}	
 }
 
@@ -1174,6 +1174,11 @@ hr {
 	    justify-content: start;
 	    padding-left: 20px;
 	}
+	
+/* Mypage-setting - hr */
+	hr {
+		width: 800px;
+	}	
 }
 
 
@@ -1193,13 +1198,14 @@ hr {
 	}
 	
 	.mypage-profile .mypage-profile-image img {
-		width: 70px;
+		width: 80px;
 	}
 	
 	.subscribed, #btn-subscribedCount {
 		width: 120px;
 	    padding: 5px;
 	    border-radius: 5px;
+    	font-size: 13px;
 	}
 	
 	.mypage-profile .mypage-profile-image {
@@ -1227,7 +1233,23 @@ hr {
 		padding-left: 25px;
 		padding-right: 25px;
 	}
+
+/* Mypage : cards */	
+	.mypage-home-title {
+		font-size: 13px;
+	}	
+	
+/* Mypage-Home : start */	
+	.mypage-home-start-image {
+	    width: 135px;
+	    padding-top: 67px;
+	}	
 		
+	.mypage-thumbnail-thumb {
+	    text-align: center;
+	    padding-top: 9px;
+	    padding-bottom: 9px;
+	}	
 	
 /* Mypage-Setting */
 /* Mypage-Setting - login*/
@@ -1272,6 +1294,7 @@ hr {
 	}
 	
 	.mypage-setting-img button {
+		font-size: 13px;
 		padding: 5px;
 	    width: 132px;
 	    border-radius: 5px;
@@ -1364,18 +1387,21 @@ hr {
 	}
 	
 	.mypage-setting-confirm-button button {
+		font-size: 13px;
 		width: 132px;
 	    border-radius: 5px;
 	    padding: 5px;
 	}
 	
 	.mypage-setting-logout-button button {
+		font-size: 13px;
 		width: 132px;
 	    border-radius: 5px;
 	    padding: 5px;
 	}	
 	
 	.mypage-setting-confirm {
+		font-size: 13px;
 	    grid-column-gap: 10px;
 	    height: 60px;
 	}
@@ -1383,6 +1409,7 @@ hr {
 	
 /* Mypage-setting - input-text */	
 	.input-text {
+		font-size: 13px;
 		width: 120px;
 	    padding: 5px;
 	    border-radius: 5px;
@@ -1407,23 +1434,35 @@ hr {
 	
 /* Mypage-setting - hr */
 	hr {
-		width: 410px;
+		width: 770px;
 	}
 }
 
 
 /* iPad Pro-9.7 portrait */
 @media only screen and (max-width: 768px) and (orientation: portrait) {	
+/* Mypage-setting - hr */
+	hr {
+		width: 735px;
+	}	
 }
 
 
 /* iPhone - 6+/7+/8+ landscape : complete */
 @media only screen and (max-width: 736px) and (orientation:  landscape) {
+/* Mypage-setting - hr */
+	hr {
+		width: 700px;
+	}	
 }
 
 
 /* iPhone - 6/7/8 landscape : complete  */
 @media only screen and (max-width: 667px) and (orientation: landscape) {
+/* Mypage-setting - hr */
+	hr {
+		width: 630px;
+	}	
 }
 
 
@@ -1446,16 +1485,18 @@ hr {
 	    grid-gap: 10px;
 	    padding-top: 30px;
 	    padding-bottom: 30px;
+	    font-size: 13px;
 	}
 	
 	.mypage-profile .mypage-profile-image img {
-		width: 70px;
+		width: 80px;
 	}
 	
 	.subscribed, #btn-subscribedCount {
 		width: 120px;
 	    padding: 5px;
 	    border-radius: 5px;
+	    font-size: 13px;
 	}
 	
 	.mypage-profile .mypage-profile-image {
@@ -1483,6 +1524,17 @@ hr {
 		padding-right: 25px;
 	}
 	
+/* Mypage-Home : start */	
+	.mypage-home-start-image {
+	    width: 135px;
+	    padding-top: 67px;
+	}	
+	
+/* Mypage-Home : cards */
+	.mypage-thumbnail-thumb {
+	    padding-top: 6px;
+	    padding-bottom: 9px;
+	}	
 
 		
 /* Mypage-Setting */
@@ -1528,6 +1580,7 @@ hr {
 	}
 	
 	.mypage-setting-img button {
+		font-size: 13px;
 		padding: 5px;
 	    width: 132px;
 	    border-radius: 5px;
@@ -1620,12 +1673,14 @@ hr {
 	}
 	
 	.mypage-setting-confirm-button button {
+		font-size: 13px;
 		width: 132px;
 	    border-radius: 5px;
 	    padding: 5px;
 	}
 	
 	.mypage-setting-logout-button button {
+		font-size: 13px;
 		width: 132px;
 	    border-radius: 5px;
 	    padding: 5px;
@@ -1639,6 +1694,7 @@ hr {
 	
 /* Mypage-setting - input-text */	
 	.input-text {
+		font-size: 13px;
 		width: 120px;
 	    padding: 5px;
 	    border-radius: 5px;
