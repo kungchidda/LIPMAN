@@ -86,7 +86,8 @@
         <img src="/resources/png/error.png" class="error-img">
         <p class="error-text-1">서비스 에러가 발생했습니다.</p>
         <p class="error-text-2">서비스 이용에 불편을 드려 죄송합니다.</p>
-        <button onclick="location='/sboard/list'" class="homeBtn">Home</button>
+        <!-- 		<button onclick="location='http://127.0.0.1:8080/sboard/list'" class="homeBtn">Home</button> -->
+        <button onclick="location='https://lipman.app/sboard/list'" class="homeBtn">Home</button>
         <button onclick="location='javascript:history.back()'" class="backBtn">Back</button>
     </div>
 

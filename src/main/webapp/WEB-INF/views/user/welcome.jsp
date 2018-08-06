@@ -69,7 +69,8 @@
         <img src="/resources/png/welcome.png" class="error-img">
         <p class="error-text-1">진심으로 환영합니다!!!</p>
         <p class="error-text-2"><span>이메일 인증 후</span> 이용해 주시기 바랍니다!</p>
-        <button class="homeBtn">Home</button>
+        <!-- 		<button onclick="location='http://127.0.0.1:8080/sboard/list'" class="homeBtn">Home</button> -->
+        <button onclick="location='https://lipman.app/sboard/list'" class="homeBtn">Home</button>
     </div>
 </body>
 </html>
