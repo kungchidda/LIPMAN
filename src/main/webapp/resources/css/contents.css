@@ -203,6 +203,7 @@ h4 {
 }
 
 .comic-infor .comic-thumbnail img {
+	display: inline-block !important;
 	width: 200px;
 	border: 1px solid #d3d3d3;
     border-radius: 10px;
@@ -551,6 +552,7 @@ textarea{
 	}
 	
 	.comic-infor .comic-thumbnail img {
+		display: inline-block !important;
 		width: 100px;
 	}
 	
@@ -763,6 +765,7 @@ textarea{
 	}
 	
 	.comic-infor .comic-thumbnail img {
+		display: inline-block !important;
 		width: 100px;
 	}
 	
@@ -966,6 +969,7 @@ textarea{
 	}
 	
 	.comic-infor .comic-thumbnail img {
+		display: inline-block !important;
 		width: 75px;
 	}
 	
@@ -1214,6 +1218,7 @@ textarea{
 	}
 	
 	.comic-infor .comic-thumbnail img {
+		display: inline-block !important;
 		width: 75px;
 	}
 	
