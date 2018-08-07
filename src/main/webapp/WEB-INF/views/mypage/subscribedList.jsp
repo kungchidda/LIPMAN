@@ -9,7 +9,8 @@
 <meta charset="UTF-8">
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/mypage//profile.jsp"%>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script> -->
+<script src="/resources/js/handlebars.js"></script>
 <link href="/resources/css/mypage.css" rel="stylesheet">
 <script src="/resources/js/subtitlePrint.js"></script>
 <script src="/resources/js/expander.js"></script>
@@ -84,13 +85,13 @@
 	
 	<script id="subtitle-template" type="text/x-handlebars-template">
 		{{#each .}}
-		<div class="subtitleLi do-not-close">
-			<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>
-				<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
-				<div class="comic-list-text cursor do-not-close">{{subtitle}}</div>
-				<div class="comic-list-time"> {{prettifyDate regdate}} </div>
-			</a>
-		</div>
+			<div class="subtitleLi do-not-close">
+				<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>
+					<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
+					<div class="comic-list-text cursor do-not-close">{{subtitle}} </div>
+					<div class="comic-list-time"> {{prettifyDate regdate}} </div>
+				</a>
+			</div>
 		{{/each}}
 		<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
 	</script>
@@ -203,21 +204,7 @@
 		});
 	</script>
 	
-	<script type="text/javascript" src="/resources/js/upload.js"></script>
-<!-- 	<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script> -->
-	<script src="/resources/js/handlebars.js"></script>
 
-	<script id="profile-template" type="text/x-handlebars-template">
-			<dis class="uploadedList">
-				<img src="{{imgsrc}}" style="width:200px;" alt="Attachment">
-			</div>
-			<!-- <div class="mailbox-attachment-info" style="width:200px;">
-				<a href="{{getLink}}" target="_blank" class="mailbox-attachment-name">{{fileName}}</a>
-				<small data-src="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn">
-					<i class="fa fa-fw fa-remove"></i>
-				</small>
-			</div> -->
-	</script>
 	
 
 </body>

@@ -10,8 +10,8 @@
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <meta charset="UTF-8">
 
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script> -->
+<script src="/resources/js/handlebars.js"></script>
 <!--                     <link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/default.css" /> -->
 <!--                     <link rel="stylesheet" type="text/css" href="/resources/ThumbnailGridExpandingPreview/css/component.css" /> -->
 <!--                     <script src="/resources/ThumbnailGridExpandingPreview/js/modernizr.custom.js"></script> -->
