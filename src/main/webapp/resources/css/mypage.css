@@ -205,11 +205,11 @@
 }
 
 .mypage-setting-id .mypage-setting-loginid-text {
-	grid-area: a;
+	grid-area: b;
 }
 
 .mypage-setting-id .mypage-setting-id-switch {
-	grid-area: b;
+	grid-area: a;
 }
 
 .mypage-setting-id .mypage-setting-id-open {
