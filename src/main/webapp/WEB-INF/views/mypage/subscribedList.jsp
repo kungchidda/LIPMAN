@@ -88,6 +88,7 @@
 			<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>
 				<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
 				<div class="comic-list-text cursor do-not-close">{{subtitle}}</div>
+				<div class="comic-list-time"> {{prettifyDate regdate}} </div>
 			</a>
 		</div>
 		{{/each}}
