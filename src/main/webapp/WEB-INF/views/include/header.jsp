@@ -286,7 +286,7 @@
         /* When the user clicks on the button, 
                             toggle between hiding and showing the dropdown content */
         function searchFunction() {
-        	$('input').not(".loginUid").val("");
+        	$('input').not(".loginUid, input[name='genre']").val("");
         	if($('.search').is(":visible")){
         		$("#searchBar").slideUp(300);
         	}else{
@@ -302,7 +302,7 @@
 
         
         function noticeFunction() {
-        	$('input').not(".loginUid").val("");
+        	$('input').not(".loginUid, input[name='genre']").val("");
         	if($('.notice').is(":visible")){
         		$("#noticeBar").slideUp(300);
         	}else{
@@ -318,7 +318,7 @@
         }
  
         function myPageFunction() {
-        	$('input').not(".loginUid").val("");
+        	$('input').not(".loginUid, input[name='genre']").val("");
         	if($('.mypage').is(":visible")){
         		$("#myPageBar").slideUp(300);
         	}else{
@@ -334,7 +334,7 @@
         }
         
         function forgotFunction() {
-        	$('input').not(".loginUid").val("");
+        	$('input').not(".loginUid, input[name='genre']").val("");
         	if($('.forgot').is(":visible")){
         		$("#forgotBar").slideUp(300);
         	}else{
@@ -350,7 +350,7 @@
         }
         
 		function signupFunction() {
-			$('input').not(".loginUid").val("");
+			$('input').not(".loginUid, input[name='genre']").val("");
 			if($('.signup').is(":visible")){
 				$("#signupBar").slideUp(300);
         	}else{
