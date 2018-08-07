@@ -92,8 +92,8 @@ public class UserServiceImpl implements UserService {
 				dao.replaceAttach(fileName, uno);
 			}
 		}
+		dao.deleteGenre(user);
 		if(user.getGenreArr() != null) {
-			dao.deleteGenre(user);
 			dao.insertGenre(user);
 		}
 	}
