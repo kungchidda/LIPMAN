@@ -159,7 +159,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		]]>
 		<include refid="search"></include>
 		<![CDATA[
-			group by title.title, title.tno, a.bno, p.profileFullName, t.titleFullName, b.boardFullName
+			group by title.title, title.tno, a.bno, p.profileFullName, t.titleFullName, b.boardFullName, u.uname
 			order by a.bno desc
 			limit #{cri.pageStart}, #{cri.perPageNum}
 		]]>
