@@ -619,8 +619,8 @@ input:checked+.slider:before {
 
 .mypage-setting-logout-button button:hover {
 	width: 170px;
-	background-color: #1d8bf1;
-	border: 1px solid #1d8bf1;
+	background-color: #2196F3;
+	border: 1px solid #2196F3;
 	border-radius: 5px;
 	padding: 10px;
 	font-size: 15px;
