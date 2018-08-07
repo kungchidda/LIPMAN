@@ -52,15 +52,16 @@ a:visited {color: black;}
 
 
 /* Dropdown menu */
-.search {height: 180px;}
+.search {display: block; height: 180px;}
 .notice {
+	display: block; 
     height: 400px;
     overflow-y: auto;
 }
-.mypage {height: 320px;}
-.forgot {height: 170px;}
-.signup {height: 390px;}
-.mypage-wrong {height: 367px;}
+.mypage {display: block; height: 320px;}
+.forgot {display: block; height: 170px;}
+.signup {display: block; height: 390px;}
+.mypage-wrong {display: block; height: 367px;}
 
 
 /* Dropdown-content : search */
@@ -981,6 +982,10 @@ a:visited {color: black;}
     background-color: white;
 }
 
+.profile-img-button img{
+	display: inline-block !important;
+}
+
 .header .accountBtn img {
 	border: 1px solid #d3d3d3;
 	border-radius: 50%;
@@ -995,6 +1000,10 @@ a:visited {color: black;}
 	border: 1px solid white;
 	color: black;
 	font-size: 1em;
+}
+
+.default-button-style img{
+	display: inline-block !important;
 }
 
 /* Subscribe Btn */

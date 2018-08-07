@@ -53,6 +53,7 @@ h4 {
 }
 
 .content-writer-profile .content-writer-img {
+	display: inline-block !important;
     grid-area: a;
     justify-self: center;
 }
@@ -128,7 +129,12 @@ h4 {
 }
 
 .contents .comic img{
+	display: inline-block !important;
 	width: 1200px;	
+}
+
+	.thumbnail, .comic-list img, .og-fullimg img, .thumbnail-writer img, .reply-profile-img-button img {
+	display: inline-block !important;
 }
 
 
@@ -486,6 +492,7 @@ textarea{
 	}
 	
 	.content-writer-profile .content-writer-img {
+		display: inline-block !important;
 		align-self: center;
 	    justify-self: end;
 	}
@@ -499,7 +506,14 @@ textarea{
 	}	
 	
 /* Contents */
-	.contents .comic img{width: 100%;}
+	.contents .comic img{
+	display: inline-block !important;
+	width: 100%;
+	}
+	
+	.thumbnail, .comic-list img, .og-fullimg img, .thumbnail-writer img, .reply-profile-img-button img {
+	display: inline-block !important;
+}
 
 /* Profile : subscribe */	
 	.subscribe {
@@ -688,6 +702,7 @@ textarea{
 	}
 	
 	.content-writer-profile .content-writer-img {
+		display: inline-block !important;
 		align-self: center;
 	    justify-self: end;
 	}
@@ -710,7 +725,13 @@ textarea{
 	
 
 /* Contents */
-	.contents .comic img{width: 100%;}		
+	.contents .comic img{
+	display: inline-block !important;
+	width: 100%;
+	}		
+	.thumbnail, .comic-list img, .og-fullimg img, .thumbnail-writer img, .reply-profile-img-button img {
+	display: inline-block !important;
+}
 	
 	
 /* Thumb css */
@@ -867,6 +888,7 @@ textarea{
 	}
 	
 	.content-writer-profile .content-writer-img {
+		display: inline-block !important;
 		align-self: center;
 	    justify-self: end;
 	}
@@ -906,8 +928,12 @@ textarea{
 
 /* Contents : complete */
 	.contents .comic img{
+	display: inline-block !important;
 		width: 100%;	
 	}	
+	.thumbnail, .comic-list img, .og-fullimg img, .thumbnail-writer img, .reply-profile-img-button img {
+	display: inline-block !important;
+}
 	
 	
 /* Thumb css : complete */
@@ -1109,6 +1135,7 @@ textarea{
 	}
 	
 	.content-writer-profile .content-writer-img {
+		display: inline-block !important;
 		align-self: center;
 	    justify-self: end;
 	}
@@ -1148,8 +1175,12 @@ textarea{
 
 /* Contents : complete */
 	.contents .comic img{
+	display: inline-block !important;
 		width: 100%;	
 	}	
+		.thumbnail, .comic-list img, .og-fullimg img, .thumbnail-writer img, .reply-profile-img-button img {
+	display: inline-block !important;
+}
 	
 	
 /* Thumb css : complete */
