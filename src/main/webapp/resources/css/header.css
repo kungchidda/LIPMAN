@@ -1239,9 +1239,14 @@ a:visited {color: black;}
 /* Subscribe button */	
 	.subscribe {
 	    padding: 10px;
-	    font-size: 13px;
+	    font-size: 15px;
 	    width: 145px;
 	} 
+	
+	.subscribed, #btn-subscribedCount {
+	    font-size: 15px;
+	    width : 145px;
+	}
 }
 
 
@@ -1427,8 +1432,13 @@ a:visited {color: black;}
 /* Subscribe button */	
 	.subscribe {
 	    padding: 10px;
-	    font-size: 13px;
+	    font-size: 15px;
 	    width: 145px;
+	} 
+	
+	.subscribed, #btn-subscribedCount {
+	    font-size: 15px;
+	    width : 145px;
 	}
 }
 

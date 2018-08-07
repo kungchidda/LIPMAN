@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="mypage-profile-name">
-            <h3>${userVO.uname}</h3>
+            <p>${userVO.uname}</p>
         </div>
         <div class="mypage-profile-subscribe">
 			<c:if test="${login.uid == cri.uid}">
