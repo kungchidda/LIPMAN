@@ -122,11 +122,16 @@ public class SearchBoardController {
 	}
 
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
-	public String modifyPagingPOST(BoardVO board) throws Exception {
+	public String modifyPagingPOST(BoardVO board, HttpServletRequest request, RedirectAttributes rttr) throws Exception {
 
 		service.modify(board);
 		logger.info("subtitle = " + board.getSubtitle());
 
+		HttpSession session = request.getSession();
+		UserVO vo = (UserVO)session.getAttribute("login");
+		rttr.addAttribute("uid", vo.getUid());
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		
 //		return "redirect:/sboard/list";
 		return "redirect:/mypage/titleList";
 	}
