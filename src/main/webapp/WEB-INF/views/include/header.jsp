@@ -5,7 +5,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0"/>
+<!--     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>LIPMAN</title>
 
     <!--    google web font link-->
@@ -54,7 +55,7 @@
             <!-- <a href="#"><span><img class="dropbtn" onclick="myPageFunction()" src="/resources/png/account.png"></span></a> -->
 			<c:if test="${not empty login}">
 				<form id="loginForm" role="form" action="/mypage/titleList" method="GET">
-	 				<input type="hidden" name="uid" value='${login.uid}'>
+	 				<input type="hidden" name="uid" class="loginUid" value='${login.uid}'>
 	 				<button type="submit" class="accountBtn-login profile-img-button"><img src="/displayFile?fileName=${login.profileFullName}" id="header-profile-img"></button>
 	 				
 	 			</form>
@@ -71,7 +72,7 @@
     <!--dropdown content-->
     
     
-    <div id="searchBar" class="do-not-close dropdown-contents">        
+    <div id="searchBar" class="do-not-close dropdown-contents search hide">        
         <div class="dropdown-searchBar-01 do-not-close">
             <div class="dropdown-genre-01 do-not-close">
                 <input type="checkbox" name='genre' class="do-not-close hide" id="genreInput1" value='1'><span class="do-not-close genreInput1 false">SF</span>
@@ -143,7 +144,7 @@
 
     
     
-    <div id="noticeBar" class="do-not-close dropdown-contents">
+    <div id="noticeBar" class="do-not-close dropdown-contents notice hide">
         <div class="dropdown-notice do-not-close">
             <div class="img-01 cursor do-not-close" onclick="window.location='#';">
                 <img class="do-not-close" src="/resources/images/overwatch.jpg">
@@ -208,8 +209,8 @@
     </div>
 
 	<!-- 20180702 before -->
-    
-    <div id="myPageBar" class="do-not-close dropdown-contents">
+    <c:if test="${empty login}">
+    <div id="myPageBar" class="do-not-close dropdown-contents mypage hide">
         <form class="dropdown-mypage do-not-close" action="/user/loginPost" method="post">
             <input type="email" name="uid" class="login-id do-not-close" placeholder='E-mail' required>
             <div class="remember do-not-close">
@@ -236,7 +237,7 @@
 
 
 <!-- forgot password -->
-    <div id="forgotBar" class="do-not-close dropdown-contents">
+    <div id="forgotBar" class="do-not-close dropdown-contents forgot hide">
         <form class="dropdown-forgot do-not-close" role="forgotPasswordForm" action="/user/forgotPassword" method="get">
 <!--             <input type="email" name='uid' class="signup-email do-not-close" placeholder='E-mail' required> -->
             <input type="email" name='uid' class="do-not-close" placeholder='E-mail' required>
@@ -249,7 +250,7 @@
 
 
 <!-- sign-up password -->
-    <div id="signupBar" class="do-not-close dropdown-contents">
+    <div id="signupBar" class="do-not-close dropdown-contents signup hide">
         <form class="dropdown-signup do-not-close" role="form" action="/user/join" method="post">
             <input type="email" name='uid' class="signup-email do-not-close" placeholder='E-mail' required>
             <input type="password" name="upw" class="signup-pw do-not-close" placeholder='Password' required>
@@ -270,6 +271,7 @@
             <div class="signup-google do-not-close">Google</div>
         </form>
     </div>
+    </c:if>
     
 
    
@@ -284,102 +286,82 @@
         /* When the user clicks on the button, 
                             toggle between hiding and showing the dropdown content */
         function searchFunction() {
-        	$('input').val("");
+        	$('input').not(".loginUid").val("");
         	if($('.search').is(":visible")){
-        		document.getElementById("searchBar").classList.remove("search");
+        		$("#searchBar").slideUp(300);
         	}else{
-        		document.getElementById("searchBar").classList.add("search");	
+        		$("#searchBar").slideDown(300);
         	}
-            /* document.getElementById("searchBar").classList.toggle("search"); */
-        	//document.getElementById("searchBar").classList.add("search");
-        	
-//         	document.getElementById("genreBar").classList.remove("genre");
-        	document.getElementById("noticeBar").classList.remove("notice");
-        	document.getElementById("myPageBar").classList.remove("mypage");
-        	document.getElementById("forgotBar").classList.remove("forgot");
-        	document.getElementById("signupBar").classList.remove("signup");
+			
+// 			$("#searchBar").slideUp(300);
+        	$("#noticeBar").slideUp(300);
+        	$("#myPageBar").slideUp(300);
+        	$("#forgotBar").slideUp(300);
+        	$("#signupBar").slideUp(300);
         }
 
-        /* function genreFunction() {
-			if($('.genre').is(":visible")){
-				document.getElementById("genreBar").classList.remove("genre");
-        	}else{
-        		document.getElementById("genreBar").classList.add("genre");	
-        	}
-     		//document.getElementById("genreBar").classList.toggle("genre");
-			document.getElementById("searchBar").classList.remove("search");
-			//document.getElementById("genreBar").classList.add("genre");
-			document.getElementById("noticeBar").classList.remove("notice");
-			document.getElementById("myPageBar").classList.remove("mypage");
-			document.getElementById("signupBar").classList.remove("signup");
-			
-        } */
         
         function noticeFunction() {
-        	$('input').val("");
+        	$('input').not(".loginUid").val("");
         	if($('.notice').is(":visible")){
-        		document.getElementById("noticeBar").classList.remove("notice");
+        		$("#noticeBar").slideUp(300);
         	}else{
-        		document.getElementById("noticeBar").classList.add("notice");	
+        		$("#noticeBar").slideDown(300);
         	}
-            /* document.getElementById("noticeBar").classList.toggle("notice"); */
-        	document.getElementById("searchBar").classList.remove("search");
-//         	document.getElementById("genreBar").classList.remove("genre");
-        	//document.getElementById("noticeBar").classList.add("notice");
-        	document.getElementById("myPageBar").classList.remove("mypage");
-        	document.getElementById("forgotBar").classList.remove("forgot");
-        	document.getElementById("signupBar").classList.remove("signup");
+
+        	$("#searchBar").slideUp(300);
+//         	$("#noticeBar").slideUp(300);
+        	$("#myPageBar").slideUp(300);
+        	$("#forgotBar").slideUp(300);
+        	$("#signupBar").slideUp(300);
         	
         }
  
         function myPageFunction() {
-        	$('input').val("");
+        	$('input').not(".loginUid").val("");
         	if($('.mypage').is(":visible")){
-        		document.getElementById("myPageBar").classList.remove("mypage");
+        		$("#myPageBar").slideUp(300);
         	}else{
-        		document.getElementById("myPageBar").classList.add("mypage");	
+        		$("#myPageBar").slideDown(300);
         	}
-            /* document.getElementById("myPageBar").classList.toggle("mypage"); */
-        	document.getElementById("searchBar").classList.remove("search");
-//         	document.getElementById("genreBar").classList.remove("genre");
-        	document.getElementById("noticeBar").classList.remove("notice");
-        	//document.getElementById("myPageBar").classList.add("mypage");
-        	document.getElementById("forgotBar").classList.remove("forgot");
-        	document.getElementById("signupBar").classList.remove("signup");
+
+        	$("#searchBar").slideUp(300);
+        	$("#noticeBar").slideUp(300);
+//         	$("#myPageBar").slideUp(300);
+        	$("#forgotBar").slideUp(300);
+        	$("#signupBar").slideUp(300);
         	
         }
         
         function forgotFunction() {
-        	$('input').val("");
+        	$('input').not(".loginUid").val("");
         	if($('.forgot').is(":visible")){
-        		document.getElementById("forgotBar").classList.remove("forgot");
+        		$("#forgotBar").slideUp(300);
         	}else{
-        		document.getElementById("forgotBar").classList.add("forgot");	
+        		$("#forgotBar").slideDown(300);
         	}
-            /* document.getElementById("myPageBar").classList.toggle("mypage"); */
-        	document.getElementById("searchBar").classList.remove("search");
-//         	document.getElementById("genreBar").classList.remove("genre");
-        	document.getElementById("noticeBar").classList.remove("notice");
-        	document.getElementById("myPageBar").classList.remove("mypage");
-        	//document.getElementById("forgotBar").classList.add("forgot");
-        	document.getElementById("signupBar").classList.remove("signup");
+        	
+        	$("#searchBar").slideUp(300);
+        	$("#noticeBar").slideUp(300);
+        	$("#myPageBar").slideUp(300);
+//         	$("#forgotBar").slideUp(300);
+        	$("#signupBar").slideUp(300);
         	
         }
         
 		function signupFunction() {
-			$('input').val("");
+			$('input').not(".loginUid").val("");
 			if($('.signup').is(":visible")){
-        		document.getElementById("signupBar").classList.remove("signup");
+				$("#signupBar").slideUp(300);
         	}else{
-        		document.getElementById("signupBar").classList.add("signup");	
+        		$("#signupBar").slideDown(300);
         	}
-			/* document.getElementById("myPageBar").classList.toggle("mypage"); */
-			document.getElementById("searchBar").classList.remove("search");
-// 			document.getElementById("genreBar").classList.remove("genre");
-			document.getElementById("noticeBar").classList.remove("notice");
-			document.getElementById("myPageBar").classList.remove("mypage");
-			document.getElementById("forgotBar").classList.remove("forgot");
-			//document.getElementById("signupBar").classList.add("signup");
+			
+			$("#searchBar").slideUp(300);
+        	$("#noticeBar").slideUp(300);
+        	$("#myPageBar").slideUp(300);
+        	$("#forgotBar").slideUp(300);
+//         	$("#signupBar").slideUp(300);
 			
 		}
 
@@ -395,12 +377,17 @@
                 for (i = 0; i < dropdowns.length; i++) {
                     var openDropdown = dropdowns[i];
                     if (openDropdown.classList.contains('search') || openDropdown.classList.contains('genre') || openDropdown.classList.contains('notice') || openDropdown.classList.contains('mypage') || openDropdown.classList.contains('forgot') || openDropdown.classList.contains('signup')) {
-                        openDropdown.classList.remove('search');
-//                         openDropdown.classList.remove('genre');
-                        openDropdown.classList.remove('notice');
-                        openDropdown.classList.remove('mypage');
-                        openDropdown.classList.remove('forgot');
-                        openDropdown.classList.remove('signup');
+						
+                    		$("#searchBar").slideUp(300);
+                    		$("#noticeBar").slideUp(300);
+                    		$("#myPageBar").slideUp(300);
+                    		$("#forgotBar").slideUp(300);
+                    		$("#signupBar").slideUp(300);
+//							openDropdown.classList.remove('search');
+//							openDropdown.classList.remove('notice');
+//							openDropdown.classList.remove('mypage');
+//							openDropdown.classList.remove('forgot');
+//							openDropdown.classList.remove('signup');
                     }
                 }
             }
