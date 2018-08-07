@@ -43,7 +43,12 @@
     <!--profile-->
     <div class="content-writer-profile">
         <div class="content-writer-img">
-            <img src="/displayFile?fileName=${boardVO.profileFullName}">
+        	<form id="subscriberForm" role="form" action="/mypage/titleList" method="GET">
+				<input type="hidden" name="uid" value='${boardVO.uid}'>
+				<button type="submit" class="default-button-style">
+            		<img src="/displayFile?fileName=${boardVO.profileFullName}">
+            	</button>
+            </form>
         </div>
         <div class="content-writer-name">
 	        	<form id="subscriberForm" role="form" action="/mypage/titleList" method="GET">
@@ -497,6 +502,10 @@
 
 			var diff = currentTime - regdateTime;
 			console.log("diff = " + diff);
+			
+			var year = regdateArr[0];
+			var month = regdateArr[1];
+			var date = regdateArr[2]
 			
 			var prettifyDate;
 			if(diff < 60) {
