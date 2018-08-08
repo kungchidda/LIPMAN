@@ -152,10 +152,13 @@
 		</ul>
 	</div>
 
+	<c:if test="${not empty login}">
 	<script id="subtitle-template" type="text/x-handlebars-template">
 		{{#each .}}
 			<div class="subtitleLi do-not-close">
 				<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>
+					<div class="comic-list-read do-not-close">{{ifCond uread}}</div>
+					
 					<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
 					<div class="comic-list-text cursor do-not-close">{{subtitle}} </div>
 					<div class="comic-list-time"> {{prettifyDate regdate}} </div>
@@ -164,6 +167,23 @@
 		{{/each}}
 		<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
 	</script>
+	</c:if>
+	<c:if test="${empty login}">
+	<script id="subtitle-template" type="text/x-handlebars-template">
+		{{#each .}}
+			<div class="subtitleLi do-not-close">
+				<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>
+					<div class="comic-list-read do-not-close"></div>
+					
+					<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
+					<div class="comic-list-text cursor do-not-close">{{subtitle}} </div>
+					<div class="comic-list-time"> {{prettifyDate regdate}} </div>
+				</a>
+			</div>
+		{{/each}}
+		<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
+	</script>
+	</c:if>
 
 
 
@@ -178,7 +198,6 @@
 
 	<script>
 		$(document).ready(function() {
-
 			/**************************************************************************************/
 			/**************************************************************************************/
 			/*                               	페이지 로딩 후  	                                  */

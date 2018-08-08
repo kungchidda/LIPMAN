@@ -232,8 +232,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		]]>
 		<include refid="search"></include>
 		<![CDATA[
-			group by
-            a.bno, u.uname, profileFullName, titleFullName, boardFullName
+			group by a.bno, u.uname, profileFullName, titleFullName, boardFullName
 			order by a.bno desc
 			limit #{pageStart}, #{perPageNum}
 		]]>
@@ -317,7 +316,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="listPage" resultType="com.kungchidda.domain.BoardVO">
 		select 
-		b.tno, b.bno, t.title, b.subtitle, b.uid, IFNULL(a.boardFullName, '/sampleImage.jpg') as boardFullName, b.regdate
+		b.tno, b.bno, t.title, b.subtitle, IFNULL(a.boardFullName, '/sampleImage.jpg') as boardFullName, b.regdate, IFNULL(re.uread, 0) as uread
 		from tbl_board b
         
         left outer join
@@ -327,9 +326,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		inner join
 		tbl_title t
 		on t.tno = b.tno
+        
+        left outer join
+        (
+        select r.bno, r.uread 
+        from tbl_read r
+        where r.uid = #{uid}
+        ) re
+        on re.bno = b.bno
 		
 		where b.tno = #{tno}
-		group by bno, boardFullName
+		group by bno, boardFullName, re.uread
 		order by bno desc
 		limit #{cri.pageStart}, #{cri.perPageNum}
 	</select>
@@ -366,5 +373,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select count(*)+1 from tbl_board where tno = #{tno}
 	</select>
 	
+	<select id="checkUserRead" resultType="int">
+	SELECT count(uread)
+	FROM tbl_read
+		
+	where bno = #{bno} and uid = #{uid}
+	</select>
+	
+	<insert id="insertUserRead">
+		insert into tbl_read (bno, uid, uread)
+		values(#{bno}, #{uid}, 1);
+	</insert>
+	
+	<update id="readComplete">
+		update tbl_read set uread = 2 where bno = #{bno} and uid = #{uid}
+	</update>
 
 </mapper>

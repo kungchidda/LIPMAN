@@ -21,6 +21,20 @@
 //			return year+"/"+month+"/"+date;
 //	});
 	
+	Handlebars.registerHelper('ifCond', function(uread) {
+		  if(uread == 0) {
+		    return '●';
+		  }
+		  if(uread == 1) {
+			    return '◑';
+		  }
+		  if(uread == 2) {
+			    return '';
+		  }
+		  return '';
+	});
+	
+	
 	Handlebars.registerHelper("prettifyDate", function(timeValue){
 		
 		var regdate = new Date(timeValue);

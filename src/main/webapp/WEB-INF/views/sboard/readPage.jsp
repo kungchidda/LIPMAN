@@ -74,7 +74,7 @@
     <hr>
 	<br>
 	<!--contents-->
-    <div class="contents">
+    <div class="contents" id="comic-contents">
         <p class="comic">
             ${boardVO.fileList}
         </p>
@@ -543,6 +543,7 @@
 			
 			getPage("/replies/"+bno+"/"+replyPage);
 			getLikeList();
+			console.log("login.uid = " + '${login.uid}');
 			subscribedList('${boardVO.uid}', '${login.uid}');
 // 			$(".unsubscribeBtn").hide();
 			
@@ -1342,23 +1343,46 @@
 	</script>
 	
 	
+	<c:if test="${not empty login}">
 	<script id="subtitle-template" type="text/x-handlebars-template">
 		{{#each .}}
-			<div class="subtitleLi">
-					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
-						<div class="comic-list"><img src="/displayFile?fileName={{boardFullName}}"></div>
-						<div class="comic-list-text cursor">{{subtitle}} </div>
-						<div class="comic-list-time"> {{prettifyDate regdate}} </div>
-					</a>
+			<div class="subtitleLi do-not-close">
+				<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>
+					<div class="comic-list-read do-not-close">{{ifCond uread}}</div>
+					
+					<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
+					<div class="comic-list-text cursor do-not-close">{{subtitle}} </div>
+					<div class="comic-list-time"> {{prettifyDate regdate}} </div>
+				</a>
 			</div>
 		{{/each}}
 		<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
 	</script>
+	</c:if>
+	<c:if test="${empty login}">
+	<script id="subtitle-template" type="text/x-handlebars-template">
+		{{#each .}}
+			<div class="subtitleLi do-not-close">
+				<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>
+					<div class="comic-list-read do-not-close"></div>
+					
+					<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
+					<div class="comic-list-text cursor do-not-close">{{subtitle}} </div>
+					<div class="comic-list-time"> {{prettifyDate regdate}} </div>
+				</a>
+			</div>
+		{{/each}}
+		<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
+	</script>
+	</c:if>
 	
+	<c:if test="${not empty login}">
 	<script id="thissubtitle_template" type="text/x-handlebars-template">
 		{{#each .}}
 			<div class="thissubtitleLi">
 					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
+						<div class="comic-list-read do-not-close">{{ifCond uread}}</div>
+
 						<div class="comic-list"><img src="/displayFile?fileName={{boardFullName}}"></div>
 						<div class="comic-list-text cursor">{{subtitle}} </div>
 						<div class="comic-list-time"> {{prettifyDate regdate}} </div>
@@ -1367,6 +1391,28 @@
 		{{/each}}
 		<ul class="this-pagination do-not-close comic-list-pagi"></ul>
 	</script>
+	</c:if>
+	
+	
+	<c:if test="${empty login}">
+	<script id="thissubtitle_template" type="text/x-handlebars-template">
+		{{#each .}}
+			<div class="thissubtitleLi">
+					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
+						<div class="comic-list-read do-not-close"></div>
+
+						<div class="comic-list"><img src="/displayFile?fileName={{boardFullName}}"></div>
+						<div class="comic-list-text cursor">{{subtitle}} </div>
+						<div class="comic-list-time"> {{prettifyDate regdate}} </div>
+					</a>
+			</div>
+		{{/each}}
+		<ul class="this-pagination do-not-close comic-list-pagi"></ul>
+	</script>
+	</c:if>
+	
+	
+	
 	
 	
 	<script> //subtitle print
@@ -1430,6 +1476,48 @@
 			$(".btn-primary").on("click", function() {
 				self.location = "/board/register";
 			});
+			
+			
+			
+
+			
+		});
+		var count = 0;
+		$(window).scroll( function() {
+			var elem = $("#comic-contents");
+			var docViewTop = $(window).scrollTop();
+		    var docViewBottom = docViewTop + $(window).height();
+		    var elemTop = $(elem).offset().top;
+		    var elemBottom = elemTop + $(elem).height();
+		    
+		    console.log("docViewTop = " + docViewTop);
+		    console.log("docViewBottom = " + docViewBottom);
+		    console.log("elemTop = " + elemTop);
+		    console.log("elemBottom = " + elemBottom);
+		    
+		    if(docViewBottom > elemBottom && count == 0){
+//  		    	alert("end");
+		    	count++;
+		    	var bno = '${boardVO.bno}';
+		    	var uid = '${login.uid}';
+		    	
+		    	$.ajax({
+					type : 'post',
+					url : '/sboard/readComplete',
+					headers : {
+						"Content-Type" : "application/json",
+						"X-HTTP-Method-Override" : "POST" },
+					dataType : 'text',
+					data : JSON.stringify({bno:bno, uid:uid}),
+					success:function(result){
+						console.log("result:" + result);
+						if(result=='SUCCESS'){
+// 							alert("처리 되었습니다.");
+						}
+					}
+				});
+		    }
+
 		});
 	</script>
 	
