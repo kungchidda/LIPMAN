@@ -1156,7 +1156,7 @@ html{
 	
 /* Main-cards-expander-inner : subtitle */
 	.subtitleLi a, .thissubtitleLi a {
-		grid-template-columns: 80px 250px;
+		grid-template-columns: 10px 80px 240px;
     	grid-template-rows: 40px 40px;
 	    padding-left: 30px;
 	    padding-top: 10px;
@@ -1246,7 +1246,7 @@ html{
 	}
 	
 	.subtitleLi a, .thissubtitleLi a {
-	    grid-template-columns: 110px 240px;
+	    grid-template-columns: 10px 110px 230px;
 	}
 		
 	
@@ -1366,7 +1366,7 @@ html{
 	
 /* Main-cards-expander-inner : subtitle */
 	.subtitleLi a, .thissubtitleLi a {
-		grid-template-columns: 80px 230px;
+		grid-template-columns: 10px 80px 220px;
 	    padding-left: 10px;
 	}
 
@@ -1504,7 +1504,7 @@ html{
 	}
 	
 	.subtitleLi a, .thissubtitleLi a {
-	    grid-template-columns: 80px 250px;
+	    grid-template-columns: 10px 80px 240px;
 	    grid-template-rows: 40px 40px;
 	    padding-left: 37px;
 	    padding-top: 10px;
