@@ -534,17 +534,22 @@ html{
 
 .subtitleLi a, .thissubtitleLi a{
     display: grid;
-    grid-template-columns: 110px 250px;
+    grid-template-columns: 10px 110px 240px;
     grid-template-rows: 50px 50px;
     grid-template-areas: 
-	    "a b" 
-	    "a c";
+	    "d a b" 
+	    "d a c";
     float: left;
     grid-gap: 10px;
     padding-left: 20px;
     padding-top: 20px;
 }
-
+.comic-list-read {
+	color: red;
+    grid-area: d;
+    align-self: center;
+    justify-self: center;
+}
 .comic-list {
     grid-area: a;
     align-self: center;

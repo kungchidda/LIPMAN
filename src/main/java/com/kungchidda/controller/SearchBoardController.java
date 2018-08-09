@@ -19,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -82,10 +83,20 @@ public class SearchBoardController {
 	}
 	
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
-	public void read(@RequestParam("bno") int bno, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+	public void read(@RequestParam("bno") int bno, @ModelAttribute("cri") SearchCriteria cri, Model model, HttpServletRequest request) throws Exception {
 	//public void read(@RequestParam("bno") int bno, Model model) throws Exception {
-		model.addAttribute(service.read(bno));
 		
+
+		HttpSession session = request.getSession();
+		UserVO vo = (UserVO)session.getAttribute("login");
+		String uid = "";
+		if(vo != null) {
+			uid = vo.getUid();
+			logger.info("uid = " + uid);
+			model.addAttribute(service.userRead(bno, uid));
+		}else {
+			model.addAttribute(service.read(bno));
+		}
 		//SearchCriteria cri = new SearchCriteria();
 		cri.setPerPageNum(20);
 		
@@ -96,9 +107,6 @@ public class SearchBoardController {
 		pageMaker.setTotalCount(service.listSearchCount(cri));
 		
 		model.addAttribute("pageMaker", pageMaker);
-		
-		
-		
 		
 	}
 
@@ -239,7 +247,7 @@ public class SearchBoardController {
 					list = service.mylistSubtitlePage(tno, cri);
 					SubtitleCount = service.mycount(tno);
 				}else {
-					list = service.listSubtitlePage(tno, cri);
+					list = service.listSubtitlePage(tno, cri, loginUid);
 					SubtitleCount = service.count(tno);
 				}
 				map.put("list", list);
@@ -255,7 +263,19 @@ public class SearchBoardController {
 			return entity;
 		}
 	
-
+		@RequestMapping(value = "/readComplete", method = RequestMethod.POST)
+		public ResponseEntity<String> readComplete(@RequestBody BoardVO vo) {
+			
+			ResponseEntity<String> entity = null;
+			try {
+				service.readComplete(vo);
+				entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+			} catch (Exception e) {
+				e.printStackTrace();
+				entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);			
+			}
+			return entity;
+		}
 
 
 	

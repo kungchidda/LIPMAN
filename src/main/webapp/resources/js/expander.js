@@ -6,8 +6,8 @@
 $(document).ready(function () {
     // expander 클래스를 클릭했을때
 	$(".expander").click(function() {
-    	
-        console.log("expander clicked");
+
+		console.log("expander clicked");
         var submenu = $(this).find(".og-expander");
         var tno = $(this).attr('id');
         console.log("tno = " + tno);

@@ -133,7 +133,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			on b.bno = a.bno
 			
             inner join 
-			(SELECT max(bno) as bno, subtitle, tno FROM tbl_board group by tno, subtitle) x 
+			(SELECT max(bno) as bno, tno FROM tbl_board group by tno) x  
             on x.bno = a.bno
             
             inner join
@@ -159,7 +159,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		]]>
 		<include refid="search"></include>
 		<![CDATA[
-			group by title.title, title.tno, a.bno, p.profileFullName, t.titleFullName, b.boardFullName, u.uname
+			group by a.bno, u.uname, profileFullName, titleFullName, boardFullName
 			order by a.bno desc
 			limit #{cri.pageStart}, #{cri.perPageNum}
 		]]>

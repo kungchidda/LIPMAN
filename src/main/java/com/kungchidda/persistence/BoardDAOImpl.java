@@ -135,12 +135,13 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 	
 	@Override
-	public List<BoardVO> listPage(Integer tno, Criteria cri) throws Exception {
+	public List<BoardVO> listPage(Integer tno, Criteria cri, String uid) throws Exception {
 		
 		Map<String, Object> paramMap = new HashMap<>();
 		
 		paramMap.put("tno", tno);
 		paramMap.put("cri", cri);
+		paramMap.put("uid", uid);
 		
 		return session.selectList(namespace + ".listPage", paramMap);
 	}
@@ -165,5 +166,31 @@ public class BoardDAOImpl implements BoardDAO{
 	@Override
 	public int mycount(Integer tno) throws Exception {
 		return session.selectOne(namespace + ".mycount", tno);
+	}
+	
+	@Override
+	public int checkUserRead(Integer bno, String uid) throws Exception {
+		
+		Map<String, Object> paramMap = new HashMap<>();
+		
+		paramMap.put("bno", bno);
+		paramMap.put("uid", uid);
+		
+		return session.selectOne(namespace + ".checkUserRead", paramMap);
+	}
+	
+	@Override
+	public void insertUserRead(Integer bno, String uid) throws Exception {
+		
+		Map<String, Object> paramMap = new HashMap<>();
+		
+		paramMap.put("bno", bno);
+		paramMap.put("uid", uid);
+		session.insert(namespace+".insertUserRead", paramMap);
+	}
+	
+	@Override
+	public void readComplete(BoardVO vo) throws Exception {
+		session.update(namespace + ".readComplete", vo);
 	}
 }

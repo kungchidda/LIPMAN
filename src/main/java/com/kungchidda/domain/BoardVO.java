@@ -29,4 +29,6 @@ public @Data class BoardVO {
 	private String boardFullName;
 	private String profileFullName;
 	
+	private int uread;
+	
 }

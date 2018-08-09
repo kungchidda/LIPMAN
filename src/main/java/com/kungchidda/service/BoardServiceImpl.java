@@ -3,6 +3,9 @@ package com.kungchidda.service;
 import java.util.List;
 
 import javax.inject.Inject;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +18,8 @@ import com.kungchidda.persistence.BoardDAO;
 
 @Service
 public class BoardServiceImpl implements BoardService{
+	
+	private static final Logger logger = LoggerFactory.getLogger(BoardServiceImpl.class);
 	
 	@Inject
 	private BoardDAO dao;
@@ -35,6 +40,21 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 
+	
+	@Transactional(isolation=Isolation.READ_COMMITTED)
+	@Override
+	public BoardVO userRead(Integer bno, String uid) throws Exception{
+		dao.updateViewCnt(bno);
+		int result = dao.checkUserRead(bno, uid);
+		logger.info("result = " + result);
+		if(result == 0) {
+			logger.info("result = 0");
+			dao.insertUserRead(bno, uid);
+		}else {
+			logger.info("result != 0");
+		}
+		return dao.read(bno);
+	}
 	
 	@Transactional(isolation=Isolation.READ_COMMITTED)
 	@Override
@@ -99,8 +119,8 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	@Override
-	public List<BoardVO> listSubtitlePage(Integer tno, Criteria cri) throws Exception {
-		return dao.listPage(tno, cri);
+	public List<BoardVO> listSubtitlePage(Integer tno, Criteria cri, String uid) throws Exception {
+		return dao.listPage(tno, cri, uid);
 	}
 	
 	@Override
@@ -118,5 +138,10 @@ public class BoardServiceImpl implements BoardService{
 		return dao.mycount(tno);
 	}
 	
+	@Transactional
+	@Override
+	public void readComplete(BoardVO vo) throws Exception{
+		dao.readComplete(vo);
+	}
 	
 }
