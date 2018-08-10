@@ -286,7 +286,7 @@
         /* When the user clicks on the button, 
                             toggle between hiding and showing the dropdown content */
         function searchFunction() {
-        	$('input').not(".loginUid, input[name='genre']").val("");
+        	$('input').not(".loginUid, input[name='genre'], #keywordInput").val("");
         	if($('.search').is(":visible")){
         		$("#searchBar").slideUp(300);
         	}else{
@@ -302,7 +302,7 @@
 
         
         function noticeFunction() {
-        	$('input').not(".loginUid, input[name='genre']").val("");
+        	$('input').not(".loginUid, input[name='genre'], #keywordInput").val("");
         	if($('.notice').is(":visible")){
         		$("#noticeBar").slideUp(300);
         	}else{
@@ -318,7 +318,7 @@
         }
  
         function myPageFunction() {
-        	$('input').not(".loginUid, input[name='genre']").val("");
+        	$('input').not(".loginUid, input[name='genre'], #keywordInput").val("");
         	if($('.mypage').is(":visible")){
         		$("#myPageBar").slideUp(300);
         	}else{
@@ -334,7 +334,7 @@
         }
         
         function forgotFunction() {
-        	$('input').not(".loginUid, input[name='genre']").val("");
+        	$('input').not(".loginUid, input[name='genre'], #keywordInput").val("");
         	if($('.forgot').is(":visible")){
         		$("#forgotBar").slideUp(300);
         	}else{
@@ -350,7 +350,7 @@
         }
         
 		function signupFunction() {
-			$('input').not(".loginUid, input[name='genre']").val("");
+			$('input').not(".loginUid, input[name='genre'], #keywordInput").val("");
 			if($('.signup').is(":visible")){
 				$("#signupBar").slideUp(300);
         	}else{
@@ -422,7 +422,7 @@
               $(document).ready(function () {
 //              var genreStr = "${MyPageVO.genre}";
 				var genreStr = '${cri.genre}';
-// 				console.log("genreStr = " + genreStr);
+				console.log("genreStr = " + genreStr);
 				var genreArr = genreStr.split(',');
 				var genreLen = genreArr.length;
               	
@@ -432,6 +432,10 @@
 					$("#genreInput"+genreArr[i]).next().toggleClass("false");
 					$("#genreInput"+genreArr[i]).next().toggleClass("true");
 				}
+				
+				var keyword = '${cri.keyword}';
+				console.log("keyword = " + keyword);
+				$('#keywordInput').val(keyword);
 				
 				var formObj = $("form[role='form']");
                 console.log(formObj);
