@@ -120,6 +120,7 @@
 		
 	</form>
 	<form id="previewForm" class="hide" method="post" target="preview"  action="/sboard/previewPage">
+		<input type='hidden' name='boardFullName' id="previeBoardFullName">
 		<input type="hidden" name='title' id="previewTitle" value='${titleVO.title}' readonly>
 		<input type="hidden" name='subtitle' id="previewSubtitle" placeholder="Subtitle" required>
 		<input type="hidden" name='fileList' id='previewFileList'>
@@ -129,23 +130,21 @@
 	<script>
 	
 		var formObj = $("#previewForm");
+		var boardFullName = "";
 		$(".write-comic-preview").click(function () {
 			var regdate = new Date();
 			var previewSubtitle = $(".write-comic-subtitle").val();
 			var previewContent = $(".write-comic-comment").val();
+			var previeBoardFullName = $(".uploadedList .delbtn").attr("data-src"); 
 			$("#previewSubtitle").val(previewSubtitle);
 			$("#previewContent").val(previewContent);
+			$("#previeBoardFullName").val(previeBoardFullName);
 			
 			$(".file-list-value").each(function(index){
 				$("#previewFileList").val($("#previewFileList").val()+"<img src='" + $(this).attr("value") +"'><br>");
 			});
-			var boardFullName = "";
-			$(".uploadedList .delbtn").each(function(index){
-				boardFullName += "<input type='hidden' name='boardFullName' value='"+$(this).attr("data-src") +"'> ";
-			});
-			formObj.append(boardFullName);
-			regdate = "<input type='hidden' name='regdate' value='"+ regdate +"'> ";
-			formObj.append(regdate);
+			
+			
 // 			alert("boardFullName = " + boardFullName);
 // 			alert("previewSubtitle = " + $("#previewSubtitle").val());
 // 			alert("previewContent = " + $("#previewContent").val());
