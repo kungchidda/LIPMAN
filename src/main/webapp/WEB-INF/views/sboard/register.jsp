@@ -107,15 +107,57 @@
 			
             <textarea type="text" id="content" name="content" class="write-comic-comment" placeholder="Comment"></textarea>
 
-            <button class="write-comic-preview">Preview</button>
+            <button type="button" class="write-comic-preview">Preview</button>
             <button type="submit" class="write-comic-complete">Write</button>
-            <button class="write-comic-cancel">Cancel</button>
+            <button type="button" class="write-comic-cancel" onclick="location='javascript:history.back()'">Cancel</button>
+            
+            
 	    </div>
 		
 		
 		
 		
+		
 	</form>
+	<form id="previewForm" class="hide" method="post" target="preview"  action="/sboard/previewPage">
+		<input type="hidden" name='title' id="previewTitle" value='${titleVO.title}' readonly>
+		<input type="hidden" name='subtitle' id="previewSubtitle" placeholder="Subtitle" required>
+		<input type="hidden" name='fileList' id='previewFileList'>
+		<textarea id="previewContent" name="content" class="hide"></textarea>
+	</form>
+	
+	<script>
+	
+		var formObj = $("#previewForm");
+		$(".write-comic-preview").click(function () {
+			var regdate = new Date();
+			var previewSubtitle = $(".write-comic-subtitle").val();
+			var previewContent = $(".write-comic-comment").val();
+			$("#previewSubtitle").val(previewSubtitle);
+			$("#previewContent").val(previewContent);
+			
+			$(".file-list-value").each(function(index){
+				$("#previewFileList").val($("#previewFileList").val()+"<img src='" + $(this).attr("value") +"'><br>");
+			});
+			var boardFullName = "";
+			$(".uploadedList .delbtn").each(function(index){
+				boardFullName += "<input type='hidden' name='boardFullName' value='"+$(this).attr("data-src") +"'> ";
+			});
+			formObj.append(boardFullName);
+			regdate = "<input type='hidden' name='regdate' value='"+ regdate +"'> ";
+			formObj.append(regdate);
+// 			alert("boardFullName = " + boardFullName);
+// 			alert("previewSubtitle = " + $("#previewSubtitle").val());
+// 			alert("previewContent = " + $("#previewContent").val());
+// 			alert("previewFileList = " + $("#previewFileList").val());
+// 			checkUnload = false;
+			
+			window.open('', 'preview', 'width=1000, height=700');
+
+			formObj.submit();
+			
+		});
+	</script>
 
 	
 	<script type="text/javascript" src="/resources/js/upload.js"></script>
