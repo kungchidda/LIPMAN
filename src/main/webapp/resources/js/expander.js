@@ -18,6 +18,7 @@ $(document).ready(function () {
             $(".background-blur").removeClass("background-blur"); //blur 효과 없애기
             submenu.slideUp(300);
             $(this).removeClass("margin-bottom");
+            
             scrollPosition = $(this).offset().top;
             $("body").animate({
                 scrollTop: scrollPosition
@@ -35,13 +36,14 @@ $(document).ready(function () {
                     $(".expander").not(this).addClass("background-blur"); //blur 효과 주기
                     $(".margin-bottom").removeClass("margin-bottom"); //margin 삭제
                     
-                    scrollPosition = $(this).offset().top;
                     
                     $(this).addClass("margin-bottom");
                     
 //                    submenu.show();
                     submenu.slideDown(300);
-                    $("body").animate({
+                    
+    		    	scrollPosition = $(this).offset().top;
+    		    	$("body").animate({
                         scrollTop: scrollPosition
                     }, 300);
 
@@ -49,11 +51,12 @@ $(document).ready(function () {
                     
                     $(".expander").not(this).addClass("background-blur"); //blur 효과 주기
                     
-                    scrollPosition = $(this).offset().top;
                     
                     $(this).addClass("margin-bottom");
                     
                     submenu.slideDown(300);
+                    
+                    scrollPosition = $(this).offset().top;
                     $("body").animate({
                         scrollTop: scrollPosition
                     }, 300);

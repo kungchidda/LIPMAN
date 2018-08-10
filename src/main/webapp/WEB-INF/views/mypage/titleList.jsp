@@ -8,7 +8,7 @@
 <title>LIPMAN</title>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/mypage/profile.jsp"%>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <link href="/resources/css/mypage.css" rel="stylesheet">
@@ -368,9 +368,11 @@
 		</div>
 	</section>
 	</c:if>
-	<div class="compony">
+<!-- 	<div class="compony">
 		<div class="compony-infor">Copyright © 2018 LIPMAN. 모든 권리 보유.</div>
-	</div>
+	</div> -->
+	
+	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 
 
 
@@ -383,7 +385,8 @@
 		$(document).ready(function() {
 			// expander 클래스를 클릭했을때
 			$(".expander").click(function() {
-				
+				var scrollPosition = $(this).offset().top;
+				console.log("scrollPosition = " + scrollPosition);
 				console.log("expander clicked");
 				var submenu = $(this).find(".og-expander");
 				var tno = $(this).attr('id');
@@ -402,6 +405,10 @@
 						submenu.slideUp(300);
 						$(this).removeClass("margin-bottom");
 						
+						scrollPosition = $(this).offset().top;
+			            $("body").animate({
+			                scrollTop: scrollPosition
+			            }, 300);
 						initialExpander();
 						
 					}
@@ -434,15 +441,25 @@
 							initialExpander();
 							
 							submenu.slideDown(300);
+							scrollPosition = $(this).offset().top;
+							$("body").animate({
+		                        scrollTop: scrollPosition
+		                    }, 300);
 		
 						} else { //열린 곳이 없으면
 							$(".expander").not(this).addClass("background-blur"); //blur 효과 주기
+							
+							
 							$(this).addClass("margin-bottom");
 		
 							initialExpander();
 
-							
 							submenu.slideDown(300);
+							
+							scrollPosition = $(this).offset().top;
+							$("body").animate({
+		                        scrollTop: scrollPosition
+		                    }, 300);
 						}
 					}
 				}
@@ -464,6 +481,11 @@
 						submenu.slideUp(300);
 						
 						$(this).removeClass("margin-bottom");
+						
+						scrollPosition = $(this).offset().top;
+			            $("body").animate({
+			                scrollTop: scrollPosition
+			            }, 300);
 					}
 				} else {
 		
@@ -499,6 +521,11 @@
 		
 						//submenu.show();
 						submenu.slideDown(300);
+						
+						scrollPosition = $(this).offset().top;
+			            $("body").animate({
+			                scrollTop: scrollPosition
+			            }, 300);
 		
 					} else { //열린 곳이 없으면
 						
@@ -515,6 +542,11 @@
 		
 						$(".og-expander").hide(); //다른 곳은 닫음
 						submenu.slideDown(300);
+						
+						scrollPosition = $(this).offset().top;
+			            $("body").animate({
+			                scrollTop: scrollPosition
+			            }, 300);
 					}
 				}
 			});
