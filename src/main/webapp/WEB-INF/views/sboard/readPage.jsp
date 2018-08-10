@@ -115,7 +115,9 @@
            <span>${boardVO.subtitle}</span>
        </div>
        <div class="raw-time hide">
-			<fmt:formatDate value="${boardVO.regdate}" pattern="yyyy-MM-dd-HH-mm-ss"/>
+			<fmt:timeZone value="GMT+9">
+				<fmt:formatDate value="${boardVO.regdate}" pattern="yyyy-MM-dd-HH-mm-ss"/>
+			</fmt:timeZone>
        </div>
        
        <div class="comic-time">
@@ -486,7 +488,7 @@
 			}
 			
 			console.log("regdateArr[3] = " + regdateArr[3]);
-// 			regdateArr[3] = regdateArr[3]-9;
+// 			regdateArr[3] = regdateArr[3]+9;
 			console.log("regdateArr[3] = " + regdateArr[3]);
 			
 			var regdateTime = new Date(regdateArr[0], regdateArr[1]-1, regdateArr[2], regdateArr[3], regdateArr[4], regdateArr[5], 0).getTime();;
