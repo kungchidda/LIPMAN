@@ -150,6 +150,7 @@
 
 			</c:forEach>
 		</ul>
+		<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 	</div>
 
 	<c:if test="${not empty login}">
