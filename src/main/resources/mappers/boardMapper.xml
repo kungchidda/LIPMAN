@@ -128,6 +128,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			</if>
 			<if test="searchType =='tcw'.toString()">
 				and (title.title like CONCAT('%', #{keyword}, '%') 
+				OR u.uname like CONCAT('%', #{keyword}, '%')
 				OR a.content like CONCAT('%', #{keyword}, '%') 
 				OR a.subtitle like CONCAT('%', #{keyword}, '%') 
 				OR gn.genre like CONCAT('%', #{keyword}, '%') 
