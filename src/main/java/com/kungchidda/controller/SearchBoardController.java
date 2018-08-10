@@ -277,6 +277,14 @@ public class SearchBoardController {
 			return entity;
 		}
 
+		@RequestMapping(value = "/previewPage", method = RequestMethod.POST)
+		public void previewPage(BoardVO board, Model model) throws Exception {
+			
+			logger.info(board.toString());
+			model.addAttribute(board);
+//			model.addAttribute("board", board);
+			
+		}
 
 	
 	
