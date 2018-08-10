@@ -201,6 +201,10 @@
 	.cards .thumbnail-writer span {
 	    font-size: 13px;
 	}
+	
+	.cards .thumbnail-writer img {
+	    width: 20px;
+	}
 }
 
 
@@ -274,6 +278,10 @@
 	
 	.cards .thumbnail-writer span {
 	    font-size: 13px;
+	}
+	
+	.cards .thumbnail-writer img {
+	    width: 20px;
 	}
 }
 

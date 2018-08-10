@@ -1124,7 +1124,7 @@ html{
 	
 	.og-grid .expander, .title-register {
 	    width: 160px;
-	    height: 285px;
+	    height: 280px;
 	}
 	
 	.og-title-register, .og-expander {
@@ -1246,7 +1246,7 @@ html{
 	}
 	
 	.subtitleLi a, .thissubtitleLi a {
-	    grid-template-columns: 10px 110px 230px;
+	    grid-template-columns: 10px 110px 220px;
 	}
 		
 	
@@ -1468,7 +1468,7 @@ html{
 	.og-grid .expander, .title-register {
 	    width: 160px;
 	    margin: 15px 15px 0 10px;
-	    height: 285px;
+	    height: 280px;
 	}	
 	
 	.og-title-register, .og-expander {
