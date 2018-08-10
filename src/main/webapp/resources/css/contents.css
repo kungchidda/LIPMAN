@@ -334,12 +334,16 @@ h4 {
 
 .comment-text {
     grid-area: a;
-    justify-self: center;
-    width: 1010px;
-    padding: 15px;
+    justify-self: start;
+    align-self: center;
+    width: 1035px;
+    height: 23px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 5px;
     font-size: 15px;
     border-bottom: 1px solid gray;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 
@@ -362,7 +366,7 @@ h4 {
 /* Another comment */
 .another-comment {
     display: grid;
-    grid-template-columns: 60px 1050px;
+    grid-template-columns: 50px 1050px;
     grid-template-areas:
     	"a b"
     	". c"
@@ -372,7 +376,7 @@ h4 {
     justify-content: center;
     grid-gap: 10px;
     padding-top: 20px;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
 }
 
 .another-comment .another-user-image {
@@ -380,7 +384,7 @@ h4 {
 }
 
 .another-comment .another-user-image img {
-    width: 40px;
+    width: 30px;
 }
 
 .another-comment .another-user-name {
@@ -406,6 +410,7 @@ h4 {
 .another-comment textarea {
     grid-area: c;
     width: 1000px;
+    border: none;
     justify-self: start;
     word-wrap: break-word;
 }
@@ -604,7 +609,43 @@ textarea{
 	.list-og-expanded {height: 445px;}
 	.content-margin-bottom {margin-bottom: 455px !important;}
 
-}
+
+/* Comment */
+	.comment {
+	    grid-template-columns: 1095px 60px;
+	}
+	
+	.comment-text {
+	    width: 1080px;
+	    font-size: 13px;
+	}
+	
+	.comment button {
+	    width: 40px;
+	    justify-self: center;
+	}
+	
+	.comment img {
+	    width: 25px;
+	    padding: 5px;
+	    padding-left: 5px;
+	    padding-right: 5px;
+	}	
+	
+/* Another comment */	
+	.another-comment {
+	    grid-template-columns: 50px 1100px;
+	}	
+	
+	.another-comment .another-user-image img {
+	    width: 25px;
+	}
+	
+	.another-comment textarea {
+	    width: 1020px;
+	}
+}	
+
 
 /* iPad Pro-10.5 landscape */
 @media only screen and (max-width: 1112px) and (orientation: landscape) {
@@ -637,14 +678,23 @@ textarea{
 	    grid-template-areas: "a a a a";
 	}	
 	
-/* Comment css : complete */
+/* Comment */
 	.comment {
-	    grid-template-columns: 290px 70px;
+	    grid-template-columns: 858px 60px;
 	}
 	
 	.comment-text {
-	    width: 250px;
+	    width: 843px;
+	}
+	
+/* Another comment */	
+	.another-comment {
+	    grid-template-columns: 50px 865px;
 	}	
+	
+	.another-comment textarea {
+	    width: 785px;
+	}		
 }
 
 /* iPad Pro-9.7 landscape */
@@ -672,6 +722,15 @@ textarea{
 /* Comic-list */	
 	.list-og-expanded {height: 580px;}
 	.content-margin-bottom {margin-bottom: 590px !important;}			
+
+/* Comment */
+	.comment {
+	    grid-template-columns: 830px 60px;
+	}
+	
+	.comment-text {
+	    width: 815px;
+	}
 
 }
 
@@ -822,13 +881,35 @@ textarea{
 	    grid-template-areas: "a a a a";
 	}	
 	
-/* Comment css : complete */
+/* Comment */
 	.comment {
-	    grid-template-columns: 290px 70px;
+	    grid-template-columns: 830px 60px;
 	}
 	
 	.comment-text {
-	    width: 250px;
+	    width: 815px;
+	    font-size: 13px;
+	}
+	
+	.comment button {
+	    width: 40px;
+	    justify-self: center;
+	}
+	
+	.comment img {
+	    width: 25px;
+	    padding: 5px;
+	    padding-left: 5px;
+	    padding-right: 5px;
+	}	
+
+/* Another comment */	
+	.another-comment {
+	    grid-template-columns: 50px 835px;
+	}	
+	
+	.another-comment textarea {
+	    width: 755px;
 	}	
 }
 
@@ -861,6 +942,24 @@ textarea{
 /* Another cards */	
 	.cards {
 	    grid-template-areas: "a a a";
+	}	
+	
+/* Comment */
+	.comment {
+	    grid-template-columns: 620px 60px;
+	}
+	
+	.comment-text {
+	    width: 605px;
+	}	
+
+/* Another comment */	
+	.another-comment {
+	    grid-template-columns: 50px 630px;
+	}	
+	
+	.another-comment textarea {
+	    width: 550px;
 	}	
 
 }
@@ -1030,15 +1129,53 @@ textarea{
 	}	
 	
 
-/* Comment css : complete */
+/* Comment */
 	.comment {
-	    grid-template-columns: 290px 70px;
+	    grid-template-columns: 630px 50px;
 	}
 	
 	.comment-text {
-	    width: 250px;
+	    width: 615px;
+	    font-size: 13px;
+	}
+	
+	.comment button {
+	    width: 40px;
+	    justify-self: center;
+	}
+	
+	.comment img {
+	    width: 20px;
+	    padding: 5px;
+	    padding-left: 5px;
+	    padding-right: 5px;
 	}	
 	
+/* Another comment */	
+	.another-comment {
+	    grid-template-columns: 30px 650px;
+	    grid-gap: 5px;
+	}	
+	
+	.reply-profile-name-button {
+	    font-size: 13px;
+	}
+	
+	.another-comment .another-user-image img {
+	    width: 20px;
+	}
+	
+	.another-comment textarea {
+	    width: 580px;
+	}	
+	
+	.another-comment .another-comment-modify img {
+	    width: 20px;
+	}
+	
+	.another-comment .another-comment-modify {
+	    padding-right: 0px;
+	}
 }
 
 /* iPad Pro-9.7 portrait */
@@ -1080,6 +1217,25 @@ textarea{
 	.list-expander-title-inner {
 	    width: 736px;
 	}
+	
+/* Comment */
+	.comment {
+	    grid-template-columns: 580px 50px;
+	}
+	
+	.comment-text {
+	    width: 565px;
+	}
+	
+/* Another comment */	
+	.another-comment {
+	    grid-template-columns: 30px 600px;
+	}	
+	
+	.another-comment textarea {
+	    width: 530px;
+	}	
+	
 }
 
 /* iPhone - 6/7/8/ landscape :  */
@@ -1098,6 +1254,24 @@ textarea{
 	.list-expander-title-inner {
 	    width: 667px;
 	}	
+	
+/* Comment */
+	.comment {
+	    grid-template-columns: 515px 50px;
+	}
+	
+	.comment-text {
+	    width: 500px;
+	}
+	
+/* Another comment */	
+	.another-comment {
+	    grid-template-columns: 30px 545px;
+	}	
+	
+	.another-comment textarea {
+	    width: 475px;
+	}		
 }
 
 /* iPhone - 5/SE/5S  landscape */
@@ -1277,15 +1451,54 @@ textarea{
 	    grid-template-areas: 
 	        "a a";
 	}	
-	
 
-/* Comment css : complete */
+
+/* Comment */
 	.comment {
-	    grid-template-columns: 290px 70px;
+	    grid-template-columns: 310px 50px;
 	}
 	
 	.comment-text {
-	    width: 250px;
+	    width: 295px;
+	    font-size: 13px;
+	}
+	
+	.comment button {
+	    width: 40px;
+	    justify-self: center;
+	}
+	
+	.comment img {
+	    width: 20px;
+	    padding: 5px;
+	    padding-left: 5px;
+	    padding-right: 5px;
+	}	
+	
+/* Another comment */	
+	.another-comment {
+	    grid-template-columns: 30px 330px;
+	    grid-gap: 5px;
+	}	
+	
+	.reply-profile-name-button {
+	    font-size: 13px;
+	}
+	
+	.another-comment .another-user-image img {
+	    width: 20px;
+	}
+	
+	.another-comment textarea {
+	    width: 280px;
+	}	
+	
+	.another-comment .another-comment-modify img {
+	    width: 20px;
+	}	
+	
+	.another-comment .another-comment-modify {
+	    padding-right: 0px;
 	}	
 }
 
@@ -1331,11 +1544,20 @@ textarea{
 		
 /* Comment css */
 	.comment {
-	    grid-template-columns: 250px 70px;
+	    grid-template-columns: 295px 50px;
 	}
 	
 	.comment-text {
-	    width: 210px;
+	    width: 280px;
+	}	
+	
+/* Another comment */	
+	.another-comment {
+	    grid-template-columns: 30px 300px;
+	}	
+	
+	.another-comment textarea {
+	    width: 250px;
 	}		
 }
 
