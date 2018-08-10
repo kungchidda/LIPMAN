@@ -49,7 +49,7 @@
 				});
 			</script>
 	        <input type="hidden" id='fileList' name='fileList' class="form-control">
-	        <select class="upload-file-list" name="file-list-name" size="25" >
+	        <select class="upload-file-list hide" name="file-list-name" size="25" >
 	        </select>
 	        
 <!-- 	        <script>
