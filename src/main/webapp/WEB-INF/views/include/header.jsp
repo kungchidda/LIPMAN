@@ -54,7 +54,7 @@
             </c:if>
             <!-- <a href="#"><span><img class="dropbtn" onclick="myPageFunction()" src="/resources/png/account.png"></span></a> -->
 			<c:if test="${not empty login}">
-				<form id="loginForm" role="form" action="/mypage/titleList" method="GET">
+				<form id="titleListForm" role="form" action="/mypage/titleList" method="GET">
 	 				<input type="hidden" name="uid" class="loginUid" value='${login.uid}'>
 	 				<button type="submit" class="accountBtn-login profile-img-button"><img src="/displayFile?fileName=${login.profileFullName}" id="header-profile-img"></button>
 	 				
@@ -209,13 +209,16 @@
     </div>
 
 	<!-- 20180702 before -->
-    <c:if test="${empty login}">
+	<c:if test="${empty login}">
     <div id="myPageBar" class="do-not-close dropdown-contents mypage hide">
-        <form class="dropdown-mypage do-not-close" action="/user/loginPost" method="post">
+<!--         <form class="dropdown-mypage do-not-close" action="/user/loginPost" method="POST"> -->
+        <form class="dropdown-mypage do-not-close" id="loginForm" action="/user/loginPost" method="POST">
+        
             <input type="email" name="uid" class="login-id do-not-close" placeholder='E-mail' required>
             <div class="remember do-not-close">
+<!--             	<span><input type="checkbox" class="do-not-close" name="useCookie" value="true"></span> -->
             	<span><input type="checkbox" class="do-not-close" name="useCookie"></span>
-            	<span>Remember your E-mail</span>
+            	<span class="do-not-close">Remember your E-mail</span>
             </div>
             <input type="password" name="upw" class="login-pw do-not-close" placeholder='Password' required>
             <button type="submit" class="login-button do-not-close">Log-In</button>
@@ -286,7 +289,7 @@
         /* When the user clicks on the button, 
                             toggle between hiding and showing the dropdown content */
         function searchFunction() {
-        	$('input').not(".loginUid, input[name='genre'], #keywordInput").val("");
+        	$('input').not(".loginUid, input[name='genre'], #keywordInput, input[name='useCookie']").val("");
         	if($('.search').is(":visible")){
         		$("#searchBar").slideUp(300);
         	}else{
@@ -302,7 +305,7 @@
 
         
         function noticeFunction() {
-        	$('input').not(".loginUid, input[name='genre'], #keywordInput").val("");
+        	$('input').not(".loginUid, input[name='genre'], #keywordInput, input[name='useCookie']").val("");
         	if($('.notice').is(":visible")){
         		$("#noticeBar").slideUp(300);
         	}else{
@@ -318,7 +321,8 @@
         }
  
         function myPageFunction() {
-        	$('input').not(".loginUid, input[name='genre'], #keywordInput").val("");
+        	
+        	$('input').not(".loginUid, input[name='genre'], #keywordInput, input[name='useCookie']").val("");
         	if($('.mypage').is(":visible")){
         		$("#myPageBar").slideUp(300);
         	}else{
@@ -334,7 +338,7 @@
         }
         
         function forgotFunction() {
-        	$('input').not(".loginUid, input[name='genre'], #keywordInput").val("");
+        	$('input').not(".loginUid, input[name='genre'], #keywordInput, input[name='useCookie']").val("");
         	if($('.forgot').is(":visible")){
         		$("#forgotBar").slideUp(300);
         	}else{
@@ -350,7 +354,7 @@
         }
         
 		function signupFunction() {
-			$('input').not(".loginUid, input[name='genre'], #keywordInput").val("");
+			$('input').not(".loginUid, input[name='genre'], #keywordInput, input[name='useCookie']").val("");
 			if($('.signup').is(":visible")){
 				$("#signupBar").slideUp(300);
         	}else{
@@ -369,6 +373,7 @@
         window.onclick = function(event) {
             console.log("event.target.className = " + event.target.className);
             console.log("event.target.id = " + event.target.id);
+            
 
             if (!event.target.matches('.dropbtn') && !event.target.matches('.do-not-close') ) {
 
@@ -393,6 +398,19 @@
             }
         }
         
+         
+        /* $(".login-button").on("click",function(event){
+        	event.preventDefault();
+        	var useCookie = $("input[name='useCookie']").is(":checked");
+        	
+// 			console.log("useCookie = " + useCookie);
+        	alert("useCookie = " + useCookie);
+        	
+        	var formObj = $("#loginForm");
+        	formObj.submit();
+        	
+        }); */
+         
         $('#searchBar-button').on("click",function(event){
             //  $("#searchForm").submit(function(event){
               	event.preventDefault();
@@ -531,6 +549,9 @@
 					}
 					
 				});
+				
+				var useCookie = $("input[name='useCookie']").is(":checked");
+				console.log("useCookie = " + useCookie);
 				
 				
        
