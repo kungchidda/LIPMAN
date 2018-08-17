@@ -7,9 +7,13 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.kungchidda.domain.BoardVO;
 import com.kungchidda.domain.Criteria;
+import com.kungchidda.domain.NotifyVO;
 import com.kungchidda.domain.ReplyVO;
+import com.kungchidda.domain.UserVO;
 import com.kungchidda.persistence.BoardDAO;
+import com.kungchidda.persistence.NotifyDAO;
 import com.kungchidda.persistence.ReplyDAO;
 
 @Service
@@ -21,11 +25,39 @@ public class ReplyServiceImpl implements ReplyService {
 	@Inject
 	private BoardDAO boardDAO;
 	
+	@Inject
+	private NotifyDAO notifyDAO;
+	
 	@Transactional
 	@Override
 	public void addReply(ReplyVO vo) throws Exception{
 		replyDAO.create(vo);
+
 		boardDAO.updateReplyCnt(vo.getBno(), 1);
+		
+		NotifyVO notifyVO = new NotifyVO();
+		BoardVO boardVO = new BoardVO();
+		UserVO userVO = new UserVO();
+		
+		boardVO.setBno(vo.getBno());
+		boardVO = notifyDAO.checkBoardForNotify(boardVO);
+		userVO.setUid(vo.getUid());
+		userVO = notifyDAO.checkUserForNotify(userVO);
+
+		notifyVO.setSender(vo.getUid());
+		notifyVO.setReceiver(boardVO.getUid());
+		
+		if(!notifyVO.getSender().equals(notifyVO.getReceiver())) {
+			notifyVO.setType("bno");
+			if(userVO.getProfileFullName() == null) {
+				userVO.setProfileFullName("/account.png");
+			}
+			notifyVO.setNotifyThumbnail(userVO.getProfileFullName());
+			notifyVO.setUrl("/sboard/readPage?bno="+boardVO.getBno());
+			notifyVO.setContents(vo.getUname() +"님이 " + boardVO.getSubtitle() + "에 댓글을 남겼습니다.\n" + "\"" + vo.getReplytext() + "\"");
+			
+			notifyDAO.create(notifyVO);
+		}
 	}
 	
 	@Override

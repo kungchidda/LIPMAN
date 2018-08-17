@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kungchidda.mappers.notifyMapper">
+
+	<insert id="create">
+		insert into tbl_notify (sender, receiver, type, type_num, notifyThumbnail, contents, url)
+		values (#{sender}, #{receiver}, #{type}, LAST_INSERT_ID(), #{notifyThumbnail}, #{contents}, #{url})
+	</insert>
+
+	<update id="update">
+		update tbl_reply set replytext = #{replytext}, updatedate = now()
+		where rno = #{rno}
+	</update>
+	
+	<select id="listPage" resultType="NotifyVO">
+		select
+		*
+		from
+		tbl_notify
+              
+		where
+		receiver = #{receiver}
+		and readNotify in (0, 1)
+		order by nno desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	
+	<select id="count" resultType="int">
+		select count(*) from tbl_notify where receiver =#{receiver} and readNotify in (0, 1)
+	</select>
+	
+	<update id="updateReplyLikeCnt">
+		update tbl_reply set 
+		replylikecnt = (select count(*) from tbl_replylike where rno = #{rno} and rlpo = '1'),
+		replydislikecnt =	(select count(*) from tbl_replylike where rno = #{rno} and rlpo = '-1')
+		where rno = #{rno}
+	</update>
+
+	<select id="checkBoardForNotify" resultType="com.kungchidda.domain.BoardVO">
+		select *
+		from tbl_board b
+        
+		left outer join
+        tbl_attach a
+        on a.bno = b.bno
+        
+		where b.bno = #{bno}
+	</select>
+	
+	<select id="checkUserForNotify" resultType="com.kungchidda.domain.UserVO">
+		select *
+		from tbl_user u
+        
+        left outer join
+        tbl_profile p
+        on p.uno = u.uno
+        
+		where uid = #{uid}
+	</select>
+	
+	<select id="checkReplyForNotify" resultType="com.kungchidda.domain.ReplyVO">
+		select *
+		from tbl_reply 
+		where rno = #{rno}
+	</select>
+	
+	<select id="checkSubscriberForNotify" resultType="com.kungchidda.domain.SubscribeVO">
+		select *
+		from tbl_subscribe 
+		where subscribed = #{subscribed}
+	</select>
+
+	<select id="getLastInsertBno" resultType="int">
+		select max(bno)
+		from tbl_board
+		where uid = #{uid}
+	</select>
+	
+	<update id="readNotify">
+		update tbl_notify set readNotify = 1, updatedate = now()
+		where nno = #{nno} and readNotify = 0
+	</update>
+	
+	<update id="deleteNotify">
+		update tbl_notify set readNotify = 2, updatedate = now()
+		where nno = #{nno}
+	</update>
+	
+	<update id="deleteAllNotify">
+		update tbl_notify set readNotify = 2, updatedate = now()
+		where receiver = #{receiver}
+	</update>
+
+</mapper>

@@ -12,9 +12,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.kungchidda.domain.BoardVO;
 import com.kungchidda.domain.Criteria;
-//import com.kungchidda.domain.Criteria;
+import com.kungchidda.domain.NotifyVO;
 import com.kungchidda.domain.SearchCriteria;
+import com.kungchidda.domain.SubscribeVO;
+import com.kungchidda.domain.UserVO;
 import com.kungchidda.persistence.BoardDAO;
+import com.kungchidda.persistence.NotifyDAO;
 
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -24,19 +27,54 @@ public class BoardServiceImpl implements BoardService{
 	@Inject
 	private BoardDAO dao;
 	
+	@Inject
+	private NotifyDAO notifyDAO;
+	
 	@Transactional
 	@Override
 	public void regist(BoardVO board) throws Exception{
 		dao.create(board);
+		int bno = notifyDAO.getLastInsertBno(board.getUid());
 		
 		String[] files = board.getFiles();
+		NotifyVO notifyVO = new NotifyVO();
+		BoardVO boardVO = new BoardVO();
+		UserVO userVO = new UserVO();
+		SubscribeVO subscribeVO = new SubscribeVO();
 		
 		if(files != null) {
 			for(String fileName : files) {
 				dao.addAttach(fileName);
+				notifyVO.setNotifyThumbnail(fileName);
 			}
 		}
-//		dao.add(board);
+		
+		userVO.setUid(board.getUid());
+		userVO = notifyDAO.checkUserForNotify(userVO);
+		
+		boardVO.setBno(board.getBno());
+		boardVO = notifyDAO.checkBoardForNotify(boardVO);
+		
+		notifyVO.setSender(board.getUid());
+		notifyVO.setType("bno");
+		
+		notifyVO.setContents(userVO.getUname() + "님의 " + board.getTitle() + " - " + board.getSubtitle() + "이 등록 되었습니다.");
+		notifyVO.setUrl("/sboard/readPage?bno="+bno);
+		subscribeVO.setSubscribed(board.getUid());
+		List<SubscribeVO> subList = notifyDAO.checkSubscriberForNotify(subscribeVO);
+		
+		for(SubscribeVO subscriber : subList) {
+		    String uid = subscriber.getSubscriber();
+		    notifyVO.setReceiver(uid);
+		    if(!notifyVO.getSender().equals(notifyVO.getReceiver())) {
+				notifyDAO.create(notifyVO);
+			}
+		}
+
+
+		
+		
+		
 	}
 	
 
