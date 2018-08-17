@@ -98,7 +98,7 @@ public class SearchBoardController {
 			model.addAttribute(service.read(bno));
 		}
 		//SearchCriteria cri = new SearchCriteria();
-		cri.setPerPageNum(20);
+		cri.setPerPageNum(10);
 		
 		model.addAttribute("list", service.listSearchCriteria(cri));
 		PageMaker pageMaker = new PageMaker();
