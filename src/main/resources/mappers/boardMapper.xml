@@ -389,5 +389,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="readComplete">
 		update tbl_read set uread = 2 where bno = #{bno} and uid = #{uid}
 	</update>
+	
+	
 
 </mapper>

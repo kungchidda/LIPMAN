@@ -88,6 +88,7 @@
 				Creativity is contagious,<br> pass it on!
 			</p>
 		</div>
+		
 		<ul class="og-grid cards">
 			<c:forEach items="${list}" var="boardVO">
 				<li class="expander" id="${boardVO.tno}">

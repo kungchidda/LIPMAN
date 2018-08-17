@@ -36,4 +36,6 @@ public interface UserDAO {
 	
 	public void forgotPassword(String uid, String upw) throws Exception;
 	public int forgotPasswordCheck(String uid) throws Exception;
+	
+	
 }

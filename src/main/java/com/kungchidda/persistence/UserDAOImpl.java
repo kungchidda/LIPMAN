@@ -134,4 +134,5 @@ public class UserDAOImpl implements UserDAO{
 	public int forgotPasswordCheck(String uid) throws Exception {
 		return session.selectOne(namespace + ".forgotPasswordCheck", uid);
 	}
+	
 }
