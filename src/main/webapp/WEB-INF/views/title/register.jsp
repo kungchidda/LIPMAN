@@ -41,7 +41,7 @@ small {
 		<div class="form-group">
 <!-- 		    <button class="btn" id="upload-button">Select image</button> -->
 			<input type="hidden" name="uid" class="form-control" value='${login.uid}'>
-		    <input type="file" id="upload-input" style="display: none;">
+		    <input type="file" accept="image/*" id="upload-input" style="display: none;">
 		    <script>
         		$(function () {
         			$('#fileDrop').click(function (e) {

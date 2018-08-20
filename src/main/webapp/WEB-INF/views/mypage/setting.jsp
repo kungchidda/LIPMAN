@@ -141,7 +141,7 @@
 			<div class="mypage-setting-profileimage-button">
 				<button type="button" id="edit-profile">change</button>
 
-				<input type="file" style="display: none;" id="profile">
+				<input type="file" accept="image/*" style="display: none;" id="profile">
 
 				<script>
 					$(function() {
@@ -571,7 +571,7 @@
 			<div class="mypage-setting-profileimage-button">
 				<button type="button" id="edit-profile">change</button>
 
-				<input type="file" style="display: none;" id="profile">
+				<input type="file" accept="image/*" style="display: none;" id="profile">
 
 				<script>
 					$(function() {

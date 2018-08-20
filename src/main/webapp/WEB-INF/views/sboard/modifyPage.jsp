@@ -35,7 +35,7 @@
 	            	<img src="/displayFile?fileName=${boardVO.boardFullName}" class="registed-img" id="select-file" style="display: inline;">
 	            </div>
 	        </div>
-            <input type="file" style="display:none;" id="thumbnail-upload-input">
+            <input type="file" accept="image/*" style="display:none;" id="thumbnail-upload-input">
             <script>
 				$(function () {
 					$('#thumbnail-file-drop').click(function (e) {
@@ -72,7 +72,7 @@
 	        </script>
 	        
 	        <button id="file-upload-button" class="write-comic-add"> + </button>
-			<input type="file" style="display:none;" id="file-upload-input" multiple>
+			<input type="file" accept="image/*" style="display:none;" id="file-upload-input" multiple>
             <script>
 				$(function () {
 					$('#file-upload-button').click(function (e) {

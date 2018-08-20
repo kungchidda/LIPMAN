@@ -41,7 +41,7 @@
 										</div>
 									</div>
 									<input type="hidden" name="uid" class="form-control" value='${login.uid}'>
-									<input type="file" id="upload-input" style="display: none;">
+									<input type="file" accept="image/*" id="upload-input" style="display: none;">
 									<script>
 										$(function() {
 											$('#fileDrop').click(function(e) {
@@ -172,7 +172,7 @@
 												<img class="do-not-close" src="/displayFile?fileName=${MyPageVO.titleFullName}" style="display: inline;">
 											</div>
 										</div>
-										<input type="file" class="title-upload-input do-not-close" style="display: none;">
+										<input type="file" accept="image/*" class="title-upload-input do-not-close" style="display: none;">
 										
 										<div class="comic-list-genre do-not-close">
 											${MyPageVO.gname}
