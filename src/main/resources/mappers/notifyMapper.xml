@@ -32,6 +32,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from tbl_notify where receiver =#{receiver} and readNotify in (0, 1)
 	</select>
 	
+	<select id="checkNewNotify" resultType="int">
+		select count(*) from tbl_notify where receiver =#{receiver} and readNotify = 0
+	</select>
+	
 	<update id="updateReplyLikeCnt">
 		update tbl_reply set 
 		replylikecnt = (select count(*) from tbl_replylike where rno = #{rno} and rlpo = '1'),

@@ -22,6 +22,7 @@ public interface NotifyDAO {
 	public List<NotifyVO> listPage(NotifyVO vo, Criteria cri) throws Exception;
 	// 페이징 처리를 하기 위해 count 추가
 	public int count(NotifyVO vo) throws Exception;
+	public int checkNewNotify(NotifyVO vo) throws Exception;
 	
 	public void updateNotifyCnt(NotifyVO vo) throws Exception;
 	

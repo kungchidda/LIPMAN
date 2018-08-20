@@ -131,6 +131,19 @@ public class NotifyController {
 		return entity;
 	}
 	
+	@RequestMapping(value = "/checkNewNotify", method = RequestMethod.POST)
+	public ResponseEntity<Integer> count(@RequestBody NotifyVO vo){
+		
+		ResponseEntity<Integer> entity = null;
+			int notifyCount;
+			try {
+				notifyCount = notifyService.checkNewNotify(vo);
+				entity = new ResponseEntity<Integer>(notifyCount, HttpStatus.OK);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return entity;
+	}
 	
 	
 }

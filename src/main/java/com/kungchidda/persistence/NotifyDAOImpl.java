@@ -53,6 +53,11 @@ public class NotifyDAOImpl implements NotifyDAO{
 		return session.selectOne(namespace + ".count", vo);
 	}
 	
+	@Override
+	public int checkNewNotify(NotifyVO vo) throws Exception {
+//		String receiver = vo.getReceiver();
+		return session.selectOne(namespace + ".checkNewNotify", vo);
+	}
 
 	@Override
 	public void updateNotifyCnt(NotifyVO vo) throws Exception {

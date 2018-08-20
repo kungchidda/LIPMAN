@@ -41,6 +41,11 @@ public class NotifyServiceImpl implements NotifyService {
 	}
 	
 	@Override
+	public int checkNewNotify(NotifyVO vo) throws Exception {
+		return notifyDAO.checkNewNotify(vo);
+	}
+	
+	@Override
 	public void readNotify(NotifyVO vo) throws Exception{
 		notifyDAO.readNotify(vo);
 	}
