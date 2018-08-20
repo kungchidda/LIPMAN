@@ -41,15 +41,18 @@
         <div class="brand">
             <a href="/"><img src="/resources/png/logo.png"></a>
         </div>
+        <c:if test="${not empty login}">
+	        <div class="noticeBtn ">
+	            <img class="dropbtn noticeFunction important-img" src="/resources/png/notice-1.png">
+	        </div>
+        </c:if>
         <div class="searchBtn ">
             <img class="dropbtn searchFunction" src="/resources/png/search.png">
         </div>
         <!-- <div class="genreBtn ">
             <img class="dropbtn" onclick="genreFunction()" src="/resources/png/genre.png">
         </div> -->
-        <div class="noticeBtn ">
-            <img class="dropbtn noticeFunction" src="/resources/png/notice-1.png">
-        </div>
+        
         <div class="accountBtn ">
             <c:if test="${empty login}">
             	<img class="dropbtn myPageFunction" src="/resources/png/account.png">
@@ -148,7 +151,6 @@
     	<ul id="notifyList">
 	    </ul>
     </div>
-    
 	<!-- 20180702 before -->
 	<c:if test="${empty login}">
     <div id="myPageBar" class="do-not-close dropdown-contents mypage hide">
@@ -247,17 +249,39 @@
 	</script>
 	
 	<script id="no-notifies-template" type="text/x-handlebars-template">
-			<div class="no-notifyLi expander do-not-close" >
+			<div class="no-notifyLi expander do-not-close hide">
 				<img class="no-notifyLi-img" src="/resources/images/check2.jpg">
 				<div class="no-notifyLi-text" >알림이 없습니다.</div>
 			</div>
 			
 	</script>
 
+	<script>
+	 if('${login.uid}' != null){
+	    	var receiver = '${login.uid}';		
+	    	$.ajax({
+	    		type : 'post',
+	    		url : "/notify/checkNewNotify/",
+	    		headers : {
+	    			"Content-Type" : "application/json",
+	    			"X-HTTP-Method-Override" : "POST" },
+	    		dataType : 'JSON',
+	    		data : JSON.stringify({receiver:receiver}),
+	    		async: false,
+	    		success:function(result){
+	    			if(result > 0){
+	    				$(".noticeFunction").attr("src","/resources/images/notify.jpg");
+	    			}
+	    		}
+	    	});
+	    }
+	</script>
+	
+	
     <script>
     $(document).ready(function () {
     var page = 1;
-
+    
     
     Handlebars.registerHelper("prettifyDate", function(timeValue){
 		console.log("timeValue = " + timeValue);
@@ -309,6 +333,9 @@
     
 	
 	var printNotify = function (notifyArr, target, templateObject){
+		
+		$(".no-notifyLi").remove();
+		
 		var template = Handlebars.compile(templateObject.html());
 		
 		var html = template(notifyArr);
@@ -341,11 +368,17 @@
 					}
 					if(result.pageMaker.totalCount == 0 && page == 1 ){
 						printNotify(result.notifyList, $("#notifyList"), $('#no-notifies-template'));
+						$(".no-notifyLi").removeClass("hide").slideDown(300);
+						$(".noticeFunction").attr("src","/resources/png/notice-1.png")
+						
 					}else{
 						printNotify(result.notifyList, $("#notifyList"), $('#notifies-template'));
 					}
 					
-	    				
+					var count = result.pageMaker.totalCount;
+					if(count > 4){
+						$("#noticeBar").addClass("notice-height");
+					}
 					$(".notifyLi").on("click",function(event) {
 			 			var nno = $(this).children().attr("id");
 			 			console.log("nno = " + nno);
@@ -385,7 +418,18 @@
 								
 							}
 						});
+			 			count--;
+			 			if(count <= 4){
+							$("#noticeBar").removeClass("notice-height");
+						}
 						$(this).parent().parent().slideUp(300);
+			 			if(count<=0){
+			 				$(".notifyDeleteAll").slideUp(300);
+			 				
+			 				printNotify(result.notifyList, $("#notifyList"), $('#no-notifies-template'));
+			 				$(".no-notifyLi").removeClass("hide").slideDown(300);
+			 				$(".noticeFunction").attr("src","/resources/png/notice-1.png")
+			 			}
 			 			
 					});
 					
@@ -411,6 +455,8 @@
 						$(".notifyLi").slideUp(300);
 						$(".notifyDeleteAll").slideUp(300);
 						printNotify(result.notifyList, $("#notifyList"), $('#no-notifies-template'));
+						$(".no-notifyLi").removeClass("hide").slideDown(300);
+						$(".noticeFunction").attr("src","/resources/png/notice-1.png")
 					});
 					
 				}
@@ -443,13 +489,15 @@
         		$("#noticeBar").slideUp(300);
         	}else{
         		$("#notifyList").empty();
-        		$("#noticeBar").slideDown(300);
         		if("${login.uid}"){
         			page = 1;
 					getNotify(page);
         		}else{
         			$("#notifyList").append("로그인이 필요합니다.");
         		}
+        		
+        		
+        		$("#noticeBar").slideDown(300);
         	}
 
         	$("#searchBar").slideUp(300);
