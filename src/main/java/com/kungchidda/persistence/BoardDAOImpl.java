@@ -193,4 +193,6 @@ public class BoardDAOImpl implements BoardDAO{
 	public void readComplete(BoardVO vo) throws Exception {
 		session.update(namespace + ".readComplete", vo);
 	}
+	
+	
 }

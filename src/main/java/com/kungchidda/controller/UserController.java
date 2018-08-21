@@ -53,6 +53,7 @@ public class UserController {
 
 	@RequestMapping(value = "/loginPost", method = RequestMethod.POST)
 	public String loginPOST(LoginDTO dto, HttpSession session, Model model, HttpServletRequest request) throws Exception {
+//		logger.info(dto.toString());
 		String referer = request.getHeader("Referer");
 		request.getSession().setAttribute("referer", referer);
 
@@ -73,15 +74,20 @@ public class UserController {
 		}
 
 		model.addAttribute("userVO", vo);
-
+		
 		// loginCookie 값이 유지되는 시간 정보를 데이터 베이스에 저장
 		if (dto.isUseCookie()) {
+			
+//			logger.info("userCookie true");
 			int amount = 60 * 60 * 24 * 7;
 
 			Date sessionLimit = new Date(System.currentTimeMillis() + (1000 * amount));
 
 			service.keepLogin(vo.getUid(), session.getId(), sessionLimit);
 		}
+//		}else {
+//			logger.info("userCookie false");
+//		}
 		return "/sboard/list";
 
 	}
@@ -222,7 +228,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/forgotPassword", method = RequestMethod.GET)
-	public void forgotPassword(String uid, Model model) throws Exception { // 이메일인증
+	public void forgotPassword(String uid, Model model) throws Exception {
 		logger.info("forgotPassword get...");
 		int check = service.forgotPasswordCheck(uid);
 

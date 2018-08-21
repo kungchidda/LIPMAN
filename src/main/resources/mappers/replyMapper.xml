@@ -62,6 +62,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		replydislikecnt =	(select count(*) from tbl_replylike where rno = #{rno} and rlpo = '-1')
 		where rno = #{rno}
 	</update>
-
+	
 
 </mapper>

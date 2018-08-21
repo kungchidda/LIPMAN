@@ -39,7 +39,7 @@
 	            	<img src="/resources/png/thumbnail.png" class="registed-img" id="select-file" style="display: inline;">
 	            </div>
 	        </div>
-            <input type="file" style="display:none;" id="thumbnail-upload-input">
+            <input type="file" accept="image/*" style="display:none;" id="thumbnail-upload-input">
             <script>
 				$(function () {
 					$('#thumbnail-file-drop').click(function (e) {
@@ -49,34 +49,13 @@
 				});
 			</script>
 	        <input type="hidden" id='fileList' name='fileList' class="form-control">
-	        <select class="upload-file-list hide" name="file-list-name" size="25" >
+<!-- 	        <select class="upload-file-list" name="file-list-name" size="25" multiple> -->
+	        <select class="upload-file-list hide" name="file-list-name" multiple>
 	        </select>
 	        
-<!-- 	        <script>
-		        var fileList = "${boardVO.fileList}";
-		        var fileArray = fileList.split("<br>");
-
-		        for(var i=0; i<fileArray.length-1; i++){
-		        	
-		        	var fileNameLength = fileArray[i].length - 2;
-		        	console.log('fileArray[' + i + '] = ' + fileArray[i]);
-		        	var value = fileArray[i].substring(10, fileNameLength);
-		        	var dataSrc = fileArray[i].substring(32, fileNameLength);
-		        	var fileName = fileArray[i].substring(81, fileNameLength);
-		        	
-			        console.log('value = ' + value);
-			        console.log('dataSrc = ' + dataSrc);
-			        console.log('fileName = ' + fileName);
-			        
-			        var str = '<option class="file-list-value" data-src=' + dataSrc + ' value=' + value + '>' + fileName + '</option>';
-			        console.log('str = ' + str);
-			        $('.upload-file-list').append(str);
-			        
-		        }
-	        </script> -->
 	        
 	        <button id="file-upload-button" class="write-comic-add"> + </button>
-			<input type="file" style="display:none;" id="file-upload-input" multiple>
+			<input type="file" accept="image/*" style="display:none;" id="file-upload-input" multiple>
             <script>
 				$(function () {
 					$('#file-upload-button').click(function (e) {
@@ -90,18 +69,8 @@
 			<button id="file-delete-button" class="write-comic-delete"> - </button>
 			
 			
-<!-- 		<a href = "javascript:moveItem( 'T', 'file-list-name' );">맨위</a> -->
-			<a href = "javascript:moveItem( 'U', 'file-list-name' );">
-				<div class="write-comic-up">
-					▲
-				</div>
-			</a>
-			<a href = "javascript:moveItem( 'D', 'file-list-name' );">
-				<div class="write-comic-down">
-					▼
-				</div>
-			</a>
-<!-- 		<a href = "javascript:moveItem( 'B', 'file-list-name' );">맨아래</a> -->
+			<button type="button" class="write-comic-up"> ▲ </button>
+			<button type="button" class="write-comic-down"> ▼ </button>
 
 	        
 			
@@ -165,7 +134,7 @@
 	
 	<script id="template" type="text/x-handlebars-template">
 		<div class="uploadedList">
-			<img src="{{imgsrc}}" class="submit-yet" style="width:300px;" alt="Attachment">
+			<img src="{{imgsrc}}" class="submit-yet" alt="Attachment">
 			<div class="mailbox-attachment-info" style="width:200px;">
 					<a href="{{getLink}}" target="_blank" class="mailbox-attachment-name">{{fileName}}</a>
 					<small data-src="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn">
@@ -216,8 +185,14 @@
 	        	uploadFileList(file);
 	        }
 	    	
-			
+	    	console.log("file-upload-input change");
+	    	$(".upload-file-list").removeClass("hide");
+	    	
+	    	var optionlength = $("select[name='file-list-name'] option").length
+	    	var selectHeight = 20*optionlength + 20;
+	    	$(".write-comic").css("grid-template-rows", "100px 100px 42px "+ selectHeight + "px 150px 42px");
 	    });
+		
 		var arr = [];
 // 		var registedArr = [];
 		var listArr = [];
@@ -227,15 +202,27 @@
 		$('#file-delete-button').click(function (e) {
 			e.preventDefault();
 			
-			var dataSrc = $("select[name='file-list-name'] option:selected").attr("data-src");
-			console.log("dataSrc = " + dataSrc);
-			deleteArr.push(dataSrc);
-
-			var front = dataSrc.substring(0, 12);
-			var end = dataSrc.substring(12);
+// 			var dataSrc = $("select[name='file-list-name'] option:selected").attr("data-src");
 			
-			var thumbnailSrc = front + "s_" + end;
-			deleteArr.push(thumbnailSrc);
+			var dataSrc = "";
+			$("select[name='file-list-name'] option:selected").each(function () {
+				   var $this = $(this);
+				   if ($this.length) {
+				    dataSrc = $this.attr("data-src");
+					console.log("dataSrc = " + dataSrc);
+				    deleteArr.push(dataSrc);
+				   }
+				});
+			
+			
+			
+// 			deleteArr.push(dataSrc);
+
+// 			var front = dataSrc.substring(0, 12);
+// 			var end = dataSrc.substring(12);
+			
+// 			var thumbnailSrc = front + "s_" + end;
+// 			deleteArr.push(thumbnailSrc);
 			
 			$("select[name='file-list-name'] option:selected").remove();
 				/* $.ajax({
@@ -250,7 +237,17 @@
 						}
 					}
 				}); */
-		    });
+				
+			var optionlength = $("select[name='file-list-name'] option").length
+			var selectHeight = 0;
+			if(optionlength != 0){
+		    	selectHeight = 20*optionlength + 20;
+			}else{
+		    	$(".upload-file-list").addClass("hide");
+			}
+	    	$(".write-comic").css("grid-template-rows", "100px 100px 42px "+ selectHeight + "px 150px 42px");
+		
+		});
 		
 		$("#registerForm").submit(function(event){
 			event.preventDefault();
@@ -375,6 +372,7 @@
 				dataType : 'text',
 				processData : false,
 				contentType : false,
+				async: false,
 				type : 'POST',
 				success : function(data) {
 					console.log("uploadFileList data = " + data);
@@ -492,83 +490,30 @@
 		    }
 		}
 		
-		/**
-		 * 위치 이동
-		 *
-		 * @param type U(위), D(아래), T(맨위), B(맨아래) 의 위치 이동 키
-		 * @param formName 셀렉트 박스명
-		 */
-		function moveItem(type, formName) {
-		    var sel = document.getElementsByName(formName)[0];
+			
+		$(".write-comic-up").click(function () {
+	    	var count = 0;
+			$("select[name='file-list-name'] option:selected").each( function() {
+				var newPos = $("select[name='file-list-name'] option").index(this) -1;
+				if (newPos > -1 && newPos - count > -1) {
+					$(this).insertBefore($(this).prev());
+				}
+				count++;
+			});
+		});
 		
-		    var index = sel.selectedIndex;
+		$(".write-comic-down").click(function () {
+	    	var count = 0;
+	    	var optionLength = $("select[name='file-list-name'] option").length;
+			$($("select[name='file-list-name'] option:selected").get().reverse()).each( function() {
+				var newPos = $("select[name='file-list-name'] option").index(this) +1;
+				if (newPos < optionLength && newPos + count < optionLength) {
+					$(this).insertAfter($(this).next());
+				}
+				count++;
+			});
+		});
 		
-		    if (type == "U") {
-		        if (index > 0) {
-		            swap(sel, index, index - 1);
-		        }
-		    } else if (type == "D") {
-		        if (index < sel.options.length - 1) {
-		            swap(sel, index, index + 1);
-		        }
-		    } else if (type == "T") {
-		        for (var i = index; i > 0; i--) {
-		            swap(sel, i, i - 1);
-		        }
-		    } else if (type == "B") {
-		        for (var i = index; i < sel.options.length - 1; i++) {
-		            swap(sel, i, i + 1);
-		        }
-		    }
-		}
-		
-		/**
-		 * 실제 데이터 교체를 담당
-		 *
-		 * @param selectedOption 셀렉트 박스
-		 * @param index 현재 위치
-		 * @param targetIndex 이동 위치
-		 */
-		function swap(selectedOption, index, targetIndex) {
-		    var onetext = selectedOption.options[targetIndex].text;
-		    var onevalue = selectedOption.options[targetIndex].value;
-		
-		    selectedOption.options[targetIndex].text = selectedOption.options[index].text;
-		    selectedOption.options[targetIndex].value = selectedOption.options[index].value;
-		    selectedOption.options[index].text = onetext;
-		    selectedOption.options[index].value = onevalue;
-		    selectedOption.options.selectedIndex = targetIndex;
-		
-		    selectedOption.options[targetIndex].selected = true;
-		}
-		
-		/**
-		 * 지정한 위치로 데이터를 이동 시킴
-		 * 
-		 * @param fromFormName 본 항목을 포함하는 폼명
-		 * @param toFormName 이동할 폼명
-		 */
-		function moveAnotherForm(fromFormName, toFormName) {
-		    var from = document.getElementsByName(fromFormName)[0];
-		    var to = document.getElementsByName(toFormName)[0];
-		
-		    // 다중 선택시 이동을 위함
-		    while (true) {
-		        if (from.selectedIndex != -1) {
-		            // 이동할 항목의 데이터를 추출하여
-		            var text = from.options[from.selectedIndex].text;
-		            var value = from.options[from.selectedIndex].value;
-		
-		            // 이동될 위치에 새로 삽입한 후
-		            insertItem(text, value, toFormName);
-		
-		            // 기존 항목은 삭제함
-		            from.remove(from.selectedIndex);
-		        } else {
-		            break;
-		        }
-		    }
-		}
 		
 		</script>
 

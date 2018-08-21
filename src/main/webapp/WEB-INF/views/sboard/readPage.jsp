@@ -480,30 +480,30 @@
 		
 		$(document).ready(function() {
 			var regdate = $(".raw-time").text().trim();			
-			console.log("raw-time span regdate = " + regdate);
+			//console.log("raw-time span regdate = " + regdate);
 			var regdateArr = [];
 			regdateArr = regdate.split("-");
 			for(i=0; i<regdateArr.length; i++){
-				console.log("regdateArr["+i+"] = " + regdateArr[i]);				
+				//console.log("regdateArr["+i+"] = " + regdateArr[i]);				
 			}
 			
-			console.log("regdateArr[3] = " + regdateArr[3]);
+			//console.log("regdateArr[3] = " + regdateArr[3]);
 // 			regdateArr[3] = regdateArr[3]+9;
-			console.log("regdateArr[3] = " + regdateArr[3]);
+			//console.log("regdateArr[3] = " + regdateArr[3]);
 			
 			var regdateTime = new Date(regdateArr[0], regdateArr[1]-1, regdateArr[2], regdateArr[3], regdateArr[4], regdateArr[5], 0).getTime();;
 			regdateTime = regdateTime / 1000;
 			var current = new Date();
-			console.log("current = " + current);
+			//console.log("current = " + current);
 			
 			var currentTime = current.getTime();
 			currentTime = currentTime/1000;
-			console.log("currentTime = " + currentTime);
-			console.log("regdate = " + regdate);
-			console.log("regdateTime = " + regdateTime);
+// 			console.log("currentTime = " + currentTime);
+// 			console.log("regdate = " + regdate);
+// 			console.log("regdateTime = " + regdateTime);
 
 			var diff = currentTime - regdateTime;
-			console.log("diff = " + diff);
+// 			console.log("diff = " + diff);
 			
 			var year = regdateArr[0];
 			var month = regdateArr[1];
@@ -545,7 +545,7 @@
 			
 			getPage("/replies/"+bno+"/"+replyPage);
 			getLikeList();
-			console.log("login.uid = " + '${login.uid}');
+			//console.log("login.uid = " + '${login.uid}');
 			subscribedList('${boardVO.uid}', '${login.uid}');
 // 			$(".unsubscribeBtn").hide();
 			
@@ -561,19 +561,19 @@
 //	});
 	
 	Handlebars.registerHelper("prettifyDate", function(timeValue){
-		console.log("timeValue = " + timeValue);
+// 		console.log("timeValue = " + timeValue);
 		var regdate = new Date(timeValue);
 		var regdateTime = new Date(timeValue).getTime();
 		regdateTime = regdateTime / 1000;
-		console.log("regdateTime = " + regdateTime);
+// 		console.log("regdateTime = " + regdateTime);
 		
 		var current = new Date();
 		var currentTime = new Date().getTime();
 		currentTime = currentTime / 1000;
-		console.log("currentTime = " + currentTime);
+// 		console.log("currentTime = " + currentTime);
 		
 		var diff = currentTime - regdateTime;
-		console.log("diff = " + diff);
+// 		console.log("diff = " + diff);
 		var year = regdate.getFullYear();
 		var month = regdate.getMonth() + 1;
 		var date = regdate.getDate();
@@ -610,7 +610,7 @@
 				
 				var html = template(replyArr);
 				
-				console.log("replyArr = " + replyArr);
+// 				console.log("replyArr = " + replyArr);
 				
 				$(".replyLi").remove();
 				target.after(html);
@@ -640,7 +640,7 @@
 			
 			var formObj = $("form[role='modifyForm']");
 
-			console.log(formObj);
+// 			console.log(formObj);
 			
 			
 			$(".modifyPageBtn").on("click", function() {
@@ -667,31 +667,31 @@
 				var thumbnailSrc =  "${boardVO.boardFullName}"
 				var dataSrc;
 				var fileList = "${boardVO.fileList}";
-				console.log("fileList = " + fileList);
+// 				console.log("fileList = " + fileList);
 		        var fileArray = fileList.split("<br>");
 
-		        console.log("thumbnailSrc = " + thumbnailSrc);
+// 		        console.log("thumbnailSrc = " + thumbnailSrc);
 			    deleteArr.push(thumbnailSrc);
 		        
 		        front = thumbnailSrc.substring(0, 12);
 		        end = thumbnailSrc.substring(14);
 		        dataSrc = front + end;
 		        
-		        console.log("thumbnail dataSrc = " + dataSrc);
+// 		        console.log("thumbnail dataSrc = " + dataSrc);
 		        deleteArr.push(dataSrc);
 			        
 			        
 		        for(var i=0; i<fileArray.length-1; i++){
 		        	
 		        	var fileNameLength = fileArray[i].length - 2;
-		        	console.log('fileArray[' + i + '] = ' + fileArray[i]);
+// 		        	console.log('fileArray[' + i + '] = ' + fileArray[i]);
 		        	var value = fileArray[i].substring(10, fileNameLength);
 		        	var dataSrc = fileArray[i].substring(32, fileNameLength);
 		        	var fileName = fileArray[i].substring(81, fileNameLength);
 		        	
-		        	console.log('value = ' + value);
-			        console.log('list dataSrc = ' + dataSrc);
-			        console.log('fileName = ' + fileName);
+// 		        	console.log('value = ' + value);
+// 			        console.log('list dataSrc = ' + dataSrc);
+// 			        console.log('fileName = ' + fileName);
 			        front = dataSrc.substring(0, 12);
 					end = dataSrc.substring(12);
 					thumbnailSrc = front + "s_" + end;
@@ -704,7 +704,7 @@
 		        
 		        
 		        for(var i=0; i<deleteArr.length; i++){
-			        console.log("deleteArr["+i+"] = " + deleteArr[i]);
+// 			        console.log("deleteArr["+i+"] = " + deleteArr[i]);
 		        }
 				/* $(".uploadedList li").each(function(index){
 					arr.push($(this).attr("data-src"));
@@ -721,7 +721,7 @@
 				
 			});
 
-				console.log("document.referrer = " +  document.referrer);			
+// 				console.log("document.referrer = " +  document.referrer);			
 				//console.log(strArray[3]);
 			$("#listPageBtn").on("click", function() {
 				formObj.attr("method", "get");
@@ -767,9 +767,9 @@
 					dataType : 'text',
 					data : JSON.stringify({bno:bno, uid:uid, uname:uname, replytext:replytext}),
 					success:function(result){
-						console.log("result:" + result);
+// 						console.log("result:" + result);
 						if(result=='SUCCESS'){
-							alert("등록 되었습니다.");
+// 							alert("등록 되었습니다.");
 							replyPage=1;
 							getPage("/replies/"+bno+"/"+replyPage);
 							//uidObj.val("");
@@ -800,7 +800,7 @@
 				var bno = ${boardVO.bno};
 				var uid = '${login.uid}';
 				var lpo = '1';
-				console.log("uid = " + uid);
+// 				console.log("uid = " + uid);
 				$.ajax({
 					type : 'post',
 					url : '/likes/',
@@ -810,9 +810,9 @@
 					dataType : 'text',
 					data : JSON.stringify({bno:bno, uid:uid, lpo:lpo}),
 					success:function(result){
-						console.log("result:" + result);
+// 						console.log("result:" + result);
 						if(result=='SUCCESS'){
-							alert("등록 되었습니다.");
+// 							alert("등록 되었습니다.");
 							$("#likeAddBtn").hide();
 							$("#likeDelBtn").show();
 							$("#dislikeAddBtn").show();
@@ -832,7 +832,7 @@
 				var bno = ${boardVO.bno};
 				var uid = '${login.uid}';
 				var lpo = '1';
-				console.log("uid = " + uid);
+// 				console.log("uid = " + uid);
 				$.ajax({
 					type : 'post',
 					url : '/likes/delete/',
@@ -842,9 +842,9 @@
 					dataType:'text',
 					data : JSON.stringify({bno:bno, uid:uid, lpo:lpo}),
 					success:function(result){
-						console.log("result : " + result);
+// 						console.log("result : " + result);
 						if(result == 'SUCCESS'){
-							alert("삭제 되었습니다.");
+// 							alert("삭제 되었습니다.");
 							$("#likeAddBtn").show();
 							$("#likeDelBtn").hide();
 							$("#dislikeAddBtn").show();
@@ -864,7 +864,7 @@
 				var bno = ${boardVO.bno};
 				var uid = '${login.uid}';
 				var lpo = '-1';
-				console.log("uid = " + uid);
+// 				console.log("uid = " + uid);
 				$.ajax({
 					type : 'post',
 					url : '/likes/',
@@ -874,9 +874,9 @@
 					dataType : 'text',
 					data : JSON.stringify({bno:bno, uid:uid, lpo:lpo}),
 					success:function(result){
-						console.log("result:" + result);
+// 						console.log("result:" + result);
 						if(result=='SUCCESS'){
-							alert("등록 되었습니다.");
+// 							alert("등록 되었습니다.");
 							$("#likeAddBtn").show();
 							$("#likeDelBtn").hide();
 							$("#dislikeAddBtn").hide();
@@ -896,7 +896,7 @@
 				var bno = ${boardVO.bno};
 				var uid = '${login.uid}';
 				var lpo = '-1';
-				console.log("uid = " + uid);
+// 				console.log("uid = " + uid);
 				$.ajax({
 					type : 'post',
 					url : '/likes/delete/',
@@ -906,9 +906,9 @@
 					dataType:'text',
 					data : JSON.stringify({bno:bno, uid:uid, lpo:lpo}),
 					success:function(result){
-						console.log("result : " + result);
+// 						console.log("result : " + result);
 						if(result == 'SUCCESS'){
-							alert("삭제 되었습니다.");
+// 							alert("삭제 되었습니다.");
 							$("#likeAddBtn").show();
 							$("#likeDelBtn").hide();
 							$("#dislikeAddBtn").show();
@@ -964,7 +964,7 @@
 
 	
     function getLikeList(){
-        console.log("getLikeList start");
+//         console.log("getLikeList start");
         var bno = ${boardVO.bno};
         var uid = '${login.uid}';
         var str = "";
@@ -977,7 +977,7 @@
             dataType:'json',
             data : JSON.stringify({bno:bno, uid:uid}),
             success:function(result){
-                console.log("getLikeList result.length : " + result.length);
+//                 console.log("getLikeList result.length : " + result.length);
                 if(result.length == 0){
                     $("#likeAddBtn").show();
                     $("#likeDelBtn").hide();
@@ -1010,12 +1010,12 @@
     
 	
     function getPage(pageInfo){
-        console.log("pageInfo = " +pageInfo);
+//         console.log("pageInfo = " +pageInfo);
         $.getJSON(pageInfo,function(data){
             printData(data.list, $("#repliesDiv"), $('#template'));
-            console.log("data.list.length = " + data.list.length);
+//             console.log("data.list.length = " + data.list.length);
             for(i=0; i<data.list.length; i++){
-            	console.log("data.list[" + i + "].rno = " + data.list[i].rno);
+//             	console.log("data.list[" + i + "].rno = " + data.list[i].rno);
             	//$(".repliesDiv").parents().css('background-color','red');
             	//console.log('Object.keys(data)', Object.keys(data));
             	var rno = data.list[i].rno;
@@ -1040,12 +1040,12 @@
 					alert("로그인이 필요합니다");
 					location.href="/user/login";
 				}else{
-				console.log("replylikeAddBtn clicked");
+// 				console.log("replylikeAddBtn clicked");
 				var rno = $(this).parent().parent().find('.modal-footer').attr('data-rno');
-				console.log("rno = " + rno);
+// 				console.log("rno = " + rno);
 				var uid = '${login.uid}';
 				var rlpo = '1';
-				console.log("uid = " + uid);
+// 				console.log("uid = " + uid);
 				$.ajax({
 					type : 'post',
 					url : '/replylikes/',
@@ -1056,9 +1056,9 @@
 					data : JSON.stringify({rno:rno, uid:uid, rlpo:rlpo}),
 					async: false,
 					success:function(result){
-						console.log("result:" + result);
+// 						console.log("result:" + result);
 						if(result=='SUCCESS'){
-							alert("등록 되었습니다.");
+							//alert("등록 되었습니다.");
 						}
 					}
 				});
@@ -1075,12 +1075,12 @@
 					alert("로그인이 필요합니다");
 					location.href="/user/login";
 				}else{
-				console.log("replylikeDelBtn clicked");
+// 				console.log("replylikeDelBtn clicked");
 				var rno = $(this).parent().parent().find('.modal-footer').attr('data-rno');
-				console.log("rno = " + rno);
+// 				console.log("rno = " + rno);
 				var uid = '${login.uid}';
 				var rlpo = '1';
-				console.log("uid = " + uid);
+// 				console.log("uid = " + uid);
 				$.ajax({
 					type : 'post',
 					url : '/replylikes/delete/',
@@ -1091,9 +1091,9 @@
 					data : JSON.stringify({rno:rno, uid:uid, rlpo:rlpo}),
 					async: false,
 					success:function(result){
-						console.log("result : " + result);
+// 						console.log("result : " + result);
 						if(result == 'SUCCESS'){
-							alert("삭제 되었습니다.");
+							//alert("삭제 되었습니다.");
 						}
 					}
 				});
@@ -1110,12 +1110,12 @@
 					alert("로그인이 필요합니다");
 					location.href="/user/login";
 				}else{
-				console.log("replydislikeAddBtn clicked");
+// 				console.log("replydislikeAddBtn clicked");
 				var rno = $(this).parent().parent().find('.modal-footer').attr('data-rno');
-				console.log("rno = " + rno);
+// 				console.log("rno = " + rno);
 				var uid = '${login.uid}';
 				var rlpo = '-1';
-				console.log("uid = " + uid);
+// 				console.log("uid = " + uid);
 				$.ajax({
 					type : 'post',
 					url : '/replylikes/',
@@ -1126,9 +1126,9 @@
 					data : JSON.stringify({rno:rno, uid:uid, rlpo:rlpo}),
 					async: false,
 					success:function(result){
-						console.log("result:" + result);
+// 						console.log("result:" + result);
 						if(result=='SUCCESS'){
-							alert("등록 되었습니다.");
+							//alert("등록 되었습니다.");
 						}
 					}
 				});
@@ -1145,12 +1145,12 @@
 					alert("로그인이 필요합니다");
 					location.href="/user/login";
 				}else{
-				console.log("replydislikeDelBtn clicked");
+// 				console.log("replydislikeDelBtn clicked");
 				var rno = $(this).parent().parent().find('.modal-footer').attr('data-rno');
-				console.log("rno = " + rno);
+				//console.log("rno = " + rno);
 				var uid = '${login.uid}';
 				var rlpo = '-1';
-				console.log("uid = " + uid);
+				//console.log("uid = " + uid);
 				$.ajax({
 					type : 'post',
 					url : '/replylikes/delete/',
@@ -1161,9 +1161,9 @@
 					data : JSON.stringify({rno:rno, uid:uid, rlpo:rlpo}),
 					async: false,
 					success:function(result){
-						console.log("result : " + result);
+						//console.log("result : " + result);
 						if(result == 'SUCCESS'){
-							alert("삭제 되었습니다.");
+							//alert("삭제 되었습니다.");
 						}
 					}
 				});
@@ -1177,10 +1177,10 @@
             
             
 			$(".replyModBtn").on("click",function(){
-				console.log("#replyModBtn clicked");
+				//console.log("#replyModBtn clicked");
 
 				var rno = $(this).parents().attr('data-rno');
-				console.log("rno = " + rno);
+				//console.log("rno = " + rno);
 		        $(this).parent().parent().find('#replytext').removeAttr("readonly").focus();
 		        
 				$(this).hide();
@@ -1190,12 +1190,12 @@
 			
 			
 			$(".replySubmitBtn").on("click",function(){
-				console.log("#replySubmitBtn clicked");		
+				//console.log("#replySubmitBtn clicked");		
 				
 				var rno = $(this).parents().attr('data-rno');
 				var replytext = $(this).parent().parent().find('#replytext').val();
-				console.log("rno = " + rno);
-				console.log("replytext = " + replytext);
+				//console.log("rno = " + rno);
+				//console.log("replytext = " + replytext);
 				
 				$.ajax({
 					type : 'put',
@@ -1206,9 +1206,9 @@
 					data : JSON.stringify({replytext:replytext}),
 					dataType : 'text',
 					success : function(result){
-						console.log("result : " + result);
+						//console.log("result : " + result);
 						if(result=='SUCCESS'){
-							alert("수정 되었습니다.");
+							//alert("수정 되었습니다.");
 							$('#replytext').attr("readonly", "readonly");
 					        $('#replyModBtn').show();
 					        $('#replySubmitBtn').hide();
@@ -1225,7 +1225,7 @@
 
 				var rno = $(this).parents().attr('data-rno');
 				//var replytext = $(this).parent().parent().find('#replytext').val(); //사용안함
-				console.log("rno = " + rno);
+				//console.log("rno = " + rno);
 				$.ajax({
 					type : 'delete',
 					url : '/replies/'+rno,
@@ -1234,9 +1234,9 @@
 						"X-HTTP-Method-Override": "DELETE" },
 					dataType:'text',
 					success:function(result){
-						console.log("result : " + result);
+						//console.log("result : " + result);
 						if(result == 'SUCCESS'){
-							alert("삭제 되었습니다.");
+							//alert("삭제 되었습니다.");
 							replyPage=1;
 							getPage("/replies/"+bno+"/"+replyPage);
 						}
@@ -1272,8 +1272,8 @@
     
     function replylikeInfo(rno, object){
     	
-		console.log("replylikeInfo start");
-		console.log("rno = " + rno);
+		//console.log("replylikeInfo start");
+		//console.log("rno = " + rno);
 		
 		
 		
@@ -1283,8 +1283,8 @@
 			$(data).each(function(){
 				var html_like = template_like(data);
 				var html_dislike = template_dislike(data);
-				console.log("replylike_template html = " + html_like);
-				console.log("replydislike_template html = " + html_dislike);
+				//console.log("replylike_template html = " + html_like);
+				//console.log("replydislike_template html = " + html_dislike);
 				
 				//object.parent().parent().find("#replylikeLi").remove();
 				object.parent().parent().find("#replylikeLi").remove();
@@ -1301,8 +1301,8 @@
 	}
     
     function getReplyLikeList(rno, object){
-        console.log("getReplyLikeList start");
-        console.log("rno = " + rno);
+        //console.log("getReplyLikeList start");
+        //console.log("rno = " + rno);
         var uid = '${login.uid}';
        	var result;
         $.ajax({
@@ -1314,7 +1314,7 @@
             dataType:'json',
             data : JSON.stringify({rno:rno, uid:uid}),
             success:function(result){
-                console.log("getReplyLikeList result.length : " + result.length);
+                //console.log("getReplyLikeList result.length : " + result.length);
                 if(result.length == 0){
                 	object.parent().find("#replyLikeAddBtn").show();
                 	object.parent().find("#replyLikeDelBtn").hide();
@@ -1419,19 +1419,19 @@
 	
 	<script> //subtitle print
 	function getThisSubtitle(tno, page){
-		console.log("click getSubtitle start getPage");
+		//console.log("click getSubtitle start getPage");
 		getThisPage("/sboard/"+tno+"/"+page+"/6", tno);
 		return 1;
 	};	
 	
 	function getThisPage(pageInfo, tno){
-		console.log("start getSubtitlePage");
+		//console.log("start getSubtitlePage");
 		$(".this-pagination").remove();
 		$(".thissubtitleLi").remove();
 		$.getJSON(pageInfo,function(data){
 			printData(data.list, $(".readpage-toggle-page"), $('#thissubtitle_template'));
 			thisPrintPaging(data.pageMaker, $(".this-pagination"), tno);
-			console.log("start subtitlecntSmall");
+			//console.log("start subtitlecntSmall");
 // 			$(".thissubtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
 		});
 		
@@ -1440,7 +1440,7 @@
 	
 	
 	var thisPrintPaging = function(pageMaker, target, tno){
-		console.log("start printPaging");
+		//console.log("start printPaging");
 		var str = "";
 		if(pageMaker.endPage != '1'){
 			if(pageMaker.prev){
@@ -1467,13 +1467,13 @@
 		var result = '${msg}';
 
 		if (result == 'SUCCESS') {
-			alert("처리가 완료되었습니다.");
+			//alert("처리가 완료되었습니다.");
 		}
 
 		$(document).ready(function() {
 			var formObj = $("form[role='form']");
 
-			console.log(formObj);
+			//console.log(formObj);
 
 			$(".btn-primary").on("click", function() {
 				self.location = "/board/register";
@@ -1492,10 +1492,10 @@
 		    var elemTop = $(elem).offset().top;
 		    var elemBottom = elemTop + $(elem).height();
 		    
-		    console.log("docViewTop = " + docViewTop);
-		    console.log("docViewBottom = " + docViewBottom);
-		    console.log("elemTop = " + elemTop);
-		    console.log("elemBottom = " + elemBottom);
+		    //console.log("docViewTop = " + docViewTop);
+		    //console.log("docViewBottom = " + docViewBottom);
+		    //console.log("elemTop = " + elemTop);
+		    //console.log("elemBottom = " + elemBottom);
 		    
 		    if(docViewBottom > elemBottom && count == 0){
 //  		    	alert("end");
@@ -1512,7 +1512,7 @@
 					dataType : 'text',
 					data : JSON.stringify({bno:bno, uid:uid}),
 					success:function(result){
-						console.log("result:" + result);
+						//console.log("result:" + result);
 						if(result=='SUCCESS'){
 // 							alert("처리 되었습니다.");
 						}

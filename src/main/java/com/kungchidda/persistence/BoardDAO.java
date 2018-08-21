@@ -46,4 +46,6 @@ public interface BoardDAO {
 	
 	public void readComplete(BoardVO vo) throws Exception;
 	
+	
+	
 }

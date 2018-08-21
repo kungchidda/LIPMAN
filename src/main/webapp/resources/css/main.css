@@ -121,7 +121,7 @@
         font-size: 50px;
         font-weight: bold;
         color: white;
-        padding-top: 75px;
+        padding-top: 75px ;
     }
 
 
@@ -129,6 +129,17 @@
     .cards {
         grid-template-areas: 
             "a a a a a a a a";
+/*             "a a a a a"; */
+    }
+}
+
+/* Web - 1440 */
+@media only screen and (max-width: 1440px) {
+	/* cards */
+    .cards {
+        grid-template-areas: 
+/*             "a a a a a a a a"; */
+            "a a a a a";
     }
 }
 

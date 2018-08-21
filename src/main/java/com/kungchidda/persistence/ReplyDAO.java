@@ -21,4 +21,5 @@ public interface ReplyDAO {
 	public int getBno(Integer rno) throws Exception;
 	
 	public void updateReplyLikeCnt(Integer bno) throws Exception;
+	
 }

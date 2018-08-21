@@ -1,6 +1,8 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -28,7 +30,7 @@
     <!--expander script-->
 
 	<!--<script src="/resources/js/expander.js"></script> -->
-
+	<script src="/resources/js/handlebars.js"></script>
 </head>
 
 
@@ -39,22 +41,25 @@
         <div class="brand">
             <a href="/"><img src="/resources/png/logo.png"></a>
         </div>
+        <c:if test="${not empty login}">
+	        <div class="noticeBtn ">
+	            <img class="dropbtn noticeFunction important-img" src="/resources/png/notice-1.png">
+	        </div>
+        </c:if>
         <div class="searchBtn ">
-            <img class="dropbtn" onclick="searchFunction()" src="/resources/png/search.png">
+            <img class="dropbtn searchFunction" src="/resources/png/search.png">
         </div>
         <!-- <div class="genreBtn ">
             <img class="dropbtn" onclick="genreFunction()" src="/resources/png/genre.png">
         </div> -->
-        <div class="noticeBtn ">
-            <img class="dropbtn" onclick="noticeFunction()" src="/resources/png/notice-1.png">
-        </div>
+        
         <div class="accountBtn ">
             <c:if test="${empty login}">
-            	<img class="dropbtn" onclick="myPageFunction()" src="/resources/png/account.png">
+            	<img class="dropbtn myPageFunction" src="/resources/png/account.png">
             </c:if>
             <!-- <a href="#"><span><img class="dropbtn" onclick="myPageFunction()" src="/resources/png/account.png"></span></a> -->
 			<c:if test="${not empty login}">
-				<form id="loginForm" role="form" action="/mypage/titleList" method="GET">
+				<form id="titleListForm" role="form" action="/mypage/titleList" method="GET">
 	 				<input type="hidden" name="uid" class="loginUid" value='${login.uid}'>
 	 				<button type="submit" class="accountBtn-login profile-img-button"><img src="/displayFile?fileName=${login.profileFullName}" id="header-profile-img"></button>
 	 				
@@ -142,90 +147,31 @@
         </div>
     </div>
 
-    
-    
     <div id="noticeBar" class="do-not-close dropdown-contents notice hide">
-        <div class="dropdown-notice do-not-close">
-            <div class="img-01 cursor do-not-close" onclick="window.location='#';">
-                <img class="do-not-close" src="/resources/images/overwatch.jpg">
-            </div>
-            <div class="text-01 cursor" onclick="window.location='#';">
-                voluptas, fugaalias sit quisquam quia culpa sapiente?
-            </div>
-            <div class="time-01">
-                1 hours ago
-            </div>
-
-            <div class="img-02 cursor" onclick="window.location='#';">
-                <img src="/resources/images/test-01.jpg">
-            </div>
-            <div class="text-02 cursor" onclick="window.location='#';">
-                consectetur adipisicing elit. Eumm quia culpa sapiente?
-            </div>
-            <div class="time-02">
-                2 hours ago
-            </div>
-
-            <div class="img-03 cursor" onclick="window.location='#';">
-                <img src="/resources/images/test-02.jpg">
-            </div>
-            <div class="text-03 cursor" onclick="window.location='#';">
-                delectus laborum, alias sit quisquam quia culpa sapiente.
-            </div>
-            <div class="time-03">
-                3 hours ago
-            </div>
-
-            <div class="img-04 cursor" onclick="window.location='#';">
-                <img src="/resources/images/overwatch.jpg">
-            </div>
-            <div class="text-04 cursor" onclick="window.location='#';">
-                vitae alias sit quisquam quia culpa sapiente!
-            </div>
-            <div class="time-04">
-                4 hours ago
-            </div>
-
-            <div class="img-05 cursor" onclick="window.location='#';">
-                <img src="/resources/images/test-03.jpg">
-            </div>
-            <div class="text-05 cursor" onclick="window.location='#';">
-                Eum placeat nesciunt vitae aborum, alias sit quisquam quia culpa sapiente?
-            </div>
-            <div class="time-05">
-                1 days ago
-            </div>
-
-            <div class="img-06 cursor" onclick="window.location='#';">
-                <img src="/resources/images/test-04.jpg">
-            </div>
-            <div class="text-06 cursor" onclick="window.location='#';">
-                fuga vitae accusantium alias sit quisquam quia culpa sapiente?
-            </div>
-            <div class="time-06">
-                2 hours ago
-            </div>
-        </div>
+    	<ul id="notifyList">
+	    </ul>
     </div>
-
 	<!-- 20180702 before -->
-    <c:if test="${empty login}">
+	<c:if test="${empty login}">
     <div id="myPageBar" class="do-not-close dropdown-contents mypage hide">
-        <form class="dropdown-mypage do-not-close" action="/user/loginPost" method="post">
+<!--         <form class="dropdown-mypage do-not-close" action="/user/loginPost" method="POST"> -->
+        <form class="dropdown-mypage do-not-close" id="loginForm" action="/user/loginPost" method="POST">
+        
             <input type="email" name="uid" class="login-id do-not-close" placeholder='E-mail' required>
             <div class="remember do-not-close">
+<!--             	<span><input type="checkbox" class="do-not-close" name="useCookie" value="true"></span> -->
             	<span><input type="checkbox" class="do-not-close" name="useCookie"></span>
-            	<span>Remember your E-mail</span>
+            	<span class="do-not-close">Remember your E-mail</span>
             </div>
             <input type="password" name="upw" class="login-pw do-not-close" placeholder='Password' required>
             <button type="submit" class="login-button do-not-close">Log-In</button>
             <div class="signupBtn do-not-close">
-	            <div class="signup-button dropbtn do-not-close" onclick="signupFunction()">
+	            <div class="signup-button dropbtn do-not-close signupFunction">
 	                Sign-Up
 	            </div>
             </div>
             <div class="forgotBtn do-not-close">
-	            <div class="forgot-button dropbtn do-not-close" onclick="forgotFunction()">
+	            <div class="forgot-button dropbtn do-not-close forgotFunction">
 	                Forgot Password
 	            </div>
             </div>
@@ -240,9 +186,9 @@
     <div id="forgotBar" class="do-not-close dropdown-contents forgot hide">
         <form class="dropdown-forgot do-not-close" role="forgotPasswordForm" action="/user/forgotPassword" method="get">
 <!--             <input type="email" name='uid' class="signup-email do-not-close" placeholder='E-mail' required> -->
-            <input type="email" name='uid' class="do-not-close" placeholder='E-mail' required>
+            <input type="email" name='uid' class="forgot-pw do-not-close" placeholder='E-mail' required>
          	<button type="submit" class="send-email do-not-close">Send</button>
-            <button class="cancel-btn dropbtn do-not-close" onclick="myPageFunction()">
+            <button type="button" class="cancel-btn dropbtn do-not-close myPageFunction">
                 Cancel
             </button>
         </form>
@@ -258,11 +204,11 @@
             <input type="text" name="uname" class="signup-nickname do-not-close" placeholder='Nick Name' required>
 <!--            	<div id="signup-submit" class="signup-button do-not-close">Sign-Up</div> -->
 			<button type="button" id="signup-submit" class="signup-button do-not-close">Sign-Up</button>
-            <div class="hadaccount-button dropbtn" onclick="myPageFunction()">
+            <div class="hadaccount-button dropbtn myPageFunction">
                 Had Account
             </div>
             <div class="forgotBtn do-not-close">
-	            <div class="forgot-button dropbtn" onclick="forgotFunction()">
+	            <div class="forgot-button dropbtn forgotFunction">
 	                Forgot Password
 	            </div>
             </div>
@@ -272,21 +218,258 @@
         </form>
     </div>
     </c:if>
-    
-
    
+		
 
-    <!-- <script>
-    function dropDownSearchBar(){
-    	console.log("click dropDownSearchBar");
-    	$(".header-grid").after("<div>click dropDownSearchBar</div>");
-    };
-    </script> -->
+   <script id="notifies-template" type="text/x-handlebars-template">
+
+		{{#each .}}
+			<li class="notifyLi expander do-not-close" >
+				<a href="{{url}}" class="notifyUrl do-not-close" id="{{nno}}">
+					<div class="notify-list-read do-not-close">{{ifCond readNotify}}</div>
+
+					<div class="img cursor do-not-close" onclick="window.location='#';">
+                		<img class="do-not-close notifyThumbnail" src="/displayFile?fileName={{notifyThumbnail}}">
+            		</div>
+            	
+					<div class="text cursor do-not-close">
+	        	        {{contents}}
+        	    	</div>
+
+    	        	<div class="time do-not-close">
+	                	{{prettifyDate regdate}}
+            		</div>
+					<div class="notifyDelete do-not-close">
+	                	×
+            		</div>
+				</a>
+			</li>
+		{{/each}}
+		<!-- <ul id="notifyPage" class="pagination do-not-close comic-list-pagi"></ul> -->
+	</script>
+	
+	<script id="no-notifies-template" type="text/x-handlebars-template">
+			<div class="no-notifyLi expander do-not-close hide">
+				<img class="no-notifyLi-img" src="/resources/images/check2.jpg">
+				<div class="no-notifyLi-text" >알림이 없습니다.</div>
+			</div>
+			
+	</script>
+
+	<script>
+	 if('${login.uid}' != null){
+	    	var receiver = '${login.uid}';		
+	    	$.ajax({
+	    		type : 'post',
+	    		url : "/notify/checkNewNotify/",
+	    		headers : {
+	    			"Content-Type" : "application/json",
+	    			"X-HTTP-Method-Override" : "POST" },
+	    		dataType : 'JSON',
+	    		data : JSON.stringify({receiver:receiver}),
+	    		async: false,
+	    		success:function(result){
+	    			if(result > 0){
+	    				$(".noticeFunction").attr("src","/resources/images/notify.jpg");
+	    			}
+	    		}
+	    	});
+	    }
+	</script>
+	
+	
     <script>
+    $(document).ready(function () {
+    var page = 1;
+    
+    
+    Handlebars.registerHelper("prettifyDate", function(timeValue){
+		console.log("timeValue = " + timeValue);
+		var regdate = new Date(timeValue);
+		var regdateTime = new Date(timeValue).getTime();
+		regdateTime = regdateTime / 1000;
+		console.log("regdateTime = " + regdateTime);
+		
+		var current = new Date();
+		var currentTime = new Date().getTime();
+		currentTime = currentTime / 1000;
+		console.log("currentTime = " + currentTime);
+		
+		var diff = currentTime - regdateTime;
+		console.log("diff = " + diff);
+		var year = regdate.getFullYear();
+		var month = regdate.getMonth() + 1;
+		var date = regdate.getDate();
+		
+		var prettifyDate;
+		    if(diff < 60) {
+		    	prettifyDate = "방금";
+		    } else if(diff >= 60 && diff < 3600) {
+		    	prettifyDate = Math.floor(diff/60) + "분 전";
+		    } else if(diff >= 3600 && diff < 86400) {
+		    	prettifyDate = Math.floor(diff/3600) + "시간 전";
+		    } else if(diff >= 86400 && diff < 2419200) {
+		    	prettifyDate = Math.floor(diff/86400) + "일 전";
+		    } else {
+		    	prettifyDate = year+"-"+month+"-"+date;
+		    }
+		     
+		    return prettifyDate;
+		});
+    
+    Handlebars.registerHelper('ifCond', function(readNotify) {
+		  if(readNotify == 0) {
+		    return '●';
+		  }
+		  /* if(readNotify == 1) {
+			    return '◑';
+		  } */
+		  if(readNotify == 1) {
+			    return '';
+		  }
+		  return '';
+	});
+	
+    
+	
+	var printNotify = function (notifyArr, target, templateObject){
+		
+		$(".no-notifyLi").remove();
+		
+		var template = Handlebars.compile(templateObject.html());
+		
+		var html = template(notifyArr);
+		
+		console.log("notifyArr = " + notifyArr);
+		
+//  		$(".notifyLi").remove(); //무한 스크롤
+		target.append(html);
+		
+	}
+	
+	 function getNotify(page){
+	    	console.log("page = " +page);
+	    	var receiver = '${login.uid}';
+	    	$.ajax({
+				type : 'post',
+				url : "/notify/notifyList/"+ page,
+				headers : {
+					"Content-Type" : "application/json",
+					"X-HTTP-Method-Override" : "POST" },
+				dataType : 'JSON',
+				data : JSON.stringify({receiver:receiver}),
+				async: false,
+				success:function(result){
+// 					console.log("result:" + result);
+// 					console.log("result.notifyList = " + result.notifyList);
+// 					console.log("result.pageMaker.totalCount = " + result.pageMaker.totalCount);
+					if(result.pageMaker.totalCount != 0 && page == 1 ){
+						$("#notifyList").append("<div class='notifyDeleteAll do-not-close'>Delete All</div>");
+					}
+					if(result.pageMaker.totalCount == 0 && page == 1 ){
+						printNotify(result.notifyList, $("#notifyList"), $('#no-notifies-template'));
+						$(".no-notifyLi").removeClass("hide").slideDown(300);
+						$(".noticeFunction").attr("src","/resources/png/notice-1.png")
+						
+					}else{
+						printNotify(result.notifyList, $("#notifyList"), $('#notifies-template'));
+					}
+					
+					var count = result.pageMaker.totalCount;
+					if(count > 4){
+						$("#noticeBar").addClass("notice-height");
+					}
+					$(".notifyLi").on("click",function(event) {
+			 			var nno = $(this).children().attr("id");
+			 			console.log("nno = " + nno);
+			 			
+			 			$.ajax({
+							type : 'post',
+							url : "/notify/readNotify/",
+							headers : {
+								"Content-Type" : "application/json",
+								"X-HTTP-Method-Override" : "POST" },
+							dataType : 'JSON',
+							data : JSON.stringify({nno:nno}),
+							async: false,
+							success:function(result){
+				    				
+							}
+								
+						});
+			 			
+					});
+					
+					$(".notifyDelete").on("click",function(event) {
+						event.preventDefault();
+			 			var nno = $(this).parent().attr("id");
+			 			console.log("nno = " + nno);
+			 			
+			 			$.ajax({
+							type : 'post',
+							url : "/notify/deleteNotify/",
+							headers : {
+								"Content-Type" : "application/json",
+								"X-HTTP-Method-Override" : "POST" },
+							dataType : 'JSON',
+							data : JSON.stringify({nno:nno}),
+							async: false,
+							success:function(result){
+								
+							}
+						});
+			 			count--;
+			 			if(count <= 4){
+							$("#noticeBar").removeClass("notice-height");
+						}
+						$(this).parent().parent().slideUp(300);
+			 			if(count<=0){
+			 				$(".notifyDeleteAll").slideUp(300);
+			 				
+			 				printNotify(result.notifyList, $("#notifyList"), $('#no-notifies-template'));
+			 				$(".no-notifyLi").removeClass("hide").slideDown(300);
+			 				$(".noticeFunction").attr("src","/resources/png/notice-1.png")
+			 			}
+			 			
+					});
+					
+					$(".notifyDeleteAll").on("click",function(event) {
+						event.preventDefault();
+			 			var receiver = '${login.uid}';
+			 			console.log("receiver = " + receiver);
+			 			
+			 			$.ajax({
+							type : 'post',
+							url : "/notify/deleteAllNotify/",
+							headers : {
+								"Content-Type" : "application/json",
+								"X-HTTP-Method-Override" : "POST" },
+							dataType : 'JSON',
+							data : JSON.stringify({receiver:receiver}),
+							async: false,
+							success:function(result){
+								
+							}
+						});
+// 						$(this).parent().parent().slideUp(300);
+						$(".notifyLi").slideUp(300);
+						$(".notifyDeleteAll").slideUp(300);
+						printNotify(result.notifyList, $("#notifyList"), $('#no-notifies-template'));
+						$(".no-notifyLi").removeClass("hide").slideDown(300);
+						$(".noticeFunction").attr("src","/resources/png/notice-1.png")
+					});
+					
+				}
+					
+			});
+	    	
+	    	
+	    }
+	 
         /* When the user clicks on the button, 
                             toggle between hiding and showing the dropdown content */
-        function searchFunction() {
-        	$('input').not(".loginUid, input[name='genre'], #keywordInput").val("");
+        $(".searchFunction").on("click",function() {
+        	$(".login-id, .login-pw, .forgot-pw, .signup-email, .signup-pw, .signup-repw, .signup-nickname").val("");
         	if($('.search').is(":visible")){
         		$("#searchBar").slideUp(300);
         	}else{
@@ -298,14 +481,22 @@
         	$("#myPageBar").slideUp(300);
         	$("#forgotBar").slideUp(300);
         	$("#signupBar").slideUp(300);
-        }
+        });
 
-        
-        function noticeFunction() {
-        	$('input').not(".loginUid, input[name='genre'], #keywordInput").val("");
+        $(".noticeFunction").on("click",function() {
+        	$(".login-id, .login-pw, .forgot-pw, .signup-email, .signup-pw, .signup-repw, .signup-nickname").val("");
         	if($('.notice').is(":visible")){
         		$("#noticeBar").slideUp(300);
         	}else{
+        		$("#notifyList").empty();
+        		if("${login.uid}"){
+        			page = 1;
+					getNotify(page);
+        		}else{
+        			$("#notifyList").append("로그인이 필요합니다.");
+        		}
+        		
+        		
         		$("#noticeBar").slideDown(300);
         	}
 
@@ -315,10 +506,11 @@
         	$("#forgotBar").slideUp(300);
         	$("#signupBar").slideUp(300);
         	
-        }
+        });
  
-        function myPageFunction() {
-        	$('input').not(".loginUid, input[name='genre'], #keywordInput").val("");
+        $(".myPageFunction").on("click",function() {
+        	
+        	$(".login-id, .login-pw, .forgot-pw, .signup-email, .signup-pw, .signup-repw, .signup-nickname").val("");
         	if($('.mypage').is(":visible")){
         		$("#myPageBar").slideUp(300);
         	}else{
@@ -331,10 +523,11 @@
         	$("#forgotBar").slideUp(300);
         	$("#signupBar").slideUp(300);
         	
-        }
+        });
         
-        function forgotFunction() {
-        	$('input').not(".loginUid, input[name='genre'], #keywordInput").val("");
+//         function forgotFunction() {
+        $(".forgotFunction").on("click",function() {
+        	$(".login-id, .login-pw, .forgot-pw, .signup-email, .signup-pw, .signup-repw, .signup-nickname").val("");
         	if($('.forgot').is(":visible")){
         		$("#forgotBar").slideUp(300);
         	}else{
@@ -347,10 +540,11 @@
 //         	$("#forgotBar").slideUp(300);
         	$("#signupBar").slideUp(300);
         	
-        }
+        });
         
-		function signupFunction() {
-			$('input').not(".loginUid, input[name='genre'], #keywordInput").val("");
+// 		function signupFunction() {
+		$(".signupFunction").on("click",function() {
+			$(".login-id, .login-pw, .forgot-pw, .signup-email, .signup-pw, .signup-repw, .signup-nickname").val("");
 			if($('.signup').is(":visible")){
 				$("#signupBar").slideUp(300);
         	}else{
@@ -363,12 +557,14 @@
         	$("#forgotBar").slideUp(300);
 //         	$("#signupBar").slideUp(300);
 			
-		}
+		});
+		
 
         // Close the dropdown menu if the user clicks outside of it
         window.onclick = function(event) {
             console.log("event.target.className = " + event.target.className);
             console.log("event.target.id = " + event.target.id);
+            
 
             if (!event.target.matches('.dropbtn') && !event.target.matches('.do-not-close') ) {
 
@@ -393,6 +589,21 @@
             }
         }
         
+         
+        /* $(".login-button").on("click",function(event){
+        	event.preventDefault();
+        	var useCookie = $("input[name='useCookie']").is(":checked");
+        	
+// 			console.log("useCookie = " + useCookie);
+        	alert("useCookie = " + useCookie);
+        	
+        	var formObj = $("#loginForm");
+        	formObj.submit();
+        	
+        }); */
+        
+        
+         
         $('#searchBar-button').on("click",function(event){
             //  $("#searchForm").submit(function(event){
               	event.preventDefault();
@@ -419,7 +630,7 @@
 						//$(this).get(0).submit();
               });
             
-              $(document).ready(function () {
+              
 //              var genreStr = "${MyPageVO.genre}";
 				var genreStr = '${cri.genre}';
 				console.log("genreStr = " + genreStr);
@@ -532,10 +743,24 @@
 					
 				});
 				
-				
-       
-       
-});
+				var useCookie = $("input[name='useCookie']").is(":checked");
+				console.log("useCookie = " + useCookie);
+			    $("#noticeBar").scroll(function() {
+			    	var elem = $("#noticeBar");
+
+// 			    	console.log("elem[0].scrollHeight = " + elem[0].scrollHeight);
+// 					console.log("elem.scrollTop() = " + elem.scrollTop());
+// 					console.log("elem.outerHeight() = " + elem.outerHeight());
+			    	
+			    	
+				    if ( elem[0].scrollHeight - elem.scrollTop() == elem.outerHeight()){
+					    page++;
+				    	console.log("page = " + page);
+				    	getNotify(page);
+					}
+
+					});
+			});
     </script>
 
 </body>

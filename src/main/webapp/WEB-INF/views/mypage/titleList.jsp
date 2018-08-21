@@ -41,7 +41,7 @@
 										</div>
 									</div>
 									<input type="hidden" name="uid" class="form-control" value='${login.uid}'>
-									<input type="file" id="upload-input" style="display: none;">
+									<input type="file" accept="image/*" id="upload-input" style="display: none;" required>
 									<script>
 										$(function() {
 											$('#fileDrop').click(function(e) {
@@ -52,7 +52,7 @@
 										});
 									</script>
 									<div class="comic-list-title do-not-close">
-										<input type="text" name='title' class="do-not-close input-title" placeholder="Comic Title">
+										<input type="text" name='title' class="do-not-close input-title" placeholder="Comic Title" required>
 									</div>
 								</div>
 								<div class="title-genre-checkbox do-not-close">
@@ -172,7 +172,7 @@
 												<img class="do-not-close" src="/displayFile?fileName=${MyPageVO.titleFullName}" style="display: inline;">
 											</div>
 										</div>
-										<input type="file" class="title-upload-input do-not-close" style="display: none;">
+										<input type="file" accept="image/*" class="title-upload-input do-not-close" style="display: none;">
 										
 										<div class="comic-list-genre do-not-close">
 											${MyPageVO.gname}
