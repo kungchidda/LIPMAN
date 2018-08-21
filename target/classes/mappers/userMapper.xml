@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.kungchidda.mappers.userMapper">
 
 	<select id="login" resultType="UserVO">
-		select u.uid, u.upw, u.uname, IFNULL(p.profileFullName, '/account.png') as profileFullName
+		select u.uid, u.upw, u.uname, IFNULL(p.profileFullName, '/account.png') as profileFullName, u.auth
 		from tbl_user u
 		
 		left outer join
@@ -14,6 +14,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		on u.uno = p.uno
 		
 		where uid = #{uid} and upw = #{upw}
+	</select>
+	
+	<select id="refresh" resultType="UserVO">
+		select u.uid, u.uname, IFNULL(p.profileFullName, '/account.png') as profileFullName
+		from tbl_user u
+		
+		left outer join
+		tbl_profile p
+		on u.uno = p.uno
+		
+		where uid = #{uid}
 	</select>
 	
 	<update id="keepLogin">
@@ -59,8 +70,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 		<update id="update">
 		update tbl_user set uname =#{uname}
+		, uid_p = IFNULL(#{uid_p}, '0')
+		, subscribe_p = IFNULL(#{subscribe_p}, '0')
+		, subscriber_p = IFNULL(#{subscriber_p}, '0')
+		, genre_p = IFNULL(#{genre_p}, '0')
 		<if test="upw != ''">
 		, upw = #{upw}
+		, forgotPassword = 0
 		</if> 
 		where uno = #{uno}
 	</update>
@@ -75,5 +91,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="deleteGenre">
 		delete from tbl_user_genre where uno = #{uno}
 	</delete>
+	
+	
+	<select id="existAccount" resultType="int">
+		select count(uid) from tbl_user where uid =#{uid}
+	</select>
+	
+	<update id="createAuthKey">
+		update tbl_user set authKey = #{authKey} where uid = #{uid}
+	</update>
+	
+	<update id="auth">
+		update tbl_user set auth = 1 where uid = #{uid} and authKey = #{authKey}
+	</update>
+	
+	<update id="forgotPassword">
+		update tbl_user set forgotPassword = 1, upw = #{upw} where uid = #{uid}
+	</update>
+	
+	<select id="forgotPasswordCheck" resultType="int">
+		select forgotPassword from tbl_user where uid =#{uid}
+	</select>
 	
 </mapper>

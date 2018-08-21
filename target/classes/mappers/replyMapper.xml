@@ -30,9 +30,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="listPage" resultType="ReplyVO">
 		select
-		*
+		r.rno, r.bno, r.replytext, r.uid, u.uname, IFNULL(p.profileFullName, '/account.png') as profileFullName, r.regdate, r.updatedate, r.replylikecnt, r.replydislikecnt
 		from
-		tbl_reply
+		tbl_reply r
+        
+        inner join
+        tbl_user u
+        on u.uid = r.uid
+        
+        left outer join
+        tbl_profile p
+        on u.uno = p.uno
+        
 		where
 		bno = #{bno}
 		order by rno desc
