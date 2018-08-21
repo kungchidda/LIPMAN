@@ -97,7 +97,7 @@ public class NotifyDAOImpl implements NotifyDAO{
 	
 	@Override
 	public int getLastInsertBno(String uid) throws Exception{
-		return session.selectOne(namespace + ".getLastInsertId", uid);
+		return session.selectOne(namespace + ".getLastInsertBno", uid);
 	}
 	
 	@Override
