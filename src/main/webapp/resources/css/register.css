@@ -1,9 +1,17 @@
 @charset "UTF-8";
 /*mypage-first*/
+
+select { 
+	-webkit-appearance: none; /* 네이티브 외형 감추기 */ 
+	-moz-appearance: none; 
+	appearance: none; 
+/* 	-webkit-appearance: menulist-button; */
+	}
+
 .write-comic {
     display: grid;
     grid-template-columns: 125px 125px 125px 125px;
-    grid-template-rows: 100px 100px 42px 5px 150px 42px;
+    grid-template-rows: 100px 100px 42px 0px 150px 42px;
     grid-template-areas: 
         "a b b b"
         "a c c c"
@@ -15,7 +23,6 @@
     padding-top: 25px;
     justify-content: center;
 }
-
 
 .write-comic .write-comic-thumbnail {
     grid-area: a;
@@ -76,11 +83,11 @@
     text-align: center;
 }
 
-.write-comic-up, .write-comic-down {
-    padding-top: 10px;
-    font-size: 15px;
-    height: 28px;
-}
+/* .write-comic-up, .write-comic-down { */
+/*     padding-top: 10px; */
+/*     font-size: 15px; */
+/*     height: 28px; */
+/* } */
 
 
 .write-comic .write-comic-file, .upload-file-list {
