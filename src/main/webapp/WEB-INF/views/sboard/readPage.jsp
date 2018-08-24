@@ -130,8 +130,53 @@
        <div class="comic-view">
 			<span><img src="/resources/png/view.png"></span>${boardVO.viewcnt}
        </div>
-       <div class="comic-link">
-           <a href="#"><span><img src="/resources/png/copy-link.png"></span>copy link</a>
+       <div class="comic-link" id="comicUrl">
+			<div onclick="copyLink()"><span><img src="/resources/png/copy-link.png"></span>copy link</div>
+<!-- 			<div><span><img src="/resources/png/copy-link.png"></span>copy link</div> -->
+			<script>
+// 			$("#comicUrl").on("click", function() {
+			function copyLink(){
+				 var t = document.createElement("textarea");
+// 				  document.body.appendChild(t);
+				  document.getElementById("comicUrl").appendChild(t);
+				  
+				  t.value = "https://lipman.app/sboard/readPage?bno="+'${boardVO.bno}';
+// 				  t.select();
+// 				  t.contenteditable = true;
+// 				  t.readonly = false;
+				  
+				  var isiOSDevice = navigator.userAgent.match(/ipad|iphone/i);
+
+					if (isiOSDevice) {
+					  
+						var editable = t.contentEditable;
+						var readOnly = t.readOnly;
+
+						t.contentEditable = true;
+						t.readOnly = false;
+
+						var range = document.createRange();
+						range.selectNodeContents(t);
+
+						var selection = window.getSelection();
+						selection.removeAllRanges();
+						selection.addRange(range);
+
+						t.setSelectionRange(0, 99999999);
+						t.contentEditable = editable;
+						t.readOnly = readOnly;
+
+					} else {
+					 	t.select();
+					}
+				    
+				  document.execCommand('copy');
+// 				  document.body.removeChild(t);
+				  document.getElementById("comicUrl").removeChild(t);
+				  alert('URL이 복사 되었습니다.');
+			}
+// 			});
+			</script>
        </div>
        <div class="writer-subscribe">
 			<span>
