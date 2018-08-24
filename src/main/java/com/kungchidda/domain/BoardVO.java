@@ -24,6 +24,8 @@ public @Data class BoardVO {
 	
 	
 	private String[] files;
+	private String[] tags;
+	private String tag;
 	
 	private String titleFullName;
 	private String boardFullName;

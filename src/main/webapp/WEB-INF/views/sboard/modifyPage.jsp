@@ -45,7 +45,7 @@
 				});
 			</script>
 	        <input type="hidden" id='fileList' name='fileList' class="form-control">
-	        <select class="upload-file-list" name="file-list-name" size="25" multiple>
+	        <select class="upload-file-list hide" name="file-list-name" multiple>
 	        </select>
 	        
 	        <script>
@@ -67,6 +67,11 @@
 			        var str = '<option class="file-list-value" data-src=' + dataSrc + ' value=' + value + '>' + fileName + '</option>';
 			        console.log('str = ' + str);
 			        $('.upload-file-list').append(str);
+			        
+			        $(".upload-file-list").removeClass("hide");
+			        var optionlength = $("select[name='file-list-name'] option").length
+			    	var selectHeight = 20*optionlength + 20;
+			    	$(".write-comic").css("grid-template-rows", "100px 100px 42px "+ selectHeight + "px 150px 150px 42px");
 			        
 		        }
 	        </script>
@@ -93,16 +98,54 @@
 			
             <textarea type="text" id="content" name="content" class="write-comic-comment" placeholder="Comment">${boardVO.content}</textarea>
 
+            <div class="write-comic-tags">
+				<input type="text" id="tags" name="tags" class="write-comic-tags-input" placeholder="Tags" />
+				            	
+            </div>
+
             <button class="write-comic-preview">Preview</button>
             <button type="submit" class="write-comic-complete">Write</button>
-            <button class="write-comic-cancel">Cancel</button>
+            <button type="button" class="write-comic-cancel" onclick="location='javascript:history.back()'">Cancel</button>
 	    </div>
-		
-		
-		
-		
 	</form>
+	<form id="previewForm" class="hide" method="post" target="preview"  action="/sboard/previewPage">
+		<input type='hidden' name='boardFullName' id="previeBoardFullName">
+		<input type="hidden" name='title' id="previewTitle" value='${titleVO.title}' readonly>
+		<input type="hidden" name='subtitle' id="previewSubtitle" placeholder="Subtitle" required>
+		<input type="hidden" name='fileList' id='previewFileList'>
+		<textarea id="previewContent" name="content" class="hide"></textarea>
+	</form>
+	
+	<script>
+	
+		var formObj = $("#previewForm");
+		var boardFullName = "";
+		$(".write-comic-preview").click(function () {
+			var regdate = new Date();
+			var previewSubtitle = $(".write-comic-subtitle").val();
+			var previewContent = $(".write-comic-comment").val();
+			var previeBoardFullName = $(".uploadedList .delbtn").attr("data-src"); 
+			$("#previewSubtitle").val(previewSubtitle);
+			$("#previewContent").val(previewContent);
+			$("#previeBoardFullName").val(previeBoardFullName);
+			
+			$(".file-list-value").each(function(index){
+				$("#previewFileList").val($("#previewFileList").val()+"<img src='" + $(this).attr("value") +"'><br>");
+			});
+			
+			
+// 			alert("boardFullName = " + boardFullName);
+// 			alert("previewSubtitle = " + $("#previewSubtitle").val());
+// 			alert("previewContent = " + $("#previewContent").val());
+// 			alert("previewFileList = " + $("#previewFileList").val());
+// 			checkUnload = false;
+			
+			window.open('', 'preview', 'width=1000, height=700');
 
+			formObj.submit();
+			
+		});
+	</script>
 	
 	<script type="text/javascript" src="/resources/js/upload.js"></script>
 <!-- 	<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script> -->
@@ -110,7 +153,7 @@
 	
 	<script id="template" type="text/x-handlebars-template">
 		<div class="uploadedList">
-			<img src="{{imgsrc}}" class="submit-yet" style="width:300px;" alt="Attachment">
+			<img src="{{imgsrc}}" class="submit-yet" alt="Attachment">
 			<div class="mailbox-attachment-info" style="width:200px;">
 					<a href="{{getLink}}" target="_blank" class="mailbox-attachment-name">{{fileName}}</a>
 					<small data-src="{{fullName}}" class="btn btn-default btn-xs pull-right delbtn">
@@ -122,6 +165,7 @@
 	
 	
 	<script>
+	$(document).ready(function() {
 		var template = Handlebars.compile($("#template").html());
 		
 		$("#thumbnail-file-drop").on("dragenter dragover", function(event){
@@ -149,13 +193,6 @@
 	        	var file = event.target.files[i]
 				uploadFile(file);
 	        }
-	    	
-	    	console.log("file-upload-input change");
-	    	$(".upload-file-list").removeClass("hide");
-	    	
-	    	var optionlength = $("select[name='file-list-name'] option").length
-	    	var selectHeight = 20*optionlength + 20;
-	    	$(".write-comic").css("grid-template-rows", "100px 100px 42px "+ selectHeight + "px 150px 42px");
 	    });
 		
 		$("#file-upload-input").on("change", function(event) {
@@ -168,7 +205,12 @@
 	        	uploadFileList(file);
 	        }
 	    	
-			
+	    	console.log("file-upload-input change");
+	    	$(".upload-file-list").removeClass("hide");
+	    	
+	    	var optionlength = $("select[name='file-list-name'] option").length
+	    	var selectHeight = 20*optionlength + 20;
+	    	$(".write-comic").css("grid-template-rows", "100px 100px 42px "+ selectHeight + "px 150px 42px");
 	    });
 		var arr = [];
 		var registedArr = [];
@@ -278,7 +320,20 @@
 				str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("data-src") +"'> ";
 				
 			});
+			
+			//var names = ["Mike","Matt","Nancy","Adam","Jenny","Nancy","Carl"];
+			var uniqueTags = [];
+			
+			$.each(tagList, function(i, tag){
+				if($.inArray(tag, uniqueTags) === -1) uniqueTags.push(tag);
+			});
+			
+			uniqueTags.forEach( function(tag, index){
+// 				console.log("tag = " + tag + ", index = " + index);
+				str += "<input type='hidden' name='tags["+index+"]' value='"+ tag +"'> ";
+			});
 
+			
 			that.append(str);
 			that.get(0).submit();
 			
@@ -423,10 +478,6 @@
 			
 		});
 	    
-	   
-	</script>
-	
-	 <script language="JavaScript">
 		/**
 		 * 셀렉트 박스에 아이템 추가
 		 *
@@ -489,6 +540,65 @@
 				count++;
 			});
 		});
+		
+		var tags = '${boardVO.tag}';
+		var tagList = [];
+		
+		tagList = tags.split(',');
+		tagList.forEach( function(tag, i){
+			console.log("tag = " + tag + ", index = " + i);
+			tag = tag.trim();
+			if(tag != ""){
+				var html = "<span class='tags-list'>" + tag + "<span class='remove-tags-list'>×</span></span>";
+				$('.write-comic-tags-input').before(html);
+			}
+		});
+		
+		
+		$('.write-comic-tags-input').keydown(function(e) {
+			console.log("keydown event = " + e.keyCode);
+			var tag = $('.write-comic-tags-input').val().trim();
+			if( ((e.keyCode == 32 || e.keyCode == 9) && tag != "")){
+				e.preventDefault();
+// 				if(tagList.length < 5){
+					console.log("keydown event = " + e.keyCode);
+					console.log("tag = " + tag);
+					var html = "<span class='tags-list'>" + tag + "<span class='remove-tags-list'>×</span></span>";
+					$('.write-comic-tags-input').val("");
+					$('.write-comic-tags-input').before(html);
+					
+					tagList.push(tag);
+// 				}else{
+// 					alert("Tag는 5개까지 등록 가능합니다.")
+// 				}
+			}
+			if(e.keyCode == 8 && tag == ""){
+				console.log("delete");
+				$(".tags-list:last").remove();
+				tagList.pop();
+			}
+		});
+		
+		$(document).on("click",".remove-tags-list",function(){ 
+			console.log("remove-tags-list test log");
+			var removeVal = $(this).parent().text();
+			removeVal = removeVal.substring(0, removeVal.length -1);
+			
+			tagList.splice(tagList.indexOf(removeVal),1); 
+			$(this).parent().remove();
+
+		});
+		
+		$('.write-comic-tags').click(function(e) {
+// 			console.log("write-comic-tags-input test log");
+			$('.write-comic-tags-input').focus();
+		});
+		
+
+		
+		
+	});
+
 		
 		</script>
 

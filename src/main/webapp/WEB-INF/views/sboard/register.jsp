@@ -75,17 +75,15 @@
 	        
 			
             <textarea type="text" id="content" name="content" class="write-comic-comment" placeholder="Comment"></textarea>
+            <div class="write-comic-tags">
+				<input type="text" id="tags" name="tags" class="write-comic-tags-input" placeholder="Tags"/>
+				            	
+            </div>
 
             <button type="button" class="write-comic-preview">Preview</button>
             <button type="submit" class="write-comic-complete">Write</button>
             <button type="button" class="write-comic-cancel" onclick="location='javascript:history.back()'">Cancel</button>
-            
-            
 	    </div>
-		
-		
-		
-		
 		
 	</form>
 	<form id="previewForm" class="hide" method="post" target="preview"  action="/sboard/previewPage">
@@ -146,6 +144,7 @@
 	
 	
 	<script>
+	$(document).ready(function() {
 		var template = Handlebars.compile($("#template").html());
 		
 		$("#thumbnail-file-drop").on("dragenter dragover", function(event){
@@ -190,7 +189,7 @@
 	    	
 	    	var optionlength = $("select[name='file-list-name'] option").length
 	    	var selectHeight = 20*optionlength + 20;
-	    	$(".write-comic").css("grid-template-rows", "100px 100px 42px "+ selectHeight + "px 150px 42px");
+	    	$(".write-comic").css("grid-template-rows", "100px 100px 42px "+ selectHeight + "px 150px 150px 42px");
 	    });
 		
 		var arr = [];
@@ -300,6 +299,18 @@
 				console.log(index);
 				str += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("data-src") +"'> ";
 				
+			});
+			
+			//var names = ["Mike","Matt","Nancy","Adam","Jenny","Nancy","Carl"];
+			var uniqueTags = [];
+			
+			$.each(tagList, function(i, tag){
+				if($.inArray(tag, uniqueTags) === -1) uniqueTags.push(tag);
+			});
+			
+			uniqueTags.forEach( function(tag, index){
+// 				console.log("tag = " + tag + ", index = " + index);
+				str += "<input type='hidden' name='tags["+index+"]' value='"+ tag +"'> ";
 			});
 
 			that.append(str);
@@ -447,9 +458,6 @@
 		});
 	    
 	   
-	</script>
-	
-	 <script language="JavaScript">
 		/**
 		 * 셀렉트 박스에 아이템 추가
 		 *
@@ -514,7 +522,47 @@
 			});
 		});
 		
+		var tagList = [];
+		$('.write-comic-tags-input').keydown(function(e) {
+			console.log("keydown event = " + e.keyCode);
+			var tag = $('.write-comic-tags-input').val().trim();
+			if( ((e.keyCode == 32 || e.keyCode == 9) && tag != "")){
+				e.preventDefault();
+// 				if(tagList.length < 5){
+					console.log("keydown event = " + e.keyCode);
+					console.log("tag = " + tag);
+					var html = "<span class='tags-list'>" + tag + "<span class='remove-tags-list'>×</span></span>";
+					$('.write-comic-tags-input').val("");
+					$('.write-comic-tags-input').before(html);
+					
+					tagList.push(tag);
+// 				}else{
+// 					alert("Tag는 5개까지 등록 가능합니다.")
+// 				}
+			}
+			if(e.keyCode == 8 && tag == ""){
+				console.log("delete");
+				$(".tags-list:last").remove();
+				tagList.pop();
+			}
+		});
 		
+		$(document).on("click",".remove-tags-list",function(){ 
+			console.log("remove-tags-list test log");
+			var removeVal = $(this).parent().text();
+			removeVal = removeVal.substring(0, removeVal.length -1);
+			
+			tagList.splice(tagList.indexOf(removeVal),1); 
+			$(this).parent().remove();
+
+		});
+		
+		$('.write-comic-tags').click(function(e) {
+			console.log("write-comic-tags-input test log");
+			$('.write-comic-tags-input').focus();
+		});
+		
+	});
 		</script>
 
 </body>
