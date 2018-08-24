@@ -59,8 +59,16 @@ a:visited {color: black;}
         width: 0 !important;
 }
 
+.dropdown-searchBar-01::-webkit-scrollbar {
+        width: 0 !important;
+        height: 0 !important;
+}
+
 /* Dropdown menu */
-.search {display: block; height: 180px;}
+.search {
+	display: block;
+	height: 180px;
+}
 .notice {
 	display: block; 
 /*     height: 400px; */
@@ -90,6 +98,7 @@ a:visited {color: black;}
 	grid-column-gap: 10px;
     padding-top: 20px;
     padding-bottom: 5px;
+    overflow-x: scroll;
 }
 
 .dropdown-searchBar-01 .dropdown-genre-01 {grid-area: c;}
@@ -1148,7 +1157,7 @@ a:visited {color: black;}
 	    grid-gap: 10px;
 	    padding-top: 20px;
 	    padding-bottom: 15px;
-	    overflow: scroll;
+	    overflow-x: scroll;
     }
     
     .dropdown-searchBar-01 span {
@@ -1366,7 +1375,7 @@ a:visited {color: black;}
 	    grid-gap: 10px;
 	    padding-top: 20px;
 	    padding-bottom: 15px;
-	    overflow: scroll;	    
+	    overflow-x: scroll;	    
     }
     
     .dropdown-searchBar-01 span {
