@@ -31,6 +31,8 @@
 
 	<!--<script src="/resources/js/expander.js"></script> -->
 	<script src="/resources/js/handlebars.js"></script>
+	<link rel="shortcut icon" href="/resources/favicon.ico">
+	<link rel="apple-touch-icon" sizes="120x120" href="/resources/apple-touch-icon-120x120.png?v=asdf">
 </head>
 
 
