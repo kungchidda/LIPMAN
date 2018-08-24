@@ -48,11 +48,11 @@ public class ReplyLikeServiceImpl implements ReplyLikeService {
 		notifyVO.setReceiver(replyVO.getUid());
 		
 		if(!notifyVO.getSender().equals(notifyVO.getReceiver()) && vo.getRlpo() == 1) {
-			notifyVO.setType("lno");
+			notifyVO.setType("rno");
 			notifyVO.setNotifyThumbnail("/noty2.jpg");
-			notifyVO.setUrl("/sboard/readPage?bno="+replyVO.getBno());
+			notifyVO.setUrl("/sboard/readPage?bno="+replyVO.getBno()+"#repliesDiv");
 //				notifyVO.setContents(userVO.getUname()+"님이 " + replyVO.getReplytext() + "을 좋아합니다. ");
-				notifyVO.setContents(replyVO.getReplytext() + "을 좋아합니다. ");
+				notifyVO.setContents("회원님의 \"" + replyVO.getReplytext() + "\" 댓글을 좋아합니다. ");
 				notifyDAO.create(notifyVO);
 			}
 //			else {

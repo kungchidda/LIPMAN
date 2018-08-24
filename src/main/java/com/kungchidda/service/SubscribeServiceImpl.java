@@ -48,7 +48,7 @@ public class SubscribeServiceImpl implements SubscribeService {
 			
 		
 			notifyVO.setType("sno");
-			notifyVO.setContents(userVO.getUname() + "님이 구독하였습니다.");
+			notifyVO.setContents(userVO.getUname() + "님이 회원님을 구독하였습니다.");
 			if(userVO.getProfileFullName() == null) {
 				userVO.setProfileFullName("/account.png");
 			}

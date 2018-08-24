@@ -53,7 +53,7 @@ public class LikeServiceImpl implements LikeService {
 			notifyVO.setNotifyThumbnail(boardVO.getBoardFullName());
 //			if(vo.getLpo() == 1) {
 //				notifyVO.setContents(userVO.getUname()+"님이 " + boardVO.getSubtitle() + "을 좋아합니다. ");
-				notifyVO.setContents(boardVO.getSubtitle() + "을 좋아합니다. ");
+				notifyVO.setContents("회원님의 \"" + boardVO.getSubtitle() + "\" 게시물을 좋아합니다. ");
 //			}
 //			else {
 //				notifyVO.setContents(userVO.getUname()+"님이 " + boardVO.getSubtitle() + "을 싫어합니다. ");
