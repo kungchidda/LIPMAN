@@ -11,19 +11,22 @@ select {
 .write-comic {
     display: grid;
     grid-template-columns: 125px 125px 125px 125px;
-    grid-template-rows: 100px 100px 42px 0px 150px 42px;
+    grid-template-rows: 100px 100px 42px 0px 150px 150px 42px;
     grid-template-areas: 
         "a b b b"
         "a c c c"
         "d e f g"
         "h h h h"
         "i i i i"
+        "k k k k"
         "j j j j";
     grid-gap: 15px;
     padding-top: 25px;
     justify-content: center;
 }
-
+.write-comic textarea{
+	resize: none;
+}
 .write-comic .write-comic-thumbnail {
     grid-area: a;
     justify-self: start;
@@ -53,7 +56,7 @@ select {
     align-self: start;
     justify-self: end;
     height: 10px;
-    color: #d3d3d3;  
+/*     color: #d3d3d3;   */
 }
 
 
@@ -98,6 +101,29 @@ select {
     grid-area: i;
 }
 
+.write-comic .write-comic-tags {
+    grid-area: k;
+}
+
+.write-comic .write-comic-tags-input {
+	font-size: 15px;
+    border: 0px;
+}
+.tags-list{
+	background: white;
+	border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 0px 5px 0px 5px;
+	margin: 5px 5px 5px 5px;
+}
+
+.write-comic .write-comic-tags-input:focus {
+  outline: none;
+}
+
+.remove-tags-list {
+	padding: 0px 5px 0px 5px;
+}
 
 .write-comic .write-comic-preview {
     grid-area: j;
@@ -129,7 +155,7 @@ select {
     height: 40px;
 }
 
-.write-comic .write-comic-comment, .write-comic-tag, .write-comic-file, .upload-file-list, .write-comic-subtitle {
+.write-comic .write-comic-comment, .write-comic-tag, .write-comic-file, .upload-file-list, .write-comic-subtitle, .write-comic-tags  {
     padding: 10px;
     font-size: 15px;
     border: 1px solid gray;

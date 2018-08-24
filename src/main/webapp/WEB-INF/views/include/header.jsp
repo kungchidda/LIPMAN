@@ -55,7 +55,7 @@
         
         <div class="accountBtn ">
             <c:if test="${empty login}">
-            	<img class="dropbtn myPageFunction" src="/resources/png/account.png">
+            	<img class="dropbtn myPageFunction" src="/resources/images/accountgray.jpg">
             </c:if>
             <!-- <a href="#"><span><img class="dropbtn" onclick="myPageFunction()" src="/resources/png/account.png"></span></a> -->
 			<c:if test="${not empty login}">
@@ -143,7 +143,7 @@
         
         <div class="dropdown-searchBar-02 do-not-close">
             <input type="text" name='keyword' id="keywordInput" value='' class="searchBar do-not-close" placeholder='Search Webtoons'>
-            <button type="submit" id="searchBar-button" class="searchBar-button do-not-close"><img class="do-not-close" src="/resources/png/search.png"></button>
+            <button type="submit" id="searchBar-button" class="searchBar-button do-not-close"><img class="do-not-close searchBar-button-img" src="/resources/png/search.png"></button>
         </div>
     </div>
 
@@ -225,10 +225,10 @@
 
 		{{#each .}}
 			<li class="notifyLi expander do-not-close" >
-				<a href="{{url}}" class="notifyUrl do-not-close" id="{{nno}}">
+				<a href="{{url}}" name="{{type_num}}" class="notifyUrl do-not-close" id="{{nno}}">
 					<div class="notify-list-read do-not-close">{{ifCond readNotify}}</div>
 
-					<div class="img cursor do-not-close" onclick="window.location='#';">
+					<div class="img cursor do-not-close">
                 		<img class="do-not-close notifyThumbnail" src="/displayFile?fileName={{notifyThumbnail}}">
             		</div>
             	
@@ -628,7 +628,7 @@
 				self.location = location
 						
 						//$(this).get(0).submit();
-              });
+        });
             
               
 //              var genreStr = "${MyPageVO.genre}";

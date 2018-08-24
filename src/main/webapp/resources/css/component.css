@@ -534,7 +534,7 @@ html{
 
 .subtitleLi a, .thissubtitleLi a{
     display: grid;
-    grid-template-columns: 10px 110px 240px;
+    grid-template-columns: 5px 110px 240px;
     grid-template-rows: 50px 50px;
     grid-template-areas: 
 	    "d a b" 
