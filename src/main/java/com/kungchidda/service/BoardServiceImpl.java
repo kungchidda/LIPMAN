@@ -41,11 +41,18 @@ public class BoardServiceImpl implements BoardService{
 		BoardVO boardVO = new BoardVO();
 		UserVO userVO = new UserVO();
 		SubscribeVO subscribeVO = new SubscribeVO();
+		String[] tags = board.getTags();
 		
 		if(files != null) {
 			for(String fileName : files) {
 				dao.addAttach(fileName);
 				notifyVO.setNotifyThumbnail(fileName);
+			}
+		}
+		
+		if(tags != null) {
+			for(String tag : tags) {
+				dao.addTags(bno, tag);
 			}
 		}
 		
@@ -107,13 +114,20 @@ public class BoardServiceImpl implements BoardService{
 		dao.update(board);
 		Integer bno = board.getBno();
 		
-		
 		String[] files = board.getFiles();
+		String[] tags = board.getTags();
 		
 		if(files !=null) {
 			dao.deleteAttach(bno);
 			for(String fileName : files) {
 				dao.replaceAttach(fileName, bno);
+			}
+		}
+		
+		dao.deleteTags(bno);
+		if(tags != null) {
+			for(String tag : tags) {
+				dao.addTags(bno, tag);
 			}
 		}
 	}
@@ -124,6 +138,7 @@ public class BoardServiceImpl implements BoardService{
 		dao.deleteAttach(bno);
 		dao.deleteReplyAll(bno);
 		dao.delete(bno);
+		dao.deleteTags(bno);
 	}
 	
 //	@Override

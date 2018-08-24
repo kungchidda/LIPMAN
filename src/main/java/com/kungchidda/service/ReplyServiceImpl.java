@@ -53,8 +53,8 @@ public class ReplyServiceImpl implements ReplyService {
 				userVO.setProfileFullName("/account.png");
 			}
 			notifyVO.setNotifyThumbnail(userVO.getProfileFullName());
-			notifyVO.setUrl("/sboard/readPage?bno="+boardVO.getBno());
-			notifyVO.setContents(vo.getUname() +"님이 " + boardVO.getSubtitle() + "에 댓글을 남겼습니다.\n" + "\"" + vo.getReplytext() + "\"");
+			notifyVO.setUrl("/sboard/readPage?bno="+boardVO.getBno()+"#repliesDiv");
+			notifyVO.setContents(vo.getUname() +"님이 " + boardVO.getSubtitle() + "에 댓글을 남겼습니다. " + "\"" + vo.getReplytext() + "\"");
 			
 			notifyDAO.create(notifyVO);
 		}

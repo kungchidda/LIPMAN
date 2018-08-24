@@ -64,8 +64,8 @@
 					<button type="button" class="removePageBtn">REMOVE</button>
 				</c:if>
             	<c:if test="${login.uid != boardVO.uid}">
-           			<button type="submit" class="subscribedCount subscribe subscribeBtn">SUBSCRIBE</button>
-					<button type="submit" class="subscribedCount subscribed unsubscribeBtn">SUBSCRIBED</button>
+           			<button type="submit" class="subscribedCount subscribe subscribeBtn do-not-close">SUBSCRIBE</button>
+					<button type="submit" class="subscribedCount subscribed unsubscribeBtn do-not-close">SUBSCRIBED</button>
 				</c:if>
 			</span>
         </div>
@@ -83,14 +83,14 @@
     <!--thumb-->
     <div class="evaluate ">
         <div class="evaluate-pencil">
-            <img src="/resources/png/pencil-g.png" id='likeAddBtn'>
-            <img src="/resources/png/pencil.png" id='likeDelBtn'>
+            <img src="/resources/png/pencil-g.png" class="do-not-close" id='likeAddBtn'>
+            <img src="/resources/png/pencil.png" class="do-not-close" id='likeDelBtn'>
         </div>
         <div class="evaluate-no-1 likesDiv">
         </div>
         <div class="evaluate-eraser"  >
-            <img src="/resources/png/eraser-g.png" id='dislikeAddBtn'>
-            <img src="/resources/png/eraser.png" id='dislikeDelBtn'>
+            <img src="/resources/png/eraser-g.png" class="do-not-close" id='dislikeAddBtn'>
+            <img src="/resources/png/eraser.png" class="do-not-close" id='dislikeDelBtn'>
         </div>
         <div class="evaluate-no-2 dislikesDiv">
         </div>
@@ -140,8 +140,8 @@
 					<button type="button" class="removePageBtn">REMOVE</button>
 				</c:if>
             	<c:if test="${login.uid != boardVO.uid}">
-           			<button type="submit" class="subscribedCount subscribe subscribeBtn">SUBSCRIBE</button>
-					<button type="submit" class="subscribedCount subscribed unsubscribeBtn">SUBSCRIBED</button>
+           			<button type="submit" class="subscribedCount subscribe subscribeBtn do-not-close">SUBSCRIBE</button>
+					<button type="submit" class="subscribedCount subscribed unsubscribeBtn do-not-close">SUBSCRIBED</button>
 				</c:if>
 			</span>
        </div>
@@ -349,11 +349,19 @@
 					</div> -->
 					<div class="comment">
 						
-						<textarea class="comment-text" id="newReplyText" placeholder="Comment" readonly>Login Please</textarea>
-            			<button type="button" class="comment-button"><img src="/resources/png/comic.png"></button>
+						<textarea class="comment-text do-not-close" id="newReplyText" placeholder="Comment" readonly>Login Please</textarea>
+            			<button type="button" class="comment-button do-not-close"><img src="/resources/png/comic.png"></button>
             			
             
 					</div>
+					<script>
+					$("#newReplyText, .comment-button").on("click",function(){
+						$("body").animate({ // top값에 맞게 스크롤이 움직인다.
+							"scrollTop": 0
+						},300);
+						$("#myPageBar").slideDown(300);
+					});
+					</script>
 				</c:if>
 	</div>
 					
@@ -386,7 +394,7 @@
  	<!--another comment-->
 	<script id="template" type="text/x-handlebars-template">
 		{{#each .}}
-		<li class="replyLi" data-rno={{rno}}>
+		<li class="replyLi" data-rno={{rno}} id={{rno}}>
     		<div class="another-comment">
 				<div class="another-user-image">
 						<form id="subscriberForm" role="form" action="/mypage/titleList" method="GET">
@@ -416,13 +424,13 @@
 				<!-- </div> -->
 
                 <div class="replylikesDiv another-comment-thumb" data-rno={{rno}}>
-                    <img src="/resources/png/pencil-g.png" class="replylike replylikeAddBtn" id="replyLikeAddBtn">
-                    <img src="/resources/png/pencil.png" class="replylike replylikeDelBtn" id="replyLikeDelBtn">
+                    <img src="/resources/png/pencil-g.png" class="replylike replylikeAddBtn do-not-close" id="replyLikeAddBtn">
+                    <img src="/resources/png/pencil.png" class="replylike replylikeDelBtn do-not-close" id="replyLikeDelBtn">
 					<span id="replylikeLi">
                     	{{replylikecnt}}
                 	</span>
-                    <img src="/resources/png/eraser-g.png" class="replydislike replydislikeAddBtn" id="replyDislikeAddBtn">
-                    <img src="/resources/png/eraser.png" class="replydislike replydislikeDelBtn" id="replyDislikeDelBtn">
+                    <img src="/resources/png/eraser-g.png" class="replydislike replydislikeAddBtn do-not-close" id="replyDislikeAddBtn">
+                    <img src="/resources/png/eraser.png" class="replydislike replydislikeDelBtn do-not-close" id="replyDislikeDelBtn">
 					<span id="replydislikeLi">
                     	{{replydislikecnt}}
                 	</span>
@@ -477,8 +485,8 @@
 	
 	
 	<script>
-		
 		$(document).ready(function() {
+// 	$(function() {
 			var regdate = $(".raw-time").text().trim();			
 			//console.log("raw-time span regdate = " + regdate);
 			var regdateArr = [];
@@ -729,7 +737,7 @@
 				if(strArray[3] == 'mypage'){
 					formObj.attr("action", "/mypage/titleList");				
 				}else{
-					formObj.attr("action", "/sboard/list");	
+					formObj.attr("action", "/sboard/list");
 				}
 				
 				formObj.submit();
@@ -795,7 +803,12 @@
 			$("#likeAddBtn").on("click",function(){
 				if('${login.uid}' == ""){
 					alert("로그인이 필요합니다");
-					location.href="/user/login";
+//						location.href="/user/login";
+// 					$(window).scrollTop();
+					$("body").animate({ // top값에 맞게 스크롤이 움직인다.
+						"scrollTop": 0
+					},300);
+					$("#myPageBar").slideDown(300);
 				}else{
 				var bno = ${boardVO.bno};
 				var uid = '${login.uid}';
@@ -827,7 +840,12 @@
 			$("#likeDelBtn").on("click", function(){
 				if('${login.uid}' == ""){
 					alert("로그인이 필요합니다");
-					location.href="/user/login";
+//					location.href="/user/login";
+//					$(window).scrollTop();
+				$("body").animate({ // top값에 맞게 스크롤이 움직인다.
+					"scrollTop": 0
+				},300);
+				$("#myPageBar").slideDown(300);
 				}else{
 				var bno = ${boardVO.bno};
 				var uid = '${login.uid}';
@@ -859,7 +877,12 @@
 			$("#dislikeAddBtn").on("click",function(){
 				if('${login.uid}' == ""){
 					alert("로그인이 필요합니다");
-					location.href="/user/login";
+//					location.href="/user/login";
+//					$(window).scrollTop();
+				$("body").animate({ // top값에 맞게 스크롤이 움직인다.
+					"scrollTop": 0
+				},300);
+				$("#myPageBar").slideDown(300);
 				}else{
 				var bno = ${boardVO.bno};
 				var uid = '${login.uid}';
@@ -891,7 +914,12 @@
 			$("#dislikeDelBtn").on("click", function(){
 				if('${login.uid}' == ""){
 					alert("로그인이 필요합니다");
-					location.href="/user/login";
+//					location.href="/user/login";
+//					$(window).scrollTop();
+				$("body").animate({ // top값에 맞게 스크롤이 움직인다.
+					"scrollTop": 0
+				},300);
+				$("#myPageBar").slideDown(300);
 				}else{
 				var bno = ${boardVO.bno};
 				var uid = '${login.uid}';
@@ -947,7 +975,12 @@
 	$(".subscribeBtn").on("click",function(){
 		if('${login.uid}' == ""){
 			alert("로그인이 필요합니다");
-			location.href="/user/login";
+//			location.href="/user/login";
+//			$(window).scrollTop();
+		$("body").animate({ // top값에 맞게 스크롤이 움직인다.
+			"scrollTop": 0
+		},300);
+		$("#myPageBar").slideDown(300);
 		}else{
 		 	subscribeBtnClick('${boardVO.uid}', '${login.uid}');
 		}
@@ -956,7 +989,12 @@
 	$(".unsubscribeBtn").on("click",function(){
 		if('${login.uid}' == ""){
 			alert("로그인이 필요합니다");
-			location.href="/user/login";
+//			location.href="/user/login";
+//			$(window).scrollTop();
+		$("body").animate({ // top값에 맞게 스크롤이 움직인다.
+			"scrollTop": 0
+		},300);
+		$("#myPageBar").slideDown(300);
 		}else{
 			unsubscribeBtnClick('${boardVO.uid}', '${login.uid}');
 		}
@@ -1038,7 +1076,12 @@
 			$(".replylikeAddBtn").on("click",function(){
 				if('${login.uid}' == ""){
 					alert("로그인이 필요합니다");
-					location.href="/user/login";
+//					location.href="/user/login";
+//					$(window).scrollTop();
+				$("body").animate({ // top값에 맞게 스크롤이 움직인다.
+					"scrollTop": 0
+				},300);
+				$("#myPageBar").slideDown(300);
 				}else{
 // 				console.log("replylikeAddBtn clicked");
 				var rno = $(this).parent().parent().find('.modal-footer').attr('data-rno');
@@ -1073,7 +1116,12 @@
 			$(".replylikeDelBtn").on("click", function(){
 				if('${login.uid}' == ""){
 					alert("로그인이 필요합니다");
-					location.href="/user/login";
+//					location.href="/user/login";
+//					$(window).scrollTop();
+				$("body").animate({ // top값에 맞게 스크롤이 움직인다.
+					"scrollTop": 0
+				},300);
+				$("#myPageBar").slideDown(300);
 				}else{
 // 				console.log("replylikeDelBtn clicked");
 				var rno = $(this).parent().parent().find('.modal-footer').attr('data-rno');
@@ -1108,7 +1156,12 @@
 			$(".replydislikeAddBtn").on("click",function(){
 				if('${login.uid}' == ""){
 					alert("로그인이 필요합니다");
-					location.href="/user/login";
+//					location.href="/user/login";
+//					$(window).scrollTop();
+				$("body").animate({ // top값에 맞게 스크롤이 움직인다.
+					"scrollTop": 0
+				},300);
+				$("#myPageBar").slideDown(300);
 				}else{
 // 				console.log("replydislikeAddBtn clicked");
 				var rno = $(this).parent().parent().find('.modal-footer').attr('data-rno');
@@ -1143,7 +1196,12 @@
 			$(".replydislikeDelBtn").on("click", function(){
 				if('${login.uid}' == ""){
 					alert("로그인이 필요합니다");
-					location.href="/user/login";
+//					location.href="/user/login";
+//					$(window).scrollTop();
+				$("body").animate({ // top값에 맞게 스크롤이 움직인다.
+					"scrollTop": 0
+				},300);
+				$("#myPageBar").slideDown(300);
 				}else{
 // 				console.log("replydislikeDelBtn clicked");
 				var rno = $(this).parent().parent().find('.modal-footer').attr('data-rno');
@@ -1350,9 +1408,9 @@
 		{{#each .}}
 			<div class="subtitleLi do-not-close">
 				<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>
-					<div class="comic-list-read do-not-close">{{ifCond uread}}</div>
 					
 					<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
+					<div class="comic-list-read do-not-close">{{ifCond uread}}</div>
 					<div class="comic-list-text cursor do-not-close">{{subtitle}} </div>
 					<div class="comic-list-time"> {{prettifyDate regdate}} </div>
 				</a>
@@ -1366,9 +1424,9 @@
 		{{#each .}}
 			<div class="subtitleLi do-not-close">
 				<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>
-					<div class="comic-list-read do-not-close"></div>
 					
 					<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
+					<div class="comic-list-read do-not-close"></div>
 					<div class="comic-list-text cursor do-not-close">{{subtitle}} </div>
 					<div class="comic-list-time"> {{prettifyDate regdate}} </div>
 				</a>
@@ -1383,9 +1441,9 @@
 		{{#each .}}
 			<div class="thissubtitleLi">
 					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
-						<div class="comic-list-read do-not-close">{{ifCond uread}}</div>
 
 						<div class="comic-list"><img src="/displayFile?fileName={{boardFullName}}"></div>
+						<div class="comic-list-read do-not-close">{{ifCond uread}}</div>
 						<div class="comic-list-text cursor">{{subtitle}} </div>
 						<div class="comic-list-time"> {{prettifyDate regdate}} </div>
 					</a>
@@ -1401,9 +1459,9 @@
 		{{#each .}}
 			<div class="thissubtitleLi">
 					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
-						<div class="comic-list-read do-not-close"></div>
 
 						<div class="comic-list"><img src="/displayFile?fileName={{boardFullName}}"></div>
+						<div class="comic-list-read do-not-close"></div>
 						<div class="comic-list-text cursor">{{subtitle}} </div>
 						<div class="comic-list-time"> {{prettifyDate regdate}} </div>
 					</a>

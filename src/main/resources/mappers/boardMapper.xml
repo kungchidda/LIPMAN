@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="read" resultType="com.kungchidda.domain.BoardVO">
 		select
-			a.tno, a.bno, t.title,  ta.titleFullName, ba.boardFullName, IFNULL(p.profileFullName, '/account.png') as profileFullName , a.subtitle, a.content, a.fileList, u.uid, u.uname, a.regdate, a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, GROUP_CONCAT(gn.gname SEPARATOR ' / ') as gname
+			a.tno, a.bno, t.title,  ta.titleFullName, ba.boardFullName, IFNULL(p.profileFullName, '/account.png') as profileFullName , a.subtitle, a.content, a.fileList, u.uid, u.uname, a.regdate, a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, GROUP_CONCAT(gn.gname SEPARATOR ' / ') as gname, tag
 	            
 		from
 			tbl_board a
@@ -48,6 +48,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		inner join
 		tbl_genre_name gn
 		on gn.genre = tg.genre
+        
+       left outer join
+        (
+			select bno, GROUP_CONCAT(tag SEPARATOR ',') as tag
+            from tbl_tags 
+            group by bno
+        ) tag
+        on tag.bno = a.bno
             
 		where a.bno = #{bno}
 		group by ta.titleFullName, ba.boardFullName, p.profileFullName, u.uname
@@ -132,12 +140,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				OR a.content like CONCAT('%', #{keyword}, '%') 
 				OR a.subtitle like CONCAT('%', #{keyword}, '%') 
 				OR gn.genre like CONCAT('%', #{keyword}, '%') 
-				OR gn.gname like CONCAT('%', #{keyword}, '%')) 
+				OR gn.gname like CONCAT('%', #{keyword}, '%')
+				OR tag.tag like CONCAT('%', #{keyword}, '%')) 
 			</if>
 		</if>
 		<if test="genreArr != null">
 			and tg.tno in 
-		 (  
+			(  
             select t.tno 
             from tbl_title t
 
@@ -193,7 +202,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="listSearch" resultType="BoardVO">
 		<![CDATA[
 			select
-			title.tno, a.bno, title.title, a.subtitle, u.uname,  IFNULL(p.profileFullName, '/account.png') as profileFullName , a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, a.regdate, IFNULL(t.titleFullName, '/sampleImage.jpg') as titleFullName, IFNULL(b.boardFullName, '/sampleImage.jpg') as boardFullName, GROUP_CONCAT(gn.gname SEPARATOR ' / ') as gname
+			title.tno, a.bno, title.title, a.subtitle, u.uname,  IFNULL(p.profileFullName, '/account.png') as profileFullName , a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, a.regdate, IFNULL(t.titleFullName, '/sampleImage.jpg') as titleFullName, IFNULL(b.boardFullName, '/sampleImage.jpg') as boardFullName, GROUP_CONCAT(gn.gname SEPARATOR ' / ') as gname, tag
 			from
             tbl_board a
             
@@ -229,7 +238,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             tbl_genre_name gn
             on gn.genre = tg.genre
             
-            where a.bno > 0
+            
+        left outer join
+        (
+			select bno, GROUP_CONCAT(tag SEPARATOR ',') as tag
+            from tbl_tags 
+            group by bno
+        ) tag
+        on tag.bno = a.bno
+            
+		where a.bno > 0
 		]]>
 		<include refid="search"></include>
 		<![CDATA[
@@ -273,6 +291,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             inner join
             tbl_genre_name gn
             on gn.genre = tg.genre
+            
+            left outer join
+            tbl_tags tag
+            on tag.bno = a.bno
             
 			where
 				a.bno > 0
@@ -390,6 +412,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update tbl_read set uread = 2 where bno = #{bno} and uid = #{uid}
 	</update>
 	
+	<insert id="addTags">
+		insert into tbl_tags(tag, bno) values (#{tag}, #{bno})
+	</insert>
 	
+	<insert id="deleteTags">
+		delete from tbl_tags where bno = #{bno}
+	</insert>
 
 </mapper>

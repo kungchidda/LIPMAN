@@ -46,6 +46,6 @@ public interface BoardDAO {
 	
 	public void readComplete(BoardVO vo) throws Exception;
 	
-	
-	
+	public void addTags(Integer bno, String tag) throws Exception;
+	public void deleteTags(Integer bno) throws Exception;
 }

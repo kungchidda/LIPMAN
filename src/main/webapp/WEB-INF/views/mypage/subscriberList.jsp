@@ -165,7 +165,12 @@
 			$(".subscribeBtn").on("click",function(){
 				if('${login.uid}' == ""){
 					alert("로그인이 필요합니다");
-					location.href="/user/login";
+//					location.href="/user/login";
+//					$(window).scrollTop();
+				$("body").animate({ // top값에 맞게 스크롤이 움직인다.
+					"scrollTop": 0
+				},300);
+				$("#myPageBar").slideDown(300);
 				}else{
 				 	subscribeBtnClick('${cri.uid}', '${login.uid}');
 				}
@@ -174,7 +179,12 @@
 			$(".unsubscribeBtn").on("click",function(){
 				if('${login.uid}' == ""){
 					alert("로그인이 필요합니다");
-					location.href="/user/login";
+//					location.href="/user/login";
+//					$(window).scrollTop();
+				$("body").animate({ // top값에 맞게 스크롤이 움직인다.
+					"scrollTop": 0
+				},300);
+				$("#myPageBar").slideDown(300);
 				}else{
 					unsubscribeBtnClick('${cri.uid}', '${login.uid}');
 				}

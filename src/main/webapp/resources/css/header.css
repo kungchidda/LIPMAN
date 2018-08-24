@@ -70,10 +70,10 @@ a:visited {color: black;}
 .notice-height {
 	height: 401px;
 }
-.mypage {display: block; height: 320px;}
-.forgot {display: block; height: 170px;}
-.signup {display: block; height: 390px;}
-.mypage-wrong {display: block; height: 367px;}
+/* .mypage {display: block; height: 320px;} */
+/* .forgot {display: block; height: 170px;} */
+/* .signup {display: block; height: 390px;} */
+/* .mypage-wrong {display: block; height: 367px;} */
 
 
 /* Dropdown-content : search */
@@ -144,6 +144,9 @@ a:visited {color: black;}
     width: 40px;
     background-color: white;
     border: 1px solid white;
+}
+.searchBar-button-img {
+	width: 30px;
 }
 
 .dropdown-genre-01 .false,
@@ -1131,10 +1134,10 @@ a:visited {color: black;}
 /* iPad Pro-12.9 landscape : Complete */
 @media only screen and (max-width: 1366px) and (orientation: landscape) {
 /* Show the dropdown menu */
-	.mypage {height: 320px;}	
+	/* .mypage {height: 320px;}	
 	.search {height: 190px;}
 	.signup {height: 389px;}
-	.forgot {height: 170px;}	
+	.forgot {height: 170px;} */	
 
 	   
 /* Dropdown-content : search */
@@ -1343,10 +1346,10 @@ a:visited {color: black;}
 /* iPad Pro-12.9 portrait : Complete */
 @media only screen and (max-width: 1024px) and (orientation: portrait) {	
 /* Show the dropdown menu */
-	.mypage {height: 320px;}	
+	/* .mypage {height: 320px;}	
 	.search {height: 190px;}
 	.signup {height: 389px;}
-	.forgot {height: 170px;}
+	.forgot {height: 170px;} */
 
 
 /* Dropdown-content : notice */

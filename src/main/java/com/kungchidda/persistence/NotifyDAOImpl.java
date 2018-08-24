@@ -113,4 +113,5 @@ public class NotifyDAOImpl implements NotifyDAO{
 	public void deleteAllNotify(NotifyVO vo) throws Exception{
 		session.update(namespace + ".deleteAllNotify", vo);
 	}
+	
 }

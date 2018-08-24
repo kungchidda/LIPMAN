@@ -194,5 +194,17 @@ public class BoardDAOImpl implements BoardDAO{
 		session.update(namespace + ".readComplete", vo);
 	}
 	
+	@Override
+	public void addTags(Integer bno, String tag) throws Exception{
+		Map<String, Object> paramMap = new HashMap<>();
+		
+		paramMap.put("bno", bno);
+		paramMap.put("tag", tag);
+		session.insert(namespace+".addTags", paramMap);
+	}
 	
+	@Override
+	public void deleteTags(Integer bno) throws Exception{
+		session.delete(namespace+".deleteTags", bno);
+	}
 }
