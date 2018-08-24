@@ -75,7 +75,12 @@
 		$(".subscribeBtn").on("click",function(){
 						if('${login.uid}' == ""){
 							alert("로그인이 필요합니다");
-							location.href="/user/login";
+//							location.href="/user/login";
+//	 					$(window).scrollTop();
+						$("body").animate({ // top값에 맞게 스크롤이 움직인다.
+							"scrollTop": 0
+						},300);
+						$("#myPageBar").slideDown(300);
 						}else{
 						 	subscribeBtnClick('${cri.uid}', '${login.uid}');
 						}
@@ -84,7 +89,12 @@
 					$(".unsubscribeBtn").on("click",function(){
 						if('${login.uid}' == ""){
 							alert("로그인이 필요합니다");
-							location.href="/user/login";
+//							location.href="/user/login";
+//	 					$(window).scrollTop();
+						$("body").animate({ // top값에 맞게 스크롤이 움직인다.
+							"scrollTop": 0
+						},300);
+						$("#myPageBar").slideDown(300);
 						}else{
 							unsubscribeBtnClick('${cri.uid}', '${login.uid}');
 						}
@@ -525,9 +535,9 @@
 <c:if test="${login.uid != cri.uid}">
 
 
-		<hr>
 
 		<c:if test="${userVO.uid_p == 1}">
+		<hr>
 			<div class="mypage-setting-id">
 				<div class="mypage-setting-loginid-text">Log-in ID</div>
 				<div class="mypage-setting-loginid-title">
@@ -536,7 +546,7 @@
 			</div>
 		</c:if>
 
-		<hr>
+		
 
 <!-- 		<div class="mypage-setting-pw">
 			<div class="mypage-setting-password-title">Password</div>
@@ -613,6 +623,7 @@
 		<hr> -->
 		
 		<c:if test="${userVO.genre_p == 1}">
+		<hr>
 			<div class="mypage-setting-genre">
 				<div class="mypage-setting-genre-left">Preferred Genre</div>
 				<!-- <p class="mypage-setting-genre-close">Close</p>

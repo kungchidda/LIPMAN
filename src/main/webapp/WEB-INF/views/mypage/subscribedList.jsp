@@ -88,9 +88,9 @@
 		{{#each .}}
 			<div class="subtitleLi do-not-close">
 				<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>
-					<div class="comic-list-read do-not-close">{{ifCond uread}}</div>
 					
 					<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
+					<div class="comic-list-read do-not-close">{{ifCond uread}}</div>
 					<div class="comic-list-text cursor do-not-close">{{subtitle}} </div>
 					<div class="comic-list-time"> {{prettifyDate regdate}} </div>
 				</a>
@@ -104,9 +104,9 @@
 		{{#each .}}
 			<div class="subtitleLi do-not-close">
 				<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>
-					<div class="comic-list-read do-not-close"></div>
 					
 					<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
+					<div class="comic-list-read do-not-close"></div>
 					<div class="comic-list-text cursor do-not-close">{{subtitle}} </div>
 					<div class="comic-list-time"> {{prettifyDate regdate}} </div>
 				</a>
@@ -156,7 +156,12 @@
 			$(".subscribeBtn").on("click",function(){
 						if('${login.uid}' == ""){
 							alert("로그인이 필요합니다");
-							location.href="/user/login";
+//							location.href="/user/login";
+//	 					$(window).scrollTop();
+						$("body").animate({ // top값에 맞게 스크롤이 움직인다.
+							"scrollTop": 0
+						},300);
+						$("#myPageBar").slideDown(300);
 						}else{
 						 	subscribeBtnClick('${cri.uid}', '${login.uid}');
 						}
@@ -165,7 +170,12 @@
 					$(".unsubscribeBtn").on("click",function(){
 						if('${login.uid}' == ""){
 							alert("로그인이 필요합니다");
-							location.href="/user/login";
+//							location.href="/user/login";
+//	 					$(window).scrollTop();
+						$("body").animate({ // top값에 맞게 스크롤이 움직인다.
+							"scrollTop": 0
+						},300);
+						$("#myPageBar").slideDown(300);
 						}else{
 							unsubscribeBtnClick('${cri.uid}', '${login.uid}');
 						}

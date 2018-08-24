@@ -102,6 +102,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             left outer join
             (select tno, sum(likecnt) as likecnt, sum(dislikecnt) as dislikecnt from tbl_board group by tno) d
             on d.tno = a.tno
+            
 			
 			where a.uid = #{uid}
 			group by a.tno, u.uname, b.titleFullName

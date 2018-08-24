@@ -29,8 +29,8 @@
 				</form>
 			</c:if>
         	<c:if test="${login.uid != cri.uid}">
-	        	<button type="submit" class="subscribedCount subscribe subscribeBtn"></button>
-				<button type="submit" class="subscribedCount subscribed unsubscribeBtn"></button>
+	        	<button type="submit" class="subscribedCount subscribe subscribeBtn do-not-close"></button>
+				<button type="submit" class="subscribedCount subscribed unsubscribeBtn do-not-close"></button>
 			</c:if>
         </div>
     </div>
