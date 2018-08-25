@@ -1585,6 +1585,10 @@ a:visited {color: black;}
 	    font-size: 13px;
 	}
 	
+	.dropdown-contents img {
+	    width: 20px;
+	}
+	
 /* Dropdown-content : account */	
 	.dropdown-mypage .login-id, .login-pw {
 	    font-size: 13px;
@@ -1719,6 +1723,10 @@ a:visited {color: black;}
 	.dropdown-searchBar-02 .searchBar {
 	    width: 323px;
 	    font-size: 13px;
+	}
+	
+	.dropdown-contents img {
+	    width: 20px;
 	}
 	
 /* Dropdown-content : account */	
