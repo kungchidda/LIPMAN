@@ -545,7 +545,7 @@ textarea{
 	
 /* Comic-information : complete */
 	.comic-infor {
-	    grid-template-columns: 110px 100px 200px;
+	    grid-template-columns: 110px 120px 200px;
 	    grid-template-rows: 40px 40px 40px;
 	    grid-template-areas: 
 		    "a b b" 
@@ -812,7 +812,7 @@ textarea{
 	
 /* Comic-information */
 	.comic-infor {
-	    grid-template-columns: 110px 100px 200px;
+	    grid-template-columns: 110px 120px 200px;
 	    grid-template-rows: 40px 40px 40px;
 	    grid-template-areas: 
 		    "a b b" 
@@ -1056,7 +1056,7 @@ textarea{
 	
 /* Comic-information : complete */
 	.comic-infor {
-	    grid-template-columns: 80px 80px 170px;
+	    grid-template-columns: 80px 100px 155px;
 	    grid-template-rows: 32px 32px 32px;
 	    grid-template-areas:
 		     "a b b" 
@@ -1379,7 +1379,7 @@ textarea{
 	
 /* Comic-information : complete */
 	.comic-infor {
-	    grid-template-columns: 80px 80px 170px;
+	    grid-template-columns: 80px 100px 155px;
     	grid-template-rows: 32px 32px 32px;
 	    grid-template-areas: 
 		    "a b b" 
