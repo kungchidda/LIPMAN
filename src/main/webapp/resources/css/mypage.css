@@ -143,8 +143,8 @@
 	grid-template-columns: 80px 200px;
 	grid-template-areas: "a b";
 	float: left;
-	width: 280px;
 	align-items: center;
+	grid-gap: 5px;
 }
 
 .mypage-subscriber-img img {
@@ -174,7 +174,7 @@
 }
 
 .mypage-subscriber-name button {
-	padding: 10px;
+	/* padding: 10px; */
 	background: white;
 	border: 1px solid white;
 	color: black;
@@ -711,6 +711,25 @@ hr {
 		padding-right: 25px;
 	}
 	
+/* subscriber */
+	.mypage-subscriber {
+		margin-left: 10%;
+		margin-right: 10%;
+		margin-top: 30px;
+	}
+	
+	.mypage-subscriber li {
+		grid-template-columns: 50px 140px;
+	}
+	
+	.mypage-subscriber-img img {
+		width: 35px;
+	}
+	
+	.subscriber-img-button{
+		width: 35px;
+		height: 35px;
+	}
 
 		
 /* Mypage-Setting */
@@ -959,7 +978,25 @@ hr {
 		padding-right: 25px;
 	}
 	
-
+/* subscriber */
+	.mypage-subscriber {
+		margin-left: 10%;
+		margin-right: 10%;
+		margin-top: 30px;
+	}
+	
+	.mypage-subscriber li {
+		grid-template-columns: 50px 140px;
+	}
+	
+	.mypage-subscriber-img img {
+		width: 35px;
+	}
+	
+	.subscriber-img-button{
+		width: 35px;
+		height: 35px;
+	}
 		
 /* Mypage-Setting */
 /* Mypage-Setting - login*/
@@ -1210,6 +1247,10 @@ hr {
 	}
 
 /* Mypage : cards */	
+	.mypage-subscriber {
+	    margin-top: 0px;
+	}
+	
 	.mypage-home-title {
 		font-size: 13px;
 	}	
@@ -1222,9 +1263,41 @@ hr {
 		
 	.mypage-thumbnail-thumb {
 	    text-align: center;
-	    padding-top: 9px;
+	    padding-top: 4px;
 	    padding-bottom: 9px;
 	}	
+	
+/* subscriber */	
+	.mypage-subscriber li {
+	    grid-template-columns: 30px 100px;
+	    grid-template-rows: 40px;
+	    grid-gap: 5px;
+	    padding: 5px;
+	}
+	
+	.mypage-subscriber-img img {
+		width: 25px;
+	}
+	
+	.subscriber-img-button{
+		width: 25px;
+		height: 25px;
+	}
+	
+	.mypage-subscriber-img {
+		grid-area: a;
+		justify-self: center;
+	}
+	
+	.mypage-subscriber-name {
+		font-size: 13px;
+	}
+	
+	.mypage-subscriber-name button {
+		/* padding: 10px; */
+		font-size: 13px;
+	}
+	
 	
 /* Mypage-Setting */
 /* Mypage-Setting - login*/
@@ -1375,6 +1448,12 @@ hr {
 	    padding: 5px;
 	}	
 	
+	.mypage-setting-logout-button button:hover {
+		width: 132px;
+		font-size: 13px;
+		padding: 5px;
+	}
+	
 	.mypage-setting-confirm {
 		font-size: 13px;
 	    grid-column-gap: 10px;
@@ -1507,8 +1586,43 @@ hr {
 	
 /* Mypage-Home : cards */
 	.mypage-thumbnail-thumb {
-	    padding-top: 6px;
+	    padding-top: 3px;
 	    padding-bottom: 9px;
+	}	
+	
+/* subscriber */	
+	.mypage-subscriber {
+	    margin-top: 0px;
+	}
+
+	.mypage-subscriber li {
+	    grid-template-columns: 30px 100px;
+	    grid-template-rows: 40px;
+	    grid-gap: 5px;
+	    padding: 5px;
+	}
+	
+	.mypage-subscriber-img img {
+		width: 25px;
+	}
+	
+	.subscriber-img-button{
+		width: 25px;
+		height: 25px;
+	}
+	
+	.mypage-subscriber-img {
+		grid-area: a;
+		justify-self: center;
+	}
+	
+	.mypage-subscriber-name {
+		font-size: 13px;
+	}
+	
+	.mypage-subscriber-name button {
+		/* padding: 10px; */
+		font-size: 13px;
 	}	
 
 		
@@ -1660,6 +1774,12 @@ hr {
 	    border-radius: 5px;
 	    padding: 5px;
 	}	
+	
+	.mypage-setting-logout-button button:hover {
+		width: 132px;
+		font-size: 13px;
+		padding: 5px;
+	}
 	
 	.mypage-setting-confirm {
 	    grid-column-gap: 10px;
