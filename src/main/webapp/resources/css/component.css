@@ -1373,7 +1373,7 @@ html{
 	
 /* Main-cards-expander-inner : subtitle */
 	.subtitleLi a, .thissubtitleLi a {
-		grid-template-columns: 10px 80px 220px;
+		grid-template-columns: 10px 80px 210px;
 	    padding-left: 10px;
 	}
 
@@ -1485,7 +1485,7 @@ html{
 	
 /* Cards-expander-inner - title */
 	.expander-title-inner {
-	    grid-template-columns: 80px 250px;
+	    grid-template-columns: 80px 225px;
 	    grid-template-rows: 35px 45px;
 	    grid-template-areas:
 			"a b" 
@@ -1513,7 +1513,7 @@ html{
 	.subtitleLi a, .thissubtitleLi a {
 	    grid-template-columns: 10px 80px 240px;
 	    grid-template-rows: 40px 40px;
-	    padding-left: 37px;
+	    padding-left: 30px;
 	    padding-top: 10px;
 	}
 				
@@ -1579,7 +1579,7 @@ html{
 	
 /* Main-cards-expander-inner : subtitle */
 	.subtitleLi a, .thissubtitleLi a {
-	    padding-left: 17px;
+	    padding-left: 10px;
 	    padding-top: 10px;
 	}
 
