@@ -724,9 +724,7 @@
 </c:if>
 
 
-	<div class="compony">
-		<div class="compony-infor">Copyright © 2018 LIPMAN. 모든 권리 보유.</div>
-	</div>
+	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 
 
 
