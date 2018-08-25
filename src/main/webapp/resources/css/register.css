@@ -185,3 +185,121 @@ select {
     border: 1px solid gray;
     color: white;
 } 
+
+
+/* Media query */
+/* iPhone-X landscape */ 
+@media only screen and (max-width: 812px) and (orientation: landscape) {
+	.write-comic {
+	    grid-template-columns: 80px 80px 80px 80px;
+    	grid-template-rows: 50px 50px 30px 0px 150px 150px 30px;
+	    grid-gap: 10px;
+	}
+		
+	.write-comic .write-comic-thumbnail img {
+	    width: 100px;
+	}
+	
+	.write-comic-title{
+		width: 215px;
+		font-size: 13px;
+	}
+	
+	.write-comic .write-comic-subtitle {
+	    width: 215px;
+	    font-size: 13px;
+	}
+	
+	.write-comic .write-comic-delete, .write-comic-open, .write-comic-add, .write-comic-up, .write-comic-down {
+	    font-size: 15px;
+	    height: 30px;
+	}	
+	
+	.write-comic .write-comic-tags-input {
+		font-size: 13px;
+	}
+		
+	.write-comic .write-comic-preview, .write-comic-cancel, .write-comic-complete {
+		padding: 0px;
+	    font-size: 13px;
+	    width: 110px;
+	    height: 30px;
+	}
+	
+	.write-comic .write-comic-comment, .write-comic-tag, .write-comic-file, .upload-file-list, .write-comic-subtitle, .write-comic-tags  {
+	    font-size: 13px;
+	}
+	
+	.write-comic .write-comic-preview:hover {
+	    font-size: 13px;
+	    width: 110px;
+	}
+	
+	.write-comic .write-comic-complete:hover {
+	    font-size: 13px;
+	    width: 110px;
+	}
+	
+	.write-comic .write-comic-cancel:hover {
+	    font-size: 13px;
+	    width: 110px;
+	} 
+}
+
+/* iPhone - 6+/7+/8+ portrait */
+@media only screen and (max-width: 414px) and (orientation: portrait) {
+	.write-comic {
+	    grid-template-columns: 80px 80px 80px 80px;
+    	grid-template-rows: 50px 50px 30px 0px 150px 150px 30px;
+	    grid-gap: 10px;
+	}
+		
+	.write-comic .write-comic-thumbnail img {
+	    width: 100px;
+	}
+	
+	.write-comic-title{
+		width: 215px;
+		font-size: 13px;
+	}
+	
+	.write-comic .write-comic-subtitle {
+	    width: 215px;
+	    font-size: 13px;
+	}
+	
+	.write-comic .write-comic-delete, .write-comic-open, .write-comic-add, .write-comic-up, .write-comic-down {
+	    font-size: 15px;
+	    height: 30px;
+	}	
+	
+	.write-comic .write-comic-tags-input {
+		font-size: 13px;
+	}
+		
+	.write-comic .write-comic-preview, .write-comic-cancel, .write-comic-complete {
+		padding: 0px;
+	    font-size: 13px;
+	    width: 110px;
+	    height: 30px;
+	}
+	
+	.write-comic .write-comic-comment, .write-comic-tag, .write-comic-file, .upload-file-list, .write-comic-subtitle, .write-comic-tags  {
+	    font-size: 13px;
+	}
+	
+	.write-comic .write-comic-preview:hover {
+	    font-size: 13px;
+	    width: 110px;
+	}
+	
+	.write-comic .write-comic-complete:hover {
+	    font-size: 13px;
+	    width: 110px;
+	}
+	
+	.write-comic .write-comic-cancel:hover {
+	    font-size: 13px;
+	    width: 110px;
+	} 
+}
