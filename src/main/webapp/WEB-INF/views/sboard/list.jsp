@@ -88,7 +88,36 @@
 				Creativity is contagious,<br> pass it on!
 			</p>
 		</div>
-		
+		<div class="cards search-genre-keyword hide">
+            <span class="genre-search-1 hide">SF</span>
+            <span class="genre-search-2 hide">Mystery</span>
+            <span class="genre-search-3 hide">Pure Love</span>
+            <span class="genre-search-4 hide">Romance</span>
+            <span class="genre-search-5 hide">Comic</span>
+            <span class="genre-search-6 hide">Reasoning</span>
+            <span class="genre-search-7 hide">School Life</span>
+            <span class="genre-search-8 hide">Sports</span>
+            <span class="genre-search-9 hide">Fantasy</span>
+            <span class="genre-search-10 hide">Medicine</span>
+            <span class="genre-search-11 hide">Food</span>
+            <span class="genre-search-12 hide">Education</span>
+            <span class="genre-search-13 hide">Battle</span>
+            <span class="genre-search-14 hide">Mecanic</span>
+            <span class="genre-search-15 hide">Daily</span>
+            <span class="genre-search-16 hide">Age</span>
+            <span class="genre-search-17 hide">Graphic Novel</span>
+            <span class="genre-search-18 hide">Thriller</span>
+            <span class="genre-search-19 hide">Drama</span>
+            <span class="genre-search-20 hide">Adventure</span>
+            <c:if test="${not empty cri.keyword}">
+				<span class="search-keyword"></span>
+			</c:if>
+		</div>
+		<div class="no-search-result">
+			<c:if test="${empty list}">
+				<span>검색 결과가 없습니다.</span> 
+			</c:if>
+		</div>
 		<ul class="og-grid cards">
 			<c:forEach items="${list}" var="boardVO">
 				<li class="expander" id="${boardVO.tno}">

@@ -632,6 +632,7 @@
 						//$(this).get(0).submit();
         });
             
+		       
               
 //              var genreStr = "${MyPageVO.genre}";
 				var genreStr = '${cri.genre}';
@@ -644,11 +645,19 @@
 					$("#genreInput"+genreArr[i]).prop( "checked", true );
 					$("#genreInput"+genreArr[i]).next().toggleClass("false");
 					$("#genreInput"+genreArr[i]).next().toggleClass("true");
+					$(".genre-search-"+genreArr[i]).removeClass("hide");
 				}
 				
 				var keyword = '${cri.keyword}';
 				console.log("keyword = " + keyword);
 				$('#keywordInput').val(keyword);
+				
+				$('.search-keyword').append(keyword);
+				
+				
+				 if(genreStr || keyword){
+						$(".search-genre-keyword").removeClass("hide");
+			      	}
 				
 				var formObj = $("form[role='form']");
                 console.log(formObj);
