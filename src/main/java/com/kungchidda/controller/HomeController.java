@@ -1,8 +1,5 @@
 package com.kungchidda.controller;
 
-
-
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -32,6 +29,11 @@ public class HomeController {
 	public String error() {
 		
 		return "error";
+	}
+	@RequestMapping(value = "/nothing", method = RequestMethod.GET)
+	public String nothing() {
+		
+		return "nothing";
 	}
 	
 }
