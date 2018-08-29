@@ -1,0 +1,112 @@
+@charset "UTF-8";
+.pay {
+    display: grid;
+    grid-template-columns: 250px 250px;
+    grid-template-rows: 180px 40px 40px 40px 40px 40px 50px;
+    grid-template-areas: 
+        "a a"
+        "b b"
+        "c c"
+        "d d"
+        "e e"
+        "f f"
+        "g g";
+    justify-content: center;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    align-items: center;
+    justify-items: center;
+    padding-top: 50px;
+}
+
+.pay-img {
+    grid-area: a;
+    justify-self: start;
+    width: 500px;
+}
+
+.pay-option-1 {
+    grid-area: b;
+    padding-left: 50px;
+    justify-self: start;
+    font-size: 30px;
+}
+.pay-option-2 {
+    grid-area: c;
+    padding-left: 50px;
+    justify-self: start;
+    font-size: 30px;
+}
+.pay-option-3 {
+    grid-area: d;
+    padding-left: 50px;
+    justify-self: start;
+    font-size: 30px;
+}
+.pay-option-4 {
+    grid-area: e;
+    padding-left: 50px;
+    justify-self: start;
+    font-size: 30px;
+}
+.pay-option-5 {
+    grid-area: f;
+    padding-left: 50px;
+	justify-self: start;
+    font-size: 30px;
+}
+
+.homeBtn {
+    grid-area: g;
+}
+
+.homeBtn {
+    width: 130px;
+    padding: 10px;
+    background-color: #489ad8;
+    border: 1px solid #489ad8;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.pay span {
+    color: #f95e3a;
+}
+
+.historyList{
+	display: grid;
+    grid-template-columns: 200px 200px 50px 250px;
+    grid-template-areas: 
+        "a b c d";
+    justify-content: center;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    align-items: center;
+    justify-items: center;
+    padding-top: 10px;
+}
+
+.productDesc{
+	grid-area: a;
+}
+.amount{
+	grid-area: b;
+}
+.point{
+	grid-area: c;
+}
+.regdate{
+	grid-area: d;
+}
+
+
+
+
+
+
+
+
+
+
+        
