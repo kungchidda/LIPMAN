@@ -207,4 +207,12 @@ public class BoardDAOImpl implements BoardDAO{
 	public void deleteTags(Integer bno) throws Exception{
 		session.delete(namespace+".deleteTags", bno);
 	}
+	
+
+	
+	@Override
+	public BoardVO checkContent(Integer bno) throws Exception {
+		return session.selectOne(namespace + ".checkContent", bno);
+	}
+	
 }

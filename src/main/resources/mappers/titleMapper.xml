@@ -152,7 +152,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="listSearch" resultType="TitleVO">
 		<![CDATA[
 			select
-					a.bno, a.title, a.subtitle, a.uname, a.viewcnt, a.replycnt, a.regdate, IFNULL(b.fullName, '/sampleImage.jpg') as fullName
+					a.bno, a.title, a.subtitle, a.uname, a.viewcnt, a.replycnt, a.regdate, IFNULL(b.fullName, '/thumbnail.png') as fullName
 			from
             tbl_board a
             

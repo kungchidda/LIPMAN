@@ -45,9 +45,9 @@
 /* Mypage - profile-icon */
 .mypage-profile-icon {
 	display: grid;
-	grid-template-columns: repeat(4, 200px);
+	grid-template-columns: repeat(7, 130px);
 	grid-template-rows: 60px;
-	grid-template-areas: "a b c d";
+	grid-template-areas: "a b c e f g d";
 	justify-content: center;
 	align-items: center;
 	justify-items: center;
@@ -66,6 +66,9 @@
 .mypage-profile-icon .mypage-profile-icon-subscribe {grid-area: b;}
 .mypage-profile-icon .mypage-profile-icon-subscribed {grid-area: c;}
 .mypage-profile-icon .mypage-profile-icon-setting {grid-area: d;}
+.mypage-profile-icon .mypage-history {grid-area: e;}
+.mypage-profile-icon .mypage-charge {grid-area: f;}
+.mypage-profile-icon .mypage-withdraw {grid-area: g;}
 .mypage-profile-icon a.active {border-bottom: 5px solid red;}
 
 

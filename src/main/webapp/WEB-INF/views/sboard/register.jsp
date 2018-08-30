@@ -33,6 +33,7 @@
 			<input type="text" name='title' class="write-comic-title" value='${titleVO.title}' readonly>
 <%-- 			<input type="text" name='subtitle' class="write-comic-subtitle" placeholder="Subtitle" value="${boardVO.subtitle}" required> --%>
 			<input type="text" name='subtitle' class="write-comic-subtitle" placeholder="Subtitle" required>
+			<input type="number" name='point' class="write-comic-price" placeholder="Point" min="0">
 			
 	        <div class="write-comic-thumbnail" id="thumbnail-file-drop">
 	        	<div class="uploadedList">

@@ -31,4 +31,5 @@ public interface BoardService {
 	public int count(Integer tno) throws Exception;
 	public int mycount(Integer tno) throws Exception;
 	public void readComplete(BoardVO vo) throws Exception;
+	public BoardVO checkContent(Integer bno) throws Exception;
 }

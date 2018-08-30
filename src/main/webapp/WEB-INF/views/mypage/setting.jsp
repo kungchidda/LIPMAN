@@ -23,7 +23,8 @@
 
 	<script>
 		$(document).ready(function() {
-			$('.mypage-profile-icon-setting').addClass('active');
+			$('#profile-img-setting').attr("src","/resources/png/setting.png");
+// 			$('.mypage-profile-icon-setting').addClass('active');
 
 
 			var genreStr = "${userVO.genre}";
@@ -64,8 +65,8 @@
 			}
 				
 			
+
 		});
-		
 		/**************************************************************************************/
 		/**************************************************************************************/
 		/*                               subscribeBtn start                                   */

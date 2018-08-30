@@ -85,6 +85,31 @@
 		
 		console.log("subtitleArr = " + subtitleArr);
 		target.append(html);
+		
+		$('a').on('click',function(event) {
+//			event.preventDefault();
+			var uid = '${login.uid}';
+			console.log("로그인 아이디 = " + uid);
+			var point = $(this).find(".comic-list-point").text();
+			if(point > 0){
+				var r = confirm("유료 컨텐츠입니다. 포인트를 사용하여 보시겠습니까?");
+				if (r == false) {
+				    event.preventDefault();
+				}else{
+					if('${login.uid}' == ""){
+						alert("로그인이 필요합니다");
+//							location.href="/user/login";
+//	 					$(window).scrollTop();
+						$("body").animate({ // top값에 맞게 스크롤이 움직인다.
+							"scrollTop": 0
+						},300);
+						$("#myPageBar").slideDown(300);
+					}
+				}
+			}
+			
+			
+		});
 	}
 		
 		

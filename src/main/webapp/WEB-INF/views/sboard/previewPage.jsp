@@ -15,7 +15,7 @@
 
 <link href="/resources/css/contents.css" rel="stylesheet">
 <script src="/resources/js/subscribe-check.js"></script>
-<script src="/resources/js/subtitlePrint.js"></script>
+<!-- <script src="/resources/js/subtitlePrint.js"></script> -->
 <script src="/resources/js/expander.js"></script>
 
 
@@ -119,7 +119,6 @@
 				Grid.init();
 			});
 		</script> -->
-	
 	
 	
 	
