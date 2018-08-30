@@ -14,11 +14,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kungchidda.domain.BoardVO;
 import com.kungchidda.domain.PageMaker;
 import com.kungchidda.domain.PayVO;
 import com.kungchidda.domain.SearchCriteria;
 import com.kungchidda.domain.UserVO;
+import com.kungchidda.service.BoardService;
 import com.kungchidda.service.MyPageService;
 import com.kungchidda.service.PayService;
 
@@ -35,15 +38,24 @@ public class PayController {
 	@Inject
 	private MyPageService myPageService;
 	
+	@Inject
+	private BoardService boardService;
+	
 	@RequestMapping(value="/charge", method = RequestMethod.GET)
-	public void charge(Model model, HttpServletRequest request) throws Exception{
+	public String charge(@RequestParam("status") String status, Model model, HttpServletRequest request) throws Exception{
 		logger.info("pay charge");
 		HttpSession session = request.getSession();
 		UserVO vo = (UserVO)session.getAttribute("login");
 		String uid = "";
-		uid = vo.getUid();
-		logger.info("uid = " + uid);
-		model.addAttribute(myPageService.setting(uid));
+		if(vo != null) {
+			uid = vo.getUid();
+			logger.info("uid = " + uid);
+			model.addAttribute(myPageService.setting(uid));
+			model.addAttribute("status", status);
+		}else {
+			return "redirect:/";
+		}
+		return "/pay/charge";
 	
 	}
 	
@@ -103,7 +115,7 @@ public class PayController {
 		pageMaker.setTotalCount(payService.payHistoryCount(payVO));
 		model.addAttribute("pageMaker", pageMaker);
 
-		model.addAttribute("totalPoint", payService.totalPoint(payVO));
+//		model.addAttribute("totalPoint", payService.totalPoint(payVO));
 		
 		
 	}
@@ -120,5 +132,32 @@ public class PayController {
 			e.printStackTrace();
 		}
 		return entity;
+	}
+	
+	@RequestMapping(value="/confirm", method = RequestMethod.GET)
+	public String confirm(@RequestParam("target") int bno, Model model, HttpServletRequest request) throws Exception{
+
+		logger.info("confirm bno = " + bno);
+		
+		HttpSession session = request.getSession();
+		UserVO vo = (UserVO)session.getAttribute("login");
+		String uid = "";
+		
+		BoardVO boardVO = new BoardVO();
+		boardVO = boardService.checkContent(bno);
+		
+		
+		if(vo != null) {
+			logger.info("vo != null");
+			uid = vo.getUid();
+			if(payService.checkUserBuy(bno, uid) == 1 || boardVO.getUid().equals(uid)) {
+				return "redirect:/sboard/readPage?bno="+bno;
+			}
+		}
+		
+		
+		model.addAttribute("boardVO", boardVO);
+		
+		return "/pay/confirm";
 	}
 }

@@ -761,9 +761,10 @@
 	</script>
 
 	<script>
+					$('#profile-img-home').attr("src","/resources/png/comic.png");
 		$(document).ready(function() {
 					
-					$('.mypage-profile-icon-home').addClass('active');
+// 					$('.mypage-profile-icon-home').addClass('active');
 					
 					$("input").on("change", function(event) {
 						console.log("input change");

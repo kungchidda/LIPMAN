@@ -32,6 +32,7 @@ import com.kungchidda.domain.PageMaker;
 import com.kungchidda.domain.SearchCriteria;
 import com.kungchidda.domain.UserVO;
 import com.kungchidda.service.BoardService;
+import com.kungchidda.service.PayService;
 import com.kungchidda.service.TitleService;
 import com.kungchidda.util.MediaUtils;
 
@@ -49,6 +50,9 @@ public class SearchBoardController {
 	
 	@Inject
 	private TitleService titleService;
+	
+	@Inject
+	private PayService payService;
 	
 	@RequestMapping(value="/list", method = RequestMethod.GET)
 	public void listPage(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
@@ -83,19 +87,71 @@ public class SearchBoardController {
 	}
 	
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
-	public void read(@RequestParam("bno") int bno, @ModelAttribute("cri") SearchCriteria cri, Model model, HttpServletRequest request) throws Exception {
+	public String read(@RequestParam("bno") int bno, @ModelAttribute("cri") SearchCriteria cri, Model model, HttpServletRequest request,RedirectAttributes rttr) throws Exception {
 	//public void read(@RequestParam("bno") int bno, Model model) throws Exception {
 		
-
+		String referer = request.getHeader("Referer");
 		HttpSession session = request.getSession();
 		UserVO vo = (UserVO)session.getAttribute("login");
 		String uid = "";
+		BoardVO boardVO = new BoardVO();
+		boardVO = service.checkContent(bno);
+		
+		
+		logger.info("boardCheck point = " + boardVO.getPoint());
+		String author = boardVO.getUid();
+		int point = boardVO.getPoint();
+		
 		if(vo != null) {
 			uid = vo.getUid();
 			logger.info("uid = " + uid);
-			model.addAttribute(service.userRead(bno, uid));
+			if(!author.equals(uid)) {
+				if(point > 0) {
+					int buy = payService.checkUserBuy(bno, uid);
+					if(buy == 0) {
+						if(referer == null) {
+							logger.info("referer = null");
+							rttr.addAttribute("target", bno);
+							return "redirect:/pay/confirm";
+						}else{
+							logger.info("referer = "+ referer );
+							if(referer.contains("/pay/cofirm")){
+								logger.info("referer not contains /pay/cofirm = "+ referer );
+								rttr.addAttribute("target", bno);
+								return "redirect:/pay/confirm";
+							}
+						}
+					}
+				}else{
+					logger.info("boardVO = null");
+					boardVO = null;
+				}
+			}
+			
+			boardVO = service.userRead(bno, uid);
+			
+			if(boardVO == null) {
+				return "redirect:/nothing";
+			}else {
+				if(boardVO.getBno() > 0) {
+					model.addAttribute(boardVO);
+				}else {
+					rttr.addAttribute("status", "NOT_ENOUGH_POINT");
+					return "redirect:/pay/charge";
+				}
+			}
 		}else {
-			model.addAttribute(service.read(bno));
+			boardVO = service.read(bno);
+			if(boardVO == null) {
+				return "redirect:/nothing";
+			}else {
+				if(boardVO.getBno() > 0) {
+					model.addAttribute(boardVO);
+				}else {
+					rttr.addAttribute("target", bno);
+					return "redirect:/pay/confirm";
+				}
+			}
 		}
 		//SearchCriteria cri = new SearchCriteria();
 		cri.setPerPageNum(10);
@@ -107,6 +163,8 @@ public class SearchBoardController {
 		pageMaker.setTotalCount(service.listSearchCount(cri));
 		
 		model.addAttribute("pageMaker", pageMaker);
+		
+		return "/sboard/readPage";
 		
 	}
 
@@ -140,8 +198,8 @@ public class SearchBoardController {
 		rttr.addAttribute("uid", vo.getUid());
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		
-//		return "redirect:/sboard/list";
-		return "redirect:/mypage/titleList";
+//		return "redirect:/mypage/titleList";
+		return "/sboard/readPage?bno=" + board.getBno();
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)

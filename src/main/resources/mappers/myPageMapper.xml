@@ -117,7 +117,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="listSubscribedSearch" resultType="MyPageVO">
 		<![CDATA[
             select
-			title.tno, a.bno, title.title, a.subtitle, u.uname,  IFNULL(p.profileFullName, '/account.png') as profileFullName , a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, a.regdate, IFNULL(t.titleFullName, '/sampleImage.jpg') as titleFullName, IFNULL(b.boardFullName, '/sampleImage.jpg') as boardFullName, GROUP_CONCAT(gn.gname SEPARATOR ' / ') as gname
+			title.tno, a.bno, title.title, a.subtitle, u.uname,  IFNULL(p.profileFullName, '/account.png') as profileFullName , a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, a.regdate, IFNULL(t.titleFullName, '/thumbnail.png') as titleFullName, IFNULL(b.boardFullName, '/thumbnail.png') as boardFullName, GROUP_CONCAT(gn.gname SEPARATOR ' / ') as gname
 			from
             tbl_board a
             

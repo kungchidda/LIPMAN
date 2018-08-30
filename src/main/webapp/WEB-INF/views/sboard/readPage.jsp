@@ -16,7 +16,7 @@
 
 <link href="/resources/css/contents.css" rel="stylesheet">
 <script src="/resources/js/subscribe-check.js"></script>
-<script src="/resources/js/subtitlePrint.js"></script>
+<!-- <script src="/resources/js/subtitlePrint.js"></script> -->
 <script src="/resources/js/expander.js"></script>
 
 
@@ -1452,12 +1452,13 @@
 	<script id="subtitle-template" type="text/x-handlebars-template">
 		{{#each .}}
 			<div class="subtitleLi do-not-close">
-				<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>
+				<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' class='do-not-close'>
 					
-					<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
+					<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}" class='do-not-close'></div>
 					<div class="comic-list-read do-not-close">{{ifCond uread}}</div>
 					<div class="comic-list-text cursor do-not-close">{{subtitle}} </div>
-					<div class="comic-list-time"> {{prettifyDate regdate}} </div>
+					<div class="comic-list-time do-not-close"> {{prettifyDate regdate}} </div>
+					{{#if point}}<div class="comic-list-point class='do-not-close'"><img class="comic-list-point-img do-not-close" src="/resources/images/point.jpg">{{point}}</div>{{/if}}
 				</a>
 			</div>
 		{{/each}}
@@ -1468,12 +1469,13 @@
 	<script id="subtitle-template" type="text/x-handlebars-template">
 		{{#each .}}
 			<div class="subtitleLi do-not-close">
-				<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}'>
+				<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' class='do-not-close'>
 					
-					<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
+					<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}" class='do-not-close'></div>
 					<div class="comic-list-read do-not-close"></div>
 					<div class="comic-list-text cursor do-not-close">{{subtitle}} </div>
-					<div class="comic-list-time"> {{prettifyDate regdate}} </div>
+					<div class="comic-list-time class='do-not-close'"> {{prettifyDate regdate}} </div>
+					{{#if point}}<div class="comic-list-point class='do-not-close'"><img class="comic-list-point-img do-not-close" src="/resources/images/point.jpg">{{point}}</div>{{/if}}
 				</a>
 			</div>
 		{{/each}}
@@ -1485,13 +1487,14 @@
 	<script id="thissubtitle_template" type="text/x-handlebars-template">
 		{{#each .}}
 			<div class="thissubtitleLi">
-					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
-
-						<div class="comic-list"><img src="/displayFile?fileName={{boardFullName}}"></div>
-						<div class="comic-list-read do-not-close">{{ifCond uread}}</div>
-						<div class="comic-list-text cursor">{{subtitle}} </div>
-						<div class="comic-list-time"> {{prettifyDate regdate}} </div>
-					</a>
+				<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' class='do-not-close'>
+					
+					<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}" class='do-not-close'></div>
+					<div class="comic-list-read do-not-close">{{ifCond uread}}</div>
+					<div class="comic-list-text cursor do-not-close">{{subtitle}} </div>
+					<div class="comic-list-time do-not-close"> {{prettifyDate regdate}} </div>
+					{{#if point}}<div class="comic-list-point class='do-not-close'"><img class="comic-list-point-img do-not-close" src="/resources/images/point.jpg">{{point}}</div>{{/if}}
+				</a>
 			</div>
 		{{/each}}
 		<ul class="this-pagination do-not-close comic-list-pagi"></ul>
@@ -1503,13 +1506,14 @@
 	<script id="thissubtitle_template" type="text/x-handlebars-template">
 		{{#each .}}
 			<div class="thissubtitleLi">
-					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
-
-						<div class="comic-list"><img src="/displayFile?fileName={{boardFullName}}"></div>
-						<div class="comic-list-read do-not-close"></div>
-						<div class="comic-list-text cursor">{{subtitle}} </div>
-						<div class="comic-list-time"> {{prettifyDate regdate}} </div>
-					</a>
+					<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' class='do-not-close'>
+					
+					<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}" class='do-not-close'></div>
+					<div class="comic-list-read do-not-close"></div>
+					<div class="comic-list-text cursor do-not-close">{{subtitle}} </div>
+					<div class="comic-list-time class='do-not-close'"> {{prettifyDate regdate}} </div>
+					{{#if point}}<div class="comic-list-point class='do-not-close'"><img class="comic-list-point-img do-not-close" src="/resources/images/point.jpg">{{point}}</div>{{/if}}
+				</a>
 			</div>
 		{{/each}}
 		<ul class="this-pagination do-not-close comic-list-pagi"></ul>
@@ -1634,7 +1638,182 @@
 			});
 		</script> -->
 	
+	<script>
 	
+	
+	/**************************************************************************************/
+	/**************************************************************************************/
+	/*                               	subtitle print 	                                  */
+	/**************************************************************************************/
+	/**************************************************************************************/
+	
+	var formObj = $("form[role='form']");
+
+	function getSubtitle(tno, page){
+		console.log("click getSubtitle start getPage");
+		getPage("/sboard/"+tno+"/"+page+"/6", tno);
+		return 1;
+	};	
+	
+//	Handlebars.registerHelper("prettifyDate", function(timeValue){
+//			var dateObj = new Date(timeValue);
+//			var year = dateObj.getFullYear();
+//			var month = dateObj.getMonth() + 1;
+//			var date = dateObj.getDate();
+//			return year+"/"+month+"/"+date;
+//	});
+	
+	Handlebars.registerHelper('ifCond', function(uread) {
+		  if(uread == 0) {
+		    return '●';
+		  }
+		  if(uread == 1) {
+			    return '◑';
+		  }
+		  if(uread == 2) {
+			    return '';
+		  }
+		  return '';
+	});
+	
+	
+	Handlebars.registerHelper("prettifyDate", function(timeValue){
+		
+		var regdate = new Date(timeValue);
+		var regdateTime = new Date(timeValue).getTime();
+		regdateTime = regdateTime / 1000;
+//		console.log("regdateTime = " + regdateTime);
+		
+		var current = new Date();
+		var currentTime = new Date().getTime();
+		currentTime = currentTime / 1000;
+//		console.log("currentTime = " + currentTime);
+		
+		var diff = currentTime - regdateTime;
+//		console.log("diff = " + diff);
+		var year = regdate.getFullYear();
+		var month = regdate.getMonth() + 1;
+		var date = regdate.getDate();
+		
+		var prettifyDate;
+		    if(diff < 60) {
+		    	prettifyDate = "방금";
+		    } else if(diff >= 60 && diff < 3600) {
+		    	prettifyDate = Math.floor(diff/60) + "분 전";
+		    } else if(diff >= 3600 && diff < 86400) {
+		    	prettifyDate = Math.floor(diff/3600) + "시간 전";
+		    } else if(diff >= 86400 && diff < 2419200) {
+		    	prettifyDate = Math.floor(diff/86400) + "일 전";
+		    } else {
+		    	prettifyDate = year+"-"+month+"-"+date;
+		    }
+		     
+		    return prettifyDate;
+		});
+
+	
+	/* $(".pagination").on("click", "li a", function(event){
+		event.preventDefault();
+		subtitlePage = $(this).attr("href");
+		getPage("/subtitles/"+bno+"/5/"+subtitlePage);
+		
+	}); */
+	
+	var printData = function (subtitleArr, target, templateObject){
+		console.log("start printData");
+		var template = Handlebars.compile(templateObject.html());
+		
+		var html = template(subtitleArr);
+		
+		console.log("subtitleArr = " + subtitleArr);
+		target.append(html);
+		
+		$('a').on('click',function(event) {
+//			event.preventDefault();
+			var uid = '${login.uid}';
+			console.log("로그인 아이디 = " + uid);
+			var point = $(this).find(".comic-list-point").text();
+			if(point > 0){
+				var r = confirm("유료 컨텐츠입니다. "+ point +"포인트를 사용하여 보시겠습니까?");
+				if (r == false) {
+				    event.preventDefault();
+				}else{
+					if('${login.uid}' == ""){
+						alert("로그인이 필요합니다");
+//							location.href="/user/login";
+//	 					$(window).scrollTop();
+						$("body").animate({ // top값에 맞게 스크롤이 움직인다.
+							"scrollTop": 0
+						},300);
+						$("#myPageBar").slideDown(300);
+						event.preventDefault();
+					}
+				}
+			}
+			
+			
+		});
+	}
+		
+		
+	function getPage(pageInfo, tno){
+		console.log("start getPage pageInfo = " + "["+pageInfo+"]");
+		
+		$(".pagination").remove();
+		$(".subtitleLi").remove();
+		
+		$.ajax({
+			  type: 'GET',
+			  url: pageInfo,
+			  //data: data,
+			  dataType : "JSON",
+			  async:false,
+			  success : function(data){
+				  printData(data.list, $(".toggle-page"),$('#subtitle-template'));
+				  printPaging(data.pageMaker, $(".pagination"), tno);
+				}
+			});
+		
+		
+//		$.getJSON(pageInfo,function(data){
+////			printData(data.list, $(".og-expander-inner"), $('#template'));
+//			printData(data.list, $(".toggle-page"),$('#subtitle-template'));
+//			printPaging(data.pageMaker, $(".pagination"), tno);
+//// 			$(".subtitlecntSmall").html("[ " + data.pageMaker.totalCount +" ]");
+//			
+//		});
+		
+	}
+	
+	var printPaging = function(pageMaker, target, tno){
+		console.log("start printPaging");
+		console.log("pageMaker = " + pageMaker);
+		console.log("target = " + target);
+		console.log("tno = " + tno);
+		var str = "";
+		if(pageMaker.endPage != '1'){
+			if(pageMaker.prev){
+				str += //"<li><a href='"+(pageMaker.startPage-1)+"'> << </a></li>"
+				'<li class="page-link do-not-close comic-list-prev" onclick="getSubtitle('+tno+','+(pageMaker.startPage-1)+');"> << </li>';
+			}
+			
+			for(var i=pageMaker.startPage, len= pageMaker.endPage; i <= len; i++){
+				var strClass = pageMaker.cri.page == i?'class=active':'';
+				str += '<li class="page-item do-not-close comic-list-pagi" '+strClass+'><div class="comic-list do-not-close" onclick="getSubtitle('+tno+','+i+');">'+i+'</div></li>';
+			}
+			
+			if(pageMaker.next){
+				str += //"<li><div href='/sboard/" + tno + "/" + (pageMaker.endPage+1)+"'> >> </div></li>";
+					'<li class="page-link do-not-close comic-list-next" onclick="getSubtitle('+tno+','+ (pageMaker.endPage+1) +');"> >> </li>';
+			}
+		}
+		target.html(str);
+	}
+	
+	
+
+	
+	</script>
 	
 	
 	

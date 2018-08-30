@@ -569,14 +569,16 @@ html{
 .subtitleLi a, .thissubtitleLi a{
     display: grid;
     grid-template-columns: 5px 110px 240px;
-    grid-template-rows: 50px 50px;
+    grid-template-rows: 20px 20px 20px;
     grid-template-areas: 
 	    "d a b" 
-	    "d a c";
+	    "d a c"
+	    "d a e";
     float: left;
     grid-gap: 10px;
     padding-left: 20px;
     padding-top: 20px;
+    padding-bottom: 20px;
 }
 .comic-list-read {
 	color: red;
@@ -599,7 +601,7 @@ html{
 .comic-list-text {
     grid-area: b;
     justify-self: start;
-    align-self: end;
+    align-self: center;
     word-break: break-all;
     font-size: 15px;
     padding-left: 0;
@@ -608,9 +610,25 @@ html{
 .comic-list-time {
 	grid-area: c;
 	justify-self: start;
-	align-self: start;
+	align-self: center;
     font-size: 13px;
     color: gray;
+}
+
+.comic-list-point {
+	grid-area: e;
+	justify-self: start;
+	align-self: center;
+    font-size: 13px;
+    color: gray;
+}
+
+.comic-list-point-img{
+	display: inline-block;
+/* 	align-self: center; */
+	vertical-align: middle;
+	padding-right: 5px;
+	width: 20px;
 }
 
 /* Pagination */

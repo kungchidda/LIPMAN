@@ -194,9 +194,9 @@
 	</script>
 	
 	<script>
+			$('#profile-img-subscriber').attr("src","/resources/png/subscribed.png");
 		$(document).ready(function(){
-			$('.mypage-profile-icon-subscribed').addClass('active');
-			
+// 			$('.mypage-profile-icon-subscribed').addClass('active');
 			$('#searchBtn').on(
 					"click",
 					function(event){

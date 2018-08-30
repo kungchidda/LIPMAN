@@ -12,4 +12,5 @@ public interface PayService {
 	public List<PayVO> payHistory(PayVO payVO, SearchCriteria cri) throws Exception;
 	public int payHistoryCount(PayVO payVO) throws Exception;
 	public int totalPoint(PayVO payVO) throws Exception;
+	public int checkUserBuy(Integer bno, String uid) throws Exception;
 }

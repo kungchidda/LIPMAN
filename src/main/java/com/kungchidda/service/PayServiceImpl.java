@@ -153,5 +153,11 @@ public class PayServiceImpl implements PayService{
 		return payDAO.totalPoint(payVO);
 	}
 	
+	@Override
+	public int checkUserBuy(Integer bno, String uid) throws Exception {
+		int buy = payDAO.checkUserBuy(bno, uid);
+		return buy;
+	}
+	
 	
 }

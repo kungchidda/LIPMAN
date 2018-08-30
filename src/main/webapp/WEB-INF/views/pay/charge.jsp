@@ -92,6 +92,10 @@ $(document).ready(function() {
 				</a>
 			</div>
 	</div>
+<%-- 	${status} --%>
+	<c:if test="${status == 'NOT_ENOUGH_POINT'}">
+		포인트가 부족하여 충전이 필요합니다.
+	</c:if>
 
 	<form action="/pay/payments" method="post">
 <div class="pay">
