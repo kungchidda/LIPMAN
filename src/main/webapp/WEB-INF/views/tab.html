@@ -1,0 +1,283 @@
+<!doctype html>
+<html>
+
+<head>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+    <script>
+        $(function() {
+            $("#tab_example").tabs();
+        });
+    </script>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0;
+        }
+        
+        .tab {
+            display: grid;
+            grid-template-columns: repeat(2, 170px);
+            grid-template-rows: 50px;
+            grid-template-areas: 
+                "a b c";
+            justify-content: center;
+            text-align: center;
+            justify-items: center;
+/*            padding-bottom: 10px;*/
+        }
+                
+        .tab .tab1 {grid-area: a;}
+        .tab .tab2 {grid-area: b;}
+        
+        .tab li {
+            list-style: none;
+        }
+        
+        .tab p {
+            width: 140px;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 10px;
+            
+        }
+        
+        a:link {text-decoration: none;}
+        
+/* tab1-content */
+        .tab1-content {
+            display: grid;
+            grid-template-columns: 500px;
+            grid-template-rows: repeat(7, 65px);
+            grid-template-areas: 
+                "a"
+                "b"
+                "c"
+                "d"
+                "e"
+                "f"
+                "g";
+            justify-content: center;
+            text-align: center;
+            justify-items: center;
+            align-items: center;
+        }
+        
+        .tab1-content .number {grid-area: a;}
+        .tab1-content .name {grid-area: b;}
+        .tab1-content .img-div1 {grid-area: c;}
+        .tab1-content .bank {grid-area: d;}
+        .tab1-content .account {grid-area: e;}
+        .tab1-content .account-name {grid-area: f;}
+        .tab1-content .submit {grid-area: g;}
+        
+        .tab1-content input {
+            width: 400px;
+            height: 25px;
+            font-size: 13px;
+            padding: 10px;
+            border: 1px solid #d3d3d3;
+            border-radius: 5px;
+        }
+        
+        .tab1-content .img-div1 {
+            width: 400px;
+            font-size: 13px;
+            padding: 10px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border: 1px solid #d3d3d3;
+            border-radius: 5px;
+            text-align: left;
+        }
+        
+        .tab1-content .bank {
+            width: 420px;
+            height: 47px;
+            background-color: white;
+            font-size: 13px;
+            padding: 10px;
+            border: 1px solid #d3d3d3;
+            border-radius: 5px;
+        }
+        
+        .tab1-content button {
+            width: 170px;
+            height: 40px;
+            font-size: 15px;
+            background-color: #1d8bf1;
+            border: 1px solid #1d8bf1;
+            border-radius: 5px;
+            color: white;
+        }
+
+/* tab2-content */
+        .tab2-content {
+            display: grid;
+            grid-template-columns: 500px;
+            grid-template-rows: repeat(11, 65px);
+            grid-template-areas: 
+                "a"
+                "b"
+                "c"
+                "d"
+                "e"
+                "f"
+                "g"
+                "h"
+                "i"
+                "j"
+                "k";
+            justify-content: center;
+            text-align: center;
+            justify-items: center;
+            align-items: center;
+        }
+        
+        .tab2-content .compony {grid-area: a;}
+        .tab2-content .number {grid-area: b;}
+        .tab2-content .name {grid-area: c;}
+        .tab2-content .leader {grid-area: d;}
+        .tab2-content .taxation {grid-area: e;}
+        .tab2-content .img-div2 {grid-area: f;}
+        .tab2-content .bank {grid-area: g;}
+        .tab2-content .account {grid-area: h;}
+        .tab2-content .account-name {grid-area: i;}
+        .tab2-content .account-div2 {grid-area: j;}
+        .tab2-content .submit {grid-area: k;}
+        
+        .tab2-content input {
+            width: 400px;
+            height: 25px;
+            font-size: 13px;
+            padding: 10px;
+            border: 1px solid #d3d3d3;
+            border-radius: 5px;
+        }
+        
+        .tab2-content .compony, .bank, .taxation {
+            width: 420px;
+            height: 47px;
+            background-color: white;
+            font-size: 13px;
+            padding: 10px;
+            border: 1px solid #d3d3d3;
+            border-radius: 5px;
+        }
+        
+        .tab2-content .img-div2, .account-div2 {
+            width: 400px;
+            font-size: 13px;
+            padding: 10px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border: 1px solid #d3d3d3;
+            border-radius: 5px;
+            text-align: left;
+        }
+        
+        .tab2-content p {
+            font-size: 13px;
+            justify-self: start;
+        }
+        
+        .tab2-content button {
+            width: 170px;
+            height: 40px;
+            font-size: 15px;
+            background-color: #1d8bf1;
+            border: 1px solid #1d8bf1;
+            border-radius: 5px;
+            color: white;
+        }        
+             
+    </style>
+
+</head>
+
+<body>
+
+    <div id="tab_example">
+        <ul class="tab">
+            <li class="tab1"><a href="#t1"><p>개인</p></a></li>
+            <li class="tab2"><a href="#t2"><p>사업자</p></a></li>
+        </ul>
+        <div id="t1" class="tab1-content">
+            <input type="text" placeholder="주민등록번호를 입력해주세요.(숫자만)" class="number">
+            <input type="text" placeholder="이름을 입력해주세요." class="name">
+            <div class="img-div1">신분증을 첨부해주세요.(정보가 가려지거나 편집되면 안됩니다.)</div>
+            <input type="file" class="img-file1" style="display: none">
+            <script>
+                $(function(){
+                    $(".img-div1").click(function(event){
+                        event.preventDefault();
+                        $(".img-file1").click();
+                    });
+                });
+            </script>
+            <input type="text" placeholder="계좌번호를 입력해주세요." class="account">
+            <input type="text" placeholder="예금주명을 입력해주세요." class="account-name">
+            <select class="bank">
+                <option value="#"> 은행을 선택해주세요. </option>
+                <option value="#"> 국민은행 </option>
+                <option value="#"> 우리은행 </option>
+                <option value="#"> 하나은행 </option>
+                <option value="#"> 카카오뱅크 </option>
+                <option value="#"> 새마을금고 </option>
+            </select>
+            <button class="submit">Submit</button>
+        </div>
+        <div id="t2" class="tab2-content">
+            <select class="compony">
+                <option value="#"> 사업형태를 선택해주세요. </option>
+                <option value="#"> 개인사업자 </option>
+                <option value="#"> 법인사업자 </option>
+            </select>    
+            <input type="text" placeholder="사업자등록번호를 입력해주세요.(숫자만)" class="number">
+            <input type="text" placeholder="사업자명을 입력해주세요." class="name">
+            <input type="text" placeholder="대표자명을 입력해주세요." class="leader">
+            <select class="taxation">
+                <option value="#"> 과세 형태를 선택해주세요. </option>
+                <option value="#"> 간이과세자 </option>
+                <option value="#"> 일반과세자 </option>
+            </select>
+            <div class="img-div2">사업자 등록증 사본을 업로드 해주세요.</div>
+            <input type="file" class="img-file2" style="display: none">
+            <script>
+                $(function(){
+                    $(".img-div2").click(function(event){
+                        event.preventDefault();
+                        $(".img-file2").click();
+                    });
+                });
+            </script> 
+            <select class="bank">
+                <option value="#"> 은행을 선택해주세요. </option>
+                <option value="#"> 국민은행 </option>
+                <option value="#"> 우리은행 </option>
+                <option value="#"> 하나은행 </option>
+                <option value="#"> 카카오뱅크 </option>
+                <option value="#"> 새마을금고 </option>
+            </select>               
+            <input type="text" placeholder="계좌번호를 입력해주세요." class="account">
+            <input type="text" placeholder="예금주명을 입력해주세요." class="account-name">
+            <div class="account-div2">통장 사본을 업로드 해주세요.</div>
+            <input type="file" class="account-file2" style="display: none">
+            <script>
+                $(function(){
+                    $(".account-div2").click(function(event){
+                        event.preventDefault();
+                        $(".account-file2").click();
+                    });
+                });
+            </script>
+            <button class="submit">Submit</button>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

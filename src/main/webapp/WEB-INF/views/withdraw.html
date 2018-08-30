@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIPMAN</title>
+
+    <style>
+        .withdraw {
+            display: grid;
+            grid-template-columns: 300px;
+            grid-template-rows: 160px 50px;
+            grid-template-areas: 
+                "a"
+                "b";
+            justify-content: center;
+            grid-row-gap: 10px;
+            align-items: center;
+            justify-items: center;
+            padding-top: 50px;
+        }
+        
+        .withdraw .withdraw-img {
+            grid-area: a;
+        }
+        
+        .withdraw img {
+            width: 150px;
+        }
+        
+        .withdraw .withdraw-text {
+            grid-area: b;
+            font-size: 15px;
+            text-align: center;
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+
+    <!-- error page -->
+    <div class="withdraw">
+        <img src="/resources/png/exchange.png" class="withdraw-img">
+        <p class="withdraw-text">
+            신청해주셔서 감사합니다.<br>
+            검토 후 이메일로 결과를 전달드리겠습니다.
+        </p>
+    </div>
+
+
+</body>
+
+</html>
