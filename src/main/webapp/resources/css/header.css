@@ -1022,8 +1022,10 @@ a:visited {color: black;}
 /* Header css */
 .header {
     display: grid;
+    grid-template-columns: 150px auto 120px 60px 60px 60px;
     grid-template-rows: 50px;
     grid-template-areas: 
+        "a . f b c d";
     border-bottom: 1px solid black;
     padding-top: 20px;
     padding-bottom: 10px;
@@ -1038,7 +1040,10 @@ a:visited {color: black;}
 .header .signupBtn {grid-area: d;}
 .header .forgotBtn {grid-area: d;}
 
-.header .brand, .searchBtn, .genreBtn, .noticeBtn, .accountBtn {
+/* .header .payBtn {grid-area: e;} */
+.header .totalPoint {grid-area: f;}
+
+.header .brand, .searchBtn, .genreBtn, .noticeBtn, .accountBtn, .payBtn, .totalPoint {
     justify-self: center;
     align-self: center;
 }

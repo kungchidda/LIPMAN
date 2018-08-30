@@ -104,6 +104,20 @@ html{
     text-align: center;
 }
 
+.search-genre-keyword, .no-search-resul{
+	padding: 20px 0px 0px 102px;
+}
+
+ .search-keyword{
+ 	border: 1px solid lightgray;
+/*  	border-radius: 5px; */
+ }
+
+.search-genre-keyword span{
+	padding: 10px;
+	border-radius: 5px;
+	margin-right: 5px;
+}
 
 
 /* Mypage : title-register-inner { */
@@ -167,6 +181,7 @@ html{
 }
 
 .genre-1 .true,
+.genre-search-1,
 .register-genre-input1 .true {
     background-color: #f15941;
     border: 2px solid #f15941;
@@ -179,6 +194,7 @@ html{
 }
 
 .genre-2 .true,
+.genre-search-2,
 .register-genre-input2 .true {
     border: 2px solid #f58346;
     background-color: #f58346;
@@ -191,6 +207,7 @@ html{
 }
 
 .genre-3 .true,
+.genre-search-3,
 .register-genre-input3 .true {
     border: 2px solid #faa74a;
     background-color: #faa74a;
@@ -203,6 +220,7 @@ html{
 }
 
 .genre-4 .true,
+.genre-search-4,
 .register-genre-input4 .true {
     border: 2px solid #fecd50;
     background-color: #fecd50;
@@ -215,6 +233,7 @@ html{
 }
 
 .genre-5 .true,
+.genre-search-5,
 .register-genre-input5 .true {
     border: 2px solid #fcdd00;
     background-color: #fcdd00;
@@ -227,6 +246,7 @@ html{
 }
 
 .genre-6 .true,
+.genre-search-6,
 .register-genre-input6 .true {
     border: 2px solid #d4e15b;
     background-color: #d4e15b;
@@ -239,6 +259,7 @@ html{
 }
 
 .genre-7 .true,
+.genre-search-7,
 .register-genre-input7 .true {
     border: 2px solid #a2d062;
     background-color: #a2d062;
@@ -251,6 +272,7 @@ html{
 }
 
 .genre-8 .true,
+.genre-search-8,
 .register-genre-input8 .true {
     border: 2px solid #6cc167;
     background-color: #6cc167;
@@ -263,6 +285,7 @@ html{
 }
 
 .genre-9 .true,
+.genre-search-9,
 .register-genre-input9 .true {
     border: 2px solid #1bb26c;
     background-color: #1bb26c;
@@ -275,6 +298,7 @@ html{
 }
 
 .genre-10 .true,
+.genre-search-10,
 .register-genre-input10 .true {
     background-color: #1aa789;
     color: white;
@@ -286,6 +310,7 @@ html{
 }
 
 .genre-11 .true,
+.genre-search-11,
 .register-genre-input11 .true {
     border: 2px solid #1d9c9d;
     background-color: #1d9c9d;
@@ -298,6 +323,7 @@ html{
 }
 
 .genre-12 .true,
+.genre-search-12,
 .register-genre-input12 .true {
     border: 2px solid #1d90b3;
     background-color: #1d90b3;
@@ -310,6 +336,7 @@ html{
 }
 
 .genre-13 .true,
+.genre-search-13,
 .register-genre-input13 .true {
     border: 2px solid #2385c6;
     background-color: #2385c6;
@@ -322,6 +349,7 @@ html{
 }
 
 .genre-14 .true,
+.genre-search-14,
 .register-genre-input14 .true {
     border: 2px solid #406ab3;
     background-color: #406ab3;
@@ -334,6 +362,7 @@ html{
 }
 
 .genre-15 .true,
+.genre-search-15,
 .register-genre-input15 .true {
     border: 2px solid #524fa2;
     background-color: #524fa2;
@@ -346,6 +375,7 @@ html{
 }
 
 .genre-16 .true,
+.genre-search-16,
 .register-genre-input16 .true {
     border: 2px solid #7c51a2;
     background-color: #7c51a2;
@@ -358,6 +388,7 @@ html{
 }
 
 .genre-17 .true,
+.genre-search-17,
 .register-genre-input17 .true {
     border: 2px solid #a154a1;
     background-color: #a154a1;
@@ -370,6 +401,7 @@ html{
 }
 
 .genre-18 .true,
+.genre-search-18,
 .register-genre-input18 .true {
     border: 2px solid #b55589;
     background-color: #b55589;
@@ -382,6 +414,7 @@ html{
 }
 
 .genre-19 .true,
+.genre-search-19,
 .register-genre-input19 .true {
     border: 2px solid #ca5774;
     background-color: #ca5774;
@@ -394,6 +427,7 @@ html{
 }
 
 .genre-20 .true,
+.genre-search-20,
 .register-genre-input20 .true {
     border: 2px solid #da595d;
     background-color: #da595d;
@@ -535,14 +569,16 @@ html{
 .subtitleLi a, .thissubtitleLi a{
     display: grid;
     grid-template-columns: 5px 110px 240px;
-    grid-template-rows: 50px 50px;
+    grid-template-rows: 20px 20px 20px;
     grid-template-areas: 
 	    "d a b" 
-	    "d a c";
+	    "d a c"
+	    "d a e";
     float: left;
     grid-gap: 10px;
     padding-left: 20px;
     padding-top: 20px;
+    padding-bottom: 20px;
 }
 .comic-list-read {
 	color: red;
@@ -565,7 +601,7 @@ html{
 .comic-list-text {
     grid-area: b;
     justify-self: start;
-    align-self: end;
+    align-self: center;
     word-break: break-all;
     font-size: 15px;
     padding-left: 0;
@@ -574,9 +610,25 @@ html{
 .comic-list-time {
 	grid-area: c;
 	justify-self: start;
-	align-self: start;
+	align-self: center;
     font-size: 13px;
     color: gray;
+}
+
+.comic-list-point {
+	grid-area: e;
+	justify-self: start;
+	align-self: center;
+    font-size: 13px;
+    color: gray;
+}
+
+.comic-list-point-img{
+	display: inline-block;
+/* 	align-self: center; */
+	vertical-align: middle;
+	padding-right: 5px;
+	width: 20px;
 }
 
 /* Pagination */

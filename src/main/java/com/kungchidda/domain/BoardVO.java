@@ -32,5 +32,5 @@ public @Data class BoardVO {
 	private String profileFullName;
 	
 	private int uread;
-	
+	private int point;
 }

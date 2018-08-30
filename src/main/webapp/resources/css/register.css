@@ -11,10 +11,11 @@ select {
 .write-comic {
     display: grid;
     grid-template-columns: 125px 125px 125px 125px;
-    grid-template-rows: 100px 100px 42px 0px 150px 150px 42px;
+    grid-template-rows: 60px 60px 60px 42px 0px 150px 150px 42px;
     grid-template-areas: 
         "a b b b"
         "a c c c"
+        "a l l l"
         "d e f g"
         "h h h h"
         "i i i i"
@@ -53,12 +54,18 @@ select {
 .write-comic .write-comic-subtitle {
     width: 305px;
     grid-area: c;
-    align-self: start;
+    align-self: center;
     justify-self: end;
     height: 10px;
 /*     color: #d3d3d3;   */
 }
-
+.write-comic .write-comic-price {
+	width: 305px;
+    grid-area: l;
+    align-self: start;
+    justify-self: end;
+    height: 10px;
+}
 
 .write-comic .write-comic-add {
     grid-area: d;
@@ -75,6 +82,7 @@ select {
 .write-comic .write-comic-down {
     grid-area: g;
 }
+
 
 .write-comic .write-comic-delete, .write-comic-open, .write-comic-add, .write-comic-up, .write-comic-down {
     background-color: white;
@@ -155,7 +163,7 @@ select {
     height: 40px;
 }
 
-.write-comic .write-comic-comment, .write-comic-tag, .write-comic-file, .upload-file-list, .write-comic-subtitle, .write-comic-tags  {
+.write-comic .write-comic-comment, .write-comic-tag, .write-comic-file, .upload-file-list, .write-comic-subtitle, .write-comic-tags, .write-comic-price  {
     padding: 10px;
     font-size: 15px;
     border: 1px solid gray;

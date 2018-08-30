@@ -5,8 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.kungchidda.mappers.boardMapper">
 	<insert id="create">
-		insert into tbl_board (tno, subtitle, content, uid, fileList)
-		values(#{tno}, #{subtitle}, #{content}, #{uid}, #{fileList} );
+		insert into tbl_board (tno, subtitle, content, uid, fileList, point)
+		values(#{tno}, #{subtitle}, #{content}, #{uid}, #{fileList}, #{point} );
 	</insert>
 		
 	<!-- <insert id="add">
@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="read" resultType="com.kungchidda.domain.BoardVO">
 		select
-			a.tno, a.bno, t.title,  ta.titleFullName, ba.boardFullName, IFNULL(p.profileFullName, '/account.png') as profileFullName , a.subtitle, a.content, a.fileList, u.uid, u.uname, a.regdate, a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, GROUP_CONCAT(gn.gname SEPARATOR ' / ') as gname, tag
+			a.tno, a.bno, t.title,  ta.titleFullName, IFNULL(ba.boardFullName, '/thumbnail.png') as boardFullName, IFNULL(p.profileFullName, '/account.png') as profileFullName , a.subtitle, a.content, a.fileList, u.uid, u.uname, a.regdate, a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, GROUP_CONCAT(gn.gname SEPARATOR ' / ') as gname, tag
 	            
 		from
 			tbl_board a
@@ -37,7 +37,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         tbl_title_attach ta
         on ta.tno = a.tno
         
-        inner join
+        left outer join
         tbl_attach ba
         on ba.bno = a.bno
         
@@ -202,7 +202,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="listSearch" resultType="BoardVO">
 		<![CDATA[
 			select
-			title.tno, a.bno, title.title, a.subtitle, u.uname,  IFNULL(p.profileFullName, '/account.png') as profileFullName , a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, a.regdate, IFNULL(t.titleFullName, '/sampleImage.jpg') as titleFullName, IFNULL(b.boardFullName, '/sampleImage.jpg') as boardFullName, GROUP_CONCAT(gn.gname SEPARATOR ' / ') as gname, tag
+			title.tno, a.bno, title.title, a.subtitle, u.uname,  IFNULL(p.profileFullName, '/account.png') as profileFullName , a.viewcnt, a.replycnt, a.likecnt, a.dislikecnt, a.regdate, IFNULL(t.titleFullName, '/thumbnail.png') as titleFullName, IFNULL(b.boardFullName, '/thumbnail.png') as boardFullName, GROUP_CONCAT(gn.gname SEPARATOR ' / ') as gname, tag
 			from
             tbl_board a
             
@@ -339,7 +339,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="listPage" resultType="com.kungchidda.domain.BoardVO">
 		select 
-		b.tno, b.bno, t.title, b.subtitle, IFNULL(a.boardFullName, '/sampleImage.jpg') as boardFullName, b.regdate, IFNULL(re.uread, 0) as uread
+		b.tno, b.bno, t.title, b.subtitle, b.point, IFNULL(a.boardFullName, '/thumbnail.png') as boardFullName, b.regdate, IFNULL(re.uread, 0) as uread
 		from tbl_board b
         
         left outer join
@@ -366,12 +366,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="mylistPage" resultType="com.kungchidda.domain.BoardVO">
 	
-		select #{tno} as tno,  (select max(bno)+1 from tbl_board where tno = #{tno}) as bno, "" as title, "" as subtitle, "" as uid, "/register.png" as boardFullName, now() as regdate from tbl_board
+		select #{tno} as tno,  (select max(bno)+1 from tbl_board where tno = #{tno}) as bno, "" as title, "" as subtitle, "" as uid, "" as point, "/register.png" as boardFullName, now() as regdate from tbl_board
 
 		union
 	
 		select 
-		b.tno, b.bno, t.title, b.subtitle, b.uid, IFNULL(a.boardFullName, '/sampleImage.jpg') as boardFullName, b.regdate
+		b.tno, b.bno, t.title, b.subtitle, b.uid, b.point, IFNULL(a.boardFullName, '/thumbnail.png') as boardFullName, b.regdate
 		from tbl_board b
         
         left outer join
@@ -419,5 +419,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="deleteTags">
 		delete from tbl_tags where bno = #{bno}
 	</insert>
+	
+	<select id="checkContent" resultType="BoardVO">
+	SELECT *
+	FROM tbl_board
+	where bno = #{bno}
+	</select>
 
 </mapper>

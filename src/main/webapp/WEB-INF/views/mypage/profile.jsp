@@ -23,9 +23,9 @@
         </div>
         <div class="mypage-profile-subscribe">
 			<c:if test="${login.uid == cri.uid}">
-			<form action="/mypage/subscriberList" method="GET">
-			<input type="hidden" name="uid" value='${cri.uid}'>
-				<button type="submit" class="subscribedCount" id="btn-subscribedCount"></button>
+				<form action="/mypage/subscriberList" method="GET">
+					<input type="hidden" name="uid" value='${cri.uid}'>
+					<button type="submit" class="subscribedCount" id="btn-subscribedCount"></button>
 				</form>
 			</c:if>
         	<c:if test="${login.uid != cri.uid}">

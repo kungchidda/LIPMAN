@@ -13,11 +13,13 @@ import org.springframework.transaction.annotation.Transactional;
 import com.kungchidda.domain.BoardVO;
 import com.kungchidda.domain.Criteria;
 import com.kungchidda.domain.NotifyVO;
+import com.kungchidda.domain.PayVO;
 import com.kungchidda.domain.SearchCriteria;
 import com.kungchidda.domain.SubscribeVO;
 import com.kungchidda.domain.UserVO;
 import com.kungchidda.persistence.BoardDAO;
 import com.kungchidda.persistence.NotifyDAO;
+import com.kungchidda.persistence.PayDAO;
 
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -29,6 +31,9 @@ public class BoardServiceImpl implements BoardService{
 	
 	@Inject
 	private NotifyDAO notifyDAO;
+	
+	@Inject
+	private PayDAO payDAO;
 	
 	@Transactional
 	@Override
@@ -89,9 +94,52 @@ public class BoardServiceImpl implements BoardService{
 	@Transactional(isolation=Isolation.READ_COMMITTED)
 	@Override
 	public BoardVO userRead(Integer bno, String uid) throws Exception{
-		dao.updateViewCnt(bno);
+		
+		
+		BoardVO boardVO = new BoardVO();
+		
+		boardVO = dao.checkContent(bno);
+		
+		int point = boardVO.getPoint();
+		String author = boardVO.getUid();
+		
+		if(!author.equals(uid)) {
+			if(point > 0) {
+				
+				int buy = payDAO.checkUserBuy(bno, uid);
+				if(buy == 0) {
+					PayVO buyer = new PayVO();
+					PayVO seller = new PayVO();
+					
+					buyer.setUid(uid);
+					int balance = payDAO.totalPoint(buyer);
+					
+					if(balance > point) {
+						
+						buyer.setBno(bno);
+						buyer.setPoint(-point);
+						buyer.setProductDesc(boardVO.getSubtitle() + " 구매");
+						payDAO.usePoint(buyer);
+						
+						seller.setUid(author);
+						seller.setBno(bno);
+						seller.setPoint(point);
+						seller.setProductDesc(boardVO.getSubtitle() + " 판매");
+						payDAO.usePoint(seller);
+						
+					}else {
+						boardVO = null;
+						BoardVO vo = new BoardVO();
+						vo.setBno(-1);
+						return vo;
+					}
+				}
+			}
+			dao.updateViewCnt(bno);
+		}
 		int result = dao.checkUserRead(bno, uid);
 		logger.info("result = " + result);
+		
 		if(result == 0) {
 			logger.info("result = 0");
 			dao.insertUserRead(bno, uid);
@@ -104,7 +152,19 @@ public class BoardServiceImpl implements BoardService{
 	@Transactional(isolation=Isolation.READ_COMMITTED)
 	@Override
 	public BoardVO read(Integer bno) throws Exception{
-		dao.updateViewCnt(bno);
+//		dao.updateViewCnt(bno);
+		
+		BoardVO boardVO = new BoardVO();
+		boardVO = dao.checkContent(bno);
+		int point = boardVO.getPoint();
+		if(point>0) {
+			logger.info("point > 0");
+			boardVO = null;
+			BoardVO vo = new BoardVO();
+			vo.setBno(-1);
+			return vo;
+		}
+		
 		return dao.read(bno);
 	}
 	
@@ -195,6 +255,16 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void readComplete(BoardVO vo) throws Exception{
 		dao.readComplete(vo);
+	}
+	
+	@Transactional
+	@Override
+	public BoardVO checkContent(Integer bno) throws Exception{
+		
+		BoardVO boardVO = new BoardVO();
+		boardVO = dao.checkContent(bno);
+		
+		return boardVO;
 	}
 	
 }

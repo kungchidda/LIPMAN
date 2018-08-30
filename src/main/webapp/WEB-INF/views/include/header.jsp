@@ -44,6 +44,16 @@
             <a href="/"><img src="/resources/png/logo.png"></a>
         </div>
         <c:if test="${not empty login}">
+	        <div class="totalPoint">
+	        	<a href="/pay/history">
+	        		<span class="totalPoint-span"> Point</span>
+	        	</a>
+	        </div>
+        	<!-- <div class="payBtn">
+        		<a href="/pay/history">
+	            	<img class="dropbtn important-img" src="/resources/png/notice-1.png">
+	            </a>
+	        </div> -->
 	        <div class="noticeBtn ">
 	            <img class="dropbtn noticeFunction important-img" src="/resources/png/notice-1.png">
 	        </div>
@@ -259,7 +269,8 @@
 	</script>
 
 	<script>
-	 if('${login.uid}' != null){
+	 if('${login.uid}' != ""){
+		 console.log("login.uid != null");
 	    	var receiver = '${login.uid}';		
 	    	$.ajax({
 	    		type : 'post',
@@ -274,6 +285,21 @@
 	    			if(result > 0){
 	    				$(".noticeFunction").attr("src","/resources/images/notify.jpg");
 	    			}
+	    		}
+	    	});
+	    	
+	    	var uid = '${login.uid}';
+	    	$.ajax({
+	    		type : 'post',
+	    		url : "/pay/totalPoint/",
+	    		headers : {
+	    			"Content-Type" : "application/json",
+	    			"X-HTTP-Method-Override" : "POST" },
+	    		dataType : 'JSON',
+	    		data : JSON.stringify({uid:uid}),
+	    		async: false,
+	    		success:function(result){
+	    				$(".totalPoint-span").before(result);
 	    		}
 	    	});
 	    }
@@ -632,6 +658,7 @@
 						//$(this).get(0).submit();
         });
             
+		       
               
 //              var genreStr = "${MyPageVO.genre}";
 				var genreStr = '${cri.genre}';
@@ -644,11 +671,19 @@
 					$("#genreInput"+genreArr[i]).prop( "checked", true );
 					$("#genreInput"+genreArr[i]).next().toggleClass("false");
 					$("#genreInput"+genreArr[i]).next().toggleClass("true");
+					$(".genre-search-"+genreArr[i]).removeClass("hide");
 				}
 				
 				var keyword = '${cri.keyword}';
 				console.log("keyword = " + keyword);
 				$('#keywordInput').val(keyword);
+				
+				$('.search-keyword').append(keyword);
+				
+				
+				 if(genreStr || keyword){
+						$(".search-genre-keyword").removeClass("hide");
+			      	}
 				
 				var formObj = $("form[role='form']");
                 console.log(formObj);
