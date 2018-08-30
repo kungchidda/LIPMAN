@@ -1733,8 +1733,16 @@
 			var uid = '${login.uid}';
 			console.log("로그인 아이디 = " + uid);
 			var point = $(this).find(".comic-list-point").text();
+			var target = $(this).attr("href");
+			  // Request 객체 생성
+			 var request = new Request(target);
+			 // test 라는 파라메터 값을 얻기
+			  var bno = request.getParameter("bno");
+
+			console.log("목적지 = " + bno);
 			if(point > 0){
-				var r = confirm("유료 컨텐츠입니다. "+ point +"포인트를 사용하여 보시겠습니까?");
+				location.href="/pay/confirm?target="+bno;
+/* 				var r = confirm("유료 컨텐츠입니다. "+ point +"포인트를 사용하여 보시겠습니까?");
 				if (r == false) {
 				    event.preventDefault();
 				}else{
@@ -1748,11 +1756,32 @@
 						$("#myPageBar").slideDown(300);
 						event.preventDefault();
 					}
-				}
+				} */
 			}
 			
 			
 		});
+		
+		function Request(target){
+			var requestParam ="";
+			//getParameter 펑션
+			this.getParameter = function(param){
+				//현재 주소를 decoding
+				var url = unescape(target); 
+				//파라미터만 자르고, 다시 &그분자를 잘라서 배열에 넣는다.
+				var paramArr = (url.substring(url.indexOf("?")+1,url.length)).split("&");
+				
+				for(var i = 0 ; i < paramArr.length ; i++){
+					var temp = paramArr[i].split("="); //파라미터 변수명을 담음
+					if(temp[0].toUpperCase() == param.toUpperCase()){
+						// 변수명과 일치할 경우 데이터 삽입
+						requestParam = paramArr[i].split("=")[1]; 
+						break;
+					}
+				}
+				return requestParam;
+			}
+		}
 	}
 		
 		

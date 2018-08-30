@@ -454,28 +454,25 @@
 		});
 		
 		function Request(target){
-			 var requestParam ="";
-			 
-			 //getParameter 펑션
-			  this.getParameter = function(param){
-			  //현재 주소를 decoding
-			  var url = unescape(target); 
-			  //파라미터만 자르고, 다시 &그분자를 잘라서 배열에 넣는다. 
-			   var paramArr = (url.substring(url.indexOf("?")+1,url.length)).split("&"); 
-			 
-			   for(var i = 0 ; i < paramArr.length ; i++){
-			     var temp = paramArr[i].split("="); //파라미터 변수명을 담음
-			 
-			     if(temp[0].toUpperCase() == param.toUpperCase()){
-			       // 변수명과 일치할 경우 데이터 삽입
-			       requestParam = paramArr[i].split("=")[1]; 
-			       break;
-			     }
-			   }
-			   return requestParam;
-			 }
+			var requestParam ="";
+			//getParameter 펑션
+			this.getParameter = function(param){
+				//현재 주소를 decoding
+				var url = unescape(target); 
+				//파라미터만 자르고, 다시 &그분자를 잘라서 배열에 넣는다.
+				var paramArr = (url.substring(url.indexOf("?")+1,url.length)).split("&");
+				
+				for(var i = 0 ; i < paramArr.length ; i++){
+					var temp = paramArr[i].split("="); //파라미터 변수명을 담음
+					if(temp[0].toUpperCase() == param.toUpperCase()){
+						// 변수명과 일치할 경우 데이터 삽입
+						requestParam = paramArr[i].split("=")[1]; 
+						break;
+					}
+				}
+				return requestParam;
 			}
-
+		}
 	}
 		
 		
