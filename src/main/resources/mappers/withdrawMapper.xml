@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kungchidda.mappers.withdrawMapper">
+	<insert id="insert">
+		insert into tbl_withdraw (uid, type, companyName, ceoName, registedNo, taxType, bankName, accountNo, accountHolder)
+		values(#{uid}, #{type}, #{companyName}, #{ceoName}, #{registedNo}, #{taxType}, #{bankName}, #{accountNo}, #{accountHolder})
+	</insert>
+	
+	<insert id="insertAttach">
+		insert into tbl_withdraw_attach(withdrawFullName, wno) values (#{withdrawFullName}, #{wno})
+	</insert>
+	
+	<select id="checkWithdraw" resultType="WithdrawVO">
+	SELECT *
+	FROM tbl_withdraw
+	where uid = #{uid}
+	</select>
+	
+	<update id="modify">
+		update tbl_withdraw set type = #{type}, companyName = #{companyName}, ceoName = #{ceoName}, registedNo = #{registedNo}, taxType = #{taxType}, bankName = #{bankName}, accountNo = #{accountNo}, accountHolder = #{accountHolder}
+		where uid = #{uid}
+	</update>
+	
+</mapper>

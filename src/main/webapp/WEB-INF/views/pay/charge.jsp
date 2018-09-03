@@ -97,7 +97,9 @@ $(document).ready(function() {
 		포인트가 부족하여 충전이 필요합니다.
 	</c:if>
 
-	<form action="/pay/payments" method="post">
+
+
+<!-- 	<form action="/pay/payments" method="post">
 <div class="pay">
 		<div class="pay-img"><img src="/resources/png/logo.png"></div>
 		<div class="pay-option-1" >
@@ -117,7 +119,93 @@ $(document).ready(function() {
 		</div>
 	<button type="submit" class="homeBtn">Toss 결제</button>
 </div>
-	</form>
+	</form> -->
+
+
+<form action="/pay/payments" method="post">
+<div class="charge">
+        <div class="five">
+            <img src="/resources/png/point-5000.png" class="point-img">
+            <p><img src="/resources/png/point.png" class="point">50</p>
+            <p class="plus">&nbsp;</p>
+            <p class="money">￦ 5,000</p>
+            <input type="radio" name="amount" class="hide" id="five" value="5000">
+        </div>
+        
+        <div class="ten">
+            <img src="/resources/png/point-10000.png"  class="point-img">
+            <p><img src="/resources/png/point.png" class="point">110</p>
+            <p class="plus">(<img src="/resources/png/point.png" class="point">100 + <img src="/resources/png/point.png" class="point">10)</p>
+            <p class="money">￦ 10,000</p>
+            <input type="radio" name="amount" class="hide" id="ten" value="10000">
+        </div>
+        
+        <div class="twenty">
+            <img src="/resources/png/point-20000.png"  class="point-img">
+            <p><img src="/resources/png/point.png" class="point">222</p>
+            <p class="plus">(<img src="/resources/png/point.png" class="point">200 + <img src="/resources/png/point.png" class="point">22)</p>
+            <p class="money">￦ 20,000</p>
+            <input type="radio" name="amount" class="hide" id="twenty" value="20000">
+        </div>
+        
+        <div class="thirty">
+            <img src="/resources/png/point-30000.png"  class="point-img">
+            <p><img src="/resources/png/point.png" class="point">336</p>
+            <p class="plus">(<img src="/resources/png/point.png" class="point">300 + <img src="/resources/png/point.png" class="point">36)</p>
+            <p class="money">￦ 30,000</p>
+            <input type="radio" name="amount" class="hide" id="thirty" value="30000">
+        </div>
+        
+       <div class="fifty">
+            <img src="/resources/png/point-50000.png"  class="point-img">
+            <p><img src="/resources/png/point.png" class="point">570</p>
+            <p class="plus">(<img src="/resources/png/point.png" class="point">500 + <img src="/resources/png/point.png" class="point">70)</p>
+            <p class="money">￦ 50,000</p>
+            <input type="radio" name="amount" class="hide" id="fifty" value="50000">
+        </div>
+        
+<!--         <div class="paymentbtn">Toss 결제</div> -->
+        <button type="submit" class="paymentbtn">Toss 결제</button>
+    </div>
+</form>
+
+
+
+<script>
+	$('.five').on("click", function(event) {
+		$("#five").prop("checked", true);
+		$(".checked-true").removeClass("checked-true");
+		$(this).addClass("checked-true");
+	});
+
+	$('.ten').on("click", function(event) {
+		$("#ten").prop("checked", true);
+		$(".checked-true").removeClass("checked-true");
+		$(this).addClass("checked-true");
+	});
+	
+	$('.twenty').on("click", function(event) {
+		$("#twenty").prop("checked", true);
+		$(".checked-true").removeClass("checked-true");
+		$(this).addClass("checked-true");
+	});
+
+	$('.thirty').on("click", function(event) {
+		$("#thirty").prop("checked", true);
+		$(".checked-true").removeClass("checked-true");
+		$(this).addClass("checked-true");
+	});
+
+	$('.fifty').on("click", function(event) {
+		$("#fifty").prop("checked", true);
+		$(".checked-true").removeClass("checked-true");
+		$(this).addClass("checked-true");
+		
+	});
+</script>
+
+
+
 
 
 

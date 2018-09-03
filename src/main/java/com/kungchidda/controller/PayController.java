@@ -15,15 +15,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kungchidda.domain.BoardVO;
 import com.kungchidda.domain.PageMaker;
 import com.kungchidda.domain.PayVO;
 import com.kungchidda.domain.SearchCriteria;
 import com.kungchidda.domain.UserVO;
+import com.kungchidda.domain.WithdrawVO;
 import com.kungchidda.service.BoardService;
 import com.kungchidda.service.MyPageService;
 import com.kungchidda.service.PayService;
+import com.kungchidda.service.WithdrawService;
 
 
 @Controller
@@ -41,8 +44,11 @@ public class PayController {
 	@Inject
 	private BoardService boardService;
 	
+	@Inject
+	private WithdrawService withdrawService;
+	
 	@RequestMapping(value="/charge", method = RequestMethod.GET)
-	public String charge(@RequestParam("status") String status, Model model, HttpServletRequest request) throws Exception{
+	public String charge(@RequestParam(value="status", required=false) String status, Model model, HttpServletRequest request) throws Exception{
 		logger.info("pay charge");
 		HttpSession session = request.getSession();
 		UserVO vo = (UserVO)session.getAttribute("login");
@@ -160,4 +166,79 @@ public class PayController {
 		
 		return "/pay/confirm";
 	}
+	
+	
+	@RequestMapping(value="/withdraw", method = RequestMethod.GET)
+	public String withdraw(Model model, HttpServletRequest request) throws Exception{
+		logger.info("withdraw");
+		
+		HttpSession session = request.getSession();
+		UserVO vo = (UserVO)session.getAttribute("login");
+		String uid = "";
+		uid = vo.getUid();
+		logger.info("uid = " + uid);
+		model.addAttribute(myPageService.setting(uid));
+		
+		WithdrawVO withdrawVO = new WithdrawVO();
+		withdrawVO.setUid(uid);
+		withdrawVO = withdrawService.checkWithdraw(withdrawVO);
+
+		if(withdrawVO == null) {
+			return "redirect:/pay/withdrawInsert";
+		}
+		model.addAttribute(withdrawVO);
+		return "/pay/withdraw";
+
+		
+	}
+	
+	@RequestMapping(value="/withdrawInsert", method = RequestMethod.GET)
+	public void withdrawInsertGET(Model model, HttpServletRequest request) throws Exception{
+		logger.info("withdraw");
+		
+		HttpSession session = request.getSession();
+		UserVO vo = (UserVO)session.getAttribute("login");
+		String uid = "";
+		uid = vo.getUid();
+		logger.info("uid = " + uid);
+		model.addAttribute(myPageService.setting(uid));
+		
+	}
+	
+	@RequestMapping(value="/withdrawInsert", method = RequestMethod.POST)
+	public String withdrawInsertPOST(WithdrawVO withdrawVO, RedirectAttributes rttr) throws Exception{
+		logger.info("withdraw");
+		logger.info(withdrawVO.toString());
+		
+		withdrawService.insert(withdrawVO);
+		rttr.addAttribute("uid", withdrawVO.getUid());
+		return "redirect:/pay/withdraw";
+	}
+	
+	@RequestMapping(value="/withdrawModify", method = RequestMethod.GET)
+	public void withdrawModifyGET(Model model, HttpServletRequest request) throws Exception{
+		logger.info("withdraw");
+		
+		HttpSession session = request.getSession();
+		UserVO vo = (UserVO)session.getAttribute("login");
+		String uid = "";
+		uid = vo.getUid();
+		logger.info("uid = " + uid);
+		model.addAttribute(myPageService.setting(uid));
+		
+		WithdrawVO withdrawVO = new WithdrawVO();
+		withdrawVO.setUid(uid);
+		withdrawVO = withdrawService.checkWithdraw(withdrawVO);
+		model.addAttribute(withdrawVO);
+	}
+	
+	@RequestMapping(value="/withdrawModify", method = RequestMethod.POST)
+	public String withdrawModifyPOST(WithdrawVO withdrawVO, RedirectAttributes rttr) throws Exception{
+		logger.info("withdraw");
+		
+		withdrawService.modify(withdrawVO);
+		rttr.addAttribute("uid", withdrawVO.getUid());
+		return "redirect:/pay/withdraw";
+	}
+	
 }
