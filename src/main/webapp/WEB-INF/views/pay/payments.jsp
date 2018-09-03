@@ -5,16 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>LIPMAN</title>
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<%-- <%@ include file="/WEB-INF/views/include/header.jsp"%> --%>
 </head>
 <body>
 
 
-결제 완료
 
 
 
 
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+<%-- <%@ include file="/WEB-INF/views/include/footer.jsp"%> --%>
 </body>
 </html>
