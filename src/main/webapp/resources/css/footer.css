@@ -3,21 +3,30 @@
 .compony {
 	display: grid;
 	grid-template-columns: 100%;
-	grid-template-rows: 200px;
-	grid-template-areas: "a";
+	grid-template-rows: 40px 30px;
+	grid-template-areas: 
+		"a"
+		"b";
 	justify-content: center;
 	justify-items: center;
+	align-items: center;
 	background-color: #282f3f;
 	margin-top: 50px;
 	bottom: 0;
+	padding-top: 50px;
+	padding-bottom: 50px;
 }
 
-.compony .compony-infor {
+.compony .infor-1 {
 	grid-area: a;
 	color: white;
 	font-size: 15px;
-	padding: 50px;
-	align-self: center;
+}
+
+.compony .infor-2 {
+	grid-area: b;
+	color: white;
+	font-size: 13px;
 }
 
 /*footer*/
