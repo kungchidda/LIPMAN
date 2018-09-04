@@ -109,6 +109,13 @@ $(document).ready(function() {
 	<c:if test="${empty withdrawVO}">
 	
  	<div id="tab_example">
+ 		<div class="firstwithdraw">
+ 			<p class="firstwithdraw-1">출금 신청시 개인 및 사업자 등록을 해야합니다.</p>
+ 			<p class="firstwithdraw-2">수집한 정보는 부가가치세법에 따라 세금계산서 발급 및 국세청 매출자료 제출 목적으로 사용됩니다.</p>
+ 		</div>
+ 		
+ 		<hr>
+ 		
         <ul class="tab"> 
             <li class="tab1"><a href="#t1"><p>개인</p></a></li>
             <li class="tab2"><a href="#t2"><p>사업자</p></a></li>
