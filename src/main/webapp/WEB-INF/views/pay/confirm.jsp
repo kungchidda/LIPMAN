@@ -24,12 +24,13 @@
             justify-content: center;
             justify-items: center;
             align-items: center;
+            padding-top: 50px;
         }
         
         .check .subimg {
             grid-area: a;
             width: 200px;
-            border: 1px solid #d3d3d3;
+/*             border: 1px solid #d3d3d3; */
             border-radius: 5px;
         }
         
@@ -51,6 +52,7 @@
             border-radius: 5px;
             padding: 10px;            
             font-size: 15px;
+            background-color: white;
         }
         
         
