@@ -60,9 +60,9 @@
 				</a>
 			</div>
 			<script>
-			$(document).ready(function(e){
+/* 			$(document).ready(function(e){
 				$(".write-comic").css("grid-template-rows", "100px 100px 42px "+ selectHeight + "px 150px 150px 42px");
-			});
+			}); */
 			</script>
 		</c:if>
 	</div>

@@ -45,18 +45,23 @@ public class AdminDAOImpl implements AdminDAO{
 	}
 	
 	@Override
-	public WithdrawVO withdrawHistoryRead(Integer wno) throws Exception {
-		return session.selectOne(namespace+".withdrawHistoryRead", wno);
+	public WithdrawVO withdrawHistoryRead(WithdrawVO withdrawVO) throws Exception {
+		return session.selectOne(namespace+".withdrawHistoryRead", withdrawVO);
 	}
 	
 	@Override
-	public List<WithdrawVO> withdrawHistoryReadAttach(Integer wno) throws Exception{
-		return session.selectList(namespace + ".withdrawHistoryReadAttach", wno);
+	public List<WithdrawVO> withdrawHistoryReadAttach(WithdrawVO withdrawVO) throws Exception{
+		return session.selectList(namespace + ".withdrawHistoryReadAttach", withdrawVO);
 	}
 	
 	@Override
 	public void withdrawModify(WithdrawVO withdrawVO) throws Exception {
 		session.update(namespace+".withdrawModify", withdrawVO);
+	}
+	
+	@Override
+	public void withdrawComplete(PayVO payVO) throws Exception {
+		session.insert(namespace+".withdrawComplete", payVO);
 	}
 	
 }

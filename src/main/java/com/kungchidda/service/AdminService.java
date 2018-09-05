@@ -14,8 +14,10 @@ public interface AdminService {
 	
 	public List<WithdrawVO> withdrawHistoryList(SearchCriteria cri) throws Exception;
 	public int withdrawHistoryListCount(SearchCriteria cri) throws Exception;
-	public WithdrawVO withdrawHistoryRead(Integer wno) throws Exception;
-	public List<WithdrawVO> withdrawHistoryReadAttach(Integer wno) throws Exception;
+	public WithdrawVO withdrawHistoryRead(WithdrawVO withdrawVO) throws Exception;
+	public List<WithdrawVO> withdrawHistoryReadAttach(WithdrawVO withdrawVO) throws Exception;
 	
 	public WithdrawVO withdrawModify(WithdrawVO withdrawVO) throws Exception;
+	
+	public void withdrawComplete(PayVO payVO) throws Exception;
 }

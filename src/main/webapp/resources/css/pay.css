@@ -1,107 +1,106 @@
 @charset "UTF-8";
-
 .pay {
-	display: grid;
-	grid-template-columns: 250px 250px;
-	grid-template-rows: 180px 40px 40px 40px 40px 40px 50px;
-	grid-template-areas: "a a" "b b" "c c" "d d" "e e" "f f" "g g";
-	justify-content: center;
-	grid-row-gap: 10px;
-	grid-column-gap: 10px;
-	align-items: center;
-	justify-items: center;
-	padding-top: 50px;
+    display: grid;
+    grid-template-columns: 250px 250px;
+    grid-template-rows: 180px 40px 40px 40px 40px 40px 50px;
+    grid-template-areas: 
+        "a a"
+        "b b"
+        "c c"
+        "d d"
+        "e e"
+        "f f"
+        "g g";
+    justify-content: center;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    align-items: center;
+    justify-items: center;
+    padding-top: 50px;
 }
 
 .pay-img {
-	grid-area: a;
-	justify-self: start;
-	width: 500px;
+    grid-area: a;
+    justify-self: start;
+    width: 500px;
 }
 
 .pay-option-1 {
-	grid-area: b;
-	padding-left: 50px;
-	justify-self: start;
-	font-size: 30px;
+    grid-area: b;
+    padding-left: 50px;
+    justify-self: start;
+    font-size: 30px;
 }
-
 .pay-option-2 {
-	grid-area: c;
-	padding-left: 50px;
-	justify-self: start;
-	font-size: 30px;
+    grid-area: c;
+    padding-left: 50px;
+    justify-self: start;
+    font-size: 30px;
 }
-
 .pay-option-3 {
-	grid-area: d;
-	padding-left: 50px;
-	justify-self: start;
-	font-size: 30px;
+    grid-area: d;
+    padding-left: 50px;
+    justify-self: start;
+    font-size: 30px;
 }
-
 .pay-option-4 {
-	grid-area: e;
-	padding-left: 50px;
-	justify-self: start;
-	font-size: 30px;
+    grid-area: e;
+    padding-left: 50px;
+    justify-self: start;
+    font-size: 30px;
 }
-
 .pay-option-5 {
-	grid-area: f;
-	padding-left: 50px;
+    grid-area: f;
+    padding-left: 50px;
 	justify-self: start;
-	font-size: 30px;
+    font-size: 30px;
 }
 
 .homeBtn {
-	grid-area: g;
+    grid-area: g;
 }
 
 .homeBtn {
-	width: 130px;
-	padding: 10px;
-	background-color: #489ad8;
-	border: 1px solid #489ad8;
-	color: white;
-	border-radius: 5px;
-	font-size: 15px;
+    width: 130px;
+    padding: 10px;
+    background-color: #489ad8;
+    border: 1px solid #489ad8;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
 }
 
 .pay span {
-	color: #f95e3a;
+    color: #f95e3a;
 }
 
-.historyList {
+.historyList{
 	display: grid;
-	grid-template-columns: 200px 200px 50px 250px;
-	grid-template-areas: "a b c d";
-	justify-content: center;
-	grid-row-gap: 10px;
-	grid-column-gap: 10px;
-	align-items: center;
-	justify-items: center;
-	padding-top: 10px;
+    grid-template-columns: 200px 200px 50px 250px;
+    grid-template-areas: 
+        "a b c d";
+    justify-content: center;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    align-items: center;
+    justify-items: center;
+    padding-top: 10px;
 }
 
-.productDesc {
+.productDesc{
 	grid-area: a;
 }
-
-.amount {
+.amount{
 	grid-area: b;
 }
-
-.point {
+.point{
 	grid-area: c;
 }
-
-.regdate {
+.regdate{
 	grid-area: d;
 }
 
 .charge {
-<<<<<<< HEAD
     display: grid;
     grid-template-columns: repeat(5, 205px);
     grid-template-rows: 355px 50px;
@@ -303,215 +302,10 @@ a:link {text-decoration: none;}
     border: 1px solid #1d8bf1;
     border-radius: 5px;
     color: white;
-=======
-	display: grid;
-	grid-template-columns: repeat(5, 205px);
-	grid-template-rows: 355px 50px;
-	grid-template-areas: "a b c d e" ". . f . .";
-	grid-gap: 10px;
-	justify-content: center;
-	justify-items: center;
-	align-items: center;
-	text-align: center;
-	font-size: 15px;
-}
-
-.charge .five, .ten, .twenty, .thirty, .fifty {
-	width: 200px;
-	height: 350px;
-	border: 1px solid #d3d3d3;
-	border-radius: 10px;
-	box-shadow: 0px 1px 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.charge .five {
-	grid-area: a;
-}
-
-.charge .ten {
-	grid-area: b;
-}
-
-.charge .twenty {
-	grid-area: c;
-}
-
-.charge .thirty {
-	grid-area: d;
-}
-
-.charge .fifty {
-	grid-area: e;
-}
-
-.charge .point-img {
-	width: 200px;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	border-bottom: 1px solid #d3d3d3;
-}
-
-.charge .point {
-	width: 20px;
-	vertical-align: -45%;
-	padding: 5px;
-}
-
-.charge .plus {
-	color: gray;
-	margin-top: 10px;
-	height: 30px;
-}
-
-.charge .money {
-	font-size: 16px;
-	padding-top: 18px;
-	border-top: 1px solid #d3d3d3;
-}
-
-.charge p {
-	margin: 10px;
-}
-
-.charge .paymentbtn {
-	grid-area: f;
-	width: 170px;
-	background-color: #1d8bf1;
-	border: 1px solid #1d8bf1;
-	border-radius: 5px;
-	padding: 10px;
-	text-align: center;
-	justify-self: center;
-	color: white;
-}
-
-.charge .checked-true {
-	border: 5px solid red;
-}
-
-* {
-	margin: 0px;
-	padding: 0;
-}
-
-.tab {
-	display: grid;
-	grid-template-columns: repeat(2, 170px);
-	grid-template-rows: 50px;
-	grid-template-areas: "a b c";
-	justify-content: center;
-	text-align: center;
-	justify-items: center;
-	/*            padding-bottom: 10px;*/
-}
-
-.tab .tab1 {
-	grid-area: a;
-}
-
-.tab .tab2 {
-	grid-area: b;
-}
-
-.tab li {
-	list-style: none;
-}
-
-.tab p {
-	width: 140px;
-	border: 1px solid black;
-	border-radius: 5px;
-	padding: 10px;
-}
-
-a:link {
-	text-decoration: none;
-}
-
-/* tab1-content */
-.tab1-content {
-	display: grid;
-	grid-template-columns: 500px;
-	grid-template-rows: repeat(7, 65px);
-	grid-template-areas: "a" "b" "c" "d" "e" "f" "g";
-	justify-content: center;
-	text-align: center;
-	justify-items: center;
-	align-items: center;
-}
-
-.tab1-content .number {
-	grid-area: a;
-}
-
-.tab1-content .name {
-	grid-area: b;
-}
-
-.tab1-content .img-div1 {
-	grid-area: c;
-}
-
-.tab1-content .bank {
-	grid-area: d;
-}
-
-.tab1-content .account {
-	grid-area: e;
-}
-
-.tab1-content .account-name {
-	grid-area: f;
-}
-
-.tab1-content .submit {
-	grid-area: g;
-}
-
-.tab1-content input {
-	width: 400px;
-	height: 25px;
-	font-size: 13px;
-	padding: 10px;
-	border: 1px solid #d3d3d3;
-	border-radius: 5px;
-}
-
-.tab1-content .img-div1 {
-	width: 400px;
-	font-size: 13px;
-	padding: 10px;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	border: 1px solid #d3d3d3;
-	border-radius: 5px;
-	text-align: left;
-}
-
-.tab1-content .bank {
-	width: 420px;
-	height: 47px;
-	background-color: white;
-	font-size: 13px;
-	padding: 10px;
-	border: 1px solid #d3d3d3;
-	border-radius: 5px;
-}
-
-.tab1-content button {
-	width: 170px;
-	height: 40px;
-	font-size: 15px;
-	background-color: #1d8bf1;
-	border: 1px solid #1d8bf1;
-	border-radius: 5px;
-	color: white;
->>>>>>> HONG
 }
 
 /* tab2-content */
 .tab2-content {
-<<<<<<< HEAD
     display: grid;
     grid-template-columns: 500px;
     grid-template-rows: repeat(11, 65px);
@@ -802,6 +596,7 @@ a:link {
     border: 1px solid #1d8bf1;
     border-radius: 5px;
     color: white;
+    justify-self: center;
 } 
 
 .withdraw div {
@@ -810,6 +605,33 @@ a:link {
 }
  
  
+  .withdraw-registed {
+            display: grid;
+            grid-template-columns: 300px;
+            grid-template-rows: 160px 50px;
+            grid-template-areas: 
+                "a"
+                "b";
+            justify-content: center;
+            grid-row-gap: 10px;
+            align-items: center;
+            justify-items: center;
+            padding-top: 50px;
+        }
+        
+        .withdraw-registed .withdraw-img {
+            grid-area: a;
+        }
+        
+        .withdraw-registed img {
+            width: 150px;
+        }
+        
+        .withdraw-registed .withdraw-text {
+            grid-area: b;
+            font-size: 15px;
+            text-align: center;
+        }
  
  
  
@@ -821,129 +643,4 @@ a:link {
  
  
  
-=======
-	display: grid;
-	grid-template-columns: 500px;
-	grid-template-rows: repeat(11, 65px);
-	grid-template-areas: "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k";
-	justify-content: center;
-	text-align: center;
-	justify-items: center;
-	align-items: center;
-}
-
-.tab2-content .select-company {
-	grid-area: a;
-}
-
-.tab2-content .number {
-	grid-area: b;
-}
-
-.tab2-content .name {
-	grid-area: c;
-}
-
-.tab2-content .leader {
-	grid-area: d;
-}
-
-.tab2-content .taxation {
-	grid-area: e;
-}
-
-.tab2-content .img-div2 {
-	grid-area: f;
-}
-
-.tab2-content .bank {
-	grid-area: g;
-}
-
-.tab2-content .account {
-	grid-area: h;
-}
-
-.tab2-content .account-name {
-	grid-area: i;
-}
-
-.tab2-content .account-div2 {
-	grid-area: j;
-}
-
-.tab2-content .submit {
-	grid-area: k;
-}
-
-.tab2-content input {
-	width: 400px;
-	height: 25px;
-	font-size: 13px;
-	padding: 10px;
-	border: 1px solid #d3d3d3;
-	border-radius: 5px;
-}
-
-.tab2-content .select-company, .bank, .taxation {
-	width: 420px;
-	height: 47px;
-	background-color: white;
-	font-size: 13px;
-	padding: 10px;
-	border: 1px solid #d3d3d3;
-	border-radius: 5px;
-}
-
-.tab2-content .img-div2, .account-div2 {
-	width: 400px;
-	font-size: 13px;
-	padding: 10px;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	border: 1px solid #d3d3d3;
-	border-radius: 5px;
-	text-align: left;
-}
-
-.tab2-content p {
-	font-size: 13px;
-	justify-self: start;
-}
-
-.tab2-content button {
-	width: 170px;
-	height: 40px;
-	font-size: 15px;
-	background-color: #1d8bf1;
-	border: 1px solid #1d8bf1;
-	border-radius: 5px;
-	color: white;
-}
-
-.withdraw {
-	display: grid;
-	grid-template-columns: 300px;
-	grid-template-rows: 160px 50px;
-	grid-template-areas: "a" "b";
-	justify-content: center;
-	grid-row-gap: 10px;
-	align-items: center;
-	justify-items: center;
-	padding-top: 50px;
-}
-
-.withdraw .withdraw-img {
-	grid-area: a;
-}
-
-.withdraw img {
-	width: 150px;
-}
-
-.withdraw .withdraw-text {
-	grid-area: b;
-	font-size: 15px;
-	text-align: center;
-}
->>>>>>> HONG
+ 

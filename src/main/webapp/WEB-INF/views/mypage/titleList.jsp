@@ -600,6 +600,7 @@
 							<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
 							<div class="comic-list-text cursor do-not-close">{{subtitle}}</div>
 							<div class="comic-list-time cursor do-not-close">{{prettifyDate regdate}}</div>
+							{{#if point}}<div class="comic-list-point class='do-not-close'"><img class="comic-list-point-img do-not-close" src="/resources/images/point.jpg">{{point}}</div>{{/if}}
 						</a>
 				</div>
 			{{/if}}
@@ -613,6 +614,23 @@
 				<div class="subtitleLi">
 						<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
 							<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
+							<div class="comic-list-text cursor do-not-close">{{subtitle}}</div>
+							<div class="comic-list-time cursor do-not-close">{{prettifyDate regdate}}</div>
+							{{#if point}}<div class="comic-list-point class='do-not-close'"><img class="comic-list-point-img do-not-close" src="/resources/images/point.jpg">{{point}}</div>{{/if}}
+						</a>
+				</div>
+		{{/each}}
+		<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
+	</script>
+	</c:if>
+	
+	<c:if test="${login.uid != cri.uid}">
+	<script id="subtitle-template" type="text/x-handlebars-template">
+		{{#each .}}
+				<div class="subtitleLi">
+						<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
+							<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
+							<div class="comic-list-read do-not-close">{{ifCond uread}}</div>							
 							<div class="comic-list-text cursor do-not-close">{{subtitle}}</div>
 							<div class="comic-list-time cursor do-not-close">{{prettifyDate regdate}}</div>
 							{{#if point}}<div class="comic-list-point class='do-not-close'"><img class="comic-list-point-img do-not-close" src="/resources/images/point.jpg">{{point}}</div>{{/if}}
@@ -640,22 +658,7 @@
 	</script>
 	</c:if>
 	
-	<c:if test="${login.uid != cri.uid}">
-	<script id="subtitle-template" type="text/x-handlebars-template">
-		{{#each .}}
-				<div class="subtitleLi">
-						<a href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&bno={{bno}}' >
-							<div class="comic-list do-not-close"><img src="/displayFile?fileName={{boardFullName}}"></div>
-							<div class="comic-list-read do-not-close">{{ifCond uread}}</div>							
-							<div class="comic-list-text cursor do-not-close">{{subtitle}}</div>
-							<div class="comic-list-time cursor do-not-close">{{prettifyDate regdate}}</div>
-							{{#if point}}<div class="comic-list-point class='do-not-close'"><img class="comic-list-point-img do-not-close" src="/resources/images/point.jpg">{{point}}</div>{{/if}}
-						</a>
-				</div>
-		{{/each}}
-		<ul id="pagination" class="pagination do-not-close comic-list-pagi"></ul>
-	</script>
-	</c:if>
+
 
 
 	<script>

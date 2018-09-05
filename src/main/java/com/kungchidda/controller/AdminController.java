@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kungchidda.domain.PageMaker;
+import com.kungchidda.domain.PayVO;
 import com.kungchidda.domain.SearchCriteria;
 import com.kungchidda.domain.UserVO;
 import com.kungchidda.domain.WithdrawVO;
@@ -53,22 +54,22 @@ public class AdminController {
 		return "redirect:/sboard/list";
 	}
 	
-	@RequestMapping(value="/payHistoryRead", method = RequestMethod.GET)
-	public String payHistoryRead(@RequestParam("pno") int pno, @ModelAttribute("cri") SearchCriteria cri, Model model, HttpServletRequest request) throws Exception {
-		
-		HttpSession session = request.getSession();
-		UserVO vo = (UserVO)session.getAttribute("login");
-		String uid = "";
-		uid = vo.getUid();
-		logger.info("uid = " + uid);
-		
-		if(uid.equals("lipmanapp@gmail.com")) {
-			model.addAttribute(adminService.payHistoryRead(pno));
-			return "/lipmanAdmin/payHistoryRead";
-		}
-		return "redirect:/sboard/list";
-		
-	}
+//	@RequestMapping(value="/payHistoryRead", method = RequestMethod.GET)
+//	public String payHistoryRead(@RequestParam("pno") int pno, @ModelAttribute("cri") SearchCriteria cri, Model model, HttpServletRequest request) throws Exception {
+//		
+//		HttpSession session = request.getSession();
+//		UserVO vo = (UserVO)session.getAttribute("login");
+//		String uid = "";
+//		uid = vo.getUid();
+//		logger.info("uid = " + uid);
+//		
+//		if(uid.equals("lipmanapp@gmail.com")) {
+//			model.addAttribute(adminService.payHistoryRead(pno));
+//			return "/lipmanAdmin/payHistoryRead";
+//		}
+//		return "redirect:/sboard/list";
+//		
+//	}
 	
 	@RequestMapping(value="/withdrawHistoryList", method = RequestMethod.GET)
 	public String withdrawHistoryList(@ModelAttribute("cri") SearchCriteria cri, Model model, HttpServletRequest request) throws Exception{
@@ -92,19 +93,48 @@ public class AdminController {
 		return "redirect:/sboard/list";
 	}
 	
-	@RequestMapping(value="/withdrawHistoryRead", method = RequestMethod.GET)
-	public String withdrawHistoryRead(@RequestParam("wno") int pno, @ModelAttribute("cri") SearchCriteria cri, Model model, HttpServletRequest request) throws Exception {
-		
+	@RequestMapping(value="/withdrawHistoryReadWno", method = RequestMethod.GET)
+	public String withdrawHistoryReadWno(@RequestParam("wno") int wno, @ModelAttribute("cri") SearchCriteria cri, Model model, HttpServletRequest request) throws Exception {
+		logger.info("@RequestParam wno = " + wno);
 		HttpSession session = request.getSession();
 		UserVO vo = (UserVO)session.getAttribute("login");
-		String uid = "";
-		uid = vo.getUid();
-		logger.info("uid = " + uid);
+		String loginID = "";
+		loginID = vo.getUid();
+		logger.info("loginID = " + loginID);
 		
-		if(uid.equals("lipmanapp@gmail.com")) {
-			model.addAttribute(adminService.withdrawHistoryRead(pno));
-			model.addAttribute("withdrawFullName", adminService.withdrawHistoryReadAttach(pno));
+		if(loginID.equals("lipmanapp@gmail.com")) {
+			WithdrawVO withdrawVO = new WithdrawVO();
+			withdrawVO.setWno(wno);
+			model.addAttribute(adminService.withdrawHistoryRead(withdrawVO));
+			model.addAttribute("withdrawFullName", adminService.withdrawHistoryReadAttach(withdrawVO));
 			return "/lipmanAdmin/withdrawHistoryRead";
+		}
+
+		return "redirect:/sboard/list";
+		
+	}
+	
+	@RequestMapping(value="/payHistoryRead", method = RequestMethod.GET)
+	public String payHistoryRead(@RequestParam("pno") int pno, @ModelAttribute("cri") SearchCriteria cri, Model model, HttpServletRequest request) throws Exception {
+
+		HttpSession session = request.getSession();
+		UserVO vo = (UserVO)session.getAttribute("login");
+		String loginID = "";
+		loginID = vo.getUid();
+		logger.info("loginID = " + loginID);
+		
+		if(loginID.equals("lipmanapp@gmail.com")) {
+			PayVO payVO = new PayVO();
+			payVO = adminService.payHistoryRead(pno);
+			WithdrawVO withdrawVO = new WithdrawVO();
+			withdrawVO.setUid(payVO.getUid());
+			withdrawVO = adminService.withdrawHistoryRead(withdrawVO);
+			if(withdrawVO != null) {
+				model.addAttribute(adminService.withdrawHistoryRead(withdrawVO));
+				model.addAttribute("withdrawFullName", adminService.withdrawHistoryReadAttach(withdrawVO));
+			}
+			model.addAttribute(adminService.payHistoryRead(pno));
+			return "/lipmanAdmin/payHistoryRead";
 		}
 
 		return "redirect:/sboard/list";
@@ -118,6 +148,15 @@ public class AdminController {
 		adminService.withdrawModify(withdrawVO);
 		
 		return "redirect:/lipmanAdmin/withdrawHistoryList";
+	}
+	
+	@RequestMapping(value="/withdrawComplete", method = RequestMethod.POST)
+	public String withdrawComplete(PayVO payVO, HttpServletRequest request, RedirectAttributes rttr) throws Exception{
+		logger.info("withdraw");
+
+		adminService.withdrawComplete(payVO);
+		
+		return "redirect:/lipmanAdmin/payHistoryList";
 	}
 	
 	

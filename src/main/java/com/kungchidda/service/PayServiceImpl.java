@@ -164,7 +164,7 @@ public class PayServiceImpl implements PayService{
 	public int withdrawExecute(PayVO payVO) throws Exception{
 		int totalPoint = payDAO.totalPoint(payVO);
 		int withdrawPoint = payVO.getPoint();
-		if(totalPoint > withdrawPoint) {
+		if(totalPoint >= withdrawPoint) {
 //			int amount = withdrawPoint * 70;
 //			payVO.setAmount(amount);
 			payVO.setPoint(-withdrawPoint);
@@ -175,6 +175,15 @@ public class PayServiceImpl implements PayService{
 		}
 		return -1;
 		
+	}
+	
+	@Transactional
+	@Override
+	public int checkOrderNo(String orderNo) throws Exception{
+
+		logger.info("orderNo = " + orderNo);
+		
+		return payDAO.checkOrderNo(orderNo);
 	}
 	
 	

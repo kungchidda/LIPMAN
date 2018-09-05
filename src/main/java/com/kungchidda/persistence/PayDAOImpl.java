@@ -72,5 +72,9 @@ public class PayDAOImpl implements PayDAO{
 		return session.insert(namespace+".withdrawExecute", payVO);
 	}
 	
+	@Override
+	public int checkOrderNo(String orderNo) throws Exception{
+		return session.selectOne(namespace + ".checkOrderNo", orderNo);
+	}
 	
 }

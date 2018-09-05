@@ -5,8 +5,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.kungchidda.mappers.adminMapper">
 
+	<sql id="withdrawRead">
+		<if test="wno != null">
+			and	wno = #{wno}
+		</if>
+		<if test="uid != null">
+			and uid = #{uid}
+		</if>
+	</sql>
+	
+	<sql id="withdrawAttachRead">
+		<if test="wno != null">
+			and	w.wno = #{wno}
+		</if>
+		<if test="uid != null">
+			and w.uid = #{uid}
+		</if>
+	</sql>
+		
 	<sql id="search">
 		<if test="searchType != null">
+			<if test="searchType =='wno'.toString()">
+				and wno like CONCAT('%', #{keyword}, '%')
+			</if>
 			<if test="searchType =='uid'.toString()">
 				and uid like CONCAT('%', #{keyword}, '%')
 			</if>
@@ -37,6 +58,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="searchType =='status'.toString()">
 				and (status like CONCAT('%', #{keyword}, '%'))
 			</if>
+			<if test="searchType =='regdate'.toString()">
+				and regdate like CONCAT('%', #{keyword}, '%')
+			</if>
+			
+			<if test="searchType =='pno'.toString()">
+				and pno like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType =='orderNo'.toString()">
+				and orderNo like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType =='productDesc'.toString()">
+				and productDesc like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType =='bno'.toString()">
+				and bno like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType =='amount'.toString()">
+				and amount like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType =='point'.toString()">
+				and point like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType =='payToken'.toString()">
+				and payToken like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType =='complete'.toString()">
+				and complete like CONCAT('%', #{keyword}, '%')
+			</if>
+			
 		</if>
 	</sql>
 
@@ -93,20 +143,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="withdrawHistoryRead" resultType="WithdrawVO">
+	<![CDATA[
 		SELECT * 
 		FROM webtoon.tbl_withdraw 
-		where wno = #{wno} 
+		where
+		wno > 0
+		]]>
+		<include refid="withdrawRead"></include>
 	</select>
 	
 	<select id="withdrawHistoryReadAttach" resultType="WithdrawVO">
+	<![CDATA[
 		SELECT * 
-		FROM webtoon.tbl_withdraw_attach 
-		where wno = #{wno} 
+		FROM tbl_withdraw_attach wa
+        
+        inner join
+        tbl_withdraw w
+        on w.wno = wa.wno 
+		
+		where
+		w.wno > 0
+		]]>
+		<include refid="withdrawAttachRead"></include>
 	</select>
 	
 	<update id="withdrawModify">
 		update tbl_withdraw set wno = #{wno}, uid = #{uid}, type = #{type}, companyName = #{companyName}, ceoName = #{ceoName}, registedNo = #{registedNo}, taxType = #{taxType}, bankName = #{bankName}, accountNo = #{accountNo}, accountHolder = #{accountHolder}, status = #{status}
 		where uid = #{uid}
 	</update>
+	
+	<insert id="withdrawComplete">
+		insert into tbl_pay (uid, orderNo, amount, payToken, productDesc, point, complete)
+		values(#{uid}, #{orderNo}, #{amount}, #{payToken}, #{productDesc}, #{point}, 1);
+	</insert>
 
 </mapper>

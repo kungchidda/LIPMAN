@@ -73,4 +73,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values(#{uid}, #{amount}, #{productDesc}, #{point}, #{complete});
 	</insert>
 	
+	<select id="checkOrderNo" resultType="int">
+		SELECT point
+		FROM tbl_pay
+		where orderNo = #{orderNo}
+	</select>
+	
 </mapper>

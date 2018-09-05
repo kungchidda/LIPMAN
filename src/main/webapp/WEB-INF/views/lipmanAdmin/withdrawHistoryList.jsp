@@ -18,7 +18,10 @@
 			<option value="n"
 				<c:out value="${cri.searchType == null?'selected':''}"/>>
 				---</option>
-
+			<option value="wno"
+				<c:out value="${cri.searchType eq 'wno'?'selected':''}"/>>
+				wno
+			</option>
 			<option value="uid"
 				<c:out value="${cri.searchType eq 'uid'?'selected':''}"/>>
 				uid
@@ -68,6 +71,10 @@
 				<c:out value="${cri.searchType eq 'status'?'selected':''}"/>>
 				status
 			</option>
+			<option value="regdate"
+				<c:out value="${cri.searchType eq 'regdate'?'selected':''}"/>>
+				regdate
+			</option>
 		</select>
 		<input type="text" name='keyword' id="keyword" value='${cri.keyword}'>
 		<button id='searchBtn'>Search</button>
@@ -90,7 +97,7 @@
 		<hr>
 		<c:forEach items="${withdrawHistory}" var="withdrawVO">
 			<div class="historyList" id="${withdrawVO.wno}">
-				<a href="/lipmanAdmin/withdrawHistoryRead?wno=${withdrawVO.wno}"><span>${withdrawVO.wno}</span></a>
+				<a href="/lipmanAdmin/withdrawHistoryReadWno?wno=${withdrawVO.wno}"><span>${withdrawVO.wno}</span></a>
 				<span>${withdrawVO.uid}</span>
 				<span>${withdrawVO.type}</span>
 				<span>${withdrawVO.companyName}</span>
@@ -108,7 +115,36 @@
 			<hr>
 		</c:forEach>
 		
+	
+	
 	</div>
+	<!-- Pagination -->
+	<ul class="historyPageUl">
+		<c:if test="${pageMaker.prev}">
+			<li class="historyPageLi">
+				<a href="withdrawHistoryList${pageMaker.makeSearch(pageMaker.startPage-1)}" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+						<span class="sr-only">Previous</span>
+				</a>
+			</li>
+		</c:if>
+
+		<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+			<li class="historyPageLi"
+				<c:out value="${pageMaker.cri.page==idx?'class=active':''}"/>>
+				<a href="withdrawHistoryList${pageMaker.makeSearch(idx)}">${idx}</a>
+			</li>
+		</c:forEach>
+
+		<c:if test="${pageMaker.next && pageMaker.endPage >0}">
+			<li class="historyPageLi">
+				<a href="withdrawHistoryList${pageMaker.makeSearch(pageMaker.endPage + 1)}" aria-label="Next">
+					<span aria-hidden="true">&raquo;</span>
+					<span class="sr-only">Next</span>
+				</a>
+			</li>
+		</c:if>
+	</ul>
 	<script>
 	$(document).ready(function() {
 		$('#searchBtn').on("click",function(event){

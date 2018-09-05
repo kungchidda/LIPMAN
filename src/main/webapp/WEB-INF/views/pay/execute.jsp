@@ -41,7 +41,7 @@
 <c:if test="${status eq 'PAY_COMPLETE'}">
 	<script>
 		$(document).ready(function () {
-			location.replace("/pay/success");
+			location.replace("/pay/success?orderNo=${orderNo}");
 		});
 	</script>
 </c:if>

@@ -97,16 +97,20 @@ public class PayController {
 	}
 	
 	@RequestMapping(value="/execute", method = RequestMethod.GET)
-	public void execute(@ModelAttribute("status") String status, @ModelAttribute("orderNo") String orderNo) throws Exception{
+	public void execute(@ModelAttribute("status") String status, @ModelAttribute("orderNo") String orderNo, Model model) throws Exception{
 		logger.info("execute payments");
+		model.addAttribute("orderNo", orderNo);
 		if(status.equals("PAY_COMPLETE")) {
 			payService.execute(orderNo);
 		}
 	}
 	
 	@RequestMapping(value="/success", method = RequestMethod.GET)
-	public void success() throws Exception{
+	public void success(@ModelAttribute("orderNo") String orderNo, Model model) throws Exception{
 		logger.info("success payments");
+		
+		model.addAttribute("point", payService.checkOrderNo(orderNo));
+		
 	}
 	
 	
@@ -253,7 +257,7 @@ public class PayController {
 		String[] files = withdrawVO.getFiles();
 		if(files !=null) {
 			
-			List<WithdrawVO> list = adminService.withdrawHistoryReadAttach(withdrawVO.getWno());
+			List<WithdrawVO> list = adminService.withdrawHistoryReadAttach(withdrawVO);
 			ArrayList<String> deleteFileList;
 			deleteFileList = new ArrayList<String>();
 			

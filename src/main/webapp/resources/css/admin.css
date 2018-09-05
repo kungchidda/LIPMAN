@@ -15,6 +15,14 @@
 hr {
 	width: 100%
 }
+
+.historyPageUl{
+	text-align: center;
+}
+
+.historyPageLi{
+	display: inline-block;
+}
 /* 
 .productDesc{
 	grid-area: a;
