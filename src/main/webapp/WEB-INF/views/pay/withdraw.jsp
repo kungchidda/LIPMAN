@@ -113,7 +113,13 @@ $(document).ready(function() {
 		        	</script>
 		        	
 	<c:if test="${withdrawVO.status == '0'}">
-		출금 계좌신청이 완료 되었습니다.
+		<div class="withdraw">
+        <img src="/resources/png/exchange.png" class="withdraw-img">
+        <p class="withdraw-text">
+            신청해주셔서 감사합니다.<br>
+            검토 후 이메일로 결과를 전달드리겠습니다.
+        </p>
+    </div>
 	</c:if>
 	<c:if test="${withdrawVO.status == '1'}">
 	<c:if test="${withdrawVO.type == '1'}">
@@ -236,6 +242,7 @@ $(document).ready(function() {
 					</a>
 		        </div>
 		</form>
+<<<<<<< HEAD
 		<hr>
 			<div class="withdraw">
 				<div class="had-pointtext">
@@ -259,144 +266,52 @@ $(document).ready(function() {
 					<div>출금 신청</div>
 				</a>
 			</div>
+=======
+		<form class="registerForm" method="post" action="/pay/withdrawExecute">
+		<div><span class="withdraw-totalPoint"> Point</span></div>
+		<div><input type="number" name='point' class="withdraw-point" placeholder="Point" min="100"></div>
+		<div><span class="withdraw-won"></span></div>
+		<div><button type="submit" class="submit">Submit</button></div>
+		</form>
+>>>>>>> HONG
 		</c:if>
 	</c:if>
 	
-		
-		
+	<script>
+	var result = '${msg}';
 
-<script>
-
-var arr = [];
-var deleteArr = [];
-var checkUnload = true;
-
-$(window).on("beforeunload", function(){
-	if(checkUnload){
-
-		console.log("arr.length = " + arr.length);
-// 		console.log("listArr.length = " + listArr.length);
-		
-// 		deleteArr = arr.concat(arr);
-		
-		for(i=0; i<arr.length; i++){
-			console.log("arr["+i+"] = " + arr[i]);
-		}
-		
-		if(arr.length > 0){
-			
-			$.ajax({
-				  type: 'POST',
-				  url: "/deleteAllFiles",
-				  data: {files:arr},
-				  dataType : "text",
-				  async:false,
-				  success : function(result){
-					}
-				});
-		}
-		
-		console.log("beforeunload event");
+	if (result == 'ERROR') {
+		alert("처리 중 에러가 발생하였습니다.");
 	}
 	
-});
-
-// $(".img-file1, .img-file2, .account-file2").on("change", function(event) {
-$("input[type='file']").on("change", function(event) {
-	event.preventDefault();
-	var target = $(this).prev();
-	var files = event.target.files
-	for(i=0; i<files.length; i++){
-    	var file = event.target.files[i]
-		uploadFile(file, target);
-    }
-});
-
-
-function uploadFile(file, target){
-	var formData = new FormData();
-	
-	formData.append("file", file);
+	var uid = '${login.uid}';
 	$.ajax({
-		url : '/uploadAjax',
-		data : formData,
-		dataType : 'text',
-		processData : false,
-		contentType : false,
-		type : 'POST',
-		success : function(data) {
-			console.log("data = " + data);
-			var fileInfo = getFileInfo(data);
-			
-// 			var html = template(fileInfo);
-
-			arr.push(data);
-				
-			$(target).empty();
-			var html = "<span class='uploadedList' data-src='"+fileInfo.fullName+"'>"+fileInfo.fileName+"</span>"
-			$(target).append(html);
+		type : 'post',
+		url : "/pay/totalPoint/",
+		headers : {
+			"Content-Type" : "application/json",
+			"X-HTTP-Method-Override" : "POST" },
+		dataType : 'JSON',
+		data : JSON.stringify({uid:uid}),
+		async: false,
+		success:function(result){
+				$(".withdraw-totalPoint").before(result);
+				$(".withdraw-point").attr("max",result);
 		}
 	});
-}
-
-$(".registerForm").submit(function(event){
-	event.preventDefault();
-	checkUnload = false;
 	
-	
-// 	arr.pop();
-	console.log("arr.length = " + arr.length);
-	
-	
-	var html ="";
-	$(".uploadedList").each(function(index){
-		console.log("index = " + index);
-		
-		if($(this).attr("data-src") != null){
-			console.log("$(this).attr('data-src) = " + $(this).attr("data-src"));
-			arr.splice(arr.indexOf($(this).attr("data-src")), 1);
-			html += "<input type='hidden' name='files["+index+"]' value='"+$(this).attr("data-src") +"'> ";
-		}
-		
+	$(".withdraw-point").on("change", function(event) {
+		var point = $(".withdraw-point").val();
+		var won = point * 100 * 0.7;
+		won = won + "원";
+		$(".withdraw-won").empty();
+		$(".withdraw-won").append(won);
 	});
+
+	</script>
 	
-	for(i=0; i<arr.length; i++){
-		console.log("arr["+i+"] = "+ arr[i]);
-	}
-	
-	 if(arr.length > 0){
-			$.ajax({
-				  type: 'POST',
-				  url: "/deleteAllFiles",
-				  data: {files:arr},
-				  dataType : "text",
-				  async:false,
-				  success : function(result){
-					}
-			});
-	}
-	
-
-	$(this).append(html);
-	$(this).get(0).submit();
-});
-
-$(".tab1").on("click", function(event) {
-// 	$(".img-div1").empty().append("신분증을 첨부해주세요.(정보가 가려지거나 편집되면 안됩니다.)");
-	$(".img-div2").empty().append("사업자 등록증 사본을 업로드 해주세요.");
-	$(".account-div2").empty().append("통장 사본을 업로드 해주세요.");
-});
-
-$(".tab2").on("click", function(event) {
-	$(".img-div1").empty().append("신분증을 첨부해주세요.(정보가 가려지거나 편집되면 안됩니다.)");
-	/* $(".img-div2").empty().append("사업자 등록증 사본을 업로드 해주세요.");
-	$(".account-div2").empty().append("통장 사본을 업로드 해주세요."); */
-});
-
-
- 
-
-</script>
+		
+		
 
 <script>
 	 if('${login.uid}' != ""){

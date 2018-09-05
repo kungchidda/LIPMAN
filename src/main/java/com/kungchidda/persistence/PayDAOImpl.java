@@ -67,4 +67,10 @@ public class PayDAOImpl implements PayDAO{
 		session.insert(namespace+".usePoint", payVO);
 	}
 	
+	@Override
+	public int withdrawExecute(PayVO payVO) throws Exception {
+		return session.insert(namespace+".withdrawExecute", payVO);
+	}
+	
+	
 }

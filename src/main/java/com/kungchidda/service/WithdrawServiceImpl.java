@@ -1,8 +1,5 @@
 package com.kungchidda.service;
 
-
-
-
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -13,7 +10,6 @@ import com.kungchidda.persistence.WithdrawDAO;
 
 @Service
 public class WithdrawServiceImpl implements WithdrawService{
-	
 	
 	@Inject
 	private WithdrawDAO withdrawDAO;
@@ -52,8 +48,11 @@ public class WithdrawServiceImpl implements WithdrawService{
 		withdrawDAO.modify(withdrawVO);
 //		withdrawVO = withdrawDAO.checkWithdraw(withdrawVO);
 		if(files !=null) {
+			
 			for(String fileName : files) {
 				withdrawVO.setWithdrawFullName(fileName);
+				
+				withdrawDAO.deleteAttach(withdrawVO);
 				withdrawDAO.insertAttach(withdrawVO);
 			}
 		}

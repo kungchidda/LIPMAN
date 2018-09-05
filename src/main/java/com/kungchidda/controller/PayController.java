@@ -1,5 +1,10 @@
 package com.kungchidda.controller;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -7,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,10 +29,12 @@ import com.kungchidda.domain.PayVO;
 import com.kungchidda.domain.SearchCriteria;
 import com.kungchidda.domain.UserVO;
 import com.kungchidda.domain.WithdrawVO;
+import com.kungchidda.service.AdminService;
 import com.kungchidda.service.BoardService;
 import com.kungchidda.service.MyPageService;
 import com.kungchidda.service.PayService;
 import com.kungchidda.service.WithdrawService;
+import com.kungchidda.util.MediaUtils;
 
 
 @Controller
@@ -34,6 +42,9 @@ import com.kungchidda.service.WithdrawService;
 public class PayController {
 
 	private static final Logger logger = LoggerFactory.getLogger(PayController.class);
+	
+	@Resource(name = "uploadPath")
+	private String uploadPath;
 	
 	@Inject
 	private PayService payService;
@@ -46,6 +57,9 @@ public class PayController {
 	
 	@Inject
 	private WithdrawService withdrawService;
+	
+	@Inject
+	private AdminService adminService;
 	
 	@RequestMapping(value="/charge", method = RequestMethod.GET)
 	public String charge(@RequestParam(value="status", required=false) String status, Model model, HttpServletRequest request) throws Exception{
@@ -233,12 +247,71 @@ public class PayController {
 	}
 	
 	@RequestMapping(value="/withdrawModify", method = RequestMethod.POST)
-	public String withdrawModifyPOST(WithdrawVO withdrawVO, RedirectAttributes rttr) throws Exception{
+	public String withdrawModifyPOST(WithdrawVO withdrawVO, HttpServletRequest request, RedirectAttributes rttr) throws Exception{
 		logger.info("withdraw");
 		
+		String[] files = withdrawVO.getFiles();
+		if(files !=null) {
+			
+			List<WithdrawVO> list = adminService.withdrawHistoryReadAttach(withdrawVO.getWno());
+			ArrayList<String> deleteFileList;
+			deleteFileList = new ArrayList<String>();
+			
+			if(list.size()>0) {
+				for(int i=0; i<list.size(); i++) {
+					String deleteThumbnailFile;
+					deleteThumbnailFile = list.get(i).getWithdrawFullName();
+					deleteFileList.add(deleteThumbnailFile);
+				}
+			}
+			
+			for(String deleteFileName : deleteFileList) {
+				String formatName = deleteFileName.substring(deleteFileName.lastIndexOf(".")+1);
+				MediaType mType = MediaUtils.getMediaType(formatName);
+				
+				if(mType != null) {
+					String front = deleteFileName.substring(0, 12);
+					String end = deleteFileName.substring(14);
+					new File(uploadPath + (front+end).replace('/',  File.separatorChar)).delete();
+				}
+				
+				new File(uploadPath + deleteFileName.replace('/', File.separatorChar)).delete();
+			}
+			
+		}
+
 		withdrawService.modify(withdrawVO);
+		
+		String referer = request.getHeader("Referer");
+		if(referer.contains("/lipmanAdmin/withdrawHistoryRead")) {
+			return "redirect:/lipmanAdmin/withdrawHistoryList";
+		}
+		
 		rttr.addAttribute("uid", withdrawVO.getUid());
 		return "redirect:/pay/withdraw";
 	}
+	
+	@RequestMapping(value="/withdrawExecute", method = RequestMethod.POST)
+	public String withdrawExecute(PayVO payVO, HttpServletRequest request, RedirectAttributes rttr) throws Exception{
+		logger.info("withdrawExecute");
+		HttpSession session = request.getSession();
+		UserVO vo = (UserVO)session.getAttribute("login");
+		String uid = "";
+		uid = vo.getUid();
+		logger.info("uid = " + uid);
+		
+		payVO.setUid(uid);
+		
+		int result = payService.withdrawExecute(payVO);
+		logger.info("withdrawExecute result = " + result);
+		if(result>0) {
+			rttr.addFlashAttribute("msg", "SUCCESS");
+			return "redirect:/pay/history";
+		}else {
+			rttr.addFlashAttribute("msg", "ERROR");
+			return "redirect:/pay/withdraw";
+		}
+	}
+	
 	
 }

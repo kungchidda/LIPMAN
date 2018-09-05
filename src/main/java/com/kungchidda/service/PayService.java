@@ -13,4 +13,5 @@ public interface PayService {
 	public int payHistoryCount(PayVO payVO) throws Exception;
 	public int totalPoint(PayVO payVO) throws Exception;
 	public int checkUserBuy(Integer bno, String uid) throws Exception;
+	public int withdrawExecute(PayVO payVO) throws Exception;
 }

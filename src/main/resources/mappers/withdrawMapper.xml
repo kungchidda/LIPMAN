@@ -13,6 +13,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into tbl_withdraw_attach(withdrawFullName, wno) values (#{withdrawFullName}, #{wno})
 	</insert>
 	
+	<delete id="deleteAttach">
+		delete from tbl_withdraw_attach where wno = #{wno}
+	</delete>
+	
 	<select id="checkWithdraw" resultType="WithdrawVO">
 	SELECT *
 	FROM tbl_withdraw
@@ -20,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<update id="modify">
-		update tbl_withdraw set type = #{type}, companyName = #{companyName}, ceoName = #{ceoName}, registedNo = #{registedNo}, taxType = #{taxType}, bankName = #{bankName}, accountNo = #{accountNo}, accountHolder = #{accountHolder}
+		update tbl_withdraw set type = #{type}, companyName = #{companyName}, ceoName = #{ceoName}, registedNo = #{registedNo}, taxType = #{taxType}, bankName = #{bankName}, accountNo = #{accountNo}, accountHolder = #{accountHolder}, status = 0
 		where uid = #{uid}
 	</update>
 	
