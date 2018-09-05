@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kungchidda.mappers.adminMapper">
+
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType =='uid'.toString()">
+				and uid like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType =='type'.toString()">
+				and type like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType =='companyName'.toString()">
+				and companyName like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType =='ceoName'.toString()">
+				and (ceoName like CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType =='registedNo'.toString()">
+				and (registedNo like CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType =='taxType'.toString()">
+				and (taxType like CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType =='bankName'.toString()">
+				and (bankName like CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType =='accountNo'.toString()">
+				and (accountNo like CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType =='accountHolder'.toString()">
+				and (accountHolder like CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType =='status'.toString()">
+				and (status like CONCAT('%', #{keyword}, '%'))
+			</if>
+		</if>
+	</sql>
+
+	
+	<select id="payHistoryList" resultType="PayVO">
+	<![CDATA[
+			SELECT * 
+			FROM tbl_pay
+			where pno > 0
+		]]>
+		<include refid="search"></include>
+		<![CDATA[
+			order by regdate desc
+			limit #{pageStart}, #{perPageNum}
+		]]>
+	</select>
+	
+	<select id="payHistoryListCount" resultType="int">
+		<![CDATA[
+			SELECT count(*) 
+			FROM tbl_pay
+			where pno > 0
+		]]>
+		<include refid="search"></include>
+	</select>
+	
+	<select id="payHistoryRead" resultType="PayVO">
+		SELECT * 
+		FROM tbl_pay
+		WHERE pno = #{pno}
+	</select>
+	
+	<select id="withdrawHistoryList" resultType="WithdrawVO">
+		<![CDATA[
+			SELECT * 
+			FROM tbl_withdraw
+			where wno > 0
+		]]>
+		<include refid="search"></include>
+		<![CDATA[
+			order by regdate desc
+			limit #{pageStart}, #{perPageNum}
+		]]>
+	</select>
+	
+	
+	<select id="withdrawHistoryListCount" resultType="int">
+		<![CDATA[
+			SELECT count(*) 
+			FROM tbl_withdraw
+			where wno > 0
+		]]>
+		<include refid="search"></include>
+	</select>
+
+	<select id="withdrawHistoryRead" resultType="WithdrawVO">
+		SELECT * 
+		FROM webtoon.tbl_withdraw 
+		where wno = #{wno} 
+	</select>
+	
+	<select id="withdrawHistoryReadAttach" resultType="WithdrawVO">
+		SELECT * 
+		FROM webtoon.tbl_withdraw_attach 
+		where wno = #{wno} 
+	</select>
+	
+	<update id="withdrawModify">
+		update tbl_withdraw set wno = #{wno}, uid = #{uid}, type = #{type}, companyName = #{companyName}, ceoName = #{ceoName}, registedNo = #{registedNo}, taxType = #{taxType}, bankName = #{bankName}, accountNo = #{accountNo}, accountHolder = #{accountHolder}, status = #{status}
+		where uid = #{uid}
+	</update>
+
+</mapper>

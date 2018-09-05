@@ -17,6 +17,7 @@ public @Data class PayVO {
 	private String payToken;
 	private String checkoutPage;
 	private Integer point;
+	private Integer complete;
 	
 	private Date regdate;
 

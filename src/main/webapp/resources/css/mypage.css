@@ -45,7 +45,7 @@
 /* Mypage - profile-icon */
 .mypage-profile-icon {
 	display: grid;
-	grid-template-columns: repeat(7, 130px);
+/* 	grid-template-columns: repeat(7, 130px); */
 	grid-template-rows: 60px;
 	grid-template-areas: "a b c e f g d";
 	justify-content: center;

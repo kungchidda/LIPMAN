@@ -159,5 +159,23 @@ public class PayServiceImpl implements PayService{
 		return buy;
 	}
 	
+	@Transactional
+	@Override
+	public int withdrawExecute(PayVO payVO) throws Exception{
+		int totalPoint = payDAO.totalPoint(payVO);
+		int withdrawPoint = payVO.getPoint();
+		if(totalPoint > withdrawPoint) {
+//			int amount = withdrawPoint * 70;
+//			payVO.setAmount(amount);
+			payVO.setPoint(-withdrawPoint);
+			payVO.setProductDesc("출금 신청");
+			payVO.setComplete(1);
+			return payDAO.withdrawExecute(payVO);
+			
+		}
+		return -1;
+		
+	}
+	
 	
 }

@@ -87,7 +87,7 @@ public class SearchBoardController {
 	}
 	
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
-	public String read(@RequestParam("bno") int bno, @ModelAttribute("cri") SearchCriteria cri, Model model, HttpServletRequest request,RedirectAttributes rttr) throws Exception {
+	public String read(@RequestParam("bno") int bno, @ModelAttribute("cri") SearchCriteria cri, Model model, HttpServletRequest request, RedirectAttributes rttr) throws Exception {
 	//public void read(@RequestParam("bno") int bno, Model model) throws Exception {
 		
 		String referer = request.getHeader("Referer");

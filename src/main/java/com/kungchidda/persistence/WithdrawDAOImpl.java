@@ -26,6 +26,11 @@ public class WithdrawDAOImpl implements WithdrawDAO{
 	}
 	
 	@Override
+	public void deleteAttach(WithdrawVO withdrawVO) throws Exception{
+		session.delete(namespace+".deleteAttach", withdrawVO);
+	}
+	
+	@Override
 	public WithdrawVO checkWithdraw(WithdrawVO withdrawVO) throws Exception{
 		return session.selectOne(namespace + ".checkWithdraw", withdrawVO);
 	}

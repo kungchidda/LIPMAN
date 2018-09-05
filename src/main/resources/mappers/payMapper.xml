@@ -68,4 +68,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values(#{uid}, #{bno}, #{productDesc}, #{point}, 1);
 	</insert>
 	
+	<insert id="withdrawExecute">
+		insert into tbl_pay (uid, amount, productDesc, point, complete)
+		values(#{uid}, #{amount}, #{productDesc}, #{point}, #{complete});
+	</insert>
+	
 </mapper>
