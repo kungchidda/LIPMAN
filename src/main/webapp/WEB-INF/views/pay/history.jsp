@@ -25,7 +25,7 @@
         </div>
         <div class="mypage-profile-subscribe">
 			<form action="/mypage/subscriberList" method="GET">
-				<input type="hidden" name="uid" value='${cri.uid}'>
+				<input type="hidden" name="uid" value='${login.uid}'>
 				<button type="submit" class="subscribedCount" id="btn-subscribedCount"></button>
 			</form>
         </div>

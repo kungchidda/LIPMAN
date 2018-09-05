@@ -68,8 +68,8 @@ public class PayServiceImpl implements PayService{
 	//		jsonBody.put("retUrl", "http://YOUR-SITE.COM/ORDER-CHECK");
 //			jsonBody.put("resultCallback", "https://lipman.app/pay/execute");
 	//		jsonBody.put("retUrl", "https://lipman.app/");
-			jsonBody.put("resultCallback", "http://127.0.0.1:8080/pay/execute");
-			jsonBody.put("retUrl", "http://127.0.0.1:8080/pay/execute");
+			jsonBody.put("resultCallback", "https://lipman.app/pay/execute");
+			jsonBody.put("retUrl", "https://lipman.app/pay/execute");
 			
 	
 			BufferedOutputStream bos = new BufferedOutputStream(connection.getOutputStream());
